@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="src\lib\Math.h" />
+    <ClInclude Include="src\lib\Memory.h" />
+    <ClInclude Include="src\lib\Object.h" />
+    <ClInclude Include="src\lib\Random.h" />
+    <ClInclude Include="src\lib\Vector3d.h" />
+    <ClInclude Include="src\lib\Array.h" />
+    <ClInclude Include="src\lib\Exceptions.h" />
+    <ClInclude Include="src\misc\SegmentIntersector.h" />
+    <ClInclude Include="src\lib\List.h" />
+    <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\model\Ship.h" />
+    <ClInclude Include="src\core\GameInitializer.h" />
+    <ClInclude Include="src\model\Track.h" />
+    <ClInclude Include="src\lib\Hash.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\Math.cpp" />
+    <ClCompile Include="src\lib\Memory.cpp" />
+    <ClCompile Include="src\lib\Object.cpp" />
+    <ClCompile Include="src\lib\Random.cpp" />
+    <ClCompile Include="src\lib\Vector3d.cpp" />
+    <ClCompile Include="src\win\App.cpp" />
+    <ClCompile Include="src\misc\SegmentIntersector.cpp" />
+    <ClCompile Include="src\lib\Hash.cpp" />
+  </ItemGroup>
+</Project>
