@@ -6,5 +6,6 @@ class Random : public Object
 {
 public:
     Random();
-    int GetNextInt(int max);
+
+    int GetInt(int max);
 };

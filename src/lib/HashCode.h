@@ -2,12 +2,13 @@
 
 #include "lib/Object.h"
 
-class Hash : public Object
+class HashCode : public Object
 {
     int _result;
 
 public:
-    Hash();
+    HashCode();
+
     void Add(int value);
     void Add(float value);
     void Add(double value);

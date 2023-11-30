@@ -1,28 +1,28 @@
-#include "lib/Hash.h"
+#include "lib/HashCode.h"
 
-Hash::Hash()
+HashCode::HashCode()
 {
     _result = 1430287;
 }
 
-void Hash::Add(int value)
+void HashCode::Add(int value)
 {
     _result = _result * 7302013 ^ value;
 }
 
-void Hash::Add(float value)
+void HashCode::Add(float value)
 {
     int bytes = *(int*)&value;
     Add(bytes);
 }
 
-void Hash::Add(double value)
+void HashCode::Add(double value)
 {
     int bytes = *(int*)&value;
     Add(bytes);
 }
 
-int Hash::GetResult()
+int HashCode::GetResult()
 {
     return _result;
 }

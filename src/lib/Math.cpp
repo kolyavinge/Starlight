@@ -5,7 +5,7 @@ const float Math::Pi = 3.14159265359f;
 
 float Math::Abs(float x)
 {
-    return fabs(x);
+    return x > 0.0f ? x : -x;
 }
 
 float Math::Sqrt(float x)
@@ -13,19 +13,19 @@ float Math::Sqrt(float x)
     return sqrtf(x);
 }
 
-float Math::Sin(float x)
+float Math::Sin(float radians)
 {
-    return sinf(x);
+    return sinf(radians);
 }
 
-float Math::Cos(float x)
+float Math::Cos(float radians)
 {
-    return cosf(x);
+    return cosf(radians);
 }
 
-float Math::Tan(float x)
+float Math::Tan(float radians)
 {
-    return tanf(x);
+    return tanf(radians);
 }
 
 float Math::ArcSin(float x)

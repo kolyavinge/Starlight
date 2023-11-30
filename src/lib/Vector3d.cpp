@@ -1,15 +1,16 @@
 #include "lib/Math.h"
-#include "lib/Hash.h"
+#include "lib/HashCode.h"
 #include "lib/Vector3d.h"
 
-Vector3d::Vector3d() : Vector3d(0, 0, 0) {}
+Vector3d::Vector3d()
+{
+    Set(0, 0, 0);
+}
 
 Vector3d::Vector3d(float x, float y, float z)
 {
     Set(x, y, z);
 }
-
-Vector3d::Vector3d(Vector3d& v) : Vector3d(v.X, v.Y, v.Z) {}
 
 bool Vector3d::Equals(Object& a)
 {
@@ -19,7 +20,7 @@ bool Vector3d::Equals(Object& a)
 
 int Vector3d::GetHashCode()
 {
-    Hash hash;
+    HashCode hash;
     hash.Add(X);
     hash.Add(Y);
     hash.Add(Z);

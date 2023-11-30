@@ -9,7 +9,7 @@ public:
 
     Vector3d();
     Vector3d(float x, float y, float z);
-    Vector3d(Vector3d& v);
+
     bool Equals(Object& a) override;
     int GetHashCode() override;
     float GetLength();

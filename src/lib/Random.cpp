@@ -7,7 +7,7 @@ Random::Random()
     std::srand((unsigned int)std::time(nullptr));
 }
 
-int Random::GetNextInt(int max)
+int Random::GetInt(int max)
 {
     return std::rand() % max;
 }
