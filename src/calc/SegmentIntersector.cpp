@@ -1,4 +1,4 @@
-#include "misc/SegmentIntersector.h"
+#include "calc/SegmentIntersector.h"
 
 bool SegmentIntersector::IsIntersected(
     float from1X, float from1Y,

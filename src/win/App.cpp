@@ -1,8 +1,7 @@
 #include "windows.h"
-#include "gl/gl.h"
-#include "gl/glu.h"
 #include "gl/glut.h"
-#include "lib/List.h"
+#include "core/GameConstants.h"
+#include "core/GameManager.h"
 
 void Display()
 {
@@ -35,17 +34,61 @@ void Reshape(int width, int height)
 
 void Keypress(unsigned char key, int x, int y)
 {
+    Controller& controller = GameManager::Instance.Game.PlayerController;
+
+    if (key == 'w')
+    {
+        controller.ActivateThrottle();
+    }
+
+    if (key == 's')
+    {
+        controller.ActivateBreak();
+    }
+
+    if (key == 'a')
+    {
+        controller.TurnLeft();
+    }
+
+    if (key == 'd')
+    {
+        controller.TurnRight();
+    }
 }
 
 void Keyup(unsigned char key, int x, int y)
 {
+    Controller& controller = GameManager::Instance.Game.PlayerController;
+
+    if (key == 'w')
+    {
+        controller.ReleaseThrottle();
+    }
+
+    if (key == 's')
+    {
+        controller.ReleaseBreak();
+    }
+
+    if (key == 'a')
+    {
+        controller.ReleaseTurn();
+    }
+
+    if (key == 'd')
+    {
+        controller.ReleaseTurn();
+    }
+}
+
+void TimerCallback(int state)
+{
+    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
 }
 
 int main(int argc, char** argv)
 {
-    List<int> l(11);
-    l.Insert(0, 2);
-    l.Insert(0, 20);
     glutInit(&argc, argv);
     glutInitWindowSize(1024, 768);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
@@ -54,6 +97,7 @@ int main(int argc, char** argv)
     glutReshapeFunc(Reshape);
     glutKeyboardFunc(Keypress);
     glutKeyboardUpFunc(Keyup);
+    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
 
     return 0;

@@ -1,6 +1,6 @@
 #include "lib/Math.h"
 #include "lib/HashCode.h"
-#include "lib/Vector3d.h"
+#include "calc/Vector3d.h"
 
 Vector3d::Vector3d()
 {
@@ -91,4 +91,13 @@ Vector3d& Vector3d::Normalize()
 float Vector3d::DotProduct(Vector3d& v)
 {
     return X * v.X + Y * v.Y + Z * v.Z;
+}
+
+void Vector3d::Reflect(Vector3d& normal)
+{
+    // vector - 2.0f * (vector * normal) * normal
+    float product = 2.0f * (X * normal.X + Y * normal.Y + Z * normal.Z);
+    X -= product * normal.X;
+    Y -= product * normal.Y;
+    Z -= product * normal.Z;
 }

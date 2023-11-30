@@ -4,6 +4,7 @@ class Math
 {
 public:
     static const float Pi;
+    static const float PiHalf;
 
     static float Abs(float x);
     static float Sqrt(float x);
