@@ -7,6 +7,6 @@ public:
 
     virtual ~Object();
 
-    bool virtual Equals(Object& x);
-    int virtual GetHashCode();
+    virtual bool Equals(Object& x);
+    virtual int GetHashCode();
 };

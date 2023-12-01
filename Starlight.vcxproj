@@ -31,6 +31,7 @@
     <ClInclude Include="src\calc\Geometry.h" />
     <ClInclude Include="src\calc\Physics.h" />
     <ClInclude Include="src\calc\VectorCalculator.h" />
+    <ClInclude Include="src\model\CircleTrack.h" />
     <ClInclude Include="src\model\Ship.h" />
     <ClInclude Include="src\calc\SegmentIntersector.h" />
     <ClInclude Include="src\lib\Array.h" />
@@ -58,6 +59,7 @@
     <ClCompile Include="src\calc\Geometry.cpp" />
     <ClCompile Include="src\calc\Physics.cpp" />
     <ClCompile Include="src\calc\VectorCalculator.cpp" />
+    <ClCompile Include="src\model\CircleTrack.cpp" />
     <ClCompile Include="src\model\Ship.cpp" />
     <ClCompile Include="src\calc\SegmentIntersector.cpp" />
     <ClCompile Include="src\lib\Math.cpp" />
