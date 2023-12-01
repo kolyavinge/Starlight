@@ -1,4 +1,5 @@
 #include "lib/Math.h"
+#include "lib/Numeric.h"
 #include "calc/VectorCalculator.h"
 
 void VectorCalculator::GetNormalVector2d(
@@ -6,14 +7,12 @@ void VectorCalculator::GetNormalVector2d(
     float to1X, float to1Y,
     float* resultX, float* resultY)
 {
-    const float _delta = 0.00001f;
-
-    if (Math::Abs(from1X - to1X) < _delta)
+    if (Numeric::FloatEquals(from1X, to1X))
     {
         *resultX = 1.0f;
         *resultY = 0.0f;
     }
-    else if (Math::Abs(from1Y - to1Y) < _delta)
+    else if (Numeric::FloatEquals(from1Y, to1Y))
     {
         *resultX = 0.0f;
         *resultY = 1.0f;

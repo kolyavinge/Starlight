@@ -1,4 +1,5 @@
 #include "lib/Math.h"
+#include "lib/Numeric.h"
 #include "lib/HashCode.h"
 #include "calc/Vector3d.h"
 
@@ -79,7 +80,7 @@ Vector3d& Vector3d::Div(float a)
 Vector3d& Vector3d::Normalize()
 {
     float length = GetLength();
-    if (Math::Abs(length) < 1E-7)
+    if (Numeric::FloatEquals(length, 0.0f))
     {
         X = Y = Z = 0;
         return *this;

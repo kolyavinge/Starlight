@@ -1,8 +1,7 @@
 #pragma once
 
-class NewVelocityResult
+struct NewVelocityResult
 {
-public:
     float velocity1x;
     float velocity1y;
     float velocity2x;
