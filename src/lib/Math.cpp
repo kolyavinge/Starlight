@@ -3,6 +3,17 @@
 
 const float Math::Pi = 3.14159265359f;
 const float Math::PiHalf = Pi / 2.0f;
+const float Math::PiDouble = 2.0f * Pi;
+
+float Math::Min(float a, float b)
+{
+    return a < b ? a : b;
+}
+
+float Math::Max(float a, float b)
+{
+    return a > b ? a : b;
+}
 
 float Math::Abs(float x)
 {
@@ -42,4 +53,9 @@ float Math::ArcCos(float x)
 float Math::ArcTan(float x)
 {
     return atanf(x);
+}
+
+float Math::LogE(float x)
+{
+    return logf(x);
 }
