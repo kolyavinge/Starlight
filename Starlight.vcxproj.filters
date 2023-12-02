@@ -27,6 +27,8 @@
     <ClInclude Include="src\calc\VectorCalculator.h" />
     <ClInclude Include="src\model\CircleTrack.h" />
     <ClInclude Include="src\lib\Numeric.h" />
+    <ClInclude Include="src\core\TurnAngleCalculator.h" />
+    <ClInclude Include="src\core\PositionCorrector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -53,5 +55,7 @@
     <ClCompile Include="src\calc\VectorCalculator.cpp" />
     <ClCompile Include="src\model\CircleTrack.cpp" />
     <ClCompile Include="src\lib\Numeric.cpp" />
+    <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
+    <ClCompile Include="src\core\PositionCorrector.cpp" />
   </ItemGroup>
 </Project>

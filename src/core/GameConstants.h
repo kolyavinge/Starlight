@@ -3,6 +3,6 @@
 class GameConstants
 {
 public:
-    static const float TimeDelta;
+    static const float TimeStepMax;
     static const int MainTimerMsec;
 };

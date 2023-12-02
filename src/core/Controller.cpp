@@ -7,17 +7,19 @@ Controller::Controller(Ship& ship) :
 
 void Controller::ActivateThrottle()
 {
-    _ship.IsBreakActive = true;
+    _ship.IsThrottleActive = true;
+    _ship.IsBreakActive = false;
 }
 
 void Controller::ReleaseThrottle()
 {
-    _ship.IsBreakActive = false;
+    _ship.IsThrottleActive = false;
 }
 
 void Controller::ActivateBreak()
 {
     _ship.IsBreakActive = true;
+    _ship.IsThrottleActive = false;
 }
 
 void Controller::ReleaseBreak()

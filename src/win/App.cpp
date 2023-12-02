@@ -27,59 +27,28 @@ void Reshape(int width, int height)
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0, 16.0 / 9.0, 1.0, 3.0);
-    //glMatrixMode(GL_MODELVIEW);
-    //gluLookAt(500, 500, 0, 500, 500, 100, 1, 0, 0);
+    gluPerspective(45.0, 16.0 / 9.0, 0.1, 10.0);
+    gluLookAt(0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
 }
 
 void Keypress(unsigned char key, int x, int y)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
-    if (key == 'w')
-    {
-        controller.ActivateThrottle();
-    }
-
-    if (key == 's')
-    {
-        controller.ActivateBreak();
-    }
-
-    if (key == 'a')
-    {
-        controller.TurnLeft();
-    }
-
-    if (key == 'd')
-    {
-        controller.TurnRight();
-    }
+    if (key == 'w') controller.ActivateThrottle();
+    if (key == 's') controller.ActivateBreak();
+    if (key == 'a') controller.TurnLeft();
+    if (key == 'd') controller.TurnRight();
 }
 
 void Keyup(unsigned char key, int x, int y)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
-    if (key == 'w')
-    {
-        controller.ReleaseThrottle();
-    }
-
-    if (key == 's')
-    {
-        controller.ReleaseBreak();
-    }
-
-    if (key == 'a')
-    {
-        controller.ReleaseTurn();
-    }
-
-    if (key == 'd')
-    {
-        controller.ReleaseTurn();
-    }
+    if (key == 'w') controller.ReleaseThrottle();
+    if (key == 's') controller.ReleaseBreak();
+    if (key == 'a') controller.ReleaseTurn();
+    if (key == 'd') controller.ReleaseTurn();
 }
 
 void TimerCallback(int state)

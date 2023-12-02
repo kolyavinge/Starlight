@@ -6,5 +6,5 @@
 class MoveLogic : public Object
 {
 public:
-    void Move(Ship& ship);
+    void Move(float timeStep, Ship& ship);
 };

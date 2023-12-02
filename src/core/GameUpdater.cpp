@@ -1,20 +1,28 @@
+#include "core/GameConstants.h"
 #include "core/GameUpdater.h"
 
 GameUpdater::GameUpdater(
     Ship& player,
+    TurnAngleCalculator& turnAngleCalculator,
     VelocityCalculator& velocityCalculator,
     MoveLogic& moveLogic,
-    CollisionDetector& collisionDetector) :
+    CollisionDetector& collisionDetector,
+    PositionCorrector& positionCorrector) :
     _player(player),
+    _turnAngleCalculator(turnAngleCalculator),
     _velocityCalculator(velocityCalculator),
     _moveLogic(moveLogic),
-    _collisionDetector(collisionDetector)
+    _collisionDetector(collisionDetector),
+    _positionCorrector(positionCorrector)
 {
 }
 
 void GameUpdater::Update()
 {
-    _velocityCalculator.CalculateVelocity(_player);
-    _moveLogic.Move(_player);
-    _collisionDetector.Detect(_player);
+    float timeStep = GameConstants::TimeStepMax;
+    _turnAngleCalculator.CalculateTurnAngle(_player);
+    _velocityCalculator.CalculateVelocity(timeStep, _player);
+    _moveLogic.Move(timeStep, _player);
+    _collisionDetector.DetectCollisions(_player);
+    _positionCorrector.CorrectAfterFloatOperations(_player);
 }

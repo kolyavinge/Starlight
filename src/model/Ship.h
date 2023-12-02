@@ -6,15 +6,28 @@
 class Ship : public Object
 {
 public:
+    static const float XLength;
+    static const float YLength;
+    static const float ZLength;
+    static const float ThresholdThrottleTime;
+    static const float MaxVelocity;
+    static const float TurnAngleStep;
+    static const float TurnAngleDecay;
+    static const float TurnAngleThreshold;
+
     bool IsThrottleActive;
     bool IsBreakActive;
     bool IsTurnLeftActive;
     bool IsTurnRightActive;
-    float Throttle;
+    float ThrottleTime;
     float TurnAngle;
-    Vector3d Velocity;
+    float CurrentVelocityValue;
+    float LastVelocityValue;
+    Vector3d FrontMiddlePoint;
+    Vector3d RearMiddlePoint;
 
     Ship();
 
     void Init();
+    float GetCurrentVelocity();
 };

@@ -26,6 +26,8 @@
     <ClInclude Include="src\core\GameManager.h" />
     <ClInclude Include="src\core\GameUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
+    <ClInclude Include="src\core\PositionCorrector.h" />
+    <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
     <ClInclude Include="src\lib\HashCode.h" />
     <ClInclude Include="src\calc\Geometry.h" />
@@ -55,6 +57,8 @@
     <ClCompile Include="src\core\GameManager.cpp" />
     <ClCompile Include="src\core\GameUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
+    <ClCompile Include="src\core\PositionCorrector.cpp" />
+    <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
     <ClCompile Include="src\core\VelocityCalculator.cpp" />
     <ClCompile Include="src\lib\HashCode.cpp" />
     <ClCompile Include="src\calc\Geometry.cpp" />

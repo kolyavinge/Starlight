@@ -6,5 +6,5 @@
 class CollisionDetector : public Object
 {
 public:
-    void Detect(Ship& ship);
+    void DetectCollisions(Ship& ship);
 };

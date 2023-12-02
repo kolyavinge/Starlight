@@ -6,7 +6,7 @@ GameManager GameManager::Instance;
 GameManager::GameManager() :
     _player(),
     _moveLogic(),
-    _gameUpdater(_player, _velocityCalculator, _moveLogic, _collisionDetector),
+    _gameUpdater(_player, _turnAngleCalculator, _velocityCalculator, _moveLogic, _collisionDetector, _positionCorrector),
     _playerController(_player),
     Game(_gameUpdater, _playerController)
 {

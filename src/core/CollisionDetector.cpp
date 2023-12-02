@@ -1,6 +1,6 @@
 #include "core/CollisionDetector.h"
 
-void CollisionDetector::Detect(Ship& ship)
+void CollisionDetector::DetectCollisions(Ship& ship)
 {
 
 }
