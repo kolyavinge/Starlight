@@ -29,6 +29,10 @@
     <ClInclude Include="src\lib\Numeric.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\PositionCorrector.h" />
+    <ClInclude Include="src\win\App.h" />
+    <ClInclude Include="src\render\DebugTrackRenderer.h" />
+    <ClInclude Include="src\render\DebugShipRenderer.h" />
+    <ClInclude Include="src\render\DebugRenderLogic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -57,5 +61,9 @@
     <ClCompile Include="src\lib\Numeric.cpp" />
     <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
     <ClCompile Include="src\core\PositionCorrector.cpp" />
+    <ClCompile Include="src\win\main.cpp" />
+    <ClCompile Include="src\render\DebugTrackRenderer.cpp" />
+    <ClCompile Include="src\render\DebugShipRenderer.cpp" />
+    <ClCompile Include="src\render\DebugRenderLogic.cpp" />
   </ItemGroup>
 </Project>

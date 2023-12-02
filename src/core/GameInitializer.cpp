@@ -2,4 +2,5 @@
 
 void GameInitializer::Init(Game& game)
 {
+    game.CurrentTrack.Init();
 }

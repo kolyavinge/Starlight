@@ -11,11 +11,13 @@ class Game : public Object
     GameUpdater& _gameUpdater;
 
 public:
+    Ship& Player;
+    Track& CurrentTrack;
     Controller& PlayerController;
-    //Ship Player;
-    //Track Track;
 
     Game(
+        Ship& player,
+        Track& track,
         GameUpdater& gameUpdater,
         Controller& controller);
 

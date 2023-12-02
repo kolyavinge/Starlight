@@ -1,37 +1,45 @@
-#include "windows.h"
 #include "gl/glut.h"
 #include "core/GameConstants.h"
 #include "core/GameManager.h"
+#include "win/App.h"
 
-void Display()
+DebugRenderLogic App::_renderLogic;
+
+void App::Start(int argc, char** argv)
+{
+    glutInit(&argc, argv);
+    glutInitWindowSize(1024, 768);
+    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
+    glutCreateWindow(GameConstants::Title);
+    glutPositionWindow(50, 50);
+    glutDisplayFunc(Display);
+    glutReshapeFunc(Reshape);
+    glutKeyboardFunc(Keypress);
+    glutKeyboardUpFunc(Keyup);
+    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
+    glutMainLoop();
+}
+
+void App::Display()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-    glTranslatef(0.0f, 0.0f, -2.0f);
-    glColor3f(1.0, 0.0, 0.0);
-
-    glBegin(GL_QUADS);
-
-    glVertex3f(100.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 0.0f, 0.0f);
-    glVertex3f(0.0f, 100.0f, 0.0f);
-    glVertex3f(100.0f, 100.0f, 0.0f);
-
-    glEnd();
-
+    _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();
 }
 
-void Reshape(int width, int height)
+void App::Reshape(int width, int height)
 {
     glViewport(0, 0, width, height);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(45.0, 16.0 / 9.0, 0.1, 10.0);
-    gluLookAt(0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0);
+    gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
+    gluLookAt(
+        10.0, -40.0, 10.0,
+        0.0, 0.0, 0.0,
+        0.0, 0.0, 1.0);
 }
 
-void Keypress(unsigned char key, int x, int y)
+void App::Keypress(unsigned char key, int x, int y)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
@@ -41,7 +49,7 @@ void Keypress(unsigned char key, int x, int y)
     if (key == 'd') controller.TurnRight();
 }
 
-void Keyup(unsigned char key, int x, int y)
+void App::Keyup(unsigned char key, int x, int y)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
@@ -51,23 +59,7 @@ void Keyup(unsigned char key, int x, int y)
     if (key == 'd') controller.ReleaseTurn();
 }
 
-void TimerCallback(int state)
+void App::TimerCallback(int state)
 {
     glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
-}
-
-int main(int argc, char** argv)
-{
-    glutInit(&argc, argv);
-    glutInitWindowSize(1024, 768);
-    glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-    glutCreateWindow("Starlight");
-    glutDisplayFunc(Display);
-    glutReshapeFunc(Reshape);
-    glutKeyboardFunc(Keypress);
-    glutKeyboardUpFunc(Keyup);
-    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
-    glutMainLoop();
-
-    return 0;
 }
