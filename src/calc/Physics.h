@@ -2,10 +2,10 @@
 
 struct NewVelocityResult
 {
-    float velocity1x;
-    float velocity1y;
-    float velocity2x;
-    float velocity2y;
+    float Velocity1X;
+    float Velocity1Y;
+    float Velocity2X;
+    float Velocity2Y;
 };
 
 class Physics

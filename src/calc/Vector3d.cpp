@@ -41,52 +41,43 @@ void Vector3d::Set(float x, float y, float z)
     Z = z;
 }
 
-Vector3d& Vector3d::Add(Vector3d& v)
+void Vector3d::Add(Vector3d& v)
 {
     X += v.X;
     Y += v.Y;
     Z += v.Z;
-
-    return *this;
 }
 
-Vector3d& Vector3d::Sub(Vector3d& v)
+void Vector3d::Sub(Vector3d& v)
 {
     X -= v.X;
     Y -= v.Y;
     Z -= v.Z;
-
-    return *this;
 }
 
-Vector3d& Vector3d::Mul(float a)
+void Vector3d::Mul(float a)
 {
     X *= a;
     Y *= a;
     Z *= a;
-
-    return *this;
 }
 
-Vector3d& Vector3d::Div(float a)
+void Vector3d::Div(float a)
 {
     X /= a;
     Y /= a;
     Z /= a;
-
-    return *this;
 }
 
-Vector3d& Vector3d::Normalize()
+void Vector3d::Normalize()
 {
     float length = GetLength();
     if (Numeric::FloatEquals(length, 0.0f))
     {
         X = Y = Z = 0;
-        return *this;
     }
 
-    return Div(length);
+    Div(length);
 }
 
 float Vector3d::DotProduct(Vector3d& v)

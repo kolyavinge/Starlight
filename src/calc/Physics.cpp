@@ -13,11 +13,11 @@ NewVelocityResult Physics::GetNewVelocityAfterCollision(
     float massSum = mass1 + mass2;
     float massDiff = mass1 - mass2;
 
-    result.velocity1x = (massDiff * velocity1x + 2.0f * mass2 * velocity2x) / massSum;
-    result.velocity1y = (massDiff * velocity1y + 2.0f * mass2 * velocity2y) / massSum;
+    result.Velocity1X = (massDiff * velocity1x + 2.0f * mass2 * velocity2x) / massSum;
+    result.Velocity1Y = (massDiff * velocity1y + 2.0f * mass2 * velocity2y) / massSum;
 
-    result.velocity2x = (-massDiff * velocity2x + 2.0f * mass1 * velocity1x) / massSum;
-    result.velocity2y = (-massDiff * velocity2y + 2.0f * mass1 * velocity1y) / massSum;
+    result.Velocity2X = (-massDiff * velocity2x + 2.0f * mass1 * velocity1x) / massSum;
+    result.Velocity2Y = (-massDiff * velocity2y + 2.0f * mass1 * velocity1y) / massSum;
 
     return result;
 }
