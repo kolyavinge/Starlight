@@ -6,9 +6,12 @@
 
 void MoveLogic::Move(float timeStep, Ship& ship)
 {
-    float velocityDiff = ship.CurrentVelocityValue - ship.LastVelocityValue;
-    float moveDistance = velocityDiff * timeStep;
-    if (Numeric::FloatEquals(ship.TurnAngle, 0.0f))
+    float moveDistance = ship.CurrentVelocityValue * timeStep;
+    if (Numeric::FloatEquals(moveDistance, 0.0f))
+    {
+        return;
+    }
+    if (Numeric::FloatEquals(ship.TurnAngleRadians, 0.0f))
     {
         Vector3d direction(ship.FrontMiddlePoint);
         direction.Sub(ship.RearMiddlePoint);
@@ -19,12 +22,12 @@ void MoveLogic::Move(float timeStep, Ship& ship)
     }
     else
     {
-        float turnAngleAbs = Math::Abs(ship.TurnAngle);
+        float turnAngleAbs = Math::Abs(ship.TurnAngleRadians);
 
         float rearTurnRadius = Ship::YLength / Math::Sin(turnAngleAbs);
         float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);
 
-        float pivotX = ship.FrontMiddlePoint.X + (ship.TurnAngle > 0.0f ? frontTurnRadius : -frontTurnRadius);
+        float pivotX = ship.FrontMiddlePoint.X + (ship.TurnAngleRadians > 0.0f ? frontTurnRadius : -frontTurnRadius);
         float pivotY = ship.FrontMiddlePoint.Y;
 
         float frontTurnCircleLength = Math::PiDouble * frontTurnRadius;
@@ -32,7 +35,7 @@ void MoveLogic::Move(float timeStep, Ship& ship)
 
         float frontTurnAngle = Math::PiDouble * moveDistance / frontTurnCircleLength;
         float rearTurnAngle = Math::PiDouble * moveDistance / rearTurnCircleLength;
-        if (ship.TurnAngle < 0.0f)
+        if (ship.TurnAngleRadians > 0.0f)
         {
             frontTurnAngle = -frontTurnAngle;
             rearTurnAngle = -rearTurnAngle;

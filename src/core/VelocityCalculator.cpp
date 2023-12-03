@@ -5,6 +5,7 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
     if (ship.IsThrottleActive)
     {
         ship.ThrottleTime += timeStep;
+        if (ship.ThrottleTime > Ship::ThrottleTimeThreshold) ship.ThrottleTime = Ship::ThrottleTimeThreshold;
     }
     else if (ship.IsBreakActive)
     {

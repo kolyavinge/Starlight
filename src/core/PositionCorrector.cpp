@@ -1,9 +1,9 @@
+#include "calc/Vector3d.h"
 #include "core/PositionCorrector.h"
 
 void PositionCorrector::CorrectAfterFloatOperations(Ship& ship)
 {
-    ship.FrontMiddlePoint.Sub(ship.RearMiddlePoint);
-    ship.FrontMiddlePoint.Normalize();
-    ship.FrontMiddlePoint.Mul(Ship::YLength);
-    ship.FrontMiddlePoint.Add(ship.RearMiddlePoint);
+    Vector3d direction = ship.FrontMiddlePoint;
+    direction.Sub(ship.RearMiddlePoint);
+    ship.SetFrontOrientation(ship.FrontMiddlePoint, direction);
 }

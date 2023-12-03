@@ -22,6 +22,7 @@
     <ClInclude Include="src\core\CollisionDetector.h" />
     <ClInclude Include="src\core\Controller.h" />
     <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\core\GameCamera.h" />
     <ClInclude Include="src\core\GameInitializer.h" />
     <ClInclude Include="src\core\GameManager.h" />
     <ClInclude Include="src\core\GameUpdater.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="src\core\CollisionDetector.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\core\GameCamera.cpp" />
     <ClCompile Include="src\core\GameConstants.cpp" />
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugTrackRenderer.cpp" />

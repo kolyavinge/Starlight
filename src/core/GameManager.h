@@ -11,6 +11,7 @@
 #include "core/PositionCorrector.h"
 #include "core/GameUpdater.h"
 #include "core/Controller.h"
+#include "core/GameCamera.h"
 #include "core/Game.h"
 
 class GameManager : public Object
@@ -24,6 +25,7 @@ class GameManager : public Object
     GameUpdater _gameUpdater;
     Controller _playerController;
     PositionCorrector _positionCorrector;
+    GameCamera _camera;
 
 public:
     static GameManager Instance;

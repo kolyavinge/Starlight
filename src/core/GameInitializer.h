@@ -7,4 +7,7 @@ class GameInitializer : Object
 {
 public:
     void Init(Game& game);
+
+private:
+    void InitPlayer(Game& game);
 };

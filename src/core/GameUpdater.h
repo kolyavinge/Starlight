@@ -7,6 +7,7 @@
 #include "core/MoveLogic.h"
 #include "core/CollisionDetector.h"
 #include "core/PositionCorrector.h"
+#include "core/GameCamera.h"
 
 class GameUpdater : public Object
 {
@@ -16,6 +17,7 @@ class GameUpdater : public Object
     MoveLogic& _moveLogic;
     CollisionDetector& _collisionDetector;
     PositionCorrector& _positionCorrector;
+    GameCamera& _camera;
 
 public:
     GameUpdater(
@@ -24,7 +26,8 @@ public:
         VelocityCalculator& velocityCalculator,
         MoveLogic& moveLogic,
         CollisionDetector& collisionDetector,
-        PositionCorrector& positionCorrector);
+        PositionCorrector& positionCorrector,
+        GameCamera& camera);
 
     void Update();
 };

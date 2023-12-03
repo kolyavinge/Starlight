@@ -33,6 +33,7 @@
     <ClInclude Include="src\render\DebugTrackRenderer.h" />
     <ClInclude Include="src\render\DebugShipRenderer.h" />
     <ClInclude Include="src\render\DebugRenderLogic.h" />
+    <ClInclude Include="src\core\GameCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -65,5 +66,6 @@
     <ClCompile Include="src\render\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugRenderLogic.cpp" />
+    <ClCompile Include="src\core\GameCamera.cpp" />
   </ItemGroup>
 </Project>

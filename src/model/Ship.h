@@ -9,7 +9,7 @@ public:
     static const float XLength;
     static const float YLength;
     static const float ZLength;
-    static const float ThresholdThrottleTime;
+    static const float ThrottleTimeThreshold;
     static const float MaxVelocity;
     static const float TurnAngleStep;
     static const float TurnAngleDecay;
@@ -20,7 +20,7 @@ public:
     bool IsTurnLeftActive;
     bool IsTurnRightActive;
     float ThrottleTime;
-    float TurnAngle;
+    float TurnAngleRadians;
     float CurrentVelocityValue;
     float LastVelocityValue;
     Vector3d FrontMiddlePoint;
@@ -30,4 +30,6 @@ public:
 
     void Init();
     float GetCurrentVelocity();
+    void SetFrontOrientation(Vector3d frontMiddlePoint, Vector3d direction);
+    void SetRearOrientation(Vector3d rearMiddlePoint, Vector3d direction);
 };

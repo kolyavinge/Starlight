@@ -7,13 +7,15 @@ GameUpdater::GameUpdater(
     VelocityCalculator& velocityCalculator,
     MoveLogic& moveLogic,
     CollisionDetector& collisionDetector,
-    PositionCorrector& positionCorrector) :
+    PositionCorrector& positionCorrector,
+    GameCamera& camera) :
     _player(player),
     _turnAngleCalculator(turnAngleCalculator),
     _velocityCalculator(velocityCalculator),
     _moveLogic(moveLogic),
     _collisionDetector(collisionDetector),
-    _positionCorrector(positionCorrector)
+    _positionCorrector(positionCorrector),
+    _camera(camera)
 {
 }
 
@@ -25,4 +27,5 @@ void GameUpdater::Update()
     _moveLogic.Move(timeStep, _player);
     _collisionDetector.DetectCollisions(_player);
     _positionCorrector.CorrectAfterFloatOperations(_player);
+    _camera.Update(_player);
 }

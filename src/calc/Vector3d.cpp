@@ -72,12 +72,14 @@ void Vector3d::Div(float a)
 void Vector3d::Normalize()
 {
     float length = GetLength();
-    if (Numeric::FloatEquals(length, 0.0f))
+    if (length > 0.0f)
+    {
+        Div(length);
+    }
+    else
     {
         X = Y = Z = 0;
     }
-
-    Div(length);
 }
 
 float Vector3d::DotProduct(Vector3d& v)

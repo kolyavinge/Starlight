@@ -22,6 +22,15 @@ void App::Start(int argc, char** argv)
 
 void App::Display()
 {
+    GameCamera& camera = GameManager::Instance.Game.Camera;
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
+    gluLookAt(
+        camera.Position.X, camera.Position.Y, camera.Position.Z,
+        camera.LookAt.X, camera.LookAt.Y, camera.LookAt.Z,
+        0.0, 0.0, 1.0);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();
@@ -30,13 +39,6 @@ void App::Display()
 void App::Reshape(int width, int height)
 {
     glViewport(0, 0, width, height);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
-    gluLookAt(
-        10.0, -40.0, 10.0,
-        0.0, 0.0, 0.0,
-        0.0, 0.0, 1.0);
 }
 
 void App::Keypress(unsigned char key, int x, int y)
@@ -61,5 +63,7 @@ void App::Keyup(unsigned char key, int x, int y)
 
 void App::TimerCallback(int state)
 {
+    GameManager::Instance.Game.Update();
+    glutPostRedisplay();
     glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
 }

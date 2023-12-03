@@ -2,27 +2,27 @@
 
 void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)
 {
-    if (ship.IsTurnLeftActive)
+    if (ship.IsTurnRightActive)
     {
-        ship.TurnAngle += Ship::TurnAngleStep;
-        if (ship.TurnAngle > Ship::TurnAngleThreshold) ship.TurnAngle = Ship::TurnAngleThreshold;
+        ship.TurnAngleRadians += Ship::TurnAngleStep;
+        if (ship.TurnAngleRadians > Ship::TurnAngleThreshold) ship.TurnAngleRadians = Ship::TurnAngleThreshold;
     }
-    else if (ship.IsTurnRightActive)
+    else if (ship.IsTurnLeftActive)
     {
-        ship.TurnAngle -= Ship::TurnAngleStep;
-        if (ship.TurnAngle < Ship::TurnAngleThreshold) ship.TurnAngle = -Ship::TurnAngleThreshold;
+        ship.TurnAngleRadians -= Ship::TurnAngleStep;
+        if (ship.TurnAngleRadians < -Ship::TurnAngleThreshold) ship.TurnAngleRadians = -Ship::TurnAngleThreshold;
     }
     else
     {
-        if (ship.TurnAngle > 0.0f)
+        if (ship.TurnAngleRadians > 0.0f)
         {
-            ship.TurnAngle -= Ship::TurnAngleDecay;
-            if (ship.TurnAngle < 0.0f) ship.TurnAngle = 0.0f;
+            ship.TurnAngleRadians -= Ship::TurnAngleDecay;
+            if (ship.TurnAngleRadians < 0.0f) ship.TurnAngleRadians = 0.0f;
         }
-        else if (ship.TurnAngle < 0.0f)
+        else if (ship.TurnAngleRadians < 0.0f)
         {
-            ship.TurnAngle += Ship::TurnAngleDecay;
-            if (ship.TurnAngle > 0.0f) ship.TurnAngle = 0.0f;
+            ship.TurnAngleRadians += Ship::TurnAngleDecay;
+            if (ship.TurnAngleRadians > 0.0f) ship.TurnAngleRadians = 0.0f;
         }
     }
 }
