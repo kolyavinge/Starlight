@@ -34,6 +34,15 @@ float Vector3d::GetLength()
     return Math::Sqrt(X * X + Y * Y + Z * Z);
 }
 
+void Vector3d::SetLength(float newLength)
+{
+    float length = GetLength();
+    if (length > 0.0f)
+    {
+        Mul(newLength / length);
+    }
+}
+
 void Vector3d::Set(float x, float y, float z)
 {
     X = x;

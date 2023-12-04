@@ -13,6 +13,7 @@ public:
     bool Equals(Object& a) override;
     int GetHashCode() override;
     float GetLength();
+    void SetLength(float newLength);
     void Set(float x, float y, float z);
     void Add(Vector3d& v);
     void Sub(Vector3d& v);

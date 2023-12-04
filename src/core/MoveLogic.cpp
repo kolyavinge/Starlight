@@ -15,8 +15,7 @@ void MoveLogic::Move(float timeStep, Ship& ship)
     {
         Vector3d direction(ship.FrontMiddlePoint);
         direction.Sub(ship.RearMiddlePoint);
-        direction.Normalize();
-        direction.Mul(moveDistance);
+        direction.SetLength(moveDistance);
         ship.FrontMiddlePoint.Add(direction);
         ship.RearMiddlePoint.Add(direction);
     }

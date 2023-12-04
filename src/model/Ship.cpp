@@ -38,8 +38,7 @@ float Ship::GetCurrentVelocity()
 
 void Ship::SetFrontOrientation(Vector3d frontMiddlePoint, Vector3d direction)
 {
-    direction.Normalize();
-    direction.Mul(Ship::YLength);
+    direction.SetLength(Ship::YLength);
     FrontMiddlePoint = frontMiddlePoint;
     RearMiddlePoint = frontMiddlePoint;
     RearMiddlePoint.Sub(direction);
@@ -47,8 +46,7 @@ void Ship::SetFrontOrientation(Vector3d frontMiddlePoint, Vector3d direction)
 
 void Ship::SetRearOrientation(Vector3d rearMiddlePoint, Vector3d direction)
 {
-    direction.Normalize();
-    direction.Mul(Ship::YLength);
+    direction.SetLength(Ship::YLength);
     FrontMiddlePoint = rearMiddlePoint;
     RearMiddlePoint = rearMiddlePoint;
     FrontMiddlePoint.Add(direction);
