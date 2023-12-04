@@ -19,6 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="external\gl\freeglut.h" />
+    <ClInclude Include="external\gl\freeglut_ext.h" />
+    <ClInclude Include="external\gl\freeglut_std.h" />
+    <ClInclude Include="external\gl\freeglut_ucall.h" />
+    <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="external\gl\opengl.h" />
     <ClInclude Include="src\core\CollisionDetector.h" />
     <ClInclude Include="src\core\Controller.h" />
     <ClInclude Include="src\core\Game.h" />

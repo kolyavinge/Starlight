@@ -34,6 +34,12 @@
     <ClInclude Include="src\render\DebugShipRenderer.h" />
     <ClInclude Include="src\render\DebugRenderLogic.h" />
     <ClInclude Include="src\core\GameCamera.h" />
+    <ClInclude Include="external\gl\freeglut.h" />
+    <ClInclude Include="external\gl\freeglut_ext.h" />
+    <ClInclude Include="external\gl\freeglut_std.h" />
+    <ClInclude Include="external\gl\freeglut_ucall.h" />
+    <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="external\gl\opengl.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
