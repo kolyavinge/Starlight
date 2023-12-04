@@ -5,8 +5,8 @@
 const float Ship::XLength = 2.0f;
 const float Ship::YLength = 3.0f;
 const float Ship::ZLength = 1.0f;
-const float Ship::ThrottleTimeThreshold = 10.0f;
-const float Ship::MaxVelocity = 4.0f;
+const float Ship::ThrottleTimeThreshold = 2.71f;
+const float Ship::MaxVelocity = 1.0f;
 const float Ship::TurnAngleStep = 0.08f;
 const float Ship::TurnAngleDecay = 0.05f;
 const float Ship::TurnAngleThreshold = 0.8f;
