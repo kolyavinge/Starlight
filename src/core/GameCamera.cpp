@@ -2,11 +2,11 @@
 
 void GameCamera::Update(Ship& ship)
 {
-    Position = ship.RearMiddlePoint;
-    Position.Sub(ship.FrontMiddlePoint);
+    Position = ship.CentralLine.Rear;
+    Position.Sub(ship.CentralLine.Front);
     Position.SetLength(1.5f);
-    Position.Add(ship.RearMiddlePoint);
+    Position.Add(ship.CentralLine.Rear);
     Position.Z += 1.0f;
 
-    LookAt.Set(ship.FrontMiddlePoint.X, ship.FrontMiddlePoint.Y, ship.FrontMiddlePoint.Z);
+    LookAt.Set(ship.CentralLine.Front.X, ship.CentralLine.Front.Y, ship.CentralLine.Front.Z);
 }

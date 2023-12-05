@@ -25,8 +25,8 @@ void Ship::Init()
     IsTurnRightActive = false;
     ThrottleTime = 0;
     TurnAngleRadians = 0;
-    CurrentVelocityValue = 0;
-    LastVelocityValue = 0;
+    VelocityValue = 0;
+    PrevVelocityValue = 0;
 }
 
 float Ship::GetCurrentVelocity()
@@ -40,15 +40,15 @@ float Ship::GetCurrentVelocity()
 void Ship::OrientationByFrontPoint(Vector3d frontMiddlePoint, Vector3d direction)
 {
     direction.SetLength(ShipMeasure::YLength);
-    FrontMiddlePoint = frontMiddlePoint;
-    RearMiddlePoint = frontMiddlePoint;
-    RearMiddlePoint.Sub(direction);
+    CentralLine.Front = frontMiddlePoint;
+    CentralLine.Rear = frontMiddlePoint;
+    CentralLine.Rear.Sub(direction);
 }
 
 void Ship::OrientationByRearPoint(Vector3d rearMiddlePoint, Vector3d direction)
 {
     direction.SetLength(ShipMeasure::YLength);
-    FrontMiddlePoint = rearMiddlePoint;
-    RearMiddlePoint = rearMiddlePoint;
-    FrontMiddlePoint.Add(direction);
+    CentralLine.Front = rearMiddlePoint;
+    CentralLine.Rear = rearMiddlePoint;
+    CentralLine.Front.Add(direction);
 }

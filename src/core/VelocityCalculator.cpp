@@ -18,6 +18,6 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
         if (ship.ThrottleTime < 0.0f) ship.ThrottleTime = 0.0f;
     }
 
-    ship.LastVelocityValue = ship.CurrentVelocityValue;
-    ship.CurrentVelocityValue = ship.GetCurrentVelocity();
+    ship.PrevVelocityValue = ship.VelocityValue;
+    ship.VelocityValue = ship.GetCurrentVelocity();
 }

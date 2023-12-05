@@ -18,6 +18,13 @@ public:
     static const float TurnAngleThreshold;
 };
 
+class ShipCentralLine : public Object
+{
+public:
+    Vector3d Front;
+    Vector3d Rear;
+};
+
 class Ship : public Object
 {
 public:
@@ -27,10 +34,10 @@ public:
     bool IsTurnRightActive;
     float ThrottleTime;
     float TurnAngleRadians;
-    float CurrentVelocityValue;
-    float LastVelocityValue;
-    Vector3d FrontMiddlePoint;
-    Vector3d RearMiddlePoint;
+    float VelocityValue;
+    float PrevVelocityValue;
+    ShipCentralLine CentralLine;
+    ShipCentralLine PrevCentralLine;
     RectBorder Border;
 
     Ship();

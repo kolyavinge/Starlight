@@ -16,8 +16,8 @@ void DebugShipRenderer::RenderMiddleLine(Ship& ship)
 
     glBegin(GL_LINES);
 
-    glVertex3f(ship.FrontMiddlePoint.X, ship.FrontMiddlePoint.Y, ship.FrontMiddlePoint.Z);
-    glVertex3f(ship.RearMiddlePoint.X, ship.RearMiddlePoint.Y, ship.RearMiddlePoint.Z);
+    glVertex3f(ship.CentralLine.Front.X, ship.CentralLine.Front.Y, ship.CentralLine.Front.Z);
+    glVertex3f(ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y, ship.CentralLine.Rear.Z);
 
     glEnd();
 }
@@ -28,7 +28,7 @@ void DebugShipRenderer::RenderTurnAngle(Ship& ship)
 
     glPushMatrix();
 
-    glTranslatef(ship.RearMiddlePoint.X, ship.RearMiddlePoint.Y, ship.RearMiddlePoint.Z);
+    glTranslatef(ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y, ship.CentralLine.Rear.Z);
     glRotatef(Geometry::RadiansToDegrees(angleBetween + ship.TurnAngleRadians), 0.0f, 0.0f, 1.0f);
 
     glColor3f(0.0f, 0.8f, 0.0f);
@@ -66,8 +66,8 @@ void DebugShipRenderer::RenderBorder(Ship& ship)
 
 float DebugShipRenderer::GetAngleBetweenShipAndYStraight(Ship& ship)
 {
-    Vector3d v(ship.FrontMiddlePoint);
-    v.Sub(ship.RearMiddlePoint);
+    Vector3d v(ship.CentralLine.Front);
+    v.Sub(ship.CentralLine.Rear);
     v.Normalize();
     Vector3d straight(0.0f, 1.0f, 0.0f);
     float cosAlpha = v.DotProduct(straight);
