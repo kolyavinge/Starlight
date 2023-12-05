@@ -7,6 +7,7 @@
 #include "core/MoveLogic.h"
 #include "core/CollisionDetector.h"
 #include "core/PositionCorrector.h"
+#include "core/BorderUpdater.h"
 #include "core/GameCamera.h"
 
 class GameUpdater : public Object
@@ -17,6 +18,7 @@ class GameUpdater : public Object
     MoveLogic& _moveLogic;
     CollisionDetector& _collisionDetector;
     PositionCorrector& _positionCorrector;
+    BorderUpdater& _borderUpdater;
     GameCamera& _camera;
 
 public:
@@ -27,6 +29,7 @@ public:
         MoveLogic& moveLogic,
         CollisionDetector& collisionDetector,
         PositionCorrector& positionCorrector,
+        BorderUpdater& borderUpdater,
         GameCamera& camera);
 
     void Update();

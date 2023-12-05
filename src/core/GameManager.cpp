@@ -13,6 +13,7 @@ GameManager::GameManager() :
         _moveLogic,
         _collisionDetector,
         _positionCorrector,
+        _borderUpdater,
         _camera),
     _playerController(_player),
     Game(

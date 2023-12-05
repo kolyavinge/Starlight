@@ -40,6 +40,8 @@
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="external\gl\opengl.h" />
+    <ClInclude Include="src\core\BorderUpdater.h" />
+    <ClInclude Include="src\model\RectBorder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -73,5 +75,6 @@
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugRenderLogic.cpp" />
     <ClCompile Include="src\core\GameCamera.cpp" />
+    <ClCompile Include="src\core\BorderUpdater.cpp" />
   </ItemGroup>
 </Project>

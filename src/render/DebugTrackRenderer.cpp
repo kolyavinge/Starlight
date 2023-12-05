@@ -79,7 +79,6 @@ void DebugTrackRenderer::RenderStartFinishLine(Track& track)
 
     Vector3d& from = track.InsidePoints[track.StartFinishLineIndex];
     Vector3d& to = track.OutsidePoints[track.StartFinishLineIndex];
-
     glVertex3f(from.X, from.Y, from.Z);
     glVertex3f(to.X, to.Y, to.Z);
 

@@ -10,7 +10,7 @@ public:
 
 private:
     void RenderMiddleLine(Ship& ship);
-    void RenderMiddlePoints(Ship& ship);
     void RenderTurnAngle(Ship& ship);
+    void RenderBorder(Ship& ship);
     float GetAngleBetweenShipAndYStraight(Ship& ship);
 };
