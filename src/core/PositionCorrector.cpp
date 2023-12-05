@@ -5,5 +5,5 @@ void PositionCorrector::CorrectAfterFloatOperations(Ship& ship)
 {
     Vector3d direction = ship.FrontMiddlePoint;
     direction.Sub(ship.RearMiddlePoint);
-    ship.SetFrontOrientation(ship.FrontMiddlePoint, direction);
+    ship.OrientationByFrontPoint(ship.FrontMiddlePoint, direction);
 }

@@ -26,7 +26,7 @@ void MoveLogic::Move(float timeStep, Ship& ship)
     {
         float turnAngleAbs = Math::Abs(ship.TurnAngleRadians);
 
-        float rearTurnRadius = Ship::YLength / Math::Sin(turnAngleAbs);
+        float rearTurnRadius = ShipMeasure::YLength / Math::Sin(turnAngleAbs);
         float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);
 
         float pivotX, pivotY;
@@ -80,7 +80,7 @@ void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, float* pivotX, 
 
 void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, float pivotX, float pivotY)
 {
-    if (Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ship.YLength * ship.YLength)) > 0.1f)
+    if (Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ShipMeasure::YLength * ShipMeasure::YLength)) > 0.1f)
     {
         throw AssertException();
     }

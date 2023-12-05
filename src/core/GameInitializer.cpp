@@ -16,5 +16,5 @@ void GameInitializer::InitPlayer(Game& game)
     middle.Sub(track.InsidePoints[i]);
     middle.Div(2.0f);
     middle.Add(track.InsidePoints[i]);
-    game.Player.SetFrontOrientation(middle, track.StraightDirection);
+    game.Player.OrientationByFrontPoint(middle, track.StraightDirection);
 }

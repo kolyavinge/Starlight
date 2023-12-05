@@ -4,7 +4,7 @@
 #include "calc/Vector3d.h"
 #include "model/RectBorder.h"
 
-class Ship : public Object
+class ShipMeasure
 {
 public:
     static const float XLength;
@@ -16,7 +16,11 @@ public:
     static const float TurnAngleStep;
     static const float TurnAngleDecay;
     static const float TurnAngleThreshold;
+};
 
+class Ship : public Object
+{
+public:
     bool IsThrottleActive;
     bool IsBreakActive;
     bool IsTurnLeftActive;
@@ -33,6 +37,6 @@ public:
 
     void Init();
     float GetCurrentVelocity();
-    void SetFrontOrientation(Vector3d frontMiddlePoint, Vector3d direction);
-    void SetRearOrientation(Vector3d rearMiddlePoint, Vector3d direction);
+    void OrientationByFrontPoint(Vector3d frontMiddlePoint, Vector3d direction);
+    void OrientationByRearPoint(Vector3d rearMiddlePoint, Vector3d direction);
 };

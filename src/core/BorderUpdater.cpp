@@ -14,7 +14,7 @@ void BorderUpdater::Update(Ship& ship)
         &v.X, &v.Y);
 
     v.Sub(ship.FrontMiddlePoint);
-    v.SetLength(Ship::XLengthHalf);
+    v.SetLength(ShipMeasure::XLengthHalf);
 
     ship.Border.UpLeft = ship.FrontMiddlePoint;
     ship.Border.DownLeft = ship.RearMiddlePoint;
