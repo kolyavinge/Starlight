@@ -5,7 +5,7 @@
 #include "calc/Vector3d.h"
 #include "core/MoveLogic.h"
 
-void MoveLogic::Move(float timeStep, Ship& ship)
+void MoveLogic::MoveShip(float timeStep, Ship& ship)
 {
     float moveDistance = ship.VelocityValue * timeStep;
 

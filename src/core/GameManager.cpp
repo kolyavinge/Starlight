@@ -5,16 +5,7 @@ GameManager GameManager::Instance;
 
 GameManager::GameManager() :
     _player(),
-    _moveLogic(),
-    _gameUpdater(
-        _player,
-        _turnAngleCalculator,
-        _velocityCalculator,
-        _moveLogic,
-        _collisionDetector,
-        _positionCorrector,
-        _borderUpdater,
-        _camera),
+    _gameUpdater(_player, _camera),
     _playerController(_player),
     Game(
         _player,

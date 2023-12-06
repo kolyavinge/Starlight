@@ -12,24 +12,18 @@
 
 class GameUpdater : public Object
 {
+    TurnAngleCalculator _turnAngleCalculator;
+    VelocityCalculator _velocityCalculator;
+    MoveLogic _moveLogic;
+    CollisionDetector _collisionDetector;
+    PositionCorrector _positionCorrector;
+    BorderUpdater _borderUpdater;
     Ship& _player;
-    TurnAngleCalculator& _turnAngleCalculator;
-    VelocityCalculator& _velocityCalculator;
-    MoveLogic& _moveLogic;
-    CollisionDetector& _collisionDetector;
-    PositionCorrector& _positionCorrector;
-    BorderUpdater& _borderUpdater;
     GameCamera& _camera;
 
 public:
     GameUpdater(
         Ship& player,
-        TurnAngleCalculator& turnAngleCalculator,
-        VelocityCalculator& velocityCalculator,
-        MoveLogic& moveLogic,
-        CollisionDetector& collisionDetector,
-        PositionCorrector& positionCorrector,
-        BorderUpdater& borderUpdater,
         GameCamera& camera);
 
     void Update();
