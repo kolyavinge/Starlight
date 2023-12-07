@@ -6,9 +6,9 @@ Game::Game(
     GameUpdater& gameUpdater,
     Controller& controller,
     GameCamera& camera) :
+    _gameUpdater(gameUpdater),
     Player(player),
     CurrentTrack(track),
-    _gameUpdater(gameUpdater),
     PlayerController(controller),
     Camera(camera)
 {

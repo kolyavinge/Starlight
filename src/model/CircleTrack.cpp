@@ -10,7 +10,7 @@ void CircleTrack::Init()
     const float insideRadius = 20.0f;
     const float outsideRadius = 30.0f;
 
-    float step = 2.0f * Math::Pi / PointsCount;
+    float step = 2.0f * Math::Pi / (float)PointsCount;
     float radians = 0.0f;
     float x, y, sin, cos;
 

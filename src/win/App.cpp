@@ -41,7 +41,7 @@ void App::Reshape(int width, int height)
     glViewport(0, 0, width, height);
 }
 
-void App::Keypress(unsigned char key, int x, int y)
+void App::Keypress(unsigned char key, int, int)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
@@ -51,7 +51,7 @@ void App::Keypress(unsigned char key, int x, int y)
     if (key == 'd') controller.TurnRight();
 }
 
-void App::Keyup(unsigned char key, int x, int y)
+void App::Keyup(unsigned char key, int, int)
 {
     Controller& controller = GameManager::Instance.Game.PlayerController;
 
@@ -61,7 +61,7 @@ void App::Keyup(unsigned char key, int x, int y)
     if (key == 'd') controller.ReleaseTurn();
 }
 
-void App::TimerCallback(int state)
+void App::TimerCallback(int)
 {
     GameManager::Instance.Game.Update();
     glutPostRedisplay();
