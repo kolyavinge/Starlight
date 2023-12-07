@@ -25,6 +25,7 @@
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="external\gl\opengl.h" />
+    <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
     <ClInclude Include="src\core\CollisionDetector.h" />
     <ClInclude Include="src\core\Controller.h" />
@@ -61,6 +62,7 @@
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionDetector.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />

@@ -1,6 +1,7 @@
+#include "lib/Math.h"
 #include "calc/SegmentIntersector.h"
 
-bool SegmentIntersector::IsIntersected(
+bool SegmentIntersector::AreSegmentsIntersected(
     float from1X, float from1Y,
     float to1X, float to1Y,
     float from2X, float from2Y,
@@ -8,35 +9,44 @@ bool SegmentIntersector::IsIntersected(
 {
     float resultX, resultY;
 
-    if (!IsLinesIntersected(from1X, from1Y, to1X, to1Y, from2X, from2Y, to2X, to2Y, &resultX, &resultY)) return false;
+    if (!_lineIntersector.GetIntersectPoint(from1X, from1Y, to1X, to1Y, from2X, from2Y, to2X, to2Y, &resultX, &resultY)) return false;
 
     return
-        IsPointInSegment(from1X, from1Y, to1X, to1Y, resultX, resultY, 0.0001f) &&
-        IsPointInSegment(from2X, from2Y, to2X, to2Y, resultX, resultY, 0.0001f);
+        IsPointInSegment(from1X, from1Y, to1X, to1Y, resultX, resultY, 1E-5f) &&
+        IsPointInSegment(from2X, from2Y, to2X, to2Y, resultX, resultY, 1E-5f);
 }
 
-bool SegmentIntersector::IsLinesIntersected(
-    float from1X, float from1Y,
-    float to1X, float to1Y,
-    float from2X, float from2Y,
-    float to2X, float to2Y,
-    float* resultX, float* resultY)
+bool SegmentIntersector::IsPointIntersected(
+    float fromX, float fromY,
+    float toX, float toY,
+    float pointX, float pointY,
+    float pointRadius)
 {
-    float a1 = from1Y - to1Y;
-    float b1 = to1X - from1X;
-    float c1 = from1X * to1Y - to1X * from1Y;
+    const float delta = 1E-5f;
 
-    float a2 = from2Y - to2Y;
-    float b2 = to2X - from2X;
-    float c2 = from2X * to2Y - to2X * from2Y;
+    // двигаем точку в начало координат
+    float lineFromX = fromX - pointX;
+    float lineFromY = fromY - pointY;
+    float lineToX = toX - pointX;
+    float lineToY = toY - pointY;
 
-    float denominator = a1 * b2 - a2 * b1;
-    if (denominator == 0) return false;
+    // уравнение прямой
+    float a = lineFromY - lineToY;
+    float b = lineToX - lineFromX;
+    float c = lineFromX * lineToY - lineToX * lineFromY;
 
-    *resultX = (b1 * c2 - b2 * c1) / denominator;
-    *resultY = (a2 * c1 - a1 * c2) / denominator;
+    float m = a * a + b * b;
+    float c2 = c * c;
+    if (c2 > pointRadius * m + delta) return false;
 
-    return true;
+    float x0 = -a * c / m;
+    float y0 = -b * c / m;
+    float d = pointRadius - c2 / m;
+    float mult = Math::Sqrt(d / m);
+    float ax = x0 + b * mult;
+    float ay = y0 - a * mult;
+
+    return IsPointInSegment(fromX, fromY, toX, toY, ax + pointX, ay + pointY, delta);
 }
 
 bool SegmentIntersector::IsPointInSegment(
