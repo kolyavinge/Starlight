@@ -27,7 +27,7 @@
     <ClInclude Include="external\gl\opengl.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
-    <ClInclude Include="src\core\CollisionDetector.h" />
+    <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\Controller.h" />
     <ClInclude Include="src\core\Game.h" />
     <ClInclude Include="src\core\GameCamera.h" />
@@ -36,6 +36,7 @@
     <ClInclude Include="src\core\GameUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
     <ClInclude Include="src\core\PositionCorrector.h" />
+    <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
     <ClInclude Include="src\lib\HashCode.h" />
@@ -64,11 +65,12 @@
   <ItemGroup>
     <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
-    <ClCompile Include="src\core\CollisionDetector.cpp" />
+    <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\core\GameCamera.cpp" />
     <ClCompile Include="src\core\GameConstants.cpp" />
+    <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\DebugRenderLogic.cpp" />

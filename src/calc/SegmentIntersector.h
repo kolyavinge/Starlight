@@ -5,6 +5,8 @@
 
 class SegmentIntersector : public Object
 {
+    LineIntersector _lineIntersector;
+
 public:
     bool AreSegmentsIntersected(
         float from1X, float from1Y,
@@ -24,7 +26,4 @@ private:
         float toX, float toY,
         float pointX, float pointY,
         float delta);
-
-private:
-    LineIntersector _lineIntersector;
 };
