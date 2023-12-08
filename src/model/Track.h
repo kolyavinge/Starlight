@@ -6,12 +6,14 @@
 
 #define TrackMaxPoints 1000
 
+class TrackPoints : public Array<Vector3d, TrackMaxPoints> { };
+
 class Track : public Object
 {
 public:
     int PointsCount;
-    Array<Vector3d, TrackMaxPoints> OutsidePoints;
-    Array<Vector3d, TrackMaxPoints> InsidePoints;
+    TrackPoints OutsidePoints;
+    TrackPoints InsidePoints;
     Vector3d StraightDirection;
     int StartFinishLineIndex;
 

@@ -3,16 +3,16 @@
 #include "calc/VectorCalculator.h"
 
 void VectorCalculator::GetNormalVector2d(
-    float from1X, float from1Y,
-    float to1X, float to1Y,
+    float fromX, float fromY,
+    float toX, float toY,
     float* resultX, float* resultY)
 {
-    if (Numeric::FloatEquals(from1X, to1X))
+    if (Numeric::FloatEquals(fromX, toX))
     {
         *resultX = 1.0f;
         *resultY = 0.0f;
     }
-    else if (Numeric::FloatEquals(from1Y, to1Y))
+    else if (Numeric::FloatEquals(fromY, toY))
     {
         *resultX = 0.0f;
         *resultY = 1.0f;
@@ -20,19 +20,19 @@ void VectorCalculator::GetNormalVector2d(
     else
     {
         float sortedFromX, sortedFromY, sortedToX, sortedToY;
-        if (from1X < to1X)
+        if (fromX < toX)
         {
-            sortedFromX = from1X;
-            sortedFromY = from1Y;
-            sortedToX = to1X;
-            sortedToY = to1Y;
+            sortedFromX = fromX;
+            sortedFromY = fromY;
+            sortedToX = toX;
+            sortedToY = toY;
         }
         else
         {
-            sortedFromX = to1X;
-            sortedFromY = to1Y;
-            sortedToX = from1X;
-            sortedToY = from1Y;
+            sortedFromX = toX;
+            sortedFromY = toY;
+            sortedToX = fromX;
+            sortedToY = fromY;
         }
         float alpha = Math::Abs(Math::ArcTan((sortedToY - sortedFromY) / (sortedToX - sortedFromX)));
         if (sortedToY < sortedFromY) alpha = -alpha;
