@@ -13,8 +13,8 @@ GameUpdater::GameUpdater(
 
 void GameUpdater::Update()
 {
-    float timeStep = GameConstants::TimeStepMax;
     SaveCurrentShipsPositions();
+    float timeStep = GameConstants::TimeStepMax;
     _turnAngleCalculator.CalculateTurnAngle(_player);
     _velocityCalculator.CalculateVelocity(timeStep, _player);
     _moveLogic.MoveShip(timeStep, _player);

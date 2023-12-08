@@ -39,6 +39,7 @@ public:
     ShipCentralLine CentralLine;
     ShipCentralLine PrevCentralLine;
     RectBorder Border;
+    Vector3d Deviation;
 
     Ship();
 
