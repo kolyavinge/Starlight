@@ -15,4 +15,5 @@ public:
 
 private:
     void RenderAxis();
+    void RenderGrid();
 };

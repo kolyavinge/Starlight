@@ -12,7 +12,7 @@ void DebugTrackRenderer::Render(Track& track)
 
 void DebugTrackRenderer::RenderInsideLines(Track& track)
 {
-    glColor3f(0.5f, 0.5f, 0.5f);
+    glColor3f(0.6f, 0.6f, 0.6f);
 
     glBegin(GL_LINES);
 
@@ -34,7 +34,7 @@ void DebugTrackRenderer::RenderInsideLines(Track& track)
 
 void DebugTrackRenderer::RenderOutsideLines(Track& track)
 {
-    glColor3f(0.5f, 0.5f, 0.5f);
+    glColor3f(0.6f, 0.6f, 0.6f);
 
     glBegin(GL_LINES);
 
@@ -56,7 +56,7 @@ void DebugTrackRenderer::RenderOutsideLines(Track& track)
 
 void DebugTrackRenderer::RenderAcrossLines(Track& track)
 {
-    glColor3f(0.2f, 0.2f, 0.2f);
+    glColor3f(0.25f, 0.25f, 0.25f);
 
     glBegin(GL_LINES);
 
