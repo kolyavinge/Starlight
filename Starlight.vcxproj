@@ -39,6 +39,7 @@
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
+    <ClInclude Include="src\core\ZCalculator.h" />
     <ClInclude Include="src\lib\HashCode.h" />
     <ClInclude Include="src\calc\Geometry.h" />
     <ClInclude Include="src\calc\Physics.h" />
@@ -71,6 +72,7 @@
     <ClCompile Include="src\core\GameCamera.cpp" />
     <ClCompile Include="src\core\GameConstants.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
+    <ClCompile Include="src\core\ZCalculator.cpp" />
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\DebugRenderLogic.cpp" />

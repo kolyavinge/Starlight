@@ -29,3 +29,12 @@ void Geometry::RotatePoint(
     *resultX = cosAlpha * (pointX - pivotX) - sinAlpha * (pointY - pivotY) + pivotX;
     *resultY = sinAlpha * (pointX - pivotX) + cosAlpha * (pointY - pivotY) + pivotY;
 }
+
+float Geometry::GetFunctionValueByPoints(
+    float x0, float x1,
+    float y0, float y1,
+    float x)
+{
+    float y = (y1 - y0) / (x1 - x0) * (x - x0) + y0;
+    return y;
+}

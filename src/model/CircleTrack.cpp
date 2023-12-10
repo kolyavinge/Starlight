@@ -1,9 +1,9 @@
 #include "lib/Math.h"
 #include "model/CircleTrack.h"
 
-void CircleTrack::Init()
+void CircleTrack::InternalInit()
 {
-    PointsCount = 200;
+    PointsCount = 400;
     StartFinishLineIndex = 0;
     StraightDirection.Set(0.0f, 1.0f, 0.0f);
 
@@ -25,7 +25,7 @@ void CircleTrack::Init()
 
         x = outsideRadius * cos;
         y = outsideRadius * sin;
-        OutsidePoints[i].Set(x, y, 0.0f);
+        OutsidePoints[i].Set(x, y, 2.0f);
 
         radians += step;
     }

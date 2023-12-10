@@ -5,5 +5,5 @@
 class CircleTrack : public Track
 {
 public:
-    void Init();
+    void InternalInit();
 };

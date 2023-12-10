@@ -13,6 +13,10 @@ public:
         float radians,
         float* resultX,
         float* resultY);
+    static float GetFunctionValueByPoints(
+        float x0, float x1,
+        float y0, float y1,
+        float x);
 
 private:
     static const float _piDiv180;

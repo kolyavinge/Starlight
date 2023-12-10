@@ -12,5 +12,6 @@ private:
     void RenderInsideLines(Track& track);
     void RenderOutsideLines(Track& track);
     void RenderAcrossLines(Track& track);
+    void RenderMiddlePoints(Track& track);
     void RenderStartFinishLine(Track& track);
 };

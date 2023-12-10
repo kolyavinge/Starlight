@@ -1,4 +1,5 @@
 #include "gl/opengl.h"
+#include "lib/Array.h"
 #include "calc/Vector3d.h"
 #include "render/DebugTrackRenderer.h"
 
@@ -7,6 +8,7 @@ void DebugTrackRenderer::Render(Track& track)
     RenderInsideLines(track);
     RenderOutsideLines(track);
     RenderAcrossLines(track);
+    RenderMiddlePoints(track);
     RenderStartFinishLine(track);
 }
 
@@ -66,6 +68,25 @@ void DebugTrackRenderer::RenderAcrossLines(Track& track)
         Vector3d& to = track.OutsidePoints[i];
         glVertex3f(from.X, from.Y, from.Z);
         glVertex3f(to.X, to.Y, to.Z);
+    }
+
+    glEnd();
+}
+
+void DebugTrackRenderer::RenderMiddlePoints(Track& track)
+{
+    glColor3f(0.6f, 0.6f, 0.6f);
+
+    glBegin(GL_POINTS);
+
+    for (int i = 0; i < track.PointsCount; i++)
+    {
+        Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[i];
+        for (int j = 0; j < middlePoints.Count; j++)
+        {
+            Vector3d& m = middlePoints[j];
+            glVertex3f(m.X, m.Y, m.Z);
+        }
     }
 
     glEnd();

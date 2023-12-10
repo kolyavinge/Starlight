@@ -34,6 +34,11 @@ float Vector3d::GetLength()
     return Math::Sqrt(X * X + Y * Y + Z * Z);
 }
 
+float Vector3d::GetLengthSquared()
+{
+    return X * X + Y * Y + Z * Z;
+}
+
 bool Vector3d::IsZero()
 {
     return Numeric::FloatEquals(X, 0.0f) && Numeric::FloatEquals(Y, 0.0f) && Numeric::FloatEquals(Z, 0.0f);
