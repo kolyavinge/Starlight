@@ -60,13 +60,13 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
         rearTurnAngle = -rearTurnAngle;
     }
 
-    Geometry::RotatePoint(
+    Geometry::RotatePoint2d(
         ship.CentralLine.Front.X, ship.CentralLine.Front.Y,
         pivotX, pivotY,
         frontTurnAngle,
         &ship.CentralLine.Front.X, &ship.CentralLine.Front.Y);
 
-    Geometry::RotatePoint(
+    Geometry::RotatePoint2d(
         ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y,
         pivotX, pivotY,
         rearTurnAngle,
@@ -77,7 +77,7 @@ void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, float* pivotX, 
 {
     float resultX, resultY;
 
-    Geometry::RotatePoint(
+    Geometry::RotatePoint2d(
         ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y,
         ship.CentralLine.Front.X, ship.CentralLine.Front.Y,
         ship.TurnAngleRadians > 0.0f ? Math::PiHalf : -Math::PiHalf,

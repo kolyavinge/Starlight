@@ -7,7 +7,7 @@ void BorderUpdater::Update(Ship& ship)
 {
     Vector3d v;
 
-    Geometry::RotatePoint(
+    Geometry::RotatePoint2d(
         ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y,
         ship.CentralLine.Front.X, ship.CentralLine.Front.Y,
         Math::PiHalf,

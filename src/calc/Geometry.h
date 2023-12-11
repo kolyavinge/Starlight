@@ -1,11 +1,17 @@
 #pragma once
 
+#include "calc/Vector3d.h"
+
 class Geometry
 {
 public:
     static float DegreesToRadians(float degrees);
     static float RadiansToDegrees(float radians);
-    static void RotatePoint(
+    static float GetFunctionValueByPoints(
+        float x0, float x1,
+        float y0, float y1,
+        float x);
+    static void RotatePoint2d(
         float pointX,
         float pointY,
         float pivotX,
@@ -13,10 +19,7 @@ public:
         float radians,
         float* resultX,
         float* resultY);
-    static float GetFunctionValueByPoints(
-        float x0, float x1,
-        float y0, float y1,
-        float x);
+    static Vector3d RotatePoint3d(Vector3d& point, Vector3d& pivot, float radians);
 
 private:
     static const float _piDiv180;

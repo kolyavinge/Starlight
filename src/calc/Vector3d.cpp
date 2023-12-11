@@ -106,6 +106,16 @@ float Vector3d::DotProduct(Vector3d& v)
     return X * v.X + Y * v.Y + Z * v.Z;
 }
 
+void Vector3d::VectorProduct(Vector3d& v)
+{
+    float x = Y * v.Z - Z * v.Y;
+    float y = Z * v.X - X * v.Z;
+    float z = X * v.Y - Y * v.X;
+    X = x;
+    Y = y;
+    Z = z;
+}
+
 void Vector3d::Reflect(Vector3d& normal)
 {
     // vector - 2.0f * (vector * normal) * normal

@@ -14,7 +14,16 @@ float Geometry::RadiansToDegrees(float radians)
     return radians * _180DivPi;
 }
 
-void Geometry::RotatePoint(
+float Geometry::GetFunctionValueByPoints(
+    float x0, float x1,
+    float y0, float y1,
+    float x)
+{
+    float y = (y1 - y0) / (x1 - x0) * (x - x0) + y0;
+    return y;
+}
+
+void Geometry::RotatePoint2d(
     float pointX,
     float pointY,
     float pivotX,
@@ -23,18 +32,35 @@ void Geometry::RotatePoint(
     float* resultX,
     float* resultY)
 {
-    float cosAlpha = Math::Cos(radians);
-    float sinAlpha = Math::Sin(radians);
+    float cos = Math::Cos(radians);
+    float sin = Math::Sin(radians);
 
-    *resultX = cosAlpha * (pointX - pivotX) - sinAlpha * (pointY - pivotY) + pivotX;
-    *resultY = sinAlpha * (pointX - pivotX) + cosAlpha * (pointY - pivotY) + pivotY;
+    *resultX = cos * (pointX - pivotX) - sin * (pointY - pivotY) + pivotX;
+    *resultY = sin * (pointX - pivotX) + cos * (pointY - pivotY) + pivotY;
 }
 
-float Geometry::GetFunctionValueByPoints(
-    float x0, float x1,
-    float y0, float y1,
-    float x)
+Vector3d Geometry::RotatePoint3d(Vector3d& point, Vector3d& pivot, float radians)
 {
-    float y = (y1 - y0) / (x1 - x0) * (x - x0) + y0;
-    return y;
+    // Формула Родрига
+    // cos * point + (pivot, point) * (1 - cos) * pivot + sin * [pivot, point]
+    // a + b + c
+
+    float sin = Math::Sin(radians);
+    float cos = Math::Cos(radians);
+
+    Vector3d a(point);
+    a.Mul(cos);
+
+    Vector3d b(pivot);
+    b.Mul(pivot.DotProduct(point));
+    b.Mul(1.0f - cos);
+
+    Vector3d c(pivot);
+    c.VectorProduct(point);
+    c.Mul(sin);
+
+    a.Add(b);
+    a.Add(c);
+
+    return a;
 }

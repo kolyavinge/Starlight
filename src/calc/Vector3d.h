@@ -23,5 +23,6 @@ public:
     void Div(float a);
     void Normalize();
     float DotProduct(Vector3d& v);
+    void VectorProduct(Vector3d& v);
     void Reflect(Vector3d& normal);
 };
