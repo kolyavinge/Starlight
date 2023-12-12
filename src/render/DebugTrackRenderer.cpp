@@ -8,14 +8,14 @@ void DebugTrackRenderer::Render(Track& track)
     RenderInsideLines(track);
     RenderOutsideLines(track);
     RenderAcrossLines(track);
-    RenderMiddlePoints(track);
+    //RenderMiddlePoints(track);
     RenderNormals(track);
     RenderStartFinishLine(track);
 }
 
 void DebugTrackRenderer::RenderInsideLines(Track& track)
 {
-    glColor3f(0.6f, 0.6f, 0.6f);
+    glColor3f(0.4f, 0.4f, 0.4f);
 
     glBegin(GL_LINES);
 
@@ -23,21 +23,21 @@ void DebugTrackRenderer::RenderInsideLines(Track& track)
     {
         Vector3d& from = track.InsidePoints[i];
         Vector3d& to = track.InsidePoints[i + 1];
-        glVertex3f(from.X, from.Y, from.Z);
-        glVertex3f(to.X, to.Y, to.Z);
+        glVertex3f(from);
+        glVertex3f(to);
     }
 
     Vector3d& from = track.InsidePoints[track.PointsCount - 1];
     Vector3d& to = track.InsidePoints[0];
-    glVertex3f(from.X, from.Y, from.Z);
-    glVertex3f(to.X, to.Y, to.Z);
+    glVertex3f(from);
+    glVertex3f(to);
 
     glEnd();
 }
 
 void DebugTrackRenderer::RenderOutsideLines(Track& track)
 {
-    glColor3f(0.6f, 0.6f, 0.6f);
+    glColor3f(0.4f, 0.4f, 0.4f);
 
     glBegin(GL_LINES);
 
@@ -45,14 +45,14 @@ void DebugTrackRenderer::RenderOutsideLines(Track& track)
     {
         Vector3d& from = track.OutsidePoints[i];
         Vector3d& to = track.OutsidePoints[i + 1];
-        glVertex3f(from.X, from.Y, from.Z);
-        glVertex3f(to.X, to.Y, to.Z);
+        glVertex3f(from);
+        glVertex3f(to);
     }
 
     Vector3d& from = track.OutsidePoints[track.PointsCount - 1];
     Vector3d& to = track.OutsidePoints[0];
-    glVertex3f(from.X, from.Y, from.Z);
-    glVertex3f(to.X, to.Y, to.Z);
+    glVertex3f(from);
+    glVertex3f(to);
 
     glEnd();
 }
@@ -67,8 +67,8 @@ void DebugTrackRenderer::RenderAcrossLines(Track& track)
     {
         Vector3d& from = track.InsidePoints[i];
         Vector3d& to = track.OutsidePoints[i];
-        glVertex3f(from.X, from.Y, from.Z);
-        glVertex3f(to.X, to.Y, to.Z);
+        glVertex3f(from);
+        glVertex3f(to);
     }
 
     glEnd();
@@ -85,8 +85,7 @@ void DebugTrackRenderer::RenderMiddlePoints(Track& track)
         Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[i];
         for (int j = 0; j < middlePoints.Count; j++)
         {
-            Vector3d& m = middlePoints[j];
-            glVertex3f(m.X, m.Y, m.Z);
+            glVertex3f(middlePoints[j]);
         }
     }
 
@@ -102,10 +101,10 @@ void DebugTrackRenderer::RenderNormals(Track& track)
         Vector3d& normal = track.Normals[i];
         Vector3d& out = track.OutsidePoints[i];
         glPushMatrix();
-        glTranslatef(out.X, out.Y, out.Z);
+        glTranslatef(out);
         glBegin(GL_LINES);
         glVertex3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(normal.X, normal.Y, normal.Z);
+        glVertex3f(normal);
         glEnd();
         glPopMatrix();
     }
@@ -119,8 +118,8 @@ void DebugTrackRenderer::RenderStartFinishLine(Track& track)
 
     Vector3d& from = track.InsidePoints[track.StartFinishLineIndex];
     Vector3d& to = track.OutsidePoints[track.StartFinishLineIndex];
-    glVertex3f(from.X, from.Y, from.Z);
-    glVertex3f(to.X, to.Y, to.Z);
+    glVertex3f(from);
+    glVertex3f(to);
 
     glEnd();
 }

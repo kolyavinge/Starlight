@@ -38,13 +38,14 @@
     <ClInclude Include="external\gl\freeglut_std.h" />
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
-    <ClInclude Include="external\gl\opengl.h" />
+    <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
     <ClInclude Include="src\model\RectBorder.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\ZCalculator.h" />
+    <ClInclude Include="src\model\ShipMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -82,5 +83,7 @@
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\ZCalculator.cpp" />
+    <ClCompile Include="src\model\ShipMesh.cpp" />
+    <ClCompile Include="src\gl\opengl.cpp" />
   </ItemGroup>
 </Project>

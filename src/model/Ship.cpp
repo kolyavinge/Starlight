@@ -37,7 +37,7 @@ float Ship::GetCurrentVelocity()
     return Math::LogE(ThrottleTime + 1.0f);
 }
 
-void Ship::OrientationByFrontPoint(Vector3d frontMiddlePoint, Vector3d direction)
+void Ship::OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d direction)
 {
     direction.SetLength(ShipMeasure::YLength);
     CentralLine.Front = frontMiddlePoint;
@@ -45,7 +45,7 @@ void Ship::OrientationByFrontPoint(Vector3d frontMiddlePoint, Vector3d direction
     CentralLine.Rear.Sub(direction);
 }
 
-void Ship::OrientationByRearPoint(Vector3d rearMiddlePoint, Vector3d direction)
+void Ship::OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction)
 {
     direction.SetLength(ShipMeasure::YLength);
     CentralLine.Front = rearMiddlePoint;

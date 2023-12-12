@@ -8,5 +8,5 @@ void GameCamera::Update(Ship& ship)
     Position.Add(ship.CentralLine.Rear);
     Position.Z += 1.0f;
 
-    LookAt.Set(ship.CentralLine.Front.X, ship.CentralLine.Front.Y, ship.CentralLine.Front.Z);
+    LookAt.Set(ship.CentralLine.Front);
 }

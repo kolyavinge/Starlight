@@ -6,18 +6,19 @@
 void DebugShipRenderer::Render(Ship& ship)
 {
     RenderMiddleLine(ship);
-    RenderBorder(ship);
+    //RenderBorder(ship);
+    RenderBorderPoints(ship);
     RenderTurnAngle(ship);
 }
 
 void DebugShipRenderer::RenderMiddleLine(Ship& ship)
 {
-    glColor3f(0.5f, 0.5f, 0.5f);
+    glColor3f(0.4f, 0.4f, 0.4f);
 
     glBegin(GL_LINES);
 
-    glVertex3f(ship.CentralLine.Front.X, ship.CentralLine.Front.Y, ship.CentralLine.Front.Z);
-    glVertex3f(ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y, ship.CentralLine.Rear.Z);
+    glVertex3f(ship.CentralLine.Front);
+    glVertex3f(ship.CentralLine.Rear);
 
     glEnd();
 }
@@ -28,10 +29,10 @@ void DebugShipRenderer::RenderTurnAngle(Ship& ship)
 
     glPushMatrix();
 
-    glTranslatef(ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y, ship.CentralLine.Rear.Z);
+    glTranslatef(ship.CentralLine.Rear);
     glRotatef(Geometry::RadiansToDegrees(angleBetween + ship.TurnAngleRadians), 0.0f, 0.0f, 1.0f);
 
-    glColor3f(0.0f, 0.8f, 0.0f);
+    glColor3f(0.0f, 0.6f, 0.0f);
 
     glBegin(GL_LINES);
 
@@ -45,21 +46,35 @@ void DebugShipRenderer::RenderTurnAngle(Ship& ship)
 
 void DebugShipRenderer::RenderBorder(Ship& ship)
 {
-    glColor3f(0.5f, 0.5f, 0.5f);
+    glColor3f(0.4f, 0.4f, 0.4f);
 
     glBegin(GL_LINES);
 
-    glVertex3f(ship.Border.UpLeft.X, ship.Border.UpLeft.Y, ship.Border.UpLeft.Z);
-    glVertex3f(ship.Border.UpRight.X, ship.Border.UpRight.Y, ship.Border.UpRight.Z);
+    glVertex3f(ship.Border.UpLeft);
+    glVertex3f(ship.Border.UpRight);
 
-    glVertex3f(ship.Border.UpRight.X, ship.Border.UpRight.Y, ship.Border.UpRight.Z);
-    glVertex3f(ship.Border.DownRight.X, ship.Border.DownRight.Y, ship.Border.DownRight.Z);
+    glVertex3f(ship.Border.UpRight);
+    glVertex3f(ship.Border.DownRight);
 
-    glVertex3f(ship.Border.DownRight.X, ship.Border.DownRight.Y, ship.Border.DownRight.Z);
-    glVertex3f(ship.Border.DownLeft.X, ship.Border.DownLeft.Y, ship.Border.DownLeft.Z);
+    glVertex3f(ship.Border.DownRight);
+    glVertex3f(ship.Border.DownLeft);
 
-    glVertex3f(ship.Border.DownLeft.X, ship.Border.DownLeft.Y, ship.Border.DownLeft.Z);
-    glVertex3f(ship.Border.UpLeft.X, ship.Border.UpLeft.Y, ship.Border.UpLeft.Z);
+    glVertex3f(ship.Border.DownLeft);
+    glVertex3f(ship.Border.UpLeft);
+
+    glEnd();
+}
+
+void DebugShipRenderer::RenderBorderPoints(Ship& ship)
+{
+    glColor3f(0.6f, 0.6f, 0.6f);
+
+    glBegin(GL_POINTS);
+
+    glVertex3f(ship.Border.UpLeft);
+    glVertex3f(ship.Border.UpRight);
+    glVertex3f(ship.Border.DownRight);
+    glVertex3f(ship.Border.DownLeft);
 
     glEnd();
 }
