@@ -44,14 +44,13 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
     float rearTurnRadius = ShipMeasure::YLength / Math::Sin(turnAngleAbs);
     float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);
 
-    float pivotX, pivotY;
-    GetPivotPoint(ship, frontTurnRadius, &pivotX, &pivotY);
+    Vector3d pivot;
+    GetPivotVector(ship, frontTurnRadius, pivot);
 
-    //Assert(ship, frontTurnRadius, rearTurnRadius, pivotX, pivotY);
+    Assert(ship, frontTurnRadius, rearTurnRadius, pivot);
 
     float frontCircleLength = Math::PiDouble * frontTurnRadius;
     float rearCircleLength = Math::PiDouble * rearTurnRadius;
-
     float frontTurnAngle = Math::PiDouble * moveDistance / frontCircleLength;
     float rearTurnAngle = Math::PiDouble * moveDistance / rearCircleLength;
     if (ship.TurnAngleRadians > 0.0f)
@@ -60,55 +59,48 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
         rearTurnAngle = -rearTurnAngle;
     }
 
-    Geometry::RotatePoint2d(
-        ship.CentralLine.Front.X, ship.CentralLine.Front.Y,
-        pivotX, pivotY,
-        frontTurnAngle,
-        &ship.CentralLine.Front.X, &ship.CentralLine.Front.Y);
-
-    Geometry::RotatePoint2d(
-        ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y,
-        pivotX, pivotY,
-        rearTurnAngle,
-        &ship.CentralLine.Rear.X, &ship.CentralLine.Rear.Y);
+    ship.CentralLine.Front.Sub(pivot);
+    ship.CentralLine.Rear.Sub(pivot);
+    ship.CentralLine.Front = Geometry::RotatePoint3d(ship.CentralLine.Front, ship.CentralLine.NormalFront, frontTurnAngle);
+    ship.CentralLine.Rear = Geometry::RotatePoint3d(ship.CentralLine.Rear, ship.CentralLine.NormalRear, rearTurnAngle);
+    ship.CentralLine.Front.Add(pivot);
+    ship.CentralLine.Rear.Add(pivot);
 }
 
-void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, float* pivotX, float* pivotY)
+void MoveLogic::GetPivotVector(Ship& ship, float frontTurnRadius, Vector3d& pivot)
 {
-    float resultX, resultY;
-
-    Geometry::RotatePoint2d(
-        ship.CentralLine.Rear.X, ship.CentralLine.Rear.Y,
-        ship.CentralLine.Front.X, ship.CentralLine.Front.Y,
-        ship.TurnAngleRadians > 0.0f ? Math::PiHalf : -Math::PiHalf,
-        &resultX, &resultY);
-
-    Vector3d pivotVector(resultX, resultY, 0.0f);
-    pivotVector.Sub(ship.CentralLine.Front);
-    pivotVector.SetLength(frontTurnRadius);
-    pivotVector.Add(ship.CentralLine.Front);
-
-    *pivotX = pivotVector.X;
-    *pivotY = pivotVector.Y;
+    if (ship.TurnAngleRadians > 0.0f)
+    {
+        pivot.Set(ship.CentralLine.Front);
+        pivot.Sub(ship.CentralLine.Rear);
+    }
+    else
+    {
+        pivot.Set(ship.CentralLine.Rear);
+        pivot.Sub(ship.CentralLine.Front);
+    }
+    pivot.VectorProduct(ship.CentralLine.NormalFront);
+    pivot.SetLength(frontTurnRadius);
+    pivot.Add(ship.CentralLine.Front);
 }
 
-void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, float pivotX, float pivotY)
+void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, Vector3d& pivot)
 {
     if (Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ShipMeasure::YLength * ShipMeasure::YLength)) > 0.1f)
     {
         throw AssertException();
     }
 
-    Vector3d frontTurnRadiusFromPivot(pivotX, pivotY, 0.0f);
+    Vector3d frontTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     frontTurnRadiusFromPivot.Sub(ship.CentralLine.Front);
-    if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.1f)
+    if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.01f)
     {
         throw AssertException();
     }
 
-    Vector3d rearTurnRadiusFromPivot(pivotX, pivotY, 0.0f);
+    Vector3d rearTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     rearTurnRadiusFromPivot.Sub(ship.CentralLine.Rear);
-    if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.1f)
+    if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.01f)
     {
         throw AssertException();
     }

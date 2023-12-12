@@ -11,6 +11,6 @@ public:
 private:
     void MoveStraight(Ship& ship, float moveDistance);
     void MoveAround(Ship& ship, float moveDistance);
-    void GetPivotPoint(Ship& ship, float frontTurnRadius, float* pivotX, float* pivotY);
-    void Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, float pivotX, float pivotY);
+    void GetPivotVector(Ship& ship, float frontTurnRadius, Vector3d& pivot);
+    void Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, Vector3d& pivot);
 };
