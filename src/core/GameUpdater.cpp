@@ -14,14 +14,14 @@ GameUpdater::GameUpdater(
 void GameUpdater::Update()
 {
     SaveCurrentShipsPositions();
+    _zCalculator.CalculateZ(_player, _track);
     float timeStep = GameConstants::TimeStepMax;
     _turnAngleCalculator.CalculateTurnAngle(_player);
     _velocityCalculator.CalculateVelocity(timeStep, _player);
     _moveLogic.MoveShip(timeStep, _player);
+    _borderUpdater.Update(_player);
     _collisionProcessor.ProcessCollisions(_player, _track);
     _positionCorrector.CorrectAfterFloatOperations(_player);
-    _borderUpdater.Update(_player);
-    _zCalculator.CalculateZ(_player, _track);
     _camera.Update(_player);
 }
 

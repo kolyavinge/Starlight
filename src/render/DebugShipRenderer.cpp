@@ -6,8 +6,8 @@
 void DebugShipRenderer::Render(Ship& ship)
 {
     RenderMiddleLine(ship);
-    RenderTurnAngle(ship);
     RenderBorder(ship);
+    RenderTurnAngle(ship);
 }
 
 void DebugShipRenderer::RenderMiddleLine(Ship& ship)

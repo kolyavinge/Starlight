@@ -3,18 +3,22 @@
 
 void ZCalculator::CalculateZ(Ship& ship, Track& track)
 {
-    //CalculateForPoint(ship.CentralLine.Front, track);
-    //CalculateForPoint(ship.CentralLine.Rear, track);
-    CalculateForPoint(ship.Border.UpLeft, track);
-    CalculateForPoint(ship.Border.UpRight, track);
-    CalculateForPoint(ship.Border.DownLeft, track);
-    CalculateForPoint(ship.Border.DownRight, track);
+    ship.CentralLine.Front.Z = 0.0f;
+    ship.CentralLine.Rear.Z = 0.0f;
+    CalculateForPoint(ship.CentralLine.Front, ship.CentralLine.NormalFront, track);
+    CalculateForPoint(ship.CentralLine.Rear, ship.CentralLine.NormalRear, track);
 }
 
-void ZCalculator::CalculateForPoint(Vector3d& point, Track& track)
+void ZCalculator::CalculateForPoint(Vector3d& point, Vector3d& normal, Track& track)
 {
     int pointIndex = GetNearestTrackPointIndex(point, track);
     Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[pointIndex];
+    point.Z = GetNearestMiddlePointZ(middlePoints, point);
+    normal.Set(track.Normals[pointIndex]);
+}
+
+float ZCalculator::GetNearestMiddlePointZ(Array<Vector3d, TrackMaxMiddlePoints>& middlePoints, Vector3d& point)
+{
     Vector3d v(middlePoints[0]);
     v.Sub(point);
     float minLength = v.GetLengthSquared();
@@ -30,7 +34,8 @@ void ZCalculator::CalculateForPoint(Vector3d& point, Track& track)
             z = v.Z;
         }
     }
-    point.Z = z;
+
+    return z;
 }
 
 int ZCalculator::GetNearestTrackPointIndex(Vector3d& point, Track& track)

@@ -23,6 +23,8 @@ class ShipCentralLine : public Object
 public:
     Vector3d Front;
     Vector3d Rear;
+    Vector3d NormalFront;
+    Vector3d NormalRear;
 };
 
 class Ship : public Object
