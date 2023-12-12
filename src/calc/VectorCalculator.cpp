@@ -40,3 +40,17 @@ void VectorCalculator::GetNormalVector2d(
         *resultY = Math::Sin(Math::PiHalf + alpha);
     }
 }
+
+void VectorCalculator::GetNormalVector3d(Vector3d& v1, Vector3d& v2, Vector3d& v3, Vector3d& result)
+{
+    Vector3d v21(v2);
+    v21.Sub(v1);
+
+    Vector3d v31(v3);
+    v31.Sub(v1);
+
+    v21.VectorProduct(v31);
+    v21.Normalize();
+
+    result.Set(v21);
+}

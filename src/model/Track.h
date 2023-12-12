@@ -18,6 +18,7 @@ public:
     TrackPoints OutsidePoints;
     TrackPoints InsidePoints;
     TrackMiddlePoints MiddlePoints;
+    TrackPoints Normals;
     Vector3d StraightDirection;
     int StartFinishLineIndex;
 
@@ -28,4 +29,5 @@ public:
 
 private:
     void InitMiddlePoints();
+    void InitNormals();
 };

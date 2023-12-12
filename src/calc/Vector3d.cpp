@@ -53,6 +53,11 @@ void Vector3d::SetLength(float newLength)
     }
 }
 
+void Vector3d::Set(Vector3d& v)
+{
+    Set(v.X, v.Y, v.Z);
+}
+
 void Vector3d::Set(float x, float y, float z)
 {
     X = x;

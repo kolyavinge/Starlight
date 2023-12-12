@@ -16,6 +16,7 @@ public:
     float GetLengthSquared();
     bool IsZero();
     void SetLength(float newLength);
+    void Set(Vector3d& v);
     void Set(float x, float y, float z);
     void Add(Vector3d& v);
     void Sub(Vector3d& v);

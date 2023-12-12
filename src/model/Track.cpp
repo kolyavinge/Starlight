@@ -1,3 +1,4 @@
+#include "calc/VectorCalculator.h"
 #include "model/Track.h"
 
 Track::Track()
@@ -10,6 +11,7 @@ void Track::Init()
 {
     InternalInit();
     InitMiddlePoints();
+    InitNormals();
 }
 
 void Track::InitMiddlePoints()
@@ -29,4 +31,24 @@ void Track::InitMiddlePoints()
             MiddlePoints[pointIndex][i].Add(v);
         }
     }
+}
+
+void Track::InitNormals()
+{
+    VectorCalculator vectorCalculator;
+
+    for (int pointIndex = 0; pointIndex < PointsCount - 1; pointIndex++)
+    {
+        vectorCalculator.GetNormalVector3d(
+            InsidePoints[pointIndex],
+            OutsidePoints[pointIndex],
+            OutsidePoints[pointIndex + 1],
+            Normals[pointIndex]);
+    }
+
+    vectorCalculator.GetNormalVector3d(
+        InsidePoints[PointsCount - 1],
+        OutsidePoints[PointsCount - 1],
+        OutsidePoints[0],
+        Normals[PointsCount - 1]);
 }

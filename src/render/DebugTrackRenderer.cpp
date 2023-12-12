@@ -9,6 +9,7 @@ void DebugTrackRenderer::Render(Track& track)
     RenderOutsideLines(track);
     RenderAcrossLines(track);
     RenderMiddlePoints(track);
+    RenderNormals(track);
     RenderStartFinishLine(track);
 }
 
@@ -90,6 +91,24 @@ void DebugTrackRenderer::RenderMiddlePoints(Track& track)
     }
 
     glEnd();
+}
+
+void DebugTrackRenderer::RenderNormals(Track& track)
+{
+    glColor3f(0.25f, 0.25f, 0.25f);
+
+    for (int i = 0; i < track.PointsCount; i++)
+    {
+        Vector3d& normal = track.Normals[i];
+        Vector3d& out = track.OutsidePoints[i];
+        glPushMatrix();
+        glTranslatef(out.X, out.Y, out.Z);
+        glBegin(GL_LINES);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(normal.X, normal.Y, normal.Z);
+        glEnd();
+        glPopMatrix();
+    }
 }
 
 void DebugTrackRenderer::RenderStartFinishLine(Track& track)
