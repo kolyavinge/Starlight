@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "model/Ship.h"
+#include <lib/Object.h>
+#include <model/Ship.h>
 
 class VelocityCalculator : public Object
 {

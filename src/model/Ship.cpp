@@ -1,6 +1,6 @@
-#include "lib/Math.h"
-#include "lib/Numeric.h"
-#include "model/Ship.h"
+#include <lib/Math.h>
+#include <lib/Numeric.h>
+#include <model/Ship.h>
 
 const float ShipMeasure::XLength = 1.0f;
 const float ShipMeasure::YLength = 2.0f;

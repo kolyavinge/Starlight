@@ -1,9 +1,9 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "calc/SegmentIntersector.h"
-#include "model/Ship.h"
-#include "model/Track.h"
+#include <lib/Object.h>
+#include <calc/SegmentIntersector.h>
+#include <model/Ship.h>
+#include <model/Track.h>
 
 class TrackCollisionResult : public Object
 {

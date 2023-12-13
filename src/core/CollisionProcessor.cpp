@@ -1,6 +1,6 @@
-#include "calc/Vector3d.h"
-#include "core/TrackCollisionDetector.h"
-#include "core/CollisionProcessor.h"
+#include <calc/Vector3d.h>
+#include <core/TrackCollisionDetector.h>
+#include <core/CollisionProcessor.h>
 
 void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
 {

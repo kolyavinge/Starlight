@@ -1,10 +1,10 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "calc/VectorCalculator.h"
-#include "model/Ship.h"
-#include "model/Track.h"
-#include "core/TrackCollisionDetector.h"
+#include <lib/Object.h>
+#include <calc/VectorCalculator.h>
+#include <model/Ship.h>
+#include <model/Track.h>
+#include <core/TrackCollisionDetector.h>
 
 class CollisionProcessor : public Object
 {

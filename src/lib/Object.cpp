@@ -1,4 +1,4 @@
-#include "lib/Object.h"
+#include <lib/Object.h>
 
 Object::~Object() {}
 

@@ -1,9 +1,9 @@
-#include "lib/Math.h"
-#include "lib/Exceptions.h"
-#include "lib/Numeric.h"
-#include "calc/Geometry.h"
-#include "calc/Vector3d.h"
-#include "core/MoveLogic.h"
+#include <lib/Math.h>
+#include <lib/Exceptions.h>
+#include <lib/Numeric.h>
+#include <calc/Geometry.h>
+#include <calc/Vector3d.h>
+#include <core/MoveLogic.h>
 
 void MoveLogic::MoveShip(float timeStep, Ship& ship)
 {

@@ -1,4 +1,4 @@
-#include "core/Game.h"
+#include <core/Game.h>
 
 Game::Game(
     Ship& player,

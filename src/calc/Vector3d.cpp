@@ -1,7 +1,7 @@
-#include "lib/Math.h"
-#include "lib/Numeric.h"
-#include "lib/HashCode.h"
-#include "calc/Vector3d.h"
+#include <lib/Math.h>
+#include <lib/Numeric.h>
+#include <lib/HashCode.h>
+#include <calc/Vector3d.h>
 
 Vector3d::Vector3d()
 {

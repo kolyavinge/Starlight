@@ -1,4 +1,4 @@
-#include "core/VelocityCalculator.h"
+#include <core/VelocityCalculator.h>
 
 void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
 {

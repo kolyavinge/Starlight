@@ -1,6 +1,6 @@
-#include "calc/Vector3d.h"
-#include "model/Track.h"
-#include "core/GameInitializer.h"
+#include <calc/Vector3d.h>
+#include <model/Track.h>
+#include <core/GameInitializer.h>
 
 void GameInitializer::Init(Game& game)
 {

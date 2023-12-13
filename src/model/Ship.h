@@ -1,8 +1,8 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "calc/Vector3d.h"
-#include "model/RectBorder.h"
+#include <lib/Object.h>
+#include <calc/Vector3d.h>
+#include <model/RectBorder.h>
 
 class ShipMeasure
 {

@@ -1,6 +1,6 @@
-#include "lib/Math.h"
-#include "lib/Numeric.h"
-#include "calc/VectorCalculator.h"
+#include <lib/Math.h>
+#include <lib/Numeric.h>
+#include <calc/VectorCalculator.h>
 
 void VectorCalculator::GetNormalVector2d(
     float fromX, float fromY,

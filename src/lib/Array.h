@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lib/Exceptions.h"
-#include "lib/Object.h"
+#include <lib/Exceptions.h>
+#include <lib/Object.h>
 
 template<class T, int Count>
 class Array : public Object

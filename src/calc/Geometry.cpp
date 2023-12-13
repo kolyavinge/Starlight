@@ -1,5 +1,5 @@
-#include "lib/Math.h"
-#include "calc/Geometry.h"
+#include <lib/Math.h>
+#include <calc/Geometry.h>
 
 const float Geometry::_piDiv180 = Math::Pi / 180.0f;
 const float Geometry::_180DivPi = 180.0f / Math::Pi;

@@ -1,5 +1,5 @@
-#include "core/GameConstants.h"
-#include "core/TrackCollisionDetector.h"
+#include <core/GameConstants.h>
+#include <core/TrackCollisionDetector.h>
 
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track, TrackCollisionResult& result)
 {

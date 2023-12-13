@@ -1,5 +1,5 @@
-#include "lib/Math.h"
-#include "calc/SegmentIntersector.h"
+#include <lib/Math.h>
+#include <calc/SegmentIntersector.h>
 
 bool SegmentIntersector::AreSegmentsIntersected(
     float from1X, float from1Y,

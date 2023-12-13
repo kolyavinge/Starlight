@@ -1,5 +1,5 @@
-#include "core/GameInitializer.h"
-#include "core/GameManager.h"
+#include <core/GameInitializer.h>
+#include <core/GameManager.h>
 
 GameManager GameManager::Instance;
 

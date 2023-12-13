@@ -1,7 +1,7 @@
 #include <malloc.h>
 #include <cstring>
-#include "lib/Exceptions.h"
-#include "lib/Memory.h"
+#include <lib/Exceptions.h>
+#include <lib/Memory.h>
 
 void* Memory::Alloc(unsigned int countBytes)
 {

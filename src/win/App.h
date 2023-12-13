@@ -1,6 +1,6 @@
 #pragma once
 
-#include "render/DebugRenderLogic.h"
+#include <render/DebugRenderLogic.h>
 
 class App
 {

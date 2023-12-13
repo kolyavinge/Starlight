@@ -1,4 +1,4 @@
-#include "core/GameConstants.h"
+#include <core/GameConstants.h>
 
 const float GameConstants::TimeStep = 0.02f;
 

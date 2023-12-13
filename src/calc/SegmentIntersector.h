@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "calc/LineIntersector.h"
+#include <lib/Object.h>
+#include <calc/LineIntersector.h>
 
 class SegmentIntersector : public Object
 {

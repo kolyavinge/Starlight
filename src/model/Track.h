@@ -1,8 +1,8 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "lib/Array.h"
-#include "calc/Vector3d.h"
+#include <lib/Object.h>
+#include <lib/Array.h>
+#include <calc/Vector3d.h>
 
 #define TrackMaxPoints 1000
 #define TrackMaxMiddlePoints 500

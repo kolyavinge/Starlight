@@ -1,4 +1,4 @@
-#include "core/Controller.h"
+#include <core/Controller.h>
 
 Controller::Controller(Ship& ship) :
     _ship(ship)

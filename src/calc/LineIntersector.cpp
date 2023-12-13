@@ -1,4 +1,4 @@
-#include "calc/LineIntersector.h"
+#include <calc/LineIntersector.h>
 
 bool LineIntersector::GetIntersectPoint(
     float from1X, float from1Y,

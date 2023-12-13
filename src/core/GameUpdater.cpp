@@ -1,5 +1,5 @@
-#include "core/GameConstants.h"
-#include "core/GameUpdater.h"
+#include <core/GameConstants.h>
+#include <core/GameUpdater.h>
 
 GameUpdater::GameUpdater(
     Ship& player,

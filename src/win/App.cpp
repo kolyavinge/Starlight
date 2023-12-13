@@ -1,8 +1,8 @@
-#include "gl/opengl.h"
-#include "core/GameConstants.h"
-#include "core/GameManager.h"
-#include "core/Controller.h"
-#include "win/App.h"
+#include <gl/opengl.h>
+#include <core/GameConstants.h>
+#include <core/GameManager.h>
+#include <core/Controller.h>
+#include <win/App.h>
 
 DebugRenderLogic App::_renderLogic;
 

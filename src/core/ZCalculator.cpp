@@ -1,5 +1,5 @@
-#include "lib/Array.h"
-#include "core/ZCalculator.h"
+#include <lib/Array.h>
+#include <core/ZCalculator.h>
 
 void ZCalculator::CalculateZ(Ship& ship, Track& track)
 {

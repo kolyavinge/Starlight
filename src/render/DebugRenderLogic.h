@@ -1,9 +1,9 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "core/Game.h"
-#include "render/DebugShipRenderer.h"
-#include "render/DebugTrackRenderer.h"
+#include <lib/Object.h>
+#include <core/Game.h>
+#include <render/DebugShipRenderer.h>
+#include <render/DebugTrackRenderer.h>
 
 class DebugRenderLogic : public Object
 {

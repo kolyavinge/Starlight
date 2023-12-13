@@ -1,5 +1,5 @@
 #include <cmath>
-#include "lib/Math.h"
+#include <lib/Math.h>
 
 const float Math::Pi = 3.14159265359f;
 const float Math::PiHalf = Pi / 2.0f;

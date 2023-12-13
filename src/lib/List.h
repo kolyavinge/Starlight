@@ -1,8 +1,8 @@
 #pragma once
 
-#include "lib/Exceptions.h"
-#include "lib/Object.h"
-#include "lib/Memory.h"
+#include <lib/Exceptions.h>
+#include <lib/Object.h>
+#include <lib/Memory.h>
 
 template<class T>
 class List : public Object

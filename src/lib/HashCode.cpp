@@ -1,4 +1,4 @@
-#include "lib/HashCode.h"
+#include <lib/HashCode.h>
 
 HashCode::HashCode()
 {

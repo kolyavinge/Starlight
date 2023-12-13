@@ -1,6 +1,6 @@
 #pragma once
 
-#include "lib/Object.h"
+#include <lib/Object.h>
 
 class HashCode : public Object
 {

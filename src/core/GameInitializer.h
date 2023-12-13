@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "core/Game.h"
+#include <lib/Object.h>
+#include <core/Game.h>
 
 class GameInitializer : Object
 {

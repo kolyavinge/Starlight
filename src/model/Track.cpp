@@ -1,5 +1,5 @@
-#include "calc/VectorCalculator.h"
-#include "model/Track.h"
+#include <calc/VectorCalculator.h>
+#include <model/Track.h>
 
 Track::Track()
 {

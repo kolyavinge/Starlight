@@ -1,5 +1,5 @@
-#include "calc/Vector3d.h"
-#include "core/PositionCorrector.h"
+#include <calc/Vector3d.h>
+#include <core/PositionCorrector.h>
 
 void PositionCorrector::CorrectAfterFloatOperations(Ship& ship)
 {

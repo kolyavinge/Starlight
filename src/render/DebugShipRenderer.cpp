@@ -1,7 +1,7 @@
-#include "gl/opengl.h"
-#include "lib/Math.h"
-#include "calc/Geometry.h"
-#include "render/DebugShipRenderer.h"
+#include <gl/opengl.h>
+#include <lib/Math.h>
+#include <calc/Geometry.h>
+#include <render/DebugShipRenderer.h>
 
 void DebugShipRenderer::Render(Ship& ship)
 {

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "lib/Object.h"
-#include "model/Track.h"
+#include <lib/Object.h>
+#include <model/Track.h>
 
 class DebugTrackRenderer : public Object
 {

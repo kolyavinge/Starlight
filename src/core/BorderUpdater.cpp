@@ -1,5 +1,5 @@
-#include "calc/Vector3d.h"
-#include "core/BorderUpdater.h"
+#include <calc/Vector3d.h>
+#include <core/BorderUpdater.h>
 
 void BorderUpdater::Update(Ship& ship)
 {

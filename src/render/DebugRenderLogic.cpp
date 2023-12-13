@@ -1,5 +1,5 @@
-#include "gl/opengl.h"
-#include "render/DebugRenderLogic.h"
+#include <gl/opengl.h>
+#include <render/DebugRenderLogic.h>
 
 void DebugRenderLogic::Render(Game& game)
 {

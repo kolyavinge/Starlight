@@ -1,6 +1,6 @@
 #include <cstdlib>
 #include <ctime>
-#include "lib/Random.h"
+#include <lib/Random.h>
 
 Random::Random()
 {
