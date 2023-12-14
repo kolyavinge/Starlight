@@ -1,14 +1,13 @@
 #pragma once
 
-#include <lib/Object.h>
 #include <calc/Vector3d.h>
 
-class VectorCalculator : public Object
+class VectorCalculator
 {
 public:
-    void GetNormalVector2d(
+    static void GetNormalVector2d(
         float fromX, float fromY,
         float toX, float toY,
         float* resultX, float* resultY);
-    void GetNormalVector3d(Vector3d& v1, Vector3d& v2, Vector3d& v3, Vector3d& result);
+    static void GetNormalVector3d(Vector3d& v1, Vector3d& v2, Vector3d& v3, Vector3d& result);
 };

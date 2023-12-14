@@ -35,18 +35,16 @@ void Track::InitMiddlePoints()
 
 void Track::InitNormals()
 {
-    VectorCalculator vectorCalculator;
-
     for (int pointIndex = 0; pointIndex < PointsCount - 1; pointIndex++)
     {
-        vectorCalculator.GetNormalVector3d(
+        VectorCalculator::GetNormalVector3d(
             InsidePoints[pointIndex],
             OutsidePoints[pointIndex],
             OutsidePoints[pointIndex + 1],
             Normals[pointIndex]);
     }
 
-    vectorCalculator.GetNormalVector3d(
+    VectorCalculator::GetNormalVector3d(
         InsidePoints[PointsCount - 1],
         OutsidePoints[PointsCount - 1],
         OutsidePoints[0],

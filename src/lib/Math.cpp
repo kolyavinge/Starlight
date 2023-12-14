@@ -59,3 +59,8 @@ float Math::LogE(float x)
 {
     return logf(x);
 }
+
+float Math::Round(float x, float precision)
+{
+    return std::round(x / precision) * precision;
+}

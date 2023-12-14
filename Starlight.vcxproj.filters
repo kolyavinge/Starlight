@@ -45,7 +45,7 @@
     <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\ZCalculator.h" />
-    <ClInclude Include="src\model\ShipMesh.h" />
+    <ClInclude Include="src\render\ShipMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -83,7 +83,7 @@
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\ZCalculator.cpp" />
-    <ClCompile Include="src\model\ShipMesh.cpp" />
+    <ClCompile Include="src\render\ShipMesh.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
   </ItemGroup>
 </Project>

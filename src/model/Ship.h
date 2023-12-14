@@ -11,6 +11,7 @@ public:
     static const float YLength;
     static const float ZLength;
     static const float XLengthHalf;
+    static const float YLengthHalf;
     static const float ThrottleTimeThreshold;
     static const float MaxVelocity;
     static const float TurnAngleStep;

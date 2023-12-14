@@ -18,4 +18,5 @@ public:
     static float ArcCos(float x);
     static float ArcTan(float x);
     static float LogE(float x);
+    static float Round(float x, float precision);
 };

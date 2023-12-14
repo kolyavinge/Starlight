@@ -2,10 +2,11 @@
 #include <lib/Numeric.h>
 #include <model/Ship.h>
 
-const float ShipMeasure::XLength = 1.0f;
-const float ShipMeasure::YLength = 2.0f;
-const float ShipMeasure::ZLength = 1.0f;
+const float ShipMeasure::XLength = 2.0f;
+const float ShipMeasure::YLength = 2.7f;
+const float ShipMeasure::ZLength = 0.5f;
 const float ShipMeasure::XLengthHalf = XLength / 2.0f;
+const float ShipMeasure::YLengthHalf = YLength / 2.0f;
 const float ShipMeasure::ThrottleTimeThreshold = 2.71f;
 const float ShipMeasure::MaxVelocity = 1.0f;
 const float ShipMeasure::TurnAngleStep = 0.08f;

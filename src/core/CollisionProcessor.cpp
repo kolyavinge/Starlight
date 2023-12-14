@@ -1,4 +1,5 @@
 #include <calc/Vector3d.h>
+#include <calc/VectorCalculator.h>
 #include <core/TrackCollisionDetector.h>
 #include <core/CollisionProcessor.h>
 
@@ -15,7 +16,7 @@ void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
     ship.CentralLine.Rear.Sub(frontDirection);
 
     Vector3d normal;
-    _vectorCalculator.GetNormalVector2d(
+    VectorCalculator::GetNormalVector2d(
         collisionResult.From.X, collisionResult.From.Y,
         collisionResult.To.X, collisionResult.To.Y,
         &normal.X, &normal.Y);

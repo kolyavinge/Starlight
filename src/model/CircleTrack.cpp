@@ -8,7 +8,7 @@ void CircleTrack::InternalInit()
     StraightDirection.Set(0.0f, 1.0f, 0.0f);
 
     const float insideRadius = 20.0f;
-    const float outsideRadius = 30.0f;
+    const float outsideRadius = 60.0f;
 
     float step = 2.0f * Math::Pi / (float)PointsCount;
     float radians = 0.0f;
