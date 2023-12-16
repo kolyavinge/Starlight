@@ -3,6 +3,8 @@
 
 void ZCalculator::CalculateZ(Ship& ship, Track& track)
 {
+    if (!ship.IsMoving()) return;
+
     ship.CentralLine.Front.Z = 0.0f;
     ship.CentralLine.Rear.Z = 0.0f;
     CalculateForPoint(ship.CentralLine.Front, ship.CentralLine.NormalFront, track);
