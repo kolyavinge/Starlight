@@ -9,5 +9,6 @@ public:
     void Init(Game& game);
 
 private:
-    void InitPlayer(Game& game);
+    void SetPlayerByStartFinishLine(Game& game);
+    void CalculateZ(Game& game);
 };

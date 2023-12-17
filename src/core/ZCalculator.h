@@ -8,6 +8,7 @@
 class ZCalculator : public Object
 {
 public:
+    void CalculateZIfShipMoving(Ship& ship, Track& track);
     void CalculateZ(Ship& ship, Track& track);
 
 private:

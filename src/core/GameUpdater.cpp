@@ -14,7 +14,7 @@ GameUpdater::GameUpdater(
 void GameUpdater::Update()
 {
     SaveCurrentShipsPositions();
-    _zCalculator.CalculateZ(_player, _track);
+    _zCalculator.CalculateZIfShipMoving(_player, _track);
     float timeStep = GameConstants::TimeStepMax;
     _turnAngleCalculator.CalculateTurnAngle(_player);
     _velocityCalculator.CalculateVelocity(timeStep, _player);
