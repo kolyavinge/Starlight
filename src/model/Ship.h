@@ -50,4 +50,5 @@ public:
     float GetCurrentVelocity();
     void OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d direction);
     void OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction);
+    bool IsMoving();
 };
