@@ -7,9 +7,8 @@
 
 class CollisionProcessor : public Object
 {
+    TrackCollisionDetector _trackCollisionDetector;
+
 public:
     void ProcessCollisions(Ship& ship, Track& track);
-
-private:
-    TrackCollisionDetector _trackCollisionDetector;
 };

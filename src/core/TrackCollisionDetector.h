@@ -10,8 +10,8 @@ class TrackCollisionResult : public Object
 public:
     Vector3d From;
     Vector3d To;
-    int FromIndex;
-    int ToIndex;
+    int FromIndex = 0;
+    int ToIndex = 0;
 };
 
 class TrackCollisionDetector : public Object

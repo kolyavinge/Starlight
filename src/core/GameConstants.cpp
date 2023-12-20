@@ -8,4 +8,4 @@ const unsigned int GameConstants::MainTimerMsec = 20;
 
 const float GameConstants::PointRadius = 0.01f;
 
-const char* GameConstants::Title = "Starlight";
+const char* GameConstants::Title = "Starlight\0";
