@@ -4,6 +4,7 @@
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <model/CircleTrack.h>
+#include <model/RoadTrack1.h>
 #include <core/GameUpdater.h>
 #include <core/GameCamera.h>
 #include <core/Controller.h>
@@ -12,7 +13,7 @@
 class GameManager : public Object
 {
     Ship _player;
-    CircleTrack _track;
+    RoadTrack1 _track;
     GameUpdater _gameUpdater;
     GameCamera _camera;
     Controller _playerController;

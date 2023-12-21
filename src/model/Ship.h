@@ -4,21 +4,6 @@
 #include <calc/Vector3d.h>
 #include <model/RectBorder.h>
 
-class ShipMeasure
-{
-public:
-    static const float XLength;
-    static const float YLength;
-    static const float ZLength;
-    static const float XLengthHalf;
-    static const float YLengthHalf;
-    static const float ThrottleTimeThreshold;
-    static const float MaxVelocity;
-    static const float TurnAngleStep;
-    static const float TurnAngleDecay;
-    static const float TurnAngleThreshold;
-};
-
 class ShipCentralLine : public Object
 {
 public:

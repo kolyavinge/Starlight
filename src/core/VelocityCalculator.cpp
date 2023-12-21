@@ -1,3 +1,4 @@
+#include <model/ShipMeasure.h>
 #include <core/VelocityCalculator.h>
 
 void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)

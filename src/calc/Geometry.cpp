@@ -1,9 +1,6 @@
 #include <lib/Math.h>
 #include <calc/Geometry.h>
 
-const float Geometry::_piDiv180 = Math::Pi / 180.0f;
-const float Geometry::_180DivPi = 180.0f / Math::Pi;
-
 float Geometry::DegreesToRadians(float degrees)
 {
     return degrees * _piDiv180;
@@ -12,6 +9,15 @@ float Geometry::DegreesToRadians(float degrees)
 float Geometry::RadiansToDegrees(float radians)
 {
     return radians * _180DivPi;
+}
+
+float Geometry::GetRadiansForDistance(float distance, float radius)
+{
+    float length = radius * Math::PiDouble;
+    float ratio = distance / length;
+    float angle = ratio * Math::PiDouble;
+
+    return angle;
 }
 
 float Geometry::GetFunctionValueByPoints(
@@ -39,10 +45,10 @@ void Geometry::RotatePoint2d(
     *resultY = sin * (pointX - pivotX) + cos * (pointY - pivotY) + pivotY;
 }
 
-Vector3d Geometry::RotatePoint3d(Vector3d& point, Vector3d& pivot, float radians)
+Vector3d Geometry::RotatePoint3d(Vector3d& point, Vector3d& pivotAxis, float radians)
 {
     // Формула Родрига
-    // cos * point + (pivot, point) * (1 - cos) * pivot + sin * [pivot, point]
+    // cos * point + (pivotAxis, point) * (1 - cos) * pivotAxis + sin * [pivotAxis, point]
     // a + b + c
 
     float sin = Math::Sin(radians);
@@ -51,11 +57,11 @@ Vector3d Geometry::RotatePoint3d(Vector3d& point, Vector3d& pivot, float radians
     Vector3d a(point);
     a.Mul(cos);
 
-    Vector3d b(pivot);
-    b.Mul(pivot.DotProduct(point));
+    Vector3d b(pivotAxis);
+    b.Mul(pivotAxis.DotProduct(point));
     b.Mul(1.0f - cos);
 
-    Vector3d c(pivot);
+    Vector3d c(pivotAxis);
     c.VectorProduct(point);
     c.Mul(sin);
 

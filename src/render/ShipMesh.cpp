@@ -1,6 +1,7 @@
 #include <gl/opengl.h>
 #include <lib/Math.h>
 #include <calc/Geometry.h>
+#include <model/ShipMeasure.h>
 #include <render/ShipMesh.h>
 
 //#define GL_POLYGON_TYPE GL_POLYGON
@@ -223,7 +224,7 @@ float ShipMesh::GetAngleBetweenShipAndYStraight(Ship& ship)
     Vector3d straight(0.0f, 1.0f, 0.0f);
     float cosAlpha = v.DotProduct(straight);
     float alpha = Math::ArcCos(cosAlpha);
-    //if (v.X > 0.0f) alpha = -alpha;
+    if (v.X > 0.0f) alpha = -alpha;
 
     return alpha;
 }

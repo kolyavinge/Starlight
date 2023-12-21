@@ -46,6 +46,7 @@
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\ZCalculator.h" />
     <ClInclude Include="src\render\ShipMesh.h" />
+    <ClInclude Include="src\model\ShipMeasure.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

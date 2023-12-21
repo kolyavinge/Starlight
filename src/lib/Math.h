@@ -3,9 +3,9 @@
 class Math
 {
 public:
-    static const float Pi;
-    static const float PiHalf;
-    static const float PiDouble;
+    inline static const float Pi = 3.14159265359f;
+    inline static const float PiHalf = Pi / 2.0f;
+    inline static const float PiDouble = 2.0f * Pi;
 
     static float Min(float a, float b);
     static float Max(float a, float b);

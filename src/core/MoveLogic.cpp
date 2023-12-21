@@ -3,6 +3,7 @@
 #include <lib/Numeric.h>
 #include <calc/Geometry.h>
 #include <calc/Vector3d.h>
+#include <model/ShipMeasure.h>
 #include <core/MoveLogic.h>
 
 void MoveLogic::MoveShip(float timeStep, Ship& ship)

@@ -1,4 +1,5 @@
 #include <calc/Vector3d.h>
+#include <model/ShipMeasure.h>
 #include <core/BorderUpdater.h>
 
 void BorderUpdater::Update(Ship& ship)

@@ -1,3 +1,4 @@
+#include <model/ShipMeasure.h>
 #include <core/TurnAngleCalculator.h>
 
 void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)

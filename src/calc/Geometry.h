@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/Math.h>
 #include <calc/Vector3d.h>
 
 class Geometry
@@ -7,6 +8,7 @@ class Geometry
 public:
     static float DegreesToRadians(float degrees);
     static float RadiansToDegrees(float radians);
+    static float GetRadiansForDistance(float distance, float radius);
     static float GetFunctionValueByPoints(
         float x0, float x1,
         float y0, float y1,
@@ -19,9 +21,9 @@ public:
         float radians,
         float* resultX,
         float* resultY);
-    static Vector3d RotatePoint3d(Vector3d& point, Vector3d& pivot, float radians);
+    static Vector3d RotatePoint3d(Vector3d& point, Vector3d& pivotAxis, float radians);
 
 private:
-    static const float _piDiv180;
-    static const float _180DivPi;
+    inline static const float _piDiv180 = Math::Pi / 180.0f;
+    inline static const float _180DivPi = 180.0f / Math::Pi;
 };
