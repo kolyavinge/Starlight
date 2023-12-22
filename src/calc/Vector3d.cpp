@@ -1,3 +1,4 @@
+#include <lib/Exceptions.h>
 #include <lib/Math.h>
 #include <lib/Numeric.h>
 #include <lib/HashCode.h>
@@ -47,10 +48,8 @@ bool Vector3d::IsZero()
 void Vector3d::SetLength(float newLength)
 {
     float length = GetLength();
-    if (length > 0.0f)
-    {
-        Mul(newLength / length);
-    }
+    ThrowExceptionIfZeroLength(length);
+    Mul(newLength / length);
 }
 
 void Vector3d::Set(Vector3d& v)
@@ -96,14 +95,8 @@ void Vector3d::Div(float a)
 void Vector3d::Normalize()
 {
     float length = GetLength();
-    if (length > 0.0f)
-    {
-        Div(length);
-    }
-    else
-    {
-        X = Y = Z = 0;
-    }
+    ThrowExceptionIfZeroLength(length);
+    Div(length);
 }
 
 float Vector3d::DotProduct(Vector3d& v)
@@ -128,4 +121,12 @@ void Vector3d::Reflect(Vector3d& normal)
     X -= product * normal.X;
     Y -= product * normal.Y;
     Z -= product * normal.Z;
+}
+
+void Vector3d::ThrowExceptionIfZeroLength(float length)
+{
+    if (Numeric::FloatEquals(length, 0.0f))
+    {
+        throw ObjectStateException();
+    }
 }

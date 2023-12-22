@@ -26,4 +26,7 @@ public:
     float DotProduct(Vector3d& v);
     void VectorProduct(Vector3d& v);
     void Reflect(Vector3d& normal);
+
+private:
+    void ThrowExceptionIfZeroLength(float length);
 };
