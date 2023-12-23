@@ -24,6 +24,7 @@
     <ClInclude Include="external\gl\freeglut_std.h" />
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
@@ -47,6 +48,7 @@
     <ClInclude Include="src\lib\Numeric.h" />
     <ClInclude Include="src\model\CircleTrack.h" />
     <ClInclude Include="src\model\RectBorder.h" />
+    <ClInclude Include="src\model\RoadTrack1.h" />
     <ClInclude Include="src\model\Ship.h" />
     <ClInclude Include="src\calc\SegmentIntersector.h" />
     <ClInclude Include="src\lib\Array.h" />
@@ -66,16 +68,17 @@
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\core\GameCamera.cpp" />
-    <ClCompile Include="src\core\GameConstants.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\ZCalculator.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
+    <ClCompile Include="src\model\RoadTrack1.cpp" />
     <ClCompile Include="src\render\ShipMesh.cpp" />
     <ClCompile Include="src\render\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\DebugTrackRenderer.cpp" />

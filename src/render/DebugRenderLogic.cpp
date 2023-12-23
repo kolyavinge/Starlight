@@ -30,7 +30,7 @@ void DebugRenderLogic::RenderAxis()
 
 void DebugRenderLogic::RenderGrid()
 {
-    float length = 100.0f;
+    float length = 1000.0f;
 
     glColor3f(0.1f, 0.1f, 0.1f);
     glBegin(GL_LINES);

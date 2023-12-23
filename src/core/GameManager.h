@@ -2,8 +2,6 @@
 
 #include <lib/Object.h>
 #include <model/Ship.h>
-#include <model/Track.h>
-#include <model/CircleTrack.h>
 #include <model/RoadTrack1.h>
 #include <core/GameUpdater.h>
 #include <core/GameCamera.h>

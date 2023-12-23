@@ -49,4 +49,12 @@ void Track::InitNormals()
         OutsidePoints[PointsCount - 1],
         OutsidePoints[0],
         Normals[PointsCount - 1]);
+
+    if (OutsidePoints[0].X < InsidePoints[0].X)
+    {
+        for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
+        {
+            Normals[pointIndex].Mul(-1.0f);
+        }
+    }
 }

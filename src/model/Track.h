@@ -4,8 +4,8 @@
 #include <lib/Array.h>
 #include <calc/Vector3d.h>
 
-#define TrackMaxPoints 1000
-#define TrackMaxMiddlePoints 500
+#define TrackMaxPoints 10000
+#define TrackMaxMiddlePoints 1000
 
 class TrackPoints : public Array<Vector3d, TrackMaxPoints> { };
 

@@ -46,6 +46,8 @@
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\ZCalculator.h" />
     <ClInclude Include="src\render\ShipMesh.h" />
+    <ClInclude Include="src\anx\TrackBuilder.h" />
+    <ClInclude Include="src\model\RoadTrack1.h" />
     <ClInclude Include="src\model\ShipMeasure.h" />
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +67,6 @@
     <ClCompile Include="src\core\GameUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />
-    <ClCompile Include="src\core\GameConstants.cpp" />
     <ClCompile Include="src\core\VelocityCalculator.cpp" />
     <ClCompile Include="src\calc\Geometry.cpp" />
     <ClCompile Include="src\calc\Physics.cpp" />
@@ -86,5 +87,7 @@
     <ClCompile Include="src\core\ZCalculator.cpp" />
     <ClCompile Include="src\render\ShipMesh.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
+    <ClCompile Include="src\anx\TrackBuilder.cpp" />
+    <ClCompile Include="src\model\RoadTrack1.cpp" />
   </ItemGroup>
 </Project>

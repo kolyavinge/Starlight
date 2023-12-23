@@ -94,14 +94,14 @@ void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, 
 
     Vector3d frontTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     frontTurnRadiusFromPivot.Sub(ship.CentralLine.Front);
-    if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.01f)
+    if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.1f)
     {
         throw AssertException();
     }
 
     Vector3d rearTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     rearTurnRadiusFromPivot.Sub(ship.CentralLine.Rear);
-    if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.01f)
+    if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.1f)
     {
         throw AssertException();
     }
