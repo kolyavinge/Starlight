@@ -10,4 +10,8 @@ public:
     Vector3d UpRight;
     Vector3d DownLeft;
     Vector3d DownRight;
+
+    float GetAngleByX();
+    float GetAngleByY(Vector3d& normal);
+    float GetAngleByZ();
 };

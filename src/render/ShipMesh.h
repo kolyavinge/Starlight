@@ -21,5 +21,4 @@ private:
     void RenderRearSmallWings();
     void RenderTurbines();
     void RenderTurbine();
-    float GetAngleBetweenShipAndYStraight(Ship& ship);
 };

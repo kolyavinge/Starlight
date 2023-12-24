@@ -1,7 +1,7 @@
 #include <gl/opengl.h>
-#include <lib/Math.h>
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
+#include <model/Ship.h>
 #include <render/ShipMesh.h>
 
 //#define GL_POLYGON_TYPE GL_POLYGON
@@ -23,8 +23,12 @@ void ShipMesh::Render(Ship& ship)
 void ShipMesh::SetPosition(Ship& ship)
 {
     glTranslatef(ship.Border.DownLeft);
-    float angle = Geometry::RadiansToDegrees(GetAngleBetweenShipAndYStraight(ship));
-    glRotatef(angle, 0.0f, 0.0f, 1.0f);
+    //float angleX = Geometry::RadiansToDegrees(ship.Border.GetAngleByX(ship.CentralLine.NormalRear));
+    //glRotatef(angleX, 1.0f, 0.0f, 0.0f);
+    float angleY = Geometry::RadiansToDegrees(ship.Border.GetAngleByY(ship.CentralLine.NormalRear));
+    glRotatef(angleY, 0.0f, 1.0f, 0.0f);
+    float angleZ = Geometry::RadiansToDegrees(ship.Border.GetAngleByZ());
+    glRotatef(angleZ, 0.0f, 0.0f, 1.0f);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
 }
 
@@ -214,17 +218,4 @@ void ShipMesh::RenderTurbines()
 
 void ShipMesh::RenderTurbine()
 {
-}
-
-float ShipMesh::GetAngleBetweenShipAndYStraight(Ship& ship)
-{
-    Vector3d v(ship.CentralLine.Front);
-    v.Sub(ship.CentralLine.Rear);
-    v.Normalize();
-    Vector3d straight(0.0f, 1.0f, 0.0f);
-    float cosAlpha = v.DotProduct(straight);
-    float alpha = Math::ArcCos(cosAlpha);
-    if (v.X > 0.0f) alpha = -alpha;
-
-    return alpha;
 }

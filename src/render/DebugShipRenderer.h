@@ -16,5 +16,4 @@ private:
     void RenderTurnAngle(Ship& ship);
     void RenderBorder(Ship& ship);
     void RenderBorderPoints(Ship& ship);
-    float GetAngleBetweenShipAndYStraight(Ship& ship);
 };
