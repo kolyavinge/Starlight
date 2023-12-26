@@ -49,6 +49,7 @@
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\model\RoadTrack1.h" />
     <ClInclude Include="src\model\ShipMeasure.h" />
+    <ClInclude Include="src\calc\Quaternion.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -90,5 +91,6 @@
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\model\RoadTrack1.cpp" />
     <ClCompile Include="src\model\RectBorder.cpp" />
+    <ClCompile Include="src\calc\Quaternion.cpp" />
   </ItemGroup>
 </Project>
