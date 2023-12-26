@@ -1,3 +1,4 @@
+#include <lib/Exceptions.h>
 #include <lib/Math.h>
 #include <lib/Numeric.h>
 #include <calc/Vector3d.h>
@@ -5,12 +6,22 @@
 
 Quaternion::Quaternion()
 {
-    SetUnit();
+    SetIdentity();
+}
+
+Quaternion::Quaternion(float w, float x, float y, float z)
+{
+    SetComponents(w, x, y, z);
 }
 
 Quaternion::Quaternion(Vector3d& from, Vector3d& to)
 {
     SetVectors(from, to);
+}
+
+Quaternion::Quaternion(float radians, Vector3d pivot)
+{
+    SetAngleAndPivot(radians, pivot);
 }
 
 float Quaternion::GetMagnitude()
@@ -27,7 +38,7 @@ void Quaternion::GetAngleAndPivot(float& radians, Vector3d& pivot)
     pivot.Div(sinHalf);
 }
 
-void Quaternion::SetUnit()
+void Quaternion::SetIdentity()
 {
     SetComponents(1.0f, 0.0f, 0.0f, 0.0f);
 }
@@ -42,37 +53,31 @@ void Quaternion::SetComponents(float w, float x, float y, float z)
 
 void Quaternion::SetVectors(Vector3d& from, Vector3d& to)
 {
-    float dotProduct = from.DotProduct(to);
-    if (Numeric::FloatEquals(dotProduct, 0.0f))
+    if (from.IsZero() || to.IsZero())
     {
-        SetUnit();
+        SetIdentity();
         return;
     }
-    float cosAlpha = dotProduct / (from.GetLength() * to.GetLength());
-    if (cosAlpha < -1.0f + 0.0001f)
+    float dotProduct = from.DotProduct(to);
+    float cosAlpha = dotProduct / (from.GetLength() * to.GetLength()); // normalized vectors
+    if (cosAlpha > 1.0f) // float issues
     {
-        Vector3d pivot(1.0f, 0.0f, 0.0f);
-        pivot.VectorProduct(from);
-        if (pivot.IsZero())
-        {
-            pivot.Set(0.0f, 0.0f, 1.0f);
-            pivot.VectorProduct(from);
-        }
-        SetAngleAndPivot(Math::Pi, pivot);
+        cosAlpha = 1.0f;
+    }
+    else if (cosAlpha < -1.0f)
+    {
+        cosAlpha = -1.0f;
+    }
+    float alpha = Math::ArcCos(cosAlpha);
+    Vector3d pivot(from);
+    pivot.VectorProduct(to);
+    if (!pivot.IsZero())
+    {
+        SetAngleAndPivot(alpha, pivot);
     }
     else
     {
-        float alpha = Math::ArcCos(cosAlpha);
-        Vector3d pivot(from);
-        pivot.VectorProduct(to);
-        if (!pivot.IsZero())
-        {
-            SetAngleAndPivot(alpha, pivot);
-        }
-        else
-        {
-            SetUnit();
-        }
+        SetIdentity();
     }
 }
 
@@ -88,18 +93,40 @@ void Quaternion::SetAngleAndPivot(float radians, Vector3d pivot)
 void Quaternion::Normalize()
 {
     float mg = GetMagnitude();
+    if (Numeric::FloatEquals(mg, 0.0f)) throw ObjectStateException();
     _w /= mg;
     _x /= mg;
     _y /= mg;
     _z /= mg;
 }
 
+void Quaternion::Inverse()
+{
+    _x = -_x;
+    _y = -_y;
+    _z = -_z;
+}
+
 void Quaternion::Mul(Quaternion& q2)
 {
     Quaternion& q1 = *this;
+    float w = (q2._w * q1._w) - (q2._x * q1._x) - (q2._y * q1._y) - (q2._z * q1._z);
     float x = (q2._w * q1._x) + (q2._x * q1._w) + (q2._y * q1._z) - (q2._z * q1._y);
     float y = (q2._w * q1._y) - (q2._x * q1._z) + (q2._y * q1._w) + (q2._z * q1._x);
     float z = (q2._w * q1._z) + (q2._x * q1._y) - (q2._y * q1._x) + (q2._z * q1._w);
-    float w = (q2._w * q1._w) - (q2._x * q1._x) - (q2._y * q1._y) - (q2._z * q1._z);
     SetComponents(w, x, y, z);
+}
+
+void Quaternion::RotatePoint(Vector3d& point)
+{
+    Quaternion p(0.0f, point.X, point.Y, point.Z);
+
+    Quaternion res(*this);
+    res.Inverse();
+    res.Mul(p);
+    res.Mul(*this);
+
+    point.X = res._x;
+    point.Y = res._y;
+    point.Z = res._z;
 }

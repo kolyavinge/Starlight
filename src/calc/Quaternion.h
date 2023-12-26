@@ -9,14 +9,18 @@ class Quaternion : public Object
 
 public:
     Quaternion();
+    Quaternion(float w, float x, float y, float z);
     Quaternion(Vector3d& from, Vector3d& to);
+    Quaternion(float radians, Vector3d pivot);
 
     float GetMagnitude();
     void GetAngleAndPivot(float& radians, Vector3d& pivot);
-    void SetUnit();
+    void SetIdentity();
     void SetComponents(float w, float x, float y, float z);
     void SetVectors(Vector3d& from, Vector3d& to);
     void SetAngleAndPivot(float radians, Vector3d pivot);
     void Normalize();
+    void Inverse();
     void Mul(Quaternion& q2);
+    void RotatePoint(Vector3d& point);
 };
