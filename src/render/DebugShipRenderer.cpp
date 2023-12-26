@@ -26,12 +26,12 @@ void DebugShipRenderer::RenderMiddleLine(Ship& ship)
 
 void DebugShipRenderer::RenderTurnAngle(Ship& ship)
 {
-    float turnAngle = ship.Border.GetAngleByZ();
+    float angleBetween = GetAngleBetweenShipAndYStraight(ship);
 
     glPushMatrix();
 
     glTranslatef(ship.CentralLine.Rear);
-    glRotatef(Geometry::RadiansToDegrees(turnAngle + ship.TurnAngleRadians), 0.0f, 0.0f, 1.0f);
+    glRotatef(Geometry::RadiansToDegrees(angleBetween + ship.TurnAngleRadians), 0.0f, 0.0f, 1.0f);
 
     glColor3f(0.0f, 0.6f, 0.0f);
 
@@ -83,4 +83,17 @@ void DebugShipRenderer::RenderBorderPoints(Ship& ship)
 
     glEnd();
     glPopMatrix();
+}
+
+float DebugShipRenderer::GetAngleBetweenShipAndYStraight(Ship& ship)
+{
+    Vector3d v(ship.CentralLine.Front);
+    v.Sub(ship.CentralLine.Rear);
+    v.Normalize();
+    Vector3d straight(0.0f, 1.0f, 0.0f);
+    float cosAlpha = v.DotProduct(straight);
+    float alpha = Math::ArcCos(cosAlpha);
+    if (v.X > 0.0f) alpha = -alpha;
+
+    return alpha;
 }

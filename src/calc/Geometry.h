@@ -24,6 +24,6 @@ public:
     static Vector3d RotatePoint3d(Vector3d& point, Vector3d& pivotAxis, float radians);
 
 private:
-    inline static const float _piDiv180 = Math::Pi / 180.0f;
-    inline static const float _180DivPi = 180.0f / Math::Pi;
+    inline static const float _degToRad = Math::Pi / 180.0f;
+    inline static const float _radToDeg = 180.0f / Math::Pi;
 };

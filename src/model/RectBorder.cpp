@@ -1,44 +1,22 @@
-#include <lib/Math.h>
+#include <calc/Quaternion.h>
 #include <calc/Vector3d.h>
 #include <model/RectBorder.h>
 
-float RectBorder::GetAngleByX()
+void RectBorder::GetRotation(Vector3d& normal, float& radians, Vector3d& pivot)
 {
-    Vector3d v(UpLeft);
-    v.Sub(DownLeft);
-    if (v.IsZero()) return 0.0f;
-    v.Normalize();
-    Vector3d straight(0.0f, 1.0f, 0.0f);
-    float cosAlpha = v.DotProduct(straight);
-    float alpha = Math::ArcCos(cosAlpha);
-    if (v.X > 0.0f) alpha = -alpha;
+    Vector3d vy(UpLeft);
+    vy.Sub(DownLeft);
 
-    return alpha;
-}
+    Vector3d vz(normal);
 
-float RectBorder::GetAngleByY(Vector3d& normal)
-{
-    Vector3d v(normal);
-    if (v.IsZero()) return 0.0f;
-    v.Normalize();
-    Vector3d straight(0.0f, 0.0f, 1.0f);
-    float cosAlpha = v.DotProduct(straight);
-    float alpha = Math::ArcCos(cosAlpha);
-    if (v.X < 0.0f) alpha = -alpha;
+    Vector3d y(0, 1, 0);
+    Vector3d z(0, 0, 1);
 
-    return alpha;
-}
+    Quaternion qy(y, vy);
+    Quaternion qz(z, vz);
 
-float RectBorder::GetAngleByZ()
-{
-    Vector3d v(UpLeft);
-    v.Sub(DownLeft);
-    if (v.IsZero()) return 0.0f;
-    v.Normalize();
-    Vector3d straight(0.0f, 1.0f, 0.0f);
-    float cosAlpha = v.DotProduct(straight);
-    float alpha = Math::ArcCos(cosAlpha);
-    if (v.X > 0.0f) alpha = -alpha;
+    Quaternion res(qz);
+    res.Mul(qy);
 
-    return alpha;
+    res.GetAngleAndPivot(radians, pivot);
 }

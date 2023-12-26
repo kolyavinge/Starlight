@@ -22,13 +22,11 @@ void ShipMesh::Render(Ship& ship)
 
 void ShipMesh::SetPosition(Ship& ship)
 {
+    float radians;
+    Vector3d pivot;
+    ship.Border.GetRotation(ship.CentralLine.NormalRear, radians, pivot);
     glTranslatef(ship.Border.DownLeft);
-    //float angleX = Geometry::RadiansToDegrees(ship.Border.GetAngleByX(ship.CentralLine.NormalRear));
-    //glRotatef(angleX, 1.0f, 0.0f, 0.0f);
-    float angleY = Geometry::RadiansToDegrees(ship.Border.GetAngleByY(ship.CentralLine.NormalRear));
-    glRotatef(angleY, 0.0f, 1.0f, 0.0f);
-    float angleZ = Geometry::RadiansToDegrees(ship.Border.GetAngleByZ());
-    glRotatef(angleZ, 0.0f, 0.0f, 1.0f);
+    glRotatef(Geometry::RadiansToDegrees(radians), pivot.X, pivot.Y, pivot.Z);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
 }
 

@@ -3,12 +3,12 @@
 
 float Geometry::DegreesToRadians(float degrees)
 {
-    return degrees * _piDiv180;
+    return degrees * _degToRad;
 }
 
 float Geometry::RadiansToDegrees(float radians)
 {
-    return radians * _180DivPi;
+    return radians * _radToDeg;
 }
 
 float Geometry::GetRadiansForDistance(float distance, float radius)
