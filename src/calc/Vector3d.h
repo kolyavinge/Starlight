@@ -28,5 +28,5 @@ public:
     void Reflect(Vector3d& normal);
 
 private:
-    void ThrowExceptionIfZeroLength(float length);
+    void ErrorIfZeroLength(float length);
 };

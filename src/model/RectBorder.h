@@ -11,5 +11,5 @@ public:
     Vector3d DownLeft;
     Vector3d DownRight;
 
-    void GetRotation(Vector3d& normal, float& radians, Vector3d& pivot);
+    void GetAngleAndPivot(float& radians, Vector3d& pivot);
 };

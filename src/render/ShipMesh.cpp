@@ -24,7 +24,7 @@ void ShipMesh::SetPosition(Ship& ship)
 {
     float radians;
     Vector3d pivot;
-    ship.Border.GetRotation(ship.CentralLine.NormalRear, radians, pivot);
+    ship.Border.GetAngleAndPivot(radians, pivot);
     glTranslatef(ship.Border.DownLeft);
     glRotatef(Geometry::RadiansToDegrees(radians), pivot.X, pivot.Y, pivot.Z);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);

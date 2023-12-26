@@ -48,7 +48,7 @@ bool Vector3d::IsZero()
 void Vector3d::SetLength(float newLength)
 {
     float length = GetLength();
-    ThrowExceptionIfZeroLength(length);
+    ErrorIfZeroLength(length);
     Mul(newLength / length);
 }
 
@@ -95,7 +95,7 @@ void Vector3d::Div(float a)
 void Vector3d::Normalize()
 {
     float length = GetLength();
-    ThrowExceptionIfZeroLength(length);
+    ErrorIfZeroLength(length);
     Div(length);
 }
 
@@ -123,7 +123,7 @@ void Vector3d::Reflect(Vector3d& normal)
     Z -= product * normal.Z;
 }
 
-void Vector3d::ThrowExceptionIfZeroLength(float length)
+void Vector3d::ErrorIfZeroLength(float length)
 {
     if (Numeric::FloatEquals(length, 0.0f))
     {
