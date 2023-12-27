@@ -17,7 +17,7 @@ Vector3d::Vector3d(float x, float y, float z)
 bool Vector3d::Equals(Object& a)
 {
     Vector3d& v = (Vector3d&)a;
-    return (X == v.X) && (Y == v.Y) && (Z == v.Z);
+    return Numeric::FloatEquals(X, v.X) && Numeric::FloatEquals(Y, v.Y) && Numeric::FloatEquals(Z, v.Z);
 }
 
 int Vector3d::GetHashCode()
