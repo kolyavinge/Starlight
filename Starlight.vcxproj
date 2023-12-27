@@ -25,6 +25,7 @@
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
+    <ClInclude Include="src\calc\PlaneEquation.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
@@ -71,6 +72,7 @@
   <ItemGroup>
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
+    <ClCompile Include="src\calc\PlaneEquation.cpp" />
     <ClCompile Include="src\calc\Quaternion.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
