@@ -8,6 +8,9 @@ enum Direction { Left, Right };
 
 class TrackBuilder : public Object
 {
+    inline static const float _moveStep = 1.0f;
+    inline static const float _turnStep = 0.1f;
+
     TrackPoints& _insidePoints;
     TrackPoints& _outsidePoints;
     int& _pointsCount;
@@ -23,6 +26,7 @@ public:
     void Move(float distance);
     void TurnLeft(float degrees, float radius);
     void TurnRight(float degrees, float radius);
+    void ConnectStartFinish();
 
 private:
     void Turn(Direction direction, float degrees, float radius);

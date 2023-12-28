@@ -26,5 +26,5 @@ void RoadTrack1::InternalInit()
     builder.TurnRight(90.0f, 10.0f);
     builder.Move(50.0f);
     builder.TurnRight(90.0f, 10.0f);
-    builder.Move(35.0f);
+    builder.ConnectStartFinish();
 }
