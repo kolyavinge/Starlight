@@ -14,7 +14,7 @@ public:
     int GetHashCode() override;
     float GetLength();
     float GetLengthSquared();
-    bool IsZero();
+    bool IsZero(float eps = 1e-7f);
     void SetLength(float newLength);
     void Set(Vector3d& v);
     void Set(float x, float y, float z);

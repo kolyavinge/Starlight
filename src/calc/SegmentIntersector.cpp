@@ -12,8 +12,8 @@ bool SegmentIntersector::AreSegmentsIntersected(
     if (!_lineIntersector.GetIntersectPoint(from1X, from1Y, to1X, to1Y, from2X, from2Y, to2X, to2Y, &resultX, &resultY)) return false;
 
     return
-        IsPointInSegment(from1X, from1Y, to1X, to1Y, resultX, resultY, 1E-5f) &&
-        IsPointInSegment(from2X, from2Y, to2X, to2Y, resultX, resultY, 1E-5f);
+        IsPointInSegment(from1X, from1Y, to1X, to1Y, resultX, resultY, 1e-5f) &&
+        IsPointInSegment(from2X, from2Y, to2X, to2Y, resultX, resultY, 1e-5f);
 }
 
 bool SegmentIntersector::IsPointIntersected(
@@ -22,7 +22,7 @@ bool SegmentIntersector::IsPointIntersected(
     float pointX, float pointY,
     float pointRadius)
 {
-    const float delta = 1E-5f;
+    const float delta = 1e-5f;
 
     // двигаем точку в начало координат
     float lineFromX = fromX - pointX;

@@ -40,9 +40,12 @@ float Vector3d::GetLengthSquared()
     return X * X + Y * Y + Z * Z;
 }
 
-bool Vector3d::IsZero()
+bool Vector3d::IsZero(float eps)
 {
-    return Numeric::FloatEquals(X, 0.0f) && Numeric::FloatEquals(Y, 0.0f) && Numeric::FloatEquals(Z, 0.0f);
+    return
+        Numeric::FloatEquals(X, 0.0f, eps) &&
+        Numeric::FloatEquals(Y, 0.0f, eps) &&
+        Numeric::FloatEquals(Z, 0.0f, eps);
 }
 
 void Vector3d::SetLength(float newLength)

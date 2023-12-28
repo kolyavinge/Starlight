@@ -1,7 +1,7 @@
 #include <lib/Math.h>
 #include <lib/Numeric.h>
 
-bool Numeric::FloatEquals(float a, float b)
+bool Numeric::FloatEquals(float a, float b, float eps)
 {
-    return Math::Abs(a - b) < 1E-7f;
+    return Math::Abs(a - b) < eps;
 }
