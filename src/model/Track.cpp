@@ -14,6 +14,27 @@ void Track::Init()
     InitNormals();
 }
 
+int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point)
+{
+    int result = 0;
+    Vector3d v(trackPoints[0]);
+    v.Sub(point);
+    float minLength = v.GetLengthSquared();
+    for (int i = 1; i < PointsCount; i++)
+    {
+        v = trackPoints[i];
+        v.Sub(point);
+        float length = v.GetLengthSquared();
+        if (length < minLength)
+        {
+            minLength = length;
+            result = i;
+        }
+    }
+
+    return result;
+}
+
 void Track::InitMiddlePoints()
 {
     for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
@@ -40,14 +61,14 @@ void Track::InitNormals()
         VectorCalculator::GetNormalVector3d(
             InsidePoints[pointIndex],
             OutsidePoints[pointIndex],
-            OutsidePoints[pointIndex + 1],
+            InsidePoints[pointIndex + 1],
             Normals[pointIndex]);
     }
 
     VectorCalculator::GetNormalVector3d(
         InsidePoints[PointsCount - 1],
         OutsidePoints[PointsCount - 1],
-        OutsidePoints[0],
+        InsidePoints[0],
         Normals[PointsCount - 1]);
 
     if (OutsidePoints[0].X < InsidePoints[0].X)

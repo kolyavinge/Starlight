@@ -13,5 +13,4 @@ public:
 
 private:
     void CalculateForPoint(Track& track, Vector3d& point, Vector3d& normal);
-    int GetNearestInsideTrackPointIndex(Track& track, Vector3d& point);
 };

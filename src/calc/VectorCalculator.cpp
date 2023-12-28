@@ -41,16 +41,11 @@ void VectorCalculator::GetNormalVector2d(
     }
 }
 
-void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d& right, Vector3d& front, Vector3d& result)
+void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d right, Vector3d front, Vector3d& result)
 {
-    Vector3d toRight(right);
-    toRight.Sub(center);
-
-    Vector3d toFront(front);
-    toFront.Sub(center);
-
-    toRight.VectorProduct(toFront);
-    toRight.Normalize();
-
-    result.Set(toRight);
+    right.Sub(center);
+    front.Sub(center);
+    right.VectorProduct(front);
+    right.Normalize();
+    result.Set(right);
 }

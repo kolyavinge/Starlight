@@ -23,6 +23,6 @@ public:
 
 private:
     bool DetectCollisions(Vector3d& point, Track& track, TrackCollisionResult& result);
-    bool DetectCollisions(Vector3d& point, TrackPoints& trackPoints, int pointsCount, TrackCollisionResult& result);
-    bool DetectCollisions(Vector3d& from, Vector3d& to, Vector3d& point);
+    bool DetectCollisions(Vector3d& point, Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, TrackCollisionResult& result);
+    bool DetectCollisions(Vector3d& from, Vector3d to, Vector3d opposite, Vector3d point);
 };

@@ -10,6 +10,7 @@ void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
 
     Vector3d frontDirection(ship.CentralLine.Front);
     frontDirection.Sub(ship.PrevCentralLine.Front);
+    if (frontDirection.IsZero()) return;
 
     ship.CentralLine = ship.PrevCentralLine;
     ship.CentralLine.Front.Sub(frontDirection);

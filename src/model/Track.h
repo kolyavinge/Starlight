@@ -26,6 +26,7 @@ public:
 
     void Init();
     virtual void InternalInit() = 0;
+    int GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point);
 
 private:
     void InitMiddlePoints();

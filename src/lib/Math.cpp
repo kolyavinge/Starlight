@@ -1,4 +1,5 @@
 #include <cmath>
+#include <lib/Exceptions.h>
 #include <lib/Math.h>
 
 float Math::Min(float a, float b)
@@ -38,11 +39,13 @@ float Math::Tan(float radians)
 
 float Math::ArcSin(float x)
 {
+    if (x > 1.0f || x < -1.0f) throw ArgumentException();
     return asinf(x);
 }
 
 float Math::ArcCos(float x)
 {
+    if (x > 1.0f || x < -1.0f) throw ArgumentException();
     return acosf(x);
 }
 

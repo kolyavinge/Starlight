@@ -1,4 +1,3 @@
-#include <core/GameConstants.h>
 #include <core/TrackCollisionDetector.h>
 
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track, TrackCollisionResult& result)
@@ -13,35 +12,26 @@ bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track, TrackCol
 bool TrackCollisionDetector::DetectCollisions(Vector3d& point, Track& track, TrackCollisionResult& result)
 {
     return
-        DetectCollisions(point, track.InsidePoints, track.PointsCount, result) ||
-        DetectCollisions(point, track.OutsidePoints, track.PointsCount, result);
+        DetectCollisions(point, track, track.InsidePoints, track.OutsidePoints, result) ||
+        DetectCollisions(point, track, track.OutsidePoints, track.InsidePoints, result);
 }
 
-bool TrackCollisionDetector::DetectCollisions(Vector3d& point, TrackPoints& trackPoints, int pointsCount, TrackCollisionResult& result)
+bool TrackCollisionDetector::DetectCollisions(
+    Vector3d& point, Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, TrackCollisionResult& result)
 {
-    for (int i = 0; i < pointsCount - 1; i++)
-    {
-        Vector3d& from = trackPoints[i];
-        Vector3d& to = trackPoints[i + 1];
-        if (DetectCollisions(from, to, point))
-        {
-            result.From = from;
-            result.To = to;
-            result.FromIndex = i;
-            result.ToIndex = i + 1;
+    int fromIndex = track.GetNearestTrackPointIndex(trackPoints, point);
+    int toIndex = fromIndex + 1;
+    if (toIndex == track.PointsCount) toIndex = 0;
 
-            return true;
-        }
-    }
-
-    Vector3d& from = trackPoints[pointsCount - 1];
-    Vector3d& to = trackPoints[0];
-    if (DetectCollisions(from, to, point))
+    Vector3d& from = trackPoints[fromIndex];
+    Vector3d& to = trackPoints[toIndex];
+    Vector3d& opposite = oppositeTrackPoints[fromIndex];
+    if (DetectCollisions(from, to, opposite, point))
     {
         result.From = from;
         result.To = to;
-        result.FromIndex = pointsCount - 1;
-        result.ToIndex = 0;
+        result.FromIndex = fromIndex;
+        result.ToIndex = toIndex;
 
         return true;
     }
@@ -49,11 +39,26 @@ bool TrackCollisionDetector::DetectCollisions(Vector3d& point, TrackPoints& trac
     return false;
 }
 
-bool TrackCollisionDetector::DetectCollisions(Vector3d& from, Vector3d& to, Vector3d& point)
+bool TrackCollisionDetector::DetectCollisions(Vector3d& center, Vector3d edge, Vector3d inside, Vector3d point)
 {
-    return _segmentIntersector.IsPointIntersected(
-        from.X, from.Y,
-        to.X, to.Y,
-        point.X, point.Y,
-        GameConstants::PointRadius);
+    point.Sub(center);
+    if (point.IsZero()) return true;
+
+    edge.Sub(center);
+    inside.Sub(center);
+
+    Vector3d checkCollision(point);
+    checkCollision.VectorProduct(edge);
+    if (checkCollision.IsZero()) return true;
+    checkCollision.Normalize();
+
+    Vector3d noCollision(inside);
+    noCollision.VectorProduct(edge);
+    noCollision.Normalize();
+
+    Vector3d diff(noCollision);
+    diff.Sub(checkCollision);
+    bool collided = diff.GetLengthSquared() > 1.0f;
+
+    return collided;
 }
