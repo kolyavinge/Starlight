@@ -1,3 +1,4 @@
+#include <lib/Exceptions.h>
 #include <calc/Vector3d.h>
 #include <calc/VectorCalculator.h>
 #include <core/TrackCollisionDetector.h>
@@ -10,19 +11,22 @@ void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
 
     Vector3d frontDirection(ship.CentralLine.Front);
     frontDirection.Sub(ship.PrevCentralLine.Front);
-    if (frontDirection.IsZero()) return;
+    if (frontDirection.IsZero()) throw AssertException();
 
     ship.CentralLine = ship.PrevCentralLine;
-    ship.CentralLine.Front.Sub(frontDirection);
-    ship.CentralLine.Rear.Sub(frontDirection);
 
     Vector3d normal;
     VectorCalculator::GetNormalVector2d(
-        collisionResult.From.X, collisionResult.From.Y,
-        collisionResult.To.X, collisionResult.To.Y,
+        collisionResult.FromTrackPoint.X, collisionResult.FromTrackPoint.Y,
+        collisionResult.ToTrackPoint.X, collisionResult.ToTrackPoint.Y,
         &normal.X, &normal.Y);
 
     ship.Deviation = frontDirection;
     ship.Deviation.SetLength(ship.VelocityValue);
     ship.Deviation.Reflect(normal);
+
+    Vector3d opposite(collisionResult.OppositeTrackPoint);
+    opposite.Sub(collisionResult.FromTrackPoint);
+    opposite.SetLength(0.25f);
+    ship.Deviation.Add(opposite);
 }

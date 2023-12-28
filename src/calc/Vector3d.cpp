@@ -6,7 +6,7 @@
 
 Vector3d::Vector3d()
 {
-    Set(0, 0, 0);
+    Set(0.0f, 0.0f, 0.0f);
 }
 
 Vector3d::Vector3d(float x, float y, float z)

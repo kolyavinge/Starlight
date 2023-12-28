@@ -28,8 +28,9 @@ bool TrackCollisionDetector::DetectCollisions(
     Vector3d& opposite = oppositeTrackPoints[fromIndex];
     if (DetectCollisions(from, to, opposite, point))
     {
-        result.From = from;
-        result.To = to;
+        result.FromTrackPoint = from;
+        result.ToTrackPoint = to;
+        result.OppositeTrackPoint = opposite;
         result.FromIndex = fromIndex;
         result.ToIndex = toIndex;
 
