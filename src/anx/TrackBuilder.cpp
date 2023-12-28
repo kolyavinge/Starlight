@@ -89,18 +89,10 @@ void TrackBuilder::Turn(Direction direction, float degrees, float radius)
     Vector3d outsidePoint(_outsidePoints[_pointsCount - 1]);
     for (float fraction = _turnStep; fraction < radians; fraction += _turnStep)
     {
-        TurnTrackPoint(insidePoint, _insidePoints[_pointsCount], pivotAxis, pivotPoint, fraction);
-        TurnTrackPoint(outsidePoint, _outsidePoints[_pointsCount], pivotAxis, pivotPoint, fraction);
+        _insidePoints[_pointsCount] = Geometry::RotatePoint3d(insidePoint, pivotAxis, pivotPoint, fraction);
+        _outsidePoints[_pointsCount] = Geometry::RotatePoint3d(outsidePoint, pivotAxis, pivotPoint, fraction);
         _pointsCount++;
     }
-}
-
-void TrackBuilder::TurnTrackPoint(Vector3d from, Vector3d& to, Vector3d& pivotAxis, Vector3d& pivotPoint, float radians)
-{
-    from.Sub(pivotPoint);
-    Vector3d rotated(Geometry::RotatePoint3d(from, pivotAxis, radians));
-    to.Set(rotated);
-    to.Add(pivotPoint);
 }
 
 void TrackBuilder::GetDirections(Direction direction, float radius, Vector3d& pivotAxis, Vector3d& pivotPoint)

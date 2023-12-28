@@ -30,7 +30,6 @@ public:
 
 private:
     void Turn(Direction direction, float degrees, float radius);
-    void TurnTrackPoint(Vector3d from, Vector3d& to, Vector3d& pivotAxis, Vector3d& pivotPoint, float radians);
     void GetDirections(Direction direction, float radius, Vector3d& pivotAxis, Vector3d& pivotPoint);
     void UpdateDirections();
 };

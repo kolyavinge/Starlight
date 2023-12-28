@@ -70,3 +70,12 @@ Vector3d Geometry::RotatePoint3d(Vector3d& point, Vector3d& pivotAxis, float rad
 
     return a;
 }
+
+Vector3d Geometry::RotatePoint3d(Vector3d point, Vector3d& pivotAxis, Vector3d& pivotPoint, float radians)
+{
+    point.Sub(pivotPoint);
+    point = RotatePoint3d(point, pivotAxis, radians);
+    point.Add(pivotPoint);
+
+    return point;
+}

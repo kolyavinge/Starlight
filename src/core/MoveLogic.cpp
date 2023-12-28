@@ -45,10 +45,10 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
     float rearTurnRadius = ShipMeasure::YLength / Math::Sin(turnAngleAbs);
     float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);
 
-    Vector3d pivot;
-    GetPivotVector(ship, frontTurnRadius, pivot);
+    Vector3d pivotPoint;
+    GetPivotPoint(ship, frontTurnRadius, pivotPoint);
 
-    Assert(ship, frontTurnRadius, rearTurnRadius, pivot);
+    Assert(ship, frontTurnRadius, rearTurnRadius, pivotPoint);
 
     float frontCircleLength = Math::PiDouble * frontTurnRadius;
     float rearCircleLength = Math::PiDouble * rearTurnRadius;
@@ -60,15 +60,11 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
         rearTurnAngle = -rearTurnAngle;
     }
 
-    ship.CentralLine.Front.Sub(pivot);
-    ship.CentralLine.Rear.Sub(pivot);
-    ship.CentralLine.Front = Geometry::RotatePoint3d(ship.CentralLine.Front, ship.CentralLine.NormalFront, frontTurnAngle);
-    ship.CentralLine.Rear = Geometry::RotatePoint3d(ship.CentralLine.Rear, ship.CentralLine.NormalRear, rearTurnAngle);
-    ship.CentralLine.Front.Add(pivot);
-    ship.CentralLine.Rear.Add(pivot);
+    ship.CentralLine.Front = Geometry::RotatePoint3d(ship.CentralLine.Front, ship.CentralLine.NormalFront, pivotPoint, frontTurnAngle);
+    ship.CentralLine.Rear = Geometry::RotatePoint3d(ship.CentralLine.Rear, ship.CentralLine.NormalRear, pivotPoint, rearTurnAngle);
 }
 
-void MoveLogic::GetPivotVector(Ship& ship, float frontTurnRadius, Vector3d& pivot)
+void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, Vector3d& pivot)
 {
     if (ship.TurnAngleRadians > 0.0f)
     {
