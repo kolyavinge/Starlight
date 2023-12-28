@@ -1,6 +1,7 @@
 #include <gl/opengl.h>
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
+#include <core/GameConstants.h>
 #include <render/DebugShipRenderer.h>
 
 void DebugShipRenderer::Render(Ship& ship)
@@ -9,6 +10,7 @@ void DebugShipRenderer::Render(Ship& ship)
     RenderBorder(ship);
     RenderBorderPoints(ship);
     RenderTurnAngle(ship);
+    RenderDeviation(ship);
     _shipMesh.Render(ship);
 }
 
@@ -43,6 +45,26 @@ void DebugShipRenderer::RenderTurnAngle(Ship& ship)
     glEnd();
 
     glPopMatrix();
+}
+
+void DebugShipRenderer::RenderDeviation(Ship& ship)
+{
+    glLineWidth(2.0f);
+    glPushMatrix();
+
+    glTranslatef(ship.CentralLine.Rear);
+
+    glColor3f(0.5f, 0.0f, 0.0f);
+
+    glBegin(GL_LINES);
+
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(ship.Deviation);
+
+    glEnd();
+
+    glPopMatrix();
+    glLineWidth(GameConstants::RenderLineWidth);
 }
 
 void DebugShipRenderer::RenderBorder(Ship& ship)
