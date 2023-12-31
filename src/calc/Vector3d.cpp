@@ -50,6 +50,7 @@ bool Vector3d::IsZero(float eps)
 
 void Vector3d::SetLength(float newLength)
 {
+    if (newLength < 0.0f) throw ArgumentException();
     float length = GetLength();
     ErrorIfZeroLength(length);
     Mul(newLength / length);

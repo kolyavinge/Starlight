@@ -1,4 +1,3 @@
-#include <lib/Math.h>
 #include <lib/Numeric.h>
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
@@ -20,14 +19,6 @@ void Ship::Init()
     PrevVelocityValue = 0;
 }
 
-float Ship::GetCurrentVelocity()
-{
-    if (Numeric::FloatEquals(ThrottleTime, 0.0f)) return 0.0f;
-    if (ThrottleTime >= ShipMeasure::ThrottleTimeThreshold) return ShipMeasure::MaxVelocity;
-
-    return Math::LogE(ThrottleTime + 1.0f);
-}
-
 void Ship::OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d direction)
 {
     direction.SetLength(ShipMeasure::YLength);
@@ -47,4 +38,9 @@ void Ship::OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction)
 bool Ship::IsMoving()
 {
     return !Numeric::FloatEquals(VelocityValue, 0.0f) || !Deviation.IsZero();
+}
+
+void Ship::SetCurrentVelocity()
+{
+    VelocityValue = VelocityFunction.GetValue(ThrottleTime);
 }

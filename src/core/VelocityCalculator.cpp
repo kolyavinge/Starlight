@@ -1,4 +1,4 @@
-#include <model/ShipMeasure.h>
+#include <model/VelocityFunction.h>
 #include <core/VelocityCalculator.h>
 
 void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
@@ -6,9 +6,9 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
     if (ship.IsThrottleActive)
     {
         ship.ThrottleTime += timeStep;
-        if (ship.ThrottleTime > ShipMeasure::ThrottleTimeThreshold)
+        if (ship.ThrottleTime > VelocityFunction::MaxThrottleTime)
         {
-            ship.ThrottleTime = ShipMeasure::ThrottleTimeThreshold;
+            ship.ThrottleTime = VelocityFunction::MaxThrottleTime;
         }
     }
     else if (ship.IsBreakActive)
@@ -29,5 +29,5 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
     }
 
     ship.PrevVelocityValue = ship.VelocityValue;
-    ship.VelocityValue = ship.GetCurrentVelocity();
+    ship.SetCurrentVelocity();
 }
