@@ -5,13 +5,15 @@ void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)
 {
     if (ship.IsTurnRightActive)
     {
+        float maxTurnAngle = GetMaxTurnAngle(ship);
         ship.TurnAngleRadians += ShipMeasure::TurnAngleStep;
-        if (ship.TurnAngleRadians > ShipMeasure::TurnAngleThreshold) ship.TurnAngleRadians = ShipMeasure::TurnAngleThreshold;
+        if (ship.TurnAngleRadians > maxTurnAngle) ship.TurnAngleRadians = maxTurnAngle;
     }
     else if (ship.IsTurnLeftActive)
     {
+        float maxTurnAngle = GetMaxTurnAngle(ship);
         ship.TurnAngleRadians -= ShipMeasure::TurnAngleStep;
-        if (ship.TurnAngleRadians < -ShipMeasure::TurnAngleThreshold) ship.TurnAngleRadians = -ShipMeasure::TurnAngleThreshold;
+        if (ship.TurnAngleRadians < -maxTurnAngle) ship.TurnAngleRadians = -maxTurnAngle;
     }
     else
     {
@@ -26,4 +28,9 @@ void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)
             if (ship.TurnAngleRadians > 0.0f) ship.TurnAngleRadians = 0.0f;
         }
     }
+}
+
+float TurnAngleCalculator::GetMaxTurnAngle(Ship& ship)
+{
+    return ShipMeasure::MaxTurnAngle * (1.15f - ship.VelocityValue / ship.VelocityFunction.MaxVelocity);
 }

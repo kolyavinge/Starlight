@@ -47,5 +47,5 @@ void Ship::SetCurrentVelocity()
 
 float Ship::GetRollRadians()
 {
-    return -0.2f * TurnAngleRadians;
+    return -0.5f * TurnAngleRadians;
 }

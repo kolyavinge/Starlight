@@ -7,4 +7,7 @@ class TurnAngleCalculator : public Object
 {
 public:
     void CalculateTurnAngle(Ship& ship);
+
+private:
+    float GetMaxTurnAngle(Ship& ship);
 };

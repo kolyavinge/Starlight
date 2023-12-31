@@ -10,5 +10,5 @@ public:
     inline static const float YLengthHalf = YLength / 2.0f;
     inline static const float TurnAngleStep = 0.08f;
     inline static const float TurnAngleDecay = 0.05f;
-    inline static const float TurnAngleThreshold = 0.8f;
+    inline static const float MaxTurnAngle = 0.4f;
 };

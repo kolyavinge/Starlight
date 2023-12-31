@@ -21,12 +21,14 @@ void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
         collisionResult.ToTrackPoint.X, collisionResult.ToTrackPoint.Y,
         &normal.X, &normal.Y);
 
-    ship.Deviation = frontDirection;
-    ship.Deviation.SetLength(ship.VelocityValue);
-    ship.Deviation.Reflect(normal);
+    Vector3d newDeviation = frontDirection;
+    newDeviation.SetLength(ship.VelocityValue);
+    newDeviation.Reflect(normal);
 
     Vector3d opposite(collisionResult.OppositeTrackPoint);
     opposite.Sub(collisionResult.FromTrackPoint);
     opposite.SetLength(0.25f);
-    ship.Deviation.Add(opposite);
+    newDeviation.Add(opposite);
+
+    ship.Deviation.Add(newDeviation);
 }
