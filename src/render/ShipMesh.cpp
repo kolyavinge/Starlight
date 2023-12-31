@@ -28,6 +28,7 @@ void ShipMesh::SetPosition(Ship& ship)
     glTranslatef(ship.Border.DownLeft);
     glRotatef(Geometry::RadiansToDegrees(radians), pivot.X, pivot.Y, pivot.Z);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
+    glRotatef(Geometry::RadiansToDegrees(ship.GetRollRadians()), 0.0f, 1.0f, 0.0f);
 }
 
 void ShipMesh::RenderBody()

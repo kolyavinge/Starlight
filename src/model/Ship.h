@@ -38,4 +38,5 @@ public:
     void OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction);
     bool IsMoving();
     void SetCurrentVelocity();
+    float GetRollRadians();
 };

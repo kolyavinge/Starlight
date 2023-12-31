@@ -44,3 +44,8 @@ void Ship::SetCurrentVelocity()
 {
     VelocityValue = VelocityFunction.GetValue(ThrottleTime);
 }
+
+float Ship::GetRollRadians()
+{
+    return -0.2f * TurnAngleRadians;
+}
