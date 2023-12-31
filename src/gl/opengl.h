@@ -13,3 +13,4 @@
 
 void glTranslatef(Vector3d& v);
 void glVertex3f(Vector3d& v);
+void gluLookAt(Vector3d& position, Vector3d& lookAt, Vector3d& upAxis);
