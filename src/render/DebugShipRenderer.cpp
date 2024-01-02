@@ -4,13 +4,14 @@
 #include <core/GameConstants.h>
 #include <render/DebugShipRenderer.h>
 
-void DebugShipRenderer::Render(Ship& ship)
+void DebugShipRenderer::Render(Ship& ship, Track& track)
 {
     RenderMiddleLine(ship);
     RenderBorder(ship);
     RenderBorderPoints(ship);
     RenderTurnAngle(ship);
     RenderDeviation(ship);
+    RenderNearTrackPoints(ship, track);
     _shipMesh.Render(ship);
 }
 
@@ -105,6 +106,23 @@ void DebugShipRenderer::RenderBorderPoints(Ship& ship)
 
     glEnd();
     glPopMatrix();
+}
+
+void DebugShipRenderer::RenderNearTrackPoints(Ship& ship, Track& track)
+{
+    glBegin(GL_LINES);
+
+    glColor3f(0.5f, 0.6f, 0.5f);
+
+    glVertex3f(track.InsidePoints[ship.CentralLine.TrackPointIndexFront]);
+    glVertex3f(track.OutsidePoints[ship.CentralLine.TrackPointIndexFront]);
+
+    glColor3f(0.5f, 0.5f, 0.6f);
+
+    glVertex3f(track.InsidePoints[ship.CentralLine.TrackPointIndexRear]);
+    glVertex3f(track.OutsidePoints[ship.CentralLine.TrackPointIndexRear]);
+
+    glEnd();
 }
 
 float DebugShipRenderer::GetAngleBetweenShipAndYStraight(Ship& ship)

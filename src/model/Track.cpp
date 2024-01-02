@@ -15,9 +15,9 @@ void Track::Init()
 
 int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point, int startIndex)
 {
-    int result = startIndex;
     Vector3d v(trackPoints[startIndex]);
     v.Sub(point);
+    int result = startIndex;
     float minLength = v.GetLengthSquared();
     for (int i = GetNextTrackPointIndex(startIndex); true; i = GetNextTrackPointIndex(i))
     {
