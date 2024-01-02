@@ -1,13 +1,12 @@
 #include <lib/Exceptions.h>
 #include <calc/Vector3d.h>
 #include <calc/VectorCalculator.h>
-#include <core/TrackCollisionDetector.h>
 #include <core/CollisionProcessor.h>
 
 void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
 {
-    TrackCollisionResult collisionResult;
-    if (!_trackCollisionDetector.DetectCollisions(ship, track, collisionResult)) return;
+    if (!_trackCollisionDetector.DetectCollisions(ship, track)) return;
+    TrackCollisionResult& collisionResult = _trackCollisionDetector.Result;
 
     Vector3d frontDirection(ship.CentralLine.Front);
     frontDirection.Sub(ship.PrevCentralLine.Front);

@@ -27,6 +27,7 @@
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\PlaneEquation.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
+    <ClInclude Include="src\core\TrackCollisionResult.h" />
     <ClInclude Include="src\model\LoopTrack.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
     <ClInclude Include="src\model\VelocityFunction.h" />
@@ -83,6 +84,7 @@
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\core\GameCamera.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
+    <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\model\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\ZCalculator.cpp" />
