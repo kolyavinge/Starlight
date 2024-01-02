@@ -10,20 +10,17 @@ Track::Track()
 void Track::Init()
 {
     InternalInit();
+    InitMiddlePoints();
     InitNormals();
 }
 
-int Track::GetTrackPointIndexFor(TrackPoints& trackPoints, Vector3d& point, int startIndex)
+int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
 {
-    Vector3d v(trackPoints[startIndex]);
-    v.Sub(point);
     int result = startIndex;
-    float minLength = v.GetLengthSquared();
+    float minLength = GetMinSquaredLengthForTrackPoint(point, startIndex);
     for (int i = GetNextTrackPointIndex(startIndex); true; i = GetNextTrackPointIndex(i))
     {
-        v = trackPoints[i];
-        v.Sub(point);
-        float length = v.GetLengthSquared();
+        float length = GetMinSquaredLengthForTrackPoint(point, i);
         if (length < minLength)
         {
             minLength = length;
@@ -36,9 +33,7 @@ int Track::GetTrackPointIndexFor(TrackPoints& trackPoints, Vector3d& point, int 
     }
     for (int i = GetPrevTrackPointIndex(startIndex); true; i = GetPrevTrackPointIndex(i))
     {
-        v = trackPoints[i];
-        v.Sub(point);
-        float length = v.GetLengthSquared();
+        float length = GetMinSquaredLengthForTrackPoint(point, i);
         if (length < minLength)
         {
             minLength = length;
@@ -51,6 +46,25 @@ int Track::GetTrackPointIndexFor(TrackPoints& trackPoints, Vector3d& point, int 
     }
 
     return result;
+}
+
+void Track::InitMiddlePoints()
+{
+    for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
+    {
+        Vector3d v(OutsidePoints[pointIndex]);
+        v.Sub(InsidePoints[pointIndex]);
+        v.Div((float)TrackMaxMiddlePoints + 1.0f);
+
+        MiddlePoints[pointIndex][0] = InsidePoints[pointIndex];
+        MiddlePoints[pointIndex][0].Add(v);
+
+        for (int i = 1; i < TrackMaxMiddlePoints; i++)
+        {
+            MiddlePoints[pointIndex][i] = MiddlePoints[pointIndex][i - 1];
+            MiddlePoints[pointIndex][i].Add(v);
+        }
+    }
 }
 
 void Track::InitNormals()
@@ -77,6 +91,26 @@ void Track::InitNormals()
             Normals[pointIndex].Mul(-1.0f);
         }
     }
+}
+
+float Track::GetMinSquaredLengthForTrackPoint(Vector3d& point, int trackPointIndex)
+{
+    Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = MiddlePoints[trackPointIndex];
+    Vector3d v(middlePoints[0]);
+    v.Sub(point);
+    float minLengthSquared = v.GetLengthSquared();
+    for (int i = 1; i < TrackMaxMiddlePoints; i++)
+    {
+        v = middlePoints[i];
+        v.Sub(point);
+        float length = v.GetLengthSquared();
+        if (length < minLengthSquared)
+        {
+            minLengthSquared = length;
+        }
+    }
+
+    return minLengthSquared;
 }
 
 int Track::GetNextTrackPointIndex(int currentIndex)
