@@ -9,7 +9,7 @@
 #include <core/CollisionProcessor.h>
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
-#include <core/ZCalculator.h>
+#include <core/PositionUpdater.h>
 #include <core/GameCamera.h>
 
 class GameUpdater : public Object
@@ -20,7 +20,7 @@ class GameUpdater : public Object
     CollisionProcessor _collisionProcessor;
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
-    ZCalculator _zCalculator;
+    PositionUpdater _positionUpdater;
     Ship& _player;
     Track& _track;
     GameCamera& _camera;

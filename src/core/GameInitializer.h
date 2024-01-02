@@ -10,5 +10,5 @@ public:
 
 private:
     void SetPlayerByStartFinishLine(Game& game);
-    void CalculateZ(Game& game);
+    void UpdateShipPosition(Game& game);
 };

@@ -17,7 +17,7 @@ public:
     bool DetectCollisions(Ship& ship, Track& track);
 
 private:
-    bool DetectCollisions(Track& track, int lastNearTrackPointIndex, Vector3d& point);
-    bool DetectCollisions(Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int lastNearTrackPointIndex, Vector3d& point);
+    bool DetectCollisions(Track& track, int trackPointIndex, Vector3d& point);
+    bool DetectCollisions(Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3d& point);
     bool DetectCollisions(Vector3d& from, Vector3d to, Vector3d opposite, Vector3d point);
 };

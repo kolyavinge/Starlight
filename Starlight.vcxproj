@@ -46,7 +46,7 @@
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
-    <ClInclude Include="src\core\ZCalculator.h" />
+    <ClInclude Include="src\core\PositionUpdater.h" />
     <ClInclude Include="src\lib\HashCode.h" />
     <ClInclude Include="src\calc\Geometry.h" />
     <ClInclude Include="src\calc\Physics.h" />
@@ -87,7 +87,7 @@
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\model\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
-    <ClCompile Include="src\core\ZCalculator.cpp" />
+    <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
     <ClCompile Include="src\model\RectBorder.cpp" />
     <ClCompile Include="src\model\RoadTrack1.cpp" />

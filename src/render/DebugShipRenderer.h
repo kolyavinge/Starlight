@@ -18,6 +18,6 @@ private:
     void RenderDeviation(Ship& ship);
     void RenderBorder(Ship& ship);
     void RenderBorderPoints(Ship& ship);
-    void RenderNearTrackPoints(Ship& ship, Track& track);
+    void RenderTrackPoints(Ship& ship, Track& track);
     float GetAngleBetweenShipAndYStraight(Ship& ship);
 };

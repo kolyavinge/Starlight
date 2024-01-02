@@ -22,7 +22,7 @@ public:
 
     void Init();
     virtual void InternalInit() = 0;
-    int GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point, int startIndex);
+    int GetTrackPointIndexFor(TrackPoints& trackPoints, Vector3d& point, int startIndex);
 
 private:
     void InitNormals();

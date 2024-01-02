@@ -1,6 +1,6 @@
 #include <calc/Vector3d.h>
 #include <model/Track.h>
-#include <core/ZCalculator.h>
+#include <core/PositionUpdater.h>
 #include <core/GameInitializer.h>
 
 void GameInitializer::Init(Game& game)
@@ -9,7 +9,7 @@ void GameInitializer::Init(Game& game)
     SetPlayerByStartFinishLine(game);
     game.Player.CentralLine.TrackPointIndexFront = game.CurrentTrack.StartFinishLineIndex;
     game.Player.CentralLine.TrackPointIndexRear = game.CurrentTrack.StartFinishLineIndex;
-    CalculateZ(game);
+    UpdateShipPosition(game);
 }
 
 void GameInitializer::SetPlayerByStartFinishLine(Game& game)
@@ -23,8 +23,8 @@ void GameInitializer::SetPlayerByStartFinishLine(Game& game)
     game.Player.OrientationByFrontPoint(middle, track.StraightDirection);
 }
 
-void GameInitializer::CalculateZ(Game& game)
+void GameInitializer::UpdateShipPosition(Game& game)
 {
-    ZCalculator zCalculator;
-    zCalculator.CalculateZ(game.Player, game.CurrentTrack);
+    PositionUpdater positionUpdater;
+    positionUpdater.Update(game.Player, game.CurrentTrack);
 }

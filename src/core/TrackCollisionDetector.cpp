@@ -11,20 +11,19 @@ bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
         DetectCollisions(track, ship.CentralLine.TrackPointIndexRear, ship.Border.DownRight);
 }
 
-bool TrackCollisionDetector::DetectCollisions(Track& track, int lastNearTrackPointIndex, Vector3d& point)
+bool TrackCollisionDetector::DetectCollisions(Track& track, int trackPointIndex, Vector3d& point)
 {
     return
-        DetectCollisions(track, track.InsidePoints, track.OutsidePoints, lastNearTrackPointIndex, point) ||
-        DetectCollisions(track, track.OutsidePoints, track.InsidePoints, lastNearTrackPointIndex, point);
+        DetectCollisions(track, track.InsidePoints, track.OutsidePoints, trackPointIndex, point) ||
+        DetectCollisions(track, track.OutsidePoints, track.InsidePoints, trackPointIndex, point);
 }
 
 bool TrackCollisionDetector::DetectCollisions(
-    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int lastNearTrackPointIndex, Vector3d& point)
+    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3d& point)
 {
-    int fromIndex = track.GetNearestTrackPointIndex(trackPoints, point, lastNearTrackPointIndex);
+    int fromIndex = trackPointIndex;
     int toIndex = fromIndex + 1;
     if (toIndex == track.PointsCount) toIndex = 0;
-
     Vector3d& from = trackPoints[fromIndex];
     Vector3d& to = trackPoints[toIndex];
     Vector3d& opposite = oppositeTrackPoints[fromIndex];

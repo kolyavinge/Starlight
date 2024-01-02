@@ -11,7 +11,7 @@ void DebugShipRenderer::Render(Ship& ship, Track& track)
     RenderBorderPoints(ship);
     RenderTurnAngle(ship);
     RenderDeviation(ship);
-    RenderNearTrackPoints(ship, track);
+    RenderTrackPoints(ship, track);
     _shipMesh.Render(ship);
 }
 
@@ -108,7 +108,7 @@ void DebugShipRenderer::RenderBorderPoints(Ship& ship)
     glPopMatrix();
 }
 
-void DebugShipRenderer::RenderNearTrackPoints(Ship& ship, Track& track)
+void DebugShipRenderer::RenderTrackPoints(Ship& ship, Track& track)
 {
     glBegin(GL_LINES);
 

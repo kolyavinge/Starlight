@@ -13,7 +13,7 @@ void Track::Init()
     InitNormals();
 }
 
-int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point, int startIndex)
+int Track::GetTrackPointIndexFor(TrackPoints& trackPoints, Vector3d& point, int startIndex)
 {
     Vector3d v(trackPoints[startIndex]);
     v.Sub(point);
