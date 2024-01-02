@@ -48,7 +48,7 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
     Vector3d pivotPoint;
     GetPivotPoint(ship, frontTurnRadius, pivotPoint);
 
-    Assert(ship, frontTurnRadius, rearTurnRadius, pivotPoint);
+  //  Assert(ship, frontTurnRadius, rearTurnRadius, pivotPoint);
 
     float frontCircleLength = Math::PiDouble * frontTurnRadius;
     float rearCircleLength = Math::PiDouble * rearTurnRadius;

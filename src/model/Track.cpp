@@ -13,13 +13,13 @@ void Track::Init()
     InitNormals();
 }
 
-int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point)
+int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point, int startIndex)
 {
-    int result = 0;
-    Vector3d v(trackPoints[0]);
+    int result = startIndex;
+    Vector3d v(trackPoints[startIndex]);
     v.Sub(point);
     float minLength = v.GetLengthSquared();
-    for (int i = 1; i < PointsCount; i++)
+    for (int i = GetNextTrackPointIndex(startIndex); true; i = GetNextTrackPointIndex(i))
     {
         v = trackPoints[i];
         v.Sub(point);
@@ -28,6 +28,25 @@ int Track::GetNearestTrackPointIndex(TrackPoints& trackPoints, Vector3d& point)
         {
             minLength = length;
             result = i;
+        }
+        else
+        {
+            break;
+        }
+    }
+    for (int i = GetPrevTrackPointIndex(startIndex); true; i = GetPrevTrackPointIndex(i))
+    {
+        v = trackPoints[i];
+        v.Sub(point);
+        float length = v.GetLengthSquared();
+        if (length < minLength)
+        {
+            minLength = length;
+            result = i;
+        }
+        else
+        {
+            break;
         }
     }
 
@@ -58,4 +77,20 @@ void Track::InitNormals()
             Normals[pointIndex].Mul(-1.0f);
         }
     }
+}
+
+int Track::GetNextTrackPointIndex(int currentIndex)
+{
+    currentIndex++;
+    if (currentIndex == PointsCount) currentIndex = 0;
+
+    return currentIndex;
+}
+
+int Track::GetPrevTrackPointIndex(int currentIndex)
+{
+    currentIndex--;
+    if (currentIndex == -1) currentIndex = PointsCount - 1;
+
+    return currentIndex;
 }

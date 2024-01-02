@@ -27,6 +27,7 @@
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\PlaneEquation.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
+    <ClInclude Include="src\model\ShipCentralLine.h" />
     <ClInclude Include="src\model\VelocityFunction.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />

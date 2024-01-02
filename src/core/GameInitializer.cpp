@@ -7,6 +7,8 @@ void GameInitializer::Init(Game& game)
 {
     game.CurrentTrack.Init();
     SetPlayerByStartFinishLine(game);
+    game.Player.CentralLine.TrackPointIndexFront = game.CurrentTrack.StartFinishLineIndex;
+    game.Player.CentralLine.TrackPointIndexRear = game.CurrentTrack.StartFinishLineIndex;
     CalculateZ(game);
 }
 

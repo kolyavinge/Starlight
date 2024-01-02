@@ -12,5 +12,5 @@ public:
     void CalculateZ(Ship& ship, Track& track);
 
 private:
-    void CalculateForPoint(Track& track, Vector3d& point, Vector3d& normal);
+    void CalculateForPoint(Track& track, int& lastNearTrackPointIndex, Vector3d& point, Vector3d& normal);
 };

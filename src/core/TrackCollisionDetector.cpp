@@ -3,35 +3,35 @@
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track, TrackCollisionResult& result)
 {
     return
-        DetectCollisions(ship.Border.UpLeft, track, result) ||
-        DetectCollisions(ship.Border.UpRight, track, result) ||
-        DetectCollisions(ship.Border.DownLeft, track, result) ||
-        DetectCollisions(ship.Border.DownRight, track, result);
+        DetectCollisions(track, ship.CentralLine.TrackPointIndexFront, ship.Border.UpLeft, result) ||
+        DetectCollisions(track, ship.CentralLine.TrackPointIndexFront, ship.Border.UpRight, result) ||
+        DetectCollisions(track, ship.CentralLine.TrackPointIndexRear, ship.Border.DownLeft, result) ||
+        DetectCollisions(track, ship.CentralLine.TrackPointIndexRear, ship.Border.DownRight, result);
 }
 
-bool TrackCollisionDetector::DetectCollisions(Vector3d& point, Track& track, TrackCollisionResult& result)
+bool TrackCollisionDetector::DetectCollisions(Track& track, int& nearTrackPointIndex, Vector3d& point, TrackCollisionResult& result)
 {
     return
-        DetectCollisions(point, track, track.InsidePoints, track.OutsidePoints, result) ||
-        DetectCollisions(point, track, track.OutsidePoints, track.InsidePoints, result);
+        DetectCollisions(track, track.InsidePoints, track.OutsidePoints, nearTrackPointIndex, point, result) ||
+        DetectCollisions(track, track.OutsidePoints, track.InsidePoints, nearTrackPointIndex, point, result);
 }
 
 bool TrackCollisionDetector::DetectCollisions(
-    Vector3d& point, Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, TrackCollisionResult& result)
+    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int& nearTrackPointIndex, Vector3d& point, TrackCollisionResult& result)
 {
-    int fromIndex = track.GetNearestTrackPointIndex(trackPoints, point);
-    int toIndex = fromIndex + 1;
+    nearTrackPointIndex = track.GetNearestTrackPointIndex(trackPoints, point, nearTrackPointIndex);
+    int toIndex = nearTrackPointIndex + 1;
     if (toIndex == track.PointsCount) toIndex = 0;
 
-    Vector3d& from = trackPoints[fromIndex];
+    Vector3d& from = trackPoints[nearTrackPointIndex];
     Vector3d& to = trackPoints[toIndex];
-    Vector3d& opposite = oppositeTrackPoints[fromIndex];
+    Vector3d& opposite = oppositeTrackPoints[nearTrackPointIndex];
     if (DetectCollisions(from, to, opposite, point))
     {
         result.FromTrackPoint = from;
         result.ToTrackPoint = to;
         result.OppositeTrackPoint = opposite;
-        result.FromIndex = fromIndex;
+        result.FromIndex = nearTrackPointIndex;
         result.ToIndex = toIndex;
 
         return true;
