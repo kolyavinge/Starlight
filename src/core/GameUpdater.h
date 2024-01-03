@@ -10,6 +10,7 @@
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
+#include <core/LapCounter.h>
 #include <core/GameCamera.h>
 
 class GameUpdater : public Object
@@ -21,6 +22,7 @@ class GameUpdater : public Object
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
+    LapCounter _lapCounter;
     Ship& _player;
     Track& _track;
     GameCamera& _camera;

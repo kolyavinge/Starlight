@@ -5,3 +5,8 @@ bool Numeric::FloatEquals(float a, float b, float eps)
 {
     return Math::Abs(a - b) < eps;
 }
+
+bool Numeric::Between(int x, int left, int right)
+{
+    return left <= x && x <= right;
+}

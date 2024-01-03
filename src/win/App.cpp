@@ -4,14 +4,18 @@
 #include <core/Controller.h>
 #include <win/App.h>
 
-Vector3d App::_upAxis = Vector3d(0.0f, 0.0f, 1.0f);
+Vector3d App::_upAxis;
 DebugRenderLogic App::_renderLogic;
-bool App::_keyPressed[256];
-int App::_joyXAxis = 0;
-unsigned int App::_joyButtonsPressed = 0;
+Array<bool, 256> App::_keyPressed;
+int App::_joyXAxis;
+unsigned int App::_joyButtonsPressed;
 
 void App::Start(int argc, char** argv)
 {
+    _upAxis.Set(0.0f, 0.0f, 1.0f);
+    _keyPressed.InitItems(false);
+    _joyXAxis = 0;
+    _joyButtonsPressed = 0;
     glutInit(&argc, argv);
     glutInitWindowSize(1024, 768);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);

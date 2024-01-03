@@ -13,6 +13,8 @@ class TrackMiddlePoints : public Array<Array<Vector3d, TrackMaxMiddlePoints>, Tr
 
 class Track : public Object
 {
+    Vector3d _startFinishLine;
+
 public:
     int PointsCount;
     TrackPoints OutsidePoints;
@@ -27,6 +29,7 @@ public:
     void Init();
     virtual void InternalInit() = 0;
     int GetTrackPointIndexFor(Vector3d& point, int startIndex);
+    bool IsShipMovingInStraightDirection(Vector3d& shipStraightDirection);
 
 private:
     void InitMiddlePoints();

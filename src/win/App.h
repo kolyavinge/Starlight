@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/Array.h>
 #include <calc/Vector3d.h>
 #include <render/DebugRenderLogic.h>
 
@@ -7,7 +8,7 @@ class App
 {
     static Vector3d _upAxis;
     static DebugRenderLogic _renderLogic;
-    static bool _keyPressed[256];
+    static Array<bool, 256> _keyPressed;
     static int _joyXAxis;
     static unsigned int _joyButtonsPressed;
 

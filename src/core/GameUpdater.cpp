@@ -22,6 +22,7 @@ void GameUpdater::Update()
     _borderUpdater.Update(_player);
     _collisionProcessor.ProcessCollisions(_player, _track);
     _positionCorrector.CorrectAfterFloatOperations(_player);
+    _lapCounter.CheckLap(_player, _track);
     _camera.Update(_player);
 }
 

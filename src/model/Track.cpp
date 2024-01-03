@@ -12,6 +12,9 @@ void Track::Init()
     InternalInit();
     InitMiddlePoints();
     InitNormals();
+    StraightDirection.Normalize();
+    _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
+    _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
 }
 
 int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
@@ -46,6 +49,11 @@ int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
     }
 
     return result;
+}
+
+bool Track::IsShipMovingInStraightDirection(Vector3d& shipStraightDirection)
+{
+    return VectorCalculator::InOneDirection(_startFinishLine, shipStraightDirection, StraightDirection);
 }
 
 void Track::InitMiddlePoints()

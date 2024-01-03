@@ -49,3 +49,14 @@ void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d right, Vecto
     right.Normalize();
     result.Set(right);
 }
+
+bool VectorCalculator::InOneDirection(Vector3d& base, Vector3d v1, Vector3d v2)
+{
+    v1.VectorProduct(base);
+    v2.VectorProduct(base);
+    v1.Normalize();
+    v2.Normalize();
+    v1.Sub(v2);
+
+    return v1.GetLengthSquared() < 0.1f;
+}
