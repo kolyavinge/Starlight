@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <model/Ship.h>
-#include <model/RoadTrack1.h>
+#include <model/track/RoadTrack1.h>
 #include <core/GameUpdater.h>
 #include <core/GameCamera.h>
 #include <core/Controller.h>
