@@ -50,7 +50,7 @@ void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d right, Vecto
     result.Set(right);
 }
 
-bool VectorCalculator::InOneDirection(Vector3d& base, Vector3d v1, Vector3d v2)
+bool VectorCalculator::IsSameDirection(Vector3d& base, Vector3d v1, Vector3d v2)
 {
     v1.VectorProduct(base);
     v2.VectorProduct(base);

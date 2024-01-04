@@ -9,7 +9,7 @@ enum Direction { Left, Right };
 class TrackBuilder : public Object
 {
     inline static const float _moveStep = 1.0f;
-    inline static const float _turnStep = 0.1f;
+    inline static const float _turnStep = 0.01f;
 
     TrackPoints& _insidePoints;
     TrackPoints& _outsidePoints;
@@ -24,12 +24,12 @@ public:
     void InitInsidePosition(float x, float y, float z);
     void InitOutsidePosition(float x, float y, float z);
     void Move(float distance);
-    void TurnLeft(float degrees, float radius);
-    void TurnRight(float degrees, float radius);
+    void TurnLeft(float degrees, float radius, Vector3d pivotAxis);
+    void TurnRight(float degrees, float radius, Vector3d pivotAxis);
     void ConnectStartFinish();
 
 private:
-    void Turn(Direction direction, float degrees, float radius);
+    void Turn(Direction direction, float degrees, float radius, Vector3d& pivotAxis);
     void GetDirections(Direction direction, float radius, Vector3d& pivotAxis, Vector3d& pivotPoint);
     void UpdateDirections();
 };

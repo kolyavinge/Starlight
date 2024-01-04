@@ -37,15 +37,15 @@ void TrackBuilder::Move(float distance)
     }
 }
 
-void TrackBuilder::TurnLeft(float degrees, float radius)
+void TrackBuilder::TurnLeft(float degrees, float radius, Vector3d pivotAxis)
 {
-    Turn(Direction::Left, degrees, radius);
+    Turn(Direction::Left, degrees, radius, pivotAxis);
     UpdateDirections();
 }
 
-void TrackBuilder::TurnRight(float degrees, float radius)
+void TrackBuilder::TurnRight(float degrees, float radius, Vector3d pivotAxis)
 {
-    Turn(Direction::Right, degrees, radius);
+    Turn(Direction::Right, degrees, radius, pivotAxis);
     UpdateDirections();
 }
 
@@ -80,9 +80,9 @@ void TrackBuilder::ConnectStartFinish()
     }
 }
 
-void TrackBuilder::Turn(Direction direction, float degrees, float radius)
+void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3d& pivotAxis)
 {
-    Vector3d pivotAxis, pivotPoint;
+    Vector3d pivotPoint;
     GetDirections(direction, radius, pivotAxis, pivotPoint);
     float radians = Geometry::DegreesToRadians(degrees);
     Vector3d insidePoint(_insidePoints[_pointsCount - 1]);
@@ -116,10 +116,10 @@ void TrackBuilder::GetDirections(Direction direction, float radius, Vector3d& pi
         pivotPoint.Set(turnDirection);
         pivotPoint.Add(_insidePoints[_pointsCount - 1]);
     }
-    Vector3d straightDirection(InsideDirection);
-    straightDirection.Add(OutsideDirection);
-    pivotAxis.Set(straightDirection);
-    pivotAxis.VectorProduct(turnDirection);
+    if (direction == Direction::Right)
+    {
+        pivotAxis.Mul(-1.0f);
+    }
     pivotAxis.Normalize();
 }
 

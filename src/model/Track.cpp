@@ -53,7 +53,7 @@ int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
 
 bool Track::IsShipMovingInStraightDirection(Vector3d& shipStraightDirection)
 {
-    return VectorCalculator::InOneDirection(_startFinishLine, shipStraightDirection, StraightDirection);
+    return VectorCalculator::IsSameDirection(_startFinishLine, shipStraightDirection, StraightDirection);
 }
 
 void Track::InitMiddlePoints()
