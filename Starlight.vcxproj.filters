@@ -57,6 +57,7 @@
     <ClInclude Include="src\core\PositionUpdater.h" />
     <ClInclude Include="src\core\LapCounter.h" />
     <ClInclude Include="src\model\track\WheelTrack.h" />
+    <ClInclude Include="src\calc\Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -105,5 +106,6 @@
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
+    <ClCompile Include="src\calc\Sphere.cpp" />
   </ItemGroup>
 </Project>

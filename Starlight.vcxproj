@@ -27,6 +27,7 @@
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\PlaneEquation.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
+    <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\core\LapCounter.h" />
     <ClInclude Include="src\core\TrackCollisionResult.h" />
     <ClInclude Include="src\model\track\LoopTrack.h" />
@@ -81,6 +82,7 @@
     <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\calc\PlaneEquation.cpp" />
     <ClCompile Include="src\calc\Quaternion.cpp" />
+    <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />

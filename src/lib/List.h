@@ -7,14 +7,14 @@
 template<class T>
 class List : public Object
 {
-    static const unsigned int InitCapacity = 16;
+    static const int _initCapacity = 16;
 
     T* _items;
     int _count;
     int _capacity;
 
 public:
-    List() : List(InitCapacity) {}
+    List() : List(_initCapacity) {}
 
     List(int capacity)
     {
