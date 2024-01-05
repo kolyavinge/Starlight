@@ -8,8 +8,7 @@ enum Direction { Left, Right };
 
 class TrackBuilder : public Object
 {
-    inline static const float _moveStep = 1.0f;
-    inline static const float _turnStep = 0.01f;
+    inline static const float _moveStep = 0.25f;
 
     TrackPoints& _insidePoints;
     TrackPoints& _outsidePoints;

@@ -84,10 +84,11 @@ void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector
 {
     Vector3d pivotPoint;
     GetDirections(direction, radius, pivotAxis, pivotPoint);
-    float radians = Geometry::DegreesToRadians(degrees);
     Vector3d insidePoint(_insidePoints[_pointsCount - 1]);
     Vector3d outsidePoint(_outsidePoints[_pointsCount - 1]);
-    for (float fraction = _turnStep; fraction < radians; fraction += _turnStep)
+    float radians = Geometry::DegreesToRadians(degrees);
+    float step = Geometry::GetRadiansForDistance(_moveStep, radius);
+    for (float fraction = step; fraction < radians; fraction += step)
     {
         _insidePoints[_pointsCount] = Geometry::RotatePoint3d(insidePoint, pivotAxis, pivotPoint, fraction);
         _outsidePoints[_pointsCount] = Geometry::RotatePoint3d(outsidePoint, pivotAxis, pivotPoint, fraction);
