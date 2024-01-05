@@ -6,7 +6,7 @@
 template<class T, int Count>
 class Array : public Object
 {
-    T _items[Count];
+    T _items[Count] = {};
 
 public:
     static const int Count = Count;

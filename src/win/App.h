@@ -2,12 +2,12 @@
 
 #include <lib/Array.h>
 #include <calc/Vector3d.h>
-#include <render/DebugRenderLogic.h>
+#include <render/RenderLogic.h>
 
 class App
 {
+    static RenderLogic& _renderLogic;
     static Vector3d _upAxis;
-    static DebugRenderLogic _renderLogic;
     static Array<bool, 256> _keyPressed;
     static int _joyXAxis;
     static unsigned int _joyButtonsPressed;

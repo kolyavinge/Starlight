@@ -2,10 +2,12 @@
 #include <core/GameConstants.h>
 #include <core/GameManager.h>
 #include <core/Controller.h>
+#include <render/DebugRenderLogic.h>
 #include <win/App.h>
 
+DebugRenderLogic renderLogic;
+RenderLogic& App::_renderLogic = renderLogic;
 Vector3d App::_upAxis;
-DebugRenderLogic App::_renderLogic;
 Array<bool, 256> App::_keyPressed;
 int App::_joyXAxis;
 unsigned int App::_joyButtonsPressed;

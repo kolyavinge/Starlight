@@ -7,7 +7,7 @@ void DebugTrackRenderer::Render(Track& track)
     RenderInsideLines(track);
     RenderOutsideLines(track);
     RenderAcrossLines(track);
-    RenderMiddlePoints(track);
+    //RenderMiddlePoints(track);
     RenderNormals(track);
     RenderStartFinishLine(track);
 }

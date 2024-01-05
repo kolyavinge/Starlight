@@ -1,11 +1,11 @@
 #pragma once
 
-#include <lib/Object.h>
 #include <core/Game.h>
+#include <render/RenderLogic.h>
 #include <render/DebugShipRenderer.h>
 #include <render/DebugTrackRenderer.h>
 
-class DebugRenderLogic : public Object
+class DebugRenderLogic : public RenderLogic
 {
     DebugShipRenderer _shipRenderer;
     DebugTrackRenderer _trackRenderer;

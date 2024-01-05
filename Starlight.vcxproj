@@ -68,6 +68,7 @@
     <ClInclude Include="src\calc\Vector3d.h" />
     <ClInclude Include="src\model\ShipMeasure.h" />
     <ClInclude Include="src\model\track\WheelTrack.h" />
+    <ClInclude Include="src\render\RenderLogic.h" />
     <ClInclude Include="src\render\ShipMesh.h" />
     <ClInclude Include="src\model\Track.h" />
     <ClInclude Include="src\render\DebugShipRenderer.h" />
