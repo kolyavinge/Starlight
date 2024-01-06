@@ -9,9 +9,9 @@ public:
 
     inline static const unsigned int MainTimerMsec = 20;
 
-    //inline static const float PointRadius = 0.01f;
-
     inline static const float RenderLineWidth = 1.0f;
 
     inline static const char* Title = "Starlight\0";
+
+    inline static const char* Exe = "Starlight.exe\0";
 };

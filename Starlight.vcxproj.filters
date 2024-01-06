@@ -63,6 +63,7 @@
     <ClInclude Include="src\render\release\TrackRenderer.h" />
     <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\render\release\BackgroundRenderer.h" />
+    <ClInclude Include="src\win\resource.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -116,5 +117,14 @@
     <ClCompile Include="src\render\release\TrackRenderer.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\render\release\BackgroundRenderer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="res\Starlight.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\main.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\Starlight.aps" />
   </ItemGroup>
 </Project>

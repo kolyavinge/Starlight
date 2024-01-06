@@ -4,6 +4,7 @@
 #include <core/Controller.h>
 #include <render/debug/DebugRenderLogic.h>
 #include <render/release/ReleaseRenderLogic.h>
+#include <win/resource.h>
 #include <win/App.h>
 
 //DebugRenderLogic renderLogic;
@@ -25,6 +26,7 @@ void App::Start(int argc, char** argv)
     glutInitWindowSize(width, width * 9 / 16);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow(GameConstants::Title);
+    SetIcon();
     glutPositionWindow(100, 100);
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
@@ -33,6 +35,13 @@ void App::Start(int argc, char** argv)
     glutJoystickFunc(JoystickKeypress, 10);
     glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
+}
+
+void App::SetIcon()
+{
+    HWND hwnd = FindWindowA(NULL, GameConstants::Title);
+    HANDLE icon = LoadImage(GetModuleHandleA(GameConstants::Exe), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 32, 32, LR_COLOR);
+    SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)icon);
 }
 
 void App::Display()

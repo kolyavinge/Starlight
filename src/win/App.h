@@ -16,6 +16,7 @@ public:
     static void Start(int argc, char** argv);
 
 private:
+    static void SetIcon();
     static void Display();
     static void Reshape(int width, int height);
     static void Keypress(unsigned char key, int x, int y);
