@@ -11,7 +11,7 @@ void DebugShipRenderer::Render(Ship& ship, Track& track)
     RenderBorderPoints(ship);
     RenderTurnAngle(ship);
     RenderDeviation(ship);
-    //RenderTrackPoints(ship, track);
+    RenderTrackPoints(ship, track);
     _shipMesh.Render(ship);
 }
 

@@ -1,5 +1,5 @@
 #include <calc/Vector3d.h>
-#include <calc/PlaneEquation.h>
+#include <calc/Plane.h>
 #include <core/PositionUpdater.h>
 
 void PositionUpdater::UpdateIfShipMoving(Ship& ship, Track& track)
@@ -37,6 +37,6 @@ void PositionUpdater::UpdateNormals(Ship& ship, Track& track)
 
 void PositionUpdater::CalculateZForPoint(Track& track, int trackPointIndex, Vector3d& point)
 {
-    PlaneEquation plane(track.Normals[trackPointIndex], track.InsidePoints[trackPointIndex]);
+    Plane plane(track.Normals[trackPointIndex], track.InsidePoints[trackPointIndex]);
     point.Z = plane.GetZ(point.X, point.Y);
 }

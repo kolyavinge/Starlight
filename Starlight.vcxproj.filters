@@ -49,7 +49,7 @@
     <ClInclude Include="src\model\track\RoadTrack1.h" />
     <ClInclude Include="src\model\ShipMeasure.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
-    <ClInclude Include="src\calc\PlaneEquation.h" />
+    <ClInclude Include="src\calc\Plane.h" />
     <ClInclude Include="src\core\TrackCollisionResult.h" />
     <ClInclude Include="src\model\track\LoopTrack.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
@@ -99,7 +99,7 @@
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\RectBorder.cpp" />
     <ClCompile Include="src\calc\Quaternion.cpp" />
-    <ClCompile Include="src\calc\PlaneEquation.cpp" />
+    <ClCompile Include="src\calc\Plane.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\model\track\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
