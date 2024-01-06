@@ -3,9 +3,11 @@
 #include <core/GameManager.h>
 #include <core/Controller.h>
 #include <render/debug/DebugRenderLogic.h>
+#include <render/release/ReleaseRenderLogic.h>
 #include <win/App.h>
 
-DebugRenderLogic renderLogic;
+//DebugRenderLogic renderLogic;
+ReleaseRenderLogic renderLogic;
 RenderLogic& App::_renderLogic = renderLogic;
 Vector3 App::_upAxis;
 Array<bool, 256> App::_keyPressed;
@@ -41,6 +43,8 @@ void App::Display()
     gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    glEnable(GL_BLEND);
     glLineWidth(GameConstants::RenderLineWidth);
     _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();

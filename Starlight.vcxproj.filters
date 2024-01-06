@@ -58,7 +58,11 @@
     <ClInclude Include="src\core\LapCounter.h" />
     <ClInclude Include="src\model\track\WheelTrack.h" />
     <ClInclude Include="src\render\RenderLogic.h" />
+    <ClInclude Include="src\render\release\ReleaseRenderLogic.h" />
+    <ClInclude Include="src\render\release\ShipRenderer.h" />
+    <ClInclude Include="src\render\release\TrackRenderer.h" />
     <ClInclude Include="src\calc\Sphere.h" />
+    <ClInclude Include="src\render\release\BackgroundRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -107,6 +111,10 @@
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
+    <ClCompile Include="src\render\release\ReleaseRenderLogic.cpp" />
+    <ClCompile Include="src\render\release\ShipRenderer.cpp" />
+    <ClCompile Include="src\render\release\TrackRenderer.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
+    <ClCompile Include="src\render\release\BackgroundRenderer.cpp" />
   </ItemGroup>
 </Project>
