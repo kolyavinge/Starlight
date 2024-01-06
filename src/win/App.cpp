@@ -19,10 +19,11 @@ void App::Start(int argc, char** argv)
     _joyXAxis = 0;
     _joyButtonsPressed = 0;
     glutInit(&argc, argv);
-    glutInitWindowSize(1024, 768);
+    const int width = 1200;
+    glutInitWindowSize(width, width * 9 / 16);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow(GameConstants::Title);
-    glutPositionWindow(50, 50);
+    glutPositionWindow(100, 100);
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
     glutKeyboardFunc(Keypress);
@@ -35,7 +36,6 @@ void App::Start(int argc, char** argv)
 void App::Display()
 {
     GameCamera& camera = GameManager::Instance.Game.Camera;
-
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);

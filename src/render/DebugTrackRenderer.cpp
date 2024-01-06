@@ -1,9 +1,11 @@
 #include <gl/opengl.h>
 #include <calc/Vector3d.h>
+#include <calc/Sphere.h>
 #include <render/DebugTrackRenderer.h>
 
 void DebugTrackRenderer::Render(Track& track)
 {
+    RenderBackground();
     RenderInsideLines(track);
     RenderOutsideLines(track);
     RenderAcrossLines(track);
@@ -121,4 +123,30 @@ void DebugTrackRenderer::RenderStartFinishLine(Track& track)
     glVertex3f(to);
 
     glEnd();
+}
+
+void DebugTrackRenderer::RenderBackground()
+{
+    Sphere sphere(1000.0f, 4, 20);
+    glColor3f(0.2f, 0.2f, 0.2f);
+
+    for (int level = -sphere.GetLevelsCount(); level < sphere.GetLevelsCount(); level++)
+    {
+        for (int point = 0; point < sphere.GetLevelPointsCount() - 1; point++)
+        {
+            glBegin(GL_LINE_LOOP);
+            glVertex3f(sphere.GetPoint(level, point));
+            glVertex3f(sphere.GetPoint(level + 1, point));
+            glVertex3f(sphere.GetPoint(level + 1, point + 1));
+            glVertex3f(sphere.GetPoint(level, point + 1));
+            glEnd();
+        }
+
+        glBegin(GL_LINE_LOOP);
+        glVertex3f(sphere.GetPoint(level, sphere.GetLevelPointsCount() - 1));
+        glVertex3f(sphere.GetPoint(level + 1, sphere.GetLevelPointsCount() - 1));
+        glVertex3f(sphere.GetPoint(level + 1, 0));
+        glVertex3f(sphere.GetPoint(level, 0));
+        glEnd();
+    }
 }
