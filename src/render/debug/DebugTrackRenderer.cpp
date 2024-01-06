@@ -1,7 +1,7 @@
 #include <gl/opengl.h>
 #include <calc/Vector3.h>
 #include <calc/Sphere.h>
-#include <render/DebugTrackRenderer.h>
+#include <render/debug/DebugTrackRenderer.h>
 
 void DebugTrackRenderer::Render(Track& track)
 {

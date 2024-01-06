@@ -29,9 +29,9 @@
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\PositionCorrector.h" />
     <ClInclude Include="src\win\App.h" />
-    <ClInclude Include="src\render\DebugTrackRenderer.h" />
-    <ClInclude Include="src\render\DebugShipRenderer.h" />
-    <ClInclude Include="src\render\DebugRenderLogic.h" />
+    <ClInclude Include="src\render\debug\DebugTrackRenderer.h" />
+    <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
+    <ClInclude Include="src\render\debug\DebugRenderLogic.h" />
     <ClInclude Include="src\core\GameCamera.h" />
     <ClInclude Include="external\gl\freeglut.h" />
     <ClInclude Include="external\gl\freeglut_ext.h" />
@@ -57,6 +57,7 @@
     <ClInclude Include="src\core\PositionUpdater.h" />
     <ClInclude Include="src\core\LapCounter.h" />
     <ClInclude Include="src\model\track\WheelTrack.h" />
+    <ClInclude Include="src\render\RenderLogic.h" />
     <ClInclude Include="src\calc\Sphere.h" />
   </ItemGroup>
   <ItemGroup>
@@ -85,9 +86,9 @@
     <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
     <ClCompile Include="src\core\PositionCorrector.cpp" />
     <ClCompile Include="src\win\main.cpp" />
-    <ClCompile Include="src\render\DebugTrackRenderer.cpp" />
-    <ClCompile Include="src\render\DebugShipRenderer.cpp" />
-    <ClCompile Include="src\render\DebugRenderLogic.cpp" />
+    <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
+    <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
+    <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
     <ClCompile Include="src\core\GameCamera.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />

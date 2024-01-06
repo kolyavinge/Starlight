@@ -2,7 +2,7 @@
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
 #include <core/GameConstants.h>
-#include <render/DebugShipRenderer.h>
+#include <render/debug/DebugShipRenderer.h>
 
 void DebugShipRenderer::Render(Ship& ship, Track& track)
 {

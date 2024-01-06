@@ -2,7 +2,7 @@
 #include <core/GameConstants.h>
 #include <core/GameManager.h>
 #include <core/Controller.h>
-#include <render/DebugRenderLogic.h>
+#include <render/debug/DebugRenderLogic.h>
 #include <win/App.h>
 
 DebugRenderLogic renderLogic;
