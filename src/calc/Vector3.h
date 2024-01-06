@@ -2,13 +2,13 @@
 
 #include <lib/Object.h>
 
-class Vector3d : public Object
+class Vector3 : public Object
 {
 public:
     float X, Y, Z;
 
-    Vector3d();
-    Vector3d(float x, float y, float z);
+    Vector3();
+    Vector3(float x, float y, float z);
 
     bool Equals(Object& a) override;
     int GetHashCode() override;
@@ -16,16 +16,16 @@ public:
     float GetLengthSquared();
     bool IsZero(float eps = 1e-7f);
     void SetLength(float newLength);
-    void Set(Vector3d& v);
+    void Set(Vector3& v);
     void Set(float x, float y, float z);
-    void Add(Vector3d& v);
-    void Sub(Vector3d& v);
+    void Add(Vector3& v);
+    void Sub(Vector3& v);
     void Mul(float a);
     void Div(float a);
     void Normalize();
-    float DotProduct(Vector3d& v);
-    void VectorProduct(Vector3d& v);
-    void Reflect(Vector3d& normal);
+    float DotProduct(Vector3& v);
+    void VectorProduct(Vector3& v);
+    void Reflect(Vector3& normal);
 
 private:
     void ErrorIfZeroLength(float length);

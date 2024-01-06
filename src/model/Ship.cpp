@@ -19,7 +19,7 @@ void Ship::Init()
     PrevVelocityValue = 0;
 }
 
-void Ship::OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d direction)
+void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)
 {
     direction.SetLength(ShipMeasure::YLength);
     CentralLine.Front = frontMiddlePoint;
@@ -27,7 +27,7 @@ void Ship::OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d directio
     CentralLine.Rear.Sub(direction);
 }
 
-void Ship::OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction)
+void Ship::OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction)
 {
     direction.SetLength(ShipMeasure::YLength);
     CentralLine.Front = rearMiddlePoint;

@@ -1,15 +1,15 @@
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/Quaternion.h>
 #include <model/RectBorder.h>
 
-void RectBorder::GetAngleAndPivot(float& radians, Vector3d& pivot)
+void RectBorder::GetAngleAndPivot(float& radians, Vector3& pivot)
 {
-    Vector3d unitX(1.0f, 0.0f, 0.0f);
-    Vector3d vx(DownRight);
+    Vector3 unitX(1.0f, 0.0f, 0.0f);
+    Vector3 vx(DownRight);
     vx.Sub(DownLeft);
 
-    Vector3d rotatedY(0.0f, 1.0f, 0.0f);
-    Vector3d vy(UpLeft);
+    Vector3 rotatedY(0.0f, 1.0f, 0.0f);
+    Vector3 vy(UpLeft);
     vy.Sub(DownLeft);
 
     Quaternion result(unitX, vx);

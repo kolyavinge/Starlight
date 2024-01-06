@@ -11,7 +11,7 @@ bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
         DetectCollisions(track, ship.CentralLine.TrackPointIndexRear, ship.Border.DownRight);
 }
 
-bool TrackCollisionDetector::DetectCollisions(Track& track, int trackPointIndex, Vector3d& point)
+bool TrackCollisionDetector::DetectCollisions(Track& track, int trackPointIndex, Vector3& point)
 {
     return
         DetectCollisions(track, track.InsidePoints, track.OutsidePoints, trackPointIndex, point) ||
@@ -19,14 +19,14 @@ bool TrackCollisionDetector::DetectCollisions(Track& track, int trackPointIndex,
 }
 
 bool TrackCollisionDetector::DetectCollisions(
-    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3d& point)
+    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3& point)
 {
     int fromIndex = trackPointIndex;
     int toIndex = fromIndex + 1;
     if (toIndex == track.PointsCount) toIndex = 0;
-    Vector3d& from = trackPoints[fromIndex];
-    Vector3d& to = trackPoints[toIndex];
-    Vector3d& opposite = oppositeTrackPoints[fromIndex];
+    Vector3& from = trackPoints[fromIndex];
+    Vector3& to = trackPoints[toIndex];
+    Vector3& opposite = oppositeTrackPoints[fromIndex];
     if (DetectCollisions(from, to, opposite, point))
     {
         Result.FromTrackPoint = from;
@@ -41,7 +41,7 @@ bool TrackCollisionDetector::DetectCollisions(
     return false;
 }
 
-bool TrackCollisionDetector::DetectCollisions(Vector3d& center, Vector3d edge, Vector3d inside, Vector3d point)
+bool TrackCollisionDetector::DetectCollisions(Vector3& center, Vector3 edge, Vector3 inside, Vector3 point)
 {
     point.Sub(center);
     if (point.IsZero()) return true;
@@ -49,16 +49,16 @@ bool TrackCollisionDetector::DetectCollisions(Vector3d& center, Vector3d edge, V
     edge.Sub(center);
     inside.Sub(center);
 
-    Vector3d checkCollision(point);
+    Vector3 checkCollision(point);
     checkCollision.VectorProduct(edge);
     if (checkCollision.IsZero()) return true;
     checkCollision.Normalize();
 
-    Vector3d noCollision(inside);
+    Vector3 noCollision(inside);
     noCollision.VectorProduct(edge);
     noCollision.Normalize();
 
-    Vector3d diff(noCollision);
+    Vector3 diff(noCollision);
     diff.Sub(checkCollision);
     bool collided = diff.GetLengthSquared() > 1.0f;
 

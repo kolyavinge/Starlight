@@ -17,7 +17,7 @@ void Track::Init()
     _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
 }
 
-int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
+int Track::GetTrackPointIndexFor(Vector3& point, int startIndex)
 {
     int result = startIndex;
     float minLength = GetMinSquaredLengthForTrackPoint(point, startIndex);
@@ -51,7 +51,7 @@ int Track::GetTrackPointIndexFor(Vector3d& point, int startIndex)
     return result;
 }
 
-bool Track::IsShipMovingInStraightDirection(Vector3d& shipStraightDirection)
+bool Track::IsShipMovingInStraightDirection(Vector3& shipStraightDirection)
 {
     return VectorCalculator::IsSameDirection(_startFinishLine, shipStraightDirection, StraightDirection);
 }
@@ -60,7 +60,7 @@ void Track::InitMiddlePoints()
 {
     for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
     {
-        Vector3d v(OutsidePoints[pointIndex]);
+        Vector3 v(OutsidePoints[pointIndex]);
         v.Sub(InsidePoints[pointIndex]);
         v.Div((float)TrackMaxMiddlePoints + 1.0f);
 
@@ -101,10 +101,10 @@ void Track::InitNormals()
     }
 }
 
-float Track::GetMinSquaredLengthForTrackPoint(Vector3d& point, int trackPointIndex)
+float Track::GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointIndex)
 {
-    Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = MiddlePoints[trackPointIndex];
-    Vector3d v(middlePoints[0]);
+    Array<Vector3, TrackMaxMiddlePoints>& middlePoints = MiddlePoints[trackPointIndex];
+    Vector3 v(middlePoints[0]);
     v.Sub(point);
     float minLengthSquared = v.GetLengthSquared();
     for (int i = 1; i < TrackMaxMiddlePoints; i++)

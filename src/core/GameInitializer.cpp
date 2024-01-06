@@ -1,4 +1,4 @@
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/Track.h>
 #include <core/PositionUpdater.h>
 #include <core/GameInitializer.h>
@@ -16,7 +16,7 @@ void GameInitializer::SetPlayerByStartFinishLine(Game& game)
 {
     int i = game.CurrentTrack.StartFinishLineIndex;
     Track& track = game.CurrentTrack;
-    Vector3d middle = track.OutsidePoints[i];
+    Vector3 middle = track.OutsidePoints[i];
     middle.Sub(track.InsidePoints[i]);
     middle.Div(2.0f);
     middle.Add(track.InsidePoints[i]);

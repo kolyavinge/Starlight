@@ -1,5 +1,5 @@
 #include <lib/Numeric.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <core/LapCounter.h>
 
 LapCounter::LapCounter()
@@ -47,7 +47,7 @@ bool LapCounter::IsStartFinishLineCrossed(Ship& ship, Track& track)
 
 bool LapCounter::IsShipMovingInStraightDirection(Ship& ship, Track& track)
 {
-    Vector3d shipStraightDirection(ship.CentralLine.Front);
+    Vector3 shipStraightDirection(ship.CentralLine.Front);
     shipStraightDirection.Sub(ship.CentralLine.Rear);
 
     return track.IsShipMovingInStraightDirection(shipStraightDirection);

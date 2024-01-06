@@ -1,14 +1,14 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/Ship.h>
 
 class GameCamera : public Object
 {
 public:
-    Vector3d Position;
-    Vector3d LookAt;
+    Vector3 Position;
+    Vector3 LookAt;
 
     void Update(Ship& ship);
 };

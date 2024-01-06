@@ -2,7 +2,7 @@
 #include <lib/Exceptions.h>
 #include <lib/Numeric.h>
 #include <calc/Geometry.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
 #include <core/MoveLogic.h>
 
@@ -31,7 +31,7 @@ void MoveLogic::MoveShip(float timeStep, Ship& ship)
 
 void MoveLogic::MoveStraight(Ship& ship, float moveDistance)
 {
-    Vector3d direction(ship.CentralLine.Front);
+    Vector3 direction(ship.CentralLine.Front);
     direction.Sub(ship.CentralLine.Rear);
     direction.SetLength(moveDistance);
     ship.CentralLine.Front.Add(direction);
@@ -45,7 +45,7 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
     float rearTurnRadius = ShipMeasure::YLength / Math::Sin(turnAngleAbs);
     float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);
 
-    Vector3d pivotPoint;
+    Vector3 pivotPoint;
     GetPivotPoint(ship, frontTurnRadius, pivotPoint);
 
     Assert(ship, frontTurnRadius, rearTurnRadius, pivotPoint);
@@ -64,7 +64,7 @@ void MoveLogic::MoveAround(Ship& ship, float moveDistance)
     ship.CentralLine.Rear = Geometry::RotatePoint3d(ship.CentralLine.Rear, ship.CentralLine.NormalRear, pivotPoint, rearTurnAngle);
 }
 
-void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, Vector3d& pivot)
+void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, Vector3& pivot)
 {
     if (ship.TurnAngleRadians > 0.0f)
     {
@@ -81,21 +81,21 @@ void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, Vector3d& pivot
     pivot.Add(ship.CentralLine.Front);
 }
 
-void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, Vector3d& pivot)
+void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, Vector3& pivot)
 {
     if (Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ShipMeasure::YLength * ShipMeasure::YLength)) > 0.1f)
     {
         throw AssertException();
     }
 
-    Vector3d frontTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
+    Vector3 frontTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     frontTurnRadiusFromPivot.Sub(ship.CentralLine.Front);
     if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.1f)
     {
         throw AssertException();
     }
 
-    Vector3d rearTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
+    Vector3 rearTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     rearTurnRadiusFromPivot.Sub(ship.CentralLine.Rear);
     if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.1f)
     {

@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/Sphere.h>
 #include <render/DebugTrackRenderer.h>
 
@@ -22,14 +22,14 @@ void DebugTrackRenderer::RenderInsideLines(Track& track)
 
     for (int i = 0; i < track.PointsCount - 1; i++)
     {
-        Vector3d& from = track.InsidePoints[i];
-        Vector3d& to = track.InsidePoints[i + 1];
+        Vector3& from = track.InsidePoints[i];
+        Vector3& to = track.InsidePoints[i + 1];
         glVertex3f(from);
         glVertex3f(to);
     }
 
-    Vector3d& from = track.InsidePoints[track.PointsCount - 1];
-    Vector3d& to = track.InsidePoints[0];
+    Vector3& from = track.InsidePoints[track.PointsCount - 1];
+    Vector3& to = track.InsidePoints[0];
     glVertex3f(from);
     glVertex3f(to);
 
@@ -44,14 +44,14 @@ void DebugTrackRenderer::RenderOutsideLines(Track& track)
 
     for (int i = 0; i < track.PointsCount - 1; i++)
     {
-        Vector3d& from = track.OutsidePoints[i];
-        Vector3d& to = track.OutsidePoints[i + 1];
+        Vector3& from = track.OutsidePoints[i];
+        Vector3& to = track.OutsidePoints[i + 1];
         glVertex3f(from);
         glVertex3f(to);
     }
 
-    Vector3d& from = track.OutsidePoints[track.PointsCount - 1];
-    Vector3d& to = track.OutsidePoints[0];
+    Vector3& from = track.OutsidePoints[track.PointsCount - 1];
+    Vector3& to = track.OutsidePoints[0];
     glVertex3f(from);
     glVertex3f(to);
 
@@ -66,8 +66,8 @@ void DebugTrackRenderer::RenderAcrossLines(Track& track)
 
     for (int i = 0; i < track.PointsCount; i++)
     {
-        Vector3d& from = track.InsidePoints[i];
-        Vector3d& to = track.OutsidePoints[i];
+        Vector3& from = track.InsidePoints[i];
+        Vector3& to = track.OutsidePoints[i];
         glVertex3f(from);
         glVertex3f(to);
     }
@@ -83,7 +83,7 @@ void DebugTrackRenderer::RenderMiddlePoints(Track& track)
 
     for (int i = 0; i < track.PointsCount; i++)
     {
-        Array<Vector3d, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[i];
+        Array<Vector3, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[i];
         for (int j = 0; j < middlePoints.Count; j++)
         {
             glVertex3f(middlePoints[j]);
@@ -99,8 +99,8 @@ void DebugTrackRenderer::RenderNormals(Track& track)
 
     for (int i = 0; i < track.PointsCount; i++)
     {
-        Vector3d& normal = track.Normals[i];
-        Vector3d& out = track.OutsidePoints[i];
+        Vector3& normal = track.Normals[i];
+        Vector3& out = track.OutsidePoints[i];
         glPushMatrix();
         glTranslatef(out);
         glBegin(GL_LINES);
@@ -117,8 +117,8 @@ void DebugTrackRenderer::RenderStartFinishLine(Track& track)
 
     glBegin(GL_LINES);
 
-    Vector3d& from = track.InsidePoints[track.StartFinishLineIndex];
-    Vector3d& to = track.OutsidePoints[track.StartFinishLineIndex];
+    Vector3& from = track.InsidePoints[track.StartFinishLineIndex];
+    Vector3& to = track.OutsidePoints[track.StartFinishLineIndex];
     glVertex3f(from);
     glVertex3f(to);
 

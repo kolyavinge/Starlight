@@ -1,6 +1,6 @@
 #include <calc/Plane.h>
 
-Plane::Plane(Vector3d& normal, Vector3d& point)
+Plane::Plane(Vector3& normal, Vector3& point)
 {
     A = normal.X;
     B = normal.Y;

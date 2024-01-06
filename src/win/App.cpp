@@ -7,7 +7,7 @@
 
 DebugRenderLogic renderLogic;
 RenderLogic& App::_renderLogic = renderLogic;
-Vector3d App::_upAxis;
+Vector3 App::_upAxis;
 Array<bool, 256> App::_keyPressed;
 int App::_joyXAxis;
 unsigned int App::_joyButtonsPressed;

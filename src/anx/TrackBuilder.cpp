@@ -1,4 +1,4 @@
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/Geometry.h>
 #include <model/Track.h>
 #include <anx/TrackBuilder.h>
@@ -23,8 +23,8 @@ void TrackBuilder::InitOutsidePosition(float x, float y, float z)
 
 void TrackBuilder::Move(float distance)
 {
-    Vector3d insideDirection(InsideDirection);
-    Vector3d outsideDirection(OutsideDirection);
+    Vector3 insideDirection(InsideDirection);
+    Vector3 outsideDirection(OutsideDirection);
     insideDirection.SetLength(_moveStep);
     outsideDirection.SetLength(_moveStep);
     for (float fraction = 0.0f; fraction < distance; fraction += _moveStep)
@@ -37,13 +37,13 @@ void TrackBuilder::Move(float distance)
     }
 }
 
-void TrackBuilder::TurnLeft(float degrees, float radius, Vector3d pivotAxis)
+void TrackBuilder::TurnLeft(float degrees, float radius, Vector3 pivotAxis)
 {
     Turn(Direction::Left, degrees, radius, pivotAxis);
     UpdateDirections();
 }
 
-void TrackBuilder::TurnRight(float degrees, float radius, Vector3d pivotAxis)
+void TrackBuilder::TurnRight(float degrees, float radius, Vector3 pivotAxis)
 {
     Turn(Direction::Right, degrees, radius, pivotAxis);
     UpdateDirections();
@@ -51,8 +51,8 @@ void TrackBuilder::TurnRight(float degrees, float radius, Vector3d pivotAxis)
 
 void TrackBuilder::ConnectStartFinish()
 {
-    Vector3d insideDirection(_insidePoints[0]);
-    Vector3d outsideDirection(_outsidePoints[0]);
+    Vector3 insideDirection(_insidePoints[0]);
+    Vector3 outsideDirection(_outsidePoints[0]);
     insideDirection.Sub(_insidePoints[_pointsCount - 1]);
     outsideDirection.Sub(_outsidePoints[_pointsCount - 1]);
     float insideLength = insideDirection.GetLength();
@@ -80,12 +80,12 @@ void TrackBuilder::ConnectStartFinish()
     }
 }
 
-void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3d& pivotAxis)
+void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3& pivotAxis)
 {
-    Vector3d pivotPoint;
+    Vector3 pivotPoint;
     GetDirections(direction, radius, pivotAxis, pivotPoint);
-    Vector3d insidePoint(_insidePoints[_pointsCount - 1]);
-    Vector3d outsidePoint(_outsidePoints[_pointsCount - 1]);
+    Vector3 insidePoint(_insidePoints[_pointsCount - 1]);
+    Vector3 outsidePoint(_outsidePoints[_pointsCount - 1]);
     float radians = Geometry::DegreesToRadians(degrees);
     float step = Geometry::GetRadiansForDistance(_moveStep, radius);
     for (float fraction = step; fraction < radians; fraction += step)
@@ -96,9 +96,9 @@ void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector
     }
 }
 
-void TrackBuilder::GetDirections(Direction direction, float radius, Vector3d& pivotAxis, Vector3d& pivotPoint)
+void TrackBuilder::GetDirections(Direction direction, float radius, Vector3& pivotAxis, Vector3& pivotPoint)
 {
-    Vector3d turnDirection;
+    Vector3 turnDirection;
     bool outsideToRight = _outsidePoints[0].X > _insidePoints[0].X;
     if (direction == Direction::Right && outsideToRight ||
         direction == Direction::Left && !outsideToRight)

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
 class Quaternion : public Object
 {
@@ -10,17 +10,17 @@ class Quaternion : public Object
 public:
     Quaternion();
     Quaternion(float w, float x, float y, float z);
-    Quaternion(Vector3d& from, Vector3d& to);
-    Quaternion(float radians, Vector3d pivot);
+    Quaternion(Vector3& from, Vector3& to);
+    Quaternion(float radians, Vector3 pivot);
 
     float GetMagnitude();
-    void GetAngleAndPivot(float& radians, Vector3d& pivot);
+    void GetAngleAndPivot(float& radians, Vector3& pivot);
     void SetIdentity();
     void SetComponents(float w, float x, float y, float z);
-    void SetVectors(Vector3d& from, Vector3d& to);
-    void SetAngleAndPivot(float radians, Vector3d pivot);
+    void SetVectors(Vector3& from, Vector3& to);
+    void SetAngleAndPivot(float radians, Vector3 pivot);
     void Normalize();
     void Inverse();
     void Mul(Quaternion& q2);
-    void RotatePoint(Vector3d& point);
+    void RotatePoint(Vector3& point);
 };

@@ -9,8 +9,8 @@
 
 #pragma warning(pop)
 
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
-void glTranslatef(Vector3d& v);
-void glVertex3f(Vector3d& v);
-void gluLookAt(Vector3d& position, Vector3d& lookAt, Vector3d& upAxis);
+void glTranslatef(Vector3& v);
+void glVertex3f(Vector3& v);
+void gluLookAt(Vector3& position, Vector3& lookAt, Vector3& upAxis);

@@ -127,10 +127,10 @@ void DebugShipRenderer::RenderTrackPoints(Ship& ship, Track& track)
 
 float DebugShipRenderer::GetAngleBetweenShipAndYStraight(Ship& ship)
 {
-    Vector3d v(ship.CentralLine.Front);
+    Vector3 v(ship.CentralLine.Front);
     v.Sub(ship.CentralLine.Rear);
     v.Normalize();
-    Vector3d straight(0.0f, 1.0f, 0.0f);
+    Vector3 straight(0.0f, 1.0f, 0.0f);
     float cosAlpha = v.DotProduct(straight);
     float alpha = Math::ArcCos(cosAlpha);
     if (v.X > 0.0f) alpha = -alpha;

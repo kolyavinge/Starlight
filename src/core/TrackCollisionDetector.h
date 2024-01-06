@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/SegmentIntersector.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -17,7 +17,7 @@ public:
     bool DetectCollisions(Ship& ship, Track& track);
 
 private:
-    bool DetectCollisions(Track& track, int trackPointIndex, Vector3d& point);
-    bool DetectCollisions(Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3d& point);
-    bool DetectCollisions(Vector3d& from, Vector3d to, Vector3d opposite, Vector3d point);
+    bool DetectCollisions(Track& track, int trackPointIndex, Vector3& point);
+    bool DetectCollisions(Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3& point);
+    bool DetectCollisions(Vector3& from, Vector3 to, Vector3 opposite, Vector3 point);
 };

@@ -1,7 +1,7 @@
 #include <lib/Exceptions.h>
 #include <lib/Math.h>
 #include <lib/Numeric.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/Quaternion.h>
 
 Quaternion::Quaternion()
@@ -14,12 +14,12 @@ Quaternion::Quaternion(float w, float x, float y, float z)
     SetComponents(w, x, y, z);
 }
 
-Quaternion::Quaternion(Vector3d& from, Vector3d& to)
+Quaternion::Quaternion(Vector3& from, Vector3& to)
 {
     SetVectors(from, to);
 }
 
-Quaternion::Quaternion(float radians, Vector3d pivot)
+Quaternion::Quaternion(float radians, Vector3 pivot)
 {
     SetAngleAndPivot(radians, pivot);
 }
@@ -29,7 +29,7 @@ float Quaternion::GetMagnitude()
     return Math::Sqrt(_w * _w + _x * _x + _y * _y + _z * _z);
 }
 
-void Quaternion::GetAngleAndPivot(float& radians, Vector3d& pivot)
+void Quaternion::GetAngleAndPivot(float& radians, Vector3& pivot)
 {
     float alphaHalf = Math::ArcCos(_w);
     radians = 2.0f * alphaHalf;
@@ -51,7 +51,7 @@ void Quaternion::SetComponents(float w, float x, float y, float z)
     _z = z;
 }
 
-void Quaternion::SetVectors(Vector3d& from, Vector3d& to)
+void Quaternion::SetVectors(Vector3& from, Vector3& to)
 {
     if (from.IsZero() || to.IsZero())
     {
@@ -69,7 +69,7 @@ void Quaternion::SetVectors(Vector3d& from, Vector3d& to)
         cosAlpha = -1.0f;
     }
     float alpha = Math::ArcCos(cosAlpha);
-    Vector3d pivot(from);
+    Vector3 pivot(from);
     pivot.VectorProduct(to);
     if (!pivot.IsZero())
     {
@@ -81,7 +81,7 @@ void Quaternion::SetVectors(Vector3d& from, Vector3d& to)
     }
 }
 
-void Quaternion::SetAngleAndPivot(float radians, Vector3d pivot)
+void Quaternion::SetAngleAndPivot(float radians, Vector3 pivot)
 {
     float sinHalf = Math::Sin(radians / 2.0f);
     float cosHalf = Math::Cos(radians / 2.0f);
@@ -117,7 +117,7 @@ void Quaternion::Mul(Quaternion& q2)
     SetComponents(w, x, y, z);
 }
 
-void Quaternion::RotatePoint(Vector3d& point)
+void Quaternion::RotatePoint(Vector3& point)
 {
     Quaternion p(0.0f, point.X, point.Y, point.Z);
 

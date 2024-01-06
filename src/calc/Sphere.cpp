@@ -22,7 +22,7 @@ int Sphere::GetLevelPointsCount()
     return _levelPointsCount;
 }
 
-Vector3d& Sphere::GetPoint(int levelIndex, int pointIndex)
+Vector3& Sphere::GetPoint(int levelIndex, int pointIndex)
 {
     if (levelIndex == 0)
     {
@@ -47,7 +47,7 @@ void Sphere::CalculatePoints()
         float pointRadians = pointRadiansStep * (float)point;
         float x = _radius * Math::Cos(pointRadians);
         float y = _radius * Math::Sin(pointRadians);
-        _equator.Add(Vector3d(x, y, 0.0f));
+        _equator.Add(Vector3(x, y, 0.0f));
     }
     for (int level = 1; level <= _levelsCount; level++)
     {
@@ -59,8 +59,8 @@ void Sphere::CalculatePoints()
             float pointRadians = pointRadiansStep * (float)point;
             float x = levelRadius * Math::Cos(pointRadians);
             float y = levelRadius * Math::Sin(pointRadians);
-            _up.Add(Vector3d(x, y, z));
-            _down.Add(Vector3d(x, y, -z));
+            _up.Add(Vector3(x, y, z));
+            _down.Add(Vector3(x, y, -z));
         }
     }
 }

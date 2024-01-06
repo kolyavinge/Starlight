@@ -1,15 +1,15 @@
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
 #include <core/BorderUpdater.h>
 
 void BorderUpdater::Update(Ship& ship)
 {
-    Vector3d front(ship.CentralLine.Front);
+    Vector3 front(ship.CentralLine.Front);
     front.Sub(ship.CentralLine.Rear);
     front.VectorProduct(ship.CentralLine.NormalFront);
     front.SetLength(ShipMeasure::XLengthHalf);
 
-    Vector3d rear(ship.CentralLine.Front);
+    Vector3 rear(ship.CentralLine.Front);
     rear.Sub(ship.CentralLine.Rear);
     rear.VectorProduct(ship.CentralLine.NormalRear);
     rear.SetLength(ShipMeasure::XLengthHalf);

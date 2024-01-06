@@ -1,6 +1,6 @@
 #pragma once
 
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
 class VectorCalculator
 {
@@ -9,6 +9,6 @@ public:
         float fromX, float fromY,
         float toX, float toY,
         float* resultX, float* resultY);
-    static void GetNormalVector3d(Vector3d& center, Vector3d right, Vector3d front, Vector3d& result);
-    static bool IsSameDirection(Vector3d& base, Vector3d v1, Vector3d v2);
+    static void GetNormalVector3d(Vector3& center, Vector3 right, Vector3 front, Vector3& result);
+    static bool IsSameDirection(Vector3& base, Vector3 v1, Vector3 v2);
 };

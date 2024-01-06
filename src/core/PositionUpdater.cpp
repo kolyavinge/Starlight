@@ -1,4 +1,4 @@
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <calc/Plane.h>
 #include <core/PositionUpdater.h>
 
@@ -35,7 +35,7 @@ void PositionUpdater::UpdateNormals(Ship& ship, Track& track)
     ship.CentralLine.NormalRear.Set(track.Normals[ship.CentralLine.TrackPointIndexRear]);
 }
 
-void PositionUpdater::CalculateZForPoint(Track& track, int trackPointIndex, Vector3d& point)
+void PositionUpdater::CalculateZForPoint(Track& track, int trackPointIndex, Vector3& point)
 {
     Plane plane(track.Normals[trackPointIndex], track.InsidePoints[trackPointIndex]);
     point.Z = plane.GetZ(point.X, point.Y);

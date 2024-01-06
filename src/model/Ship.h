@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/ShipCentralLine.h>
 #include <model/RectBorder.h>
 #include <model/VelocityFunction.h>
@@ -20,14 +20,14 @@ public:
     ShipCentralLine CentralLine;
     ShipCentralLine PrevCentralLine;
     RectBorder Border;
-    Vector3d Deviation;
+    Vector3 Deviation;
     VelocityFunction VelocityFunction;
 
     Ship();
 
     void Init();
-    void OrientationByFrontPoint(Vector3d& frontMiddlePoint, Vector3d direction);
-    void OrientationByRearPoint(Vector3d& rearMiddlePoint, Vector3d direction);
+    void OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction);
+    void OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction);
     bool IsMoving();
     void SetCurrentVelocity();
     float GetRollRadians();

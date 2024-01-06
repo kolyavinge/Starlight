@@ -1,15 +1,15 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
 class ShipCentralLine : public Object
 {
 public:
-    Vector3d Front;
-    Vector3d Rear;
-    Vector3d NormalFront;
-    Vector3d NormalRear;
+    Vector3 Front;
+    Vector3 Rear;
+    Vector3 NormalFront;
+    Vector3 NormalRear;
     int TrackPointIndexFront = 0;
     int TrackPointIndexRear = 0;
 };

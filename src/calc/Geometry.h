@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Math.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
 class Geometry
 {
@@ -21,8 +21,8 @@ public:
         float radians,
         float* resultX,
         float* resultY);
-    static Vector3d RotatePoint3d(Vector3d& point, Vector3d& pivotAxis, float radians);
-    static Vector3d RotatePoint3d(Vector3d point, Vector3d& pivotAxis, Vector3d& pivotPoint, float radians);
+    static Vector3 RotatePoint3d(Vector3& point, Vector3& pivotAxis, float radians);
+    static Vector3 RotatePoint3d(Vector3 point, Vector3& pivotAxis, Vector3& pivotPoint, float radians);
 
 private:
     inline static const float _degToRad = Math::Pi / 180.0f;

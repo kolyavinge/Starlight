@@ -1,13 +1,13 @@
 #pragma once
 
 #include <lib/Array.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <render/RenderLogic.h>
 
 class App
 {
     static RenderLogic& _renderLogic;
-    static Vector3d _upAxis;
+    static Vector3 _upAxis;
     static Array<bool, 256> _keyPressed;
     static int _joyXAxis;
     static unsigned int _joyButtonsPressed;

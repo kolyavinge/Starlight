@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 #include <model/Track.h>
 
 enum Direction { Left, Right };
@@ -15,20 +15,20 @@ class TrackBuilder : public Object
     int& _pointsCount;
 
 public:
-    Vector3d InsideDirection;
-    Vector3d OutsideDirection;
+    Vector3 InsideDirection;
+    Vector3 OutsideDirection;
 
     TrackBuilder(TrackPoints& insidePoints, TrackPoints& outsidePoints, int& pointsCount);
 
     void InitInsidePosition(float x, float y, float z);
     void InitOutsidePosition(float x, float y, float z);
     void Move(float distance);
-    void TurnLeft(float degrees, float radius, Vector3d pivotAxis);
-    void TurnRight(float degrees, float radius, Vector3d pivotAxis);
+    void TurnLeft(float degrees, float radius, Vector3 pivotAxis);
+    void TurnRight(float degrees, float radius, Vector3 pivotAxis);
     void ConnectStartFinish();
 
 private:
-    void Turn(Direction direction, float degrees, float radius, Vector3d& pivotAxis);
-    void GetDirections(Direction direction, float radius, Vector3d& pivotAxis, Vector3d& pivotPoint);
+    void Turn(Direction direction, float degrees, float radius, Vector3& pivotAxis);
+    void GetDirections(Direction direction, float radius, Vector3& pivotAxis, Vector3& pivotPoint);
     void UpdateDirections();
 };

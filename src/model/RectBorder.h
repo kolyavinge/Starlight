@@ -1,15 +1,15 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Vector3d.h>
+#include <calc/Vector3.h>
 
 class RectBorder : public Object
 {
 public:
-    Vector3d UpLeft;
-    Vector3d UpRight;
-    Vector3d DownLeft;
-    Vector3d DownRight;
+    Vector3 UpLeft;
+    Vector3 UpRight;
+    Vector3 DownLeft;
+    Vector3 DownRight;
 
-    void GetAngleAndPivot(float& radians, Vector3d& pivot);
+    void GetAngleAndPivot(float& radians, Vector3& pivot);
 };

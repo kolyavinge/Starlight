@@ -41,7 +41,7 @@ void VectorCalculator::GetNormalVector2d(
     }
 }
 
-void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d right, Vector3d front, Vector3d& result)
+void VectorCalculator::GetNormalVector3d(Vector3& center, Vector3 right, Vector3 front, Vector3& result)
 {
     right.Sub(center);
     front.Sub(center);
@@ -50,7 +50,7 @@ void VectorCalculator::GetNormalVector3d(Vector3d& center, Vector3d right, Vecto
     result.Set(right);
 }
 
-bool VectorCalculator::IsSameDirection(Vector3d& base, Vector3d v1, Vector3d v2)
+bool VectorCalculator::IsSameDirection(Vector3& base, Vector3 v1, Vector3 v2)
 {
     v1.VectorProduct(base);
     v2.VectorProduct(base);
