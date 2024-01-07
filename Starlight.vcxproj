@@ -24,6 +24,7 @@
     <ClInclude Include="external\gl\freeglut_std.h" />
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\Plane.h" />
@@ -103,6 +104,7 @@
     <ClCompile Include="src\model\RectBorder.cpp" />
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
+    <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\release\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\release\ReleaseRenderLogic.cpp" />
     <ClCompile Include="src\render\release\ShipRenderer.cpp" />

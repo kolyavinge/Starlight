@@ -1,12 +1,12 @@
 #include <gl/opengl.h>
-#include <render/release/BackgroundRenderer.h>
+#include <render/debug/DebugBackgroundRenderer.h>
 
-BackgroundRenderer::BackgroundRenderer() :
-    _sphere(1000.0f, 8, 45)
+DebugBackgroundRenderer::DebugBackgroundRenderer() :
+    _sphere(1000.0f, 4, 20)
 {
 }
 
-void BackgroundRenderer::Render()
+void DebugBackgroundRenderer::Render()
 {
     glColor3f(0.2f, 0.2f, 0.2f);
 

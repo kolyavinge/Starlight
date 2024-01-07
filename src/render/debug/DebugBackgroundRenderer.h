@@ -3,12 +3,12 @@
 #include <lib/Object.h>
 #include <calc/Sphere.h>
 
-class BackgroundRenderer : public Object
+class DebugBackgroundRenderer : public Object
 {
     Sphere _sphere;
 
 public:
-    BackgroundRenderer();
+    DebugBackgroundRenderer();
 
     void Render();
 };

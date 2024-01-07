@@ -15,5 +15,4 @@ private:
     void RenderMiddlePoints(Track& track);
     void RenderNormals(Track& track);
     void RenderStartFinishLine(Track& track);
-    void RenderBackground();
 };
