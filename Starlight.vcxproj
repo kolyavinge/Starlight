@@ -24,6 +24,7 @@
     <ClInclude Include="external\gl\freeglut_std.h" />
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
@@ -97,6 +98,7 @@
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
+    <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\model\track\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />
@@ -241,7 +243,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;$(ProjectDir)\external\gl\freeglutd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\gl\freeglutd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>

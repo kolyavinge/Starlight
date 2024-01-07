@@ -65,6 +65,7 @@
     <ClInclude Include="src\render\release\BackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
+    <ClInclude Include="src\gl\ImageFile.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -119,6 +120,7 @@
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\render\release\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
+    <ClCompile Include="src\gl\ImageFile.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

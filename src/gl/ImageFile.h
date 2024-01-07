@@ -1,0 +1,25 @@
+#pragma once
+
+#include <gdiplus.h>
+#include <lib/Object.h>
+
+struct PixelData
+{
+    unsigned char R;
+    unsigned char G;
+    unsigned char B;
+    unsigned char A;
+};
+
+class ImageFile : public Object
+{
+    Gdiplus::Bitmap* _bitmap;
+
+public:
+    ImageFile(const wchar_t* fileName);
+    ~ImageFile();
+
+    unsigned int GetWidth();
+    unsigned int GetHeight();
+    void GetPixelData(int x, int y, PixelData& result);
+};
