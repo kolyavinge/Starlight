@@ -3,6 +3,11 @@
 #include <gl/ImageFile.h>
 #include <gl/Texture.h>
 
+Texture::Texture()
+{
+    _textureId = 0;
+}
+
 void Texture::Load(const wchar_t* fileName)
 {
     ImageFile image(fileName);

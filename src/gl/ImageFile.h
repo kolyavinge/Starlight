@@ -19,7 +19,7 @@ public:
     ImageFile(const wchar_t* fileName);
     ~ImageFile();
 
-    unsigned int GetWidth();
-    unsigned int GetHeight();
+    int GetWidth();
+    int GetHeight();
     void GetPixelData(int x, int y, PixelData& result);
 };

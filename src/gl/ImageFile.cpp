@@ -17,14 +17,14 @@ ImageFile::~ImageFile()
     _bitmap = nullptr;
 }
 
-unsigned int ImageFile::GetWidth()
+int ImageFile::GetWidth()
 {
-    return _bitmap->GetWidth();
+    return (int)_bitmap->GetWidth();
 }
 
-unsigned int ImageFile::GetHeight()
+int ImageFile::GetHeight()
 {
-    return _bitmap->GetHeight();
+    return (int)_bitmap->GetHeight();
 }
 
 void ImageFile::GetPixelData(int x, int y, PixelData& result)
