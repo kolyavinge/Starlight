@@ -25,6 +25,8 @@
     <ClInclude Include="external\gl\freeglut_ucall.h" />
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
+    <ClInclude Include="src\gl\Texture.h" />
+    <ClInclude Include="src\gl\TextureNames.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
@@ -99,6 +101,7 @@
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
+    <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\model\track\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />

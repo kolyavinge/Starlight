@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <gdiplus.h>
 #include <gl/ImageFile.h>
 
 using namespace Gdiplus;
