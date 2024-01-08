@@ -13,5 +13,6 @@ class ReleaseRenderLogic : public RenderLogic
     TrackRenderer _trackRenderer;
 
 public:
+    void Init() override;
     void Render(Game& game);
 };

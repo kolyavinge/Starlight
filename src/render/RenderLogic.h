@@ -6,5 +6,6 @@
 class RenderLogic : public Object
 {
 public:
+    virtual void Init();
     virtual void Render(Game& game) = 0;
 };

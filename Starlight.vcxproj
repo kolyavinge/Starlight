@@ -114,6 +114,7 @@
     <ClCompile Include="src\render\release\ReleaseRenderLogic.cpp" />
     <ClCompile Include="src\render\release\ShipRenderer.cpp" />
     <ClCompile Include="src\render\release\TrackRenderer.cpp" />
+    <ClCompile Include="src\render\RenderLogic.cpp" />
     <ClCompile Include="src\render\ShipMesh.cpp" />
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />

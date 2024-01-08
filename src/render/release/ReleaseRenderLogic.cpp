@@ -1,5 +1,10 @@
 #include <render/release/ReleaseRenderLogic.h>
 
+void ReleaseRenderLogic::Init()
+{
+    _backgroundRenderer.Init();
+}
+
 void ReleaseRenderLogic::Render(Game& game)
 {
     _backgroundRenderer.Render();

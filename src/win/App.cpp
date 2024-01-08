@@ -33,6 +33,7 @@ void App::Start(int argc, char** argv)
     glutKeyboardFunc(Keypress);
     glutKeyboardUpFunc(Keyup);
     glutJoystickFunc(JoystickKeypress, 10);
+    _renderLogic.Init();
     glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
 }
@@ -51,6 +52,7 @@ void App::Display()
     glLoadIdentity();
     gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
+    //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glEnable(GL_BLEND);
