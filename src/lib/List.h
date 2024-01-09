@@ -20,12 +20,21 @@ public:
     {
         _count = 0;
         _capacity = capacity;
-        _items = (T*)Memory::Alloc(_capacity * sizeof T);
+        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
+    }
+
+    List(const List<T>& copy)
+    {
+        _count = copy._count;
+        _capacity = copy._capacity;
+        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
+        Memory::Copy(copy._items, _items, _capacity * sizeof(T));
     }
 
     ~List()
     {
         Memory::Release(_items);
+        _items = nullptr;
     }
 
     T& operator[](int index)
@@ -52,6 +61,13 @@ public:
         ResizeIfNeeded();
         _items[_count] = value;
         _count++;
+    }
+
+    void AddRange(List<T>& range)
+    {
+        ResizeIfNeeded(range.Count());
+        Memory::Copy(range._items, _items + _count, sizeof(T) * range.Count());
+        _count += range.Count();
     }
 
     void Insert(int index, T value)
@@ -81,14 +97,19 @@ public:
         _count = 0;
     }
 
-private:
-    void ResizeIfNeeded()
+    T* GetItemsPointer()
     {
-        if (_count + 1 > _capacity)
+        return _items;
+    }
+
+private:
+    void ResizeIfNeeded(int addedCount = 1)
+    {
+        while (_count + addedCount >= _capacity)
         {
             _capacity *= 2;
-            Memory::Resize((void*&)_items, _capacity * sizeof T);
         }
+        Memory::Resize((void*&)_items, _capacity * sizeof(T));
     }
 
     void CheckBounds(int index, int count)
