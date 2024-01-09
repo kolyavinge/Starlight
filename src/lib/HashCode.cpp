@@ -5,6 +5,16 @@ HashCode::HashCode()
     _result = 1430287;
 }
 
+void HashCode::Add(char value)
+{
+    Add((int)value);
+}
+
+void HashCode::Add(wchar_t value)
+{
+    Add((int)value);
+}
+
 void HashCode::Add(int value)
 {
     _result = _result * 7302013 ^ value;

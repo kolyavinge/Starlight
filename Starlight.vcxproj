@@ -27,6 +27,8 @@
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\gl\TextureNames.h" />
+    <ClInclude Include="src\lib\Environment.h" />
+    <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
@@ -103,6 +105,8 @@
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
+    <ClCompile Include="src\lib\Environment.cpp" />
+    <ClCompile Include="src\lib\File.cpp" />
     <ClCompile Include="src\lib\String.cpp" />
     <ClCompile Include="src\model\track\LoopTrack.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
