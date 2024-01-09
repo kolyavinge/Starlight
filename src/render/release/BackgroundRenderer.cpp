@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <gl/TextureNames.h>
+#include <gl/Textures.h>
 #include <render/release/BackgroundRenderer.h>
 
 BackgroundRenderer::BackgroundRenderer() :
@@ -11,7 +11,7 @@ BackgroundRenderer::BackgroundRenderer() :
 
 void BackgroundRenderer::Init()
 {
-    _backgroundTexture.Load(TextureNames::Background);
+    _backgroundTexture.Load(Textures::GetBackgroundTextureFilePath().GetCString());
 }
 
 void BackgroundRenderer::Render()

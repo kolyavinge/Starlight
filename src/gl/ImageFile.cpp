@@ -1,10 +1,12 @@
 #include <windows.h>
+#include <lib/File.h>
 #include <gl/ImageFile.h>
 
 using namespace Gdiplus;
 
 ImageFile::ImageFile(const wchar_t* fileName)
 {
+    File::ErrorIfFileNotFound(fileName);
     ULONG_PTR gdiplusToken;
     GdiplusStartupInput gdiplusStartupInput;
     GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);

@@ -26,7 +26,7 @@
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
-    <ClInclude Include="src\gl\TextureNames.h" />
+    <ClInclude Include="src\gl\Textures.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\String.h" />
@@ -105,6 +105,7 @@
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
+    <ClCompile Include="src\gl\Textures.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
     <ClCompile Include="src\lib\String.cpp" />
