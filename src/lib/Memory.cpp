@@ -16,7 +16,7 @@ void* Memory::Zero(void* source, unsigned int countBytes)
     return std::memset(source, 0, countBytes);
 }
 
-void Memory::Copy(void* source, void* dest, unsigned int countBytes)
+void Memory::Copy(const void* source, void* dest, unsigned int countBytes)
 {
     std::memcpy(dest, source, countBytes);
 }

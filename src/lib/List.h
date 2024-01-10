@@ -25,16 +25,20 @@ public:
 
     List(const List<T>& copy)
     {
-        _count = copy._count;
-        _capacity = copy._capacity;
-        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
-        Memory::Copy(copy._items, _items, _capacity * sizeof(T));
+        _items = nullptr;
+        Set(copy);
     }
 
     ~List()
     {
         Memory::Release(_items);
         _items = nullptr;
+    }
+
+    List<T>& operator=(const List<T>& copy)
+    {
+        Set(copy);
+        return *this;
     }
 
     T& operator[](int index)
@@ -103,6 +107,18 @@ public:
     }
 
 private:
+    void Set(const List<T>& copy)
+    {
+        _count = copy._count;
+        _capacity = copy._capacity;
+        if (_items != nullptr)
+        {
+            Memory::Release(_items);
+        }
+        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
+        Memory::Copy(copy._items, _items, _capacity * sizeof(T));
+    }
+
     void ResizeIfNeeded(int addedCount = 1)
     {
         while (_count + addedCount >= _capacity)

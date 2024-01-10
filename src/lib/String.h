@@ -1,19 +1,30 @@
 #pragma once
 
+#include <comdef.h>
 #include <lib/Object.h>
-#include <lib/List.h>
 
 class String : public Object
 {
-    List<wchar_t> _symb;
+    wchar_t* _symb;
+    int _count;
+    int _capacity;
+    _bstr_t _tmp;
 
 public:
     String(const wchar_t* str);
+    String(const String& copy);
+    ~String();
 
     bool Equals(Object& x) override;
     int GetHashCode() override;
+    String& operator=(const String& copy);
     int GetLength();
     wchar_t& operator[](int index);
-    void Concat(String& str);
-    wchar_t* GetCString();
+    void Append(String& appended);
+    char* GetCharBuf();
+    wchar_t* GetWCharBuf();
+
+private:
+    void Set(const String& copy);
+    int GetLength(const wchar_t* str);
 };
