@@ -30,6 +30,7 @@
     <ClInclude Include="src\gl\Textures.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
+    <ClInclude Include="src\lib\MemoryBlock.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
