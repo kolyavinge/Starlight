@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/String.h>
 
 class Texture : public Object
 {
@@ -8,7 +9,8 @@ class Texture : public Object
 
 public:
     Texture();
+    ~Texture();
 
-    void Load(const wchar_t* fileName);
+    void Load(String filePath);
     void Bind();
 };

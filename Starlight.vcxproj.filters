@@ -66,6 +66,12 @@
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
+    <ClInclude Include="src\gl\Texture.h" />
+    <ClInclude Include="src\gl\Textures.h" />
+    <ClInclude Include="src\lib\Environment.h" />
+    <ClInclude Include="src\lib\File.h" />
+    <ClInclude Include="src\lib\String.h" />
+    <ClInclude Include="external\soil\SOIL.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -121,6 +127,12 @@
     <ClCompile Include="src\render\release\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
+    <ClCompile Include="src\gl\Texture.cpp" />
+    <ClCompile Include="src\gl\Textures.cpp" />
+    <ClCompile Include="src\lib\Environment.cpp" />
+    <ClCompile Include="src\lib\File.cpp" />
+    <ClCompile Include="src\lib\String.cpp" />
+    <ClCompile Include="src\render\RenderLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

@@ -11,7 +11,7 @@ BackgroundRenderer::BackgroundRenderer() :
 
 void BackgroundRenderer::Init()
 {
-    _backgroundTexture.Load(Textures::GetBackgroundTextureFilePath().GetCString());
+    _backgroundTexture.Load(Textures::GetBackgroundTextureFilePath());
 }
 
 void BackgroundRenderer::Render()
