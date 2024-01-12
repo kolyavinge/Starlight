@@ -149,6 +149,7 @@ enum
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_texture
 	(
@@ -171,6 +172,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_cubemap
 	(
@@ -194,6 +196,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_single_cubemap
 	(
@@ -212,6 +215,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_HDR_texture
 	(
@@ -231,6 +235,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_texture_from_memory
 	(
@@ -260,6 +265,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_cubemap_from_memory
 	(
@@ -290,6 +296,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_load_OGL_single_cubemap_from_memory
 	(
@@ -312,6 +319,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_create_OGL_texture
 	(
@@ -332,6 +340,7 @@ unsigned int
 	\param flags can be any of SOIL_FLAG_POWER_OF_TWO | SOIL_FLAG_MIPMAPS | SOIL_FLAG_TEXTURE_REPEATS | SOIL_FLAG_MULTIPLY_ALPHA | SOIL_FLAG_INVERT_Y | SOIL_FLAG_COMPRESS_TO_DXT | SOIL_FLAG_DDS_LOAD_DIRECT
 	\return 0-failed, otherwise returns the OpenGL texture handle
 **/
+extern __declspec(dllimport)
 unsigned int
 	SOIL_create_OGL_single_cubemap
 	(
@@ -346,6 +355,7 @@ unsigned int
 	Captures the OpenGL window (RGB) and saves it to disk
 	\return 0 if it failed, otherwise returns 1
 **/
+extern __declspec(dllimport)
 int
 	SOIL_save_screenshot
 	(
@@ -364,6 +374,7 @@ int
 	count).
 	\return 0 if failed, otherwise returns 1
 **/
+extern __declspec(dllimport)
 unsigned char*
 	SOIL_load_image
 	(
@@ -381,6 +392,7 @@ unsigned char*
 	count).
 	\return 0 if failed, otherwise returns 1
 **/
+extern __declspec(dllimport)
 unsigned char*
 	SOIL_load_image_from_memory
 	(
@@ -394,6 +406,7 @@ unsigned char*
 	Saves an image from an array of unsigned chars (RGBA) to disk
 	\return 0 if failed, otherwise returns 1
 **/
+extern __declspec(dllimport)
 int
 	SOIL_save_image
 	(
@@ -408,6 +421,7 @@ int
 	present mostly so C++ programmers don't forget to use "free()" and call
 	"delete []" instead [8^)
 **/
+extern __declspec(dllimport)
 void
 	SOIL_free_image_data
 	(
@@ -419,6 +433,7 @@ void
 	that happened inside SOIL.  It can be used to determine why an image
 	failed to load.
 **/
+extern __declspec(dllimport)
 const char*
 	SOIL_last_result
 	(

@@ -260,7 +260,8 @@
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"</Command>
+      <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"
+if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -279,7 +280,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"</Command>
+      <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"
+if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
