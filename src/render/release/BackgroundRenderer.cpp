@@ -20,6 +20,7 @@ void BackgroundRenderer::Render()
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
     _backgroundTexture.Bind();
+    glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
     for (int level = -_sphere.GetLevelsCount() + 2; level < _sphere.GetLevelsCount() - 2; level++)
     {

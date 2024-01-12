@@ -23,6 +23,7 @@ void Texture::Load(String filePath)
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_INVERT_Y | SOIL_FLAG_NTSC_SAFE_RGB | SOIL_FLAG_COMPRESS_TO_DXT
     );
+    if (_textureId == 0) throw TextureLoadException();
 }
 
 void Texture::Bind()

@@ -9,6 +9,7 @@ void TrackRenderer::Render(Track& track)
 
 void TrackRenderer::RenderTrack(Track& track)
 {
+    glEnable(GL_BLEND);
     glColor4f(0.5f, 0.5f, 0.5f, 0.2f);
 
     for (int i = 0; i < track.PointsCount - 1; i++)
@@ -27,6 +28,7 @@ void TrackRenderer::RenderTrack(Track& track)
     glVertex3f(track.OutsidePoints[0]);
     glVertex3f(track.OutsidePoints[track.PointsCount - 1]);
     glEnd();
+    glDisable(GL_BLEND);
 }
 
 void TrackRenderer::RenderEdges(Track& track)
