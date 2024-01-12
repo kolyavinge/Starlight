@@ -157,6 +157,10 @@
     <ResourceCompile Include="res\Starlight.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="res\bg1.jpg">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+    </Image>
     <Image Include="res\main.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -261,7 +265,9 @@
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"
-if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"</Command>
+if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
+if not exist "$(OutputPath)res\nil" mkdir "$(OutputPath)res"
+if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -281,7 +287,9 @@ if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll"
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"
-if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"</Command>
+if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
+if not exist "$(OutputPath)res\nil" mkdir "$(OutputPath)res"
+if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

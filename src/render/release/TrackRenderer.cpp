@@ -28,6 +28,7 @@ void TrackRenderer::RenderTrack(Track& track)
     glVertex3f(track.OutsidePoints[0]);
     glVertex3f(track.OutsidePoints[track.PointsCount - 1]);
     glEnd();
+
     glDisable(GL_BLEND);
 }
 

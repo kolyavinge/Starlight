@@ -16,13 +16,13 @@ void BackgroundRenderer::Init()
 
 void BackgroundRenderer::Render()
 {
+    glColor3f(1.0f, 1.0f, 1.0f);
     glEnable(GL_TEXTURE_2D);
     glCullFace(GL_BACK);
     glEnable(GL_CULL_FACE);
     _backgroundTexture.Bind();
-    glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_QUADS);
-    for (int level = -_sphere.GetLevelsCount() + 2; level < _sphere.GetLevelsCount() - 2; level++)
+    for (int level = -_sphere.GetLevelsCount(); level < _sphere.GetLevelsCount(); level++)
     {
         for (int point = 0; point < _sphere.GetLevelPointsCount() - 1; point++)
         {

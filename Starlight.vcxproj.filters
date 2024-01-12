@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main.ico" />
+    <Image Include="res\bg1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Starlight.aps" />
