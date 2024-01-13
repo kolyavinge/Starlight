@@ -266,7 +266,7 @@
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglutd.dll" copy "$(SolutionDir)external\gl\freeglutd.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
-if not exist "$(OutputPath)res\nil" mkdir "$(OutputPath)res"
+if not exist "$(OutputPath)res\" mkdir "$(OutputPath)res"
 if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
