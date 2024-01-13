@@ -6,9 +6,9 @@ String::String(const wchar_t* str)
 {
     _count = GetLength(str);
     _capacity = 2 * _count;
-    _symb = (wchar_t*)Memory::Alloc(_capacity * sizeof(wchar_t));
-    Memory::Zero(_symb, _capacity * sizeof(wchar_t));
-    Memory::Copy(str, _symb, _count * sizeof(wchar_t));
+    _symb = Memory::Alloc<wchar_t>(_capacity);
+    Memory::Zero<wchar_t>(_symb, _capacity);
+    Memory::Copy<wchar_t>(str, _symb, _count);
 }
 
 String::String(const String& copy)
@@ -74,10 +74,10 @@ void String::Append(String& appended)
     if (newCount > _capacity)
     {
         _capacity = 2 * newCount;
-        Memory::Resize((void*&)_symb, _capacity * sizeof(wchar_t));
-        Memory::Zero(&_symb[_count], (_capacity - _count) * sizeof(wchar_t));
+        Memory::Resize<wchar_t>(_symb, _capacity);
+        Memory::Zero<wchar_t>(&_symb[_count], (_capacity - _count));
     }
-    Memory::Copy(appended._symb, &_symb[_count], appended._count * sizeof(wchar_t));
+    Memory::Copy<wchar_t>(appended._symb, &_symb[_count], appended._count);
     _count += appended._count;
 }
 
@@ -100,8 +100,8 @@ void String::Set(const String& copy)
     {
         Memory::Release(_symb);
     }
-    _symb = (wchar_t*)Memory::Alloc(_capacity * sizeof(wchar_t));
-    Memory::Copy(copy._symb, _symb, _capacity * sizeof(wchar_t));
+    _symb = Memory::Alloc<wchar_t>(_capacity);
+    Memory::Copy<wchar_t>(copy._symb, _symb, _capacity);
 }
 
 int String::GetLength(const wchar_t* str)

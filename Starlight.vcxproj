@@ -146,7 +146,6 @@
     <ClCompile Include="src\model\Ship.cpp" />
     <ClCompile Include="src\calc\SegmentIntersector.cpp" />
     <ClCompile Include="src\lib\Math.cpp" />
-    <ClCompile Include="src\lib\Memory.cpp" />
     <ClCompile Include="src\lib\Object.cpp" />
     <ClCompile Include="src\lib\Random.cpp" />
     <ClCompile Include="src\calc\Vector3.cpp" />

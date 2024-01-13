@@ -20,7 +20,7 @@ public:
     {
         _count = 0;
         _capacity = capacity;
-        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
+        _items = Memory::Alloc<T>(_capacity);
     }
 
     List(const List<T>& copy)
@@ -70,7 +70,7 @@ public:
     void AddRange(List<T>& range)
     {
         ResizeIfNeeded(range.Count());
-        Memory::Copy(range._items, _items + _count, sizeof(T) * range.Count());
+        Memory::Copy<T>(range._items, _items + _count, range.Count());
         _count += range.Count();
     }
 
@@ -115,8 +115,8 @@ private:
         {
             Memory::Release(_items);
         }
-        _items = (T*)Memory::Alloc(_capacity * sizeof(T));
-        Memory::Copy(copy._items, _items, _capacity * sizeof(T));
+        _items = Memory::Alloc<T>(_capacity);
+        Memory::Copy<T>(copy._items, _items, _capacity);
     }
 
     void ResizeIfNeeded(int addedCount = 1)
@@ -125,7 +125,7 @@ private:
         {
             _capacity *= 2;
         }
-        Memory::Resize((void*&)_items, _capacity * sizeof(T));
+        Memory::Resize<T>(_items, _capacity);
     }
 
     void CheckBounds(int index, int count)
