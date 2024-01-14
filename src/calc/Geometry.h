@@ -6,6 +6,8 @@
 class Geometry
 {
 public:
+    static float NormalizeRadians(float radians);
+    static float NormalizeDegrees(float degrees);
     static float DegreesToRadians(float degrees);
     static float RadiansToDegrees(float radians);
     static float GetRadiansForDistance(float distance, float radius);

@@ -73,6 +73,8 @@
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="external\soil\SOIL.h" />
     <ClInclude Include="src\render\BackgroundSphere.h" />
+    <ClInclude Include="src\anx\RandomSpherePoints.h" />
+    <ClInclude Include="src\render\release\StarsRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -134,6 +136,8 @@
     <ClCompile Include="src\lib\String.cpp" />
     <ClCompile Include="src\render\RenderLogic.cpp" />
     <ClCompile Include="src\render\BackgroundSphere.cpp" />
+    <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
+    <ClCompile Include="src\render\release\StarsRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

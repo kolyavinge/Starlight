@@ -11,6 +11,8 @@ public:
 
     inline static const float RenderLineWidth = 1.0f;
 
+    inline static const float RenderPointSize = 1.0f;
+
     inline static const char* Title = "Starlight\0";
 
     inline static const char* Exe = "Starlight.exe\0";

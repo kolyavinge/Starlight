@@ -1,6 +1,26 @@
 #include <lib/Math.h>
 #include <calc/Geometry.h>
 
+float Geometry::NormalizeRadians(float radians)
+{
+    while (radians > Math::PiDouble)
+    {
+        radians -= Math::PiDouble;
+    }
+
+    return radians;
+}
+
+float Geometry::NormalizeDegrees(float degrees)
+{
+    while (degrees > 360.0f)
+    {
+        degrees -= 360.0f;
+    }
+
+    return degrees;
+}
+
 float Geometry::DegreesToRadians(float degrees)
 {
     return degrees * _degToRad;
