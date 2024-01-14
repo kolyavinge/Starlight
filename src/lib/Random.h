@@ -7,5 +7,9 @@ class Random : public Object
 public:
     Random();
 
-    int GetInt(int max);
+    int GetIntFromZeroToN(int n);
+    int GetIntFromZeroToMax();
+    float GetFloatFromZeroToOne();
+    float GetFloatFromZeroToN(float n);
+    float GetFloatFromZeroToMax();
 };

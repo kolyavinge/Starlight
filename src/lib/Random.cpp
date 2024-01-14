@@ -2,12 +2,34 @@
 #include <ctime>
 #include <lib/Random.h>
 
+using namespace std;
+
 Random::Random()
 {
-    std::srand((unsigned int)std::time(nullptr));
+    srand((unsigned int)time(nullptr));
 }
 
-int Random::GetInt(int max)
+int Random::GetIntFromZeroToN(int n)
 {
-    return std::rand() % max;
+    return rand() % n;
+}
+
+int Random::GetIntFromZeroToMax()
+{
+    return rand();
+}
+
+float Random::GetFloatFromZeroToOne()
+{
+    return (float)rand() / (float)RAND_MAX;
+}
+
+float Random::GetFloatFromZeroToN(float n)
+{
+    return (float)rand() / ((float)RAND_MAX / n);
+}
+
+float Random::GetFloatFromZeroToMax()
+{
+    return (float)rand() / (float)rand();
 }
