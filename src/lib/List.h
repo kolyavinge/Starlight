@@ -121,11 +121,16 @@ private:
 
     void ResizeIfNeeded(int addedCount = 1)
     {
+        bool resize = false;
         while (_count + addedCount >= _capacity)
         {
             _capacity *= 2;
+            resize = true;
         }
-        Memory::Resize<T>(_items, _capacity);
+        if (resize)
+        {
+            Memory::Resize<T>(_items, _capacity);
+        }
     }
 
     void CheckBounds(int index, int count)
