@@ -3,8 +3,8 @@
 
 void DebugRenderLogic::Render(Game& game)
 {
-    _backgroundRenderer.Render();
     RenderGrid();
+    _backgroundRenderer.Render();
     _trackRenderer.Render(game.CurrentTrack);
     _shipRenderer.Render(game.Player, game.CurrentTrack);
     RenderAxis();

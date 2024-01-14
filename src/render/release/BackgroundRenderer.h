@@ -1,12 +1,12 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Sphere.h>
 #include <gl/Texture.h>
+#include <render/BackgroundSphere.h>
 
 class BackgroundRenderer : public Object
 {
-    Sphere _sphere;
+    BackgroundSphere _sphere;
     Texture _backgroundTexture;
     float _textureWidthStep;
     float _textureHeightStep;

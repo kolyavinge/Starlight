@@ -1,8 +1,7 @@
 #include <gl/opengl.h>
 #include <render/debug/DebugBackgroundRenderer.h>
 
-DebugBackgroundRenderer::DebugBackgroundRenderer() :
-    _sphere(1000.0f, 4, 20)
+DebugBackgroundRenderer::DebugBackgroundRenderer()
 {
 }
 

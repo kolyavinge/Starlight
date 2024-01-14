@@ -1,11 +1,11 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <calc/Sphere.h>
+#include <render/BackgroundSphere.h>
 
 class DebugBackgroundRenderer : public Object
 {
-    Sphere _sphere;
+    BackgroundSphere _sphere;
 
 public:
     DebugBackgroundRenderer();

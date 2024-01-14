@@ -2,11 +2,10 @@
 #include <gl/Textures.h>
 #include <render/release/BackgroundRenderer.h>
 
-BackgroundRenderer::BackgroundRenderer() :
-    _sphere(1000.0f, 8, 45)
+BackgroundRenderer::BackgroundRenderer()
 {
-    _textureWidthStep = 1.0f / 45.0f;
-    _textureHeightStep = 0.5f / 8.0f;
+    _textureWidthStep = 1.0f / (float)_sphere.LevelPointsCount;
+    _textureHeightStep = 0.5f / (float)_sphere.LevelsCount;
 }
 
 void BackgroundRenderer::Init()
