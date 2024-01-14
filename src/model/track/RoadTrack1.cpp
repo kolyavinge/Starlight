@@ -6,12 +6,10 @@ void RoadTrack1::InternalInit()
 {
     StartFinishLineIndex = 10;
     StraightDirection.Set(0.0f, 1.0f, 0.0f);
-    //StartFinishLineIndex = 1100;
-    //StraightDirection.Set(-1.0f, -1.0f, 0.0f);
 
     TrackBuilder builder(InsidePoints, OutsidePoints, PointsCount);
 
-    builder.InitInsidePosition(8.0f, 0.0f, 0.0f);
+    builder.InitInsidePosition(10.0f, 0.0f, 0.0f);
     builder.InitOutsidePosition(0.0f, 0.0f, 3.0f);
 
     builder.InsideDirection.Set(0.0f, 1.0f, 0.0f);

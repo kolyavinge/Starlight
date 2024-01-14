@@ -21,6 +21,10 @@ void GameUpdater::Update()
     _moveLogic.MoveShip(timeStep, _player);
     _borderUpdater.Update(_player);
     _collisionProcessor.ProcessCollisions(_player, _track);
+    if (_collisionProcessor.HasCollisions())
+    {
+        _borderUpdater.Update(_player);
+    }
     _positionCorrector.CorrectAfterFloatOperations(_player);
     _lapCounter.CheckLap(_player, _track);
     _camera.Update(_player);

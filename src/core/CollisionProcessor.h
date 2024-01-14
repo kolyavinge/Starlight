@@ -8,7 +8,11 @@
 class CollisionProcessor : public Object
 {
     TrackCollisionDetector _trackCollisionDetector;
+    bool _hasCollisions;
 
 public:
+    CollisionProcessor();
+
     void ProcessCollisions(Ship& ship, Track& track);
+    bool HasCollisions();
 };
