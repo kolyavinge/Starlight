@@ -26,6 +26,7 @@
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="external\soil\SOIL.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
+    <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\gl\Textures.h" />
@@ -108,6 +109,7 @@
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
+    <ClCompile Include="src\core\TrackManager.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\gl\Textures.cpp" />

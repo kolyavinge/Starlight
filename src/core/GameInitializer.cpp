@@ -5,17 +5,17 @@
 
 void GameInitializer::Init(Game& game)
 {
-    game.CurrentTrack.Init();
+    game.Track.Init();
     SetPlayerByStartFinishLine(game);
-    game.Player.CentralLine.TrackPointIndexFront = game.CurrentTrack.StartFinishLineIndex;
-    game.Player.CentralLine.TrackPointIndexRear = game.CurrentTrack.StartFinishLineIndex;
+    game.Player.CentralLine.TrackPointIndexFront = game.Track.StartFinishLineIndex;
+    game.Player.CentralLine.TrackPointIndexRear = game.Track.StartFinishLineIndex;
     UpdateShipPosition(game);
 }
 
 void GameInitializer::SetPlayerByStartFinishLine(Game& game)
 {
-    int i = game.CurrentTrack.StartFinishLineIndex;
-    Track& track = game.CurrentTrack;
+    int i = game.Track.StartFinishLineIndex;
+    Track& track = game.Track;
     Vector3 middle = track.OutsidePoints[i];
     middle.Sub(track.InsidePoints[i]);
     middle.Div(2.0f);
@@ -26,5 +26,5 @@ void GameInitializer::SetPlayerByStartFinishLine(Game& game)
 void GameInitializer::UpdateShipPosition(Game& game)
 {
     PositionUpdater positionUpdater;
-    positionUpdater.Update(game.Player, game.CurrentTrack);
+    positionUpdater.Update(game.Player, game.Track);
 }

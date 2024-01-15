@@ -5,8 +5,8 @@ void DebugRenderLogic::Render(Game& game)
 {
     RenderGrid();
     _backgroundRenderer.Render();
-    _trackRenderer.Render(game.CurrentTrack);
-    _shipRenderer.Render(game.Player, game.CurrentTrack);
+    _trackRenderer.Render(game.Track);
+    _shipRenderer.Render(game.Player, game.Track);
     RenderAxis();
 }
 

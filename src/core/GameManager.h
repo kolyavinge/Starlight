@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <model/Ship.h>
-#include <model/track/RoadTrack1.h>
+#include <core/TrackManager.h>
 #include <core/GameUpdater.h>
 #include <core/GameCamera.h>
 #include <core/Controller.h>
@@ -11,7 +11,7 @@
 class GameManager : public Object
 {
     Ship _player;
-    RoadTrack1 _track;
+    TrackManager _trackManager;
     GameUpdater _gameUpdater;
     GameCamera _camera;
     Controller _playerController;

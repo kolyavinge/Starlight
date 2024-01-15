@@ -9,6 +9,6 @@ void ReleaseRenderLogic::Render(Game& game)
 {
     _backgroundRenderer.Render();
     _starsRenderer.Render();
-    _trackRenderer.Render(game.CurrentTrack);
+    _trackRenderer.Render(game.Track);
     _shipRenderer.Render(game.Player);
 }

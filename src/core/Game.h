@@ -13,13 +13,13 @@ class Game : public Object
 
 public:
     Ship& Player;
-    Track& CurrentTrack;
+    Track& Track;
     Controller& PlayerController;
     GameCamera& Camera;
 
     Game(
         Ship& player,
-        Track& track,
+        ::Track& track,
         GameUpdater& gameUpdater,
         Controller& controller,
         GameCamera& camera);

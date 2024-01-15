@@ -2,13 +2,13 @@
 
 Game::Game(
     Ship& player,
-    Track& track,
+    ::Track& track,
     GameUpdater& gameUpdater,
     Controller& controller,
     GameCamera& camera) :
     _gameUpdater(gameUpdater),
     Player(player),
-    CurrentTrack(track),
+    Track(track),
     PlayerController(controller),
     Camera(camera)
 {

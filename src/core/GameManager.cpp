@@ -5,11 +5,11 @@ GameManager GameManager::Instance;
 
 GameManager::GameManager() :
     _player(),
-    _gameUpdater(_player, _track, _camera),
+    _gameUpdater(_player, _trackManager.GetCurrentTrack(), _camera),
     _playerController(_player),
     Game(
         _player,
-        _track,
+        _trackManager.GetCurrentTrack(),
         _gameUpdater,
         _playerController,
         _camera)
