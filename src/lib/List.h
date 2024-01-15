@@ -129,7 +129,7 @@ private:
         }
         if (resize)
         {
-            Memory::Resize<T>(_items, _capacity);
+            Memory::Resize<T>(_items, _count, _capacity);
         }
     }
 

@@ -34,10 +34,10 @@ public:
     }
 
     template<class T>
-    static void Resize(T*& source, unsigned int itemsCount)
+    static void Resize(T*& source, unsigned int currentItemsCount, unsigned int newItemsCount)
     {
-        T* newSource = Alloc<T>(itemsCount);
-        Copy<T>(source, newSource, itemsCount);
+        T* newSource = Alloc<T>(newItemsCount);
+        Copy<T>(source, newSource, currentItemsCount);
         Release(source);
         source = newSource;
     }

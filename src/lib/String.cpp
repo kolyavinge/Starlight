@@ -74,7 +74,7 @@ void String::Append(String& appended)
     if (newCount > _capacity)
     {
         _capacity = 2 * newCount;
-        Memory::Resize<wchar_t>(_symb, _capacity);
+        Memory::Resize<wchar_t>(_symb, _count, _capacity);
         Memory::Zero<wchar_t>(&_symb[_count], (_capacity - _count));
     }
     Memory::Copy<wchar_t>(appended._symb, &_symb[_count], appended._count);
