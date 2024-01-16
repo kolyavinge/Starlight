@@ -33,11 +33,11 @@
     <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
     <ClInclude Include="src\render\debug\DebugRenderLogic.h" />
     <ClInclude Include="src\core\Camera.h" />
-    <ClInclude Include="external\gl\freeglut.h" />
-    <ClInclude Include="external\gl\freeglut_ext.h" />
-    <ClInclude Include="external\gl\freeglut_std.h" />
-    <ClInclude Include="external\gl\freeglut_ucall.h" />
-    <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="external\freeglut\freeglut.h" />
+    <ClInclude Include="external\freeglut\freeglut_ext.h" />
+    <ClInclude Include="external\freeglut\freeglut_std.h" />
+    <ClInclude Include="external\freeglut\freeglut_ucall.h" />
+    <ClInclude Include="external\freeglut\glut.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
     <ClInclude Include="src\model\Border.h" />

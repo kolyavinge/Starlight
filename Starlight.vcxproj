@@ -19,11 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="external\gl\freeglut.h" />
-    <ClInclude Include="external\gl\freeglut_ext.h" />
-    <ClInclude Include="external\gl\freeglut_std.h" />
-    <ClInclude Include="external\gl\freeglut_ucall.h" />
-    <ClInclude Include="external\gl\glut.h" />
+    <ClInclude Include="external\freeglut\freeglut.h" />
+    <ClInclude Include="external\freeglut\freeglut_ext.h" />
+    <ClInclude Include="external\freeglut\freeglut_std.h" />
+    <ClInclude Include="external\freeglut\freeglut_ucall.h" />
+    <ClInclude Include="external\freeglut\glut.h" />
     <ClInclude Include="external\soil\SOIL.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\core\TrackManager.h" />
@@ -266,11 +266,11 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\gl\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\gl\freeglut.dll" "$(OutputPath)"
+      <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)res\" mkdir "$(OutputPath)res"
 if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
@@ -292,7 +292,7 @@ if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(Outp
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\gl\freeglut.dll" "$(OutputPath)"
+      <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)res\" mkdir "$(OutputPath)res"
 if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
