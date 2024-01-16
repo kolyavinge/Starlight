@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 
-class RectBorder : public Object
+class Border : public Object
 {
 public:
     Vector3 UpLeft;

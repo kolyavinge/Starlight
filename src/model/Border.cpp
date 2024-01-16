@@ -1,8 +1,8 @@
 #include <calc/Vector3.h>
 #include <calc/Quaternion.h>
-#include <model/RectBorder.h>
+#include <model/Border.h>
 
-void RectBorder::GetAngleAndPivot(float& radians, Vector3& pivot)
+void Border::GetAngleAndPivot(float& radians, Vector3& pivot)
 {
     Vector3 unitX(1.0f, 0.0f, 0.0f);
     Vector3 vx(DownRight);

@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 #include <model/ShipCentralLine.h>
-#include <model/RectBorder.h>
+#include <model/Border.h>
 #include <model/VelocityFunction.h>
 
 class Ship : public Object
@@ -19,7 +19,7 @@ public:
     float PrevVelocityValue;
     ShipCentralLine CentralLine;
     ShipCentralLine PrevCentralLine;
-    RectBorder Border;
+    Border Border;
     Vector3 Deviation;
     VelocityFunction VelocityFunction;
 

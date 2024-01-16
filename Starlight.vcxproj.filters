@@ -40,7 +40,7 @@
     <ClInclude Include="external\gl\glut.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
-    <ClInclude Include="src\model\RectBorder.h" />
+    <ClInclude Include="src\model\Border.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\TrackCollisionDetector.h" />
@@ -114,7 +114,7 @@
     <ClCompile Include="src\gl\opengl.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
-    <ClCompile Include="src\model\RectBorder.cpp" />
+    <ClCompile Include="src\model\Border.cpp" />
     <ClCompile Include="src\calc\Quaternion.cpp" />
     <ClCompile Include="src\calc\Plane.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />

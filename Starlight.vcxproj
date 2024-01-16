@@ -68,7 +68,7 @@
     <ClInclude Include="src\calc\VectorCalculator.h" />
     <ClInclude Include="src\lib\Numeric.h" />
     <ClInclude Include="src\model\track\CircleTrack.h" />
-    <ClInclude Include="src\model\RectBorder.h" />
+    <ClInclude Include="src\model\Border.h" />
     <ClInclude Include="src\model\track\RoadTrack1.h" />
     <ClInclude Include="src\model\Ship.h" />
     <ClInclude Include="src\calc\SegmentIntersector.h" />
@@ -120,7 +120,7 @@
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
-    <ClCompile Include="src\model\RectBorder.cpp" />
+    <ClCompile Include="src\model\Border.cpp" />
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
     <ClCompile Include="src\render\BackgroundSphere.cpp" />
