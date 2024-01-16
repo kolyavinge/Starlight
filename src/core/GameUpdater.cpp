@@ -4,7 +4,7 @@
 GameUpdater::GameUpdater(
     Ship& player,
     Track& track,
-    GameCamera& camera) :
+    Camera& camera) :
     _player(player),
     _track(track),
     _camera(camera)

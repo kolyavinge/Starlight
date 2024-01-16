@@ -1,6 +1,6 @@
-#include <core/GameCamera.h>
+#include <core/Camera.h>
 
-void GameCamera::Update(Ship& ship)
+void Camera::Update(Ship& ship)
 {
     Position = ship.CentralLine.Rear;
     Position.Sub(ship.CentralLine.Front);

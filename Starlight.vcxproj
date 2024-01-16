@@ -52,7 +52,7 @@
     <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\Controller.h" />
     <ClInclude Include="src\core\Game.h" />
-    <ClInclude Include="src\core\GameCamera.h" />
+    <ClInclude Include="src\core\Camera.h" />
     <ClInclude Include="src\core\GameInitializer.h" />
     <ClInclude Include="src\core\GameManager.h" />
     <ClInclude Include="src\core\GameUpdater.h" />
@@ -105,7 +105,7 @@
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\Controller.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
-    <ClCompile Include="src\core\GameCamera.cpp" />
+    <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />

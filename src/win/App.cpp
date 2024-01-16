@@ -47,7 +47,7 @@ void App::SetIcon()
 
 void App::Display()
 {
-    GameCamera& camera = GameManager::Instance.Game.Camera;
+    Camera& camera = GameManager::Instance.Game.Camera;
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);

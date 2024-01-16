@@ -5,7 +5,7 @@
 #include <model/Track.h>
 #include <core/GameUpdater.h>
 #include <core/Controller.h>
-#include <core/GameCamera.h>
+#include <core/Camera.h>
 
 class Game : public Object
 {
@@ -15,14 +15,14 @@ public:
     Ship& Player;
     Track& Track;
     Controller& PlayerController;
-    GameCamera& Camera;
+    Camera& Camera;
 
     Game(
         Ship& player,
         ::Track& track,
         GameUpdater& gameUpdater,
         Controller& controller,
-        GameCamera& camera);
+        ::Camera& camera);
 
     void Update();
 };

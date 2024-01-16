@@ -32,7 +32,7 @@
     <ClInclude Include="src\render\debug\DebugTrackRenderer.h" />
     <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
     <ClInclude Include="src\render\debug\DebugRenderLogic.h" />
-    <ClInclude Include="src\core\GameCamera.h" />
+    <ClInclude Include="src\core\Camera.h" />
     <ClInclude Include="external\gl\freeglut.h" />
     <ClInclude Include="external\gl\freeglut_ext.h" />
     <ClInclude Include="external\gl\freeglut_std.h" />
@@ -105,7 +105,7 @@
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
-    <ClCompile Include="src\core\GameCamera.cpp" />
+    <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />

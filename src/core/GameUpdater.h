@@ -11,7 +11,7 @@
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
 #include <core/LapCounter.h>
-#include <core/GameCamera.h>
+#include <core/Camera.h>
 
 class GameUpdater : public Object
 {
@@ -25,13 +25,13 @@ class GameUpdater : public Object
     LapCounter _lapCounter;
     Ship& _player;
     Track& _track;
-    GameCamera& _camera;
+    Camera& _camera;
 
 public:
     GameUpdater(
         Ship& player,
         Track& track,
-        GameCamera& camera);
+        Camera& camera);
 
     void Update();
 

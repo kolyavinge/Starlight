@@ -4,7 +4,7 @@
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 
-class GameCamera : public Object
+class Camera : public Object
 {
 public:
     Vector3 Position;

@@ -5,7 +5,7 @@ Game::Game(
     ::Track& track,
     GameUpdater& gameUpdater,
     Controller& controller,
-    GameCamera& camera) :
+    ::Camera& camera) :
     _gameUpdater(gameUpdater),
     Player(player),
     Track(track),
