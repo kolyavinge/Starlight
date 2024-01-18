@@ -76,6 +76,7 @@
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\render\release\StarsRenderer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
+    <ClInclude Include="src\lib\Path.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\render\release\StarsRenderer.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
+    <ClCompile Include="src\lib\Path.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

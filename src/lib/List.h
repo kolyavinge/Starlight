@@ -32,7 +32,6 @@ public:
     ~List()
     {
         Memory::Release(_items);
-        _items = nullptr;
     }
 
     List<T>& operator=(const List<T>& copy)
