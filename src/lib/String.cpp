@@ -21,6 +21,16 @@ String::String(const wchar_t* str)
     Memory::Copy<wchar_t>(str, _symb, _count);
 }
 
+String::String(const char* str)
+{
+    _count = GetLength(str);
+    _capacity = 2 * _count;
+    _symb = Memory::Alloc<wchar_t>(_capacity);
+    Memory::Zero<wchar_t>(_symb, _capacity);
+    size_t outSize;
+    mbstowcs_s(&outSize, _symb, _count + 1, str, _count);
+}
+
 String::String(const String& copy)
 {
     _symb = nullptr;
@@ -150,6 +160,13 @@ int String::GetLength(const wchar_t* str)
 {
     int len = 0;
     for (int i = 0; str[i] != L'\0'; i++) len++;
+    return len;
+}
+
+int String::GetLength(const char* str)
+{
+    int len = 0;
+    for (int i = 0; str[i] != '\0'; i++) len++;
     return len;
 }
 

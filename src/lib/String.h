@@ -16,6 +16,7 @@ public:
     String();
     String(int capacity);
     String(const wchar_t* str);
+    String(const char* str);
     String(const String& copy);
     ~String();
 
@@ -35,5 +36,6 @@ public:
 private:
     void Set(const String& copy);
     int GetLength(const wchar_t* str);
+    int GetLength(const char* str);
     void ResizeIfNeeded(int newCount);
 };
