@@ -8,6 +8,12 @@ Texture::Texture()
     _textureId = 0;
 }
 
+Texture::Texture(String filePath)
+{
+    _textureId = 0;
+    Load(filePath);
+}
+
 Texture::~Texture()
 {
     glDeleteTextures(1, &_textureId);
@@ -15,6 +21,7 @@ Texture::~Texture()
 
 void Texture::Load(String filePath)
 {
+    if (_textureId != 0) throw TextureLoadException();
     File::ErrorIfFileNotFound(filePath.GetWCharBuf());
     _textureId = SOIL_load_OGL_texture
     (

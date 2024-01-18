@@ -12,6 +12,7 @@ class Texture : public Object
 
 public:
     Texture();
+    Texture(String filePath);
     ~Texture();
 
     void Load(String filePath);
