@@ -264,12 +264,14 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
+if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
+if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
 if not exist "$(OutputPath)res\" mkdir "$(OutputPath)res"
 if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
     </PostBuildEvent>
@@ -291,7 +293,9 @@ if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(Outp
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
+if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
+if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
 if not exist "$(OutputPath)res\" mkdir "$(OutputPath)res"
 if not exist "$(OutputPath)res\bg1.jpg" copy "$(SolutionDir)res\bg1.jpg" "$(OutputPath)res"</Command>
     </PostBuildEvent>

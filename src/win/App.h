@@ -1,8 +1,11 @@
 #pragma once
 
+#include <lib/Exceptions.h>
 #include <lib/Array.h>
 #include <calc/Vector3.h>
 #include <render/RenderLogic.h>
+
+class AppInitException : public Exception { };
 
 class App
 {

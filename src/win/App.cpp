@@ -33,6 +33,7 @@ void App::Start(int argc, char** argv)
     glutKeyboardFunc(Keypress);
     glutKeyboardUpFunc(Keyup);
     glutJoystickFunc(JoystickKeypress, 10);
+    if (glewInit() != GLEW_OK) throw AppInitException();
     _renderLogic.Init();
     glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
