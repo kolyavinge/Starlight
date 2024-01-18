@@ -19,12 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="external\freeglut\freeglut.h" />
-    <ClInclude Include="external\freeglut\freeglut_ext.h" />
-    <ClInclude Include="external\freeglut\freeglut_std.h" />
-    <ClInclude Include="external\freeglut\freeglut_ucall.h" />
-    <ClInclude Include="external\freeglut\glut.h" />
-    <ClInclude Include="external\soil\SOIL.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
