@@ -71,6 +71,8 @@
     <ClInclude Include="src\render\release\StarsRenderer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\lib\Path.h" />
+    <ClInclude Include="src\lib\Point2.h" />
+    <ClInclude Include="src\lib\Assert.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -136,6 +138,8 @@
     <ClCompile Include="src\render\release\StarsRenderer.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
     <ClCompile Include="src\lib\Path.cpp" />
+    <ClCompile Include="src\lib\Point2.cpp" />
+    <ClCompile Include="src\lib\Assert.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

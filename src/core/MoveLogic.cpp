@@ -1,5 +1,5 @@
 #include <lib/Math.h>
-#include <lib/Exceptions.h>
+#include <lib/Assert.h>
 #include <lib/Numeric.h>
 #include <calc/Geometry.h>
 #include <calc/Vector3.h>
@@ -83,22 +83,16 @@ void MoveLogic::GetPivotPoint(Ship& ship, float frontTurnRadius, Vector3& pivot)
 
 void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, Vector3& pivot)
 {
-    if (Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ShipMeasure::YLength * ShipMeasure::YLength)) > 0.1f)
-    {
-        throw AssertException();
-    }
+    float x = Math::Abs(rearTurnRadius * rearTurnRadius - (frontTurnRadius * frontTurnRadius + ShipMeasure::YLength * ShipMeasure::YLength));
+    Assert::True(x < 0.1f);
 
     Vector3 frontTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     frontTurnRadiusFromPivot.Sub(ship.CentralLine.Front);
-    if (Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius) > 0.1f)
-    {
-        throw AssertException();
-    }
+    x = Math::Abs(frontTurnRadiusFromPivot.GetLength() - frontTurnRadius);
+    Assert::True(x < 0.1f);
 
     Vector3 rearTurnRadiusFromPivot(pivot.X, pivot.Y, pivot.Z);
     rearTurnRadiusFromPivot.Sub(ship.CentralLine.Rear);
-    if (Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius) > 0.1f)
-    {
-        throw AssertException();
-    }
+    x = Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius);
+    Assert::True(x < 0.1f);
 }

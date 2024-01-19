@@ -1,4 +1,4 @@
-#include <lib/Exceptions.h>
+#include <lib/Assert.h>
 #include <calc/Vector3.h>
 #include <core/CollisionProcessor.h>
 
@@ -15,7 +15,7 @@ void CollisionProcessor::ProcessCollisions(Ship& ship, Track& track)
 
     Vector3 frontDirection(ship.CentralLine.Front);
     frontDirection.Sub(ship.PrevCentralLine.Front);
-    if (frontDirection.IsZero()) throw AssertException();
+    Assert::False(frontDirection.IsZero());
 
     ship.CentralLine = ship.PrevCentralLine;
 

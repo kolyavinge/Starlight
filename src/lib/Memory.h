@@ -4,6 +4,8 @@
 #include <cstring>
 #include <lib/Exceptions.h>
 
+class MemoryAllocationException : public Exception {};
+
 class Memory
 {
 public:
