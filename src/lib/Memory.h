@@ -23,6 +23,15 @@ public:
     }
 
     template<class T>
+    static T* AllocAndZero(unsigned int itemsCount)
+    {
+        T* result = Alloc<T>(itemsCount);
+        Zero<T>(result, itemsCount);
+
+        return (T*)result;
+    }
+
+    template<class T>
     static void Copy(const T* source, T* dest, unsigned int itemsCount)
     {
         std::memcpy(dest, source, itemsCount * sizeof(T));

@@ -8,16 +8,14 @@ String::String(int capacity)
 {
     _count = 0;
     _capacity = capacity;
-    _symb = Memory::Alloc<wchar_t>(_capacity);
-    Memory::Zero<wchar_t>(_symb, _capacity);
+    _symb = Memory::AllocAndZero<wchar_t>(_capacity);
 }
 
 String::String(const wchar_t* str)
 {
     _count = GetLength(str);
     _capacity = 2 * _count;
-    _symb = Memory::Alloc<wchar_t>(_capacity);
-    Memory::Zero<wchar_t>(_symb, _capacity);
+    _symb = Memory::AllocAndZero<wchar_t>(_capacity);
     Memory::Copy<wchar_t>(str, _symb, _count);
 }
 
@@ -25,8 +23,7 @@ String::String(const char* str)
 {
     _count = GetLength(str);
     _capacity = 2 * _count;
-    _symb = Memory::Alloc<wchar_t>(_capacity);
-    Memory::Zero<wchar_t>(_symb, _capacity);
+    _symb = Memory::AllocAndZero<wchar_t>(_capacity);
     size_t outSize;
     mbstowcs_s(&outSize, _symb, _count + 1, str, _count);
 }
@@ -45,9 +42,7 @@ String::~String()
 bool String::Equals(Object& x)
 {
     String& str = (String&)x;
-
     if (_count != str._count) return false;
-
     for (int i = 0; i < _count; i++)
     {
         if (_symb[i] != str._symb[i])
