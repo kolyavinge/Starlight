@@ -2,11 +2,9 @@
 
 #pragma warning(push, 0)
 
-#include <windows.h>
 #include <glew/glew.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
-#include <freeglut/glut.h>
 
 #pragma warning(pop)
 

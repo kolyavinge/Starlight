@@ -1,4 +1,5 @@
 #include <gl/opengl.h>
+#include <freeglut/glut.h>
 #include <core/GameConstants.h>
 #include <core/GameManager.h>
 #include <core/Controller.h>
@@ -56,8 +57,8 @@ void App::Display()
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glLineWidth(GameConstants::RenderLineWidth);
     glPointSize(GameConstants::RenderPointSize);
+    glLineWidth(GameConstants::RenderLineWidth);
     _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();
 }

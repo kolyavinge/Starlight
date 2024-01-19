@@ -14,7 +14,11 @@
  * CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#pragma warning(push, 0)
+
 #include "freeglut_std.h"
+
+#pragma warning(pop)
 
 /*** END OF FILE ***/
 
