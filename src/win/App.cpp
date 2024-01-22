@@ -52,7 +52,7 @@ void App::Display()
     Camera& camera = GameManager::Instance.Game.Camera;
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, 16.0 / 9.0, 0.0, 1.0);
+    gluPerspective(60.0, 16.0 / 9.0, 0.1, GameConstants::DoubleSceneRadius);
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);

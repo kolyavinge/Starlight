@@ -13,6 +13,10 @@ public:
 
     inline static const float RenderPointSize = 1.0f;
 
+    inline static const float SceneRadius = 1000.0f;
+
+    inline static const float DoubleSceneRadius = 2.0f * SceneRadius;
+
     inline static const char* Title = "Starlight\0";
 
     inline static const char* Exe = "Starlight.exe\0";
