@@ -18,6 +18,7 @@ public:
 
     List(int capacity)
     {
+        if (capacity <= 0) throw ArgumentException();
         _count = 0;
         _capacity = capacity;
         _items = Memory::Alloc<T>(_capacity);
@@ -98,6 +99,14 @@ public:
     void Clear()
     {
         _count = 0;
+    }
+
+    void PrepareEnoughCapacity(int enoughCapacity)
+    {
+        if (enoughCapacity <= 0) throw ArgumentException();
+        if (_capacity > enoughCapacity) return;
+        _capacity = enoughCapacity;
+        Memory::Resize<T>(_items, _count, _capacity);
     }
 
     T* GetItemsPointer()
