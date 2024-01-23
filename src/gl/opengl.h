@@ -14,5 +14,6 @@
 void glTranslatef(Vector3& v);
 void glVertex3f(Vector3& v);
 void gluLookAt(Vector3& position, Vector3& lookAt, Vector3& upAxis);
-void glTexCoord2f(Point2 p);
-void glNormal3f(Vector3 v);
+void glTexCoord2f(Point2& p);
+void glNormal3f(Vector3& v);
+void glScalef(Vector3& v);
