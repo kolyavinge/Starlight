@@ -9,6 +9,8 @@ class AppInitException : public Exception { };
 
 class App
 {
+    inline static const double _screenAspectRation = 16.0 / 9.0;
+
     static RenderLogic& _renderLogic;
     static Vector3 _upAxis;
     static Array<bool, 256> _keyPressed;

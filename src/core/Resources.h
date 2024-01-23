@@ -2,7 +2,7 @@
 
 #include <lib/String.h>
 
-class Textures
+class Resources
 {
 public:
     static String GetBackgroundTextureFilePath();

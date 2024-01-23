@@ -1,6 +1,6 @@
 #include <gl/opengl.h>
 #include <freeglut/glut.h>
-#include <core/GameConstants.h>
+#include <core/Constants.h>
 #include <core/GameManager.h>
 #include <core/Controller.h>
 #include <render/debug/DebugRenderLogic.h>
@@ -24,9 +24,9 @@ void App::Start(int argc, char** argv)
     _joyButtonsPressed = 0;
     glutInit(&argc, argv);
     const int width = 1200;
-    glutInitWindowSize(width, width * 9 / 16);
+    glutInitWindowSize(width, (int)((double)width / _screenAspectRation));
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
-    glutCreateWindow(GameConstants::Title);
+    glutCreateWindow(Constants::Title);
     SetIcon();
     glutPositionWindow(100, 100);
     glutDisplayFunc(Display);
@@ -36,14 +36,14 @@ void App::Start(int argc, char** argv)
     glutJoystickFunc(JoystickKeypress, 10);
     if (glewInit() != GLEW_OK) throw AppInitException();
     _renderLogic.Init();
-    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
+    glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
 }
 
 void App::SetIcon()
 {
-    HWND hwnd = FindWindowA(NULL, GameConstants::Title);
-    HANDLE icon = LoadImage(GetModuleHandleA(GameConstants::Exe), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 32, 32, LR_COLOR);
+    HWND hwnd = FindWindowA(NULL, Constants::Title);
+    HANDLE icon = LoadImage(GetModuleHandleA(Constants::Exe), MAKEINTRESOURCE(IDI_ICON1), IMAGE_ICON, 32, 32, LR_COLOR);
     SendMessage(hwnd, WM_SETICON, ICON_BIG, (LPARAM)icon);
 }
 
@@ -52,13 +52,13 @@ void App::Display()
     Camera& camera = GameManager::Instance.Game.Camera;
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, 16.0 / 9.0, 0.1, GameConstants::DoubleSceneRadius);
+    gluPerspective(60.0, _screenAspectRation, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glPointSize(GameConstants::RenderPointSize);
-    glLineWidth(GameConstants::RenderLineWidth);
+    glPointSize(Constants::RenderPointSize);
+    glLineWidth(Constants::RenderLineWidth);
     _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();
 }
@@ -125,5 +125,5 @@ void App::TimerCallback(int)
     ApplyButtonsToController();
     GameManager::Instance.Game.Update();
     glutPostRedisplay();
-    glutTimerFunc(GameConstants::MainTimerMsec, TimerCallback, 0);
+    glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }

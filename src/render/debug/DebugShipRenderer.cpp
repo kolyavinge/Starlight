@@ -1,7 +1,7 @@
 #include <gl/opengl.h>
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
-#include <core/GameConstants.h>
+#include <core/Constants.h>
 #include <render/debug/DebugShipRenderer.h>
 
 void DebugShipRenderer::Render(Ship& ship, Track& track)
@@ -65,7 +65,7 @@ void DebugShipRenderer::RenderDeviation(Ship& ship)
     glEnd();
 
     glPopMatrix();
-    glLineWidth(GameConstants::RenderLineWidth);
+    glLineWidth(Constants::RenderLineWidth);
 }
 
 void DebugShipRenderer::RenderBorder(Ship& ship)

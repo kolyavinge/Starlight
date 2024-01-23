@@ -6,10 +6,10 @@
 
 class BackgroundRenderer : public Object
 {
+    const float _textureWidthStep;
+    const float _textureHeightStep;
     BackgroundSphere _sphere;
     Texture _backgroundTexture;
-    float _textureWidthStep;
-    float _textureHeightStep;
 
 public:
     BackgroundRenderer();

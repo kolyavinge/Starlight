@@ -1,11 +1,9 @@
 #pragma once
 
-class GameConstants
+class Constants
 {
 public:
-    inline static const float TimeStep = 0.02f;
-
-    inline static const float TimeStepMax = 0.1f;
+    inline static const float TimeStep = 0.1f;
 
     inline static const unsigned int MainTimerMsec = 20;
 
@@ -15,7 +13,7 @@ public:
 
     inline static const float SceneRadius = 1000.0f;
 
-    inline static const float DoubleSceneRadius = 2.0f * SceneRadius;
+    inline static const float SceneRadiusDouble = 2.0f * SceneRadius;
 
     inline static const char* Title = "Starlight\0";
 

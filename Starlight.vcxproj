@@ -23,7 +23,7 @@
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
-    <ClInclude Include="src\gl\Textures.h" />
+    <ClInclude Include="src\core\Resources.h" />
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
@@ -109,7 +109,7 @@
     <ClCompile Include="src\core\TrackManager.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
-    <ClCompile Include="src\gl\Textures.cpp" />
+    <ClCompile Include="src\core\Resources.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
@@ -136,7 +136,7 @@
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
     <ClCompile Include="src\win\main.cpp" />
-    <ClInclude Include="src\core\GameConstants.h" />
+    <ClInclude Include="src\core\Constants.h" />
     <ClCompile Include="src\core\GameInitializer.cpp" />
     <ClCompile Include="src\core\GameManager.cpp" />
     <ClCompile Include="src\core\GameUpdater.cpp" />

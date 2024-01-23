@@ -1,4 +1,4 @@
-#include <core/GameConstants.h>
+#include <core/Constants.h>
 #include <core/GameUpdater.h>
 
 GameUpdater::GameUpdater(
@@ -15,7 +15,7 @@ void GameUpdater::Update()
 {
     SaveCurrentShipsPositions();
     _positionUpdater.UpdateIfShipMoving(_player, _track);
-    float timeStep = GameConstants::TimeStepMax;
+    float timeStep = Constants::TimeStep;
     _turnAngleCalculator.CalculateTurnAngle(_player);
     _velocityCalculator.CalculateVelocity(timeStep, _player);
     _moveLogic.MoveShip(timeStep, _player);

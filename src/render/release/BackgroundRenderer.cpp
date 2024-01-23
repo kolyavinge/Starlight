@@ -1,16 +1,16 @@
 #include <gl/opengl.h>
-#include <gl/Textures.h>
+#include <core/Resources.h>
 #include <render/release/BackgroundRenderer.h>
 
-BackgroundRenderer::BackgroundRenderer()
+BackgroundRenderer::BackgroundRenderer() :
+    _textureWidthStep(1.0f / (float)_sphere.LevelPointsCount),
+    _textureHeightStep(0.5f / (float)_sphere.LevelsCount)
 {
-    _textureWidthStep = 1.0f / (float)_sphere.LevelPointsCount;
-    _textureHeightStep = 0.5f / (float)_sphere.LevelsCount;
 }
 
 void BackgroundRenderer::Init()
 {
-    _backgroundTexture.Load(Textures::GetBackgroundTextureFilePath());
+    _backgroundTexture.Load(Resources::GetBackgroundTextureFilePath());
 }
 
 void BackgroundRenderer::Render()
