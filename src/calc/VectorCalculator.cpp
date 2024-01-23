@@ -99,3 +99,36 @@ Vector3 VectorCalculator::GetMaxVector(List<Vector3>& vectors)
 
     return Vector3(maxX, maxY, maxZ);
 }
+
+void VectorCalculator::SwapXY(List<Vector3>& vectors)
+{
+    for (int i = 0; i < vectors.Count(); i++)
+    {
+        Vector3& v = vectors[i];
+        float tmp = v.X;
+        v.X = v.Y;
+        v.Y = tmp;
+    }
+}
+
+void VectorCalculator::SwapXZ(List<Vector3>& vectors)
+{
+    for (int i = 0; i < vectors.Count(); i++)
+    {
+        Vector3& v = vectors[i];
+        float tmp = v.X;
+        v.X = v.Z;
+        v.Z = tmp;
+    }
+}
+
+void VectorCalculator::SwapYZ(List<Vector3>& vectors)
+{
+    for (int i = 0; i < vectors.Count(); i++)
+    {
+        Vector3& v = vectors[i];
+        float tmp = v.Y;
+        v.Y = v.Z;
+        v.Z = tmp;
+    }
+}

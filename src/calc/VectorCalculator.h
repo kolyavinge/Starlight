@@ -14,4 +14,7 @@ public:
     static bool IsSameDirection(Vector3& base, Vector3 v1, Vector3 v2);
     static Vector3 GetMinVector(List<Vector3>& vectors);
     static Vector3 GetMaxVector(List<Vector3>& vectors);
+    static void SwapXY(List<Vector3>& vectors);
+    static void SwapXZ(List<Vector3>& vectors);
+    static void SwapYZ(List<Vector3>& vectors);
 };
