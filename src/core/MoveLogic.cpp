@@ -11,7 +11,7 @@ void MoveLogic::MoveShip(float timeStep, Ship& ship)
     if (!Numeric::FloatEquals(ship.VelocityValue, 0.0f))
     {
         float moveDistance = ship.VelocityValue * timeStep;
-        if (Numeric::FloatEquals(ship.TurnAngleRadians, 0.0f))
+        if (Numeric::FloatEquals(ship.TurnAngleRadians, 0.0f, 1e-2f))
         {
             MoveStraight(ship, moveDistance);
         }
@@ -41,6 +41,9 @@ void MoveLogic::MoveStraight(Ship& ship, float moveDistance)
 void MoveLogic::MoveAround(Ship& ship, float moveDistance)
 {
     float turnAngleAbs = Math::Abs(ship.TurnAngleRadians);
+
+    // для меньшего угла плохо работают формулы с синусом и косинусом
+    Assert::True(turnAngleAbs > 0.005f);
 
     float rearTurnRadius = ShipMeasure::YLength / Math::Sin(turnAngleAbs);
     float frontTurnRadius = rearTurnRadius * Math::Cos(turnAngleAbs);

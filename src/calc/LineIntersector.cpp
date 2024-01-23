@@ -1,3 +1,4 @@
+#include <lib/Numeric.h>
 #include <calc/LineIntersector.h>
 
 bool LineIntersector::GetIntersectPoint(
@@ -16,7 +17,7 @@ bool LineIntersector::GetIntersectPoint(
     float c2 = from2X * to2Y - to2X * from2Y;
 
     float denominator = a1 * b2 - a2 * b1;
-    if (denominator == 0) return false;
+    if (Numeric::FloatEquals(denominator, 0.0f)) return false;
 
     *resultX = (b1 * c2 - b2 * c1) / denominator;
     *resultY = (a2 * c1 - a1 * c2) / denominator;
