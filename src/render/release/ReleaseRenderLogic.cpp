@@ -3,6 +3,7 @@
 void ReleaseRenderLogic::Init()
 {
     _backgroundRenderer.Init();
+    _shipRenderer.Init();
 }
 
 void ReleaseRenderLogic::Render(Game& game)

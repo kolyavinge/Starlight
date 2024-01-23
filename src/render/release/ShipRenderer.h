@@ -1,13 +1,19 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <calc/Vector3.h>
 #include <model/Ship.h>
-#include <render/ShipMesh.h>
+#include <gl/Mesh.h>
 
 class ShipRenderer : public Object
 {
-    ShipMesh _shipMesh;
+    Mesh _shipMesh;
+    Vector3 _scaleVector;
 
 public:
+    void Init();
     void Render(Ship& ship);
+
+private:
+    void SetPosition(Ship& ship);
 };

@@ -10,3 +10,12 @@ String Resources::GetBackgroundTextureFilePath()
 
     return path;
 }
+
+String Resources::GetShipMeshFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\ship\\Starship.obj\0");
+    path.Append(name);
+
+    return path;
+}
