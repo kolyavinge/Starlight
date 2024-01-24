@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\core\TrackManager.h" />
+    <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Mesh.h" />
+    <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\core\Resources.h" />
     <ClInclude Include="src\lib\Assert.h" />
@@ -108,8 +110,10 @@
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
+    <ClCompile Include="src\gl\Face.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Mesh.cpp" />
+    <ClCompile Include="src\gl\MeshLoader.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\core\Resources.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />

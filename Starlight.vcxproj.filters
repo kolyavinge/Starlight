@@ -20,7 +20,6 @@
     <ClInclude Include="src\core\MoveLogic.h" />
     <ClInclude Include="src\core\Controller.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
-    <ClInclude Include="src\core\GameConstants.h" />
     <ClInclude Include="src\calc\Geometry.h" />
     <ClInclude Include="src\calc\Physics.h" />
     <ClInclude Include="src\calc\VectorCalculator.h" />
@@ -62,7 +61,6 @@
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
-    <ClInclude Include="src\gl\Textures.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\String.h" />
@@ -73,6 +71,11 @@
     <ClInclude Include="src\lib\Path.h" />
     <ClInclude Include="src\lib\Point2.h" />
     <ClInclude Include="src\lib\Assert.h" />
+    <ClInclude Include="src\gl\Mesh.h" />
+    <ClInclude Include="src\core\Resources.h" />
+    <ClInclude Include="src\core\Constants.h" />
+    <ClInclude Include="src\gl\MeshLoader.h" />
+    <ClInclude Include="src\gl\Face.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -128,7 +131,6 @@
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
-    <ClCompile Include="src\gl\Textures.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
     <ClCompile Include="src\lib\String.cpp" />
@@ -140,6 +142,10 @@
     <ClCompile Include="src\lib\Path.cpp" />
     <ClCompile Include="src\lib\Point2.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
+    <ClCompile Include="src\gl\Mesh.cpp" />
+    <ClCompile Include="src\core\Resources.cpp" />
+    <ClCompile Include="src\gl\MeshLoader.cpp" />
+    <ClCompile Include="src\gl\Face.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

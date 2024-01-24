@@ -1,11 +1,7 @@
 #include <gl/opengl.h>
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
-#include <lib/Assert.h>
-#include <lib/Path.h>
 #include <calc/Vector3.h>
 #include <calc/VectorCalculator.h>
+#include <gl/MeshLoader.h>
 #include <gl/Mesh.h>
 
 Mesh::Mesh()
@@ -17,12 +13,13 @@ Mesh::Mesh()
 
 void Mesh::Load(String filePath, unsigned int meshIndex)
 {
-    if (IsAlreadyLoaded()) throw LoadMeshException();
-    Assimp::Importer importer;
-    const aiScene* aiScene = importer.ReadFile(filePath.GetCharBuf(), aiProcess_Triangulate);
-    if (meshIndex >= aiScene->mNumMeshes) throw LoadMeshException();
-    InitMesh(aiScene->mMeshes[meshIndex]);
-    InitMaterials(aiScene, filePath);
+    if (IsLoaded()) throw ObjectStateException();
+    MeshLoader loader(filePath, meshIndex);
+    loader.LoadVertexCoords(_vertexCoords);
+    loader.LoadNormalCoords(_normalCoords);
+    loader.LoadTextureCoords(_textureCoords);
+    loader.LoadFaces(_faces);
+    loader.LoadFirstDiffuseTexture(_texture);
     MoveToOrigin();
     CalculateXYZLength();
 }
@@ -87,61 +84,6 @@ void Mesh::SwapYZ()
     CalculateXYZLength();
 }
 
-void Mesh::InitMesh(aiMesh* aiMesh)
-{
-    if (aiMesh->mNumVertices == 0) throw LoadMeshException();
-
-    _vertexCoords.PrepareEnoughCapacity(aiMesh->mNumVertices);
-    _normalCoords.PrepareEnoughCapacity(aiMesh->mNumVertices);
-    _textureCoords.PrepareEnoughCapacity(aiMesh->mNumVertices);
-    _faces.PrepareEnoughCapacity(aiMesh->mNumFaces);
-
-    for (unsigned int i = 0; i < aiMesh->mNumVertices; i++)
-    {
-        aiVector3D& pos = aiMesh->mVertices[i];
-        _vertexCoords.Add(Vector3(pos.x, pos.y, pos.z));
-
-        aiVector3D& normal = aiMesh->mNormals[i];
-        _normalCoords.Add(Vector3(normal.x, normal.y, normal.z));
-
-        if (aiMesh->HasTextureCoords(0))
-        {
-            _textureCoords.Add(Point2(aiMesh->mTextureCoords[0][i].x, aiMesh->mTextureCoords[0][i].y));
-        }
-    }
-
-    for (unsigned int i = 0; i < aiMesh->mNumFaces; i++)
-    {
-        aiFace& face = aiMesh->mFaces[i];
-        Assert::True(face.mNumIndices == 3);
-        _faces.Add(Face{ face.mIndices[0], face.mIndices[1], face.mIndices[2] });
-    }
-}
-
-void Mesh::InitMaterials(const aiScene* aiScene, String filePath)
-{
-    String fileDir = Path::GetDirectoryPath(filePath);
-    for (unsigned int i = 0; i < aiScene->mNumMaterials; i++)
-    {
-        aiMaterial* material = aiScene->mMaterials[i];
-        if (material->GetTextureCount(aiTextureType_DIFFUSE) > 0)
-        {
-            aiString path;
-            if (material->GetTexture(aiTextureType_DIFFUSE, 0, &path) == AI_SUCCESS)
-            {
-                String textureFileName(path.data);
-                String textureFilePath(fileDir);
-                textureFilePath.Append(L'\\');
-                textureFilePath.Append(textureFileName);
-                _texture.Load(textureFilePath);
-                return;
-            }
-        }
-    }
-
-    throw LoadMeshException();
-}
-
 void Mesh::MoveToOrigin()
 {
     Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
@@ -159,7 +101,7 @@ void Mesh::CalculateXYZLength()
     _zLength = max.Z;
 }
 
-bool Mesh::IsAlreadyLoaded()
+bool Mesh::IsLoaded()
 {
     return _vertexCoords.Count() > 0;
 }
