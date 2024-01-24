@@ -16,5 +16,6 @@ public:
     ~Texture();
 
     void Load(String filePath);
+    bool IsLoaded();
     void Bind();
 };

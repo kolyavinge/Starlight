@@ -21,7 +21,7 @@ Texture::~Texture()
 
 void Texture::Load(String filePath)
 {
-    if (_textureId != 0) throw TextureLoadException();
+    if (IsLoaded()) throw TextureLoadException();
     File::ErrorIfFileNotFound(filePath.GetWCharBuf());
     _textureId = SOIL_load_OGL_texture
     (
@@ -30,7 +30,12 @@ void Texture::Load(String filePath)
         SOIL_CREATE_NEW_ID,
         SOIL_FLAG_INVERT_Y
     );
-    if (_textureId == 0) throw TextureLoadException();
+    if (!IsLoaded()) throw TextureLoadException();
+}
+
+bool Texture::IsLoaded()
+{
+    return _textureId != 0;
 }
 
 void Texture::Bind()

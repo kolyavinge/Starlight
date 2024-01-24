@@ -15,11 +15,13 @@ class Mesh : public Object
     List<Point2> _textureCoords;
     List<Face> _faces;
     Texture _texture;
-    float _xLength;
-    float _yLength;
-    float _zLength;
 
 public:
+    enum LoadFlags
+    {
+        NoTexture = 1
+    };
+
     enum Axis
     {
         X = 1,
@@ -27,18 +29,27 @@ public:
         Z = 4
     };
 
+    struct Size
+    {
+        float MinX = 0.0f;
+        float MinY = 0.0f;
+        float MinZ = 0.0f;
+        float MaxX = 0.0f;
+        float MaxY = 0.0f;
+        float MaxZ = 0.0f;
+        float XLength = 0.0f;
+        float YLength = 0.0f;
+        float ZLength = 0.0f;
+    };
+
     Mesh();
 
-    void Load(String filePath, unsigned int meshIndex = 0);
+    void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
     void Render();
-    float GetXLength();
-    float GetYLength();
-    float GetZLength();
+    void RenderWired(int faceStep = 1);
+    void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();
-
-private:
-    void MoveToOrigin();
-    void CalculateXYZLength();
     bool IsLoaded();
+    void GetSize(Size& result);
 };

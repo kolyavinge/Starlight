@@ -6,22 +6,20 @@
 
 Mesh::Mesh()
 {
-    _xLength = 0.0f;
-    _yLength = 0.0f;
-    _zLength = 0.0f;
 }
 
-void Mesh::Load(String filePath, unsigned int meshIndex)
+void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
 {
     if (IsLoaded()) throw ObjectStateException();
     MeshLoader loader(filePath, meshIndex);
     loader.LoadVertexCoords(_vertexCoords);
     loader.LoadNormalCoords(_normalCoords);
-    loader.LoadTextureCoords(_textureCoords);
     loader.LoadFaces(_faces);
-    loader.LoadFirstDiffuseTexture(_texture);
-    MoveToOrigin();
-    CalculateXYZLength();
+    if ((flags & LoadFlags::NoTexture) == 0)
+    {
+        loader.LoadTextureCoords(_textureCoords);
+        loader.LoadFirstDiffuseTexture(_texture);
+    }
 }
 
 void Mesh::Render()
@@ -49,39 +47,23 @@ void Mesh::Render()
     glDisable(GL_TEXTURE_2D);
 }
 
-float Mesh::GetXLength()
+void Mesh::RenderWired(int faceStep)
 {
-    return _xLength;
-}
-
-float Mesh::GetYLength()
-{
-    return _yLength;
-}
-
-float Mesh::GetZLength()
-{
-    return _zLength;
-}
-
-void Mesh::MoveToCenter(int axis)
-{
-    Vector3 delta;
-    if (axis & Axis::X) delta.X = _xLength / 2.0f;
-    if (axis & Axis::Y) delta.Y = _yLength / 2.0f;
-    if (axis & Axis::Z) delta.Z = _zLength / 2.0f;
-    for (int i = 0; i < _vertexCoords.Count(); i++)
+    glBegin(GL_LINE_LOOP);
+    for (int i = 0; i < _faces.Count(); i += faceStep)
     {
-        _vertexCoords[i].Sub(delta);
-    }
-}
+        Face& face = _faces[i];
 
-void Mesh::SwapYZ()
-{
-    VectorCalculator::SwapYZ(_vertexCoords);
-    VectorCalculator::SwapYZ(_normalCoords);
-    MoveToOrigin();
-    CalculateXYZLength();
+        glNormal3f(_normalCoords[face.i0]);
+        glVertex3f(_vertexCoords[face.i0]);
+
+        glNormal3f(_normalCoords[face.i1]);
+        glVertex3f(_vertexCoords[face.i1]);
+
+        glNormal3f(_normalCoords[face.i2]);
+        glVertex3f(_vertexCoords[face.i2]);
+    }
+    glEnd();
 }
 
 void Mesh::MoveToOrigin()
@@ -93,15 +75,47 @@ void Mesh::MoveToOrigin()
     }
 }
 
-void Mesh::CalculateXYZLength()
+void Mesh::MoveToCenter(int axis)
 {
+    Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
     Vector3 max = VectorCalculator::GetMaxVector(_vertexCoords);
-    _xLength = max.X;
-    _yLength = max.Y;
-    _zLength = max.Z;
+    Vector3 lengthHalf = max;
+    lengthHalf.Sub(min);
+    lengthHalf.Div(2.0f);
+    Vector3 delta = min;
+    delta.Add(lengthHalf);
+    if ((axis & Axis::X) == 0) delta.X = 0.0f;
+    if ((axis & Axis::Y) == 0) delta.Y = 0.0f;
+    if ((axis & Axis::Z) == 0) delta.Z = 0.0f;
+    for (int i = 0; i < _vertexCoords.Count(); i++)
+    {
+        _vertexCoords[i].Sub(delta);
+    }
+}
+
+void Mesh::SwapYZ()
+{
+    VectorCalculator::SwapYZ(_vertexCoords);
+    VectorCalculator::SwapYZ(_normalCoords);
 }
 
 bool Mesh::IsLoaded()
 {
     return _vertexCoords.Count() > 0;
+}
+
+void Mesh::GetSize(Size& result)
+{
+    Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
+    Vector3 max = VectorCalculator::GetMaxVector(_vertexCoords);
+
+    result.MinX = min.X;
+    result.MinY = min.Y;
+    result.MinZ = min.Z;
+    result.MaxX = max.X;
+    result.MaxY = max.Y;
+    result.MaxZ = max.Z;
+    result.XLength = (max.X - min.X);
+    result.YLength = (max.Y - min.Y);
+    result.ZLength = (max.Z - min.Z);
 }
