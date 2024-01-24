@@ -4,6 +4,11 @@
 #include <core/Constants.h>
 #include <render/debug/DebugShipRenderer.h>
 
+void DebugShipRenderer::Init()
+{
+    _shipMesh.Init();
+}
+
 void DebugShipRenderer::Render(Ship& ship, Track& track)
 {
     RenderMiddleLine(ship);

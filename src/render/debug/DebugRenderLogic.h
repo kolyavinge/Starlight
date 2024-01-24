@@ -13,6 +13,7 @@ class DebugRenderLogic : public RenderLogic
     DebugTrackRenderer _trackRenderer;
 
 public:
+    void Init();
     void Render(Game& game);
 
 private:
