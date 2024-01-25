@@ -24,7 +24,7 @@ void App::Start(int argc, char** argv)
     _joyButtonsPressed = 0;
     glutInit(&argc, argv);
     const int width = 1200;
-    glutInitWindowSize(width, (int)((double)width / _screenAspectRation));
+    glutInitWindowSize(width, (int)((double)width / _screenAspect));
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow(Constants::Title);
     SetIcon();
@@ -34,9 +34,17 @@ void App::Start(int argc, char** argv)
     glutKeyboardFunc(Keypress);
     glutKeyboardUpFunc(Keyup);
     glutJoystickFunc(JoystickKeypress, 10);
+    glPointSize(Constants::RenderPointSize);
+    glLineWidth(Constants::RenderLineWidth);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     _renderLogic.Init();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
+}
+
+void App::Shutdown()
+{
+    PostQuitMessage(0);
 }
 
 void App::SetIcon()
@@ -48,16 +56,13 @@ void App::SetIcon()
 
 void App::Display()
 {
-    Camera& camera = GameManager::Instance.Game.Camera;
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, _screenAspectRation, 0.1, Constants::SceneRadiusDouble);
+    gluPerspective(60.0, _screenAspect, 0.1, Constants::SceneRadiusDouble);
+    Camera& camera = GameManager::Instance.Game.Camera;
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glPointSize(Constants::RenderPointSize);
-    glLineWidth(Constants::RenderLineWidth);
     _renderLogic.Render(GameManager::Instance.Game);
     glutSwapBuffers();
 }

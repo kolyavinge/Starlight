@@ -9,7 +9,7 @@ class AppInitException : public Exception { };
 
 class App
 {
-    inline static const double _screenAspectRation = 16.0 / 9.0;
+    inline static const double _screenAspect = 16.0 / 9.0;
 
     static RenderLogic& _renderLogic;
     static Vector3 _upAxis;
@@ -19,6 +19,7 @@ class App
 
 public:
     static void Start(int argc, char** argv);
+    static void Shutdown();
 
 private:
     static void SetIcon();

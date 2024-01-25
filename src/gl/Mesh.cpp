@@ -4,10 +4,6 @@
 #include <gl/MeshLoader.h>
 #include <gl/Mesh.h>
 
-Mesh::Mesh()
-{
-}
-
 void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
 {
     if (IsLoaded()) throw ObjectStateException();

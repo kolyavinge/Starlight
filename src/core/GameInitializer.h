@@ -9,6 +9,6 @@ public:
     void Init(Game& game);
 
 private:
-    void SetPlayerByStartFinishLine(Game& game);
+    void SetPlayerBehindStartFinishLine(Game& game);
     void UpdateShipPosition(Game& game);
 };

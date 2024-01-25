@@ -42,8 +42,6 @@ public:
         float ZLength = 0.0f;
     };
 
-    Mesh();
-
     void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
     void Render();
     void RenderWired(int faceStep = 1);
