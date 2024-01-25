@@ -7,14 +7,22 @@ Game::Game(
     Controller& controller,
     ::Camera& camera) :
     _gameUpdater(gameUpdater),
+    _currentGameUpdater(&gameUpdater),
     Player(player),
     Track(track),
     PlayerController(controller),
     Camera(camera)
 {
+    _isPaused = false;
 }
 
 void Game::Update()
 {
-    _gameUpdater.Update();
+    _currentGameUpdater->Update();
+}
+
+void Game::SwitchPause()
+{
+    _isPaused = !_isPaused;
+    _currentGameUpdater = _isPaused ? (IGameUpdater*)&_emptyGameUpdater : &_gameUpdater;
 }

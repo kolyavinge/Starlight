@@ -13,7 +13,13 @@
 #include <core/LapCounter.h>
 #include <core/Camera.h>
 
-class GameUpdater : public Object
+class IGameUpdater : public Object
+{
+public:
+    virtual void Update() = 0;
+};
+
+class GameUpdater : public IGameUpdater
 {
     TurnAngleCalculator _turnAngleCalculator;
     VelocityCalculator _velocityCalculator;
@@ -33,8 +39,14 @@ public:
         Track& track,
         Camera& camera);
 
-    void Update();
+    void Update() override;
 
 private:
     void SaveCurrentShipsPositions();
+};
+
+class EmptyGameUpdater : public IGameUpdater
+{
+public:
+    void Update() override { }
 };

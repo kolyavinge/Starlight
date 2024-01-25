@@ -122,6 +122,12 @@ void App::ApplyButtonsToController()
     {
         controller.ReleaseTurn();
     }
+
+    if (_keyPressed[VK_ESCAPE])
+    {
+        GameManager::Instance.Game.SwitchPause();
+        _keyPressed[VK_ESCAPE] = false;
+    }
 }
 
 void App::TimerCallback(int)

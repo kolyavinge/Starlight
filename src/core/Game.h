@@ -9,7 +9,11 @@
 
 class Game : public Object
 {
+    inline static EmptyGameUpdater _emptyGameUpdater;
+
     GameUpdater& _gameUpdater;
+    IGameUpdater* _currentGameUpdater;
+    bool _isPaused;
 
 public:
     Ship& Player;
@@ -25,4 +29,5 @@ public:
         ::Camera& camera);
 
     void Update();
+    void SwitchPause();
 };
