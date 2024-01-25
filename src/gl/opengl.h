@@ -2,7 +2,7 @@
 
 #pragma warning(push, 0)
 
-#include <glew/glew.h>
+#include <windows.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
 
