@@ -3,6 +3,7 @@
 #include <lib/Exceptions.h>
 #include <lib/Array.h>
 #include <calc/Vector3.h>
+#include <core/GameManager.h>
 #include <render/RenderLogic.h>
 
 class AppInitException : public Exception { };
@@ -10,9 +11,10 @@ class AppInitException : public Exception { };
 class App
 {
     inline static const double _screenAspect = 16.0 / 9.0;
+    inline static Vector3 _upAxis = Vector3(0.0f, 0.0f, 1.0f);
 
+    static GameManager _gameManager;
     static RenderLogic& _renderLogic;
-    static Vector3 _upAxis;
     static Array<bool, 256> _keyPressed;
     static int _joyXAxis;
     static unsigned int _joyButtonsPressed;

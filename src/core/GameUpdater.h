@@ -1,6 +1,5 @@
 #pragma once
 
-#include <lib/Object.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/TurnAngleCalculator.h>
@@ -13,7 +12,7 @@
 #include <core/LapCounter.h>
 #include <core/Camera.h>
 
-class IGameUpdater : public Object
+class IGameUpdater
 {
 public:
     virtual void Update() = 0;

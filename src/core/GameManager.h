@@ -17,10 +17,7 @@ class GameManager : public Object
     Controller _playerController;
 
 public:
-    static GameManager Instance;
+    GameManager();
 
     Game Game;
-
-private:
-    GameManager();
 };

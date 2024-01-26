@@ -8,17 +8,16 @@
 #include <win/resource.h>
 #include <win/App.h>
 
+GameManager App::_gameManager;
 //DebugRenderLogic renderLogic;
 ReleaseRenderLogic renderLogic;
 RenderLogic& App::_renderLogic = renderLogic;
-Vector3 App::_upAxis;
 Array<bool, 256> App::_keyPressed;
 int App::_joyXAxis;
 unsigned int App::_joyButtonsPressed;
 
 void App::Start(int argc, char** argv)
 {
-    _upAxis.Set(0.0f, 0.0f, 1.0f);
     _keyPressed.InitItems(false);
     _joyXAxis = 0;
     _joyButtonsPressed = 0;
@@ -60,10 +59,10 @@ void App::Display()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(60.0, _screenAspect, 0.1, Constants::SceneRadiusDouble);
-    Camera& camera = GameManager::Instance.Game.Camera;
+    Camera& camera = _gameManager.Game.Camera;
     gluLookAt(camera.Position, camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
-    _renderLogic.Render(GameManager::Instance.Game);
+    _renderLogic.Render(_gameManager.Game);
     glutSwapBuffers();
 }
 
@@ -90,7 +89,7 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
 
 void App::ApplyButtonsToController()
 {
-    Controller& controller = GameManager::Instance.Game.PlayerController;
+    Controller& controller = _gameManager.Game.PlayerController;
 
     if (_keyPressed['w'] || (_joyButtonsPressed & GLUT_JOYSTICK_BUTTON_A))
     {
@@ -125,7 +124,7 @@ void App::ApplyButtonsToController()
 
     if (_keyPressed[VK_ESCAPE])
     {
-        GameManager::Instance.Game.SwitchPause();
+        _gameManager.Game.SwitchPause();
         _keyPressed[VK_ESCAPE] = false;
     }
 }
@@ -133,7 +132,7 @@ void App::ApplyButtonsToController()
 void App::TimerCallback(int)
 {
     ApplyButtonsToController();
-    GameManager::Instance.Game.Update();
+    _gameManager.Game.Update();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }
