@@ -2,7 +2,6 @@
 #include <freeglut/glut.h>
 #include <core/Constants.h>
 #include <core/GameManager.h>
-#include <core/Controller.h>
 #include <render/debug/DebugRenderLogic.h>
 #include <render/release/ReleaseRenderLogic.h>
 #include <win/resource.h>
@@ -12,15 +11,9 @@ GameManager App::_gameManager;
 //DebugRenderLogic renderLogic;
 ReleaseRenderLogic renderLogic;
 RenderLogic& App::_renderLogic = renderLogic;
-Array<bool, 256> App::_keyPressed;
-int App::_joyXAxis;
-unsigned int App::_joyButtonsPressed;
 
 void App::Start(int argc, char** argv)
 {
-    _keyPressed.InitItems(false);
-    _joyXAxis = 0;
-    _joyButtonsPressed = 0;
     glutInit(&argc, argv);
     const int width = 1200;
     glutInitWindowSize(width, (int)((double)width / _screenAspect));
@@ -73,66 +66,72 @@ void App::Reshape(int width, int height)
 
 void App::Keypress(unsigned char key, int, int)
 {
-    _keyPressed[key] = true;
+    _gameManager.InputDevices.Keyboard.Press(key);
 }
 
 void App::Keyup(unsigned char key, int, int)
 {
-    _keyPressed[key] = false;
+    _gameManager.InputDevices.Keyboard.Release(key);
 }
 
 void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
 {
-    _joyButtonsPressed = buttons;
-    _joyXAxis = xaxis;
+    Joystick& joystick = _gameManager.InputDevices.Joystick;
+    joystick.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
+    joystick.PressButton2(buttons & GLUT_JOYSTICK_BUTTON_B);
+    joystick.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
+    joystick.PressLeft(xaxis < 0);
+    joystick.PressRight(xaxis > 0);
 }
 
 void App::ApplyButtonsToController()
 {
-    Controller& controller = _gameManager.Game.PlayerController;
+    ShipController& playerController = _gameManager.Game.PlayerController;
+    Keyboard& keyboard = _gameManager.InputDevices.Keyboard;
+    Joystick& joystick = _gameManager.InputDevices.Joystick;
 
-    if (_keyPressed['w'] || (_joyButtonsPressed & GLUT_JOYSTICK_BUTTON_A))
+    if (keyboard.IsPressed('w') || joystick.IsButton1Pressed())
     {
-        controller.ActivateThrottle();
+        playerController.ActivateThrottle();
     }
     else
     {
-        controller.ReleaseThrottle();
+        playerController.ReleaseThrottle();
     }
 
-    if (_keyPressed['s'] || (_joyButtonsPressed & GLUT_JOYSTICK_BUTTON_B) || (_joyButtonsPressed & GLUT_JOYSTICK_BUTTON_C))
+    if (keyboard.IsPressed('s') || joystick.IsButton2Pressed() || joystick.IsButton3Pressed())
     {
-        controller.ActivateBreak();
+        playerController.ActivateBreak();
     }
     else
     {
-        controller.ReleaseBreak();
+        playerController.ReleaseBreak();
     }
 
-    if (_keyPressed['a'] || _joyXAxis < 0)
+    if (keyboard.IsPressed('a') || joystick.IsLeftPressed())
     {
-        controller.TurnLeft();
+        playerController.TurnLeft();
     }
-    else if (_keyPressed['d'] || _joyXAxis > 0)
+    else if (keyboard.IsPressed('d') || joystick.IsRightPressed())
     {
-        controller.TurnRight();
+        playerController.TurnRight();
     }
     else
     {
-        controller.ReleaseTurn();
+        playerController.ReleaseTurn();
     }
 
-    if (_keyPressed[VK_ESCAPE])
+    if (keyboard.IsPressed(VK_ESCAPE))
     {
         _gameManager.Game.SwitchPause();
-        _keyPressed[VK_ESCAPE] = false;
+        keyboard.Release(VK_ESCAPE);
     }
 }
 
 void App::TimerCallback(int)
 {
     ApplyButtonsToController();
-    _gameManager.Game.Update();
+    _gameManager.UpdateGame();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }

@@ -27,6 +27,9 @@
     <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\core\Resources.h" />
+    <ClInclude Include="src\input\InputDevices.h" />
+    <ClInclude Include="src\input\Joystick.h" />
+    <ClInclude Include="src\input\Keyboard.h" />
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
@@ -50,7 +53,7 @@
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
     <ClInclude Include="src\core\CollisionProcessor.h" />
-    <ClInclude Include="src\core\Controller.h" />
+    <ClInclude Include="src\core\ShipController.h" />
     <ClInclude Include="src\core\Game.h" />
     <ClInclude Include="src\core\Camera.h" />
     <ClInclude Include="src\core\GameInitializer.h" />
@@ -103,7 +106,7 @@
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
-    <ClCompile Include="src\core\Controller.cpp" />
+    <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
@@ -116,6 +119,8 @@
     <ClCompile Include="src\gl\MeshLoader.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\core\Resources.cpp" />
+    <ClCompile Include="src\input\Joystick.cpp" />
+    <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />

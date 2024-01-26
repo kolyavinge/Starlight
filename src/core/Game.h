@@ -4,7 +4,7 @@
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/GameUpdater.h>
-#include <core/Controller.h>
+#include <core/ShipController.h>
 #include <core/Camera.h>
 
 class Game : public Object
@@ -18,14 +18,14 @@ class Game : public Object
 public:
     Ship& Player;
     Track& Track;
-    Controller& PlayerController;
+    ShipController& PlayerController;
     Camera& Camera;
 
     Game(
         Ship& player,
         ::Track& track,
         GameUpdater& gameUpdater,
-        Controller& controller,
+        ShipController& controller,
         ::Camera& camera);
 
     void Update();

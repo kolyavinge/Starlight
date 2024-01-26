@@ -15,3 +15,8 @@ GameManager::GameManager() :
     GameInitializer initializer;
     initializer.Init(Game);
 }
+
+void GameManager::UpdateGame()
+{
+    Game.Update();
+}

@@ -1,45 +1,45 @@
-#include <core/Controller.h>
+#include <core/ShipController.h>
 
-Controller::Controller(Ship& ship) :
+ShipController::ShipController(Ship& ship) :
     _ship(ship)
 {
 }
 
-void Controller::ActivateThrottle()
+void ShipController::ActivateThrottle()
 {
     _ship.IsThrottleActive = true;
     _ship.IsBreakActive = false;
 }
 
-void Controller::ReleaseThrottle()
+void ShipController::ReleaseThrottle()
 {
     _ship.IsThrottleActive = false;
 }
 
-void Controller::ActivateBreak()
+void ShipController::ActivateBreak()
 {
     _ship.IsBreakActive = true;
     _ship.IsThrottleActive = false;
 }
 
-void Controller::ReleaseBreak()
+void ShipController::ReleaseBreak()
 {
     _ship.IsBreakActive = false;
 }
 
-void Controller::TurnLeft()
+void ShipController::TurnLeft()
 {
     _ship.IsTurnLeftActive = true;
     _ship.IsTurnRightActive = false;
 }
 
-void Controller::TurnRight()
+void ShipController::TurnRight()
 {
     _ship.IsTurnRightActive = true;
     _ship.IsTurnLeftActive = false;
 }
 
-void Controller::ReleaseTurn()
+void ShipController::ReleaseTurn()
 {
     _ship.IsTurnLeftActive = false;
     _ship.IsTurnRightActive = false;

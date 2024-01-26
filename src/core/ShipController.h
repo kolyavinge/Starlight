@@ -3,12 +3,12 @@
 #include <lib/Object.h>
 #include <model/Ship.h>
 
-class Controller : public Object
+class ShipController : public Object
 {
     Ship& _ship;
 
 public:
-    Controller(Ship& ship);
+    ShipController(Ship& ship);
 
     void ActivateThrottle();
     void ReleaseThrottle();

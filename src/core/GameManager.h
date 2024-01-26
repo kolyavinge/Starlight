@@ -5,8 +5,9 @@
 #include <core/TrackManager.h>
 #include <core/GameUpdater.h>
 #include <core/Camera.h>
-#include <core/Controller.h>
+#include <core/ShipController.h>
 #include <core/Game.h>
+#include <input/InputDevices.h>
 
 class GameManager : public Object
 {
@@ -14,10 +15,13 @@ class GameManager : public Object
     TrackManager _trackManager;
     GameUpdater _gameUpdater;
     Camera _camera;
-    Controller _playerController;
+    ShipController _playerController;
 
 public:
+    Game Game;
+    InputDevices InputDevices;
+
     GameManager();
 
-    Game Game;
+    void UpdateGame();
 };

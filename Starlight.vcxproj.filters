@@ -18,7 +18,7 @@
     <ClInclude Include="src\core\GameManager.h" />
     <ClInclude Include="src\core\GameUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
-    <ClInclude Include="src\core\Controller.h" />
+    <ClInclude Include="src\core\ShipController.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
     <ClInclude Include="src\calc\Geometry.h" />
     <ClInclude Include="src\calc\Physics.h" />
@@ -76,6 +76,9 @@
     <ClInclude Include="src\core\Constants.h" />
     <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\Face.h" />
+    <ClInclude Include="src\input\Joystick.h" />
+    <ClInclude Include="src\input\Keyboard.h" />
+    <ClInclude Include="src\input\InputDevices.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -92,7 +95,7 @@
     <ClCompile Include="src\core\GameManager.cpp" />
     <ClCompile Include="src\core\GameUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
-    <ClCompile Include="src\core\Controller.cpp" />
+    <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\VelocityCalculator.cpp" />
     <ClCompile Include="src\calc\Geometry.cpp" />
     <ClCompile Include="src\calc\Physics.cpp" />
@@ -146,6 +149,8 @@
     <ClCompile Include="src\core\Resources.cpp" />
     <ClCompile Include="src\gl\MeshLoader.cpp" />
     <ClCompile Include="src\gl\Face.cpp" />
+    <ClCompile Include="src\input\Keyboard.cpp" />
+    <ClCompile Include="src\input\Joystick.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

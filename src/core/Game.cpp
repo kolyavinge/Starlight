@@ -4,7 +4,7 @@ Game::Game(
     Ship& player,
     ::Track& track,
     GameUpdater& gameUpdater,
-    Controller& controller,
+    ShipController& controller,
     ::Camera& camera) :
     _gameUpdater(gameUpdater),
     _currentGameUpdater(&gameUpdater),

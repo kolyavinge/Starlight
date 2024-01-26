@@ -1,7 +1,6 @@
 #pragma once
 
 #include <lib/Exceptions.h>
-#include <lib/Array.h>
 #include <calc/Vector3.h>
 #include <core/GameManager.h>
 #include <render/RenderLogic.h>
@@ -15,9 +14,6 @@ class App
 
     static GameManager _gameManager;
     static RenderLogic& _renderLogic;
-    static Array<bool, 256> _keyPressed;
-    static int _joyXAxis;
-    static unsigned int _joyButtonsPressed;
 
 public:
     static void Start(int argc, char** argv);
