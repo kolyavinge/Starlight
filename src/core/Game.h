@@ -3,30 +3,28 @@
 #include <lib/Object.h>
 #include <model/Ship.h>
 #include <model/Track.h>
+#include <core/TrackManager.h>
 #include <core/GameUpdater.h>
 #include <core/ShipController.h>
 #include <core/Camera.h>
+#include <input/InputDevices.h>
 
 class Game : public Object
 {
-    inline static EmptyGameUpdater _emptyGameUpdater;
-
-    GameUpdater& _gameUpdater;
+    TrackManager _trackManager;
+    GameUpdater _gameUpdater;
+    EmptyGameUpdater _emptyGameUpdater;
     IGameUpdater* _currentGameUpdater;
     bool _isPaused;
 
 public:
-    Ship& Player;
+    Ship Player;
     Track& Track;
-    ShipController& PlayerController;
-    Camera& Camera;
+    ShipController PlayerController;
+    Camera Camera;
+    InputDevices InputDevices;
 
-    Game(
-        Ship& player,
-        ::Track& track,
-        GameUpdater& gameUpdater,
-        ShipController& controller,
-        ::Camera& camera);
+    Game();
 
     void Update();
     void SwitchPause();

@@ -1,19 +1,15 @@
+#include <core/GameInitializer.h>
 #include <core/Game.h>
 
-Game::Game(
-    Ship& player,
-    ::Track& track,
-    GameUpdater& gameUpdater,
-    ShipController& controller,
-    ::Camera& camera) :
-    _gameUpdater(gameUpdater),
-    _currentGameUpdater(&gameUpdater),
-    Player(player),
-    Track(track),
-    PlayerController(controller),
-    Camera(camera)
+Game::Game() :
+    Track(_trackManager.GetCurrentTrack()),
+    _gameUpdater(Player, _trackManager, Camera),
+    PlayerController(Player)
 {
     _isPaused = false;
+    _currentGameUpdater = &_gameUpdater;
+    GameInitializer initializer;
+    initializer.Init(*this);
 }
 
 void Game::Update()

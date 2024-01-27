@@ -1,13 +1,13 @@
 #include <gl/opengl.h>
 #include <freeglut/glut.h>
 #include <core/Constants.h>
-#include <core/GameManager.h>
+#include <core/Game.h>
 #include <render/debug/DebugRenderLogic.h>
 #include <render/release/ReleaseRenderLogic.h>
 #include <win/resource.h>
 #include <win/App.h>
 
-GameManager App::_gameManager;
+Game App::_game;
 //DebugRenderLogic renderLogic;
 ReleaseRenderLogic renderLogic;
 RenderLogic& App::_renderLogic = renderLogic;
@@ -52,10 +52,9 @@ void App::Display()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(60.0, _screenAspect, 0.1, Constants::SceneRadiusDouble);
-    Camera& camera = _gameManager.Game.Camera;
-    gluLookAt(camera.Position, camera.LookAt, _upAxis);
+    gluLookAt(_game.Camera.Position, _game.Camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
-    _renderLogic.Render(_gameManager.Game);
+    _renderLogic.Render(_game);
     glutSwapBuffers();
 }
 
@@ -66,17 +65,17 @@ void App::Reshape(int width, int height)
 
 void App::Keypress(unsigned char key, int, int)
 {
-    _gameManager.InputDevices.Keyboard.Press(key);
+    _game.InputDevices.Keyboard.Press(key);
 }
 
 void App::Keyup(unsigned char key, int, int)
 {
-    _gameManager.InputDevices.Keyboard.Release(key);
+    _game.InputDevices.Keyboard.Release(key);
 }
 
 void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
 {
-    Joystick& joystick = _gameManager.InputDevices.Joystick;
+    Joystick& joystick = _game.InputDevices.Joystick;
     joystick.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
     joystick.PressButton2(buttons & GLUT_JOYSTICK_BUTTON_B);
     joystick.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
@@ -86,9 +85,9 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
 
 void App::ApplyButtonsToController()
 {
-    ShipController& playerController = _gameManager.Game.PlayerController;
-    Keyboard& keyboard = _gameManager.InputDevices.Keyboard;
-    Joystick& joystick = _gameManager.InputDevices.Joystick;
+    ShipController& playerController = _game.PlayerController;
+    Keyboard& keyboard = _game.InputDevices.Keyboard;
+    Joystick& joystick = _game.InputDevices.Joystick;
 
     if (keyboard.IsPressed('w') || joystick.IsButton1Pressed())
     {
@@ -123,7 +122,7 @@ void App::ApplyButtonsToController()
 
     if (keyboard.IsPressed(VK_ESCAPE))
     {
-        _gameManager.Game.SwitchPause();
+        _game.SwitchPause();
         keyboard.Release(VK_ESCAPE);
     }
 }
@@ -131,7 +130,7 @@ void App::ApplyButtonsToController()
 void App::TimerCallback(int)
 {
     ApplyButtonsToController();
-    _gameManager.UpdateGame();
+    _game.Update();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }
