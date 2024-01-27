@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
+    <ClInclude Include="src\core\IPauseSwitcher.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
@@ -39,6 +40,13 @@
     <ClInclude Include="src\render\BackgroundSphere.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\release\StarsRenderer.h" />
+    <ClInclude Include="src\ui\GameScreen.h" />
+    <ClInclude Include="src\ui\IScreenNavigator.h" />
+    <ClInclude Include="src\ui\PauseMenuScreen.h" />
+    <ClInclude Include="src\ui\Screen.h" />
+    <ClInclude Include="src\ui\ScreenManager.h" />
+    <ClInclude Include="src\ui\StartMenuScreen.h" />
+    <ClInclude Include="src\ui\TrackSelectorScreen.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\Plane.h" />
@@ -145,6 +153,12 @@
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
+    <ClCompile Include="src\ui\GameScreen.cpp" />
+    <ClCompile Include="src\ui\PauseMenuScreen.cpp" />
+    <ClCompile Include="src\ui\Screen.cpp" />
+    <ClCompile Include="src\ui\ScreenManager.cpp" />
+    <ClCompile Include="src\ui\StartMenuScreen.cpp" />
+    <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
     <ClCompile Include="src\win\main.cpp" />
     <ClInclude Include="src\core\Constants.h" />
     <ClCompile Include="src\core\GameInitializer.cpp" />

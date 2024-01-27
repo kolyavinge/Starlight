@@ -26,6 +26,5 @@ private:
     static void Keypress(unsigned char key, int x, int y);
     static void Keyup(unsigned char key, int x, int y);
     static void JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int zaxis);
-    static void ApplyButtonsToController();
     static void TimerCallback(int state);
 };

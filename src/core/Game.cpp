@@ -4,7 +4,8 @@
 Game::Game() :
     Track(_trackManager.GetCurrentTrack()),
     _gameUpdater(Player, _trackManager, Camera),
-    PlayerController(Player)
+    PlayerController(Player),
+    _screenManager(InputDevices, PlayerController, *this)
 {
     _isPaused = false;
     _currentGameUpdater = &_gameUpdater;
@@ -15,10 +16,16 @@ Game::Game() :
 void Game::Update()
 {
     _currentGameUpdater->Update();
+    _screenManager.GetCurrentScreen().ProcessInput();
 }
 
 void Game::SwitchPause()
 {
     _isPaused = !_isPaused;
     _currentGameUpdater = _isPaused ? (IGameUpdater*)&_emptyGameUpdater : &_gameUpdater;
+}
+
+Screen& Game::GetCurrentScreen()
+{
+    return _screenManager.GetCurrentScreen();
 }

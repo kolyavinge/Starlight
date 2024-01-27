@@ -83,53 +83,8 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
     joystick.PressRight(xaxis > 0);
 }
 
-void App::ApplyButtonsToController()
-{
-    ShipController& playerController = _game.PlayerController;
-    Keyboard& keyboard = _game.InputDevices.Keyboard;
-    Joystick& joystick = _game.InputDevices.Joystick;
-
-    if (keyboard.IsPressed('w') || joystick.IsButton1Pressed())
-    {
-        playerController.ActivateThrottle();
-    }
-    else
-    {
-        playerController.ReleaseThrottle();
-    }
-
-    if (keyboard.IsPressed('s') || joystick.IsButton2Pressed() || joystick.IsButton3Pressed())
-    {
-        playerController.ActivateBreak();
-    }
-    else
-    {
-        playerController.ReleaseBreak();
-    }
-
-    if (keyboard.IsPressed('a') || joystick.IsLeftPressed())
-    {
-        playerController.TurnLeft();
-    }
-    else if (keyboard.IsPressed('d') || joystick.IsRightPressed())
-    {
-        playerController.TurnRight();
-    }
-    else
-    {
-        playerController.ReleaseTurn();
-    }
-
-    if (keyboard.IsPressed(VK_ESCAPE))
-    {
-        _game.SwitchPause();
-        keyboard.Release(VK_ESCAPE);
-    }
-}
-
 void App::TimerCallback(int)
 {
-    ApplyButtonsToController();
     _game.Update();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
