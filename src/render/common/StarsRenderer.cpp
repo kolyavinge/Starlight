@@ -2,8 +2,8 @@
 #include <lib/Random.h>
 #include <lib/Math.h>
 #include <calc/Geometry.h>
-#include <render/BackgroundSphere.h>
-#include <render/release/StarsRenderer.h>
+#include <render/common/BackgroundSphere.h>
+#include <render/common/StarsRenderer.h>
 
 StarsRenderer::StarsRenderer() :
     _stars(BackgroundSphere::Radius, 150)

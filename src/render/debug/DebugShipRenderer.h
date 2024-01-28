@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <render/ShipMesh.h>
+#include <render/common/ShipMesh.h>
 
 class DebugShipRenderer : public Object
 {

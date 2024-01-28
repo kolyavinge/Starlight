@@ -3,7 +3,7 @@
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
 #include <core/Resources.h>
-#include <render/ShipMesh.h>
+#include <render/common/ShipMesh.h>
 
 void ShipMesh::Init()
 {

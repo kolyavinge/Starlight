@@ -1,12 +1,12 @@
-#include <render/release/ReleaseRenderLogic.h>
+#include <render/ui/GameScreenRenderer.h>
 
-void ReleaseRenderLogic::Init()
+void GameScreenRenderer::Init()
 {
     _backgroundRenderer.Init();
     _shipRenderer.Init();
 }
 
-void ReleaseRenderLogic::Render(Game& game)
+void GameScreenRenderer::Render(Game& game)
 {
     _backgroundRenderer.Render();
     _starsRenderer.Render();

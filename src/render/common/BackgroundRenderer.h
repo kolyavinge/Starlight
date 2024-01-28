@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <gl/Texture.h>
-#include <render/BackgroundSphere.h>
+#include <render/common/BackgroundSphere.h>
 
 class BackgroundRenderer : public Object
 {

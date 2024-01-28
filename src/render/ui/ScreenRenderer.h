@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <core/Game.h>
 
-class RenderLogic : public Object
+class ScreenRenderer : public Object
 {
 public:
     virtual void Init();

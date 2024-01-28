@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <render/release/ShipRenderer.h>
+#include <render/common/ShipRenderer.h>
 
 void ShipRenderer::Init()
 {

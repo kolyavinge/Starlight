@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <render/release/TrackRenderer.h>
+#include <render/common/TrackRenderer.h>
 
 void TrackRenderer::Render(Track& track)
 {

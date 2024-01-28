@@ -1,4 +1,4 @@
-#include <render/BackgroundSphere.h>
+#include <render/common/BackgroundSphere.h>
 
 BackgroundSphere::BackgroundSphere() : Sphere(Radius, LevelsCount, LevelPointsCount)
 {

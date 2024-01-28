@@ -1,6 +1,6 @@
 #include <gl/opengl.h>
 #include <core/Resources.h>
-#include <render/release/BackgroundRenderer.h>
+#include <render/common/BackgroundRenderer.h>
 
 BackgroundRenderer::BackgroundRenderer() :
     _textureWidthStep(1.0f / (float)_sphere.LevelPointsCount),

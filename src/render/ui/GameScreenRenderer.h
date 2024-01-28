@@ -1,13 +1,13 @@
 #pragma once
 
 #include <core/Game.h>
-#include <render/RenderLogic.h>
-#include <render/release/BackgroundRenderer.h>
-#include <render/release/StarsRenderer.h>
-#include <render/release/ShipRenderer.h>
-#include <render/release/TrackRenderer.h>
+#include <render/common/BackgroundRenderer.h>
+#include <render/common/StarsRenderer.h>
+#include <render/common/ShipRenderer.h>
+#include <render/common/TrackRenderer.h>
+#include <render/ui/ScreenRenderer.h>
 
-class ReleaseRenderLogic : public RenderLogic
+class GameScreenRenderer : public ScreenRenderer
 {
     BackgroundRenderer _backgroundRenderer;
     StarsRenderer _starsRenderer;
