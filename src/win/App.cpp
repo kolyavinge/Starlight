@@ -1,15 +1,9 @@
 #include <gl/opengl.h>
 #include <freeglut/glut.h>
 #include <core/Constants.h>
-#include <core/Game.h>
-#include <render/debug/DebugRenderLogic.h>
-#include <render/ui/GameScreenRenderer.h>
+#include <render/ui/ScreenRenderer.h>
 #include <win/resource.h>
 #include <win/App.h>
-
-//DebugRenderLogic renderLogic;
-GameScreenRenderer renderLogic;
-ScreenRenderer& App::_screenRenderer = renderLogic;
 
 void App::Start(int argc, char** argv)
 {
@@ -28,7 +22,7 @@ void App::Start(int argc, char** argv)
     glPointSize(Constants::RenderPointSize);
     glLineWidth(Constants::RenderLineWidth);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    _screenRenderer.Init();
+    _renderManager.Init();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
 }
@@ -53,7 +47,8 @@ void App::Display()
     gluPerspective(60.0, _screenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(_game.Camera.Position, _game.Camera.LookAt, _upAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
-    _screenRenderer.Render(_game);
+    ScreenRenderer& screenRenderer = _renderManager.GetScreenRenderer(_game.GetCurrentScreen());
+    screenRenderer.Render(_game);
     glutSwapBuffers();
 }
 

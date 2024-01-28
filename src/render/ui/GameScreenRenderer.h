@@ -16,5 +16,5 @@ class GameScreenRenderer : public ScreenRenderer
 
 public:
     void Init() override;
-    void Render(Game& game);
+    void Render(Game& game) override;
 };

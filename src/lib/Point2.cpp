@@ -1,4 +1,4 @@
-#include "Point2.h"
+#include <lib/Point2.h>
 
 Point2::Point2()
 {

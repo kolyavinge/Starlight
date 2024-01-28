@@ -40,6 +40,10 @@
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
+    <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\RenderManager.h" />
+    <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\ui\GameScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
@@ -148,11 +152,15 @@
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\render\common\StarsRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
+    <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
+    <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipMesh.cpp" />
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
+    <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
+    <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
     <ClCompile Include="src\ui\GameScreen.cpp" />
     <ClCompile Include="src\ui\PauseMenuScreen.cpp" />
     <ClCompile Include="src\ui\Screen.cpp" />

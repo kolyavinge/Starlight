@@ -86,6 +86,10 @@
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />
+    <ClInclude Include="src\render\ui\RenderManager.h" />
+    <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
+    <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -163,6 +167,10 @@
     <ClCompile Include="src\ui\ScreenManager.cpp" />
     <ClCompile Include="src\ui\StartMenuScreen.cpp" />
     <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
+    <ClCompile Include="src\render\ui\RenderManager.cpp" />
+    <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
+    <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
+    <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
