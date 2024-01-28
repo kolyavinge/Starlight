@@ -1,5 +1,7 @@
 #pragma once
 
+#include <calc/Vector3.h>
+
 class Constants
 {
 public:
@@ -14,6 +16,10 @@ public:
     inline static const float SceneRadius = 1000.0f;
 
     inline static const float SceneRadiusDouble = 2.0f * SceneRadius;
+
+    inline static const double ScreenAspect = 16.0 / 9.0;
+
+    inline static Vector3 UpAxis = Vector3(0.0f, 0.0f, 1.0f);
 
     inline static const char* Title = "Starlight\0";
 

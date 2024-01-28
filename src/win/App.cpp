@@ -1,4 +1,3 @@
-#include <gl/opengl.h>
 #include <freeglut/glut.h>
 #include <core/Constants.h>
 #include <render/ui/ScreenRenderer.h>
@@ -9,7 +8,7 @@ void App::Start(int argc, char** argv)
 {
     glutInit(&argc, argv);
     const int width = 1200;
-    glutInitWindowSize(width, (int)((double)width / _screenAspect));
+    glutInitWindowSize(width, (int)((double)width / Constants::ScreenAspect));
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow(Constants::Title);
     SetIcon();
@@ -19,9 +18,6 @@ void App::Start(int argc, char** argv)
     glutKeyboardFunc(Keypress);
     glutKeyboardUpFunc(Keyup);
     glutJoystickFunc(JoystickKeypress, 10);
-    glPointSize(Constants::RenderPointSize);
-    glLineWidth(Constants::RenderLineWidth);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     _renderManager.Init();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
@@ -41,14 +37,8 @@ void App::SetIcon()
 
 void App::Display()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluPerspective(60.0, _screenAspect, 0.1, Constants::SceneRadiusDouble);
-    gluLookAt(_game.Camera.Position, _game.Camera.LookAt, _upAxis);
-    //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
-    ScreenRenderer& screenRenderer = _renderManager.GetScreenRenderer(_game.GetCurrentScreen());
-    screenRenderer.Render(_game);
+    ScreenRenderer& renderer = _renderManager.GetScreenRenderer(_game.GetCurrentScreen());
+    renderer.Render(_game);
     glutSwapBuffers();
 }
 
@@ -69,12 +59,12 @@ void App::Keyup(unsigned char key, int, int)
 
 void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
 {
-    Joystick& joystick = _game.InputDevices.Joystick;
-    joystick.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
-    joystick.PressButton2(buttons & GLUT_JOYSTICK_BUTTON_B);
-    joystick.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
-    joystick.PressLeft(xaxis < 0);
-    joystick.PressRight(xaxis > 0);
+    Joystick& joy = _game.InputDevices.Joystick;
+    joy.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
+    joy.PressButton2(buttons & GLUT_JOYSTICK_BUTTON_B);
+    joy.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
+    joy.PressLeft(xaxis < 0);
+    joy.PressRight(xaxis > 0);
 }
 
 void App::TimerCallback(int)

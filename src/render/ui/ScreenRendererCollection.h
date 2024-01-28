@@ -1,18 +1,18 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Array.h>
 #include <ui/Screen.h>
 #include <render/ui/ScreenRenderer.h>
-#include <render/ui/ScreenRendererCollection.h>
 
-class RenderManager : public Object
+class ScreenRendererCollection : public Object
 {
-    ScreenRendererCollection _rendererCollection;
+    Array<ScreenRenderer*, 4> _renderers;
 
 public:
+    ScreenRendererCollection();
+    ~ScreenRendererCollection();
+
     void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);
-
-private:
-    void InitGL();
 };

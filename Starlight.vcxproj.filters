@@ -90,6 +90,7 @@
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -171,6 +172,7 @@
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
+    <ClCompile Include="src\render\ui\ScreenRendererCollection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
