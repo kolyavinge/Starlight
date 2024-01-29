@@ -7,6 +7,8 @@ Joystick::Joystick()
     _isButton3Pressed = false;
     _isLeftPressed = false;
     _isRightPressed = false;
+    _isUpPressed = false;
+    _isDownPressed = false;
 }
 
 void Joystick::PressButton1(bool isPressed)
@@ -49,6 +51,16 @@ void Joystick::PressRight(bool isPressed)
     _isRightPressed = isPressed;
 }
 
+void Joystick::PressUp(bool isPressed)
+{
+    _isUpPressed = isPressed;
+}
+
+void Joystick::PressDown(bool isPressed)
+{
+    _isDownPressed = isPressed;
+}
+
 bool Joystick::IsLeftPressed()
 {
     return _isLeftPressed;
@@ -57,4 +69,14 @@ bool Joystick::IsLeftPressed()
 bool Joystick::IsRightPressed()
 {
     return _isRightPressed;
+}
+
+bool Joystick::IsUpPressed()
+{
+    return _isUpPressed;
+}
+
+bool Joystick::IsDownPressed()
+{
+    return _isDownPressed;
 }

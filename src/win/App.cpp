@@ -57,7 +57,7 @@ void App::Keyup(unsigned char key, int, int)
     _game.InputDevices.Keyboard.Release(key);
 }
 
-void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
+void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
 {
     Joystick& joy = _game.InputDevices.Joystick;
     joy.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
@@ -65,6 +65,8 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int, int)
     joy.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
     joy.PressLeft(xaxis < 0);
     joy.PressRight(xaxis > 0);
+    joy.PressUp(yaxis < 0);
+    joy.PressDown(yaxis > 0);
 }
 
 void App::TimerCallback(int)

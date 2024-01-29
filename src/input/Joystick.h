@@ -9,6 +9,8 @@ class Joystick : public Object
     bool _isButton3Pressed;
     bool _isLeftPressed;
     bool _isRightPressed;
+    bool _isUpPressed;
+    bool _isDownPressed;
 
 public:
     Joystick();
@@ -21,6 +23,10 @@ public:
     bool IsButton3Pressed();
     void PressLeft(bool isPressed);
     void PressRight(bool isPressed);
+    void PressUp(bool isPressed);
+    void PressDown(bool isPressed);
     bool IsLeftPressed();
     bool IsRightPressed();
+    bool IsUpPressed();
+    bool IsDownPressed();
 };
