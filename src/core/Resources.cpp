@@ -19,3 +19,21 @@ String Resources::GetShipMeshFilePath()
 
     return path;
 }
+
+String Resources::GetStartGameMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\start_game.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String Resources::GetExitMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\exit.png\0");
+    path.Append(name);
+
+    return path;
+}
