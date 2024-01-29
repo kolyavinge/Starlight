@@ -91,6 +91,7 @@
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
+    <ClInclude Include="src\lib\CycledArrayIterator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
