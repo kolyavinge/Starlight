@@ -9,4 +9,5 @@ TrackSelectorScreen::TrackSelectorScreen(
 
 void TrackSelectorScreen::ProcessInput()
 {
+    _navigator.NavigateToGame();
 }

@@ -9,8 +9,8 @@ ScreenManager::ScreenManager(
     _pauseMenuScreen(*this, inputDevices),
     _gameScreen(*this, inputDevices, playerController, pauseSwitcher)
 {
-    //NavigateToStartMenu();
-    NavigateToGame();
+    NavigateToStartMenu();
+    //NavigateToGame();
 }
 
 Screen& ScreenManager::GetCurrentScreen()
