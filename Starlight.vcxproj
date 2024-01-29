@@ -28,6 +28,7 @@
     <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\core\Resources.h" />
+    <ClInclude Include="src\gl\TexturedRect.h" />
     <ClInclude Include="src\input\InputDevices.h" />
     <ClInclude Include="src\input\Joystick.h" />
     <ClInclude Include="src\input\Keyboard.h" />
@@ -48,6 +49,7 @@
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\ui\GameScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
+    <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
     <ClInclude Include="src\ui\Screen.h" />
     <ClInclude Include="src\ui\ScreenManager.h" />
@@ -132,6 +134,7 @@
     <ClCompile Include="src\gl\MeshLoader.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\core\Resources.cpp" />
+    <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />

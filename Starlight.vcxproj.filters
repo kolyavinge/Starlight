@@ -92,6 +92,8 @@
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
+    <ClInclude Include="src\gl\TexturedRect.h" />
+    <ClInclude Include="src\ui\MenuItemSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -174,6 +176,7 @@
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\ScreenRendererCollection.cpp" />
+    <ClCompile Include="src\gl\TexturedRect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
