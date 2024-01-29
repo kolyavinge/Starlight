@@ -17,7 +17,9 @@ public:
 
     inline static const float SceneRadiusDouble = 2.0f * SceneRadius;
 
-    inline static const double ScreenAspect = 16.0 / 9.0;
+    inline static const float ScreenWidth = 1200.0f;
+
+    inline static const float ScreenAspect = 16.0f / 9.0f;
 
     inline static Vector3 UpAxis = Vector3(0.0f, 0.0f, 1.0f);
 
