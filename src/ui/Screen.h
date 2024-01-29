@@ -4,12 +4,12 @@
 #include <lib/Object.h>
 #include <ui/IScreenNavigator.h>
 
-enum ScreenKind
+enum class ScreenKind
 {
-    StartMenuKind = 0,
-    TrackSelectorKind = 1,
-    PauseMenuKind = 2,
-    GameKind = 3
+    StartMenu = 0,
+    TrackSelector = 1,
+    PauseMenu = 2,
+    Game = 3
 };
 
 class Screen : public Object

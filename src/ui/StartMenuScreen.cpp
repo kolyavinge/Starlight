@@ -4,7 +4,7 @@
 StartMenuScreen::StartMenuScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices) :
-    Screen(ScreenKind::StartMenuKind, navigator, inputDevices)
+    Screen(ScreenKind::StartMenu, navigator, inputDevices)
 {
 }
 

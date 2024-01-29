@@ -6,7 +6,7 @@ GameScreen::GameScreen(
     InputDevices& inputDevices,
     ShipController& playerController,
     IPauseSwitcher& pauseSwitcher) :
-    Screen(ScreenKind::GameKind, navigator, inputDevices),
+    Screen(ScreenKind::Game, navigator, inputDevices),
     _playerController(playerController),
     _pauseSwitcher(pauseSwitcher)
 {

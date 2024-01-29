@@ -10,7 +10,7 @@ void ShipMesh::Init()
     _shipMesh.Load(Resources::GetShipMeshFilePath());
     _shipMesh.SwapYZ();
     _shipMesh.MoveToOrigin();
-    _shipMesh.MoveToCenter(Mesh::Axis::X);
+    _shipMesh.MoveToCenter((int)Mesh::Axis::X);
     Mesh::Size meshSize;
     _shipMesh.GetSize(meshSize);
     _scaleVector.Set(

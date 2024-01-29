@@ -3,7 +3,7 @@
 TrackSelectorScreen::TrackSelectorScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices) :
-    Screen(ScreenKind::TrackSelectorKind, navigator, inputDevices)
+    Screen(ScreenKind::TrackSelector, navigator, inputDevices)
 {
 }
 

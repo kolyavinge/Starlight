@@ -4,7 +4,7 @@
 #include <calc/Vector3.h>
 #include <model/Track.h>
 
-enum Direction { Left, Right };
+enum class Direction { Left, Right };
 
 class TrackBuilder : public Object
 {

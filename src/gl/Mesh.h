@@ -17,12 +17,12 @@ class Mesh : public Object
     Texture _texture;
 
 public:
-    enum LoadFlags
+    enum class LoadFlags
     {
         NoTexture = 1
     };
 
-    enum Axis
+    enum class Axis
     {
         X = 1,
         Y = 2,

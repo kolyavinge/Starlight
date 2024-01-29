@@ -11,7 +11,7 @@ void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
     loader.LoadVertexCoords(_vertexCoords);
     loader.LoadNormalCoords(_normalCoords);
     loader.LoadFaces(_faces);
-    if ((flags & LoadFlags::NoTexture) == 0)
+    if ((flags & (int)LoadFlags::NoTexture) == 0)
     {
         loader.LoadTextureCoords(_textureCoords);
         loader.LoadFirstDiffuseTexture(_texture);
@@ -80,9 +80,9 @@ void Mesh::MoveToCenter(int axis)
     lengthHalf.Div(2.0f);
     Vector3 delta = min;
     delta.Add(lengthHalf);
-    if ((axis & Axis::X) == 0) delta.X = 0.0f;
-    if ((axis & Axis::Y) == 0) delta.Y = 0.0f;
-    if ((axis & Axis::Z) == 0) delta.Z = 0.0f;
+    if ((axis & (int)Axis::X) == 0) delta.X = 0.0f;
+    if ((axis & (int)Axis::Y) == 0) delta.Y = 0.0f;
+    if ((axis & (int)Axis::Z) == 0) delta.Z = 0.0f;
     for (int i = 0; i < _vertexCoords.Count(); i++)
     {
         _vertexCoords[i].Sub(delta);

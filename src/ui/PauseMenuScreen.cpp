@@ -3,7 +3,7 @@
 PauseMenuScreen::PauseMenuScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices) :
-    Screen(ScreenKind::PauseMenuKind, navigator, inputDevices)
+    Screen(ScreenKind::PauseMenu, navigator, inputDevices)
 {
 }
 
