@@ -27,7 +27,6 @@ void PauseMenuScreen::ProcessInput()
 
     if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
     {
-        _inputDevices.Keyboard.Release(VK_ESCAPE);
         _pauseSwitcher.SwitchPause();
         _navigator.NavigateToGame();
     }
@@ -36,8 +35,6 @@ void PauseMenuScreen::ProcessInput()
         _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
         _inputDevices.Joystick.IsButton1Pressed())
     {
-        _inputDevices.Keyboard.Release(VK_RETURN);
-        _inputDevices.Keyboard.Release(VK_SPACE);
         if (GetSelectedItem() == PauseMenuItem::Resume)
         {
             _pauseSwitcher.SwitchPause();

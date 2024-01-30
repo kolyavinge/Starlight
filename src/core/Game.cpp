@@ -16,6 +16,7 @@ Game::Game() :
 void Game::Update()
 {
     _currentGameUpdater->Update();
+    InputDevices.Keyboard.Update();
     _screenManager.GetCurrentScreen().ProcessInput();
 }
 

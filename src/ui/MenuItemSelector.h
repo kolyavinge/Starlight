@@ -34,21 +34,17 @@ public:
     bool ProcessSelection(InputDevices& inputDevices)
     {
         if (inputDevices.Keyboard.IsPressed(VK_UP) ||
-            inputDevices.Keyboard.IsPressed('w') ||
+            inputDevices.Keyboard.IsPressed('W') ||
             inputDevices.Joystick.IsUpPressed())
         {
-            inputDevices.Keyboard.Release(VK_UP);
-            inputDevices.Keyboard.Release('w');
             _iter.Prev();
             return true;
         }
 
         if (inputDevices.Keyboard.IsPressed(VK_DOWN) ||
-            inputDevices.Keyboard.IsPressed('s') ||
+            inputDevices.Keyboard.IsPressed('S') ||
             inputDevices.Joystick.IsDownPressed())
         {
-            inputDevices.Keyboard.Release(VK_DOWN);
-            inputDevices.Keyboard.Release('s');
             _iter.Next();
             return true;
         }

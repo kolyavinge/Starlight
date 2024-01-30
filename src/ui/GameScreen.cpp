@@ -17,7 +17,7 @@ void GameScreen::ProcessInput()
     Keyboard& keyboard = _inputDevices.Keyboard;
     Joystick& joystick = _inputDevices.Joystick;
 
-    if (keyboard.IsPressed('w') || joystick.IsButton1Pressed())
+    if (keyboard.IsPressed('W') || keyboard.IsHeld('W') || joystick.IsButton1Pressed())
     {
         _playerController.ActivateThrottle();
     }
@@ -26,7 +26,7 @@ void GameScreen::ProcessInput()
         _playerController.ReleaseThrottle();
     }
 
-    if (keyboard.IsPressed('s') || joystick.IsButton2Pressed() || joystick.IsButton3Pressed())
+    if (keyboard.IsPressed('S') || keyboard.IsHeld('S') || joystick.IsButton2Pressed() || joystick.IsButton3Pressed())
     {
         _playerController.ActivateBreak();
     }
@@ -35,11 +35,11 @@ void GameScreen::ProcessInput()
         _playerController.ReleaseBreak();
     }
 
-    if (keyboard.IsPressed('a') || joystick.IsLeftPressed())
+    if (keyboard.IsPressed('A') || keyboard.IsHeld('A') || joystick.IsLeftPressed())
     {
         _playerController.TurnLeft();
     }
-    else if (keyboard.IsPressed('d') || joystick.IsRightPressed())
+    else if (keyboard.IsPressed('D') || keyboard.IsHeld('D') || joystick.IsRightPressed())
     {
         _playerController.TurnRight();
     }
@@ -52,6 +52,5 @@ void GameScreen::ProcessInput()
     {
         _pauseSwitcher.SwitchPause();
         _navigator.NavigateToPauseMenu();
-        keyboard.Release(VK_ESCAPE);
     }
 }

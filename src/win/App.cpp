@@ -14,8 +14,6 @@ void App::Start(int argc, char** argv)
     glutPositionWindow(100, 100);
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
-    glutKeyboardFunc(Keypress);
-    glutKeyboardUpFunc(Keyup);
     glutJoystickFunc(JoystickKeypress, 10);
     _renderManager.Init();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
@@ -44,16 +42,6 @@ void App::Display()
 void App::Reshape(int width, int height)
 {
     glViewport(0, 0, width, height);
-}
-
-void App::Keypress(unsigned char key, int, int)
-{
-    _game.InputDevices.Keyboard.Press(key);
-}
-
-void App::Keyup(unsigned char key, int, int)
-{
-    _game.InputDevices.Keyboard.Release(key);
 }
 
 void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)

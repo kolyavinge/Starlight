@@ -27,8 +27,6 @@ void StartMenuScreen::ProcessInput()
         _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
         _inputDevices.Joystick.IsButton1Pressed())
     {
-        _inputDevices.Keyboard.Release(VK_RETURN);
-        _inputDevices.Keyboard.Release(VK_SPACE);
         if (GetSelectedItem() == StartMenuItem::StartGame)
         {
             _navigator.NavigateToTrackSelector();

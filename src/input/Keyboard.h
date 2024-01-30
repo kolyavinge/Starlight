@@ -5,12 +5,23 @@
 
 class Keyboard : public Object
 {
-    Array<bool, 256> _keyPressed;
+    enum class KeyState
+    {
+        Released,
+        Pressed,
+        Held
+    };
+
+    Array<KeyState, 256> _keyStates;
+    unsigned char _newKeyStates[256];
 
 public:
     Keyboard();
 
-    void Press(unsigned char key);
-    void Release(unsigned char key);
+    void Update();
     bool IsPressed(unsigned char key);
+    bool IsHeld(unsigned char key);
+
+private:
+    bool IsKeyPressed(unsigned char keyState);
 };

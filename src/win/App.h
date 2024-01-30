@@ -19,8 +19,6 @@ private:
     static void SetIcon();
     static void Display();
     static void Reshape(int width, int height);
-    static void Keypress(unsigned char key, int x, int y);
-    static void Keyup(unsigned char key, int x, int y);
     static void JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int zaxis);
     static void TimerCallback(int state);
 };
