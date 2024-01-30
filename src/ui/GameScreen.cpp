@@ -21,7 +21,9 @@ void GameScreen::ProcessInput()
     Keyboard& keyboard = _inputDevices.Keyboard;
     Joystick& joystick = _inputDevices.Joystick;
 
-    if (keyboard.IsPressed('W') || keyboard.IsHeld('W') || joystick.IsButton1Pressed())
+    if (keyboard.IsPressedOrHeld('W') ||
+        keyboard.IsPressedOrHeld(VK_UP) ||
+        joystick.IsButton1Pressed())
     {
         _playerController.ActivateThrottle();
     }
@@ -30,7 +32,10 @@ void GameScreen::ProcessInput()
         _playerController.ReleaseThrottle();
     }
 
-    if (keyboard.IsPressed('S') || keyboard.IsHeld('S') || joystick.IsButton2Pressed() || joystick.IsButton3Pressed())
+    if (keyboard.IsPressedOrHeld('S') ||
+        keyboard.IsPressedOrHeld(VK_DOWN) ||
+        joystick.IsButton2Pressed() ||
+        joystick.IsButton3Pressed())
     {
         _playerController.ActivateBreak();
     }
@@ -39,11 +44,16 @@ void GameScreen::ProcessInput()
         _playerController.ReleaseBreak();
     }
 
-    if (keyboard.IsPressed('A') || keyboard.IsHeld('A') || joystick.IsLeftPressed())
+    if (keyboard.IsPressedOrHeld('A') ||
+        keyboard.IsPressedOrHeld(VK_LEFT) ||
+        joystick.IsLeftPressed())
     {
         _playerController.TurnLeft();
     }
-    else if (keyboard.IsPressed('D') || keyboard.IsHeld('D') || joystick.IsRightPressed())
+    else if (
+        keyboard.IsPressedOrHeld('D') ||
+        keyboard.IsPressedOrHeld(VK_RIGHT) ||
+        joystick.IsRightPressed())
     {
         _playerController.TurnRight();
     }

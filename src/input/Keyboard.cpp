@@ -43,6 +43,11 @@ bool Keyboard::IsHeld(unsigned char key)
     return _keyStates[key] == KeyState::Held;
 }
 
+bool Keyboard::IsPressedOrHeld(unsigned char key)
+{
+    return IsPressed(key) || IsHeld(key);
+}
+
 bool Keyboard::IsKeyPressed(unsigned char keyState)
 {
     return (keyState & 128) > 0;

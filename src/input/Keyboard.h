@@ -21,6 +21,7 @@ public:
     void Update();
     bool IsPressed(unsigned char key);
     bool IsHeld(unsigned char key);
+    bool IsPressedOrHeld(unsigned char key);
 
 private:
     bool IsKeyPressed(unsigned char keyState);
