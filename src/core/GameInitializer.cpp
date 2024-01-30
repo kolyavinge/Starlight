@@ -5,6 +5,7 @@
 void GameInitializer::Init(Game& game)
 {
     game.Track.Init();
+    game.Player.Init();
     SetPlayerBehindStartFinishLine(game);
     game.Player.CentralLine.TrackPointIndexFront = game.Track.StartFinishLineIndex;
     game.Player.CentralLine.TrackPointIndexRear = game.Track.StartFinishLineIndex;

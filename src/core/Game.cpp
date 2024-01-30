@@ -5,7 +5,13 @@ Game::Game() :
     Track(_trackManager.GetCurrentTrack()),
     _gameUpdater(Player, _trackManager, Camera),
     PlayerController(Player),
-    _screenManager(InputDevices, PlayerController, *this)
+    _screenManager(InputDevices, PlayerController, *this, *this)
+{
+    _isPaused = false;
+    _currentGameUpdater = &_emptyGameUpdater;
+}
+
+void Game::Start()
 {
     _isPaused = false;
     _currentGameUpdater = &_gameUpdater;

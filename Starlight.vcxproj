@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
+    <ClInclude Include="src\core\IGameStarter.h" />
     <ClInclude Include="src\core\IPauseSwitcher.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\Face.h" />

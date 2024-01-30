@@ -3,9 +3,10 @@
 ScreenManager::ScreenManager(
     InputDevices& inputDevices,
     ShipController& playerController,
+    IGameStarter& gameStarter,
     IPauseSwitcher& pauseSwitcher) :
     _startMenuScreen(*this, inputDevices),
-    _trackSelectorScreen(*this, inputDevices),
+    _trackSelectorScreen(*this, inputDevices, gameStarter),
     _pauseMenuScreen(*this, inputDevices, pauseSwitcher),
     _gameScreen(*this, inputDevices, playerController, pauseSwitcher)
 {

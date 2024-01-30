@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <core/ShipController.h>
+#include <core/IGameStarter.h>
 #include <core/IPauseSwitcher.h>
 #include <input/InputDevices.h>
 #include <ui/StartMenuScreen.h>
@@ -22,6 +23,7 @@ public:
     ScreenManager(
         InputDevices& inputDevices,
         ShipController& playerController,
+        IGameStarter& gameStarter,
         IPauseSwitcher& pauseSwitcher);
 
     Screen& GetCurrentScreen();

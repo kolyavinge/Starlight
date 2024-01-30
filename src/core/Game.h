@@ -7,12 +7,16 @@
 #include <core/GameUpdater.h>
 #include <core/ShipController.h>
 #include <core/Camera.h>
+#include <core/IGameStarter.h>
 #include <core/IPauseSwitcher.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/ScreenManager.h>
 
-class Game : public Object, public IPauseSwitcher
+class Game :
+    public Object,
+    public IGameStarter,
+    public IPauseSwitcher
 {
     TrackManager _trackManager;
     GameUpdater _gameUpdater;
@@ -30,6 +34,7 @@ public:
 
     Game();
 
+    void Start() override;
     void Update();
     void SwitchPause() override;
     Screen& GetCurrentScreen();

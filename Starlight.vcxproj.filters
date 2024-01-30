@@ -96,6 +96,7 @@
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
+    <ClInclude Include="src\core\IGameStarter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
