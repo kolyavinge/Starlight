@@ -20,8 +20,8 @@ StartMenuRenderer::StartMenuRenderer()
 void StartMenuRenderer::Init()
 {
     _backgroundRenderer.Init();
-    _startGameItem.Load(Resources::GetStartGameMenuItemFilePath(), 300, 50);
-    _exitItem.Load(Resources::GetExitMenuItemFilePath(), 300, 50);
+    _startGameItem.Load(Resources::GetStartGameMenuItemFilePath(), 300.0f, 50.0f);
+    _exitItem.Load(Resources::GetExitMenuItemFilePath(), 300.0f, 50.0f);
 }
 
 void StartMenuRenderer::Render(Game& game)
@@ -49,7 +49,7 @@ void StartMenuRenderer::RenderBackground()
 void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)
 {
     glLoadIdentity();
-    glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenWidth / Constants::ScreenAspect, -1.0, 1.0);
+    glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1.0, 1.0);
     glEnable(GL_BLEND);
 
     SetAlphaForSelectedItem(screen, StartMenuItem::Exit);

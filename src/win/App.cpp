@@ -7,7 +7,7 @@
 void App::Start(int argc, char** argv)
 {
     glutInit(&argc, argv);
-    glutInitWindowSize((int)Constants::ScreenWidth, (int)(Constants::ScreenWidth / Constants::ScreenAspect));
+    glutInitWindowSize((int)Constants::ScreenWidth, (int)Constants::ScreenHeight);
     glutInitDisplayMode(GLUT_RGB | GLUT_DOUBLE);
     glutCreateWindow(Constants::Title);
     SetIcon();
