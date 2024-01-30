@@ -19,7 +19,7 @@ public:
 
     inline static const float ScreenAspect = 16.0f / 9.0f;
 
-    inline static const float ScreenWidth = 1200.0f;
+    inline static const float ScreenWidth = 1400.0f;
 
     inline static const float ScreenHeight = ScreenWidth / ScreenAspect;
 

@@ -5,9 +5,10 @@
 class VelocityFunction : public Object
 {
 public:
-    inline static const float MaxThrottleTime = 12.0f;
+    inline static const float MaxThrottleTime = 20.0f;
     float MaxVelocity;
 
     VelocityFunction();
+
     float GetValue(float throttleTime);
 };

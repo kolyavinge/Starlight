@@ -12,5 +12,5 @@ float VelocityFunction::GetValue(float throttleTime)
     if (Numeric::FloatEquals(throttleTime, 0.0f)) return 0.0f;
     if (throttleTime >= MaxThrottleTime) throttleTime = MaxThrottleTime;
 
-    return 2.0f * Math::LogE(throttleTime + 1.0f);
+    return 3.0f * Math::LogE(throttleTime + 1.0f);
 }

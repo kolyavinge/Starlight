@@ -13,7 +13,7 @@ void GameScreenRenderer::Render(Game& game)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
+    gluPerspective(game.Camera.ViewAngle, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(game.Camera.Position, game.Camera.LookAt, Constants::UpAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     _backgroundRenderer.Render();
