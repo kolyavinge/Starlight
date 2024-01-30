@@ -12,6 +12,10 @@ GameScreen::GameScreen(
 {
 }
 
+void GameScreen::Activate()
+{
+}
+
 void GameScreen::ProcessInput()
 {
     Keyboard& keyboard = _inputDevices.Keyboard;

@@ -24,5 +24,6 @@ public:
         IPauseSwitcher& pauseSwitcher);
 
     PauseMenuItem GetSelectedItem();
+    void Activate() override;
     void ProcessInput() override;
 };

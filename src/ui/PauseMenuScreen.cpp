@@ -20,6 +20,11 @@ PauseMenuItem PauseMenuScreen::GetSelectedItem()
     return _selector.GetSelectedItem();
 }
 
+void PauseMenuScreen::Activate()
+{
+    _selector.Reset();
+}
+
 void PauseMenuScreen::ProcessInput()
 {
     bool hasSelection = _selector.ProcessSelection(_inputDevices);

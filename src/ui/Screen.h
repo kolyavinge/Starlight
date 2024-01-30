@@ -26,5 +26,6 @@ public:
         IScreenNavigator& navigator,
         InputDevices& inputDevices);
 
+    virtual void Activate() = 0;
     virtual void ProcessInput() = 0;
 };

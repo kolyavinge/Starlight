@@ -31,6 +31,11 @@ public:
         return _iter.GetCurrentItem();
     }
 
+    void Reset()
+    {
+        _iter.Reset();
+    }
+
     bool ProcessSelection(InputDevices& inputDevices)
     {
         if (inputDevices.Keyboard.IsPressed(VK_UP) ||

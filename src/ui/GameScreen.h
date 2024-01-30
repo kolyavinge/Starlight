@@ -18,5 +18,6 @@ public:
         ShipController& playerController,
         IPauseSwitcher& pauseSwitcher);
 
+    void Activate() override;
     void ProcessInput() override;
 };

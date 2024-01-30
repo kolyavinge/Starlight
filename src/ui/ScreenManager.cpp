@@ -21,19 +21,23 @@ Screen& ScreenManager::GetCurrentScreen()
 void ScreenManager::NavigateToStartMenu()
 {
     _currentScreen = &_startMenuScreen;
+    _currentScreen->Activate();
 }
 
 void ScreenManager::NavigateToTrackSelector()
 {
     _currentScreen = &_trackSelectorScreen;
+    _currentScreen->Activate();
 }
 
 void ScreenManager::NavigateToPauseMenu()
 {
     _currentScreen = &_pauseMenuScreen;
+    _currentScreen->Activate();
 }
 
 void ScreenManager::NavigateToGame()
 {
     _currentScreen = &_gameScreen;
+    _currentScreen->Activate();
 }

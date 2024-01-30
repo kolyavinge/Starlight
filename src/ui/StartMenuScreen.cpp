@@ -19,6 +19,11 @@ StartMenuItem StartMenuScreen::GetSelectedItem()
     return _selector.GetSelectedItem();
 }
 
+void StartMenuScreen::Activate()
+{
+    _selector.Reset();
+}
+
 void StartMenuScreen::ProcessInput()
 {
     bool hasSelection = _selector.ProcessSelection(_inputDevices);

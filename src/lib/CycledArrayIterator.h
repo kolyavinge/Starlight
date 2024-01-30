@@ -32,4 +32,9 @@ public:
         _index++;
         if (_index == Count) _index = 0;
     }
+
+    void Reset()
+    {
+        _index = 0;
+    }
 };
