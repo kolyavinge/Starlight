@@ -30,7 +30,7 @@ void StartMenuRenderer::Render(Game& game)
     RenderBackground();
     RenderMenu((StartMenuScreen&)game.GetCurrentScreen());
     _turnDegrees = Geometry::NormalizeDegrees(_turnDegrees + 0.05f);
-    _selectedItemAlpha.Update(0.05f);
+    _selectedItemAlpha.UpdateBy(0.05f);
 }
 
 void StartMenuRenderer::RenderBackground()

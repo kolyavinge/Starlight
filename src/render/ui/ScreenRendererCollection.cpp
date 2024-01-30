@@ -6,18 +6,23 @@
 
 ScreenRendererCollection::ScreenRendererCollection()
 {
-    _renderers[(int)ScreenKind::StartMenu] = new StartMenuRenderer();
-    _renderers[(int)ScreenKind::TrackSelector] = new TrackSelectorRenderer();
-    _renderers[(int)ScreenKind::PauseMenu] = new PauseMenuRenderer();
-    _renderers[(int)ScreenKind::Game] = new GameScreenRenderer();
+    StartMenuRenderer* startMenuRenderer = new StartMenuRenderer();
+    TrackSelectorRenderer* trackSelectorRenderer = new TrackSelectorRenderer();
+    GameScreenRenderer* gameScreenRenderer = new GameScreenRenderer();
+    PauseMenuRenderer* pauseMenuRenderer = new PauseMenuRenderer(*gameScreenRenderer);
+
+    _renderers[(int)ScreenKind::StartMenu] = startMenuRenderer;
+    _renderers[(int)ScreenKind::TrackSelector] = trackSelectorRenderer;
+    _renderers[(int)ScreenKind::PauseMenu] = pauseMenuRenderer;
+    _renderers[(int)ScreenKind::Game] = gameScreenRenderer;
 }
 
 ScreenRendererCollection::~ScreenRendererCollection()
 {
-    delete _renderers[(int)ScreenKind::StartMenu];
-    delete _renderers[(int)ScreenKind::TrackSelector];
-    delete _renderers[(int)ScreenKind::PauseMenu];
-    delete _renderers[(int)ScreenKind::Game];
+    for (int i = 0; i < _renderers.Count; i++)
+    {
+        delete _renderers[i];
+    }
 }
 
 void ScreenRendererCollection::Init()

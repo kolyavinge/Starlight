@@ -51,6 +51,7 @@ void GameScreen::ProcessInput()
     if (keyboard.IsPressed(VK_ESCAPE))
     {
         _pauseSwitcher.SwitchPause();
+        _navigator.NavigateToPauseMenu();
         keyboard.Release(VK_ESCAPE);
     }
 }

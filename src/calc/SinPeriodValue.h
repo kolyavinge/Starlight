@@ -11,7 +11,7 @@ public:
 
     float GetRadians();
     void SetRadians(float value);
-    void Update(float step);
+    void UpdateBy(float step);
     float GetValue();
     float GetAbsValue();
 };

@@ -17,7 +17,7 @@ void SinPeriodValue::SetRadians(float value)
     _radians = value;
 }
 
-void SinPeriodValue::Update(float step)
+void SinPeriodValue::UpdateBy(float step)
 {
     _radians = Geometry::NormalizeRadians(_radians + step);
 }

@@ -37,3 +37,30 @@ String Resources::GetExitMenuItemFilePath()
 
     return path;
 }
+
+String Resources::GetPauseItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\pause.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String Resources::GetResumeMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\resume.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String Resources::GetStartMenuMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\main_menu.png\0");
+    path.Append(name);
+
+    return path;
+}
