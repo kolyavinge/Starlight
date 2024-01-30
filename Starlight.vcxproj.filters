@@ -95,6 +95,7 @@
     <ClInclude Include="src\gl\TexturedRect.h" />
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
+    <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -179,6 +180,7 @@
     <ClCompile Include="src\render\ui\ScreenRendererCollection.cpp" />
     <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />
+    <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

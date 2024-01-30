@@ -1,20 +1,7 @@
 #include <gl/opengl.h>
-#include <lib/Random.h>
-#include <calc/Geometry.h>
 #include <core/Constants.h>
 #include <core/Resources.h>
 #include <render/ui/StartMenuRenderer.h>
-
-StartMenuRenderer::StartMenuRenderer()
-{
-    Random rand;
-    _turnVector.Set(
-        rand.GetFloatFromZeroToOne() - 0.5f,
-        rand.GetFloatFromZeroToOne() - 0.5f,
-        rand.GetFloatFromZeroToOne() - 0.5f);
-    _turnDegrees = rand.GetFloatFromZeroToN(720.0f) - 360.0f;
-    _forwardVector.Set(0.0f, 1.0f, 0.0f);
-}
 
 void StartMenuRenderer::Init()
 {
@@ -27,22 +14,9 @@ void StartMenuRenderer::Render(Game& game)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
-    RenderBackground();
-    RenderMenu((StartMenuScreen&)game.GetCurrentScreen());
-    _turnDegrees = Geometry::NormalizeDegrees(_turnDegrees + 0.05f);
-    _selectedItemAlpha.UpdateBy(0.05f);
-}
-
-void StartMenuRenderer::RenderBackground()
-{
-    glLoadIdentity();
-    gluPerspective(60.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
-    gluLookAt(_zeroVector, _forwardVector, Constants::UpAxis);
-    glPushMatrix();
-    glRotatef(_turnDegrees, _turnVector.X, _turnVector.Y, _turnVector.Z);
     _backgroundRenderer.Render();
-    _starsRenderer.Render();
-    glPopMatrix();
+    RenderMenu((StartMenuScreen&)game.GetCurrentScreen());
+    _selectedItemAlpha.UpdateBy(0.05f);
 }
 
 void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)

@@ -41,6 +41,7 @@
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
+    <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
+    <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\ui\GameScreenRenderer.cpp" />
