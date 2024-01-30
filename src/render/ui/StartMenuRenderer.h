@@ -1,6 +1,7 @@
 #pragma once
 
 #include <calc/Vector3.h>
+#include <calc/SinPeriodValue.h>
 #include <core/Game.h>
 #include <gl/TexturedRect.h>
 #include <ui/StartMenuScreen.h>
@@ -16,7 +17,9 @@ class StartMenuRenderer : public ScreenRenderer
     TexturedRect _exitItem;
     Vector3 _turnVector;
     float _turnDegrees;
-    float _selectedItemRadians;
+    SinPeriodValue _selectedItemAlpha;
+    Vector3 _zeroVector;
+    Vector3 _forwardVector;
 
 public:
     StartMenuRenderer();

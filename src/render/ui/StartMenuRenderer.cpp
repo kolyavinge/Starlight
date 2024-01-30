@@ -1,6 +1,5 @@
 #include <gl/opengl.h>
 #include <lib/Random.h>
-#include <lib/Math.h>
 #include <calc/Geometry.h>
 #include <core/Constants.h>
 #include <core/Resources.h>
@@ -14,7 +13,7 @@ StartMenuRenderer::StartMenuRenderer()
         rand.GetFloatFromZeroToOne() - 0.5f,
         rand.GetFloatFromZeroToOne() - 0.5f);
     _turnDegrees = rand.GetFloatFromZeroToN(720.0f) - 360.0f;
-    _selectedItemRadians = 0.0f;
+    _forwardVector.Set(0.0f, 1.0f, 0.0f);
 }
 
 void StartMenuRenderer::Init()
@@ -31,14 +30,14 @@ void StartMenuRenderer::Render(Game& game)
     RenderBackground();
     RenderMenu((StartMenuScreen&)game.GetCurrentScreen());
     _turnDegrees = Geometry::NormalizeDegrees(_turnDegrees + 0.05f);
-    _selectedItemRadians = Geometry::NormalizeRadians(_selectedItemRadians + 0.05f);
+    _selectedItemAlpha.Update(0.05f);
 }
 
 void StartMenuRenderer::RenderBackground()
 {
     glLoadIdentity();
     gluPerspective(60.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
-    gluLookAt(0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Constants::UpAxis.X, Constants::UpAxis.Y, Constants::UpAxis.Z);
+    gluLookAt(_zeroVector, _forwardVector, Constants::UpAxis);
     glPushMatrix();
     glRotatef(_turnDegrees, _turnVector.X, _turnVector.Y, _turnVector.Z);
     _backgroundRenderer.Render();
@@ -68,7 +67,7 @@ void StartMenuRenderer::SetAlphaForSelectedItem(StartMenuScreen& screen, StartMe
     const float v = 0.7f;
     if (item == screen.GetSelectedItem())
     {
-        glColor4f(v, v, v, Math::Abs(Math::Sin(_selectedItemRadians)));
+        glColor4f(v, v, v, _selectedItemAlpha.GetAbsValue());
     }
     else
     {
