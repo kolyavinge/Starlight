@@ -6,6 +6,6 @@
 class ScreenRenderer : public Object
 {
 public:
-    virtual void Init();
+    virtual void Init() = 0;
     virtual void Render(Game& game) = 0;
 };
