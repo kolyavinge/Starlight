@@ -97,6 +97,16 @@
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\core\IGameStarter.h" />
+    <ClInclude Include="src\vox\ScreenVox.h" />
+    <ClInclude Include="src\vox\VoxManager.h" />
+    <ClInclude Include="src\vox\ScreenVoxCollection.h" />
+    <ClInclude Include="src\vox\StartMenuVox.h" />
+    <ClInclude Include="src\vox\PauseMenuVox.h" />
+    <ClInclude Include="src\vox\GameVox.h" />
+    <ClInclude Include="src\vox\TrackSelectorVox.h" />
+    <ClInclude Include="src\audio\AudioSample.h" />
+    <ClInclude Include="src\vox\SampleCollection.h" />
+    <ClInclude Include="src\vox\MenuItemVox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -182,13 +192,20 @@
     <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
+    <ClCompile Include="src\vox\ScreenVoxCollection.cpp" />
+    <ClCompile Include="src\vox\VoxManager.cpp" />
+    <ClCompile Include="src\vox\StartMenuVox.cpp" />
+    <ClCompile Include="src\vox\TrackSelectorVox.cpp" />
+    <ClCompile Include="src\vox\PauseMenuVox.cpp" />
+    <ClCompile Include="src\vox\GameVox.cpp" />
+    <ClCompile Include="src\audio\AudioSample.cpp" />
+    <ClCompile Include="src\vox\SampleCollection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\main.ico" />
-    <Image Include="res\bg1.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\Starlight.aps" />

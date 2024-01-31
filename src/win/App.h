@@ -3,6 +3,7 @@
 #include <lib/Exceptions.h>
 #include <core/Game.h>
 #include <render/ui/RenderManager.h>
+#include <vox/VoxManager.h>
 
 class AppInitException : public Exception { };
 
@@ -10,6 +11,7 @@ class App
 {
     inline static Game _game;
     inline static RenderManager _renderManager;
+    inline static VoxManager _voxManager;
 
 public:
     static void Start(int argc, char** argv);
