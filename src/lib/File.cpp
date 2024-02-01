@@ -22,7 +22,7 @@ void File::ErrorIfFileNotFound(const wchar_t* filePath)
     }
 }
 
-int File::GetFileSizeBytes(const wchar_t* filePath)
+long long File::GetFileSizeBytes(const wchar_t* filePath)
 {
     ErrorIfFileNotFound(filePath);
     WIN32_FILE_ATTRIBUTE_DATA fad;

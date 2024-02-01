@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
+    <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\IGameStarter.h" />
     <ClInclude Include="src\core\IPauseSwitcher.h" />
     <ClInclude Include="src\core\TrackManager.h" />
@@ -129,6 +130,7 @@
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
+    <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
     <ClCompile Include="src\calc\Plane.cpp" />
     <ClCompile Include="src\calc\Quaternion.cpp" />
