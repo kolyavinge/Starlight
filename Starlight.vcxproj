@@ -335,6 +335,7 @@
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
 if not exist "$(OutputPath)openal32.dll" copy "$(SolutionDir)external\openal\openal32.dll" "$(OutputPath)"
+if not exist "$(OutputPath)wrap_oal.dll" copy "$(SolutionDir)external\openal\wrap_oal.dll" "$(OutputPath)"
 if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
@@ -361,6 +362,7 @@ if not exist "$(OutputPath)res\" xcopy "$(SolutionDir)res\" "$(OutputPath)res\" 
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
 if not exist "$(OutputPath)openal32.dll" copy "$(SolutionDir)external\openal\openal32.dll" "$(OutputPath)"
+if not exist "$(OutputPath)wrap_oal.dll" copy "$(SolutionDir)external\openal\wrap_oal.dll" "$(OutputPath)"
 if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
