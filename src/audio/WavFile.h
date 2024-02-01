@@ -25,7 +25,6 @@ class WavFile : public Object
 
     char* _fileBytes;
     WavData* _wavData;
-    int _soundDataSize;
 
 public:
     WavFile();

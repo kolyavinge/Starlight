@@ -5,7 +5,6 @@ WavFile::WavFile()
 {
     _fileBytes = nullptr;
     _wavData = nullptr;
-    _soundDataSize = 0;
 }
 
 WavFile::~WavFile()
@@ -22,7 +21,6 @@ void WavFile::Load(String filePath)
     _fileBytes = new char[fileSizeBytes];
     File::ReadAllBytes(filePath.GetWCharBuf(), fileSizeBytes, _fileBytes);
     _wavData = (WavData*)_fileBytes;
-    _soundDataSize = fileSizeBytes - sizeof(WavData) + sizeof(void*); // exclude SoundData field
 }
 
 short WavFile::GetChannelsCount()
@@ -47,5 +45,5 @@ void* WavFile::GetSoundData()
 
 int WavFile::GetSoundDataSizeBytes()
 {
-    return _soundDataSize;
+    return _wavData->Subchunk2Size;
 }

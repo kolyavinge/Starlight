@@ -12,4 +12,5 @@ public:
     static String GetPauseItemFilePath();
     static String GetResumeMenuItemFilePath();
     static String GetStartMenuMenuItemFilePath();
+    static String GetSelectMenuItemWavFilePath();
 };

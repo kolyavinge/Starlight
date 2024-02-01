@@ -107,6 +107,7 @@
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\vox\SampleCollection.h" />
     <ClInclude Include="src\vox\MenuItemVox.h" />
+    <ClInclude Include="src\audio\WavLoader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -200,6 +201,8 @@
     <ClCompile Include="src\vox\GameVox.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
     <ClCompile Include="src\vox\SampleCollection.cpp" />
+    <ClCompile Include="src\audio\WavLoader.cpp" />
+    <ClCompile Include="external\openal\load_wav.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

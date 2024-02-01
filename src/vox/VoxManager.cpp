@@ -1,3 +1,5 @@
+#include <openal/al.h>
+#include <openal/alc.h>
 #include <vox/VoxManager.h>
 
 void VoxManager::Init()
@@ -13,4 +15,8 @@ ScreenVox& VoxManager::GetScreenVox(Screen& screen)
 
 void VoxManager::InitAL()
 {
+    ALCdevice* device = alcOpenDevice(nullptr);
+    if (!device) throw VoxManagerException();
+    ALCcontext* context = alcCreateContext(device, nullptr);
+    if (!alcMakeContextCurrent(context)) throw VoxManagerException();
 }

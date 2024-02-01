@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
+    <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\IGameStarter.h" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
+    <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
@@ -327,11 +329,12 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
+if not exist "$(OutputPath)openal32.dll" copy "$(SolutionDir)external\openal\openal32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
@@ -352,11 +355,12 @@ if not exist "$(OutputPath)res\" xcopy "$(SolutionDir)res\" "$(OutputPath)res\" 
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>if not exist "$(OutputPath)freeglut.dll" copy "$(SolutionDir)external\freeglut\freeglut.dll" "$(OutputPath)"
+if not exist "$(OutputPath)openal32.dll" copy "$(SolutionDir)external\openal\openal32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)glew32.dll" copy "$(SolutionDir)external\glew\glew32.dll" "$(OutputPath)"
 if not exist "$(OutputPath)SOIL.dll" copy "$(SolutionDir)external\soil\SOIL.dll" "$(OutputPath)"
 if not exist "$(OutputPath)assimp-vc143-mt.dll" copy "$(SolutionDir)external\assimp\assimp-vc143-mt.dll" "$(OutputPath)"
