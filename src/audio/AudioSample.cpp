@@ -5,22 +5,38 @@
 
 AudioSample::AudioSample()
 {
-    _bufferId = 0;
     _sourceId = 0;
+    _bufferId = 0;
+}
+
+AudioSample::~AudioSample()
+{
+    alDeleteSources(1, &_sourceId);
+    alDeleteBuffers(1, &_bufferId);
 }
 
 void AudioSample::Load(String filePath)
 {
+    if (_sourceId != 0) throw AudioSampleException();
+    if (_bufferId != 0) throw AudioSampleException();
+    InitSoundSource(filePath);
+    ALenum error = alGetError();
+    if (error != AL_NO_ERROR) throw AudioSampleException();
+    if (_sourceId == 0) throw AudioSampleException();
+    if (_bufferId == 0) throw AudioSampleException();
+}
+
+void AudioSample::Play()
+{
+    alSourcei(_sourceId, AL_BUFFER, _bufferId);
+    alSourcePlay(_sourceId);
+}
+
+void AudioSample::InitSoundSource(String filePath)
+{
     _wavFile.Load(filePath);
 
-    alGenSources(1, &_sourceId);
-    alSourcef(_sourceId, AL_PITCH, 1.0f);
-    alSourcef(_sourceId, AL_GAIN, 1.0f);
-    alSource3f(_sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
-    alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
-    alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
     alGenBuffers(1, &_bufferId);
-    alSourcei(_sourceId, AL_BUFFER, _bufferId);
     alBufferData(
         _bufferId,
         ALFormat::Get(_wavFile.GetChannelsCount(), _wavFile.GetBitsPerSample()),
@@ -28,11 +44,11 @@ void AudioSample::Load(String filePath)
         _wavFile.GetSoundDataSizeBytes(),
         _wavFile.GetSampleRate());
 
-    if (alGetError() != 0) throw AudioSampleException();
-}
-
-void AudioSample::Play()
-{
+    alGenSources(1, &_sourceId);
     alSourcei(_sourceId, AL_BUFFER, _bufferId);
-    alSourcePlay(_sourceId);
+    alSourcef(_sourceId, AL_PITCH, 1.0f);
+    alSourcef(_sourceId, AL_GAIN, 1.0f);
+    alSource3f(_sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
+    alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
+    alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
 }

@@ -16,7 +16,7 @@ ScreenVox& VoxManager::GetScreenVox(Screen& screen)
 void VoxManager::InitAL()
 {
     ALCdevice* device = alcOpenDevice(nullptr);
-    if (!device) throw VoxManagerException();
+    if (device == nullptr) throw VoxManagerException();
     ALCcontext* context = alcCreateContext(device, nullptr);
     if (!alcMakeContextCurrent(context)) throw VoxManagerException();
 }

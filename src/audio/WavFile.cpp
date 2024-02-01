@@ -1,10 +1,13 @@
+#include <lib/Assert.h>
 #include <lib/File.h>
 #include <audio/WavFile.h>
 
 WavFile::WavFile()
 {
+    Assert::True(sizeof(WavData) == 44);
     _fileBytes = nullptr;
     _wavData = nullptr;
+    _soundData = nullptr;
 }
 
 WavFile::~WavFile()
@@ -19,8 +22,10 @@ void WavFile::Load(String filePath)
 {
     int fileSizeBytes = (int)File::GetFileSizeBytes(filePath.GetWCharBuf());
     _fileBytes = new char[fileSizeBytes];
-    File::ReadAllBytes(filePath.GetWCharBuf(), fileSizeBytes, _fileBytes);
+    int readedFileSizeBytes = File::ReadAllBytes(filePath.GetWCharBuf(), fileSizeBytes, _fileBytes);
+    Assert::True(fileSizeBytes == readedFileSizeBytes);
     _wavData = (WavData*)_fileBytes;
+    _soundData = _fileBytes + sizeof(WavData);
 }
 
 short WavFile::GetChannelsCount()
@@ -33,6 +38,11 @@ int WavFile::GetSampleRate()
     return _wavData->SampleRate;
 }
 
+int WavFile::GetByteRate()
+{
+    return _wavData->ByteRate;
+}
+
 short WavFile::GetBitsPerSample()
 {
     return _wavData->BitsPerSample;
@@ -40,7 +50,7 @@ short WavFile::GetBitsPerSample()
 
 void* WavFile::GetSoundData()
 {
-    return _wavData->SoundData;
+    return _soundData;
 }
 
 int WavFile::GetSoundDataSizeBytes()

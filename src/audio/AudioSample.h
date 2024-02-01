@@ -15,7 +15,11 @@ class AudioSample : public Object
 
 public:
     AudioSample();
+    ~AudioSample();
 
     void Load(String filePath);
     void Play();
+
+private:
+    void InitSoundSource(String filePath);
 };

@@ -1,21 +1,26 @@
+#include <lib/Exceptions.h>
 #include <audio/ALFormat.h>
 
 ALenum ALFormat::Get(short channelsCount, short bitsPerSample)
 {
-    bool stereo = (channelsCount > 1);
-
-    switch (bitsPerSample) {
-    case 16:
-        if (stereo)
-            return AL_FORMAT_STEREO16;
-        else
-            return AL_FORMAT_MONO16;
-    case 8:
-        if (stereo)
-            return AL_FORMAT_STEREO8;
-        else
-            return AL_FORMAT_MONO8;
+    if (channelsCount == 1 && bitsPerSample == 8)
+    {
+        return AL_FORMAT_MONO8;
     }
-
-    return -1;
+    else if (channelsCount == 1 && bitsPerSample == 16)
+    {
+        return AL_FORMAT_MONO16;
+    }
+    else if (channelsCount == 2 && bitsPerSample == 8)
+    {
+        return AL_FORMAT_STEREO8;
+    }
+    else if (channelsCount == 2 && bitsPerSample == 16)
+    {
+        return AL_FORMAT_STEREO16;
+    }
+    else
+    {
+        throw ArgumentException();
+    }
 }

@@ -7,10 +7,10 @@ class WavFile : public Object
 {
     struct WavData
     {
-        int ChunkID;
+        char ChunkID[4];
         int ChunkSize;
-        int Format;
-        int Subchunk1ID;
+        char Format[4];
+        char Subchunk1ID[4];
         int Subchunk1Size;
         short AudioFormat;
         short ChannelsCount;
@@ -18,13 +18,13 @@ class WavFile : public Object
         int ByteRate;
         short BlockAlign;
         short BitsPerSample;
-        int Subchunk2ID;
+        char Subchunk2ID[4];
         int Subchunk2Size;
-        void* SoundData;
     };
 
     char* _fileBytes;
     WavData* _wavData;
+    void* _soundData;
 
 public:
     WavFile();
@@ -34,6 +34,7 @@ public:
 
     short GetChannelsCount();
     int GetSampleRate();
+    int GetByteRate();
     short GetBitsPerSample();
     void* GetSoundData();
     int GetSoundDataSizeBytes();
