@@ -1,6 +1,7 @@
 #include <openal/al.h>
 #include <openal/alc.h>
 #include <audio/ALFormat.h>
+#include <audio/WavFile.h>
 #include <audio/AudioSample.h>
 
 AudioSample::AudioSample()
@@ -34,15 +35,15 @@ void AudioSample::Play()
 
 void AudioSample::InitSoundSource(String filePath)
 {
-    _wavFile.Load(filePath);
+    WavFile wavFile(filePath);
 
     alGenBuffers(1, &_bufferId);
     alBufferData(
         _bufferId,
-        ALFormat::Get(_wavFile.GetChannelsCount(), _wavFile.GetBitsPerSample()),
-        _wavFile.GetSoundData(),
-        _wavFile.GetSoundDataSizeBytes(),
-        _wavFile.GetSampleRate());
+        ALFormat::Get(wavFile.GetChannelsCount(), wavFile.GetBitsPerSample()),
+        wavFile.GetSoundData(),
+        wavFile.GetSoundDataSizeBytes(),
+        wavFile.GetSampleRate());
 
     alGenSources(1, &_sourceId);
     alSourcei(_sourceId, AL_BUFFER, _bufferId);

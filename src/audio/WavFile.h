@@ -27,10 +27,8 @@ class WavFile : public Object
     void* _soundData;
 
 public:
-    WavFile();
+    WavFile(String filePath);
     ~WavFile();
-
-    void Load(String filePath);
 
     short GetChannelsCount();
     int GetSampleRate();
