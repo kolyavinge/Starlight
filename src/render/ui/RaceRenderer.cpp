@@ -4,7 +4,7 @@
 #include <ui/RaceScreen.h>
 #include <render/ui/RaceRenderer.h>
 
-void RaceRenderer::Init()
+void RaceRenderer::Init(MenuItemCollection&)
 {
     _backgroundRenderer.Init();
     _shipRenderer.Init();

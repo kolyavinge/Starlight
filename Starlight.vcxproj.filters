@@ -108,6 +108,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\Race.h" />
+    <ClInclude Include="src\render\ui\MenuItemCollection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -204,6 +205,7 @@
     <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
+    <ClCompile Include="src\render\ui\MenuItemCollection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

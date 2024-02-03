@@ -1,18 +1,21 @@
 #include <gl/opengl.h>
-#include <core/Resources.h>
 #include <ui/PauseMenuScreen.h>
+#include <render/ui/MenuItemCollection.h>
 #include <render/ui/PauseMenuRenderer.h>
 
 PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :
     _raceRenderer(raceRenderer)
 {
+    _pauseItem = nullptr;
+    _resumeItem = nullptr;
+    _startMenuItem = nullptr;
 }
 
-void PauseMenuRenderer::Init()
+void PauseMenuRenderer::Init(MenuItemCollection& menuItemCollection)
 {
-    _pauseItem.Load(Resources::GetPauseItemFilePath(), 300.0f, 50.0f);
-    _resumeItem.Load(Resources::GetResumeMenuItemFilePath(), 300.0f, 50.0f);
-    _startMenuItem.Load(Resources::GetStartMenuMenuItemFilePath(), 300.0f, 50.0f);
+    _pauseItem = &menuItemCollection.PauseItem;
+    _resumeItem = &menuItemCollection.ResumeItem;
+    _startMenuItem = &menuItemCollection.StartMenuItem;
 }
 
 void PauseMenuRenderer::Render(Screen& screen)
@@ -32,18 +35,18 @@ void PauseMenuRenderer::RenderMenu(PauseMenuScreen& screen)
 {
     glColor4f(0.9f, 0.9f, 0.9f, 1.0f);
     glTranslatef(
-        (Constants::ScreenWidth - _pauseItem.GetWidth()) / 2.0f,
-        (Constants::ScreenHeight - _pauseItem.GetHeight()) / 2.0f + 200.0f,
+        (Constants::ScreenWidth - _pauseItem->GetWidth()) / 2.0f,
+        (Constants::ScreenHeight - _pauseItem->GetHeight()) / 2.0f + 200.0f,
         0.0f);
-    _pauseItem.Render();
+    _pauseItem->Render();
 
     SetAlphaForSelectedItem(screen, PauseMenuItem::Resume);
     glTranslatef(0.0f, -200.0f, 0.0f);
-    _resumeItem.Render();
+    _resumeItem->Render();
 
     SetAlphaForSelectedItem(screen, PauseMenuItem::StartMenu);
     glTranslatef(0.0f, -75.0f, 0.0f);
-    _startMenuItem.Render();
+    _startMenuItem->Render();
 }
 
 void PauseMenuRenderer::RenderDarkBackground()

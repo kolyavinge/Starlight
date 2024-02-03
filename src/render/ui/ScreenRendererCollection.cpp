@@ -19,9 +19,10 @@ ScreenRendererCollection::~ScreenRendererCollection()
 
 void ScreenRendererCollection::Init()
 {
+    _menuItemCollection.Init();
     for (int i = 0; i < _renderers.Count; i++)
     {
-        _renderers[i]->Init();
+        _renderers[i]->Init(_menuItemCollection);
     }
 }
 

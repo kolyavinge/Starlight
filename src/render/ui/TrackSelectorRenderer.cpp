@@ -1,7 +1,7 @@
 #include <ui/TrackSelectorScreen.h>
 #include <render/ui/TrackSelectorRenderer.h>
 
-void TrackSelectorRenderer::Init()
+void TrackSelectorRenderer::Init(MenuItemCollection& menuItemCollection)
 {
 }
 

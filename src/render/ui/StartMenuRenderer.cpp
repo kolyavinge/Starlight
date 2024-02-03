@@ -1,14 +1,19 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
-#include <core/Resources.h>
 #include <ui/StartMenuScreen.h>
 #include <render/ui/StartMenuRenderer.h>
 
-void StartMenuRenderer::Init()
+StartMenuRenderer::StartMenuRenderer()
+{
+    _startGameItem = nullptr;
+    _exitItem = nullptr;
+}
+
+void StartMenuRenderer::Init(MenuItemCollection& menuItemCollection)
 {
     _backgroundRenderer.Init();
-    _startGameItem.Load(Resources::GetStartGameMenuItemFilePath(), 300.0f, 50.0f);
-    _exitItem.Load(Resources::GetExitMenuItemFilePath(), 300.0f, 50.0f);
+    _startGameItem = &menuItemCollection.StartGameItem;
+    _exitItem = &menuItemCollection.ExitItem;
 }
 
 void StartMenuRenderer::Render(Screen& screen)
@@ -28,12 +33,12 @@ void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)
     glEnable(GL_BLEND);
 
     SetAlphaForSelectedItem(screen, StartMenuItem::Exit);
-    glTranslatef(Constants::ScreenWidth - _exitItem.GetWidth() - 100.0f, 50.0f, 0.0f);
-    _exitItem.Render();
+    glTranslatef(Constants::ScreenWidth - _exitItem->GetWidth() - 100.0f, 50.0f, 0.0f);
+    _exitItem->Render();
 
     SetAlphaForSelectedItem(screen, StartMenuItem::StartGame);
     glTranslatef(0.0f, 75.0f, 0.0f);
-    _startGameItem.Render();
+    _startGameItem->Render();
 
     glDisable(GL_BLEND);
 }
