@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
@@ -30,7 +31,7 @@
     <ClInclude Include="src\gl\Mesh.h" />
     <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\Texture.h" />
-    <ClInclude Include="src\core\Resources.h" />
+    <ClInclude Include="src\anx\GraphicResources.h" />
     <ClInclude Include="src\gl\TexturedRect.h" />
     <ClInclude Include="src\input\InputDevices.h" />
     <ClInclude Include="src\input\Joystick.h" />
@@ -128,6 +129,7 @@
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
     <ClCompile Include="src\audio\ALFormat.cpp" />
@@ -152,7 +154,7 @@
     <ClCompile Include="src\gl\Mesh.cpp" />
     <ClCompile Include="src\gl\MeshLoader.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
-    <ClCompile Include="src\core\Resources.cpp" />
+    <ClCompile Include="src\anx\GraphicResources.cpp" />
     <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />

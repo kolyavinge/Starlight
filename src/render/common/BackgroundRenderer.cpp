@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <core/Resources.h>
+#include <anx/GraphicResources.h>
 #include <render/common/BackgroundRenderer.h>
 
 BackgroundRenderer::BackgroundRenderer() :
@@ -10,7 +10,7 @@ BackgroundRenderer::BackgroundRenderer() :
 
 void BackgroundRenderer::Init()
 {
-    _backgroundTexture.Load(Resources::GetBackgroundTextureFilePath());
+    _backgroundTexture.Load(GraphicResources::GetBackgroundTextureFilePath());
 }
 
 void BackgroundRenderer::Render()

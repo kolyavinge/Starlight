@@ -2,7 +2,7 @@
 
 #include <lib/String.h>
 
-class Resources
+class GraphicResources
 {
 public:
     static String GetBackgroundTextureFilePath();
@@ -12,5 +12,4 @@ public:
     static String GetPauseItemFilePath();
     static String GetResumeMenuItemFilePath();
     static String GetStartMenuMenuItemFilePath();
-    static String GetSelectMenuItemWavFilePath();
 };

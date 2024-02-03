@@ -1,7 +1,7 @@
-#include <core/Resources.h>
+#include <anx/AudioResources.h>
 #include <vox/SampleCollection.h>
 
 void SampleCollection::Init()
 {
-    SelectMenuItem.Load(Resources::GetSelectMenuItemWavFilePath());
+    SelectMenuItem.Load(AudioResources::GetSelectMenuItemWavFilePath());
 }

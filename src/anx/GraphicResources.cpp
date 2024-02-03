@@ -1,8 +1,8 @@
 #include <lib/String.h>
 #include <lib/Environment.h>
-#include <core/Resources.h>
+#include <anx/GraphicResources.h>
 
-String Resources::GetBackgroundTextureFilePath()
+String GraphicResources::GetBackgroundTextureFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\bg1.jpg\0");
@@ -11,7 +11,7 @@ String Resources::GetBackgroundTextureFilePath()
     return path;
 }
 
-String Resources::GetShipMeshFilePath()
+String GraphicResources::GetShipMeshFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\ship\\Starship.obj\0");
@@ -20,7 +20,7 @@ String Resources::GetShipMeshFilePath()
     return path;
 }
 
-String Resources::GetStartGameMenuItemFilePath()
+String GraphicResources::GetStartGameMenuItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\menu\\start_game.png\0");
@@ -29,7 +29,7 @@ String Resources::GetStartGameMenuItemFilePath()
     return path;
 }
 
-String Resources::GetExitMenuItemFilePath()
+String GraphicResources::GetExitMenuItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\menu\\exit.png\0");
@@ -38,7 +38,7 @@ String Resources::GetExitMenuItemFilePath()
     return path;
 }
 
-String Resources::GetPauseItemFilePath()
+String GraphicResources::GetPauseItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\menu\\pause.png\0");
@@ -47,7 +47,7 @@ String Resources::GetPauseItemFilePath()
     return path;
 }
 
-String Resources::GetResumeMenuItemFilePath()
+String GraphicResources::GetResumeMenuItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\menu\\resume.png\0");
@@ -56,19 +56,10 @@ String Resources::GetResumeMenuItemFilePath()
     return path;
 }
 
-String Resources::GetStartMenuMenuItemFilePath()
+String GraphicResources::GetStartMenuMenuItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\menu\\main_menu.png\0");
-    path.Append(name);
-
-    return path;
-}
-
-String Resources::GetSelectMenuItemWavFilePath()
-{
-    String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\audio\\select_menu_item.wav\0");
     path.Append(name);
 
     return path;

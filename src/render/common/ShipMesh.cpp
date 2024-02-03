@@ -2,12 +2,12 @@
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
-#include <core/Resources.h>
+#include <anx/GraphicResources.h>
 #include <render/common/ShipMesh.h>
 
 void ShipMesh::Init()
 {
-    _shipMesh.Load(Resources::GetShipMeshFilePath());
+    _shipMesh.Load(GraphicResources::GetShipMeshFilePath());
     _shipMesh.SwapYZ();
     _shipMesh.MoveToOrigin();
     _shipMesh.MoveToCenter((int)Mesh::Axis::X);
