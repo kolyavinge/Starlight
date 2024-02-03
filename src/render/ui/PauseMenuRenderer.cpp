@@ -1,5 +1,6 @@
 #include <gl/opengl.h>
 #include <core/Resources.h>
+#include <ui/PauseMenuScreen.h>
 #include <render/ui/PauseMenuRenderer.h>
 
 PauseMenuRenderer::PauseMenuRenderer(GameScreenRenderer& gameScreenRenderer) :
@@ -14,14 +15,15 @@ void PauseMenuRenderer::Init()
     _startMenuItem.Load(Resources::GetStartMenuMenuItemFilePath(), 300.0f, 50.0f);
 }
 
-void PauseMenuRenderer::Render(Game& game)
+void PauseMenuRenderer::Render(Screen& screen)
 {
-    _gameScreenRenderer.Render(game);
+    PauseMenuScreen& pauseMenuScreen = (PauseMenuScreen&)screen;
+    _gameScreenRenderer.Render(pauseMenuScreen.Race);
     glLoadIdentity();
     glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1.0, 1.0);
     glEnable(GL_BLEND);
     RenderDarkBackground();
-    RenderMenu((PauseMenuScreen&)game.GetCurrentScreen());
+    RenderMenu(pauseMenuScreen);
     glDisable(GL_BLEND);
     _selectedItemAlpha.UpdateBy(0.05f);
 }

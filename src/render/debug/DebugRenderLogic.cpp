@@ -1,4 +1,6 @@
 #include <gl/opengl.h>
+#include <core/Race.h>
+#include <ui/GameScreen.h>
 #include <render/debug/DebugRenderLogic.h>
 
 void DebugRenderLogic::Init()
@@ -6,12 +8,14 @@ void DebugRenderLogic::Init()
     _shipRenderer.Init();
 }
 
-void DebugRenderLogic::Render(Game& game)
+void DebugRenderLogic::Render(Screen& screen)
 {
+    GameScreen& gameScreen = (GameScreen&)screen;
+    Race& race = gameScreen.Race;
     RenderGrid();
     _backgroundRenderer.Render();
-    _trackRenderer.Render(game.Track);
-    _shipRenderer.Render(game.Player, game.Track);
+    _trackRenderer.Render(*race.Track);
+    _shipRenderer.Render(race.Player, *race.Track);
     RenderAxis();
 }
 

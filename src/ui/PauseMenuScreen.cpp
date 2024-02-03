@@ -5,9 +5,9 @@
 PauseMenuScreen::PauseMenuScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
-    IPauseSwitcher& pauseSwitcher) :
+    ::Race& race) :
     Screen(ScreenKind::PauseMenu, navigator, inputDevices),
-    _pauseSwitcher(pauseSwitcher)
+    Race(race)
 {
     Array<PauseMenuItem, 2> items;
     items[0] = PauseMenuItem::Resume;
@@ -32,7 +32,6 @@ void PauseMenuScreen::ProcessInput()
 
     if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
     {
-        _pauseSwitcher.SwitchPause();
         _navigator.NavigateToGame();
     }
     else if (
@@ -42,7 +41,6 @@ void PauseMenuScreen::ProcessInput()
     {
         if (GetSelectedItem() == PauseMenuItem::Resume)
         {
-            _pauseSwitcher.SwitchPause();
             _navigator.NavigateToGame();
         }
         else if (GetSelectedItem() == PauseMenuItem::StartMenu)

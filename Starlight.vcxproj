@@ -23,8 +23,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\audio\WavFile.h" />
-    <ClInclude Include="src\core\IGameStarter.h" />
-    <ClInclude Include="src\core\IPauseSwitcher.h" />
+    <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
@@ -139,6 +138,7 @@
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
+    <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />

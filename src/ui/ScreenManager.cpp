@@ -2,13 +2,12 @@
 
 ScreenManager::ScreenManager(
     InputDevices& inputDevices,
-    ShipController& playerController,
-    IGameStarter& gameStarter,
-    IPauseSwitcher& pauseSwitcher) :
+    TrackManager& trackManager,
+    Race& race) :
     _startMenuScreen(*this, inputDevices),
-    _trackSelectorScreen(*this, inputDevices, gameStarter),
-    _pauseMenuScreen(*this, inputDevices, pauseSwitcher),
-    _gameScreen(*this, inputDevices, playerController, pauseSwitcher)
+    _trackSelectorScreen(*this, inputDevices, trackManager, race),
+    _pauseMenuScreen(*this, inputDevices, race),
+    _gameScreen(*this, inputDevices, race)
 {
     NavigateToStartMenu();
 }

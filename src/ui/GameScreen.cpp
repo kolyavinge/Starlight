@@ -1,14 +1,13 @@
 #include <windows.h>
+#include <core/ShipController.h>
 #include <ui/GameScreen.h>
 
 GameScreen::GameScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
-    ShipController& playerController,
-    IPauseSwitcher& pauseSwitcher) :
+    ::Race& race) :
     Screen(ScreenKind::Game, navigator, inputDevices),
-    _playerController(playerController),
-    _pauseSwitcher(pauseSwitcher)
+    Race(race)
 {
 }
 
@@ -16,8 +15,14 @@ void GameScreen::Activate()
 {
 }
 
+void GameScreen::Update()
+{
+    Race.Update();
+}
+
 void GameScreen::ProcessInput()
 {
+    ShipController& playerController = Race.PlayerController;
     Keyboard& keyboard = _inputDevices.Keyboard;
     Joystick& joystick = _inputDevices.Joystick;
 
@@ -25,11 +30,11 @@ void GameScreen::ProcessInput()
         keyboard.IsPressedOrHeld(VK_UP) ||
         joystick.IsButton1Pressed())
     {
-        _playerController.ActivateThrottle();
+        playerController.ActivateThrottle();
     }
     else
     {
-        _playerController.ReleaseThrottle();
+        playerController.ReleaseThrottle();
     }
 
     if (keyboard.IsPressedOrHeld('S') ||
@@ -37,34 +42,33 @@ void GameScreen::ProcessInput()
         joystick.IsButton2Pressed() ||
         joystick.IsButton3Pressed())
     {
-        _playerController.ActivateBreak();
+        playerController.ActivateBreak();
     }
     else
     {
-        _playerController.ReleaseBreak();
+        playerController.ReleaseBreak();
     }
 
     if (keyboard.IsPressedOrHeld('A') ||
         keyboard.IsPressedOrHeld(VK_LEFT) ||
         joystick.IsLeftPressed())
     {
-        _playerController.TurnLeft();
+        playerController.TurnLeft();
     }
     else if (
         keyboard.IsPressedOrHeld('D') ||
         keyboard.IsPressedOrHeld(VK_RIGHT) ||
         joystick.IsRightPressed())
     {
-        _playerController.TurnRight();
+        playerController.TurnRight();
     }
     else
     {
-        _playerController.ReleaseTurn();
+        playerController.ReleaseTurn();
     }
 
     if (keyboard.IsPressed(VK_ESCAPE))
     {
-        _pauseSwitcher.SwitchPause();
         _navigator.NavigateToPauseMenu();
     }
 }

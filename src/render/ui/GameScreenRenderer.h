@@ -1,6 +1,7 @@
 #pragma once
 
-#include <core/Game.h>
+#include <core/Race.h>
+#include <ui/Screen.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipRenderer.h>
@@ -16,5 +17,6 @@ class GameScreenRenderer : public ScreenRenderer
 
 public:
     void Init() override;
-    void Render(Game& game) override;
+    void Render(Screen& screen) override;
+    void Render(Race& race);
 };

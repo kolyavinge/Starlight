@@ -27,5 +27,6 @@ public:
         InputDevices& inputDevices);
 
     virtual void Activate() = 0;
+    virtual void Update();
     virtual void ProcessInput() = 0;
 };

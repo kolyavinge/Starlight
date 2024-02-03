@@ -3,9 +3,11 @@
 TrackSelectorScreen::TrackSelectorScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
-    IGameStarter& gameStarter) :
+    TrackManager& trackManager,
+    Race& race) :
     Screen(ScreenKind::TrackSelector, navigator, inputDevices),
-    _gameStarter(gameStarter)
+    _trackManager(trackManager),
+    _race(race)
 {
 }
 
@@ -15,6 +17,6 @@ void TrackSelectorScreen::Activate()
 
 void TrackSelectorScreen::ProcessInput()
 {
-    _gameStarter.Start();
+    _race.Start(_trackManager.GetCurrentTrack());
     _navigator.NavigateToGame();
 }

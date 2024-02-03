@@ -1,23 +1,21 @@
 #pragma once
 
-#include <core/ShipController.h>
-#include <core/IPauseSwitcher.h>
+#include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
 
 class GameScreen : public Screen
 {
-    ShipController& _playerController;
-    IPauseSwitcher& _pauseSwitcher;
-
 public:
     GameScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
-        ShipController& playerController,
-        IPauseSwitcher& pauseSwitcher);
+        Race& race);
+
+    Race& Race;
 
     void Activate() override;
+    void Update() override;
     void ProcessInput() override;
 };

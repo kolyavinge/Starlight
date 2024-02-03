@@ -1,5 +1,6 @@
 #include <freeglut/glut.h>
 #include <core/Constants.h>
+#include <ui/Screen.h>
 #include <render/ui/ScreenRenderer.h>
 #include <vox/ScreenVox.h>
 #include <win/resource.h>
@@ -36,8 +37,9 @@ void App::SetIcon()
 
 void App::Display()
 {
-    ScreenRenderer& renderer = _renderManager.GetScreenRenderer(_game.GetCurrentScreen());
-    renderer.Render(_game);
+    Screen& currentScreen = _game.GetCurrentScreen();
+    ScreenRenderer& renderer = _renderManager.GetScreenRenderer(currentScreen);
+    renderer.Render(currentScreen);
     glutSwapBuffers();
 }
 

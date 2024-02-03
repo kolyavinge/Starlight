@@ -9,3 +9,7 @@ Screen::Screen(
     _inputDevices(inputDevices)
 {
 }
+
+void Screen::Update()
+{
+}

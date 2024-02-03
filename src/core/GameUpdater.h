@@ -1,7 +1,7 @@
 #pragma once
 
 #include <model/Ship.h>
-#include <core/TrackManager.h>
+#include <model/Track.h>
 #include <core/TurnAngleCalculator.h>
 #include <core/VelocityCalculator.h>
 #include <core/MoveLogic.h>
@@ -12,13 +12,7 @@
 #include <core/LapCounter.h>
 #include <core/Camera.h>
 
-class IGameUpdater
-{
-public:
-    virtual void Update() = 0;
-};
-
-class GameUpdater : public IGameUpdater
+class GameUpdater : public Object
 {
     TurnAngleCalculator _turnAngleCalculator;
     VelocityCalculator _velocityCalculator;
@@ -28,24 +22,13 @@ class GameUpdater : public IGameUpdater
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
     LapCounter _lapCounter;
-    Ship& _player;
-    TrackManager& _trackManager;
-    Camera& _camera;
 
 public:
-    GameUpdater(
+    void Update(
         Ship& player,
-        TrackManager& trackManager,
+        Track& track,
         Camera& camera);
 
-    void Update() override;
-
 private:
-    void SaveCurrentShipsPositions();
-};
-
-class EmptyGameUpdater : public IGameUpdater
-{
-public:
-    void Update() override { }
+    void SaveCurrentShipsPositions(Ship& player);
 };

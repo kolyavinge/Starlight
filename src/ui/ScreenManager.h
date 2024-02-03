@@ -1,9 +1,8 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <core/ShipController.h>
-#include <core/IGameStarter.h>
-#include <core/IPauseSwitcher.h>
+#include <core/TrackManager.h>
+#include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/StartMenuScreen.h>
 #include <ui/TrackSelectorScreen.h>
@@ -22,9 +21,8 @@ class ScreenManager : public Object, public IScreenNavigator
 public:
     ScreenManager(
         InputDevices& inputDevices,
-        ShipController& playerController,
-        IGameStarter& gameStarter,
-        IPauseSwitcher& pauseSwitcher);
+        TrackManager& trackManager,
+        Race& race);
 
     Screen& GetCurrentScreen();
 

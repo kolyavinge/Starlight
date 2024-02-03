@@ -1,6 +1,6 @@
 #pragma once
 
-#include <core/Game.h>
+#include <ui/Screen.h>
 #include <render/debug/DebugBackgroundRenderer.h>
 #include <render/debug/DebugShipRenderer.h>
 #include <render/debug/DebugTrackRenderer.h>
@@ -14,7 +14,7 @@ class DebugRenderLogic : public ScreenRenderer
 
 public:
     void Init();
-    void Render(Game& game);
+    void Render(Screen& screen);
 
 private:
     void RenderAxis();

@@ -1,41 +1,24 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <model/Ship.h>
-#include <model/Track.h>
 #include <core/TrackManager.h>
-#include <core/GameUpdater.h>
-#include <core/ShipController.h>
-#include <core/Camera.h>
-#include <core/IGameStarter.h>
-#include <core/IPauseSwitcher.h>
+#include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/ScreenManager.h>
 
-class Game :
-    public Object,
-    public IGameStarter,
-    public IPauseSwitcher
+class Game : public Object
 {
     TrackManager _trackManager;
     GameUpdater _gameUpdater;
-    EmptyGameUpdater _emptyGameUpdater;
-    IGameUpdater* _currentGameUpdater;
     ScreenManager _screenManager;
-    bool _isPaused;
 
 public:
-    Ship Player;
-    Track& Track;
-    ShipController PlayerController;
-    Camera Camera;
+    Race Race;
     InputDevices InputDevices;
 
     Game();
 
-    void Start() override;
     void Update();
-    void SwitchPause() override;
     Screen& GetCurrentScreen();
 };

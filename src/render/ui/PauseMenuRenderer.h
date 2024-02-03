@@ -1,7 +1,7 @@
 #pragma once
 
 #include <calc/SinPeriodValue.h>
-#include <core/Game.h>
+#include <ui/Screen.h>
 #include <gl/TexturedRect.h>
 #include <ui/PauseMenuScreen.h>
 #include <render/ui/ScreenRenderer.h>
@@ -19,7 +19,7 @@ public:
     PauseMenuRenderer(GameScreenRenderer& gameScreenRenderer);
 
     void Init() override;
-    void Render(Game& game) override;
+    void Render(Screen& screen) override;
 
 private:
     void RenderMenu(PauseMenuScreen& screen);

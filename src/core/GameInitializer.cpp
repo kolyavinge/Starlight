@@ -1,29 +1,31 @@
 #include <calc/Vector3.h>
+#include <model/Track.h>
 #include <core/PositionUpdater.h>
 #include <core/GameInitializer.h>
 
-void GameInitializer::Init(Game& game)
+void GameInitializer::Init(Race& race)
 {
-    game.Track.Init();
-    game.Player.Init();
-    SetPlayerBehindStartFinishLine(game);
-    game.Player.CentralLine.TrackPointIndexFront = game.Track.StartFinishLineIndex;
-    game.Player.CentralLine.TrackPointIndexRear = game.Track.StartFinishLineIndex;
-    UpdateShipPosition(game);
+    Track& track = *race.Track;
+    track.Init();
+    race.Player.Init();
+    SetPlayerBehindStartFinishLine(*race.Track, race.Player);
+    race.Player.CentralLine.TrackPointIndexFront = track.StartFinishLineIndex;
+    race.Player.CentralLine.TrackPointIndexRear = track.StartFinishLineIndex;
+    UpdateShipPosition(*race.Track, race.Player);
 }
 
-void GameInitializer::SetPlayerBehindStartFinishLine(Game& game)
+void GameInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& player)
 {
-    int lineIndex = game.Track.StartFinishLineIndex;
-    Vector3 middle = game.Track.OutsidePoints[lineIndex];
-    middle.Sub(game.Track.InsidePoints[lineIndex]);
+    int lineIndex = track.StartFinishLineIndex;
+    Vector3 middle = track.OutsidePoints[lineIndex];
+    middle.Sub(track.InsidePoints[lineIndex]);
     middle.Div(2.0f);
-    middle.Add(game.Track.InsidePoints[lineIndex]);
-    game.Player.OrientationByFrontPoint(middle, game.Track.StraightDirection);
+    middle.Add(track.InsidePoints[lineIndex]);
+    player.OrientationByFrontPoint(middle, track.StraightDirection);
 }
 
-void GameInitializer::UpdateShipPosition(Game& game)
+void GameInitializer::UpdateShipPosition(Track& track, Ship& player)
 {
     PositionUpdater positionUpdater;
-    positionUpdater.Update(game.Player, game.Track);
+    positionUpdater.Update(player, track);
 }

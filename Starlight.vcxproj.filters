@@ -78,7 +78,6 @@
     <ClInclude Include="src\input\Joystick.h" />
     <ClInclude Include="src\input\Keyboard.h" />
     <ClInclude Include="src\input\InputDevices.h" />
-    <ClInclude Include="src\core\IPauseSwitcher.h" />
     <ClInclude Include="src\ui\GameScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
@@ -96,7 +95,6 @@
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
-    <ClInclude Include="src\core\IGameStarter.h" />
     <ClInclude Include="src\vox\ScreenVox.h" />
     <ClInclude Include="src\vox\VoxManager.h" />
     <ClInclude Include="src\vox\ScreenVoxCollection.h" />
@@ -107,7 +105,9 @@
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\vox\SampleCollection.h" />
     <ClInclude Include="src\vox\MenuItemVox.h" />
-    <ClInclude Include="src\audio\WavLoader.h" />
+    <ClInclude Include="src\audio\ALFormat.h" />
+    <ClInclude Include="src\audio\WavFile.h" />
+    <ClInclude Include="src\core\Race.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -201,8 +201,9 @@
     <ClCompile Include="src\vox\GameVox.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
     <ClCompile Include="src\vox\SampleCollection.cpp" />
-    <ClCompile Include="src\audio\WavLoader.cpp" />
-    <ClCompile Include="external\openal\load_wav.cpp" />
+    <ClCompile Include="src\audio\ALFormat.cpp" />
+    <ClCompile Include="src\audio\WavFile.cpp" />
+    <ClCompile Include="src\core\Race.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

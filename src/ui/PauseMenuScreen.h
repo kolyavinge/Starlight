@@ -1,6 +1,6 @@
 #pragma once
 
-#include <core/IPauseSwitcher.h>
+#include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
@@ -14,14 +14,15 @@ enum class PauseMenuItem
 
 class PauseMenuScreen : public Screen
 {
-    IPauseSwitcher& _pauseSwitcher;
     MenuItemSelector<PauseMenuItem, 2> _selector;
 
 public:
+    Race& Race;
+
     PauseMenuScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
-        IPauseSwitcher& pauseSwitcher);
+        ::Race& race);
 
     PauseMenuItem GetSelectedItem();
     void Activate() override;

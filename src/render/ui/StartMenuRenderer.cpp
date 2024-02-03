@@ -1,6 +1,7 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
 #include <core/Resources.h>
+#include <ui/StartMenuScreen.h>
 #include <render/ui/StartMenuRenderer.h>
 
 void StartMenuRenderer::Init()
@@ -10,12 +11,13 @@ void StartMenuRenderer::Init()
     _exitItem.Load(Resources::GetExitMenuItemFilePath(), 300.0f, 50.0f);
 }
 
-void StartMenuRenderer::Render(Game& game)
+void StartMenuRenderer::Render(Screen& screen)
 {
+    StartMenuScreen& startMenuScreen = (StartMenuScreen&)screen;
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     _backgroundRenderer.Render();
-    RenderMenu((StartMenuScreen&)game.GetCurrentScreen());
+    RenderMenu(startMenuScreen);
     _selectedItemAlpha.UpdateBy(0.05f);
 }
 

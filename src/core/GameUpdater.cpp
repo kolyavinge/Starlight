@@ -2,37 +2,29 @@
 #include <core/Constants.h>
 #include <core/GameUpdater.h>
 
-GameUpdater::GameUpdater(
+void GameUpdater::Update(
     Ship& player,
-    TrackManager& trackManager,
-    Camera& camera) :
-    _player(player),
-    _trackManager(trackManager),
-    _camera(camera)
+    Track& track,
+    Camera& camera)
 {
-}
-
-void GameUpdater::Update()
-{
-    SaveCurrentShipsPositions();
-    Track& track = _trackManager.GetCurrentTrack();
-    _positionUpdater.UpdateIfShipMoving(_player, track);
+    SaveCurrentShipsPositions(player);
+    _positionUpdater.UpdateIfShipMoving(player, track);
     float timeStep = Constants::TimeStep;
-    _turnAngleCalculator.CalculateTurnAngle(_player);
-    _velocityCalculator.CalculateVelocity(timeStep, _player);
-    _moveLogic.MoveShip(timeStep, _player);
-    _borderUpdater.Update(_player);
-    _collisionProcessor.ProcessCollisions(_player, track);
+    _turnAngleCalculator.CalculateTurnAngle(player);
+    _velocityCalculator.CalculateVelocity(timeStep, player);
+    _moveLogic.MoveShip(timeStep, player);
+    _borderUpdater.Update(player);
+    _collisionProcessor.ProcessCollisions(player, track);
     if (_collisionProcessor.HasCollisions())
     {
-        _borderUpdater.Update(_player);
+        _borderUpdater.Update(player);
     }
-    _positionCorrector.CorrectAfterFloatOperations(_player);
-    _lapCounter.CheckLap(_player, track);
-    _camera.Update(_player);
+    _positionCorrector.CorrectAfterFloatOperations(player);
+    _lapCounter.CheckLap(player, track);
+    camera.Update(player);
 }
 
-void GameUpdater::SaveCurrentShipsPositions()
+void GameUpdater::SaveCurrentShipsPositions(Ship& player)
 {
-    _player.PrevCentralLine = _player.CentralLine;
+    player.PrevCentralLine = player.CentralLine;
 }
