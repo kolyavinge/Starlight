@@ -1,6 +1,11 @@
 #include <ui/StartMenuScreen.h>
 #include <vox/StartMenuVox.h>
 
+StartMenuVox::StartMenuVox() :
+    _menuItemVox(StartMenuItem::StartGame)
+{
+}
+
 void StartMenuVox::Init(SampleCollection& sampleCollection)
 {
     _menuItemVox.Init(sampleCollection);

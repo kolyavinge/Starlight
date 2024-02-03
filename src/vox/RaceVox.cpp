@@ -1,11 +1,11 @@
 #include <ui/RaceScreen.h>
 #include <vox/RaceVox.h>
 
-void RaceVox::Init(SampleCollection& sampleCollection)
+void RaceVox::Init(SampleCollection& /*sampleCollection*/)
 {
 }
 
-void RaceVox::Voice(Screen& screen)
+void RaceVox::Voice(Screen& /*screen*/)
 {
-    RaceScreen& raceScreen = (RaceScreen&)screen;
+    //RaceScreen& raceScreen = (RaceScreen&)screen;
 }

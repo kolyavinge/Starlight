@@ -11,8 +11,9 @@ class MenuItemVox : public Object
     AudioSample* _selectMenuItem;
 
 public:
-    MenuItemVox()
+    MenuItemVox(TMenuItem initValue)
     {
+        _lastSelectedItem = initValue;
         _selectMenuItem = nullptr;
     }
 
