@@ -11,6 +11,11 @@ class MenuItemVox : public Object
     AudioSample* _selectMenuItem;
 
 public:
+    MenuItemVox()
+    {
+        _selectMenuItem = nullptr;
+    }
+
     void Init(SampleCollection& sampleCollection)
     {
         _selectMenuItem = &sampleCollection.SelectMenuItem;

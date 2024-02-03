@@ -1,26 +1,26 @@
 #include <windows.h>
 #include <core/ShipController.h>
-#include <ui/GameScreen.h>
+#include <ui/RaceScreen.h>
 
-GameScreen::GameScreen(
+RaceScreen::RaceScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
     ::Race& race) :
-    Screen(ScreenKind::Game, navigator, inputDevices),
+    Screen(ScreenKind::Race, navigator, inputDevices),
     Race(race)
 {
 }
 
-void GameScreen::Activate()
+void RaceScreen::Activate()
 {
 }
 
-void GameScreen::Update()
+void RaceScreen::Update()
 {
     Race.Update();
 }
 
-void GameScreen::ProcessInput()
+void RaceScreen::ProcessInput()
 {
     ShipController& playerController = Race.PlayerController;
     Keyboard& keyboard = _inputDevices.Keyboard;

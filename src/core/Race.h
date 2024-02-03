@@ -4,12 +4,12 @@
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/ShipController.h>
-#include <core/GameUpdater.h>
+#include <core/RaceUpdater.h>
 #include <core/Camera.h>
 
 class Race : public Object
 {
-    GameUpdater& _gameUpdater;
+    RaceUpdater& _raceUpdater;
 
 public:
     Ship Player;
@@ -18,7 +18,7 @@ public:
     Camera Camera;
 
     Race(
-        GameUpdater& gameUpdater);
+        RaceUpdater& raceUpdater);
 
     void Start(::Track& selectedTrack);
     void Update();

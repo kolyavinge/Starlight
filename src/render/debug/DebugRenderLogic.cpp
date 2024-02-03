@@ -1,6 +1,6 @@
 #include <gl/opengl.h>
 #include <core/Race.h>
-#include <ui/GameScreen.h>
+#include <ui/RaceScreen.h>
 #include <render/debug/DebugRenderLogic.h>
 
 void DebugRenderLogic::Init()
@@ -10,7 +10,7 @@ void DebugRenderLogic::Init()
 
 void DebugRenderLogic::Render(Screen& screen)
 {
-    GameScreen& gameScreen = (GameScreen&)screen;
+    RaceScreen& gameScreen = (RaceScreen&)screen;
     Race& race = gameScreen.Race;
     RenderGrid();
     _backgroundRenderer.Render();

@@ -15,7 +15,7 @@
     <ClInclude Include="src\core\GameInitializer.h" />
     <ClInclude Include="src\model\Track.h" />
     <ClInclude Include="src\lib\HashCode.h" />
-    <ClInclude Include="src\core\GameUpdater.h" />
+    <ClInclude Include="src\core\RaceUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
     <ClInclude Include="src\core\ShipController.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
@@ -51,7 +51,7 @@
     <ClInclude Include="src\core\LapCounter.h" />
     <ClInclude Include="src\model\track\WheelTrack.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
-    <ClInclude Include="src\render\ui\GameScreenRenderer.h" />
+    <ClInclude Include="src\render\ui\RaceRenderer.h" />
     <ClInclude Include="src\render\common\ShipRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\calc\Sphere.h" />
@@ -78,7 +78,7 @@
     <ClInclude Include="src\input\Joystick.h" />
     <ClInclude Include="src\input\Keyboard.h" />
     <ClInclude Include="src\input\InputDevices.h" />
-    <ClInclude Include="src\ui\GameScreen.h" />
+    <ClInclude Include="src\ui\RaceScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
     <ClInclude Include="src\ui\Screen.h" />
@@ -100,7 +100,7 @@
     <ClInclude Include="src\vox\ScreenVoxCollection.h" />
     <ClInclude Include="src\vox\StartMenuVox.h" />
     <ClInclude Include="src\vox\PauseMenuVox.h" />
-    <ClInclude Include="src\vox\GameVox.h" />
+    <ClInclude Include="src\vox\RaceVox.h" />
     <ClInclude Include="src\vox\TrackSelectorVox.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\vox\SampleCollection.h" />
@@ -121,7 +121,7 @@
     <ClCompile Include="src\core\GameInitializer.cpp" />
     <ClCompile Include="src\model\Track.cpp" />
     <ClCompile Include="src\lib\HashCode.cpp" />
-    <ClCompile Include="src\core\GameUpdater.cpp" />
+    <ClCompile Include="src\core\RaceUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\VelocityCalculator.cpp" />
@@ -154,7 +154,7 @@
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
-    <ClCompile Include="src\render\ui\GameScreenRenderer.cpp" />
+    <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
@@ -179,7 +179,7 @@
     <ClCompile Include="src\gl\Face.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
-    <ClCompile Include="src\ui\GameScreen.cpp" />
+    <ClCompile Include="src\ui\RaceScreen.cpp" />
     <ClCompile Include="src\ui\PauseMenuScreen.cpp" />
     <ClCompile Include="src\ui\Screen.cpp" />
     <ClCompile Include="src\ui\ScreenManager.cpp" />
@@ -198,7 +198,7 @@
     <ClCompile Include="src\vox\StartMenuVox.cpp" />
     <ClCompile Include="src\vox\TrackSelectorVox.cpp" />
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />
-    <ClCompile Include="src\vox\GameVox.cpp" />
+    <ClCompile Include="src\vox\RaceVox.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
     <ClCompile Include="src\vox\SampleCollection.cpp" />
     <ClCompile Include="src\audio\ALFormat.cpp" />

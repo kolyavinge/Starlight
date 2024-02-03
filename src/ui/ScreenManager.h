@@ -7,7 +7,7 @@
 #include <ui/StartMenuScreen.h>
 #include <ui/TrackSelectorScreen.h>
 #include <ui/PauseMenuScreen.h>
-#include <ui/GameScreen.h>
+#include <ui/RaceScreen.h>
 #include <ui/IScreenNavigator.h>
 
 class ScreenManager : public Object, public IScreenNavigator
@@ -15,7 +15,7 @@ class ScreenManager : public Object, public IScreenNavigator
     StartMenuScreen _startMenuScreen;
     TrackSelectorScreen _trackSelectorScreen;
     PauseMenuScreen _pauseMenuScreen;
-    GameScreen _gameScreen;
+    RaceScreen _raceScreen;
     Screen* _currentScreen;
 
 public:
@@ -29,5 +29,5 @@ public:
     void NavigateToStartMenu() override;
     void NavigateToTrackSelector() override;
     void NavigateToPauseMenu() override;
-    void NavigateToGame() override;
+    void NavigateToRace() override;
 };

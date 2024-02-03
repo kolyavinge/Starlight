@@ -5,10 +5,10 @@
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
 
-class GameScreen : public Screen
+class RaceScreen : public Screen
 {
 public:
-    GameScreen(
+    RaceScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
         Race& race);

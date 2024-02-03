@@ -1,8 +1,8 @@
 #include <model/Track.h>
 #include <core/Constants.h>
-#include <core/GameUpdater.h>
+#include <core/RaceUpdater.h>
 
-void GameUpdater::Update(
+void RaceUpdater::Update(
     Ship& player,
     Track& track,
     Camera& camera)
@@ -24,7 +24,7 @@ void GameUpdater::Update(
     camera.Update(player);
 }
 
-void GameUpdater::SaveCurrentShipsPositions(Ship& player)
+void RaceUpdater::SaveCurrentShipsPositions(Ship& player)
 {
     player.PrevCentralLine = player.CentralLine;
 }

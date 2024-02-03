@@ -9,7 +9,7 @@ enum class ScreenKind
     StartMenu = 0,
     TrackSelector = 1,
     PauseMenu = 2,
-    Game = 3
+    Race = 3
 };
 
 class Screen : public Object

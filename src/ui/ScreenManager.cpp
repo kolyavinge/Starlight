@@ -7,7 +7,7 @@ ScreenManager::ScreenManager(
     _startMenuScreen(*this, inputDevices),
     _trackSelectorScreen(*this, inputDevices, trackManager, race),
     _pauseMenuScreen(*this, inputDevices, race),
-    _gameScreen(*this, inputDevices, race)
+    _raceScreen(*this, inputDevices, race)
 {
     NavigateToStartMenu();
 }
@@ -35,8 +35,8 @@ void ScreenManager::NavigateToPauseMenu()
     _currentScreen->Activate();
 }
 
-void ScreenManager::NavigateToGame()
+void ScreenManager::NavigateToRace()
 {
-    _currentScreen = &_gameScreen;
+    _currentScreen = &_raceScreen;
     _currentScreen->Activate();
 }

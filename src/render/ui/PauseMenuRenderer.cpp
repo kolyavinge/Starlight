@@ -3,7 +3,7 @@
 #include <ui/PauseMenuScreen.h>
 #include <render/ui/PauseMenuRenderer.h>
 
-PauseMenuRenderer::PauseMenuRenderer(GameScreenRenderer& gameScreenRenderer) :
+PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& gameScreenRenderer) :
     _gameScreenRenderer(gameScreenRenderer)
 {
 }

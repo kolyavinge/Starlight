@@ -2,8 +2,8 @@
 #include <core/GameInitializer.h>
 
 Race::Race(
-    GameUpdater& gameUpdater) :
-    _gameUpdater(gameUpdater),
+    RaceUpdater& raceUpdater) :
+    _raceUpdater(raceUpdater),
     PlayerController(Player)
 {
     Track = nullptr;
@@ -18,5 +18,5 @@ void Race::Start(::Track& selectedTrack)
 
 void Race::Update()
 {
-    _gameUpdater.Update(Player, *Track, Camera);
+    _raceUpdater.Update(Player, *Track, Camera);
 }

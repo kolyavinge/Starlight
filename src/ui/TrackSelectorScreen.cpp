@@ -18,5 +18,5 @@ void TrackSelectorScreen::Activate()
 void TrackSelectorScreen::ProcessInput()
 {
     _race.Start(_trackManager.GetCurrentTrack());
-    _navigator.NavigateToGame();
+    _navigator.NavigateToRace();
 }

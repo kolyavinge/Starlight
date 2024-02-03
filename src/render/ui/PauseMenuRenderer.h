@@ -5,18 +5,18 @@
 #include <gl/TexturedRect.h>
 #include <ui/PauseMenuScreen.h>
 #include <render/ui/ScreenRenderer.h>
-#include <render/ui/GameScreenRenderer.h>
+#include <render/ui/RaceRenderer.h>
 
 class PauseMenuRenderer : public ScreenRenderer
 {
     TexturedRect _pauseItem;
     TexturedRect _resumeItem;
     TexturedRect _startMenuItem;
-    GameScreenRenderer& _gameScreenRenderer;
+    RaceRenderer& _gameScreenRenderer;
     SinPeriodValue _selectedItemAlpha;
 
 public:
-    PauseMenuRenderer(GameScreenRenderer& gameScreenRenderer);
+    PauseMenuRenderer(RaceRenderer& gameScreenRenderer);
 
     void Init() override;
     void Render(Screen& screen) override;

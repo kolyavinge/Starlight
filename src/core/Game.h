@@ -10,7 +10,7 @@
 class Game : public Object
 {
     TrackManager _trackManager;
-    GameUpdater _gameUpdater;
+    RaceUpdater _raceUpdater;
     ScreenManager _screenManager;
 
 public:

@@ -1,23 +1,23 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
 #include <core/Race.h>
-#include <ui/GameScreen.h>
-#include <render/ui/GameScreenRenderer.h>
+#include <ui/RaceScreen.h>
+#include <render/ui/RaceRenderer.h>
 
-void GameScreenRenderer::Init()
+void RaceRenderer::Init()
 {
     _backgroundRenderer.Init();
     _shipRenderer.Init();
 }
 
-void GameScreenRenderer::Render(Screen& screen)
+void RaceRenderer::Render(Screen& screen)
 {
-    GameScreen& gameScreen = (GameScreen&)screen;
+    RaceScreen& gameScreen = (RaceScreen&)screen;
     Race& race = gameScreen.Race;
     Render(race);
 }
 
-void GameScreenRenderer::Render(Race& race)
+void RaceRenderer::Render(Race& race)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);

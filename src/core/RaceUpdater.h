@@ -12,7 +12,7 @@
 #include <core/LapCounter.h>
 #include <core/Camera.h>
 
-class GameUpdater : public Object
+class RaceUpdater : public Object
 {
     TurnAngleCalculator _turnAngleCalculator;
     VelocityCalculator _velocityCalculator;

@@ -4,7 +4,7 @@
 #include <vox/ScreenVox.h>
 #include <vox/SampleCollection.h>
 
-class GameVox : public ScreenVox
+class RaceVox : public ScreenVox
 {
 public:
     void Init(SampleCollection& sampleCollection) override;

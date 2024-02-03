@@ -8,7 +8,7 @@
 #include <render/common/TrackRenderer.h>
 #include <render/ui/ScreenRenderer.h>
 
-class GameScreenRenderer : public ScreenRenderer
+class RaceRenderer : public ScreenRenderer
 {
     BackgroundRenderer _backgroundRenderer;
     StarsRenderer _starsRenderer;

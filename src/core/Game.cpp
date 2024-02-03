@@ -1,7 +1,7 @@
 #include <core/Game.h>
 
 Game::Game() :
-    Race(_gameUpdater),
+    Race(_raceUpdater),
     _screenManager(InputDevices, _trackManager, Race)
 {
 }

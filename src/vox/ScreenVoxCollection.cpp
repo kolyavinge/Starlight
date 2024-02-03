@@ -1,7 +1,7 @@
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
 #include <vox/PauseMenuVox.h>
-#include <vox/GameVox.h>
+#include <vox/RaceVox.h>
 #include <vox/ScreenVoxCollection.h>
 
 ScreenVoxCollection::ScreenVoxCollection()
@@ -9,12 +9,12 @@ ScreenVoxCollection::ScreenVoxCollection()
     StartMenuVox* startMenuVox = new StartMenuVox();
     TrackSelectorVox* trackSelectorVox = new TrackSelectorVox();
     PauseMenuVox* pauseMenuVox = new PauseMenuVox();
-    GameVox* gameVox = new GameVox();
+    RaceVox* raceVox = new RaceVox();
 
     _vox[(int)ScreenKind::StartMenu] = startMenuVox;
     _vox[(int)ScreenKind::TrackSelector] = trackSelectorVox;
     _vox[(int)ScreenKind::PauseMenu] = pauseMenuVox;
-    _vox[(int)ScreenKind::Game] = gameVox;
+    _vox[(int)ScreenKind::Race] = raceVox;
 }
 
 ScreenVoxCollection::~ScreenVoxCollection()
