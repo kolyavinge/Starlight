@@ -86,7 +86,7 @@
     <ClInclude Include="src\core\ShipController.h" />
     <ClInclude Include="src\core\Game.h" />
     <ClInclude Include="src\core\Camera.h" />
-    <ClInclude Include="src\core\GameInitializer.h" />
+    <ClInclude Include="src\core\RaceInitializer.h" />
     <ClInclude Include="src\core\RaceUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
     <ClInclude Include="src\core\PositionCorrector.h" />
@@ -202,7 +202,7 @@
     <ClCompile Include="src\vox\VoxManager.cpp" />
     <ClCompile Include="src\win\main.cpp" />
     <ClInclude Include="src\core\Constants.h" />
-    <ClCompile Include="src\core\GameInitializer.cpp" />
+    <ClCompile Include="src\core\RaceInitializer.cpp" />
     <ClCompile Include="src\core\RaceUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
     <ClCompile Include="src\core\PositionCorrector.cpp" />

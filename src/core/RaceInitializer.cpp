@@ -1,9 +1,9 @@
 #include <calc/Vector3.h>
 #include <model/Track.h>
 #include <core/PositionUpdater.h>
-#include <core/GameInitializer.h>
+#include <core/RaceInitializer.h>
 
-void GameInitializer::Init(Race& race)
+void RaceInitializer::Init(Race& race)
 {
     Track& track = *race.Track;
     track.Init();
@@ -14,7 +14,7 @@ void GameInitializer::Init(Race& race)
     UpdateShipPosition(*race.Track, race.Player);
 }
 
-void GameInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& player)
+void RaceInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& player)
 {
     int lineIndex = track.StartFinishLineIndex;
     Vector3 middle = track.OutsidePoints[lineIndex];
@@ -24,7 +24,7 @@ void GameInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& player)
     player.OrientationByFrontPoint(middle, track.StraightDirection);
 }
 
-void GameInitializer::UpdateShipPosition(Track& track, Ship& player)
+void RaceInitializer::UpdateShipPosition(Track& track, Ship& player)
 {
     PositionUpdater positionUpdater;
     positionUpdater.Update(player, track);

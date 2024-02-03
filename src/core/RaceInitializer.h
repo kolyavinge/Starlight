@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <core/Race.h>
 
-class GameInitializer : Object
+class RaceInitializer : Object
 {
 public:
     void Init(Race& race);

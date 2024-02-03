@@ -3,8 +3,8 @@
 #include <ui/PauseMenuScreen.h>
 #include <render/ui/PauseMenuRenderer.h>
 
-PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& gameScreenRenderer) :
-    _gameScreenRenderer(gameScreenRenderer)
+PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :
+    _raceRenderer(raceRenderer)
 {
 }
 
@@ -18,7 +18,7 @@ void PauseMenuRenderer::Init()
 void PauseMenuRenderer::Render(Screen& screen)
 {
     PauseMenuScreen& pauseMenuScreen = (PauseMenuScreen&)screen;
-    _gameScreenRenderer.Render(pauseMenuScreen.Race);
+    _raceRenderer.Render(pauseMenuScreen.Race);
     glLoadIdentity();
     glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1.0, 1.0);
     glEnable(GL_BLEND);

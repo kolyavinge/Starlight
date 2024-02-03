@@ -10,8 +10,8 @@ void DebugRenderLogic::Init()
 
 void DebugRenderLogic::Render(Screen& screen)
 {
-    RaceScreen& gameScreen = (RaceScreen&)screen;
-    Race& race = gameScreen.Race;
+    RaceScreen& raceScreen = (RaceScreen&)screen;
+    Race& race = raceScreen.Race;
     RenderGrid();
     _backgroundRenderer.Render();
     _trackRenderer.Render(*race.Track);

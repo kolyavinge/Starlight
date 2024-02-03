@@ -18,7 +18,7 @@ void File::ErrorIfFileNotFound(const wchar_t* filePath)
 {
     if (!Exists(filePath))
     {
-        throw new FileNotFoundException();
+        throw FileNotFoundException();
     }
 }
 

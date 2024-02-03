@@ -1,5 +1,5 @@
 #include <core/Race.h>
-#include <core/GameInitializer.h>
+#include <core/RaceInitializer.h>
 
 Race::Race(
     RaceUpdater& raceUpdater) :
@@ -12,7 +12,7 @@ Race::Race(
 void Race::Start(::Track& selectedTrack)
 {
     Track = &selectedTrack;
-    GameInitializer initializer;
+    RaceInitializer initializer;
     initializer.Init(*this);
 }
 

@@ -1,20 +1,12 @@
-#include <render/ui/StartMenuRenderer.h>
-#include <render/ui/TrackSelectorRenderer.h>
-#include <render/ui/PauseMenuRenderer.h>
-#include <render/ui/RaceRenderer.h>
 #include <render/ui/ScreenRendererCollection.h>
 
-ScreenRendererCollection::ScreenRendererCollection()
+ScreenRendererCollection::ScreenRendererCollection() :
+    _pauseMenuRenderer(_raceRenderer)
 {
-    StartMenuRenderer* startMenuRenderer = new StartMenuRenderer();
-    TrackSelectorRenderer* trackSelectorRenderer = new TrackSelectorRenderer();
-    RaceRenderer* raceRenderer = new RaceRenderer();
-    PauseMenuRenderer* pauseMenuRenderer = new PauseMenuRenderer(*raceRenderer);
-
-    _renderers[(int)ScreenKind::StartMenu] = startMenuRenderer;
-    _renderers[(int)ScreenKind::TrackSelector] = trackSelectorRenderer;
-    _renderers[(int)ScreenKind::PauseMenu] = pauseMenuRenderer;
-    _renderers[(int)ScreenKind::Race] = raceRenderer;
+    _renderers[(int)ScreenKind::StartMenu] = &_startMenuRenderer;
+    _renderers[(int)ScreenKind::TrackSelector] = &_trackSelectorRenderer;
+    _renderers[(int)ScreenKind::PauseMenu] = &_pauseMenuRenderer;
+    _renderers[(int)ScreenKind::Race] = &_raceRenderer;
 }
 
 ScreenRendererCollection::~ScreenRendererCollection()

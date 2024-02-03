@@ -7,5 +7,5 @@ void RaceVox::Init(SampleCollection& sampleCollection)
 
 void RaceVox::Voice(Screen& screen)
 {
-    RaceScreen& gameScreen = (RaceScreen&)screen;
+    RaceScreen& raceScreen = (RaceScreen&)screen;
 }

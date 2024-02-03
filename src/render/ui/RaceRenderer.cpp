@@ -12,8 +12,8 @@ void RaceRenderer::Init()
 
 void RaceRenderer::Render(Screen& screen)
 {
-    RaceScreen& gameScreen = (RaceScreen&)screen;
-    Race& race = gameScreen.Race;
+    RaceScreen& raceScreen = (RaceScreen&)screen;
+    Race& race = raceScreen.Race;
     Render(race);
 }
 

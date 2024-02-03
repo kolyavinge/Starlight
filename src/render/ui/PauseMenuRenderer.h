@@ -12,11 +12,11 @@ class PauseMenuRenderer : public ScreenRenderer
     TexturedRect _pauseItem;
     TexturedRect _resumeItem;
     TexturedRect _startMenuItem;
-    RaceRenderer& _gameScreenRenderer;
+    RaceRenderer& _raceRenderer;
     SinPeriodValue _selectedItemAlpha;
 
 public:
-    PauseMenuRenderer(RaceRenderer& gameScreenRenderer);
+    PauseMenuRenderer(RaceRenderer& raceRenderer);
 
     void Init() override;
     void Render(Screen& screen) override;
