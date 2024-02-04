@@ -1,17 +1,19 @@
 #include <gl/opengl.h>
+#include <gl/ImageFile.h>
 #include <gl/TexturedRect.h>
 
 TexturedRect::TexturedRect()
 {
-    _width = 0.0f;
-    _height = 0.0f;
+    _width = 0;
+    _height = 0;
 }
 
-void TexturedRect::Load(String filePath, float width, float height)
+void TexturedRect::Load(String filePath)
 {
     _texture.Load(filePath);
-    _width = width;
-    _height = height;
+    ImageFile image(filePath.GetWCharBuf());
+    _width = image.GetWidth();
+    _height = image.GetHeight();
 }
 
 void TexturedRect::Render()
@@ -20,28 +22,28 @@ void TexturedRect::Render()
     _texture.Bind();
     glBegin(GL_QUADS);
 
-    glTexCoord2f(0.0f, 0.0f);
-    glVertex2f(0.0f, 0.0f);
+    glTexCoord2i(0, 0);
+    glVertex2i(0, 0);
 
-    glTexCoord2f(1.0f, 0.0f);
-    glVertex2f(_width, 0.0f);
+    glTexCoord2i(1, 0);
+    glVertex2i(_width, 0);
 
-    glTexCoord2f(1.0f, 1.0f);
-    glVertex2f(_width, _height);
+    glTexCoord2i(1, 1);
+    glVertex2i(_width, _height);
 
-    glTexCoord2f(0.0f, 1.0f);
-    glVertex2f(0.0f, _height);
+    glTexCoord2i(0, 1);
+    glVertex2i(0, _height);
 
     glEnd();
     glDisable(GL_TEXTURE_2D);
 }
 
-float TexturedRect::GetWidth()
+int TexturedRect::GetWidth()
 {
     return _width;
 }
 
-float TexturedRect::GetHeight()
+int TexturedRect::GetHeight()
 {
     return _height;
 }

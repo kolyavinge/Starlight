@@ -7,14 +7,14 @@
 class TexturedRect : public Object
 {
     Texture _texture;
-    float _width;
-    float _height;
+    int _width;
+    int _height;
 
 public:
     TexturedRect();
 
-    void Load(String filePath, float width, float height);
+    void Load(String filePath);
     void Render();
-    float GetWidth();
-    float GetHeight();
+    int GetWidth();
+    int GetHeight();
 };
