@@ -48,6 +48,7 @@
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
+    <ClInclude Include="src\render\effect\Fade.h" />
     <ClInclude Include="src\render\ui\MenuItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\RenderManager.h" />
@@ -176,6 +177,7 @@
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
+    <ClCompile Include="src\render\effect\Fade.cpp" />
     <ClCompile Include="src\render\ui\MenuItemCollection.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
