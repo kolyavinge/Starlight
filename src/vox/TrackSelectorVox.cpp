@@ -1,11 +1,18 @@
 #include <ui/TrackSelectorScreen.h>
 #include <vox/TrackSelectorVox.h>
 
-void TrackSelectorVox::Init(SampleCollection& /*sampleCollection*/)
+TrackSelectorVox::TrackSelectorVox() :
+    _menuItemVox(TrackSelectorItem::Back)
 {
 }
 
-void TrackSelectorVox::Voice(Screen& /*screen*/)
+void TrackSelectorVox::Init(SampleCollection& sampleCollection)
 {
-    //TrackSelectorScreen& trackSelectorScreen = (TrackSelectorScreen&)screen;
+    _menuItemVox.Init(sampleCollection);
+}
+
+void TrackSelectorVox::Voice(Screen& screen)
+{
+    TrackSelectorScreen& trackSelectorScreen = (TrackSelectorScreen&)screen;
+    _menuItemVox.Voice(trackSelectorScreen.GetSelectedItem());
 }

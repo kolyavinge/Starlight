@@ -38,6 +38,33 @@ String GraphicResources::GetExitMenuItemFilePath()
     return path;
 }
 
+String GraphicResources::GetSelectTrackMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\select_track.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetRaceMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\race.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetBackMenuItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\back.png\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetPauseItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

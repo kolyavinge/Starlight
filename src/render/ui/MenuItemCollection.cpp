@@ -5,6 +5,9 @@ void MenuItemCollection::Init()
 {
     StartGameItem.Load(GraphicResources::GetStartGameMenuItemFilePath(), 300.0f, 50.0f);
     ExitItem.Load(GraphicResources::GetExitMenuItemFilePath(), 300.0f, 50.0f);
+    SelectTrackItem.Load(GraphicResources::GetSelectTrackMenuItemFilePath(), 300.0f, 50.0f);
+    RaceItem.Load(GraphicResources::GetRaceMenuItemFilePath(), 300.0f, 50.0f);
+    BackItem.Load(GraphicResources::GetBackMenuItemFilePath(), 300.0f, 50.0f);
     PauseItem.Load(GraphicResources::GetPauseItemFilePath(), 300.0f, 50.0f);
     ResumeItem.Load(GraphicResources::GetResumeMenuItemFilePath(), 300.0f, 50.0f);
     StartMenuItem.Load(GraphicResources::GetStartMenuMenuItemFilePath(), 300.0f, 50.0f);

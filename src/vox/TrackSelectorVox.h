@@ -8,9 +8,11 @@
 
 class TrackSelectorVox : public ScreenVox
 {
-    //MenuItemVox<TrackSelectorItem> _menuItemVox;
+    MenuItemVox<TrackSelectorItem> _menuItemVox;
 
 public:
+    TrackSelectorVox();
+
     void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
 };
