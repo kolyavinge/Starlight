@@ -8,8 +8,8 @@ enum class ScreenKind
 {
     StartMenu = 0,
     TrackSelector = 1,
-    PauseMenu = 2,
-    Race = 3
+    Race = 2,
+    PauseMenu = 3,
 };
 
 class Screen : public Object

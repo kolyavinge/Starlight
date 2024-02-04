@@ -63,8 +63,9 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
 void App::TimerCallback(int)
 {
     _game.Update();
-    ScreenVox& vox = _voxManager.GetScreenVox(_game.GetCurrentScreen());
-    vox.Voice(_game.GetCurrentScreen());
+    Screen& currentScreen = _game.GetCurrentScreen();
+    ScreenVox& vox = _voxManager.GetScreenVox(currentScreen);
+    vox.Voice(currentScreen);
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }

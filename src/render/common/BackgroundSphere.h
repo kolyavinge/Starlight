@@ -7,8 +7,8 @@ class BackgroundSphere : public Sphere
 {
 public:
     inline static const float Radius = Constants::SceneRadius;
-    inline static const int LevelsCount = 8;
-    inline static const int LevelPointsCount = 45;
+    inline static const int LevelsCount = 20;
+    inline static const int LevelPointsCount = 180;
 
     BackgroundSphere();
 };

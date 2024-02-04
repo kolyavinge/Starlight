@@ -3,7 +3,8 @@
 #include <ui/StartMenuScreen.h>
 #include <render/ui/StartMenuRenderer.h>
 
-StartMenuRenderer::StartMenuRenderer()
+StartMenuRenderer::StartMenuRenderer(MenuBackgroundRenderer& backgroundRenderer) :
+    _backgroundRenderer(backgroundRenderer)
 {
     _startGameItem = nullptr;
     _exitItem = nullptr;
@@ -11,7 +12,6 @@ StartMenuRenderer::StartMenuRenderer()
 
 void StartMenuRenderer::Init(MenuItemCollection& menuItemCollection)
 {
-    _backgroundRenderer.Init();
     _startGameItem = &menuItemCollection.StartGameItem;
     _exitItem = &menuItemCollection.ExitItem;
 }

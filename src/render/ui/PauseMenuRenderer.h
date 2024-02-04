@@ -2,8 +2,8 @@
 
 #include <calc/SinPeriodValue.h>
 #include <ui/Screen.h>
-#include <gl/TexturedRect.h>
 #include <ui/PauseMenuScreen.h>
+#include <gl/TexturedRect.h>
 #include <render/ui/MenuItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/RaceRenderer.h>

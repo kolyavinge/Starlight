@@ -4,8 +4,8 @@ ScreenVoxCollection::ScreenVoxCollection()
 {
     _vox[(int)ScreenKind::StartMenu] = &_startMenuVox;
     _vox[(int)ScreenKind::TrackSelector] = &_trackSelectorVox;
-    _vox[(int)ScreenKind::PauseMenu] = &_pauseMenuVox;
     _vox[(int)ScreenKind::Race] = &_raceVox;
+    _vox[(int)ScreenKind::PauseMenu] = &_pauseMenuVox;
 }
 
 ScreenVoxCollection::~ScreenVoxCollection()
