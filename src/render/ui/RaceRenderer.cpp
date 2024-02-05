@@ -22,7 +22,7 @@ void RaceRenderer::Render(Race& race)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(race.Camera.ViewAngle, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
+    gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
     //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     _backgroundRenderer.Render();

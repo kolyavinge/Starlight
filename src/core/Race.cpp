@@ -14,6 +14,7 @@ void Race::Start(::Track& selectedTrack)
     Track = &selectedTrack;
     RaceInitializer initializer;
     initializer.Init(*this);
+    Update();
 }
 
 void Race::Update()

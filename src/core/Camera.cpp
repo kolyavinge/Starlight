@@ -1,19 +1,36 @@
+#include <calc/Geometry.h>
+#include <core/Constants.h>
 #include <core/Camera.h>
 
 Camera::Camera()
 {
-    ViewAngle = 0.0f;
+    ViewAngleDegrees = 0.0f;
 }
 
-void Camera::Update(Ship& ship)
+void Camera::SetFrontView(Ship& ship)
 {
-    Position = ship.CentralLine.Rear;
-    Position.Sub(ship.CentralLine.Front);
+    SetView(ship.CentralLine.Front, ship.CentralLine.Rear, ship.VelocityValue);
+}
+
+void Camera::SetRearView(Ship& ship)
+{
+    SetView(ship.CentralLine.Rear, ship.CentralLine.Front, ship.VelocityValue);
+}
+
+void Camera::RotateBy(float radians)
+{
+    Position = Geometry::RotatePoint3d(Position, Constants::UpAxis, LookAt, radians);
+}
+
+void Camera::SetView(Vector3& front, Vector3& rear, float velocityValue)
+{
+    Position = rear;
+    Position.Sub(front);
     Position.SetLength(2.0f);
-    Position.Add(ship.CentralLine.Rear);
+    Position.Add(rear);
     Position.Z += 1.5f;
 
-    LookAt.Set(ship.CentralLine.Front);
+    LookAt.Set(front);
 
-    ViewAngle = 60.0f + 2.0f * ship.VelocityValue;
+    ViewAngleDegrees = 60.0f + 2.0f * velocityValue;
 }
