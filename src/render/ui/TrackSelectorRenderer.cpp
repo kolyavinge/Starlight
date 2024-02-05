@@ -1,5 +1,6 @@
 #include <gl/opengl.h>
 #include <ui/TrackSelectorScreen.h>
+#include <render/ui/RenderConstants.h>
 #include <render/ui/TrackSelectorRenderer.h>
 
 TrackSelectorRenderer::TrackSelectorRenderer(MenuBackgroundRenderer& backgroundRenderer) :
@@ -25,43 +26,33 @@ void TrackSelectorRenderer::Render(Screen& screen)
     glMatrixMode(GL_PROJECTION);
     _backgroundRenderer.Render();
     RenderMenu(trackSelectorScreen);
-    _selectedItemAlpha.UpdateBy(0.05f);
+    _selectedItemColor.Update();
 }
 
 void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
 {
     glLoadIdentity();
-    glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1.0, 1.0);
+    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);
 
     glPushMatrix();
-    glColor4f(0.7f, 0.7f, 0.7f, 1.0f);
-    glTranslatef((Constants::ScreenWidth - _selectTrackItem->GetWidth()) / 2.0f, Constants::ScreenHeight - _selectTrackItem->GetHeight() - 50.0f, 0.0f);
+    glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
+    glTranslatef(
+        (Constants::ScreenWidth - _selectTrackItem->GetWidth()) / 2.0f,
+        Constants::ScreenHeight - _selectTrackItem->GetHeight() - 50.0f,
+        0.0f);
     _selectTrackItem->Render();
     glPopMatrix();
 
-    SetAlphaForSelectedItem(screen, TrackSelectorItem::Race);
+    _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Race == screen.GetSelectedItem());
     glPushMatrix();
     glTranslatef((Constants::ScreenWidth - _raceItem->GetWidth()) / 2.0f, 50.0f, 0.0f);
     _raceItem->Render();
     glPopMatrix();
 
-    SetAlphaForSelectedItem(screen, TrackSelectorItem::Back);
+    _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Back == screen.GetSelectedItem());
     glTranslatef(0.0f, 50.0f, 0.0f);
     _backItem->Render();
 
     glDisable(GL_BLEND);
-}
-
-void TrackSelectorRenderer::SetAlphaForSelectedItem(TrackSelectorScreen& screen, TrackSelectorItem item)
-{
-    const float v = 0.7f;
-    if (item == screen.GetSelectedItem())
-    {
-        glColor4f(v, v, v, _selectedItemAlpha.GetAbsValue());
-    }
-    else
-    {
-        glColor4f(v, v, v, 1.0f);
-    }
 }

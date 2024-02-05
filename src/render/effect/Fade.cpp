@@ -41,7 +41,7 @@ void Fade::Render()
     _iterationsCount--;
 
     glLoadIdentity();
-    glOrtho(0.0, 1.0, 0.0, 1.0, -1.0, 1.0);
+    gluOrtho2D(0.0, 1.0, 0.0, 1.0);
     glColor4f(0.0f, 0.0f, 0.0f, _alpha);
 
     glBegin(GL_QUADS);

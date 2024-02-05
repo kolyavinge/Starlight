@@ -1,10 +1,10 @@
 #pragma once
 
-#include <calc/SinPeriodValue.h>
 #include <ui/Screen.h>
 #include <ui/StartMenuScreen.h>
 #include <gl/TexturedRect.h>
 #include <render/common/MenuBackgroundRenderer.h>
+#include <render/ui/SelectedItemColor.h>
 #include <render/ui/MenuItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 
@@ -13,7 +13,7 @@ class StartMenuRenderer : public ScreenRenderer
     MenuBackgroundRenderer& _backgroundRenderer;
     TexturedRect* _startGameItem;
     TexturedRect* _exitItem;
-    SinPeriodValue _selectedItemAlpha;
+    SelectedItemColor _selectedItemColor;
 
 public:
     StartMenuRenderer(MenuBackgroundRenderer& backgroundRenderer);
@@ -23,5 +23,4 @@ public:
 
 private:
     void RenderMenu(StartMenuScreen& screen);
-    void SetAlphaForSelectedItem(StartMenuScreen& screen, StartMenuItem item);
 };

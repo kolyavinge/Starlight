@@ -111,6 +111,8 @@
     <ClInclude Include="src\render\ui\MenuItemCollection.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\render\effect\Fade.h" />
+    <ClInclude Include="src\render\ui\SelectedItemColor.h" />
+    <ClInclude Include="src\render\ui\RenderConstants.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -210,6 +212,7 @@
     <ClCompile Include="src\render\ui\MenuItemCollection.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\render\effect\Fade.cpp" />
+    <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

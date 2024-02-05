@@ -23,35 +23,22 @@ void StartMenuRenderer::Render(Screen& screen)
     glMatrixMode(GL_PROJECTION);
     _backgroundRenderer.Render();
     RenderMenu(startMenuScreen);
-    _selectedItemAlpha.UpdateBy(0.05f);
+    _selectedItemColor.Update();
 }
 
 void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)
 {
     glLoadIdentity();
-    glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1.0, 1.0);
+    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);
 
-    SetAlphaForSelectedItem(screen, StartMenuItem::Exit);
+    _selectedItemColor.SetColorForSelectedItem(StartMenuItem::Exit == screen.GetSelectedItem());
     glTranslatef(Constants::ScreenWidth - _exitItem->GetWidth() - 100.0f, 50.0f, 0.0f);
     _exitItem->Render();
 
-    SetAlphaForSelectedItem(screen, StartMenuItem::StartGame);
+    _selectedItemColor.SetColorForSelectedItem(StartMenuItem::StartGame == screen.GetSelectedItem());
     glTranslatef(0.0f, 75.0f, 0.0f);
     _startGameItem->Render();
 
     glDisable(GL_BLEND);
-}
-
-void StartMenuRenderer::SetAlphaForSelectedItem(StartMenuScreen& screen, StartMenuItem item)
-{
-    const float v = 0.7f;
-    if (item == screen.GetSelectedItem())
-    {
-        glColor4f(v, v, v, _selectedItemAlpha.GetAbsValue());
-    }
-    else
-    {
-        glColor4f(v, v, v, 1.0f);
-    }
 }

@@ -1,9 +1,9 @@
 #pragma once
 
-#include <calc/SinPeriodValue.h>
 #include <ui/Screen.h>
 #include <ui/PauseMenuScreen.h>
 #include <gl/TexturedRect.h>
+#include <render/ui/SelectedItemColor.h>
 #include <render/ui/MenuItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/RaceRenderer.h>
@@ -14,7 +14,7 @@ class PauseMenuRenderer : public ScreenRenderer
     TexturedRect* _resumeItem;
     TexturedRect* _startMenuItem;
     RaceRenderer& _raceRenderer;
-    SinPeriodValue _selectedItemAlpha;
+    SelectedItemColor _selectedItemColor;
 
 public:
     PauseMenuRenderer(RaceRenderer& raceRenderer);
@@ -25,5 +25,4 @@ public:
 private:
     void RenderMenu(PauseMenuScreen& screen);
     void RenderDarkBackground();
-    void SetAlphaForSelectedItem(PauseMenuScreen& screen, PauseMenuItem item);
 };

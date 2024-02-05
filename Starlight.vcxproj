@@ -51,8 +51,10 @@
     <ClInclude Include="src\render\effect\Fade.h" />
     <ClInclude Include="src\render\ui\MenuItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\RenderConstants.h" />
     <ClInclude Include="src\render\ui\RenderManager.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
+    <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\ui\RaceScreen.h" />
@@ -191,6 +193,7 @@
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
     <ClCompile Include="src\render\ui\ScreenRendererCollection.cpp" />
+    <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
     <ClCompile Include="src\ui\RaceScreen.cpp" />
