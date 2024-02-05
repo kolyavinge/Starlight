@@ -7,6 +7,7 @@
 #include <vox/ScreenVox.h>
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
+#include <vox/RacePreparationVox.h>
 #include <vox/RaceVox.h>
 #include <vox/PauseMenuVox.h>
 
@@ -15,9 +16,10 @@ class ScreenVoxCollection : public Object
     SampleCollection _sampleCollection;
     StartMenuVox _startMenuVox;
     TrackSelectorVox _trackSelectorVox;
+    RacePreparationVox _racePreparationVox;
     RaceVox _raceVox;
     PauseMenuVox _pauseMenuVox;
-    Array<ScreenVox*, 4> _vox;
+    Array<ScreenVox*, 5> _vox;
 
 public:
     ScreenVoxCollection();

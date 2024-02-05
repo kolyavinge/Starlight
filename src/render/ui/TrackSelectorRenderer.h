@@ -3,7 +3,6 @@
 #include <ui/Screen.h>
 #include <ui/TrackSelectorScreen.h>
 #include <gl/TexturedRect.h>
-#include <render/effect/Fade.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/ui/SelectedItemColor.h>
 #include <render/ui/MenuItemCollection.h>
@@ -15,7 +14,6 @@ class TrackSelectorRenderer : public ScreenRenderer
     TexturedRect* _selectTrackItem;
     TexturedRect* _raceItem;
     TexturedRect* _backItem;
-    Fade _fadeEffect;
     SelectedItemColor _selectedItemColor;
 
 public:

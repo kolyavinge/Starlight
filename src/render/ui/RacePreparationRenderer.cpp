@@ -1,10 +1,9 @@
 #include <gl/opengl.h>
-#include <core/Constants.h>
 #include <core/Race.h>
-#include <ui/RaceScreen.h>
-#include <render/ui/RaceRenderer.h>
+#include <ui/RacePreparationScreen.h>
+#include <render/ui/RacePreparationRenderer.h>
 
-RaceRenderer::RaceRenderer(
+RacePreparationRenderer::RacePreparationRenderer(
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipRenderer& shipRenderer,
@@ -12,31 +11,30 @@ RaceRenderer::RaceRenderer(
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipRenderer(shipRenderer),
-    _trackRenderer(trackRenderer)
+    _trackRenderer(trackRenderer),
+    _fadeEffect(FadeDirection::ToTransparent, 100)
 {
 }
 
-void RaceRenderer::Init(MenuItemCollection&)
+void RacePreparationRenderer::Init(MenuItemCollection&)
 {
+    _fadeEffect.Activate();
 }
 
-void RaceRenderer::Render(Screen& screen)
+void RacePreparationRenderer::Render(Screen& screen)
 {
-    RaceScreen& raceScreen = (RaceScreen&)screen;
-    Race& race = raceScreen.Race;
-    Render(race);
-}
-
-void RaceRenderer::Render(Race& race)
-{
+    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
+    Race& race = racePreparationScreen.Race;
     gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
-    //gluLookAt(0, 2000, 100, 0, 0, 0, 0, 0, 1);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+    glEnable(GL_BLEND);
+    _fadeEffect.Render();
+    glDisable(GL_BLEND);
 }

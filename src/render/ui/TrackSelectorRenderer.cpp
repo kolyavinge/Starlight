@@ -4,8 +4,7 @@
 #include <render/ui/TrackSelectorRenderer.h>
 
 TrackSelectorRenderer::TrackSelectorRenderer(MenuBackgroundRenderer& backgroundRenderer) :
-    _backgroundRenderer(backgroundRenderer),
-    _fadeEffect(FadeDirection::ToBlack, 100)
+    _backgroundRenderer(backgroundRenderer)
 {
     _selectTrackItem = nullptr;
     _raceItem = nullptr;

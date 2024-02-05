@@ -42,7 +42,7 @@ void TrackSelectorScreen::ProcessInput()
         else if (GetSelectedItem() == TrackSelectorItem::Race)
         {
             _race.Start(_trackManager.GetCurrentTrack());
-            _navigator.NavigateToRace();
+            _navigator.NavigateToRacePreparation();
         }
     }
 }

@@ -7,9 +7,10 @@
 enum class ScreenKind
 {
     StartMenu = 0,
-    TrackSelector = 1,
-    Race = 2,
-    PauseMenu = 3,
+    TrackSelector,
+    RacePreparation,
+    Race,
+    PauseMenu,
 };
 
 class Screen : public Object

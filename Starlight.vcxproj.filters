@@ -113,6 +113,9 @@
     <ClInclude Include="src\render\effect\Fade.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\RenderConstants.h" />
+    <ClInclude Include="src\ui\RacePreparationScreen.h" />
+    <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
+    <ClInclude Include="src\vox\RacePreparationVox.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -213,6 +216,9 @@
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\render\effect\Fade.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
+    <ClCompile Include="src\ui\RacePreparationScreen.cpp" />
+    <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
+    <ClCompile Include="src\vox\RacePreparationVox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

@@ -6,8 +6,9 @@ ScreenManager::ScreenManager(
     Race& race) :
     _startMenuScreen(*this, inputDevices),
     _trackSelectorScreen(*this, inputDevices, trackManager, race),
-    _pauseMenuScreen(*this, inputDevices, race),
-    _raceScreen(*this, inputDevices, race)
+    _racePreparationScreen(*this, inputDevices, race),
+    _raceScreen(*this, inputDevices, race),
+    _pauseMenuScreen(*this, inputDevices, race)
 {
     NavigateToStartMenu();
 }
@@ -29,14 +30,20 @@ void ScreenManager::NavigateToTrackSelector()
     _currentScreen->Activate();
 }
 
-void ScreenManager::NavigateToPauseMenu()
+void ScreenManager::NavigateToRacePreparation()
 {
-    _currentScreen = &_pauseMenuScreen;
+    _currentScreen = &_racePreparationScreen;
     _currentScreen->Activate();
 }
 
 void ScreenManager::NavigateToRace()
 {
     _currentScreen = &_raceScreen;
+    _currentScreen->Activate();
+}
+
+void ScreenManager::NavigateToPauseMenu()
+{
+    _currentScreen = &_pauseMenuScreen;
     _currentScreen->Activate();
 }

@@ -51,12 +51,14 @@
     <ClInclude Include="src\render\effect\Fade.h" />
     <ClInclude Include="src\render\ui\MenuItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
+    <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
     <ClInclude Include="src\render\ui\RenderConstants.h" />
     <ClInclude Include="src\render\ui\RenderManager.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
+    <ClInclude Include="src\ui\RacePreparationScreen.h" />
     <ClInclude Include="src\ui\RaceScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
     <ClInclude Include="src\ui\MenuItemSelector.h" />
@@ -65,6 +67,7 @@
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />
+    <ClInclude Include="src\vox\RacePreparationVox.h" />
     <ClInclude Include="src\vox\RaceVox.h" />
     <ClInclude Include="src\vox\MenuItemVox.h" />
     <ClInclude Include="src\vox\PauseMenuVox.h" />
@@ -181,6 +184,7 @@
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\effect\Fade.cpp" />
     <ClCompile Include="src\render\ui\MenuItemCollection.cpp" />
+    <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\render\common\StarsRenderer.cpp" />
@@ -196,12 +200,14 @@
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
+    <ClCompile Include="src\ui\RacePreparationScreen.cpp" />
     <ClCompile Include="src\ui\RaceScreen.cpp" />
     <ClCompile Include="src\ui\PauseMenuScreen.cpp" />
     <ClCompile Include="src\ui\Screen.cpp" />
     <ClCompile Include="src\ui\ScreenManager.cpp" />
     <ClCompile Include="src\ui\StartMenuScreen.cpp" />
     <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
+    <ClCompile Include="src\vox\RacePreparationVox.cpp" />
     <ClCompile Include="src\vox\RaceVox.cpp" />
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />
     <ClCompile Include="src\vox\SampleCollection.cpp" />
