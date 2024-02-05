@@ -128,6 +128,12 @@ String String::Substring(int startIndex, int count)
     return result;
 }
 
+void String::Clear()
+{
+    _count = 0;
+    Memory::Zero<wchar_t>(_symb, _capacity);
+}
+
 char* String::GetCharBuf()
 {
     _tmp = _symb; // convert wchar_t -> char
