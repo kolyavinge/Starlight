@@ -9,6 +9,11 @@ MenuBackgroundRenderer::MenuBackgroundRenderer(
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer)
 {
+    Init();
+}
+
+void MenuBackgroundRenderer::Init()
+{
     Random rand;
     _turnVector.Set(
         rand.GetFloatFromZeroToOne() - 0.5f,

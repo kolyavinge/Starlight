@@ -8,5 +8,6 @@ class ScreenRenderer : public Object
 {
 public:
     virtual void Init(MenuItemCollection& menuItemCollection) = 0;
+    virtual void Activate();
     virtual void Render(Screen& screen) = 0;
 };

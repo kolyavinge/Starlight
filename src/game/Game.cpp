@@ -3,7 +3,7 @@
 
 Game::Game() :
     Race(_raceUpdater),
-    _screenManager(InputDevices, _trackManager, Race)
+    _screenManager(_screenNavigator, InputDevices, _trackManager, Race)
 {
 }
 
@@ -11,13 +11,16 @@ void Game::Init()
 {
     _renderManager.Init();
     _voxManager.Init();
+    _screenNavigator.Init(_screenManager, _renderManager, _voxManager);
+    _screenNavigator.NavigateTo(ScreenKind::StartMenu);
 }
 
 void Game::Update()
 {
     InputDevices.Keyboard.Update();
-    _screenManager.GetCurrentScreen().Update();
-    _screenManager.GetCurrentScreen().ProcessInput();
+    Screen& currentScreen = _screenManager.GetCurrentScreen();
+    currentScreen.Update();
+    currentScreen.ProcessInput();
 }
 
 void Game::RenderCurrentScreen()

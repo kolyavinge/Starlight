@@ -18,6 +18,11 @@ RacePreparationRenderer::RacePreparationRenderer(
 
 void RacePreparationRenderer::Init(MenuItemCollection&)
 {
+}
+
+void RacePreparationRenderer::Activate()
+{
+    _fadeEffect.Reset();
     _fadeEffect.Activate();
 }
 

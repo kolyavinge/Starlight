@@ -24,5 +24,6 @@ public:
         TrackRenderer& trackRenderer);
 
     void Init(MenuItemCollection& menuItemCollection) override;
+    void Activate() override;
     void Render(Screen& screen) override;
 };

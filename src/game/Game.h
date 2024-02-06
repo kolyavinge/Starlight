@@ -7,6 +7,7 @@
 #include <ui/ScreenManager.h>
 #include <render/ui/RenderManager.h>
 #include <vox/VoxManager.h>
+#include <game/ScreenNavigator.h>
 
 class Game : public Object
 {
@@ -15,6 +16,7 @@ class Game : public Object
     ScreenManager _screenManager;
     RenderManager _renderManager;
     VoxManager _voxManager;
+    ScreenNavigator _screenNavigator;
 
 public:
     Race Race;

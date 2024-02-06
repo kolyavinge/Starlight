@@ -26,6 +26,7 @@
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\TrackManager.h" />
+    <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Mesh.h" />
@@ -156,6 +157,7 @@
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
+    <ClCompile Include="src\game\ScreenNavigator.cpp" />
     <ClCompile Include="src\gl\Face.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Mesh.cpp" />
@@ -212,6 +214,7 @@
     <ClCompile Include="src\vox\RaceVox.cpp" />
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />
     <ClCompile Include="src\vox\SampleCollection.cpp" />
+    <ClCompile Include="src\vox\ScreenVox.cpp" />
     <ClCompile Include="src\vox\ScreenVoxCollection.cpp" />
     <ClCompile Include="src\vox\StartMenuVox.cpp" />
     <ClCompile Include="src\vox\TrackSelectorVox.cpp" />

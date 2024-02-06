@@ -5,17 +5,7 @@ FadeEffect::FadeEffect(FadeDirection direction, int iterationsCount)
 {
     _direction = direction;
     _iterationsCount = iterationsCount;
-    _currentIteration = 0;
-    _step = 1.0f / (float)_iterationsCount;
-    if (direction == FadeDirection::ToTransparent)
-    {
-        _alpha = 1.0f;
-        _step = -_step;
-    }
-    else
-    {
-        _alpha = 0.0f;
-    }
+    Reset();
 }
 
 bool FadeEffect::IsActive()
@@ -36,6 +26,16 @@ bool FadeEffect::IsCompleted()
 void FadeEffect::Reset()
 {
     _currentIteration = 0;
+    _step = 1.0f / (float)_iterationsCount;
+    if (_direction == FadeDirection::ToTransparent)
+    {
+        _alpha = 1.0f;
+        _step = -_step;
+    }
+    else
+    {
+        _alpha = 0.0f;
+    }
 }
 
 void FadeEffect::Render()
