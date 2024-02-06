@@ -1,6 +1,7 @@
 #include <render/ui/ScreenRendererCollection.h>
 
 ScreenRendererCollection::ScreenRendererCollection() :
+    _menuBackgroundRenderer(_backgroundRenderer, _starsRenderer),
     _startMenuRenderer(_menuBackgroundRenderer),
     _trackSelectorRenderer(_menuBackgroundRenderer),
     _racePreparationRenderer(_backgroundRenderer, _starsRenderer, _shipRenderer, _trackRenderer),
@@ -14,18 +15,9 @@ ScreenRendererCollection::ScreenRendererCollection() :
     _renderers[(int)ScreenKind::PauseMenu] = &_pauseMenuRenderer;
 }
 
-ScreenRendererCollection::~ScreenRendererCollection()
-{
-    for (int i = 0; i < _renderers.Count; i++)
-    {
-        delete _renderers[i];
-    }
-}
-
 void ScreenRendererCollection::Init()
 {
     _backgroundRenderer.Init();
-    _menuBackgroundRenderer.Init();
     _shipRenderer.Init();
     _menuItemCollection.Init();
     for (int i = 0; i < _renderers.Count; i++)

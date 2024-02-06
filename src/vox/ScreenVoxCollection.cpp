@@ -9,14 +9,6 @@ ScreenVoxCollection::ScreenVoxCollection()
     _vox[(int)ScreenKind::PauseMenu] = &_pauseMenuVox;
 }
 
-ScreenVoxCollection::~ScreenVoxCollection()
-{
-    for (int i = 0; i < _vox.Count; i++)
-    {
-        delete _vox[i];
-    }
-}
-
 void ScreenVoxCollection::Init()
 {
     _sampleCollection.Init();

@@ -3,7 +3,11 @@
 #include <calc/Geometry.h>
 #include <render/common/MenuBackgroundRenderer.h>
 
-MenuBackgroundRenderer::MenuBackgroundRenderer()
+MenuBackgroundRenderer::MenuBackgroundRenderer(
+    BackgroundRenderer& backgroundRenderer,
+    StarsRenderer& starsRenderer) :
+    _backgroundRenderer(backgroundRenderer),
+    _starsRenderer(starsRenderer)
 {
     Random rand;
     _turnVector.Set(
@@ -12,11 +16,6 @@ MenuBackgroundRenderer::MenuBackgroundRenderer()
         rand.GetFloatFromZeroToOne() - 0.5f);
     _turnDegrees = rand.GetFloatFromZeroToN(720.0f) - 360.0f;
     _forwardVector.Set(0.0f, 1.0f, 0.0f);
-}
-
-void MenuBackgroundRenderer::Init()
-{
-    _backgroundRenderer.Init();
 }
 
 void MenuBackgroundRenderer::Render()

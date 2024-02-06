@@ -36,7 +36,6 @@ class ScreenRendererCollection : public Object
 
 public:
     ScreenRendererCollection();
-    ~ScreenRendererCollection();
 
     void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);

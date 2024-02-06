@@ -23,7 +23,6 @@ class ScreenVoxCollection : public Object
 
 public:
     ScreenVoxCollection();
-    ~ScreenVoxCollection();
 
     void Init();
     ScreenVox& GetScreenVox(Screen& screen);

@@ -7,16 +7,17 @@
 
 class MenuBackgroundRenderer : public Object
 {
-    BackgroundRenderer _backgroundRenderer;
-    StarsRenderer _starsRenderer;
+    BackgroundRenderer& _backgroundRenderer;
+    StarsRenderer& _starsRenderer;
     Vector3 _turnVector;
     float _turnDegrees;
     Vector3 _zeroVector;
     Vector3 _forwardVector;
 
 public:
-    MenuBackgroundRenderer();
+    MenuBackgroundRenderer(
+        BackgroundRenderer& backgroundRenderer,
+        StarsRenderer& starsRenderer);
 
-    void Init();
     void Render();
 };
