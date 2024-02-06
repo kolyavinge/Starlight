@@ -1,11 +1,11 @@
 #include <gl/opengl.h>
-#include <render/effect/Fade.h>
+#include <render/effect/FadeEffect.h>
 
-Fade::Fade(FadeDirection direction, int iterationsCount)
+FadeEffect::FadeEffect(FadeDirection direction, int iterationsCount)
 {
     _direction = direction;
     _iterationsCount = iterationsCount;
-    _isActive = false;
+    _currentIteration = 0;
     _step = 1.0f / (float)_iterationsCount;
     if (direction == FadeDirection::ToTransparent)
     {
@@ -18,27 +18,32 @@ Fade::Fade(FadeDirection direction, int iterationsCount)
     }
 }
 
-bool Fade::IsActive()
+bool FadeEffect::IsActive()
 {
-    return _isActive;
+    return _currentIteration > 0;
 }
 
-void Fade::Activate()
+void FadeEffect::Activate()
 {
-    _isActive = true;
+    _currentIteration = _iterationsCount;
 }
 
-bool Fade::IsCompleted()
+bool FadeEffect::IsCompleted()
 {
-    return _iterationsCount == 0;
+    return _currentIteration == 0;
 }
 
-void Fade::Render()
+void FadeEffect::Reset()
+{
+    _currentIteration = 0;
+}
+
+void FadeEffect::Render()
 {
     if (!IsActive() || IsCompleted()) return;
 
     _alpha += _step;
-    _iterationsCount--;
+    _currentIteration--;
 
     glLoadIdentity();
     gluOrtho2D(0.0, 1.0, 0.0, 1.0);

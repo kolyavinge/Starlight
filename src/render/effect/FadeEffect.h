@@ -8,19 +8,20 @@ enum class FadeDirection
     ToBlack
 };
 
-class Fade : public Object
+class FadeEffect : public Object
 {
     FadeDirection _direction;
     int _iterationsCount;
-    bool _isActive;
+    int _currentIteration;
     float _step;
     float _alpha;
 
 public:
-    Fade(FadeDirection direction, int iterationsCount);
+    FadeEffect(FadeDirection direction, int iterationsCount);
 
     bool IsActive();
     void Activate();
     bool IsCompleted();
+    void Reset();
     void Render();
 };

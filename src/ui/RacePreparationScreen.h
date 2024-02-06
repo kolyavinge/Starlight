@@ -7,7 +7,8 @@
 
 class RacePreparationScreen : public Screen
 {
-    int _iterationsCount;
+    const int _iterationsCount;
+    int _currentIteration;
     float _radiansStep;
 
 public:

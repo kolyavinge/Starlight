@@ -1,7 +1,7 @@
 #pragma once
 
 #include <ui/Screen.h>
-#include <render/effect/Fade.h>
+#include <render/effect/FadeEffect.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipRenderer.h>
@@ -14,7 +14,7 @@ class RacePreparationRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipRenderer& _shipRenderer;
     TrackRenderer& _trackRenderer;
-    Fade _fadeEffect;
+    FadeEffect _fadeEffect;
 
 public:
     RacePreparationRenderer(
