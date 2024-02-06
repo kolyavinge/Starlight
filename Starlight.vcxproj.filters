@@ -10,7 +10,7 @@
     <ClInclude Include="src\lib\Exceptions.h" />
     <ClInclude Include="src\calc\SegmentIntersector.h" />
     <ClInclude Include="src\lib\List.h" />
-    <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\model\Ship.h" />
     <ClInclude Include="src\core\RaceInitializer.h" />
     <ClInclude Include="src\model\Track.h" />
@@ -124,7 +124,7 @@
     <ClCompile Include="src\calc\Vector3.cpp" />
     <ClCompile Include="src\win\App.cpp" />
     <ClCompile Include="src\calc\SegmentIntersector.cpp" />
-    <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\model\Ship.cpp" />
     <ClCompile Include="src\core\RaceInitializer.cpp" />
     <ClCompile Include="src\model\Track.cpp" />

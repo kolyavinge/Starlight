@@ -92,7 +92,7 @@
     <ClInclude Include="src\core\BorderUpdater.h" />
     <ClInclude Include="src\core\CollisionProcessor.h" />
     <ClInclude Include="src\core\ShipController.h" />
-    <ClInclude Include="src\core\Game.h" />
+    <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\core\Camera.h" />
     <ClInclude Include="src\core\RaceInitializer.h" />
     <ClInclude Include="src\core\RaceUpdater.h" />
@@ -149,7 +149,7 @@
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
-    <ClCompile Include="src\core\Game.cpp" />
+    <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapCounter.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />

@@ -1,8 +1,5 @@
 #include <freeglut/glut.h>
 #include <core/Constants.h>
-#include <ui/Screen.h>
-#include <render/ui/ScreenRenderer.h>
-#include <vox/ScreenVox.h>
 #include <win/resource.h>
 #include <win/App.h>
 
@@ -17,8 +14,7 @@ void App::Start(int argc, char** argv)
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
     glutJoystickFunc(JoystickKeypress, 10);
-    _renderManager.Init();
-    _voxManager.Init();
+    _game.Init();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
 }
@@ -37,9 +33,7 @@ void App::SetIcon()
 
 void App::Display()
 {
-    Screen& currentScreen = _game.GetCurrentScreen();
-    ScreenRenderer& renderer = _renderManager.GetScreenRenderer(currentScreen);
-    renderer.Render(currentScreen);
+    _game.RenderCurrentScreen();
     glutSwapBuffers();
 }
 
@@ -63,9 +57,7 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
 void App::TimerCallback(int)
 {
     _game.Update();
-    Screen& currentScreen = _game.GetCurrentScreen();
-    ScreenVox& vox = _voxManager.GetScreenVox(currentScreen);
-    vox.Voice(currentScreen);
+    _game.VoiceCurrentScreen();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
 }

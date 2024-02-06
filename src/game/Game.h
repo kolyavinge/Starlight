@@ -4,14 +4,17 @@
 #include <core/TrackManager.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
-#include <ui/Screen.h>
 #include <ui/ScreenManager.h>
+#include <render/ui/RenderManager.h>
+#include <vox/VoxManager.h>
 
 class Game : public Object
 {
     TrackManager _trackManager;
     RaceUpdater _raceUpdater;
     ScreenManager _screenManager;
+    RenderManager _renderManager;
+    VoxManager _voxManager;
 
 public:
     Race Race;
@@ -19,6 +22,8 @@ public:
 
     Game();
 
+    void Init();
     void Update();
-    Screen& GetCurrentScreen();
+    void RenderCurrentScreen();
+    void VoiceCurrentScreen();
 };
