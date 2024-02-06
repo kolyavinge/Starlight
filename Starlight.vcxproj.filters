@@ -116,6 +116,7 @@
     <ClInclude Include="src\ui\RacePreparationScreen.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
     <ClInclude Include="src\vox\RacePreparationVox.h" />
+    <ClInclude Include="src\ui\ScreenKind.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

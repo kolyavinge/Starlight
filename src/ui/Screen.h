@@ -2,16 +2,8 @@
 
 #include <input/InputDevices.h>
 #include <lib/Object.h>
+#include <ui/ScreenKind.h>
 #include <ui/IScreenNavigator.h>
-
-enum class ScreenKind
-{
-    StartMenu = 0,
-    TrackSelector,
-    RacePreparation,
-    Race,
-    PauseMenu,
-};
 
 class Screen : public Object
 {

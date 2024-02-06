@@ -64,6 +64,7 @@
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
     <ClInclude Include="src\ui\Screen.h" />
+    <ClInclude Include="src\ui\ScreenKind.h" />
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />

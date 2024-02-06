@@ -35,7 +35,7 @@ void StartMenuScreen::ProcessInput()
     {
         if (GetSelectedItem() == StartMenuItem::StartGame)
         {
-            _navigator.NavigateToTrackSelector();
+            _navigator.NavigateTo(ScreenKind::TrackSelector);
         }
         else if (GetSelectedItem() == StartMenuItem::Exit)
         {

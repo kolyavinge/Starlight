@@ -33,7 +33,7 @@ void PauseMenuScreen::ProcessInput()
 
     if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
     {
-        _navigator.NavigateToRace();
+        _navigator.NavigateTo(ScreenKind::Race);
     }
     else if (
         _inputDevices.Keyboard.IsPressed(VK_RETURN) ||
@@ -42,11 +42,11 @@ void PauseMenuScreen::ProcessInput()
     {
         if (GetSelectedItem() == PauseMenuItem::Resume)
         {
-            _navigator.NavigateToRace();
+            _navigator.NavigateTo(ScreenKind::Race);
         }
         else if (GetSelectedItem() == PauseMenuItem::StartMenu)
         {
-            _navigator.NavigateToStartMenu();
+            _navigator.NavigateTo(ScreenKind::StartMenu);
         }
     }
 }

@@ -33,9 +33,5 @@ public:
     Screen& GetCurrentScreen();
     void SetCurrentScreen(Screen& screen);
 
-    void NavigateToStartMenu() override;
-    void NavigateToTrackSelector() override;
-    void NavigateToRacePreparation() override;
-    void NavigateToRace() override;
-    void NavigateToPauseMenu() override;
+    void NavigateTo(ScreenKind kind) override;
 };

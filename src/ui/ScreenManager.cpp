@@ -15,7 +15,7 @@ ScreenManager::ScreenManager(
     _screens[(int)ScreenKind::RacePreparation] = &_racePreparationScreen;
     _screens[(int)ScreenKind::Race] = &_raceScreen;
     _screens[(int)ScreenKind::PauseMenu] = &_pauseMenuScreen;
-    NavigateToStartMenu();
+    NavigateTo(ScreenKind::StartMenu);
 }
 
 Screen& ScreenManager::GetScreen(ScreenKind kind)
@@ -33,32 +33,8 @@ void ScreenManager::SetCurrentScreen(Screen& screen)
     _currentScreen = &screen;
 }
 
-void ScreenManager::NavigateToStartMenu()
+void ScreenManager::NavigateTo(ScreenKind kind)
 {
-    _currentScreen = &_startMenuScreen;
-    _currentScreen->Activate();
-}
-
-void ScreenManager::NavigateToTrackSelector()
-{
-    _currentScreen = &_trackSelectorScreen;
-    _currentScreen->Activate();
-}
-
-void ScreenManager::NavigateToRacePreparation()
-{
-    _currentScreen = &_racePreparationScreen;
-    _currentScreen->Activate();
-}
-
-void ScreenManager::NavigateToRace()
-{
-    _currentScreen = &_raceScreen;
-    _currentScreen->Activate();
-}
-
-void ScreenManager::NavigateToPauseMenu()
-{
-    _currentScreen = &_pauseMenuScreen;
+    _currentScreen = _screens[(int)kind];
     _currentScreen->Activate();
 }

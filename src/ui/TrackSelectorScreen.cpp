@@ -37,12 +37,12 @@ void TrackSelectorScreen::ProcessInput()
     {
         if (GetSelectedItem() == TrackSelectorItem::Back)
         {
-            _navigator.NavigateToStartMenu();
+            _navigator.NavigateTo(ScreenKind::StartMenu);
         }
         else if (GetSelectedItem() == TrackSelectorItem::Race)
         {
             _race.Start(_trackManager.GetCurrentTrack());
-            _navigator.NavigateToRacePreparation();
+            _navigator.NavigateTo(ScreenKind::RacePreparation);
         }
     }
 }
