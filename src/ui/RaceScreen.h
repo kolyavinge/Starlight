@@ -15,7 +15,6 @@ public:
 
     Race& Race;
 
-    void Activate() override;
     void Update() override;
     void ProcessInput() override;
 };

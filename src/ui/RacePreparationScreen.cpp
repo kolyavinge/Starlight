@@ -29,7 +29,3 @@ void RacePreparationScreen::Update()
         _navigator.NavigateTo(ScreenKind::Race);
     }
 }
-
-void RacePreparationScreen::ProcessInput()
-{
-}

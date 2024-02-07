@@ -19,7 +19,7 @@ public:
         IScreenNavigator& navigator,
         InputDevices& inputDevices);
 
-    virtual void Activate() = 0;
+    virtual void Activate();
     virtual void Update();
-    virtual void ProcessInput() = 0;
+    virtual void ProcessInput();
 };

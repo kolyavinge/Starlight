@@ -11,10 +11,6 @@ RaceScreen::RaceScreen(
 {
 }
 
-void RaceScreen::Activate()
-{
-}
-
 void RaceScreen::Update()
 {
     Race.Update();

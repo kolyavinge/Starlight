@@ -10,6 +10,14 @@ Screen::Screen(
 {
 }
 
+void Screen::Activate()
+{
+}
+
 void Screen::Update()
+{
+}
+
+void Screen::ProcessInput()
 {
 }
