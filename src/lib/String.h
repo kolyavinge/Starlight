@@ -30,6 +30,7 @@ public:
     int IndexOf(const wchar_t ch);
     int LastIndexOf(const wchar_t ch);
     String Substring(int startIndex, int count);
+    void Invert();
     void Clear();
     char* GetCharBuf();
     wchar_t* GetWCharBuf();

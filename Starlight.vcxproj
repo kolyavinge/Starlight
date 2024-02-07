@@ -41,6 +41,7 @@
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
+    <ClInclude Include="src\lib\NumericConverter.h" />
     <ClInclude Include="src\lib\Path.h" />
     <ClInclude Include="src\lib\Point2.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
@@ -170,6 +171,7 @@
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
+    <ClCompile Include="src\lib\NumericConverter.cpp" />
     <ClCompile Include="src\lib\Path.cpp" />
     <ClCompile Include="src\lib\Point2.cpp" />
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />

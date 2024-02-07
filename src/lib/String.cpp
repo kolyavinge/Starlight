@@ -128,6 +128,16 @@ String String::Substring(int startIndex, int count)
     return result;
 }
 
+void String::Invert()
+{
+    for (int i = 0; i < _count / 2; i++)
+    {
+        wchar_t tmp = _symb[i];
+        _symb[i] = _symb[_count - i - 1];
+        _symb[_count - i - 1] = tmp;
+    }
+}
+
 void String::Clear()
 {
     _count = 0;

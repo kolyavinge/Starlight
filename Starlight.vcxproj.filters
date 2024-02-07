@@ -118,6 +118,7 @@
     <ClInclude Include="src\vox\RacePreparationVox.h" />
     <ClInclude Include="src\ui\ScreenKind.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
+    <ClInclude Include="src\lib\NumericConverter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -223,6 +224,7 @@
     <ClCompile Include="src\vox\RacePreparationVox.cpp" />
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
     <ClCompile Include="src\vox\ScreenVox.cpp" />
+    <ClCompile Include="src\lib\NumericConverter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
