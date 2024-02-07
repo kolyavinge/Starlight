@@ -11,11 +11,11 @@ TrackSelectorRenderer::TrackSelectorRenderer(MenuBackgroundRenderer& backgroundR
     _backItem = nullptr;
 }
 
-void TrackSelectorRenderer::Init(MenuItemCollection& menuItemCollection)
+void TrackSelectorRenderer::Init(GraphicItemCollection& graphicItemCollection)
 {
-    _selectTrackItem = &menuItemCollection.SelectTrackItem;
-    _raceItem = &menuItemCollection.RaceItem;
-    _backItem = &menuItemCollection.BackItem;
+    _selectTrackItem = &graphicItemCollection.SelectTrackItem;
+    _raceItem = &graphicItemCollection.RaceItem;
+    _backItem = &graphicItemCollection.BackItem;
 }
 
 void TrackSelectorRenderer::Render(Screen& screen)

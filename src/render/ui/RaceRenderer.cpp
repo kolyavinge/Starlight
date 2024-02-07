@@ -16,7 +16,7 @@ RaceRenderer::RaceRenderer(
 {
 }
 
-void RaceRenderer::Init(MenuItemCollection&)
+void RaceRenderer::Init(GraphicItemCollection&)
 {
 }
 

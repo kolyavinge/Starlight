@@ -10,10 +10,10 @@ StartMenuRenderer::StartMenuRenderer(MenuBackgroundRenderer& backgroundRenderer)
     _exitItem = nullptr;
 }
 
-void StartMenuRenderer::Init(MenuItemCollection& menuItemCollection)
+void StartMenuRenderer::Init(GraphicItemCollection& graphicItemCollection)
 {
-    _startGameItem = &menuItemCollection.StartGameItem;
-    _exitItem = &menuItemCollection.ExitItem;
+    _startGameItem = &graphicItemCollection.StartGameItem;
+    _exitItem = &graphicItemCollection.ExitItem;
 }
 
 void StartMenuRenderer::Render(Screen& screen)

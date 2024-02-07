@@ -108,7 +108,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\Race.h" />
-    <ClInclude Include="src\render\ui\MenuItemCollection.h" />
+    <ClInclude Include="src\render\ui\GraphicItemCollection.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
@@ -214,7 +214,7 @@
     <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
-    <ClCompile Include="src\render\ui\MenuItemCollection.cpp" />
+    <ClCompile Include="src\render\ui\GraphicItemCollection.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />

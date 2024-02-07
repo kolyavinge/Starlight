@@ -19,10 +19,10 @@ void ScreenRendererCollection::Init()
 {
     _backgroundRenderer.Init();
     _shipRenderer.Init();
-    _menuItemCollection.Init();
+    _graphicItemCollection.Init();
     for (int i = 0; i < _renderers.Count; i++)
     {
-        _renderers[i]->Init(_menuItemCollection);
+        _renderers[i]->Init(_graphicItemCollection);
     }
 }
 

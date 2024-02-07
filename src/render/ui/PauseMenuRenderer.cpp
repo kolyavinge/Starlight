@@ -1,7 +1,6 @@
 #include <gl/opengl.h>
 #include <ui/PauseMenuScreen.h>
 #include <render/ui/RenderConstants.h>
-#include <render/ui/MenuItemCollection.h>
 #include <render/ui/PauseMenuRenderer.h>
 
 PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :
@@ -12,11 +11,11 @@ PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :
     _startMenuItem = nullptr;
 }
 
-void PauseMenuRenderer::Init(MenuItemCollection& menuItemCollection)
+void PauseMenuRenderer::Init(GraphicItemCollection& graphicItemCollection)
 {
-    _pauseItem = &menuItemCollection.PauseItem;
-    _resumeItem = &menuItemCollection.ResumeItem;
-    _startMenuItem = &menuItemCollection.StartMenuItem;
+    _pauseItem = &graphicItemCollection.PauseItem;
+    _resumeItem = &graphicItemCollection.ResumeItem;
+    _startMenuItem = &graphicItemCollection.StartMenuItem;
 }
 
 void PauseMenuRenderer::Render(Screen& screen)

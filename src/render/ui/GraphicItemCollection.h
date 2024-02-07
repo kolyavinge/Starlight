@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <gl/TexturedRect.h>
 
-class MenuItemCollection : public Object
+class GraphicItemCollection : public Object
 {
 public:
     TexturedRect StartGameItem;

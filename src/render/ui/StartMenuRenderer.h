@@ -5,7 +5,7 @@
 #include <gl/TexturedRect.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/ui/SelectedItemColor.h>
-#include <render/ui/MenuItemCollection.h>
+#include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 
 class StartMenuRenderer : public ScreenRenderer
@@ -18,7 +18,7 @@ class StartMenuRenderer : public ScreenRenderer
 public:
     StartMenuRenderer(MenuBackgroundRenderer& backgroundRenderer);
 
-    void Init(MenuItemCollection& menuItemCollection) override;
+    void Init(GraphicItemCollection& graphicItemCollection) override;
     void Render(Screen& screen) override;
 
 private:

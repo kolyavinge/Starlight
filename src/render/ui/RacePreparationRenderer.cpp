@@ -16,7 +16,7 @@ RacePreparationRenderer::RacePreparationRenderer(
 {
 }
 
-void RacePreparationRenderer::Init(MenuItemCollection&)
+void RacePreparationRenderer::Init(GraphicItemCollection&)
 {
 }
 
