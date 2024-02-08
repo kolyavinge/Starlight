@@ -119,6 +119,9 @@
     <ClInclude Include="src\ui\ScreenKind.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\lib\NumericConverter.h" />
+    <ClInclude Include="src\lib\TimeSpan.h" />
+    <ClInclude Include="src\lib\Stopwatch.h" />
+    <ClInclude Include="src\lib\DateTime.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -225,6 +228,9 @@
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
     <ClCompile Include="src\vox\ScreenVox.cpp" />
     <ClCompile Include="src\lib\NumericConverter.cpp" />
+    <ClCompile Include="src\lib\TimeSpan.cpp" />
+    <ClCompile Include="src\lib\Stopwatch.cpp" />
+    <ClCompile Include="src\lib\DateTime.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
