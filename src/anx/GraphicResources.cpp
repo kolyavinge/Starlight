@@ -91,3 +91,12 @@ String GraphicResources::GetStartMenuMenuItemFilePath()
 
     return path;
 }
+
+String GraphicResources::GetAlphabetFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\alph.png\0");
+    path.Append(name);
+
+    return path;
+}

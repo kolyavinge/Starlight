@@ -122,6 +122,7 @@
     <ClInclude Include="src\lib\TimeSpan.h" />
     <ClInclude Include="src\lib\Stopwatch.h" />
     <ClInclude Include="src\lib\DateTime.h" />
+    <ClInclude Include="src\gl\TextRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -231,6 +232,7 @@
     <ClCompile Include="src\lib\TimeSpan.cpp" />
     <ClCompile Include="src\lib\Stopwatch.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
+    <ClCompile Include="src\gl\TextRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
