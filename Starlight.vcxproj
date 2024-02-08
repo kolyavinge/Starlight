@@ -24,6 +24,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\audio\WavFile.h" />
+    <ClInclude Include="src\core\LapTimer.h" />
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
@@ -154,6 +155,7 @@
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\CollisionProcessor.cpp" />
+    <ClCompile Include="src\core\LapTimer.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\game\Game.cpp" />

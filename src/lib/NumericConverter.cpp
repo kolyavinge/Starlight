@@ -4,22 +4,33 @@
 
 String NumericConverter::IntToString(const int value)
 {
-    String res(8);
-    int remain = Math::Abs(value);
-    while (remain > 9)
-    {
-        int lastDigit = remain % 10;
-        res.Append(GetChar(lastDigit));
-        remain /= 10;
-    }
-    res.Append(GetChar(remain));
-    if (value < 0)
-    {
-        res.Append(L'-');
-    }
-    res.Invert();
+    String result(8);
+    IntToString(value, result);
 
-    return res;
+    return result;
+}
+
+void NumericConverter::IntToString(const int value, String& result)
+{
+    IntToStringRec(Math::Abs(value), value < 0, result);
+}
+
+void NumericConverter::IntToStringRec(const int remainAbs, bool isNegative, String& result)
+{
+    if (remainAbs > 9)
+    {
+        int lastDigit = remainAbs % 10;
+        IntToStringRec(remainAbs / 10, isNegative, result);
+        result.Append(GetChar(lastDigit));
+    }
+    else
+    {
+        if (isNegative)
+        {
+            result.Append(L'-');
+        }
+        result.Append(GetChar(remainAbs));
+    }
 }
 
 wchar_t NumericConverter::GetChar(int digit)
