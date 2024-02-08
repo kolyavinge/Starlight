@@ -12,6 +12,11 @@ float Math::Max(float a, float b)
     return a > b ? a : b;
 }
 
+int Math::Abs(int x)
+{
+    return x > 0.0f ? x : -x;
+}
+
 float Math::Abs(float x)
 {
     return x > 0.0f ? x : -x;

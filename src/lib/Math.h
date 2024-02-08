@@ -9,6 +9,7 @@ public:
 
     static float Min(float a, float b);
     static float Max(float a, float b);
+    static int Abs(int x);
     static float Abs(float x);
     static float Sqrt(float x);
     static float Sin(float radians);
