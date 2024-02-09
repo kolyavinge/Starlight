@@ -32,6 +32,10 @@ void LapTimer::ToString(String& result)
     TimeSpan ts(_elapsed);
 
     // hours + minutes
+    if (ts.GetMinutes() < 10)
+    {
+        result.Append(L'0');
+    }
     NumericConverter::IntToString(60 * ts.GetHours() + ts.GetMinutes(), result);
     result.Append(L':');
 

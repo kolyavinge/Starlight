@@ -10,13 +10,13 @@ LapCounter::LapCounter()
 void LapCounter::Init()
 {
     _completedTrackPoints.InitItems(false);
-    _completedLapsCount = 0;
     _prevTrackPointIndex = 0;
 }
 
-void LapCounter::CheckLap(Ship& ship, Track& track)
+bool LapCounter::CheckLap(Ship& ship, Track& track)
 {
-    if (!ship.IsMoving()) return;
+    if (!ship.IsMoving()) return false;
+    bool isCompleted = false;
     _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
     _completedTrackPoints[ship.CentralLine.TrackPointIndexFront] = true;
     bool isStartFinishLineCrossed = IsStartFinishLineCrossed(ship, track);
@@ -24,18 +24,15 @@ void LapCounter::CheckLap(Ship& ship, Track& track)
         IsShipMovingInStraightDirection(ship, track) &&
         AreTrackPointsCompleted(track.PointsCount))
     {
-        _completedLapsCount++;
+        isCompleted = true;
     }
     if (isStartFinishLineCrossed)
     {
         _completedTrackPoints.InitItems(false);
         _completedTrackPoints[ship.CentralLine.TrackPointIndexFront] = true;
     }
-}
 
-int LapCounter::GetCompletedLapsCount()
-{
-    return _completedLapsCount;
+    return isCompleted;
 }
 
 bool LapCounter::IsStartFinishLineCrossed(Ship& ship, Track& track)

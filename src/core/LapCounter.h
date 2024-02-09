@@ -8,15 +8,13 @@
 class LapCounter : public Object
 {
     Array<bool, TrackMaxPoints> _completedTrackPoints;
-    int _completedLapsCount;
     int _prevTrackPointIndex;
 
 public:
     LapCounter();
 
     void Init();
-    void CheckLap(Ship& ship, Track& track);
-    int GetCompletedLapsCount();
+    bool CheckLap(Ship& ship, Track& track);
 
 private:
     bool IsStartFinishLineCrossed(Ship& ship, Track& track);

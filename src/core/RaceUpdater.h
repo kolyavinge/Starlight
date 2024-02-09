@@ -9,8 +9,8 @@
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
-#include <core/LapCounter.h>
 #include <core/Camera.h>
+#include <core/Laps.h>
 
 class RaceUpdater : public Object
 {
@@ -21,13 +21,13 @@ class RaceUpdater : public Object
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
-    LapCounter _lapCounter;
 
 public:
     void Update(
         Ship& player,
         Track& track,
-        Camera& camera);
+        Camera& camera,
+        Laps& laps);
 
 private:
     void SaveCurrentShipsPositions(Ship& player);

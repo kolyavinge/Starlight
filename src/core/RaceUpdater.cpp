@@ -5,7 +5,8 @@
 void RaceUpdater::Update(
     Ship& player,
     Track& track,
-    Camera& camera)
+    Camera& camera,
+    Laps& laps)
 {
     SaveCurrentShipsPositions(player);
     _positionUpdater.UpdateIfShipMoving(player, track);
@@ -20,7 +21,7 @@ void RaceUpdater::Update(
         _borderUpdater.Update(player);
     }
     _positionCorrector.CorrectAfterFloatOperations(player);
-    _lapCounter.CheckLap(player, track);
+    laps.Update(player, track);
     camera.SetFrontView(player);
 }
 

@@ -124,6 +124,7 @@
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\gl\TextRenderer.h" />
     <ClInclude Include="src\core\LapTimer.h" />
+    <ClInclude Include="src\core\Laps.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -235,6 +236,7 @@
     <ClCompile Include="src\lib\DateTime.cpp" />
     <ClCompile Include="src\gl\TextRenderer.cpp" />
     <ClCompile Include="src\core\LapTimer.cpp" />
+    <ClCompile Include="src\core\Laps.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

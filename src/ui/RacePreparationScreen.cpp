@@ -26,6 +26,7 @@ void RacePreparationScreen::Update()
     _currentIteration--;
     if (_currentIteration == 0)
     {
+        Race.Start();
         _navigator.NavigateTo(ScreenKind::Race);
     }
 }

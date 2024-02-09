@@ -6,6 +6,7 @@
 #include <core/ShipController.h>
 #include <core/RaceUpdater.h>
 #include <core/Camera.h>
+#include <core/Laps.h>
 
 class Race : public Object
 {
@@ -16,10 +17,12 @@ public:
     Track* Track;
     ShipController PlayerController;
     Camera Camera;
+    Laps Laps;
 
     Race(
         RaceUpdater& raceUpdater);
 
-    void Start(::Track& selectedTrack);
+    void Init(::Track& selectedTrack);
+    void Start();
     void Update();
 };

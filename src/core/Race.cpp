@@ -9,7 +9,7 @@ Race::Race(
     Track = nullptr;
 }
 
-void Race::Start(::Track& selectedTrack)
+void Race::Init(::Track& selectedTrack)
 {
     Track = &selectedTrack;
     RaceInitializer initializer;
@@ -17,7 +17,12 @@ void Race::Start(::Track& selectedTrack)
     Update();
 }
 
+void Race::Start()
+{
+    Laps.StartFirstLap();
+}
+
 void Race::Update()
 {
-    _raceUpdater.Update(Player, *Track, Camera);
+    _raceUpdater.Update(Player, *Track, Camera, Laps);
 }
