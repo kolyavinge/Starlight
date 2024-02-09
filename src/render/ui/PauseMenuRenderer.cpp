@@ -1,6 +1,6 @@
 #include <gl/opengl.h>
 #include <ui/PauseMenuScreen.h>
-#include <render/ui/RenderConstants.h>
+#include <render/common/RenderConstants.h>
 #include <render/ui/PauseMenuRenderer.h>
 
 PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :

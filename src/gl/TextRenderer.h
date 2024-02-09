@@ -18,4 +18,6 @@ public:
 
     void Init();
     void Render(String& text);
+    float GetLetterWidth();
+    float GetLetterHeight();
 };

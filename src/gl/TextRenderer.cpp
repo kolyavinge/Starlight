@@ -55,3 +55,13 @@ void TextRenderer::Render(String& text)
     glEnd();
     glDisable(GL_TEXTURE_2D);
 }
+
+float TextRenderer::GetLetterWidth()
+{
+    return _letterWidth;
+}
+
+float TextRenderer::GetLetterHeight()
+{
+    return _letterHeight;
+}

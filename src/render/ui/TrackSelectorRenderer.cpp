@@ -1,6 +1,6 @@
 #include <gl/opengl.h>
 #include <ui/TrackSelectorScreen.h>
-#include <render/ui/RenderConstants.h>
+#include <render/common/RenderConstants.h>
 #include <render/ui/TrackSelectorRenderer.h>
 
 TrackSelectorRenderer::TrackSelectorRenderer(MenuBackgroundRenderer& backgroundRenderer) :

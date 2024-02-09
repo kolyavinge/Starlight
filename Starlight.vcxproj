@@ -52,6 +52,9 @@
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\lib\TimeSpan.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
+    <ClInclude Include="src\render\common\DashboardRenderer.h" />
+    <ClInclude Include="src\render\common\LapsCountRenderer.h" />
+    <ClInclude Include="src\render\common\LapTimeRenderer.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\gl\TextRenderer.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
@@ -60,7 +63,7 @@
     <ClInclude Include="src\render\ui\GraphicItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
-    <ClInclude Include="src\render\ui\RenderConstants.h" />
+    <ClInclude Include="src\render\common\RenderConstants.h" />
     <ClInclude Include="src\render\ui\RenderManager.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
@@ -195,6 +198,9 @@
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
+    <ClCompile Include="src\render\common\DashboardRenderer.cpp" />
+    <ClCompile Include="src\render\common\LapsCountRenderer.cpp" />
+    <ClCompile Include="src\render\common\LapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
     <ClCompile Include="src\gl\TextRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />

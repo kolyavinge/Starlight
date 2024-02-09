@@ -112,7 +112,7 @@
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
-    <ClInclude Include="src\render\ui\RenderConstants.h" />
+    <ClInclude Include="src\render\common\RenderConstants.h" />
     <ClInclude Include="src\ui\RacePreparationScreen.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
     <ClInclude Include="src\vox\RacePreparationVox.h" />
@@ -125,6 +125,9 @@
     <ClInclude Include="src\gl\TextRenderer.h" />
     <ClInclude Include="src\core\LapTimer.h" />
     <ClInclude Include="src\core\Laps.h" />
+    <ClInclude Include="src\render\common\DashboardRenderer.h" />
+    <ClInclude Include="src\render\common\LapTimeRenderer.h" />
+    <ClInclude Include="src\render\common\LapsCountRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -237,6 +240,9 @@
     <ClCompile Include="src\gl\TextRenderer.cpp" />
     <ClCompile Include="src\core\LapTimer.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
+    <ClCompile Include="src\render\common\DashboardRenderer.cpp" />
+    <ClCompile Include="src\render\common\LapTimeRenderer.cpp" />
+    <ClCompile Include="src\render\common\LapsCountRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <render/ui/RenderConstants.h>
+#include <render/common/RenderConstants.h>
 #include <render/ui/SelectedItemColor.h>
 
 void SelectedItemColor::SetColorForSelectedItem(bool isSelected)

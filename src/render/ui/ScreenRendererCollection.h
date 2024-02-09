@@ -3,11 +3,13 @@
 #include <lib/Object.h>
 #include <lib/Array.h>
 #include <ui/Screen.h>
+#include <gl/TextRenderer.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipRenderer.h>
 #include <render/common/TrackRenderer.h>
+#include <render/common/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/StartMenuRenderer.h>
@@ -18,11 +20,13 @@
 
 class ScreenRendererCollection : public Object
 {
+    TextRenderer _textRenderer;
     BackgroundRenderer _backgroundRenderer;
     StarsRenderer _starsRenderer;
     MenuBackgroundRenderer _menuBackgroundRenderer;
     ShipRenderer _shipRenderer;
     TrackRenderer _trackRenderer;
+    DashboardRenderer _dashboardRenderer;
 
     GraphicItemCollection _graphicItemCollection;
 

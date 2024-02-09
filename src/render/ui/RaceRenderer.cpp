@@ -8,11 +8,13 @@ RaceRenderer::RaceRenderer(
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipRenderer& shipRenderer,
-    TrackRenderer& trackRenderer) :
+    TrackRenderer& trackRenderer,
+    DashboardRenderer& dashboardRenderer) :
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipRenderer(shipRenderer),
-    _trackRenderer(trackRenderer)
+    _trackRenderer(trackRenderer),
+    _dashboardRenderer(dashboardRenderer)
 {
 }
 
@@ -39,4 +41,5 @@ void RaceRenderer::Render(Race& race)
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+    _dashboardRenderer.Render(race.Laps);
 }
