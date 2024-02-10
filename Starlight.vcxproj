@@ -95,7 +95,7 @@
     <ClInclude Include="src\calc\Plane.h" />
     <ClInclude Include="src\calc\Quaternion.h" />
     <ClInclude Include="src\calc\Sphere.h" />
-    <ClInclude Include="src\core\LapCounter.h" />
+    <ClInclude Include="src\core\LapChecker.h" />
     <ClInclude Include="src\core\TrackCollisionResult.h" />
     <ClInclude Include="src\model\track\LoopTrack.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
@@ -166,7 +166,7 @@
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
-    <ClCompile Include="src\core\LapCounter.cpp" />
+    <ClCompile Include="src\core\LapChecker.cpp" />
     <ClCompile Include="src\core\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />

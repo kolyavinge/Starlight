@@ -5,15 +5,14 @@
 #include <model/Ship.h>
 #include <model/Track.h>
 
-class LapCounter : public Object
+class LapChecker : public Object
 {
     Array<bool, TrackMaxPoints> _completedTrackPoints;
-    int _prevTrackPointIndex;
 
 public:
-    LapCounter();
+    LapChecker();
 
-    void Init(Ship& ship);
+    void Init();
     bool IsLapCompleted(Ship& ship, Track& track);
 
 private:

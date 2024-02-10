@@ -4,19 +4,19 @@
 #include <lib/String.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <core/LapCounter.h>
+#include <core/LapChecker.h>
 #include <core/LapTimer.h>
 
 class Laps : public Object
 {
-    LapCounter _lapCounter;
+    LapChecker _lapChecker;
     LapTimer _lapTimer;
     int _currentLapNumber;
 
 public:
     Laps();
 
-    void StartFirstLap(Ship& ship);
+    void StartFirstLap();
     int GetCurrentLapNumber();
     int GetLapsCount();
     void GetCurrentLapTime(String& result);

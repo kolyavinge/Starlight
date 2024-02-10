@@ -5,10 +5,10 @@ Laps::Laps()
     _currentLapNumber = 0;
 }
 
-void Laps::StartFirstLap(Ship& ship)
+void Laps::StartFirstLap()
 {
     _currentLapNumber = 1;
-    _lapCounter.Init(ship);
+    _lapChecker.Init();
     _lapTimer.StartNew();
 }
 
@@ -19,7 +19,7 @@ int Laps::GetCurrentLapNumber()
 
 int Laps::GetLapsCount()
 {
-    return 3;
+    return 5;
 }
 
 void Laps::GetCurrentLapTime(String& result)
@@ -30,7 +30,7 @@ void Laps::GetCurrentLapTime(String& result)
 void Laps::Update(Ship& ship, Track& track)
 {
     _lapTimer.Update();
-    if (_lapCounter.IsLapCompleted(ship, track))
+    if (_lapChecker.IsLapCompleted(ship, track))
     {
         _currentLapNumber++;
         _lapTimer.StartNew();

@@ -19,7 +19,7 @@ void Race::Init(::Track& selectedTrack)
 
 void Race::Start()
 {
-    Laps.StartFirstLap(Player);
+    Laps.StartFirstLap();
 }
 
 void Race::Update()

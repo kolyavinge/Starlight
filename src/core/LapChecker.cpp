@@ -1,41 +1,34 @@
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
-#include <core/LapCounter.h>
+#include <core/LapChecker.h>
 
-LapCounter::LapCounter()
+LapChecker::LapChecker()
 {
-    _completedTrackPoints.InitZero();
-    _prevTrackPointIndex = 0;
+    Init();
 }
 
-void LapCounter::Init(Ship& ship)
+void LapChecker::Init()
 {
     _completedTrackPoints.InitZero();
-    _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
 }
 
-bool LapCounter::IsLapCompleted(Ship& ship, Track& track)
+bool LapChecker::IsLapCompleted(Ship& ship, Track& track)
 {
     if (!ship.IsMoving()) return false;
     if (!IsShipMovingInStraightDirection(ship, track)) return false;
-    bool isCompleted = false;
     CompleteTrackPoints(ship, track);
-    bool isStartFinishLineCrossed = IsStartFinishLineCrossed(ship, track);
-    if (isStartFinishLineCrossed && AllTrackPointsCompleted(track.PointsCount))
+    bool isLapCompleted = false;
+    if (IsStartFinishLineCrossed(ship, track))
     {
-        isCompleted = true;
-    }
-    if (isStartFinishLineCrossed)
-    {
+        isLapCompleted = AllTrackPointsCompleted(track.PointsCount);
         _completedTrackPoints.InitZero();
         _completedTrackPoints.InitRange(track.StartFinishLineIndex, ship.CentralLine.TrackPointIndexFront, true);
     }
-    _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
 
-    return isCompleted;
+    return isLapCompleted;
 }
 
-void LapCounter::CompleteTrackPoints(Ship& ship, Track& track)
+void LapChecker::CompleteTrackPoints(Ship& ship, Track& track)
 {
     for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
     {
@@ -43,7 +36,7 @@ void LapCounter::CompleteTrackPoints(Ship& ship, Track& track)
     }
 }
 
-bool LapCounter::IsStartFinishLineCrossed(Ship& ship, Track& track)
+bool LapChecker::IsStartFinishLineCrossed(Ship& ship, Track& track)
 {
     for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
     {
@@ -53,7 +46,7 @@ bool LapCounter::IsStartFinishLineCrossed(Ship& ship, Track& track)
     return false;
 }
 
-bool LapCounter::IsShipMovingInStraightDirection(Ship& ship, Track& track)
+bool LapChecker::IsShipMovingInStraightDirection(Ship& ship, Track& track)
 {
     if (ship.CentralLine.TrackPointIndexFront == ship.CentralLine.TrackPointIndexRear)
     {
@@ -63,7 +56,7 @@ bool LapCounter::IsShipMovingInStraightDirection(Ship& ship, Track& track)
     return track.IsShipMovingInStraightDirection(ship.CentralLine.TrackPointIndexFront, ship.CentralLine.TrackPointIndexRear);
 }
 
-bool LapCounter::AllTrackPointsCompleted(int trackPointsCount)
+bool LapChecker::AllTrackPointsCompleted(int trackPointsCount)
 {
     for (int i = 0; i < trackPointsCount; i++)
     {
