@@ -11,4 +11,8 @@ void GraphicItemCollection::Init()
     PauseItem.Load(GraphicResources::GetPauseItemFilePath());
     ResumeItem.Load(GraphicResources::GetResumeMenuItemFilePath());
     StartMenuItem.Load(GraphicResources::GetStartMenuMenuItemFilePath());
+    Countdown1Item.Load(GraphicResources::GetCountdown1ItemFilePath());
+    Countdown2Item.Load(GraphicResources::GetCountdown2ItemFilePath());
+    Countdown3Item.Load(GraphicResources::GetCountdown3ItemFilePath());
+    GOItem.Load(GraphicResources::GetGOItemFilePath());
 }

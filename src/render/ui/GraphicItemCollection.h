@@ -14,6 +14,10 @@ public:
     TexturedRect PauseItem;
     TexturedRect ResumeItem;
     TexturedRect StartMenuItem;
+    TexturedRect Countdown1Item;
+    TexturedRect Countdown2Item;
+    TexturedRect Countdown3Item;
+    TexturedRect GOItem;
 
     void Init();
 };

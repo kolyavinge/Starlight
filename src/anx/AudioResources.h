@@ -6,4 +6,5 @@ class AudioResources
 {
 public:
     static String GetSelectMenuItemWavFilePath();
+    static String GetCountdownWavFilePath();
 };

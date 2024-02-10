@@ -1,10 +1,21 @@
-#include <ui/RaceScreen.h>
+#include <ui/RacePreparationScreen.h>
 #include <vox/RacePreparationVox.h>
 
-void RacePreparationVox::Init(SampleCollection& /*sampleCollection*/)
+RacePreparationVox::RacePreparationVox()
 {
+    _countdownSample = nullptr;
 }
 
-void RacePreparationVox::Voice(Screen& /*screen*/)
+void RacePreparationVox::Init(SampleCollection& sampleCollection)
 {
+    _countdownSample = &sampleCollection.CountdownSample;
+}
+
+void RacePreparationVox::Voice(Screen& screen)
+{
+    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
+    if (racePreparationScreen.GetCountdownIteration() == 0)
+    {
+        _countdownSample->Play();
+    }
 }

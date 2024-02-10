@@ -3,5 +3,6 @@
 
 void SampleCollection::Init()
 {
-    SelectMenuItem.Load(AudioResources::GetSelectMenuItemWavFilePath());
+    SelectMenuItemSample.Load(AudioResources::GetSelectMenuItemWavFilePath());
+    CountdownSample.Load(AudioResources::GetCountdownWavFilePath());
 }

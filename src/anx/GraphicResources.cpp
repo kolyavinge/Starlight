@@ -100,3 +100,39 @@ String GraphicResources::GetAlphabetFilePath()
 
     return path;
 }
+
+String GraphicResources::GetCountdown1ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\1.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetCountdown2ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\2.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetCountdown3ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\3.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetGOItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\go.png\0");
+    path.Append(name);
+
+    return path;
+}

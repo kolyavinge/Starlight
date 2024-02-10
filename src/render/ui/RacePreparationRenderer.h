@@ -6,6 +6,7 @@
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipRenderer.h>
 #include <render/common/TrackRenderer.h>
+#include <render/common/CountdownRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 
@@ -15,6 +16,7 @@ class RacePreparationRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipRenderer& _shipRenderer;
     TrackRenderer& _trackRenderer;
+    CountdownRenderer _countdownRenderer;
     FadeEffect _fadeEffect;
 
 public:

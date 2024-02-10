@@ -10,6 +10,9 @@ class RacePreparationScreen : public Screen
     const int _iterationsCount;
     int _currentIteration;
     float _radiansStep;
+    int _countdownNumber;
+    int _countdownSwitchIteration;
+    int _countdownIteration;
 
 public:
     RacePreparationScreen(
@@ -21,4 +24,8 @@ public:
 
     void Activate() override;
     void Update() override;
+
+    int GetCountdownNumber();
+    int GetCountdownIteration();
+    int GetCountdownSwitchIteration();
 };

@@ -10,3 +10,12 @@ String AudioResources::GetSelectMenuItemWavFilePath()
 
     return path;
 }
+
+String AudioResources::GetCountdownWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\countdown.wav\0");
+    path.Append(name);
+
+    return path;
+}

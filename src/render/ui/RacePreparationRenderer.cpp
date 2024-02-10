@@ -16,8 +16,12 @@ RacePreparationRenderer::RacePreparationRenderer(
 {
 }
 
-void RacePreparationRenderer::Init(GraphicItemCollection&)
+void RacePreparationRenderer::Init(GraphicItemCollection& graphicItemCollection)
 {
+    _countdownRenderer.Init(
+        graphicItemCollection.Countdown1Item,
+        graphicItemCollection.Countdown2Item,
+        graphicItemCollection.Countdown3Item);
 }
 
 void RacePreparationRenderer::Activate()
@@ -41,5 +45,9 @@ void RacePreparationRenderer::Render(Screen& screen)
     _shipRenderer.Render(race.Player);
     glEnable(GL_BLEND);
     _fadeEffect.Render();
+    _countdownRenderer.Render(
+        racePreparationScreen.GetCountdownNumber(),
+        racePreparationScreen.GetCountdownIteration(),
+        racePreparationScreen.GetCountdownSwitchIteration());
     glDisable(GL_BLEND);
 }

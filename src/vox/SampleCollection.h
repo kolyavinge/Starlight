@@ -6,7 +6,8 @@
 class SampleCollection : public Object
 {
 public:
-    AudioSample SelectMenuItem;
+    AudioSample SelectMenuItemSample;
+    AudioSample CountdownSample;
 
     void Init();
 };
