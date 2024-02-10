@@ -8,6 +8,8 @@ AudioSample::AudioSample()
 {
     _sourceId = 0;
     _bufferId = 0;
+    _gain = 1.0f;
+    _pitch = 1.0f;
 }
 
 AudioSample::~AudioSample()
@@ -30,7 +32,22 @@ void AudioSample::Load(String filePath)
 void AudioSample::Play()
 {
     alSourcei(_sourceId, AL_BUFFER, _bufferId);
+    alSourcef(_sourceId, AL_PITCH, _pitch);
+    alSourcef(_sourceId, AL_GAIN, _gain);
+    alSource3f(_sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
+    alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
+    alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
     alSourcePlay(_sourceId);
+}
+
+void AudioSample::SetGain(float gain)
+{
+    _gain = gain;
+}
+
+void AudioSample::SetPitch(float pitch)
+{
+    _pitch = pitch;
 }
 
 void AudioSample::InitSoundSource(String filePath)
@@ -46,10 +63,4 @@ void AudioSample::InitSoundSource(String filePath)
         wavFile.GetSampleRate());
 
     alGenSources(1, &_sourceId);
-    alSourcei(_sourceId, AL_BUFFER, _bufferId);
-    alSourcef(_sourceId, AL_PITCH, 1.0f);
-    alSourcef(_sourceId, AL_GAIN, 1.0f);
-    alSource3f(_sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
-    alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
-    alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
 }
