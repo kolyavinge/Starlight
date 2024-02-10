@@ -14,6 +14,10 @@ void Screen::Activate()
 {
 }
 
+void Screen::Deactivate()
+{
+}
+
 void Screen::Update()
 {
 }

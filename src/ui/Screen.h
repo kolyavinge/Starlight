@@ -20,6 +20,7 @@ public:
         InputDevices& inputDevices);
 
     virtual void Activate();
+    virtual void Deactivate();
     virtual void Update();
     virtual void ProcessInput();
 };

@@ -3,3 +3,7 @@
 void ScreenVox::Activate()
 {
 }
+
+void ScreenVox::Deactivate()
+{
+}

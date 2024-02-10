@@ -20,13 +20,25 @@ void ScreenNavigator::Init(
 
 void ScreenNavigator::NavigateTo(ScreenKind kind)
 {
-    Screen& screen = _screenManager->GetScreen(kind);
-    ScreenRenderer& renderer = _renderManager->GetScreenRenderer(screen);
-    ScreenVox& vox = _voxManager->GetScreenVox(screen);
+    Screen* screen = &_screenManager->GetCurrentScreen();
+    ScreenRenderer* renderer = nullptr;
+    ScreenVox* vox = nullptr;
+    if (screen != nullptr)
+    {
+        renderer = &_renderManager->GetScreenRenderer(*screen);
+        vox = &_voxManager->GetScreenVox(*screen);
+        screen->Deactivate();
+        renderer->Deactivate();
+        vox->Deactivate();
+    }
 
-    _screenManager->SetCurrentScreen(screen);
+    screen = &_screenManager->GetScreen(kind);
+    renderer = &_renderManager->GetScreenRenderer(*screen);
+    vox = &_voxManager->GetScreenVox(*screen);
 
-    screen.Activate();
-    renderer.Activate();
-    vox.Activate();
+    _screenManager->SetCurrentScreen(*screen);
+
+    screen->Activate();
+    renderer->Activate();
+    vox->Activate();
 }

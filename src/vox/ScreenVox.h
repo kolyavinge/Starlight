@@ -9,5 +9,6 @@ class ScreenVox : public Object
 public:
     virtual void Init(SampleCollection& sampleCollection) = 0;
     virtual void Activate();
+    virtual void Deactivate();
     virtual void Voice(Screen& screen) = 0;
 };
