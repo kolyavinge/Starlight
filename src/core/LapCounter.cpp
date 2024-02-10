@@ -4,72 +4,74 @@
 
 LapCounter::LapCounter()
 {
-    Init();
-}
-
-void LapCounter::Init()
-{
-    _completedTrackPoints.InitItems(false);
+    _completedTrackPoints.InitZero();
     _prevTrackPointIndex = 0;
 }
 
-bool LapCounter::CheckLap(Ship& ship, Track& track)
+void LapCounter::Init(Ship& ship)
+{
+    _completedTrackPoints.InitZero();
+    _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
+}
+
+bool LapCounter::IsLapCompleted(Ship& ship, Track& track)
 {
     if (!ship.IsMoving()) return false;
+    if (!IsShipMovingInStraightDirection(ship, track)) return false;
     bool isCompleted = false;
-    _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
-    _completedTrackPoints[ship.CentralLine.TrackPointIndexFront] = true;
+    CompleteTrackPoints(ship, track);
     bool isStartFinishLineCrossed = IsStartFinishLineCrossed(ship, track);
-    if (isStartFinishLineCrossed &&
-        IsShipMovingInStraightDirection(ship, track) &&
-        AreTrackPointsCompleted(track.PointsCount))
+    if (isStartFinishLineCrossed && AllTrackPointsCompleted(track.PointsCount))
     {
         isCompleted = true;
     }
     if (isStartFinishLineCrossed)
     {
-        _completedTrackPoints.InitItems(false);
-        _completedTrackPoints[ship.CentralLine.TrackPointIndexFront] = true;
+        _completedTrackPoints.InitZero();
+        _completedTrackPoints.InitRange(track.StartFinishLineIndex, ship.CentralLine.TrackPointIndexFront, true);
     }
+    _prevTrackPointIndex = ship.CentralLine.TrackPointIndexFront;
 
     return isCompleted;
 }
 
+void LapCounter::CompleteTrackPoints(Ship& ship, Track& track)
+{
+    for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
+    {
+        _completedTrackPoints[i] = true;
+    }
+}
+
 bool LapCounter::IsStartFinishLineCrossed(Ship& ship, Track& track)
 {
-    return
-        Numeric::Between(track.StartFinishLineIndex, _prevTrackPointIndex, ship.CentralLine.TrackPointIndexFront) ||
-        Numeric::Between(track.StartFinishLineIndex, ship.CentralLine.TrackPointIndexFront, _prevTrackPointIndex);
+    for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
+    {
+        if (i == track.StartFinishLineIndex) return true;
+    }
+
+    return false;
 }
 
 bool LapCounter::IsShipMovingInStraightDirection(Ship& ship, Track& track)
 {
-    Vector3 shipStraightDirection(ship.CentralLine.Front);
-    shipStraightDirection.Sub(ship.CentralLine.Rear);
+    if (ship.CentralLine.TrackPointIndexFront == ship.CentralLine.TrackPointIndexRear)
+    {
+        return false;
+    }
 
-    return track.IsShipMovingInStraightDirection(shipStraightDirection);
+    return track.IsShipMovingInStraightDirection(ship.CentralLine.TrackPointIndexFront, ship.CentralLine.TrackPointIndexRear);
 }
 
-bool LapCounter::AreTrackPointsCompleted(int trackPointsCount)
+bool LapCounter::AllTrackPointsCompleted(int trackPointsCount)
 {
-    const int batchSize = 10;
     for (int i = 0; i < trackPointsCount; i++)
     {
-        if (!IsCompletedPointExist(i, i + batchSize, trackPointsCount))
+        if (!_completedTrackPoints[i])
         {
             return false;
         }
     }
 
     return true;
-}
-
-bool LapCounter::IsCompletedPointExist(int startIndex, int endIndex, int trackPointsCount)
-{
-    for (int i = startIndex; i < endIndex && i < trackPointsCount; i++)
-    {
-        if (_completedTrackPoints[i]) return true;
-    }
-
-    return false;
 }

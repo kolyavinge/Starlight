@@ -5,7 +5,7 @@
 
 TextRenderer::TextRenderer()
 {
-    _textureCoords.InitItems(0.0f);
+    _textureCoords.InitAll(0.0f);
     _textureStep = 0.0f;
     _letterWidth = 0.0f;
     _letterHeight = 0.0f;

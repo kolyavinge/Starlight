@@ -29,12 +29,12 @@ public:
     void Init();
     virtual void InternalInit() = 0;
     int GetTrackPointIndexFor(Vector3& point, int startIndex);
-    bool IsShipMovingInStraightDirection(Vector3& shipStraightDirection);
+    bool IsShipMovingInStraightDirection(int trackPointIndexFront, int trackPointIndexRear);
+    int GetNextTrackPointIndex(int currentIndex);
+    int GetPrevTrackPointIndex(int currentIndex);
 
 private:
     void InitMiddlePoints();
     void InitNormals();
     float GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointIndex);
-    int GetNextTrackPointIndex(int currentIndex);
-    int GetPrevTrackPointIndex(int currentIndex);
 };

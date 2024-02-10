@@ -16,7 +16,7 @@ class Laps : public Object
 public:
     Laps();
 
-    void StartFirstLap();
+    void StartFirstLap(Ship& ship);
     int GetCurrentLapNumber();
     int GetLapsCount();
     void GetCurrentLapTime(String& result);

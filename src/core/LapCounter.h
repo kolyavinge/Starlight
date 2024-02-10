@@ -13,12 +13,12 @@ class LapCounter : public Object
 public:
     LapCounter();
 
-    void Init();
-    bool CheckLap(Ship& ship, Track& track);
+    void Init(Ship& ship);
+    bool IsLapCompleted(Ship& ship, Track& track);
 
 private:
+    void CompleteTrackPoints(Ship& ship, Track& track);
     bool IsStartFinishLineCrossed(Ship& ship, Track& track);
     bool IsShipMovingInStraightDirection(Ship& ship, Track& track);
-    bool AreTrackPointsCompleted(int trackPointsCount);
-    bool IsCompletedPointExist(int startIndex, int endIndex, int trackPointsCount);
+    bool AllTrackPointsCompleted(int trackPointsCount);
 };

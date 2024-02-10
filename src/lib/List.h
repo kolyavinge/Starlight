@@ -52,7 +52,7 @@ public:
         return _count;
     }
 
-    void InitItems(T initValue)
+    void InitAll(T initValue)
     {
         for (int i = 0; i < _count; i++)
         {

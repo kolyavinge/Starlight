@@ -5,7 +5,7 @@
 
 Keyboard::Keyboard()
 {
-    _keyStates.InitItems(KeyState::Released);
+    _keyStates.InitAll(KeyState::Released);
     Memory::Zero<unsigned char>(_newKeyStates, 256);
 }
 

@@ -1,3 +1,4 @@
+#include <lib/Exceptions.h>
 #include <calc/VectorCalculator.h>
 #include <model/Track.h>
 
@@ -51,9 +52,36 @@ int Track::GetTrackPointIndexFor(Vector3& point, int startIndex)
     return result;
 }
 
-bool Track::IsShipMovingInStraightDirection(Vector3& shipStraightDirection)
+bool Track::IsShipMovingInStraightDirection(int trackPointIndexFront, int trackPointIndexRear)
 {
-    return VectorCalculator::IsSameDirection(_startFinishLine, shipStraightDirection, StraightDirection);
+    if (trackPointIndexFront == trackPointIndexRear) throw ArgumentException();
+
+    Vector3 base(InsidePoints[trackPointIndexFront]);
+    base.Sub(OutsidePoints[trackPointIndexFront]);
+
+    Vector3 straightDirection(InsidePoints[trackPointIndexFront]);
+    straightDirection.Sub(InsidePoints[GetPrevTrackPointIndex(trackPointIndexFront)]);
+
+    Vector3 shipDirection(InsidePoints[trackPointIndexFront]);
+    shipDirection.Sub(InsidePoints[trackPointIndexRear]);
+
+    return VectorCalculator::IsSameDirection(base, shipDirection, straightDirection);
+}
+
+int Track::GetNextTrackPointIndex(int currentIndex)
+{
+    currentIndex++;
+    if (currentIndex == PointsCount) currentIndex = 0;
+
+    return currentIndex;
+}
+
+int Track::GetPrevTrackPointIndex(int currentIndex)
+{
+    currentIndex--;
+    if (currentIndex == -1) currentIndex = PointsCount - 1;
+
+    return currentIndex;
 }
 
 void Track::InitMiddlePoints()
@@ -119,20 +147,4 @@ float Track::GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointInde
     }
 
     return minLengthSquared;
-}
-
-int Track::GetNextTrackPointIndex(int currentIndex)
-{
-    currentIndex++;
-    if (currentIndex == PointsCount) currentIndex = 0;
-
-    return currentIndex;
-}
-
-int Track::GetPrevTrackPointIndex(int currentIndex)
-{
-    currentIndex--;
-    if (currentIndex == -1) currentIndex = PointsCount - 1;
-
-    return currentIndex;
 }
