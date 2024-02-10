@@ -1,6 +1,6 @@
 #include <vox/ScreenVox.h>
 
-void ScreenVox::Activate()
+void ScreenVox::Activate(Screen*)
 {
 }
 

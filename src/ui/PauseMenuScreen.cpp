@@ -21,7 +21,7 @@ PauseMenuItem PauseMenuScreen::GetSelectedItem()
     return _selector.GetSelectedItem();
 }
 
-void PauseMenuScreen::Activate()
+void PauseMenuScreen::Activate(Screen*)
 {
     _selector.Reset();
 }

@@ -21,6 +21,6 @@ public:
         InputDevices& inputDevices);
 
     StartMenuItem GetSelectedItem();
-    void Activate() override;
+    void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
 };

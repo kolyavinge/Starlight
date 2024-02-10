@@ -25,6 +25,6 @@ public:
         ::Race& race);
 
     PauseMenuItem GetSelectedItem();
-    void Activate() override;
+    void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
 };

@@ -4,7 +4,7 @@ void ScreenRenderer::Init(GraphicItemCollection&)
 {
 }
 
-void ScreenRenderer::Activate()
+void ScreenRenderer::Activate(Screen*)
 {
 }
 

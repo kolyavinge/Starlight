@@ -27,6 +27,6 @@ public:
         TrackRenderer& trackRenderer);
 
     void Init(GraphicItemCollection& graphicItemCollection) override;
-    void Activate() override;
+    void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
 };

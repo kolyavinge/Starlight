@@ -22,7 +22,7 @@ public:
 
     Race& Race;
 
-    void Activate() override;
+    void Activate(Screen* prevScreen) override;
     void Update() override;
 
     int GetCountdownNumber();

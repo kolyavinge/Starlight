@@ -16,7 +16,7 @@ RacePreparationScreen::RacePreparationScreen(
     _countdownIteration = 0;
 }
 
-void RacePreparationScreen::Activate()
+void RacePreparationScreen::Activate(Screen*)
 {
     _currentIteration = 0;
     Race.Camera.SetFrontView(Race.Player);

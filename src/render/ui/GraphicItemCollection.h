@@ -17,7 +17,7 @@ public:
     TexturedRect Countdown1Item;
     TexturedRect Countdown2Item;
     TexturedRect Countdown3Item;
-    TexturedRect GOItem;
+    TexturedRect GoItem;
 
     void Init();
 };

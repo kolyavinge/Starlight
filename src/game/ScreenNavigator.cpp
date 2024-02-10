@@ -20,25 +20,25 @@ void ScreenNavigator::Init(
 
 void ScreenNavigator::NavigateTo(ScreenKind kind)
 {
-    Screen* screen = &_screenManager->GetCurrentScreen();
+    Screen* prevScreen = &_screenManager->GetCurrentScreen();
     ScreenRenderer* renderer = nullptr;
     ScreenVox* vox = nullptr;
-    if (screen != nullptr)
+    if (prevScreen != nullptr)
     {
-        renderer = &_renderManager->GetScreenRenderer(*screen);
-        vox = &_voxManager->GetScreenVox(*screen);
-        screen->Deactivate();
+        renderer = &_renderManager->GetScreenRenderer(*prevScreen);
+        vox = &_voxManager->GetScreenVox(*prevScreen);
+        prevScreen->Deactivate();
         renderer->Deactivate();
         vox->Deactivate();
     }
 
-    screen = &_screenManager->GetScreen(kind);
+    Screen* screen = &_screenManager->GetScreen(kind);
     renderer = &_renderManager->GetScreenRenderer(*screen);
     vox = &_voxManager->GetScreenVox(*screen);
 
     _screenManager->SetCurrentScreen(*screen);
 
-    screen->Activate();
-    renderer->Activate();
-    vox->Activate();
+    screen->Activate(prevScreen);
+    renderer->Activate(prevScreen);
+    vox->Activate(prevScreen);
 }

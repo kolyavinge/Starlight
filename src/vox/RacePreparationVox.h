@@ -13,5 +13,6 @@ public:
     RacePreparationVox();
 
     void Init(SampleCollection& sampleCollection) override;
+    void Deactivate() override;
     void Voice(Screen& screen) override;
 };

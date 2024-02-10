@@ -20,7 +20,7 @@ StartMenuItem StartMenuScreen::GetSelectedItem()
     return _selector.GetSelectedItem();
 }
 
-void StartMenuScreen::Activate()
+void StartMenuScreen::Activate(Screen*)
 {
     _selector.Reset();
 }

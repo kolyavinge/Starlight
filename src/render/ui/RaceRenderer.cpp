@@ -18,8 +18,17 @@ RaceRenderer::RaceRenderer(
 {
 }
 
-void RaceRenderer::Init(GraphicItemCollection&)
+void RaceRenderer::Init(GraphicItemCollection& graphicItemCollection)
 {
+    _goRenderer.Init(graphicItemCollection.GoItem);
+}
+
+void RaceRenderer::Activate(Screen* prevScreen)
+{
+    if (prevScreen != nullptr && prevScreen->Kind == ScreenKind::RacePreparation)
+    {
+        _goRenderer.Reset();
+    }
 }
 
 void RaceRenderer::Render(Screen& screen)
@@ -33,6 +42,7 @@ void RaceRenderer::Render(Race& race)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
+
     glLoadIdentity();
     gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
@@ -41,5 +51,11 @@ void RaceRenderer::Render(Race& race)
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+
+    glLoadIdentity();
+    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
+    glEnable(GL_BLEND);
+    _goRenderer.Render();
     _dashboardRenderer.Render(race.Laps);
+    glDisable(GL_BLEND);
 }

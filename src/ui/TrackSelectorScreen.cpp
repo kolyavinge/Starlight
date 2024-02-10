@@ -21,7 +21,7 @@ TrackSelectorItem TrackSelectorScreen::GetSelectedItem()
     return _selector.GetSelectedItem();
 }
 
-void TrackSelectorScreen::Activate()
+void TrackSelectorScreen::Activate(Screen*)
 {
     _selector.Reset();
 }

@@ -20,9 +20,6 @@ void CountdownRenderer::Init(
 
 void CountdownRenderer::Render(int countdownNumber, int countdownIteration, int countdownSwitchIteration)
 {
-    glLoadIdentity();
-    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
-
     float alpha = 1.0f - (float)countdownIteration * 1.0f / (float)countdownSwitchIteration;
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, alpha);
 

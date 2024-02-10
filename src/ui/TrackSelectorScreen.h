@@ -27,6 +27,6 @@ public:
         Race& race);
 
     TrackSelectorItem GetSelectedItem();
-    void Activate() override;
+    void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
 };

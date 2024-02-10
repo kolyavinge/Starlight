@@ -128,7 +128,7 @@ String GraphicResources::GetCountdown3ItemFilePath()
     return path;
 }
 
-String GraphicResources::GetGOItemFilePath()
+String GraphicResources::GetGoItemFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\go.png\0");

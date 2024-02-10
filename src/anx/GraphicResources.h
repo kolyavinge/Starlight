@@ -21,5 +21,5 @@ public:
     static String GetCountdown1ItemFilePath();
     static String GetCountdown2ItemFilePath();
     static String GetCountdown3ItemFilePath();
-    static String GetGOItemFilePath();
+    static String GetGoItemFilePath();
 };

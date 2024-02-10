@@ -10,7 +10,7 @@ Screen::Screen(
 {
 }
 
-void Screen::Activate()
+void Screen::Activate(Screen*)
 {
 }
 

@@ -14,5 +14,5 @@ void GraphicItemCollection::Init()
     Countdown1Item.Load(GraphicResources::GetCountdown1ItemFilePath());
     Countdown2Item.Load(GraphicResources::GetCountdown2ItemFilePath());
     Countdown3Item.Load(GraphicResources::GetCountdown3ItemFilePath());
-    GOItem.Load(GraphicResources::GetGOItemFilePath());
+    GoItem.Load(GraphicResources::GetGoItemFilePath());
 }

@@ -19,7 +19,7 @@ public:
         IScreenNavigator& navigator,
         InputDevices& inputDevices);
 
-    virtual void Activate();
+    virtual void Activate(Screen* prevScreen);
     virtual void Deactivate();
     virtual void Update();
     virtual void ProcessInput();

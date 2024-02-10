@@ -24,7 +24,7 @@ void RacePreparationRenderer::Init(GraphicItemCollection& graphicItemCollection)
         graphicItemCollection.Countdown3Item);
 }
 
-void RacePreparationRenderer::Activate()
+void RacePreparationRenderer::Activate(Screen*)
 {
     _fadeEffect.Reset();
     _fadeEffect.Activate();
@@ -32,10 +32,11 @@ void RacePreparationRenderer::Activate()
 
 void RacePreparationRenderer::Render(Screen& screen)
 {
-    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
+
     glLoadIdentity();
+    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
     Race& race = racePreparationScreen.Race;
     gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
@@ -43,8 +44,11 @@ void RacePreparationRenderer::Render(Screen& screen)
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+
     glEnable(GL_BLEND);
     _fadeEffect.Render();
+    glLoadIdentity();
+    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     _countdownRenderer.Render(
         racePreparationScreen.GetCountdownNumber(),
         racePreparationScreen.GetCountdownIteration(),
