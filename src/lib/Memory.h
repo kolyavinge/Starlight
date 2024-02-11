@@ -10,27 +10,19 @@ class Memory
 {
 public:
     template<class T>
-    static T* Alloc(unsigned int itemsCount)
+    static T* AllocAndZero(unsigned int itemsCount)
     {
-        void* result = malloc(itemsCount * sizeof(T));
+        T* result = (T*)malloc(itemsCount * sizeof(T));
         if (result == nullptr) throw MemoryAllocationException();
+        Zero<T>(result, itemsCount);
 
-        return (T*)result;
+        return result;
     }
 
     template<class T>
     static void Zero(T* source, unsigned int itemsCount)
     {
         std::memset(source, 0, itemsCount * sizeof(T));
-    }
-
-    template<class T>
-    static T* AllocAndZero(unsigned int itemsCount)
-    {
-        T* result = Alloc<T>(itemsCount);
-        Zero<T>(result, itemsCount);
-
-        return (T*)result;
     }
 
     template<class T>
@@ -47,7 +39,7 @@ public:
     template<class T>
     static void Resize(T*& source, unsigned int currentItemsCount, unsigned int newItemsCount)
     {
-        T* newSource = Alloc<T>(newItemsCount);
+        T* newSource = AllocAndZero<T>(newItemsCount);
         Copy<T>(source, newSource, currentItemsCount);
         Release(source);
         source = newSource;

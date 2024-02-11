@@ -21,7 +21,7 @@ public:
         if (capacity <= 0) throw ArgumentException();
         _count = 0;
         _capacity = capacity;
-        _items = Memory::Alloc<T>(_capacity);
+        _items = Memory::AllocAndZero<T>(_capacity);
     }
 
     List(const List<T>& copy)

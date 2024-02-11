@@ -163,7 +163,7 @@ void String::Set(const String& copy)
     {
         Memory::Release(_symb);
     }
-    _symb = Memory::Alloc<wchar_t>(_capacity);
+    _symb = Memory::AllocAndZero<wchar_t>(_capacity);
     Memory::Copy<wchar_t>(copy._symb, _symb, _capacity);
 }
 
