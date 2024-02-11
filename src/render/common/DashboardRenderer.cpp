@@ -4,7 +4,8 @@
 DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
     _lapsCountRenderer(textRenderer),
     _lapTimeRenderer(textRenderer),
-    _completeLapTimeRenderer(textRenderer)
+    _completeLapTimeRenderer(textRenderer),
+    _completeLapsTimeListRenderer(textRenderer)
 {
 }
 
@@ -18,4 +19,5 @@ void DashboardRenderer::Render(Laps& laps)
     _lapsCountRenderer.Render(laps);
     _lapTimeRenderer.Render(laps);
     _completeLapTimeRenderer.Render(laps);
+    _completeLapsTimeListRenderer.Render(laps);
 }

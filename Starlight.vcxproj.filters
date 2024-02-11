@@ -131,6 +131,7 @@
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
     <ClInclude Include="src\render\common\GoRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
+    <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -249,6 +250,7 @@
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />
     <ClCompile Include="src\render\common\GoRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapTimeRenderer.cpp" />
+    <ClCompile Include="src\render\common\CompleteLapsTimeListRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

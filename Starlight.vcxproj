@@ -52,6 +52,7 @@
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\lib\TimeSpan.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
+    <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
     <ClInclude Include="src\render\common\DashboardRenderer.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="src\model\track\RoadTrack1.cpp" />
     <ClCompile Include="src\model\track\WheelTrack.cpp" />
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
+    <ClCompile Include="src\render\common\CompleteLapsTimeListRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />
     <ClCompile Include="src\render\common\DashboardRenderer.cpp" />
