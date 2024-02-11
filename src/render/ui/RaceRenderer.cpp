@@ -27,6 +27,7 @@ void RaceRenderer::Activate(Screen* prevScreen)
 {
     if (prevScreen != nullptr && prevScreen->Kind == ScreenKind::RacePreparation)
     {
+        _dashboardRenderer.Init();
         _goRenderer.Reset();
     }
 }
