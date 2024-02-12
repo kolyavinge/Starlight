@@ -80,9 +80,47 @@ void TrackBuilder::ConnectStartFinish()
     }
 }
 
-void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3& pivotAxis)
+void TrackBuilder::CenterTrack()
+{
+    float minX = _insidePoints[0].X;
+    float maxX = _insidePoints[0].X;
+    float minY = _insidePoints[0].Y;
+    float maxY = _insidePoints[0].Y;
+    for (int i = 1; i < _pointsCount; i++)
+    {
+        if (_insidePoints[i].X < minX) minX = _insidePoints[i].X;
+        if (_insidePoints[i].X > maxX) maxX = _insidePoints[i].X;
+        if (_insidePoints[i].Y < minY) minY = _insidePoints[i].Y;
+        if (_insidePoints[i].Y > maxY) maxY = _insidePoints[i].Y;
+    }
+
+    float widthHalf = (maxX - minX) / 2.0f;
+    float heightHalf = (maxY - minY) / 2.0f;
+    float deltaX = minX + widthHalf;
+    float deltaY = minY + heightHalf;
+
+    for (int i = 0; i < _pointsCount; i++)
+    {
+        _insidePoints[i].X -= deltaX;
+        _outsidePoints[i].X -= deltaX;
+        _insidePoints[i].Y -= deltaY;
+        _outsidePoints[i].Y -= deltaY;
+    }
+}
+
+void TrackBuilder::ZeroZ()
+{
+    for (int i = 0; i < _pointsCount; i++)
+    {
+        _insidePoints[i].Z = 0.0f;
+        _outsidePoints[i].Z = 0.0f;
+    }
+}
+
+void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3 pivotAxis)
 {
     Vector3 pivotPoint;
+    pivotAxis.Normalize();
     GetDirections(direction, radius, pivotAxis, pivotPoint);
     Vector3 insidePoint(_insidePoints[_pointsCount - 1]);
     Vector3 outsidePoint(_outsidePoints[_pointsCount - 1]);

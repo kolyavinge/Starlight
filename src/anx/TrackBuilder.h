@@ -26,9 +26,11 @@ public:
     void TurnLeft(float degrees, float radius, Vector3 pivotAxis);
     void TurnRight(float degrees, float radius, Vector3 pivotAxis);
     void ConnectStartFinish();
+    void CenterTrack();
+    void ZeroZ();
 
 private:
-    void Turn(Direction direction, float degrees, float radius, Vector3& pivotAxis);
+    void Turn(Direction direction, float degrees, float radius, Vector3 pivotAxis);
     void GetDirections(Direction direction, float radius, Vector3& pivotAxis, Vector3& pivotPoint);
     void UpdateDirections();
 };
