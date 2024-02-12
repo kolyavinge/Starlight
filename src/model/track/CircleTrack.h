@@ -4,6 +4,6 @@
 
 class CircleTrack : public Track
 {
-public:
+protected:
     void InternalInit();
 };

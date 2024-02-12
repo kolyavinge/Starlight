@@ -4,7 +4,7 @@
 #include <lib/Array.h>
 #include <calc/Vector3.h>
 
-#define TrackMaxPoints 10000
+#define TrackMaxPoints 20000
 #define TrackMaxMiddlePoints 10
 
 class TrackPoints : public Array<Vector3, TrackMaxPoints> { };
@@ -27,11 +27,13 @@ public:
     Track();
 
     void Init();
-    virtual void InternalInit() = 0;
     int GetTrackPointIndexFor(Vector3& point, int startIndex);
     bool IsShipMovingInStraightDirection(int trackPointIndexFront, int trackPointIndexRear);
     int GetNextTrackPointIndex(int currentIndex);
     int GetPrevTrackPointIndex(int currentIndex);
+
+protected:
+    virtual void InternalInit() = 0;
 
 private:
     void InitMiddlePoints();

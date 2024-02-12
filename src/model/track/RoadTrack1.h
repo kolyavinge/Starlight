@@ -4,6 +4,6 @@
 
 class RoadTrack1 : public Track
 {
-public:
+protected:
     void InternalInit();
 };

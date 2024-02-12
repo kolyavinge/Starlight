@@ -4,6 +4,6 @@
 
 class WheelTrack : public Track
 {
-public:
+protected:
     void InternalInit();
 };

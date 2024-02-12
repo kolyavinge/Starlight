@@ -1,3 +1,4 @@
+#include <lib/Math.h>
 #include <calc/Vector3.h>
 #include <anx/TrackBuilder.h>
 #include <model/track/RoadTrack1.h>
@@ -9,41 +10,48 @@ void RoadTrack1::InternalInit()
 
     TrackBuilder builder(InsidePoints, OutsidePoints, PointsCount);
 
-    builder.InitInsidePosition(10.0f, 0.0f, 0.0f);
+    builder.InitInsidePosition(20.0f, 0.0f, 0.0f);
     builder.InitOutsidePosition(0.0f, 0.0f, 3.0f);
 
     builder.InsideDirection.Set(0.0f, 1.0f, 0.0f);
     builder.OutsideDirection.Set(0.0f, 1.0f, 0.0f);
 
     builder.Move(100.0f);
-    builder.TurnRight(90.0f, 100.0f, Vector3(-0.2f, 0.0f, 1.0f));
-    builder.Move(100.0f);
-    builder.TurnLeft(45.0f, 50.0f, Vector3(-0.1f, 0.0f, 1.0f));
-    builder.Move(20.0f);
-    builder.TurnRight(45.0f, 20.0f, Vector3(0.1f, 0.0f, 1.0f));
-    builder.Move(20.0f);
-    builder.TurnLeft(45.0f, 50.0f, Vector3(-0.1f, 0.0f, 1.0f));
-    builder.Move(20.0f);
-    builder.TurnRight(45.0f, 20.0f, Vector3(0.1f, 0.0f, 1.0f));
-    builder.Move(20.0f);
-    builder.TurnRight(170.0f, 5.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.InsideDirection.Z = -0.5f;
-    builder.OutsideDirection.Z = -0.5f;
-    builder.Move(100.0f);
-    builder.TurnLeft(100.0f, 5.0f, Vector3(0.25f, 0.0f, 1.0f));
-    builder.Move(10.0f);
-    builder.TurnRight(90.0f, 10.0f, Vector3(-0.25f, 0.0f, 1.0f));
-    builder.TurnRight(90.0f, 40.0f, Vector3(-0.5f, 0.0f, 1.0f));
-    builder.InsideDirection.Z = -0.5f;
-    builder.OutsideDirection.Z = -0.5f;
-    builder.Move(20.0f);
-    builder.TurnLeft(120.0f, 50.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnRight(45.0f, 100.0f, Vector3(0.2f, 0.0f, 1.0f));
-    builder.Move(100.0f);
-    builder.TurnLeft(120.0f, 50.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.Move(100.0f);
-    builder.TurnRight(90.0f, 100.0f, Vector3(0.2f, 0.0f, 1.0f));
-    builder.TurnRight(140.0f, 10.0f, Vector3(0.2f, 0.0f, 1.0f));
+    builder.TurnRight(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.Move(200.0f);
+    builder.TurnRight(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.TurnLeft(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.TurnRight(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.Move(200.0f);
+    builder.TurnRight(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.Move(200.0f);
+    builder.TurnRight(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.Move(50.0f);
+    builder.TurnLeft(90.0f, 100.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.TurnRight(84.0f, 90.0f, Vector3(0.0f, 0.0f, 1.0f));
 
     builder.ConnectStartFinish();
+    builder.CenterTrack();
+    builder.ZeroZ();
+
+    float radians = 0.0f;
+    float radiansStep = 8.0f * Math::Pi / (float)PointsCount;
+    for (int i = 0; i < PointsCount; i++)
+    {
+        float z = 20.0f * Math::Sin(radians);
+        InsidePoints[i].Z = z;
+        OutsidePoints[i].Z = z + 8.0f;
+        radians += radiansStep;
+    }
+
+    //for (int k = 0; k < 100; k++)
+    //{
+    //    for (int i = 0; i < PointsCount; i++)
+    //    {
+    //        int m = GetNextTrackPointIndex(i);
+    //        int n = GetNextTrackPointIndex(m);
+    //        InsidePoints[m].Z = (InsidePoints[i].Z + InsidePoints[n].Z) / 2.0f;
+    //        OutsidePoints[m].Z = (OutsidePoints[i].Z + OutsidePoints[n].Z) / 2.0f;
+    //    }
+    //}
 }

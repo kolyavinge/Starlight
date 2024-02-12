@@ -4,6 +4,6 @@
 
 class LoopTrack : public Track
 {
-public:
+protected:
     void InternalInit();
 };
