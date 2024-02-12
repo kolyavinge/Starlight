@@ -33,6 +33,11 @@ void Stopwatch::Reset()
     _startTimestamp = DateTime::GetCurrentEpochMilliseconds();
 }
 
+long long Stopwatch::GetElapsedMilliseconds()
+{
+    return _elapsedMilliseconds;
+}
+
 TimeSpan Stopwatch::GetElapsed()
 {
     if (_isActive)

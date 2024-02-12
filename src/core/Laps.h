@@ -25,9 +25,11 @@ public:
     Laps();
 
     void StartFirstLap();
+    void StopTimer();
+    void ResumeTimer();
     int GetCurrentLapNumber();
     int GetLapsCount();
     void GetCurrentLapTime(String& result);
-    void GetCompletedLapTime(int lapNumber, String& result);
+    void GetCompletedLapTime(int completeLapNumber, String& result);
     void Update(Ship& ship, Track& track);
 };

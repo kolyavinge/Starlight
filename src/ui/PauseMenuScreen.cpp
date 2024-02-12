@@ -33,6 +33,7 @@ void PauseMenuScreen::ProcessInput()
 
     if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
     {
+        Race.Resume();
         _navigator.NavigateTo(ScreenKind::Race);
     }
     else if (
@@ -42,6 +43,7 @@ void PauseMenuScreen::ProcessInput()
     {
         if (GetSelectedItem() == PauseMenuItem::Resume)
         {
+            Race.Resume();
             _navigator.NavigateTo(ScreenKind::Race);
         }
         else if (GetSelectedItem() == PauseMenuItem::StartMenu)

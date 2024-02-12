@@ -65,6 +65,7 @@ void RaceScreen::ProcessInput()
 
     if (keyboard.IsPressed(VK_ESCAPE))
     {
+        Race.Pause();
         _navigator.NavigateTo(ScreenKind::PauseMenu);
     }
 }

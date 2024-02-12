@@ -16,6 +16,7 @@ public:
     void Start();
     void Stop();
     void Reset();
+    long long GetElapsedMilliseconds();
     TimeSpan GetElapsed();
 
 private:

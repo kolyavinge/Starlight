@@ -19,10 +19,11 @@ public:
     Camera Camera;
     Laps Laps;
 
-    Race(
-        RaceUpdater& raceUpdater);
+    Race(RaceUpdater& raceUpdater);
 
     void Init(::Track& selectedTrack);
     void Start();
+    void Pause();
+    void Resume();
     void Update();
 };

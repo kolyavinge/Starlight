@@ -9,7 +9,18 @@ void Laps::StartFirstLap()
 {
     _currentLapNumber = 1;
     _lapChecker.Init();
-    _lapTimer.StartNew();
+    _lapTimer.Reset();
+    _lapTimer.Start();
+}
+
+void Laps::StopTimer()
+{
+    _lapTimer.Stop();
+}
+
+void Laps::ResumeTimer()
+{
+    _lapTimer.Start();
 }
 
 int Laps::GetCurrentLapNumber()
@@ -27,14 +38,13 @@ void Laps::GetCurrentLapTime(String& result)
     _lapTimer.ToString(result);
 }
 
-void Laps::GetCompletedLapTime(int lapNumber, String& result)
+void Laps::GetCompletedLapTime(int completeLapNumber, String& result)
 {
-    result.Append(_completeLaps[lapNumber - 1].TimeString);
+    result.Append(_completeLaps[completeLapNumber - 1].TimeString);
 }
 
 void Laps::Update(Ship& ship, Track& track)
 {
-    _lapTimer.Update();
     if (_lapChecker.IsLapCompleted(ship, track))
     {
         CompleteLap completeLap;
@@ -42,6 +52,6 @@ void Laps::Update(Ship& ship, Track& track)
         _lapTimer.ToString(completeLap.TimeString);
         _completeLaps.Add(completeLap);
         _currentLapNumber++;
-        _lapTimer.StartNew();
+        _lapTimer.Reset();
     }
 }

@@ -1,35 +1,30 @@
-#include <lib/DateTime.h>
 #include <lib/TimeSpan.h>
 #include <lib/NumericConverter.h>
 #include <core/LapTimer.h>
 
-LapTimer::LapTimer()
+void LapTimer::Start()
 {
-    _lastTimestamp = 0;
-    _elapsed = 0;
+    _stopwatch.Start();
 }
 
-void LapTimer::StartNew()
+void LapTimer::Stop()
 {
-    _lastTimestamp = DateTime::GetCurrentEpochMilliseconds();
-    _elapsed = 0;
+    _stopwatch.Stop();
 }
 
-void LapTimer::Update()
+void LapTimer::Reset()
 {
-    long long currentTimestamp = DateTime::GetCurrentEpochMilliseconds();
-    _elapsed += currentTimestamp - _lastTimestamp;
-    _lastTimestamp = currentTimestamp;
+    _stopwatch.Reset();
 }
 
 long long LapTimer::GetElapsedMilliseconds()
 {
-    return _elapsed;
+    return _stopwatch.GetElapsedMilliseconds();
 }
 
 void LapTimer::ToString(String& result)
 {
-    TimeSpan ts(_elapsed);
+    TimeSpan ts = _stopwatch.GetElapsed();
 
     // hours + minutes
     if (ts.GetMinutes() < 10)

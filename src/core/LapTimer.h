@@ -2,17 +2,16 @@
 
 #include <lib/Object.h>
 #include <lib/String.h>
+#include <lib/Stopwatch.h>
 
 class LapTimer : public Object
 {
-    long long _lastTimestamp;
-    long long _elapsed;
+    Stopwatch _stopwatch;
 
 public:
-    LapTimer();
-
-    void StartNew();
-    void Update();
+    void Start();
+    void Stop();
+    void Reset();
     long long GetElapsedMilliseconds();
     void ToString(String& result);
 };

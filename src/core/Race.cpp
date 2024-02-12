@@ -22,6 +22,16 @@ void Race::Start()
     Laps.StartFirstLap();
 }
 
+void Race::Pause()
+{
+    Laps.StopTimer();
+}
+
+void Race::Resume()
+{
+    Laps.ResumeTimer();
+}
+
 void Race::Update()
 {
     _raceUpdater.Update(Player, *Track, Camera, Laps);
