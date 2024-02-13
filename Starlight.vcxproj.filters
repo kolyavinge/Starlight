@@ -134,6 +134,7 @@
     <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\ui\GridMenuItemSelector.h" />
+    <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -253,6 +254,7 @@
     <ClCompile Include="src\render\common\GoRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapsTimeListRenderer.cpp" />
+    <ClCompile Include="src\render\common\TrackThumbnailRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

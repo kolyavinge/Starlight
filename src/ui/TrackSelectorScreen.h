@@ -37,8 +37,8 @@ public:
     TrackSelectorItem GetSelectedItem();
     void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
+    Track& GetSelectedTrack();
 
 private:
-    Track& GetSelectedTrack();
     bool IsMenuActive();
 };

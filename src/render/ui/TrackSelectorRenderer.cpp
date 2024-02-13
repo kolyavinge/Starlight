@@ -24,16 +24,16 @@ void TrackSelectorRenderer::Render(Screen& screen)
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     _backgroundRenderer.Render();
+    glLoadIdentity();
+    glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1000.0, 1000.0);
+    glEnable(GL_BLEND);
     RenderMenu(trackSelectorScreen);
+    glDisable(GL_BLEND);
     _selectedItemColor.Update();
 }
 
 void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
 {
-    glLoadIdentity();
-    gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
-    glEnable(GL_BLEND);
-
     glPushMatrix();
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
     glTranslatef(
@@ -52,6 +52,4 @@ void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
     _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Back == screen.GetSelectedItem());
     glTranslatef(0.0f, 50.0f, 0.0f);
     _backItem->Render();
-
-    glDisable(GL_BLEND);
 }
