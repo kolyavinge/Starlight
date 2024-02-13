@@ -7,6 +7,7 @@
 #include <ui/IScreenNavigator.h>
 #include <ui/MenuItemSelector.h>
 #include <ui/LinearMenuItemSelector.h>
+#include <ui/GridMenuItemSelector.h>
 
 enum class TrackSelectorItem
 {
@@ -15,12 +16,13 @@ enum class TrackSelectorItem
     Track3,
     Track4,
     Race,
-    Back,
+    Back
 };
 
 class TrackSelectorScreen : public Screen
 {
     LinearMenuItemSelector<TrackSelectorItem, 2> _itemSelector;
+    GridMenuItemSelector<TrackSelectorItem, 2, 2> _trackSelector;
     MenuItemSelector<TrackSelectorItem>* _activeSelector;
     TrackManager& _trackManager;
     Race& _race;
@@ -35,4 +37,8 @@ public:
     TrackSelectorItem GetSelectedItem();
     void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
+
+private:
+    Track& GetSelectedTrack();
+    bool IsMenuActive();
 };
