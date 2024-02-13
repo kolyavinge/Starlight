@@ -49,7 +49,7 @@
     <ClInclude Include="src\model\VelocityFunction.h" />
     <ClInclude Include="src\core\PositionUpdater.h" />
     <ClInclude Include="src\core\LapChecker.h" />
-    <ClInclude Include="src\model\track\WheelTrack.h" />
+    <ClInclude Include="src\model\track\RoadTrack2.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
     <ClInclude Include="src\render\ui\RaceRenderer.h" />
     <ClInclude Include="src\render\common\ShipRenderer.h" />
@@ -177,7 +177,7 @@
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\core\LapChecker.cpp" />
-    <ClCompile Include="src\model\track\WheelTrack.cpp" />
+    <ClCompile Include="src\model\track\RoadTrack2.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
