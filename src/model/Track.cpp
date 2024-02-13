@@ -11,6 +11,7 @@ Track::Track()
 void Track::Init()
 {
     InternalInit();
+    CenterTrackPoints();
     InitMiddlePoints();
     InitNormals();
     StraightDirection.Normalize();
@@ -82,6 +83,34 @@ int Track::GetPrevTrackPointIndex(int currentIndex)
     if (currentIndex == -1) currentIndex = PointsCount - 1;
 
     return currentIndex;
+}
+
+void Track::CenterTrackPoints()
+{
+    float minX = InsidePoints[0].X;
+    float maxX = InsidePoints[0].X;
+    float minY = InsidePoints[0].Y;
+    float maxY = InsidePoints[0].Y;
+    for (int i = 1; i < PointsCount; i++)
+    {
+        if (InsidePoints[i].X < minX) minX = InsidePoints[i].X;
+        if (InsidePoints[i].X > maxX) maxX = InsidePoints[i].X;
+        if (InsidePoints[i].Y < minY) minY = InsidePoints[i].Y;
+        if (InsidePoints[i].Y > maxY) maxY = InsidePoints[i].Y;
+    }
+
+    float widthHalf = (maxX - minX) / 2.0f;
+    float heightHalf = (maxY - minY) / 2.0f;
+    float deltaX = minX + widthHalf;
+    float deltaY = minY + heightHalf;
+
+    for (int i = 0; i < PointsCount; i++)
+    {
+        InsidePoints[i].X -= deltaX;
+        OutsidePoints[i].X -= deltaX;
+        InsidePoints[i].Y -= deltaY;
+        OutsidePoints[i].Y -= deltaY;
+    }
 }
 
 void Track::InitMiddlePoints()

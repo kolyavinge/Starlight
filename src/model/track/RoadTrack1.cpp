@@ -31,8 +31,6 @@ void RoadTrack1::InternalInit()
     builder.TurnRight(84.0f, 90.0f, Vector3(0.0f, 0.0f, 1.0f));
 
     builder.ConnectStartFinish();
-    builder.CenterTrack();
-    //builder.ZeroZ();
 
     float radians = 0.0f;
     float radiansStep = 8.0f * Math::Pi / (float)PointsCount;
@@ -43,15 +41,4 @@ void RoadTrack1::InternalInit()
         OutsidePoints[i].Z = z + 8.0f;
         radians += radiansStep;
     }
-
-    //for (int k = 0; k < 100; k++)
-    //{
-    //    for (int i = 0; i < PointsCount; i++)
-    //    {
-    //        int m = GetNextTrackPointIndex(i);
-    //        int n = GetNextTrackPointIndex(m);
-    //        InsidePoints[m].Z = (InsidePoints[i].Z + InsidePoints[n].Z) / 2.0f;
-    //        OutsidePoints[m].Z = (OutsidePoints[i].Z + OutsidePoints[n].Z) / 2.0f;
-    //    }
-    //}
 }

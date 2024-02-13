@@ -37,7 +37,6 @@ void RoadTrack4::InternalInit()
     builder.TurnRight(80.0f, 40.0f, Vector3(0.0f, 0.0f, 1.0f));
 
     builder.ConnectStartFinish();
-    builder.CenterTrack();
 
     float radians = 0.0f;
     float radiansStep = 8.0f * Math::Pi / (float)PointsCount;

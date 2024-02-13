@@ -26,7 +26,6 @@ public:
     void TurnLeft(float degrees, float radius, Vector3 pivotAxis);
     void TurnRight(float degrees, float radius, Vector3 pivotAxis);
     void ConnectStartFinish();
-    void CenterTrack();
     void ZeroZ();
 
 private:

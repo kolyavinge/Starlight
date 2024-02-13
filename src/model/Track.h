@@ -36,6 +36,7 @@ protected:
     virtual void InternalInit() = 0;
 
 private:
+    void CenterTrackPoints();
     void InitMiddlePoints();
     void InitNormals();
     float GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointIndex);
