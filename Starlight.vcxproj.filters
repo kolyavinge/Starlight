@@ -133,6 +133,7 @@
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\ui\MenuItemSelector.h" />
+    <ClInclude Include="src\ui\GridMenuItemSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
