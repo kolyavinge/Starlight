@@ -1,9 +1,9 @@
 #include <lib/Math.h>
 #include <calc/Vector3.h>
 #include <anx/TrackBuilder.h>
-#include <model/track/RoadTrack2.h>
+#include <model/track/RoadTrack4.h>
 
-void RoadTrack2::InternalInit()
+void RoadTrack4::InternalInit()
 {
     StartFinishLineIndex = 0;
     StraightDirection.Set(0.0f, 1.0f, 0.0f);

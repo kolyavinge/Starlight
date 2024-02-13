@@ -100,7 +100,7 @@
     <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\core\LapChecker.h" />
     <ClInclude Include="src\core\TrackCollisionResult.h" />
-    <ClInclude Include="src\model\track\RoadTrack2.h" />
+    <ClInclude Include="src\model\track\RoadTrack4.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
     <ClInclude Include="src\model\VelocityFunction.h" />
     <ClInclude Include="src\gl\opengl.h" />
@@ -194,7 +194,7 @@
     <ClCompile Include="src\lib\Stopwatch.cpp" />
     <ClCompile Include="src\lib\String.cpp" />
     <ClCompile Include="src\lib\TimeSpan.cpp" />
-    <ClCompile Include="src\model\track\RoadTrack2.cpp" />
+    <ClCompile Include="src\model\track\RoadTrack4.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\gl\opengl.cpp" />
