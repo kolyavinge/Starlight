@@ -44,7 +44,7 @@
     <ClInclude Include="src\calc\Quaternion.h" />
     <ClInclude Include="src\calc\Plane.h" />
     <ClInclude Include="src\core\TrackCollisionResult.h" />
-    <ClInclude Include="src\model\track\LoopTrack.h" />
+    <ClInclude Include="src\model\track\RoadTrack2.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
     <ClInclude Include="src\model\VelocityFunction.h" />
     <ClInclude Include="src\core\PositionUpdater.h" />
@@ -173,7 +173,7 @@
     <ClCompile Include="src\calc\Quaternion.cpp" />
     <ClCompile Include="src\calc\Plane.cpp" />
     <ClCompile Include="src\core\TrackCollisionResult.cpp" />
-    <ClCompile Include="src\model\track\LoopTrack.cpp" />
+    <ClCompile Include="src\model\track\RoadTrack2.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />
     <ClCompile Include="src\core\LapChecker.cpp" />

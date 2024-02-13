@@ -32,7 +32,7 @@ void RoadTrack1::InternalInit()
 
     builder.ConnectStartFinish();
     builder.CenterTrack();
-    builder.ZeroZ();
+    //builder.ZeroZ();
 
     float radians = 0.0f;
     float radiansStep = 8.0f * Math::Pi / (float)PointsCount;
