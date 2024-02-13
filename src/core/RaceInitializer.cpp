@@ -6,7 +6,6 @@
 void RaceInitializer::Init(Race& race)
 {
     Track& track = *race.Track;
-    track.Init();
     race.Player.Init();
     SetPlayerBehindStartFinishLine(*race.Track, race.Player);
     race.Player.CentralLine.TrackPointIndexFront = track.StartFinishLineIndex;
