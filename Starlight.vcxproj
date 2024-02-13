@@ -73,10 +73,11 @@
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
+    <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\ui\RacePreparationScreen.h" />
     <ClInclude Include="src\ui\RaceScreen.h" />
     <ClInclude Include="src\ui\IScreenNavigator.h" />
-    <ClInclude Include="src\ui\MenuItemSelector.h" />
+    <ClInclude Include="src\ui\LinearMenuItemSelector.h" />
     <ClInclude Include="src\ui\PauseMenuScreen.h" />
     <ClInclude Include="src\ui\Screen.h" />
     <ClInclude Include="src\ui\ScreenKind.h" />

@@ -3,7 +3,7 @@
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
-#include <ui/MenuItemSelector.h>
+#include <ui/LinearMenuItemSelector.h>
 
 enum class StartMenuItem
 {
@@ -13,7 +13,7 @@ enum class StartMenuItem
 
 class StartMenuScreen : public Screen
 {
-    MenuItemSelector<StartMenuItem, 2> _selector;
+    LinearMenuItemSelector<StartMenuItem, 2> _selector;
 
 public:
     StartMenuScreen(

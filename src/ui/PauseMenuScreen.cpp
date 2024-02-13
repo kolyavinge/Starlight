@@ -7,7 +7,7 @@ PauseMenuScreen::PauseMenuScreen(
     InputDevices& inputDevices,
     ::Race& race) :
     Screen(ScreenKind::PauseMenu, navigator, inputDevices),
-    _selector(MenuItemSelectorOrientation::Vertical),
+    _selector(LinearMenuItemSelectorOrientation::Vertical),
     Race(race)
 {
     Array<PauseMenuItem, 2> items;

@@ -92,7 +92,7 @@
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\gl\TexturedRect.h" />
-    <ClInclude Include="src\ui\MenuItemSelector.h" />
+    <ClInclude Include="src\ui\LinearMenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\vox\ScreenVox.h" />
@@ -132,6 +132,7 @@
     <ClInclude Include="src\render\common\GoRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
+    <ClInclude Include="src\ui\MenuItemSelector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

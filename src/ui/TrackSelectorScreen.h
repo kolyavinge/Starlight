@@ -6,16 +6,22 @@
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
 #include <ui/MenuItemSelector.h>
+#include <ui/LinearMenuItemSelector.h>
 
 enum class TrackSelectorItem
 {
+    Track1,
+    Track2,
+    Track3,
+    Track4,
     Race,
     Back,
 };
 
 class TrackSelectorScreen : public Screen
 {
-    MenuItemSelector<TrackSelectorItem, 2> _selector;
+    LinearMenuItemSelector<TrackSelectorItem, 2> _itemSelector;
+    MenuItemSelector<TrackSelectorItem>* _activeSelector;
     TrackManager& _trackManager;
     Race& _race;
 

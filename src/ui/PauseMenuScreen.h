@@ -4,7 +4,7 @@
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
-#include <ui/MenuItemSelector.h>
+#include <ui/LinearMenuItemSelector.h>
 
 enum class PauseMenuItem
 {
@@ -14,7 +14,7 @@ enum class PauseMenuItem
 
 class PauseMenuScreen : public Screen
 {
-    MenuItemSelector<PauseMenuItem, 2> _selector;
+    LinearMenuItemSelector<PauseMenuItem, 2> _selector;
 
 public:
     Race& Race;

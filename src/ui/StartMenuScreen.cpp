@@ -7,7 +7,7 @@ StartMenuScreen::StartMenuScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices) :
     Screen(ScreenKind::StartMenu, navigator, inputDevices),
-    _selector(MenuItemSelectorOrientation::Vertical)
+    _selector(LinearMenuItemSelectorOrientation::Vertical)
 {
     Array<StartMenuItem, 2> items;
     items[0] = StartMenuItem::StartGame;
