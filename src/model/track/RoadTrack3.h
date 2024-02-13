@@ -2,7 +2,7 @@
 
 #include <model/Track.h>
 
-class CircleTrack : public Track
+class RoadTrack3 : public Track
 {
 protected:
     void InternalInit();

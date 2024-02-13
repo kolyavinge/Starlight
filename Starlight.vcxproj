@@ -124,7 +124,7 @@
     <ClInclude Include="src\calc\Physics.h" />
     <ClInclude Include="src\calc\VectorCalculator.h" />
     <ClInclude Include="src\lib\Numeric.h" />
-    <ClInclude Include="src\model\track\CircleTrack.h" />
+    <ClInclude Include="src\model\track\RoadTrack3.h" />
     <ClInclude Include="src\model\Border.h" />
     <ClInclude Include="src\model\track\RoadTrack1.h" />
     <ClInclude Include="src\model\Ship.h" />
@@ -261,7 +261,7 @@
     <ClCompile Include="src\calc\Physics.cpp" />
     <ClCompile Include="src\calc\VectorCalculator.cpp" />
     <ClCompile Include="src\lib\Numeric.cpp" />
-    <ClCompile Include="src\model\track\CircleTrack.cpp" />
+    <ClCompile Include="src\model\track\RoadTrack3.cpp" />
     <ClCompile Include="src\model\Ship.cpp" />
     <ClCompile Include="src\calc\SegmentIntersector.cpp" />
     <ClCompile Include="src\lib\Math.cpp" />

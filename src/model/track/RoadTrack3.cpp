@@ -1,7 +1,7 @@
 #include <lib/Math.h>
-#include <model/track/CircleTrack.h>
+#include <model/track/RoadTrack3.h>
 
-void CircleTrack::InternalInit()
+void RoadTrack3::InternalInit()
 {
     PointsCount = 400;
     StartFinishLineIndex = 0;
