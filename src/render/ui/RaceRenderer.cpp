@@ -47,7 +47,7 @@ void RaceRenderer::Render(Race& race)
     glLoadIdentity();
     gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
-    //gluLookAt(0, 0, 600, 10, 10, 0, 0, 0, 1);
+    //gluLookAt(0, 0, 700, 10, 10, 0, 0, 0, 1);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);

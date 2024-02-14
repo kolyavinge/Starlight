@@ -31,7 +31,7 @@ void RoadTrack2::InternalInit()
     builder.ConnectStartFinish();
 
     float radians = 0.5f;
-    float radiansStep = 4.0f * 2.0f * Math::Pi / (float)PointsCount;
+    float radiansStep = 8.0f * Math::Pi / (float)PointsCount;
     for (int i = 0; i < PointsCount; i++)
     {
         float z = 30.0f * Math::Sin(radians);
