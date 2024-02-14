@@ -97,12 +97,12 @@ Track& TrackSelectorScreen::GetTrackByCell(int row, int col)
 
 bool TrackSelectorScreen::IsMenuSelectionActive()
 {
-    return dynamic_cast<LinearMenuItemSelector<TrackSelectorItem>*>(_activeSelector);
+    return _activeSelector->Equals(_itemSelector);
 }
 
 bool TrackSelectorScreen::IsTrackSelectionActive()
 {
-    return dynamic_cast<GridMenuItemSelector<TrackSelectorItem, 2, 2>*>(_activeSelector);
+    return _activeSelector->Equals(_trackSelector);
 }
 
 Track& TrackSelectorScreen::GetTrackByItem(TrackSelectorItem item)
