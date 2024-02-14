@@ -92,6 +92,15 @@ String GraphicResources::GetStartMenuMenuItemFilePath()
     return path;
 }
 
+String GraphicResources::GetTrackSelectionRectFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\menu\\track_selection_rect.png\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetAlphabetFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

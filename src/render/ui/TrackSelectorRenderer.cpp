@@ -16,6 +16,7 @@ void TrackSelectorRenderer::Init(GraphicItemCollection& graphicItemCollection)
     _selectTrackItem = &graphicItemCollection.SelectTrackItem;
     _raceItem = &graphicItemCollection.RaceItem;
     _backItem = &graphicItemCollection.BackItem;
+    _trackThumbnailGridRenderer.Init();
 }
 
 void TrackSelectorRenderer::Render(Screen& screen)
@@ -28,6 +29,7 @@ void TrackSelectorRenderer::Render(Screen& screen)
     glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -1000.0, 1000.0);
     glEnable(GL_BLEND);
     RenderMenu(trackSelectorScreen);
+    _trackThumbnailGridRenderer.Render(trackSelectorScreen);
     glDisable(GL_BLEND);
     _selectedItemColor.Update();
 }
@@ -50,6 +52,8 @@ void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
     glPopMatrix();
 
     _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Back == screen.GetSelectedItem());
+    glPushMatrix();
     glTranslatef(0.0f, 50.0f, 0.0f);
     _backItem->Render();
+    glPopMatrix();
 }

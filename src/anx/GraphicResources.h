@@ -16,6 +16,8 @@ public:
     static String GetResumeMenuItemFilePath();
     static String GetStartMenuMenuItemFilePath();
 
+    static String GetTrackSelectionRectFilePath();
+
     static String GetAlphabetFilePath();
 
     static String GetCountdown1ItemFilePath();

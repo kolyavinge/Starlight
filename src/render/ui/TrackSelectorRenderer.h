@@ -4,6 +4,7 @@
 #include <ui/TrackSelectorScreen.h>
 #include <gl/TexturedRect.h>
 #include <render/common/MenuBackgroundRenderer.h>
+#include <render/common/TrackThumbnailGridRenderer.h>
 #include <render/ui/SelectedItemColor.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
@@ -14,6 +15,7 @@ class TrackSelectorRenderer : public ScreenRenderer
     TexturedRect* _selectTrackItem;
     TexturedRect* _raceItem;
     TexturedRect* _backItem;
+    TrackThumbnailGridRenderer _trackThumbnailGridRenderer;
     SelectedItemColor _selectedItemColor;
 
 public:
