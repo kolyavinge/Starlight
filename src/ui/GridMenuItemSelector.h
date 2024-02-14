@@ -85,6 +85,21 @@ public:
         return false;
     }
 
+    int GetRowsCount()
+    {
+        return Rows;
+    }
+
+    int GetColsCount()
+    {
+        return Cols;
+    }
+
+    TMenuItem GetItemByCell(int row, int col)
+    {
+        return _items[row][col];
+    }
+
 private:
     void NormalizeSelected()
     {

@@ -23,7 +23,7 @@ TrackSelectorScreen::TrackSelectorScreen(
     tracks[3] = TrackSelectorItem::Track4;
     _trackSelector.Init(tracks);
 
-    _activeSelector = &_itemSelector;
+    _activeSelector = nullptr;
 }
 
 TrackSelectorItem TrackSelectorScreen::GetSelectedItem()
@@ -35,6 +35,7 @@ void TrackSelectorScreen::Activate(Screen*)
 {
     _itemSelector.Reset();
     _trackSelector.Reset();
+    _activeSelector = &_trackSelector;
 }
 
 void TrackSelectorScreen::ProcessInput()
@@ -42,7 +43,7 @@ void TrackSelectorScreen::ProcessInput()
     bool hasSelection = _activeSelector->ProcessSelection(_inputDevices);
     if (hasSelection) return;
 
-    if (IsMenuActive())
+    if (IsMenuSelectionActive())
     {
         if (_inputDevices.Keyboard.IsPressed(VK_UP) ||
             _inputDevices.Joystick.IsUpPressed())
@@ -80,29 +81,40 @@ void TrackSelectorScreen::ProcessInput()
 
 Track& TrackSelectorScreen::GetSelectedTrack()
 {
-    if (_trackSelector.GetSelectedItem() == TrackSelectorItem::Track1)
-    {
-        return _trackManager.Track1;
-    }
-    else if (_trackSelector.GetSelectedItem() == TrackSelectorItem::Track2)
-    {
-        return _trackManager.Track2;
-    }
-    else if (_trackSelector.GetSelectedItem() == TrackSelectorItem::Track3)
-    {
-        return _trackManager.Track3;
-    }
-    else if (_trackSelector.GetSelectedItem() == TrackSelectorItem::Track4)
-    {
-        return _trackManager.Track4;
-    }
-    else
-    {
-        throw ArgumentException();
-    }
+    return GetTrackByItem(_trackSelector.GetSelectedItem());
 }
 
-bool TrackSelectorScreen::IsMenuActive()
+int TrackSelectorScreen::GetTrackGridRowsCount()
+{
+    return _trackSelector.GetRowsCount();
+}
+
+int TrackSelectorScreen::GetTrackGridColsCount()
+{
+    return _trackSelector.GetColsCount();
+}
+
+Track& TrackSelectorScreen::GetTrackByCell(int row, int col)
+{
+    return GetTrackByItem(_trackSelector.GetItemByCell(row, col));
+}
+
+bool TrackSelectorScreen::IsMenuSelectionActive()
 {
     return dynamic_cast<LinearMenuItemSelector<TrackSelectorItem, 2>*>(_activeSelector);
+}
+
+bool TrackSelectorScreen::IsTrackSelectionActive()
+{
+    return dynamic_cast<GridMenuItemSelector<TrackSelectorItem, 2, 2>*>(_activeSelector);
+}
+
+Track& TrackSelectorScreen::GetTrackByItem(TrackSelectorItem item)
+{
+    if (item == TrackSelectorItem::Track1) return _trackManager.Track1;
+    if (item == TrackSelectorItem::Track2) return _trackManager.Track2;
+    if (item == TrackSelectorItem::Track3) return _trackManager.Track3;
+    if (item == TrackSelectorItem::Track4) return _trackManager.Track4;
+
+    throw ArgumentException();
 }

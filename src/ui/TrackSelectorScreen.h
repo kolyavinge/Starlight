@@ -38,7 +38,12 @@ public:
     void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
     Track& GetSelectedTrack();
+    int GetTrackGridRowsCount();
+    int GetTrackGridColsCount();
+    Track& GetTrackByCell(int row, int col);
+    bool IsMenuSelectionActive();
+    bool IsTrackSelectionActive();
 
 private:
-    bool IsMenuActive();
+    Track& GetTrackByItem(TrackSelectorItem item);
 };
