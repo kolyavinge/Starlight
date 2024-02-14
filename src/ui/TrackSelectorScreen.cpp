@@ -16,12 +16,10 @@ TrackSelectorScreen::TrackSelectorScreen(
     items[1] = TrackSelectorItem::Back;
     _itemSelector.Init(items);
 
-    Array<TrackSelectorItem, 4> tracks;
-    tracks[0] = TrackSelectorItem::Track1;
-    tracks[1] = TrackSelectorItem::Track2;
-    tracks[2] = TrackSelectorItem::Track3;
-    tracks[3] = TrackSelectorItem::Track4;
-    _trackSelector.Init(tracks);
+    _trackSelector.SetItem(0, 0, TrackSelectorItem::Track1);
+    _trackSelector.SetItem(0, 1, TrackSelectorItem::Track2);
+    _trackSelector.SetItem(1, 0, TrackSelectorItem::Track3);
+    _trackSelector.SetItem(1, 1, TrackSelectorItem::Track4);
 
     _activeSelector = nullptr;
 }

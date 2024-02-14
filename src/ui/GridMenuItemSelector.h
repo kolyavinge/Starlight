@@ -1,7 +1,6 @@
 #pragma once
 
 #include <windows.h>
-#include <lib/Array.h>
 #include <lib/Memory.h>
 #include <input/InputDevices.h>
 #include <ui/MenuItemSelector.h>
@@ -20,17 +19,9 @@ public:
         _selectedCol = 0;
     }
 
-    template<int Count>
-    void Init(Array<TMenuItem, Count>& items)
+    void SetItem(int row, int col, TMenuItem item)
     {
-        int i = 0;
-        for (int row = 0; row < Rows; row++)
-        {
-            for (int col = 0; col < Cols; col++)
-            {
-                _items[row][col] = items[i++];
-            }
-        }
+        _items[row][col] = item;
     }
 
     TMenuItem& GetSelectedItem() override
