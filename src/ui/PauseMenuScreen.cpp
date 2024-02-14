@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <lib/Array.h>
 #include <ui/PauseMenuScreen.h>
 
 PauseMenuScreen::PauseMenuScreen(
@@ -10,10 +9,8 @@ PauseMenuScreen::PauseMenuScreen(
     _selector(LinearMenuItemSelectorOrientation::Vertical),
     Race(race)
 {
-    Array<PauseMenuItem, 2> items;
-    items[0] = PauseMenuItem::Resume;
-    items[1] = PauseMenuItem::StartMenu;
-    _selector.Init(items);
+    _selector.AddItem(PauseMenuItem::Resume);
+    _selector.AddItem(PauseMenuItem::StartMenu);
 }
 
 PauseMenuItem PauseMenuScreen::GetSelectedItem()

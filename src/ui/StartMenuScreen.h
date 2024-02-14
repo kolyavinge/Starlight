@@ -13,7 +13,7 @@ enum class StartMenuItem
 
 class StartMenuScreen : public Screen
 {
-    LinearMenuItemSelector<StartMenuItem, 2> _selector;
+    LinearMenuItemSelector<StartMenuItem> _selector;
 
 public:
     StartMenuScreen(

@@ -21,7 +21,7 @@ enum class TrackSelectorItem
 
 class TrackSelectorScreen : public Screen
 {
-    LinearMenuItemSelector<TrackSelectorItem, 2> _itemSelector;
+    LinearMenuItemSelector<TrackSelectorItem> _itemSelector;
     GridMenuItemSelector<TrackSelectorItem, 2, 2> _trackSelector;
     MenuItemSelector<TrackSelectorItem>* _activeSelector;
     TrackManager& _trackManager;

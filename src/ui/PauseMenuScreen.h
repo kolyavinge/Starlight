@@ -14,7 +14,7 @@ enum class PauseMenuItem
 
 class PauseMenuScreen : public Screen
 {
-    LinearMenuItemSelector<PauseMenuItem, 2> _selector;
+    LinearMenuItemSelector<PauseMenuItem> _selector;
 
 public:
     Race& Race;

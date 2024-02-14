@@ -136,6 +136,7 @@
     <ClInclude Include="src\ui\GridMenuItemSelector.h" />
     <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailGridRenderer.h" />
+    <ClInclude Include="src\lib\CycledListIterator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

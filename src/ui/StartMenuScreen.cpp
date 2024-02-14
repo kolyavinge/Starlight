@@ -1,5 +1,4 @@
 #include <windows.h>
-#include <lib/Array.h>
 #include <ui/StartMenuScreen.h>
 #include <win/App.h>
 
@@ -9,10 +8,8 @@ StartMenuScreen::StartMenuScreen(
     Screen(ScreenKind::StartMenu, navigator, inputDevices),
     _selector(LinearMenuItemSelectorOrientation::Vertical)
 {
-    Array<StartMenuItem, 2> items;
-    items[0] = StartMenuItem::StartGame;
-    items[1] = StartMenuItem::Exit;
-    _selector.Init(items);
+    _selector.AddItem(StartMenuItem::StartGame);
+    _selector.AddItem(StartMenuItem::Exit);
 }
 
 StartMenuItem StartMenuScreen::GetSelectedItem()

@@ -41,6 +41,7 @@
     <ClInclude Include="src\input\Keyboard.h" />
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
+    <ClInclude Include="src\lib\CycledListIterator.h" />
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />

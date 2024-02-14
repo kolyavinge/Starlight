@@ -11,10 +11,8 @@ TrackSelectorScreen::TrackSelectorScreen(
     _trackManager(trackManager),
     _race(race)
 {
-    Array<TrackSelectorItem, 2> items;
-    items[0] = TrackSelectorItem::Race;
-    items[1] = TrackSelectorItem::Back;
-    _itemSelector.Init(items);
+    _itemSelector.AddItem(TrackSelectorItem::Race);
+    _itemSelector.AddItem(TrackSelectorItem::Back);
 
     _trackSelector.SetItem(0, 0, TrackSelectorItem::Track1);
     _trackSelector.SetItem(0, 1, TrackSelectorItem::Track2);
@@ -99,7 +97,7 @@ Track& TrackSelectorScreen::GetTrackByCell(int row, int col)
 
 bool TrackSelectorScreen::IsMenuSelectionActive()
 {
-    return dynamic_cast<LinearMenuItemSelector<TrackSelectorItem, 2>*>(_activeSelector);
+    return dynamic_cast<LinearMenuItemSelector<TrackSelectorItem>*>(_activeSelector);
 }
 
 bool TrackSelectorScreen::IsTrackSelectionActive()

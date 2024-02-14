@@ -1,8 +1,8 @@
 #pragma once
 
 #include <windows.h>
-#include <lib/Array.h>
-#include <lib/CycledArrayIterator.h>
+#include <lib/List.h>
+#include <lib/CycledListIterator.h>
 #include <input/InputDevices.h>
 #include <ui/MenuItemSelector.h>
 
@@ -12,12 +12,12 @@ enum class LinearMenuItemSelectorOrientation
     Horizontal
 };
 
-template<class TMenuItem, int Count>
+template<class TMenuItem>
 class LinearMenuItemSelector : public MenuItemSelector<TMenuItem>
 {
     LinearMenuItemSelectorOrientation _orientation;
-    Array<TMenuItem, Count> _items;
-    CycledArrayIterator<TMenuItem, Count> _iter;
+    List<TMenuItem> _items;
+    CycledListIterator<TMenuItem> _iter;
 
 public:
     LinearMenuItemSelector(LinearMenuItemSelectorOrientation orientation) :
@@ -26,12 +26,9 @@ public:
         _orientation = orientation;
     }
 
-    void Init(Array<TMenuItem, Count>& items)
+    void AddItem(TMenuItem item)
     {
-        for (int i = 0; i < Count; i++)
-        {
-            _items[i] = items[i];
-        }
+        _items.Add(item);
     }
 
     TMenuItem& GetSelectedItem() override
