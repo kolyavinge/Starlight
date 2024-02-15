@@ -7,6 +7,7 @@ CompleteLapTimeRenderer::CompleteLapTimeRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)
 {
     _lastLapNumber = 0;
+    _lastLapMessageString = String(L"LAST LAP");
     _alpha = 0.0f;
 }
 
@@ -30,9 +31,16 @@ void CompleteLapTimeRenderer::Render(Laps& laps)
 
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, _alpha);
     _alpha -= 0.008f;
+    RenderLapTime();
+    if (laps.GetCurrentLapNumber() == laps.GetLapsCount())
+    {
+        RenderLastLap();
+    }
+}
 
+void CompleteLapTimeRenderer::RenderLapTime()
+{
     glPushMatrix();
-
     float width = (float)_lastLapTime.GetLength() * _textRenderer.GetLetterWidth();
     float height = _textRenderer.GetLetterHeight();
     glTranslatef(
@@ -40,6 +48,18 @@ void CompleteLapTimeRenderer::Render(Laps& laps)
         (Constants::ScreenHeight - height) / 2.0f + Constants::ScreenHeight / 4.0f,
         0.0f);
     _textRenderer.Render(_lastLapTime);
+    glPopMatrix();
+}
 
+void CompleteLapTimeRenderer::RenderLastLap()
+{
+    glPushMatrix();
+    float width = (float)_lastLapMessageString.GetLength() * _textRenderer.GetLetterWidth();
+    float height = _textRenderer.GetLetterHeight();
+    glTranslatef(
+        (Constants::ScreenWidth - width) / 2.0f,
+        (Constants::ScreenHeight - height) / 2.0f + Constants::ScreenHeight / 4.0f - height,
+        0.0f);
+    _textRenderer.Render(_lastLapMessageString);
     glPopMatrix();
 }

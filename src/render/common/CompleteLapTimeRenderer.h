@@ -10,6 +10,7 @@ class CompleteLapTimeRenderer : public Object
     TextRenderer& _textRenderer;
     int _lastLapNumber;
     String _lastLapTime;
+    String _lastLapMessageString;
     float _alpha;
 
 public:
@@ -17,4 +18,8 @@ public:
 
     void Init();
     void Render(Laps& laps);
+
+private:
+    void RenderLapTime();
+    void RenderLastLap();
 };
