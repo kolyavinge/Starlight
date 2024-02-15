@@ -145,3 +145,12 @@ String GraphicResources::GetGoItemFilePath()
 
     return path;
 }
+
+String GraphicResources::GetFinishItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\finish.png\0");
+    path.Append(name);
+
+    return path;
+}
