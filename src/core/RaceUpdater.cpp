@@ -3,6 +3,7 @@
 #include <core/RaceUpdater.h>
 
 void RaceUpdater::Update(
+    RaceState& state,
     Ship& player,
     Track& track,
     Camera& camera,
@@ -21,7 +22,7 @@ void RaceUpdater::Update(
         _borderUpdater.Update(player);
     }
     _positionCorrector.CorrectAfterFloatOperations(player);
-    laps.Update(player, track);
+    laps.Update(state, player, track);
     camera.SetFrontView(player);
 }
 

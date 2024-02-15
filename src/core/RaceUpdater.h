@@ -2,6 +2,7 @@
 
 #include <model/Ship.h>
 #include <model/Track.h>
+#include <core/RaceState.h>
 #include <core/TurnAngleCalculator.h>
 #include <core/VelocityCalculator.h>
 #include <core/MoveLogic.h>
@@ -24,6 +25,7 @@ class RaceUpdater : public Object
 
 public:
     void Update(
+        RaceState& state,
         Ship& player,
         Track& track,
         Camera& camera,

@@ -6,11 +6,13 @@ Race::Race(
     _raceUpdater(raceUpdater),
     PlayerController(Player)
 {
+    State = RaceState::Prepare;
     Track = nullptr;
 }
 
 void Race::Init(::Track& selectedTrack)
 {
+    State = RaceState::Prepare;
     Track = &selectedTrack;
     RaceInitializer initializer;
     initializer.Init(*this);
@@ -19,6 +21,7 @@ void Race::Init(::Track& selectedTrack)
 
 void Race::Start()
 {
+    State = RaceState::Start;
     Laps.StartFirstLap();
 }
 
@@ -34,5 +37,5 @@ void Race::Resume()
 
 void Race::Update()
 {
-    _raceUpdater.Update(Player, *Track, Camera, Laps);
+    _raceUpdater.Update(State, Player, *Track, Camera, Laps);
 }

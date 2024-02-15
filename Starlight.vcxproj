@@ -27,6 +27,7 @@
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
     <ClInclude Include="src\core\Race.h" />
+    <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\Face.h" />

@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <model/Ship.h>
 #include <model/Track.h>
+#include <core/RaceState.h>
 #include <core/ShipController.h>
 #include <core/RaceUpdater.h>
 #include <core/Camera.h>
@@ -13,6 +14,7 @@ class Race : public Object
     RaceUpdater& _raceUpdater;
 
 public:
+    RaceState State;
     Ship Player;
     Track* Track;
     ShipController PlayerController;

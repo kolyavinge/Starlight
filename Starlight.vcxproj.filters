@@ -138,6 +138,7 @@
     <ClInclude Include="src\render\common\TrackThumbnailGridRenderer.h" />
     <ClInclude Include="src\lib\CycledListIterator.h" />
     <ClInclude Include="src\render\common\FinishRenderer.h" />
+    <ClInclude Include="src\core\RaceState.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

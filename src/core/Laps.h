@@ -5,6 +5,7 @@
 #include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
+#include <core/RaceState.h>
 #include <core/LapChecker.h>
 #include <core/LapTimer.h>
 
@@ -31,5 +32,5 @@ public:
     int GetLapsCount();
     void GetCurrentLapTime(String& result);
     void GetCompletedLapTime(int completeLapNumber, String& result);
-    void Update(Ship& ship, Track& track);
+    void Update(RaceState& state, Ship& ship, Track& track);
 };
