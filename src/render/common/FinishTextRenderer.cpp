@@ -4,9 +4,9 @@
 #include <gl/ImageFile.h>
 #include <anx/GraphicResources.h>
 #include <render/common/RenderConstants.h>
-#include <render/common/FinishRenderer.h>
+#include <render/common/FinishTextRenderer.h>
 
-FinishRenderer::FinishRenderer()
+FinishTextRenderer::FinishTextRenderer()
 {
     _zCoords.InitZero();
     _phase = 0.0f;
@@ -15,18 +15,20 @@ FinishRenderer::FinishRenderer()
     _radiansStep = Math::PiDouble / (float)_zCoords.Count;
     _widthStep = 0.0f;
     _textureStep = 1.0f / (float)_zCoords.Count;
+    _alpha = 0.0f;
 }
 
-void FinishRenderer::Init()
+void FinishTextRenderer::Init()
 {
     _finishTexture.Load(GraphicResources::GetFinishItemFilePath());
     ImageFile image(GraphicResources::GetFinishItemFilePath().GetWCharBuf());
     _width = (float)image.GetWidth();
     _height = (float)image.GetHeight();
     _widthStep = _width / (float)_zCoords.Count;
+    _alpha = 0.0f;
 }
 
-void FinishRenderer::Render()
+void FinishTextRenderer::Render()
 {
     glPushMatrix();
     glTranslatef(
@@ -34,7 +36,8 @@ void FinishRenderer::Render()
         (Constants::ScreenHeight - _height) / 2.0f,
         0.0f);
     glRotatef(5.0f, 1.0f, 0.0f, 0.0f);
-    glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
+    if (_alpha < 1.0f) _alpha += 0.005f;
+    glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, _alpha);
     glEnable(GL_TEXTURE_2D);
     _finishTexture.Bind();
     glBegin(GL_QUADS);
@@ -62,17 +65,17 @@ void FinishRenderer::Render()
     UpdateZCoords();
 }
 
-float FinishRenderer::GetWidth()
+float FinishTextRenderer::GetWidth()
 {
     return _width;
 }
 
-float FinishRenderer::GetHeight()
+float FinishTextRenderer::GetHeight()
 {
     return _height;
 }
 
-void FinishRenderer::UpdateZCoords()
+void FinishTextRenderer::UpdateZCoords()
 {
     for (int i = 0; i < _zCoords.Count; i++)
     {

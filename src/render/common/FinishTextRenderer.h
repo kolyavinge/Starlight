@@ -4,7 +4,7 @@
 #include <lib/Array.h>
 #include <gl/Texture.h>
 
-class FinishRenderer : public Object
+class FinishTextRenderer : public Object
 {
     Texture _finishTexture;
     Array<float, 100> _zCoords;
@@ -14,9 +14,10 @@ class FinishRenderer : public Object
     float _radiansStep;
     float _widthStep;
     float _textureStep;
+    float _alpha;
 
 public:
-    FinishRenderer();
+    FinishTextRenderer();
 
     void Init();
     void Render();

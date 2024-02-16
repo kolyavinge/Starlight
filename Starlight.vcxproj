@@ -58,7 +58,7 @@
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
     <ClInclude Include="src\render\common\DashboardRenderer.h" />
-    <ClInclude Include="src\render\common\FinishRenderer.h" />
+    <ClInclude Include="src\render\common\FinishTextRenderer.h" />
     <ClInclude Include="src\render\common\GoRenderer.h" />
     <ClInclude Include="src\render\common\LapsCountRenderer.h" />
     <ClInclude Include="src\render\common\LapTimeRenderer.h" />
@@ -213,7 +213,7 @@
     <ClCompile Include="src\render\common\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />
     <ClCompile Include="src\render\common\DashboardRenderer.cpp" />
-    <ClCompile Include="src\render\common\FinishRenderer.cpp" />
+    <ClCompile Include="src\render\common\FinishTextRenderer.cpp" />
     <ClCompile Include="src\render\common\GoRenderer.cpp" />
     <ClCompile Include="src\render\common\LapsCountRenderer.cpp" />
     <ClCompile Include="src\render\common\LapTimeRenderer.cpp" />
