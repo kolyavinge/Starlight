@@ -6,24 +6,24 @@
 CompleteLapTimeRenderer::CompleteLapTimeRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)
 {
-    _lastLapNumber = 0;
+    _completeLapsCount = 0;
     _lastLapMessageString = String(L"LAST LAP");
     _alpha = 0.0f;
 }
 
 void CompleteLapTimeRenderer::Init()
 {
-    _lastLapNumber = 1;
+    _completeLapsCount = 0;
     _alpha = 0.0f;
 }
 
 void CompleteLapTimeRenderer::Render(Laps& laps)
 {
-    if (_lastLapNumber != laps.GetCurrentLapNumber())
+    if (_completeLapsCount != laps.GetCompleteLapsCount())
     {
+        _completeLapsCount = laps.GetCompleteLapsCount();
         _lastLapTime.Clear();
-        laps.GetCompletedLapTime(_lastLapNumber, _lastLapTime);
-        _lastLapNumber = laps.GetCurrentLapNumber();
+        laps.GetCompletedLapTime(_completeLapsCount, _lastLapTime);
         _alpha = 1.0f;
     }
 
@@ -32,7 +32,7 @@ void CompleteLapTimeRenderer::Render(Laps& laps)
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, _alpha);
     _alpha -= 0.008f;
     RenderLapTime();
-    if (laps.GetCurrentLapNumber() == laps.GetLapsCount())
+    if (laps.IsLastLap())
     {
         RenderLastLap();
     }

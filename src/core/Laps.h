@@ -31,6 +31,8 @@ public:
     int GetCurrentLapNumber();
     int GetLapsCount();
     void GetCurrentLapTime(String& result);
+    int GetCompleteLapsCount();
     void GetCompletedLapTime(int completeLapNumber, String& result);
+    bool IsLastLap();
     void Update(RaceState& state, Ship& ship, Track& track);
 };

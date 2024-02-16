@@ -8,7 +8,7 @@
 class CompleteLapTimeRenderer : public Object
 {
     TextRenderer& _textRenderer;
-    int _lastLapNumber;
+    int _completeLapsCount;
     String _lastLapTime;
     String _lastLapMessageString;
     float _alpha;

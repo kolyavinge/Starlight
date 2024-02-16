@@ -12,7 +12,7 @@ void CompleteLapsTimeListRenderer::Render(Laps& laps)
 {
     // last time on top
     float y = Constants::ScreenHeight - _textRenderer.GetLetterHeight() - _textRenderer.GetLetterHeight();
-    for (int lapNumber = laps.GetCurrentLapNumber() - 1; lapNumber > 0; lapNumber--)
+    for (int lapNumber = laps.GetCompleteLapsCount(); lapNumber > 0; lapNumber--)
     {
         _lapTimeString.Clear();
         laps.GetCompletedLapTime(lapNumber, _lapTimeString);

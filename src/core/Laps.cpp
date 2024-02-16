@@ -11,6 +11,7 @@ void Laps::StartFirstLap()
     _lapChecker.Init();
     _lapTimer.Reset();
     _lapTimer.Start();
+    _completeLaps.Clear();
 }
 
 void Laps::StopTimer()
@@ -38,9 +39,19 @@ void Laps::GetCurrentLapTime(String& result)
     _lapTimer.ToString(result);
 }
 
+int Laps::GetCompleteLapsCount()
+{
+    return _completeLaps.Count();
+}
+
 void Laps::GetCompletedLapTime(int completeLapNumber, String& result)
 {
     result.Append(_completeLaps[completeLapNumber - 1].TimeString);
+}
+
+bool Laps::IsLastLap()
+{
+    return GetCompleteLapsCount() == GetLapsCount() - 1;
 }
 
 void Laps::Update(RaceState& state, Ship& ship, Track& track)
@@ -51,14 +62,15 @@ void Laps::Update(RaceState& state, Ship& ship, Track& track)
         completeLap.TimeMilliseconds = _lapTimer.GetElapsedMilliseconds();
         _lapTimer.ToString(completeLap.TimeString);
         _completeLaps.Add(completeLap);
-        _lapTimer.Reset();
         if (_currentLapNumber < GetLapsCount())
         {
             _currentLapNumber++;
+            _lapTimer.Reset();
         }
         else
         {
             state = RaceState::Finish;
+            _lapTimer.Stop();
         }
     }
 }
