@@ -32,5 +32,5 @@ void Camera::SetView(Vector3& front, Vector3& rear, float velocityValue)
 
     LookAt.Set(front);
 
-    ViewAngleDegrees = 60.0f + 2.0f * velocityValue;
+    ViewAngleDegrees = 60.0f + 1.5f * velocityValue;
 }

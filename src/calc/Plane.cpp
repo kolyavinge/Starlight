@@ -1,3 +1,5 @@
+#include <lib/Assert.h>
+#include <lib/Numeric.h>
 #include <calc/Plane.h>
 
 Plane::Plane(Vector3& normal, Vector3& point)
@@ -10,6 +12,9 @@ Plane::Plane(Vector3& normal, Vector3& point)
 
 float Plane::GetZ(float x, float y)
 {
+    Assert::False(Numeric::FloatEquals(C, 0.0f));
+
     float z = -(A * x + B * y + D) / C;
+
     return z;
 }

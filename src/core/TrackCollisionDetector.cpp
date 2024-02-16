@@ -13,27 +13,26 @@ bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
 
 bool TrackCollisionDetector::DetectCollisions(Track& track, int trackPointIndex, Vector3& point)
 {
+    int toTrackPointIndex = track.GetNextTrackPointIndex(trackPointIndex);
+
     return
-        DetectCollisions(track, track.InsidePoints, track.OutsidePoints, trackPointIndex, point) ||
-        DetectCollisions(track, track.OutsidePoints, track.InsidePoints, trackPointIndex, point);
+        DetectCollisions(track.InsidePoints, track.OutsidePoints, trackPointIndex, toTrackPointIndex, point) ||
+        DetectCollisions(track.OutsidePoints, track.InsidePoints, trackPointIndex, toTrackPointIndex, point);
 }
 
 bool TrackCollisionDetector::DetectCollisions(
-    Track& track, TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int trackPointIndex, Vector3& point)
+    TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int fromTrackPointIndex, int toTrackPointIndex, Vector3& point)
 {
-    int fromIndex = trackPointIndex;
-    int toIndex = fromIndex + 1;
-    if (toIndex == track.PointsCount) toIndex = 0;
-    Vector3& from = trackPoints[fromIndex];
-    Vector3& to = trackPoints[toIndex];
-    Vector3& opposite = oppositeTrackPoints[fromIndex];
-    if (DetectCollisions(from, to, opposite, point))
+    Vector3& from = trackPoints[fromTrackPointIndex];
+    Vector3& to = trackPoints[toTrackPointIndex];
+    Vector3& oppositeFrom = oppositeTrackPoints[fromTrackPointIndex];
+    if (DetectCollisions(from, to, oppositeFrom, point))
     {
         Result.FromTrackPoint = from;
         Result.ToTrackPoint = to;
-        Result.OppositeTrackPoint = opposite;
-        Result.FromIndex = fromIndex;
-        Result.ToIndex = toIndex;
+        Result.OppositeTrackPoint = oppositeFrom;
+        Result.FromIndex = fromTrackPointIndex;
+        Result.ToIndex = toTrackPointIndex;
 
         return true;
     }
@@ -41,21 +40,21 @@ bool TrackCollisionDetector::DetectCollisions(
     return false;
 }
 
-bool TrackCollisionDetector::DetectCollisions(Vector3& center, Vector3 edge, Vector3 inside, Vector3 point)
+bool TrackCollisionDetector::DetectCollisions(Vector3& center, Vector3 wall, Vector3 opposite, Vector3 point)
 {
     point.Sub(center);
     if (point.IsZero()) return true;
 
-    edge.Sub(center);
-    inside.Sub(center);
+    wall.Sub(center);
+    opposite.Sub(center);
 
     Vector3 checkCollision(point);
-    checkCollision.VectorProduct(edge);
+    checkCollision.VectorProduct(wall);
     if (checkCollision.IsZero()) return true;
     checkCollision.Normalize();
 
-    Vector3 noCollision(inside);
-    noCollision.VectorProduct(edge);
+    Vector3 noCollision(opposite);
+    noCollision.VectorProduct(wall);
     noCollision.Normalize();
 
     Vector3 diff(noCollision);
