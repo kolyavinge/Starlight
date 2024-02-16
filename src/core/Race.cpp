@@ -37,5 +37,5 @@ void Race::Resume()
 
 void Race::Update()
 {
-    _raceUpdater.Update(State, Player, *Track, Camera, Laps);
+    _raceUpdater.Update(State, Player, *Track, Laps);
 }

@@ -10,7 +10,6 @@
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
-#include <core/Camera.h>
 #include <core/Laps.h>
 
 class RaceUpdater : public Object
@@ -28,7 +27,6 @@ public:
         RaceState& state,
         Ship& player,
         Track& track,
-        Camera& camera,
         Laps& laps);
 
 private:

@@ -14,6 +14,7 @@ RaceScreen::RaceScreen(
 void RaceScreen::Update()
 {
     Race.Update();
+    Race.Camera.SetFrontView(Race.Player);
 }
 
 void RaceScreen::ProcessInput()
