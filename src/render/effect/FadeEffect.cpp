@@ -40,10 +40,11 @@ void FadeEffect::Reset()
 
 void FadeEffect::Render()
 {
-    if (!IsActive() || IsCompleted()) return;
-
-    _alpha += _step;
-    _currentIteration--;
+    if (IsActive())
+    {
+        _alpha += _step;
+        _currentIteration--;
+    }
 
     glLoadIdentity();
     gluOrtho2D(0.0, 1.0, 0.0, 1.0);

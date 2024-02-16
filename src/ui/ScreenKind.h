@@ -7,4 +7,5 @@ enum class ScreenKind
     RacePreparation,
     Race,
     PauseMenu,
+    Finish
 };

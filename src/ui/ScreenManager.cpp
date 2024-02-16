@@ -9,13 +9,15 @@ ScreenManager::ScreenManager(
     _trackSelectorScreen(screenNavigator, inputDevices, trackManager, race),
     _racePreparationScreen(screenNavigator, inputDevices, race),
     _raceScreen(screenNavigator, inputDevices, race),
-    _pauseMenuScreen(screenNavigator, inputDevices, race)
+    _pauseMenuScreen(screenNavigator, inputDevices, race),
+    _finishScreen(screenNavigator, inputDevices, race)
 {
     _screens[(int)ScreenKind::StartMenu] = &_startMenuScreen;
     _screens[(int)ScreenKind::TrackSelector] = &_trackSelectorScreen;
     _screens[(int)ScreenKind::RacePreparation] = &_racePreparationScreen;
     _screens[(int)ScreenKind::Race] = &_raceScreen;
     _screens[(int)ScreenKind::PauseMenu] = &_pauseMenuScreen;
+    _screens[(int)ScreenKind::Finish] = &_finishScreen;
     _currentScreen = nullptr;
 }
 

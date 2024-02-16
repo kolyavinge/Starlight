@@ -17,8 +17,8 @@ class RaceRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipRenderer& _shipRenderer;
     TrackRenderer& _trackRenderer;
-    GoRenderer _goRenderer;
     DashboardRenderer& _dashboardRenderer;
+    GoRenderer _goRenderer;
 
 public:
     RaceRenderer(

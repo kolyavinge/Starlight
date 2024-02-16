@@ -7,6 +7,7 @@ ScreenVoxCollection::ScreenVoxCollection()
     _vox[(int)ScreenKind::RacePreparation] = &_racePreparationVox;
     _vox[(int)ScreenKind::Race] = &_raceVox;
     _vox[(int)ScreenKind::PauseMenu] = &_pauseMenuVox;
+    _vox[(int)ScreenKind::Finish] = &_finishVox;
 }
 
 void ScreenVoxCollection::Init()

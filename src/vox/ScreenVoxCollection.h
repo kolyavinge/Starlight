@@ -10,6 +10,7 @@
 #include <vox/RacePreparationVox.h>
 #include <vox/RaceVox.h>
 #include <vox/PauseMenuVox.h>
+#include <vox/FinishVox.h>
 
 class ScreenVoxCollection : public Object
 {
@@ -19,7 +20,8 @@ class ScreenVoxCollection : public Object
     RacePreparationVox _racePreparationVox;
     RaceVox _raceVox;
     PauseMenuVox _pauseMenuVox;
-    Array<ScreenVox*, 5> _vox;
+    FinishVox _finishVox;
+    Array<ScreenVox*, 6> _vox;
 
 public:
     ScreenVoxCollection();

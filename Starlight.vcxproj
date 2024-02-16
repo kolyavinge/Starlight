@@ -69,6 +69,7 @@
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
+    <ClInclude Include="src\render\ui\FinishRenderer.h" />
     <ClInclude Include="src\render\ui\GraphicItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
@@ -78,6 +79,7 @@
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
+    <ClInclude Include="src\ui\FinishScreen.h" />
     <ClInclude Include="src\ui\GridMenuItemSelector.h" />
     <ClInclude Include="src\ui\MenuItemSelector.h" />
     <ClInclude Include="src\ui\RacePreparationScreen.h" />
@@ -90,6 +92,7 @@
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />
+    <ClInclude Include="src\vox\FinishVox.h" />
     <ClInclude Include="src\vox\RacePreparationVox.h" />
     <ClInclude Include="src\vox\RaceVox.h" />
     <ClInclude Include="src\vox\MenuItemVox.h" />
@@ -224,6 +227,7 @@
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
+    <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
     <ClCompile Include="src\render\ui\GraphicItemCollection.cpp" />
     <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
@@ -241,6 +245,7 @@
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
+    <ClCompile Include="src\ui\FinishScreen.cpp" />
     <ClCompile Include="src\ui\RacePreparationScreen.cpp" />
     <ClCompile Include="src\ui\RaceScreen.cpp" />
     <ClCompile Include="src\ui\PauseMenuScreen.cpp" />
@@ -248,6 +253,7 @@
     <ClCompile Include="src\ui\ScreenManager.cpp" />
     <ClCompile Include="src\ui\StartMenuScreen.cpp" />
     <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
+    <ClCompile Include="src\vox\FinishVox.cpp" />
     <ClCompile Include="src\vox\RacePreparationVox.cpp" />
     <ClCompile Include="src\vox\RaceVox.cpp" />
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />

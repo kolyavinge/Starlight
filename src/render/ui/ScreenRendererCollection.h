@@ -17,6 +17,7 @@
 #include <render/ui/RacePreparationRenderer.h>
 #include <render/ui/RaceRenderer.h>
 #include <render/ui/PauseMenuRenderer.h>
+#include <render/ui/FinishRenderer.h>
 
 class ScreenRendererCollection : public Object
 {
@@ -35,8 +36,9 @@ class ScreenRendererCollection : public Object
     RacePreparationRenderer _racePreparationRenderer;
     RaceRenderer _raceRenderer;
     PauseMenuRenderer _pauseMenuRenderer;
+    FinishRenderer _finishRenderer;
 
-    Array<ScreenRenderer*, 5> _renderers;
+    Array<ScreenRenderer*, 6> _renderers;
 
 public:
     ScreenRendererCollection();

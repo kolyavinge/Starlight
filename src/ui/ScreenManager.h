@@ -9,18 +9,20 @@
 #include <ui/Screen.h>
 #include <ui/StartMenuScreen.h>
 #include <ui/TrackSelectorScreen.h>
-#include <ui/PauseMenuScreen.h>
 #include <ui/RacePreparationScreen.h>
 #include <ui/RaceScreen.h>
+#include <ui/PauseMenuScreen.h>
+#include <ui/FinishScreen.h>
 
 class ScreenManager : public Object
 {
     StartMenuScreen _startMenuScreen;
     TrackSelectorScreen _trackSelectorScreen;
-    PauseMenuScreen _pauseMenuScreen;
     RacePreparationScreen _racePreparationScreen;
     RaceScreen _raceScreen;
-    Array<Screen*, 5> _screens;
+    PauseMenuScreen _pauseMenuScreen;
+    FinishScreen _finishScreen;
+    Array<Screen*, 6> _screens;
     Screen* _currentScreen;
 
 public:
