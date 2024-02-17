@@ -5,26 +5,36 @@
 void RaceUpdater::Update(
     RaceState& state,
     Ship& player,
+    List<Ship>& enemies,
     Track& track,
     Laps& laps)
 {
-    SaveCurrentShipsPositions(player);
-    _positionUpdater.UpdateIfShipMoving(player, track);
-    float timeStep = Constants::TimeStep;
-    _turnAngleCalculator.CalculateTurnAngle(player);
-    _velocityCalculator.CalculateVelocity(timeStep, player);
-    _moveLogic.MoveShip(timeStep, player);
-    _borderUpdater.Update(player);
-    _collisionProcessor.ProcessCollisions(player, track);
-    if (_collisionProcessor.HasCollisions())
+    Update(player, track);
+    for (int i = 0; i < enemies.Count(); i++)
     {
-        _borderUpdater.Update(player);
+        Update(enemies[i], track);
     }
-    _positionCorrector.CorrectAfterFloatOperations(player);
+    _enemyAI.Update(enemies, track);
     laps.Update(state, player, track);
 }
 
-void RaceUpdater::SaveCurrentShipsPositions(Ship& player)
+void RaceUpdater::Update(Ship& ship, Track& track)
 {
-    player.PrevCentralLine = player.CentralLine;
+    SaveCurrentShipsPositions(ship);
+    _positionUpdater.UpdateIfShipMoving(ship, track);
+    _turnAngleCalculator.CalculateTurnAngle(ship);
+    _velocityCalculator.CalculateVelocity(Constants::TimeStep, ship);
+    _moveLogic.MoveShip(Constants::TimeStep, ship);
+    _borderUpdater.Update(ship);
+    _collisionProcessor.ProcessCollisions(ship, track);
+    if (_collisionProcessor.HasCollisions())
+    {
+        _borderUpdater.Update(ship);
+    }
+    _positionCorrector.CorrectAfterFloatOperations(ship);
+}
+
+void RaceUpdater::SaveCurrentShipsPositions(Ship& ship)
+{
+    ship.PrevCentralLine = ship.CentralLine;
 }

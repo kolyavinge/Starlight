@@ -17,6 +17,7 @@ void Ship::Init()
     TurnAngleRadians = 0;
     VelocityValue = 0;
     PrevVelocityValue = 0;
+    AIMovingDirection.Set(0.0f, 0.0f, 0.0f);
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

@@ -16,6 +16,7 @@ void RaceScreen::Update()
 {
     Race.Update();
     Race.Camera.SetFrontView(Race.Player);
+    //Race.Camera.SetFrontView(Race.Enemies[0]);
     if (Race.State == RaceState::Finish)
     {
         _navigator.NavigateTo(ScreenKind::Finish);

@@ -4,6 +4,7 @@ class Math
 {
 public:
     inline static const float Pi = 3.14159265359f;
+    inline static const float PiQuarter = Pi / 4.0f;
     inline static const float PiHalf = Pi / 2.0f;
     inline static const float PiDouble = 2.0f * Pi;
 

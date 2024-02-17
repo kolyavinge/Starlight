@@ -142,6 +142,9 @@
     <ClInclude Include="src\ui\FinishScreen.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
     <ClInclude Include="src\vox\FinishVox.h" />
+    <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
+    <ClInclude Include="src\ai\SteeringLogic.h" />
+    <ClInclude Include="src\ai\EnemyAI.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -267,6 +270,9 @@
     <ClCompile Include="src\ui\FinishScreen.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
     <ClCompile Include="src\vox\FinishVox.cpp" />
+    <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
+    <ClCompile Include="src\ai\SteeringLogic.cpp" />
+    <ClCompile Include="src\ai\EnemyAI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

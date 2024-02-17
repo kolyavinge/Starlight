@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/RaceState.h>
@@ -11,6 +12,7 @@
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
 #include <core/Laps.h>
+#include <ai/EnemyAI.h>
 
 class RaceUpdater : public Object
 {
@@ -21,14 +23,17 @@ class RaceUpdater : public Object
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
+    EnemyAI _enemyAI;
 
 public:
     void Update(
         RaceState& state,
         Ship& player,
+        List<Ship>& enemies,
         Track& track,
         Laps& laps);
 
 private:
-    void SaveCurrentShipsPositions(Ship& player);
+    void Update(Ship& ship, Track& track);
+    void SaveCurrentShipsPositions(Ship& ship);
 };

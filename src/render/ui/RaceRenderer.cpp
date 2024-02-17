@@ -52,6 +52,10 @@ void RaceRenderer::Render(Race& race)
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+    for (int i = 0; i < race.Enemies.Count(); i++)
+    {
+        _shipRenderer.Render(race.Enemies[i]);
+    }
 
     glLoadIdentity();
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);

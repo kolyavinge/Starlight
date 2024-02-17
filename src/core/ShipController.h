@@ -5,11 +5,12 @@
 
 class ShipController : public Object
 {
-    Ship& _ship;
+    Ship* _ship;
 
 public:
-    ShipController(Ship& ship);
+    ShipController();
 
+    void SetShip(Ship& ship);
     void ActivateThrottle();
     void ReleaseThrottle();
     void ActivateBreak();

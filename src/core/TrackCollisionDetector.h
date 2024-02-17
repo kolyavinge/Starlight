@@ -15,9 +15,9 @@ public:
     TrackCollisionResult Result;
 
     bool DetectCollisions(Ship& ship, Track& track);
+    bool DetectCollisions(Track& track, int trackPointIndex, Vector3& point);
 
 private:
-    bool DetectCollisions(Track& track, int trackPointIndex, Vector3& point);
     bool DetectCollisions(TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int fromTrackPointIndex, int toTrackPointIndex, Vector3& point);
     bool DetectCollisions(Vector3& center, Vector3 wall, Vector3 opposite, Vector3 point);
 };

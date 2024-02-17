@@ -22,6 +22,8 @@ public:
     Border Border;
     Vector3 Deviation;
     VelocityFunction VelocityFunction;
+    // ai data
+    Vector3 AIMovingDirection;
 
     Ship();
 

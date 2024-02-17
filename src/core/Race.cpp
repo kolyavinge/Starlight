@@ -3,11 +3,12 @@
 
 Race::Race(
     RaceUpdater& raceUpdater) :
-    _raceUpdater(raceUpdater),
-    PlayerController(Player)
+    _raceUpdater(raceUpdater)
 {
     State = RaceState::Prepare;
     Track = nullptr;
+    PlayerController.SetShip(Player);
+    Enemies.Add(Ship());
 }
 
 void Race::Init(::Track& selectedTrack)
@@ -37,5 +38,10 @@ void Race::Resume()
 
 void Race::Update()
 {
-    _raceUpdater.Update(State, Player, *Track, Laps);
+    _raceUpdater.Update(
+        State,
+        Player,
+        Enemies,
+        *Track,
+        Laps);
 }

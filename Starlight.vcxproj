@@ -19,6 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\ai\EnemyAI.h" />
+    <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
+    <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\audio\ALFormat.h" />
@@ -161,6 +164,9 @@
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\ai\EnemyAI.cpp" />
+    <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
+    <ClCompile Include="src\ai\SteeringLogic.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />
