@@ -1,3 +1,5 @@
+#include <lib/Assert.h>
+#include <lib/Numeric.h>
 #include <model/ShipMeasure.h>
 #include <core/TurnAngleCalculator.h>
 
@@ -32,5 +34,7 @@ void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)
 
 float TurnAngleCalculator::GetMaxTurnAngle(Ship& ship)
 {
+    Assert::False(Numeric::FloatEquals(ship.VelocityFunction.MaxVelocity, 0.0f));
+
     return ShipMeasure::MaxTurnAngle * (1.15f - ship.VelocityValue / ship.VelocityFunction.MaxVelocity);
 }

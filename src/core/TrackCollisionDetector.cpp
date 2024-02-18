@@ -2,8 +2,6 @@
 
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
 {
-    Result.Init();
-
     return
         DetectCollisions(track, ship.CentralLine.TrackPointIndexFront, ship.Border.UpLeft) ||
         DetectCollisions(track, ship.CentralLine.TrackPointIndexFront, ship.Border.UpRight) ||

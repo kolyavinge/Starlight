@@ -10,7 +10,7 @@ void SteeringLogic::Update(Ship& ship)
     straight.Normalize();
 
     float dotProduct = straight.DotProduct(ship.AIMovingDirection);
-    if (dotProduct >= 0.999f)
+    if (dotProduct >= 0.99f)
     {
         _controller.ReleaseTurn();
     }

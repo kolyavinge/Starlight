@@ -20,8 +20,7 @@ void FinishScreen::Update()
 {
     if (_iterationCount < IterationsCount)
     {
-        Race.PlayerController.ReleaseTurn();
-        Race.PlayerController.ActivateBreak();
+        Race.EnemyAI.ApplyFor(Race.Player, *Race.Track);
         Race.Update();
         _iterationCount++;
     }

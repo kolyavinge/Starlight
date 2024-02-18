@@ -38,5 +38,5 @@ void PositionUpdater::UpdateNormals(Ship& ship, Track& track)
 void PositionUpdater::CalculateZForPoint(Track& track, int trackPointIndex, Vector3& point)
 {
     Plane plane(track.Normals[trackPointIndex], track.InsidePoints[trackPointIndex]);
-    point.Z = plane.GetZ(point.X, point.Y);
+    point.Z = plane.GetZ(point.X, point.Y) + 0.5f;
 }

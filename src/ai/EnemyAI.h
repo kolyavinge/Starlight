@@ -13,6 +13,6 @@ class EnemyAI : public Object
     SteeringLogic _steeringLogic;
 
 public:
-    void Update(List<Ship>& enemies, Track& track);
-    void Update(Ship& enemy, Track& track);
+    void ApplyFor(List<Ship>& enemies, Track& track);
+    void ApplyFor(Ship& enemy, Track& track);
 };

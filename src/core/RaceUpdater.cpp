@@ -2,6 +2,11 @@
 #include <core/Constants.h>
 #include <core/RaceUpdater.h>
 
+RaceUpdater::RaceUpdater(EnemyAI& enemyAI) :
+    _enemyAI(enemyAI)
+{
+}
+
 void RaceUpdater::Update(
     RaceState& state,
     Ship& player,
@@ -14,7 +19,7 @@ void RaceUpdater::Update(
     {
         Update(enemies[i], track);
     }
-    _enemyAI.Update(enemies, track);
+    _enemyAI.ApplyFor(enemies, track);
     laps.Update(state, player, track);
 }
 

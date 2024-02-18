@@ -1,28 +1,26 @@
 #include <calc/Vector3.h>
 #include <model/Track.h>
-#include <core/PositionUpdater.h>
 #include <core/RaceInitializer.h>
 
 void RaceInitializer::Init(Race& race)
 {
-    Track& track = *race.Track;
-    InitShip(track, race.Player);
+    InitShip(race.Player, *race.Track);
     for (int i = 0; i < race.Enemies.Count(); i++)
     {
-        InitShip(track, race.Enemies[i]);
+        InitShip(race.Enemies[i], *race.Track);
     }
 }
 
-void RaceInitializer::InitShip(Track& track, Ship& ship)
+void RaceInitializer::InitShip(Ship& ship, Track& track)
 {
     ship.Init();
-    SetPlayerBehindStartFinishLine(track, ship);
+    SetShipBehindStartFinishLine(ship, track);
     ship.CentralLine.TrackPointIndexFront = track.StartFinishLineIndex;
     ship.CentralLine.TrackPointIndexRear = track.StartFinishLineIndex;
-    UpdateShipPosition(track, ship);
+    _positionUpdater.Update(ship, track);
 }
 
-void RaceInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& ship)
+void RaceInitializer::SetShipBehindStartFinishLine(Ship& ship, Track& track)
 {
     int lineIndex = track.StartFinishLineIndex;
     Vector3 middle = track.OutsidePoints[lineIndex];
@@ -30,10 +28,4 @@ void RaceInitializer::SetPlayerBehindStartFinishLine(Track& track, Ship& ship)
     middle.Div(2.0f);
     middle.Add(track.InsidePoints[lineIndex]);
     ship.OrientationByFrontPoint(middle, track.StraightDirection);
-}
-
-void RaceInitializer::UpdateShipPosition(Track& track, Ship& ship)
-{
-    PositionUpdater positionUpdater;
-    positionUpdater.Update(ship, track);
 }

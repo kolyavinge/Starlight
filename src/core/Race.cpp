@@ -1,14 +1,16 @@
 #include <core/Race.h>
 #include <core/RaceInitializer.h>
 
-Race::Race(
-    RaceUpdater& raceUpdater) :
-    _raceUpdater(raceUpdater)
+Race::Race() :
+    _raceUpdater(EnemyAI)
 {
     State = RaceState::Prepare;
     Track = nullptr;
     PlayerController.SetShip(Player);
-    Enemies.Add(Ship());
+    for (int i = 0; i < EnemiesCount; i++)
+    {
+        Enemies.Add(Ship());
+    }
 }
 
 void Race::Init(::Track& selectedTrack)

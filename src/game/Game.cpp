@@ -2,7 +2,6 @@
 #include <game/Game.h>
 
 Game::Game() :
-    Race(_raceUpdater),
     _screenManager(_screenNavigator, InputDevices, _trackManager, Race)
 {
 }

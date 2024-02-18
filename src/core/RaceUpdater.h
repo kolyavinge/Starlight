@@ -23,9 +23,11 @@ class RaceUpdater : public Object
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
-    EnemyAI _enemyAI;
+    EnemyAI& _enemyAI;
 
 public:
+    RaceUpdater(EnemyAI& enemyAI);
+
     void Update(
         RaceState& state,
         Ship& player,

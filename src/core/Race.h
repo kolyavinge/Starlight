@@ -9,12 +9,15 @@
 #include <core/RaceUpdater.h>
 #include <core/Camera.h>
 #include <core/Laps.h>
+#include <ai/EnemyAI.h>
 
 class Race : public Object
 {
-    RaceUpdater& _raceUpdater;
+    RaceUpdater _raceUpdater;
 
 public:
+    inline static const int EnemiesCount = 1;
+
     RaceState State;
     Ship Player;
     List<Ship> Enemies;
@@ -22,8 +25,9 @@ public:
     ShipController PlayerController;
     Camera Camera;
     Laps Laps;
+    EnemyAI EnemyAI;
 
-    Race(RaceUpdater& raceUpdater);
+    Race();
 
     void Init(::Track& selectedTrack);
     void Start();

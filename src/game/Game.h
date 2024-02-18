@@ -12,7 +12,6 @@
 class Game : public Object
 {
     TrackManager _trackManager;
-    RaceUpdater _raceUpdater;
     ScreenManager _screenManager;
     RenderManager _renderManager;
     VoxManager _voxManager;
