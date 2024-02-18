@@ -48,6 +48,7 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
     joy.PressButton1(buttons & GLUT_JOYSTICK_BUTTON_A);
     joy.PressButton2(buttons & GLUT_JOYSTICK_BUTTON_B);
     joy.PressButton3(buttons & GLUT_JOYSTICK_BUTTON_C);
+    joy.PressButton4(buttons & GLUT_JOYSTICK_BUTTON_D);
     joy.PressLeft(xaxis < 0);
     joy.PressRight(xaxis > 0);
     joy.PressUp(yaxis < 0);

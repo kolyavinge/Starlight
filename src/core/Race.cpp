@@ -2,7 +2,8 @@
 #include <core/RaceInitializer.h>
 
 Race::Race() :
-    _raceUpdater(EnemyAI)
+    _raceUpdater(EnemyAI),
+    Enemies(EnemiesCount)
 {
     State = RaceState::Prepare;
     Track = nullptr;

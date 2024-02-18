@@ -70,6 +70,12 @@ void RaceScreen::ProcessInput()
         playerController.ReleaseTurn();
     }
 
+    if (keyboard.IsPressedOrHeld('Q') ||
+        joystick.IsButton4Pressed())
+    {
+        Race.Camera.SetRearView(Race.Player);
+    }
+
     if (keyboard.IsPressed(VK_ESCAPE))
     {
         Race.Pause();

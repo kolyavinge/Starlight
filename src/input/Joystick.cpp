@@ -5,6 +5,7 @@ Joystick::Joystick()
     _isButton1Pressed = false;
     _isButton2Pressed = false;
     _isButton3Pressed = false;
+    _isButton4Pressed = false;
     _isLeftPressed = false;
     _isRightPressed = false;
     _isUpPressed = false;
@@ -26,6 +27,11 @@ void Joystick::PressButton3(bool isPressed)
     _isButton3Pressed = isPressed;
 }
 
+void Joystick::PressButton4(bool isPressed)
+{
+    _isButton4Pressed = isPressed;
+}
+
 bool Joystick::IsButton1Pressed()
 {
     return _isButton1Pressed;
@@ -39,6 +45,11 @@ bool Joystick::IsButton2Pressed()
 bool Joystick::IsButton3Pressed()
 {
     return _isButton3Pressed;
+}
+
+bool Joystick::IsButton4Pressed()
+{
+    return _isButton4Pressed;
 }
 
 void Joystick::PressLeft(bool isPressed)
