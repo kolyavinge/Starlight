@@ -132,3 +132,30 @@ void VectorCalculator::SwapYZ(List<Vector3>& vectors)
         v.Z = tmp;
     }
 }
+
+/* Проверка попадания точки point в одну четверть координатной плоскости
+ * образованную векторами axis1 и axis2, выходящих из точки origin
+ */
+bool VectorCalculator::InQuadrant(Vector3& origin, Vector3 axis1, Vector3 axis2, Vector3 point)
+{
+    point.Sub(origin);
+    if (point.IsZero()) return true;
+
+    axis1.Sub(origin);
+    axis2.Sub(origin);
+
+    Vector3 checkDirection(point);
+    checkDirection.VectorProduct(axis1);
+    if (checkDirection.IsZero()) return true;
+    checkDirection.Normalize();
+
+    Vector3 areaDirection(axis2);
+    areaDirection.VectorProduct(axis1);
+    areaDirection.Normalize();
+
+    Vector3 diff(areaDirection);
+    diff.Sub(checkDirection);
+    bool inArea = diff.GetLengthSquared() < 0.1f;
+
+    return inArea;
+}

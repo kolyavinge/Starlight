@@ -1,3 +1,4 @@
+#include <calc/VectorCalculator.h>
 #include <core/TrackCollisionDetector.h>
 
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
@@ -24,7 +25,7 @@ bool TrackCollisionDetector::DetectCollisions(
     Vector3& from = trackPoints[fromTrackPointIndex];
     Vector3& to = trackPoints[toTrackPointIndex];
     Vector3& oppositeFrom = oppositeTrackPoints[fromTrackPointIndex];
-    if (DetectCollisions(from, to, oppositeFrom, point))
+    if (!VectorCalculator::InQuadrant(from, to, oppositeFrom, point)) // out of track area
     {
         Result.FromTrackPoint = from;
         Result.ToTrackPoint = to;
@@ -36,28 +37,4 @@ bool TrackCollisionDetector::DetectCollisions(
     }
 
     return false;
-}
-
-bool TrackCollisionDetector::DetectCollisions(Vector3& center, Vector3 wall, Vector3 opposite, Vector3 point)
-{
-    point.Sub(center);
-    if (point.IsZero()) return true;
-
-    wall.Sub(center);
-    opposite.Sub(center);
-
-    Vector3 checkCollision(point);
-    checkCollision.VectorProduct(wall);
-    if (checkCollision.IsZero()) return true;
-    checkCollision.Normalize();
-
-    Vector3 noCollision(opposite);
-    noCollision.VectorProduct(wall);
-    noCollision.Normalize();
-
-    Vector3 diff(noCollision);
-    diff.Sub(checkCollision);
-    bool collided = diff.GetLengthSquared() > 1.0f;
-
-    return collided;
 }
