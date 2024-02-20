@@ -1,16 +1,16 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/Array.h>
+#include <lib/IArray.h>
 
-template<class T, int Count>
+template<class T>
 class CycledArrayIterator : public Object
 {
-    Array<T, Count>& _array;
+    IArray<T>& _array;
     int _index;
 
 public:
-    CycledArrayIterator(Array<T, Count>& array) :
+    CycledArrayIterator(IArray<T>& array) :
         _array(array)
     {
         _index = 0;
@@ -24,13 +24,13 @@ public:
     void Prev()
     {
         _index--;
-        if (_index == -1) _index = Count - 1;
+        if (_index == -1) _index = _array.GetCount() - 1;
     }
 
     void Next()
     {
         _index++;
-        if (_index == Count) _index = 0;
+        if (_index == _array.GetCount()) _index = 0;
     }
 
     void Reset()

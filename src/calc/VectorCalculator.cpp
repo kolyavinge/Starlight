@@ -64,13 +64,13 @@ bool VectorCalculator::IsSameDirection(Vector3& base, Vector3 v1, Vector3 v2)
 
 Vector3 VectorCalculator::GetMinVector(List<Vector3>& vectors)
 {
-    if (vectors.Count() == 0) throw ArgumentException();
+    if (vectors.GetCount() == 0) throw ArgumentException();
 
     float minX = vectors[0].X;
     float minY = vectors[0].Y;
     float minZ = vectors[0].Z;
 
-    for (int i = 1; i < vectors.Count(); i++)
+    for (int i = 1; i < vectors.GetCount(); i++)
     {
         Vector3& v = vectors[i];
         if (v.X < minX) minX = v.X;
@@ -83,13 +83,13 @@ Vector3 VectorCalculator::GetMinVector(List<Vector3>& vectors)
 
 Vector3 VectorCalculator::GetMaxVector(List<Vector3>& vectors)
 {
-    if (vectors.Count() == 0) throw ArgumentException();
+    if (vectors.GetCount() == 0) throw ArgumentException();
 
     float maxX = vectors[0].X;
     float maxY = vectors[0].Y;
     float maxZ = vectors[0].Z;
 
-    for (int i = 1; i < vectors.Count(); i++)
+    for (int i = 1; i < vectors.GetCount(); i++)
     {
         Vector3& v = vectors[i];
         if (v.X > maxX) maxX = v.X;
@@ -102,7 +102,7 @@ Vector3 VectorCalculator::GetMaxVector(List<Vector3>& vectors)
 
 void VectorCalculator::SwapXY(List<Vector3>& vectors)
 {
-    for (int i = 0; i < vectors.Count(); i++)
+    for (int i = 0; i < vectors.GetCount(); i++)
     {
         Vector3& v = vectors[i];
         float tmp = v.X;
@@ -113,7 +113,7 @@ void VectorCalculator::SwapXY(List<Vector3>& vectors)
 
 void VectorCalculator::SwapXZ(List<Vector3>& vectors)
 {
-    for (int i = 0; i < vectors.Count(); i++)
+    for (int i = 0; i < vectors.GetCount(); i++)
     {
         Vector3& v = vectors[i];
         float tmp = v.X;
@@ -124,7 +124,7 @@ void VectorCalculator::SwapXZ(List<Vector3>& vectors)
 
 void VectorCalculator::SwapYZ(List<Vector3>& vectors)
 {
-    for (int i = 0; i < vectors.Count(); i++)
+    for (int i = 0; i < vectors.GetCount(); i++)
     {
         Vector3& v = vectors[i];
         float tmp = v.Y;

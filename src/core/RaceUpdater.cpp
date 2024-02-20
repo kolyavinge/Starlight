@@ -15,7 +15,7 @@ void RaceUpdater::Update(
     Laps& laps)
 {
     Update(player, track);
-    for (int i = 0; i < enemies.Count(); i++)
+    for (int i = 0; i < enemies.GetCount(); i++)
     {
         Update(enemies[i], track);
     }

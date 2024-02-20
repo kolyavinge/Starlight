@@ -82,7 +82,7 @@ void DebugTrackRenderer::RenderMiddlePoints(Track& track)
     for (int i = 0; i < track.PointsCount; i++)
     {
         Array<Vector3, TrackMaxMiddlePoints>& middlePoints = track.MiddlePoints[i];
-        for (int j = 0; j < middlePoints.Count; j++)
+        for (int j = 0; j < middlePoints.GetCount(); j++)
         {
             glVertex3f(middlePoints[j]);
         }

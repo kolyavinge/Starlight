@@ -3,9 +3,10 @@
 #include <lib/Exceptions.h>
 #include <lib/Object.h>
 #include <lib/Memory.h>
+#include <lib/IArray.h>
 
 template<class T>
-class List : public Object
+class List : public Object, public IArray<T>
 {
     static const int _initCapacity = 16;
 
@@ -41,13 +42,13 @@ public:
         return *this;
     }
 
-    T& operator[](int index)
+    T& operator[](int index) override
     {
         CheckBounds(index, _count);
         return _items[index];
     }
 
-    int Count()
+    int GetCount() override
     {
         return _count;
     }
@@ -69,9 +70,9 @@ public:
 
     void AddRange(List<T>& range)
     {
-        ResizeIfNeeded(range.Count());
-        Memory::Copy<T>(range._items, _items + _count, range.Count());
-        _count += range.Count();
+        ResizeIfNeeded(range.GetCount());
+        Memory::Copy<T>(range._items, _items + _count, range.GetCount());
+        _count += range.GetCount();
     }
 
     void Insert(int index, T value)

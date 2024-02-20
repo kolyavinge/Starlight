@@ -33,7 +33,7 @@ void Mesh::Render()
     glEnable(GL_TEXTURE_2D);
     _textures[_activeTextureIndex].Bind();
     glBegin(GL_TRIANGLES);
-    for (int i = 0; i < _faces.Count(); i++)
+    for (int i = 0; i < _faces.GetCount(); i++)
     {
         Face& face = _faces[i];
 
@@ -56,7 +56,7 @@ void Mesh::Render()
 void Mesh::RenderWired(int faceStep)
 {
     glBegin(GL_LINE_LOOP);
-    for (int i = 0; i < _faces.Count(); i += faceStep)
+    for (int i = 0; i < _faces.GetCount(); i += faceStep)
     {
         Face& face = _faces[i];
 
@@ -75,7 +75,7 @@ void Mesh::RenderWired(int faceStep)
 void Mesh::MoveToOrigin()
 {
     Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
-    for (int i = 0; i < _vertexCoords.Count(); i++)
+    for (int i = 0; i < _vertexCoords.GetCount(); i++)
     {
         _vertexCoords[i].Sub(min);
     }
@@ -93,7 +93,7 @@ void Mesh::MoveToCenter(int axis)
     if ((axis & (int)Axis::X) == 0) delta.X = 0.0f;
     if ((axis & (int)Axis::Y) == 0) delta.Y = 0.0f;
     if ((axis & (int)Axis::Z) == 0) delta.Z = 0.0f;
-    for (int i = 0; i < _vertexCoords.Count(); i++)
+    for (int i = 0; i < _vertexCoords.GetCount(); i++)
     {
         _vertexCoords[i].Sub(delta);
     }
@@ -107,7 +107,7 @@ void Mesh::SwapYZ()
 
 bool Mesh::IsLoaded()
 {
-    return _vertexCoords.Count() > 0;
+    return _vertexCoords.GetCount() > 0;
 }
 
 void Mesh::GetSize(Size& result)

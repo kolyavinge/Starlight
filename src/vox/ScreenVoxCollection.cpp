@@ -13,7 +13,7 @@ ScreenVoxCollection::ScreenVoxCollection()
 void ScreenVoxCollection::Init()
 {
     _sampleCollection.Init();
-    for (int i = 0; i < _vox.Count; i++)
+    for (int i = 0; i < _vox.GetCount(); i++)
     {
         _vox[i]->Init(_sampleCollection);
     }

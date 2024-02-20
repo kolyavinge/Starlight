@@ -24,7 +24,7 @@ void ScreenRendererCollection::Init()
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
     _graphicItemCollection.Init();
-    for (int i = 0; i < _renderers.Count; i++)
+    for (int i = 0; i < _renderers.GetCount(); i++)
     {
         _renderers[i]->Init(_graphicItemCollection);
     }

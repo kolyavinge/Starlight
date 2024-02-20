@@ -16,7 +16,7 @@ void RaceInitializer::Init(Race& race)
 void RaceInitializer::InitShips(Race& race)
 {
     race.Player.Init();
-    for (int i = 0; i < race.Enemies.Count(); i++)
+    for (int i = 0; i < race.Enemies.GetCount(); i++)
     {
         race.Enemies[i].Init();
     }
@@ -44,14 +44,14 @@ void RaceInitializer::SetStartGrid(Race& race)
     trackOppositeDirection.SetLength(2.0f * ShipMeasure::YLength);
 
     List<Ship*> ships;
-    for (int i = 0; i < race.Enemies.Count(); i++)
+    for (int i = 0; i < race.Enemies.GetCount(); i++)
     {
         ships.Add(&race.Enemies[i]);
     }
     ships.Add(&race.Player);
 
     int shipIndex = 0;
-    const int rowsCount = ships.Count() / 2;
+    const int rowsCount = ships.GetCount() / 2;
     for (int row = 0; row < rowsCount; row++)
     {
         ships[shipIndex++]->OrientationByFrontPoint(firstRowPoint, track.StraightDirection);
@@ -65,7 +65,7 @@ void RaceInitializer::UpdateShipsPositions(Race& race)
 {
     PositionUpdater positionUpdater;
     positionUpdater.Update(race.Player, *race.Track);
-    for (int i = 0; i < race.Enemies.Count(); i++)
+    for (int i = 0; i < race.Enemies.GetCount(); i++)
     {
         positionUpdater.Update(race.Enemies[i], *race.Track);
     }

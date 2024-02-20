@@ -41,7 +41,7 @@ void Laps::GetCurrentLapTime(String& result)
 
 int Laps::GetCompleteLapsCount()
 {
-    return _completeLaps.Count();
+    return _completeLaps.GetCount();
 }
 
 void Laps::GetCompletedLapTime(int completeLapNumber, String& result)

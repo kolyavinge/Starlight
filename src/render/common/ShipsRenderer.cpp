@@ -11,7 +11,7 @@ void ShipsRenderer::Render(Ship& player, List<Ship>& enemies)
     glColor3f(1.0f, 1.0f, 1.0f);
     glEnable(GL_DEPTH_TEST);
     _shipMesh.Render(player, 0);
-    for (int i = 0; i < enemies.Count(); i++)
+    for (int i = 0; i < enemies.GetCount(); i++)
     {
         _shipMesh.Render(enemies[i], i + 1);
     }

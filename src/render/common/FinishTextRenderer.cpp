@@ -12,9 +12,9 @@ FinishTextRenderer::FinishTextRenderer()
     _phase = 0.0f;
     _width = 0.0f;
     _height = 0.0f;
-    _radiansStep = Math::PiDouble / (float)_zCoords.Count;
+    _radiansStep = Math::PiDouble / (float)_zCoords.GetCount();
     _widthStep = 0.0f;
-    _textureStep = 1.0f / (float)_zCoords.Count;
+    _textureStep = 1.0f / (float)_zCoords.GetCount();
     _alpha = 0.0f;
 }
 
@@ -24,7 +24,7 @@ void FinishTextRenderer::Init()
     ImageFile image(GraphicResources::GetFinishItemFilePath().GetWCharBuf());
     _width = (float)image.GetWidth();
     _height = (float)image.GetHeight();
-    _widthStep = _width / (float)_zCoords.Count;
+    _widthStep = _width / (float)_zCoords.GetCount();
     _alpha = 0.0f;
 }
 
@@ -41,7 +41,7 @@ void FinishTextRenderer::Render()
     glEnable(GL_TEXTURE_2D);
     _finishTexture.Bind();
     glBegin(GL_QUADS);
-    for (int i = 0; i < _zCoords.Count; i++)
+    for (int i = 0; i < _zCoords.GetCount(); i++)
     {
         float z = _zCoords[i];
         float x = (float)i * _widthStep;
@@ -77,7 +77,7 @@ float FinishTextRenderer::GetHeight()
 
 void FinishTextRenderer::UpdateZCoords()
 {
-    for (int i = 0; i < _zCoords.Count; i++)
+    for (int i = 0; i < _zCoords.GetCount(); i++)
     {
         _zCoords[i] = 40.0f * Math::Sin((float)i * _radiansStep + _phase);
     }

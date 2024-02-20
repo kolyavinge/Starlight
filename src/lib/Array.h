@@ -3,21 +3,25 @@
 #include <lib/Exceptions.h>
 #include <lib/Object.h>
 #include <lib/Memory.h>
+#include <lib/IArray.h>
 
 template<class T, int Count>
-class Array : public Object
+class Array : public Object, public IArray<T>
 {
     T _items[Count] = {};
 
 public:
-    static const int Count = Count;
-
     Array() {}
 
-    T& operator[](int index)
+    T& operator[](int index) override
     {
         CheckBounds(index);
         return _items[index];
+    }
+
+    int GetCount() override
+    {
+        return Count;
     }
 
     void InitAll(T initValue)

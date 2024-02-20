@@ -2,7 +2,7 @@
 
 void EnemyAI::ApplyFor(List<Ship>& enemies, Track& track)
 {
-    for (int i = 0; i < enemies.Count(); i++)
+    for (int i = 0; i < enemies.GetCount(); i++)
     {
         ApplyFor(enemies[i], track);
     }

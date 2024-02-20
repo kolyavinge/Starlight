@@ -12,7 +12,7 @@ Keyboard::Keyboard()
 void Keyboard::Update()
 {
     Assert::True(GetKeyboardState(_newKeyStates));
-    for (int i = 0; i < _keyStates.Count; i++)
+    for (int i = 0; i < _keyStates.GetCount(); i++)
     {
         if (_keyStates[i] == KeyState::Released && IsKeyPressed(_newKeyStates[i]))
         {
