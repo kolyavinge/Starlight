@@ -14,7 +14,8 @@ class Mesh : public Object
     List<Vector3> _normalCoords;
     List<Point2> _textureCoords;
     List<Face> _faces;
-    Texture _texture;
+    List<Texture> _textures;
+    int _activeTextureIndex;
 
 public:
     enum class LoadFlags
@@ -42,7 +43,10 @@ public:
         float ZLength = 0.0f;
     };
 
+    Mesh();
+
     void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
+    void SetActiveTextureIndex(int textureIndex);
     void Render();
     void RenderWired(int faceStep = 1);
     void MoveToOrigin();

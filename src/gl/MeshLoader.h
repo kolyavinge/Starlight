@@ -26,5 +26,5 @@ public:
     void LoadNormalCoords(List<Vector3>& normalCoords);
     void LoadTextureCoords(List<Point2>& textureCoords);
     void LoadFaces(List<Face>& faces);
-    void LoadFirstDiffuseTexture(Texture& texture);
+    void LoadDiffuseTextures(List<Texture>& textures);
 };

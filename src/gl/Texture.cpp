@@ -16,7 +16,10 @@ Texture::Texture(String filePath)
 
 Texture::~Texture()
 {
-    glDeleteTextures(1, &_textureId);
+    if (IsLoaded())
+    {
+        glDeleteTextures(1, &_textureId);
+    }
 }
 
 void Texture::Load(String filePath)

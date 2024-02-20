@@ -55,7 +55,7 @@ void MeshLoader::LoadFaces(List<Face>& faces)
     }
 }
 
-void MeshLoader::LoadFirstDiffuseTexture(Texture& texture)
+void MeshLoader::LoadDiffuseTextures(List<Texture>& textures)
 {
     String fileDir = Path::GetDirectoryPath(_filePath);
     for (unsigned int i = 0; i < _aiScene->mNumMaterials; i++)
@@ -70,11 +70,9 @@ void MeshLoader::LoadFirstDiffuseTexture(Texture& texture)
                 String textureFilePath(fileDir);
                 textureFilePath.Append(L'\\');
                 textureFilePath.Append(textureFileName);
-                texture.Load(textureFilePath);
-                return;
+                textures.Add(Texture());
+                textures[textures.Count() - 1].Load(textureFilePath);
             }
         }
     }
-
-    throw LoadMeshException();
 }

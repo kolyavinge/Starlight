@@ -4,6 +4,11 @@
 #include <gl/MeshLoader.h>
 #include <gl/Mesh.h>
 
+Mesh::Mesh()
+{
+    _activeTextureIndex = 0;
+}
+
 void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
 {
     if (IsLoaded()) throw ObjectStateException();
@@ -14,14 +19,19 @@ void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
     if ((flags & (int)LoadFlags::NoTexture) == 0)
     {
         loader.LoadTextureCoords(_textureCoords);
-        loader.LoadFirstDiffuseTexture(_texture);
+        loader.LoadDiffuseTextures(_textures);
     }
+}
+
+void Mesh::SetActiveTextureIndex(int textureIndex)
+{
+    _activeTextureIndex = textureIndex;
 }
 
 void Mesh::Render()
 {
     glEnable(GL_TEXTURE_2D);
-    _texture.Bind();
+    _textures[_activeTextureIndex].Bind();
     glBegin(GL_TRIANGLES);
     for (int i = 0; i < _faces.Count(); i++)
     {
