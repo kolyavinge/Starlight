@@ -6,11 +6,26 @@
 
 Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, Track& track)
 {
+    float directionLength = 10.0f * ShipMeasure::YLength;
+    Vector3 result = TryGetMovingDirection(ship, track, directionLength);
+    while (result.IsZero())
+    {
+        if (directionLength < 1.0f) throw ObjectStateException();
+        result = TryGetMovingDirection(ship, track, directionLength);
+        directionLength /= 2.0f;
+    }
+    result.Normalize();
+
+    return result;
+}
+
+Vector3 ObstacleAvoidanceLogic::TryGetMovingDirection(Ship& ship, Track& track, float directionLength)
+{
     Vector3 result;
 
     Vector3 straight(ship.CentralLine.Front);
     straight.Sub(ship.CentralLine.Rear);
-    straight.Mul(10.0f * ShipMeasure::YLength);
+    straight.Mul(directionLength);
     straight.Add(ship.CentralLine.Front);
     AddResultIfCorrect(ship, track, straight, result);
 
@@ -27,9 +42,6 @@ Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, Track& track)
         direction = Geometry::RotatePoint3d(direction, ship.CentralLine.NormalFront, ship.CentralLine.Front, (float)-i * radiansStep);
         AddResultIfCorrect(ship, track, direction, result);
     }
-
-    if (result.IsZero()) throw ObjectStateException();
-    result.Normalize();
 
     return result;
 }
