@@ -12,7 +12,7 @@ class ShipMesh : public Object
 
 public:
     void Init();
-    void Render(Ship& ship);
+    void Render(Ship& ship, int textureIndex);
 
 private:
     void SetPosition(Ship& ship);

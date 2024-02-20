@@ -19,10 +19,11 @@ void ShipMesh::Init()
         ShipMeasure::ZLength / meshSize.ZLength);
 }
 
-void ShipMesh::Render(Ship& ship)
+void ShipMesh::Render(Ship& ship, int textureIndex)
 {
     glPushMatrix();
     SetPosition(ship);
+    _shipMesh.SetActiveTextureIndex(textureIndex);
     _shipMesh.Render();
     glPopMatrix();
 }

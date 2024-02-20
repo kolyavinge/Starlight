@@ -52,7 +52,7 @@
     <ClInclude Include="src\model\track\RoadTrack2.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
     <ClInclude Include="src\render\ui\RaceRenderer.h" />
-    <ClInclude Include="src\render\common\ShipRenderer.h" />
+    <ClInclude Include="src\render\common\ShipsRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\render\common\BackgroundRenderer.h" />
@@ -192,7 +192,7 @@
     <ClCompile Include="src\core\LapChecker.cpp" />
     <ClCompile Include="src\model\track\RoadTrack2.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
-    <ClCompile Include="src\render\common\ShipRenderer.cpp" />
+    <ClCompile Include="src\render\common\ShipsRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />

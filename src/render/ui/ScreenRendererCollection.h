@@ -7,7 +7,7 @@
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
-#include <render/common/ShipRenderer.h>
+#include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
 #include <render/common/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
@@ -25,7 +25,7 @@ class ScreenRendererCollection : public Object
     BackgroundRenderer _backgroundRenderer;
     StarsRenderer _starsRenderer;
     MenuBackgroundRenderer _menuBackgroundRenderer;
-    ShipRenderer _shipRenderer;
+    ShipsRenderer _shipsRenderer;
     TrackRenderer _trackRenderer;
     DashboardRenderer _dashboardRenderer;
 

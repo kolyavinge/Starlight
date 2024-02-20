@@ -6,11 +6,11 @@
 RacePreparationRenderer::RacePreparationRenderer(
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
-    ShipRenderer& shipRenderer,
+    ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer) :
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
-    _shipRenderer(shipRenderer),
+    _shipsRenderer(shipsRenderer),
     _trackRenderer(trackRenderer),
     _fadeEffect(FadeDirection::ToTransparent, 100)
 {
@@ -43,11 +43,7 @@ void RacePreparationRenderer::Render(Screen& screen)
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
-    _shipRenderer.Render(race.Player);
-    for (int i = 0; i < race.Enemies.Count(); i++)
-    {
-        _shipRenderer.Render(race.Enemies[i]);
-    }
+    _shipsRenderer.Render(race.Player, race.Enemies);
 
     glEnable(GL_BLEND);
     _fadeEffect.Render();

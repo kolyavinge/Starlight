@@ -153,7 +153,7 @@
     <ClInclude Include="src\model\track\RoadTrack2.h" />
     <ClInclude Include="src\render\common\BackgroundRenderer.h" />
     <ClInclude Include="src\render\ui\RaceRenderer.h" />
-    <ClInclude Include="src\render\common\ShipRenderer.h" />
+    <ClInclude Include="src\render\common\ShipsRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
     <ClInclude Include="src\render\common\ShipMesh.h" />
@@ -237,7 +237,7 @@
     <ClCompile Include="src\render\ui\GraphicItemCollection.cpp" />
     <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
     <ClCompile Include="src\render\ui\RaceRenderer.cpp" />
-    <ClCompile Include="src\render\common\ShipRenderer.cpp" />
+    <ClCompile Include="src\render\common\ShipsRenderer.cpp" />
     <ClCompile Include="src\render\common\StarsRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />

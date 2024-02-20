@@ -4,7 +4,7 @@
 #include <ui/Screen.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
-#include <render/common/ShipRenderer.h>
+#include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
 #include <render/common/GoRenderer.h>
 #include <render/common/DashboardRenderer.h>
@@ -15,7 +15,7 @@ class RaceRenderer : public ScreenRenderer
 {
     BackgroundRenderer& _backgroundRenderer;
     StarsRenderer& _starsRenderer;
-    ShipRenderer& _shipRenderer;
+    ShipsRenderer& _shipsRenderer;
     TrackRenderer& _trackRenderer;
     DashboardRenderer& _dashboardRenderer;
     GoRenderer _goRenderer;
@@ -24,7 +24,7 @@ public:
     RaceRenderer(
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
-        ShipRenderer& shipRenderer,
+        ShipsRenderer& shipsRenderer,
         TrackRenderer& trackRenderer,
         DashboardRenderer& dashboardRenderer);
 

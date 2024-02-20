@@ -5,8 +5,8 @@ ScreenRendererCollection::ScreenRendererCollection() :
     _dashboardRenderer(_textRenderer),
     _startMenuRenderer(_menuBackgroundRenderer),
     _trackSelectorRenderer(_menuBackgroundRenderer),
-    _racePreparationRenderer(_backgroundRenderer, _starsRenderer, _shipRenderer, _trackRenderer),
-    _raceRenderer(_backgroundRenderer, _starsRenderer, _shipRenderer, _trackRenderer, _dashboardRenderer),
+    _racePreparationRenderer(_backgroundRenderer, _starsRenderer, _shipsRenderer, _trackRenderer),
+    _raceRenderer(_backgroundRenderer, _starsRenderer, _shipsRenderer, _trackRenderer, _dashboardRenderer),
     _pauseMenuRenderer(_raceRenderer),
     _finishRenderer(_raceRenderer)
 {
@@ -22,7 +22,7 @@ void ScreenRendererCollection::Init()
 {
     _textRenderer.Init();
     _backgroundRenderer.Init();
-    _shipRenderer.Init();
+    _shipsRenderer.Init();
     _graphicItemCollection.Init();
     for (int i = 0; i < _renderers.Count; i++)
     {
