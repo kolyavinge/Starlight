@@ -44,6 +44,10 @@ void RacePreparationRenderer::Render(Screen& screen)
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
     _shipRenderer.Render(race.Player);
+    for (int i = 0; i < race.Enemies.Count(); i++)
+    {
+        _shipRenderer.Render(race.Enemies[i]);
+    }
 
     glEnable(GL_BLEND);
     _fadeEffect.Render();

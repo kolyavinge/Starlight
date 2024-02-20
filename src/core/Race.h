@@ -16,7 +16,7 @@ class Race : public Object
     RaceUpdater _raceUpdater;
 
 public:
-    inline static const int EnemiesCount = 1;
+    inline static const int EnemiesCount = 3;
 
     RaceState State;
     Ship Player;
