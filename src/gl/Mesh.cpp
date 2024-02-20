@@ -4,7 +4,8 @@
 #include <gl/MeshLoader.h>
 #include <gl/Mesh.h>
 
-Mesh::Mesh()
+Mesh::Mesh() :
+    _textures(4)
 {
     _activeTextureIndex = 0;
 }

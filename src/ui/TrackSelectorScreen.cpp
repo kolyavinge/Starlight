@@ -1,4 +1,5 @@
 #include <lib/Exceptions.h>
+#include <lib/Object.h>
 #include <ui/TrackSelectorScreen.h>
 
 TrackSelectorScreen::TrackSelectorScreen(
@@ -97,12 +98,12 @@ Track& TrackSelectorScreen::GetTrackByCell(int row, int col)
 
 bool TrackSelectorScreen::IsMenuSelectionActive()
 {
-    return _activeSelector->Equals(_itemSelector);
+    return Object::ReferenceEquals(*_activeSelector, _itemSelector);
 }
 
 bool TrackSelectorScreen::IsTrackSelectionActive()
 {
-    return _activeSelector->Equals(_trackSelector);
+    return Object::ReferenceEquals(*_activeSelector, _trackSelector);
 }
 
 Track& TrackSelectorScreen::GetTrackByItem(TrackSelectorItem item)
