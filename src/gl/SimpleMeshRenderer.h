@@ -10,6 +10,6 @@ class SimpleMeshRenderer : public Object
 public:
     SimpleMeshRenderer();
 
-    void Render(Mesh mesh);
+    void Render(Mesh& mesh);
     void SetActiveTextureIndex(int textureIndex);
 };

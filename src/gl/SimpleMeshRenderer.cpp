@@ -6,7 +6,7 @@ SimpleMeshRenderer::SimpleMeshRenderer()
     _activeTextureIndex = 0;
 }
 
-void SimpleMeshRenderer::Render(Mesh mesh)
+void SimpleMeshRenderer::Render(Mesh& mesh)
 {
     glEnable(GL_TEXTURE_2D);
     mesh.Textures[_activeTextureIndex].Bind();
