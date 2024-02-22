@@ -48,6 +48,7 @@ public:
     void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();
+    void SetScale(float x, float y, float z);
     bool IsLoaded();
     void GetSize(Size& result);
 };

@@ -55,6 +55,17 @@ void Mesh::SwapYZ()
     VectorCalculator::SwapYZ(NormalCoords);
 }
 
+void Mesh::SetScale(float x, float y, float z)
+{
+    for (int i = 0; i < VertexCoords.GetCount(); i++)
+    {
+        Vector3& v = VertexCoords[i];
+        v.X *= x;
+        v.Y *= y;
+        v.Z *= z;
+    }
+}
+
 bool Mesh::IsLoaded()
 {
     return VertexCoords.GetCount() > 0;

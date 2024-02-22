@@ -13,7 +13,7 @@ void ShipMesh::Init()
     _shipMesh.MoveToCenter((int)Mesh::Axis::X);
     Mesh::Size meshSize;
     _shipMesh.GetSize(meshSize);
-    _scaleVector.Set(
+    _shipMesh.SetScale(
         ShipMeasure::XLength / meshSize.XLength,
         ShipMeasure::YLength / meshSize.YLength,
         ShipMeasure::ZLength / meshSize.ZLength);
@@ -37,5 +37,4 @@ void ShipMesh::SetPosition(Ship& ship)
     glRotatef(Geometry::RadiansToDegrees(radians), pivot.X, pivot.Y, pivot.Z);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
     glRotatef(Geometry::RadiansToDegrees(ship.GetRollRadians()), 0.0f, 1.0f, 0.0f);
-    glScalef(_scaleVector);
 }
