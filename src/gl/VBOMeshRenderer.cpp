@@ -1,6 +1,8 @@
 #include <glew/glew.h>
 #include <lib/Memory.h>
+#include <lib/File.h>
 #include <gl/VBOMeshRenderer.h>
+#include <anx/GraphicResources.h>
 
 VBOMeshRenderer::VBOMeshRenderer()
 {
@@ -10,6 +12,7 @@ VBOMeshRenderer::VBOMeshRenderer()
     _buffers[1] = 0;
     _facesCount = 0;
     _activeTextureIndex = 0;
+    _shaderProgram = 0;
 }
 
 VBOMeshRenderer::~VBOMeshRenderer()
@@ -23,16 +26,20 @@ void VBOMeshRenderer::Init(Mesh& mesh)
 {
     _mesh = &mesh;
     MakeBuffers(mesh);
+    MakeShaders();
 }
 
 void VBOMeshRenderer::Render()
 {
+    glUseProgram(_shaderProgram);
+    glActiveTexture(GL_TEXTURE0);
     glEnable(GL_TEXTURE_2D);
     _mesh->Textures[_activeTextureIndex].Bind();
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, _facesCount, GL_UNSIGNED_INT, nullptr);
     glBindVertexArray(0);
     glDisable(GL_TEXTURE_2D);
+    glUseProgram(0);
 }
 
 void VBOMeshRenderer::SetActiveTextureIndex(int textureIndex)
@@ -91,4 +98,30 @@ void VBOMeshRenderer::MakeFaces(Mesh& mesh, unsigned int* faces)
         faces[k++] = mesh.Faces[i].i1;
         faces[k++] = mesh.Faces[i].i2;
     }
+}
+
+void VBOMeshRenderer::MakeShaders()
+{
+    char vertexSource[512] = {};
+    File::ReadAllBytes(GraphicResources::GetSimpleVertexShaderPath().GetWCharBuf(), 512, vertexSource);
+
+    char fragmentSource[512] = {};
+    File::ReadAllBytes(GraphicResources::GetSimpleFragmentShaderPath().GetWCharBuf(), 512, fragmentSource);
+
+    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
+    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+    const GLchar* vs = vertexSource;
+    const GLchar* fs = fragmentSource;
+    glShaderSource(vertexShader, 1, &vs, 0);
+    glShaderSource(fragmentShader, 1, &fs, 0);
+
+    glCompileShader(vertexShader);
+    glCompileShader(fragmentShader);
+
+    _shaderProgram = glCreateProgram();
+
+    glAttachShader(_shaderProgram, vertexShader);
+    glAttachShader(_shaderProgram, fragmentShader);
+    glLinkProgram(_shaderProgram);
 }

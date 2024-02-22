@@ -13,6 +13,7 @@ class VBOMeshRenderer : public Object
     unsigned int _buffers[2];
     int _facesCount;
     int _activeTextureIndex;
+    unsigned int _shaderProgram;
 
     struct MeshVertex
     {
@@ -33,4 +34,5 @@ private:
     void MakeBuffers(Mesh& mesh);
     void MakeVertexes(Mesh& mesh, MeshVertex* vertexes);
     void MakeFaces(Mesh& mesh, unsigned int* faces);
+    void MakeShaders();
 };
