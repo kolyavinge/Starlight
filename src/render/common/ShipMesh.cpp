@@ -23,8 +23,8 @@ void ShipMesh::Render(Ship& ship, int textureIndex)
 {
     glPushMatrix();
     SetPosition(ship);
-    _shipMesh.SetActiveTextureIndex(textureIndex);
-    _shipMesh.Render();
+    _shipMeshRenderer.SetActiveTextureIndex(textureIndex);
+    _shipMeshRenderer.Render(_shipMesh);
     glPopMatrix();
 }
 

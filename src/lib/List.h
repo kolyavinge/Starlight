@@ -124,7 +124,7 @@ private:
         {
             Memory::Release(_items);
         }
-        _items = Memory::Alloc<T>(_capacity);
+        _items = Memory::AllocAndZero<T>(_capacity);
         Memory::Copy<T>(copy._items, _items, _capacity);
     }
 

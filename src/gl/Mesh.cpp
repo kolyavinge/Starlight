@@ -1,72 +1,40 @@
-#include <gl/opengl.h>
 #include <calc/Vector3.h>
 #include <calc/VectorCalculator.h>
 #include <gl/MeshLoader.h>
 #include <gl/Mesh.h>
 
 Mesh::Mesh() :
-    _textures(4)
+    Textures(4)
 {
-    _activeTextureIndex = 0;
 }
 
 void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
 {
     if (IsLoaded()) throw ObjectStateException();
     MeshLoader loader(filePath, meshIndex);
-    loader.LoadVertexCoords(_vertexCoords);
-    loader.LoadNormalCoords(_normalCoords);
-    loader.LoadFaces(_faces);
+    loader.LoadVertexCoords(VertexCoords);
+    loader.LoadNormalCoords(NormalCoords);
+    loader.LoadFaces(Faces);
     if ((flags & (int)LoadFlags::NoTexture) == 0)
     {
-        loader.LoadTextureCoords(_textureCoords);
-        loader.LoadDiffuseTextures(_textures);
+        loader.LoadTextureCoords(TextureCoords);
+        loader.LoadDiffuseTextures(Textures);
     }
-}
-
-void Mesh::SetActiveTextureIndex(int textureIndex)
-{
-    _activeTextureIndex = textureIndex;
-}
-
-void Mesh::Render()
-{
-    glEnable(GL_TEXTURE_2D);
-    _textures[_activeTextureIndex].Bind();
-    glBegin(GL_TRIANGLES);
-    for (int i = 0; i < _faces.GetCount(); i++)
-    {
-        Face& face = _faces[i];
-
-        glNormal3f(_normalCoords[face.i0]);
-        glTexCoord2f(_textureCoords[face.i0]);
-        glVertex3f(_vertexCoords[face.i0]);
-
-        glNormal3f(_normalCoords[face.i1]);
-        glTexCoord2f(_textureCoords[face.i1]);
-        glVertex3f(_vertexCoords[face.i1]);
-
-        glNormal3f(_normalCoords[face.i2]);
-        glTexCoord2f(_textureCoords[face.i2]);
-        glVertex3f(_vertexCoords[face.i2]);
-    }
-    glEnd();
-    glDisable(GL_TEXTURE_2D);
 }
 
 void Mesh::MoveToOrigin()
 {
-    Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
-    for (int i = 0; i < _vertexCoords.GetCount(); i++)
+    Vector3 min = VectorCalculator::GetMinVector(VertexCoords);
+    for (int i = 0; i < VertexCoords.GetCount(); i++)
     {
-        _vertexCoords[i].Sub(min);
+        VertexCoords[i].Sub(min);
     }
 }
 
 void Mesh::MoveToCenter(int axis)
 {
-    Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
-    Vector3 max = VectorCalculator::GetMaxVector(_vertexCoords);
+    Vector3 min = VectorCalculator::GetMinVector(VertexCoords);
+    Vector3 max = VectorCalculator::GetMaxVector(VertexCoords);
     Vector3 lengthHalf = max;
     lengthHalf.Sub(min);
     lengthHalf.Div(2.0f);
@@ -75,27 +43,27 @@ void Mesh::MoveToCenter(int axis)
     if ((axis & (int)Axis::X) == 0) delta.X = 0.0f;
     if ((axis & (int)Axis::Y) == 0) delta.Y = 0.0f;
     if ((axis & (int)Axis::Z) == 0) delta.Z = 0.0f;
-    for (int i = 0; i < _vertexCoords.GetCount(); i++)
+    for (int i = 0; i < VertexCoords.GetCount(); i++)
     {
-        _vertexCoords[i].Sub(delta);
+        VertexCoords[i].Sub(delta);
     }
 }
 
 void Mesh::SwapYZ()
 {
-    VectorCalculator::SwapYZ(_vertexCoords);
-    VectorCalculator::SwapYZ(_normalCoords);
+    VectorCalculator::SwapYZ(VertexCoords);
+    VectorCalculator::SwapYZ(NormalCoords);
 }
 
 bool Mesh::IsLoaded()
 {
-    return _vertexCoords.GetCount() > 0;
+    return VertexCoords.GetCount() > 0;
 }
 
 void Mesh::GetSize(Size& result)
 {
-    Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);
-    Vector3 max = VectorCalculator::GetMaxVector(_vertexCoords);
+    Vector3 min = VectorCalculator::GetMinVector(VertexCoords);
+    Vector3 max = VectorCalculator::GetMaxVector(VertexCoords);
 
     result.MinX = min.X;
     result.MinY = min.Y;

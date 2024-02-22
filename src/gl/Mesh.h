@@ -10,13 +10,6 @@
 
 class Mesh : public Object
 {
-    List<Vector3> _vertexCoords;
-    List<Vector3> _normalCoords;
-    List<Point2> _textureCoords;
-    List<Face> _faces;
-    List<Texture> _textures;
-    int _activeTextureIndex;
-
 public:
     enum class LoadFlags
     {
@@ -43,11 +36,15 @@ public:
         float ZLength = 0.0f;
     };
 
+    List<Vector3> VertexCoords;
+    List<Vector3> NormalCoords;
+    List<Point2> TextureCoords;
+    List<Face> Faces;
+    List<Texture> Textures;
+
     Mesh();
 
     void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
-    void SetActiveTextureIndex(int textureIndex);
-    void Render();
     void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();
