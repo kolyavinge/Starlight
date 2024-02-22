@@ -41,6 +41,7 @@
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\anx\GraphicResources.h" />
     <ClInclude Include="src\gl\TexturedRect.h" />
+    <ClInclude Include="src\gl\VBOMeshRenderer.h" />
     <ClInclude Include="src\input\InputDevices.h" />
     <ClInclude Include="src\input\Joystick.h" />
     <ClInclude Include="src\input\Keyboard.h" />
@@ -199,6 +200,7 @@
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\anx\GraphicResources.cpp" />
     <ClCompile Include="src\gl\TexturedRect.cpp" />
+    <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />

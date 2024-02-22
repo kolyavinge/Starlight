@@ -1,9 +1,12 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Exceptions.h>
 #include <ui/Screen.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/ScreenRendererCollection.h>
+
+class RenderManagerException : public Exception { };
 
 class RenderManager : public Object
 {

@@ -4,11 +4,13 @@
 #include <model/Ship.h>
 #include <gl/Mesh.h>
 #include <gl/SimpleMeshRenderer.h>
+#include <gl/VBOMeshRenderer.h>
 
 class ShipMesh : public Object
 {
     Mesh _shipMesh;
-    SimpleMeshRenderer _shipMeshRenderer;
+    SimpleMeshRenderer _simpleMeshRenderer;
+    VBOMeshRenderer _vboMeshRenderer;
 
 public:
     void Init();

@@ -1,3 +1,4 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <core/Constants.h>
 #include <render/ui/RenderManager.h>
@@ -18,4 +19,5 @@ void RenderManager::InitGL()
     glPointSize(Constants::RenderPointSize);
     glLineWidth(Constants::RenderLineWidth);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    if (glewInit() != GLEW_NO_ERROR) throw RenderManagerException();
 }

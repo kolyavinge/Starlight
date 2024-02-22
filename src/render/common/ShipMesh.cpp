@@ -17,14 +17,17 @@ void ShipMesh::Init()
         ShipMeasure::XLength / meshSize.XLength,
         ShipMeasure::YLength / meshSize.YLength,
         ShipMeasure::ZLength / meshSize.ZLength);
+    _vboMeshRenderer.Init(_shipMesh);
 }
 
 void ShipMesh::Render(Ship& ship, int textureIndex)
 {
     glPushMatrix();
     SetPosition(ship);
-    _shipMeshRenderer.SetActiveTextureIndex(textureIndex);
-    _shipMeshRenderer.Render(_shipMesh);
+    //_simpleMeshRenderer.SetActiveTextureIndex(textureIndex);
+    //_simpleMeshRenderer.Render(_shipMesh);
+    _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
+    _vboMeshRenderer.Render();
     glPopMatrix();
 }
 
