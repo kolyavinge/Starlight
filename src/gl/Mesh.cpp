@@ -54,25 +54,6 @@ void Mesh::Render()
     glDisable(GL_TEXTURE_2D);
 }
 
-void Mesh::RenderWired(int faceStep)
-{
-    glBegin(GL_LINE_LOOP);
-    for (int i = 0; i < _faces.GetCount(); i += faceStep)
-    {
-        Face& face = _faces[i];
-
-        glNormal3f(_normalCoords[face.i0]);
-        glVertex3f(_vertexCoords[face.i0]);
-
-        glNormal3f(_normalCoords[face.i1]);
-        glVertex3f(_vertexCoords[face.i1]);
-
-        glNormal3f(_normalCoords[face.i2]);
-        glVertex3f(_vertexCoords[face.i2]);
-    }
-    glEnd();
-}
-
 void Mesh::MoveToOrigin()
 {
     Vector3 min = VectorCalculator::GetMinVector(_vertexCoords);

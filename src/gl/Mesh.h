@@ -48,7 +48,6 @@ public:
     void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
     void SetActiveTextureIndex(int textureIndex);
     void Render();
-    void RenderWired(int faceStep = 1);
     void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();
