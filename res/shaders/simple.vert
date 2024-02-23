@@ -1,8 +1,12 @@
-varying vec2 texCoord;
+#version 330 compatibility
 
-void main() 
+layout (location = 0) in vec3 aPos;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+void main()
 {
-    //gl_FrontColor = gl_FrontMaterial.diffuse + gl_FrontMaterial.ambient;
-    gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
-    texCoord = gl_MultiTexCoord0.st;
+    gl_Position = gl_ModelViewProjectionMatrix * vec4(aPos, 1.0);
+    TexCoord = aTexCoord;
 }

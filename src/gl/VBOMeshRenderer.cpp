@@ -1,12 +1,12 @@
 #include <glew/glew.h>
 #include <lib/Memory.h>
 #include <lib/File.h>
-#include <gl/VBOMeshRenderer.h>
 #include <anx/GraphicResources.h>
+#include <gl/VBOMeshRenderer.h>
 
 VBOMeshRenderer::VBOMeshRenderer()
 {
-    _mesh = nullptr;
+    _textures = nullptr;
     _vao = 0;
     _buffers[0] = 0;
     _buffers[1] = 0;
@@ -24,7 +24,7 @@ VBOMeshRenderer::~VBOMeshRenderer()
 
 void VBOMeshRenderer::Init(Mesh& mesh)
 {
-    _mesh = &mesh;
+    _textures = &mesh.Textures;
     MakeBuffers(mesh);
     MakeShaders();
 }
@@ -34,7 +34,7 @@ void VBOMeshRenderer::Render()
     glUseProgram(_shaderProgram);
     glActiveTexture(GL_TEXTURE0);
     glEnable(GL_TEXTURE_2D);
-    _mesh->Textures[_activeTextureIndex].Bind();
+    (*_textures)[_activeTextureIndex].Bind();
     glBindVertexArray(_vao);
     glDrawElements(GL_TRIANGLES, _facesCount, GL_UNSIGNED_INT, nullptr);
     glBindVertexArray(0);
@@ -65,10 +65,10 @@ void VBOMeshRenderer::MakeBuffers(Mesh& mesh)
     glBufferData(GL_ARRAY_BUFFER, sizeof(MeshVertex) * mesh.VertexCoords.GetCount(), &vertexes[0].Vertex.X, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, Vertex)));
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, Normal)));
-    glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, TextureCoords)));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, TextureCoords)));
     glEnableVertexAttribArray(0);
     glEnableVertexAttribArray(1);
-    glEnableVertexAttribArray(3);
+    glEnableVertexAttribArray(2);
 
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _buffers[1]);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * _facesCount, faces, GL_STATIC_DRAW);
@@ -116,12 +116,28 @@ void VBOMeshRenderer::MakeShaders()
     glShaderSource(vertexShader, 1, &vs, 0);
     glShaderSource(fragmentShader, 1, &fs, 0);
 
-    glCompileShader(vertexShader);
-    glCompileShader(fragmentShader);
+    CompileShader(vertexShader);
+    CompileShader(fragmentShader);
 
     _shaderProgram = glCreateProgram();
 
     glAttachShader(_shaderProgram, vertexShader);
     glAttachShader(_shaderProgram, fragmentShader);
     glLinkProgram(_shaderProgram);
+}
+
+void VBOMeshRenderer::CompileShader(unsigned int shaderId)
+{
+    glCompileShader(shaderId);
+    GLint isCompiled = 0;
+    glGetShaderiv(shaderId, GL_COMPILE_STATUS, &isCompiled);
+    if (isCompiled == GL_FALSE)
+    {
+        GLint maxLength = 512;
+        GLchar errorBuf[512] = {};
+        glGetShaderiv(shaderId, GL_INFO_LOG_LENGTH, &maxLength);
+        glGetShaderInfoLog(shaderId, maxLength, &maxLength, errorBuf);
+        glDeleteShader(shaderId);
+        throw VBOMeshRendererException();
+    }
 }
