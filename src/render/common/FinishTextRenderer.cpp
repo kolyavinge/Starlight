@@ -1,8 +1,8 @@
 #include <gl/opengl.h>
 #include <lib/Math.h>
 #include <core/Constants.h>
-#include <gl/ImageFile.h>
 #include <anx/GraphicResources.h>
+#include <gl/ImageFile.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/FinishTextRenderer.h>
 

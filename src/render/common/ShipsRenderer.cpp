@@ -8,12 +8,17 @@ void ShipsRenderer::Init()
 
 void ShipsRenderer::Render(Ship& player, List<Ship>& enemies)
 {
-    glColor3f(1.0f, 1.0f, 1.0f);
     glEnable(GL_DEPTH_TEST);
+
     _shipMesh.Render(player, 0);
+
+    int enemyActiveTextureIndex = 1;
     for (int i = 0; i < enemies.GetCount(); i++)
     {
-        _shipMesh.Render(enemies[i], i + 1);
+        _shipMesh.Render(enemies[i], enemyActiveTextureIndex);
+        enemyActiveTextureIndex++;
+        if (enemyActiveTextureIndex == _shipMesh.GetTexturesCount()) enemyActiveTextureIndex = 1;
     }
+
     glDisable(GL_DEPTH_TEST);
 }
