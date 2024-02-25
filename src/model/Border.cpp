@@ -1,6 +1,15 @@
 #include <calc/Vector3.h>
+#include <calc/VectorCalculator.h>
 #include <calc/Quaternion.h>
 #include <model/Border.h>
+
+void Border::Init()
+{
+    UpLeft.Set(0.0f, 0.0f, 0.0f);
+    UpRight.Set(0.0f, 0.0f, 0.0f);
+    DownLeft.Set(0.0f, 0.0f, 0.0f);
+    DownRight.Set(0.0f, 0.0f, 0.0f);
+}
 
 void Border::GetAngleAndPivot(float& radians, Vector3& pivot)
 {
@@ -18,4 +27,13 @@ void Border::GetAngleAndPivot(float& radians, Vector3& pivot)
     result.Mul(qy);
 
     result.GetAngleAndPivot(radians, pivot);
+}
+
+bool Border::Contains(Vector3& point)
+{
+    return
+        VectorCalculator::IsPointInQuadrant(UpLeft, UpRight, DownLeft, point) &&
+        VectorCalculator::IsPointInQuadrant(UpLeft, DownLeft, UpRight, point) &&
+        VectorCalculator::IsPointInQuadrant(DownRight, DownLeft, UpRight, point) &&
+        VectorCalculator::IsPointInQuadrant(DownRight, UpRight, DownLeft, point);
 }

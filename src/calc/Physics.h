@@ -1,21 +1,15 @@
 #pragma once
 
+#include <calc/Vector3.h>
+
 struct NewVelocityResult
 {
-    float Velocity1X;
-    float Velocity1Y;
-    float Velocity2X;
-    float Velocity2Y;
+    Vector3 Velocity1;
+    Vector3 Velocity2;
 };
 
 class Physics
 {
 public:
-    static NewVelocityResult GetNewVelocityAfterCollision(
-        float mass1,
-        float velocity1x,
-        float velocity1y,
-        float mass2,
-        float velocity2x,
-        float velocity2y);
+    static NewVelocityResult GetNewVelocityAfterCollision(float mass1, Vector3& velocity1, float mass2, Vector3& velocity2);
 };

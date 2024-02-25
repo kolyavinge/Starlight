@@ -145,6 +145,9 @@
     <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\ai\EnemyAI.h" />
     <ClInclude Include="src\lib\IArray.h" />
+    <ClInclude Include="src\gl\SimpleMeshRenderer.h" />
+    <ClInclude Include="src\gl\VBOMeshRenderer.h" />
+    <ClInclude Include="src\core\ShipCollisionDetector.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -273,6 +276,9 @@
     <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
     <ClCompile Include="src\ai\SteeringLogic.cpp" />
     <ClCompile Include="src\ai\EnemyAI.cpp" />
+    <ClCompile Include="src\gl\SimpleMeshRenderer.cpp" />
+    <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
+    <ClCompile Include="src\core\ShipCollisionDetector.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

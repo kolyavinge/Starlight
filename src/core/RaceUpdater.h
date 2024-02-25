@@ -32,10 +32,11 @@ public:
         RaceState& state,
         Ship& player,
         List<Ship>& enemies,
+        List<Ship*>& allShips,
         Track& track,
         Laps& laps);
 
 private:
-    void Update(Ship& ship, Track& track);
+    void Update(Ship& ship, List<Ship*>& allShips, Track& track);
     void SaveCurrentShipsPositions(Ship& ship);
 };

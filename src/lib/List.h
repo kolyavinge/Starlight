@@ -131,7 +131,7 @@ private:
     void ResizeIfNeeded(int addedCount = 1)
     {
         bool resize = false;
-        while (_count + addedCount >= _capacity)
+        while (_count + addedCount > _capacity)
         {
             _capacity *= 2;
             resize = true;

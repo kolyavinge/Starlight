@@ -25,7 +25,7 @@ bool TrackCollisionDetector::DetectCollisions(
     Vector3& from = trackPoints[fromTrackPointIndex];
     Vector3& to = trackPoints[toTrackPointIndex];
     Vector3& oppositeFrom = oppositeTrackPoints[fromTrackPointIndex];
-    if (!VectorCalculator::InQuadrant(from, to, oppositeFrom, point)) // out of track area
+    if (!VectorCalculator::IsPointInQuadrant(from, to, oppositeFrom, point)) // out of track area
     {
         Result.FromTrackPoint = from;
         Result.ToTrackPoint = to;

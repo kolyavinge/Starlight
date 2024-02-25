@@ -136,7 +136,7 @@ void VectorCalculator::SwapYZ(List<Vector3>& vectors)
 /* Проверка попадания точки point в одну четверть координатной плоскости
  * образованную векторами axis1 и axis2, выходящих из точки origin
  */
-bool VectorCalculator::InQuadrant(Vector3& origin, Vector3 axis1, Vector3 axis2, Vector3 point)
+bool VectorCalculator::IsPointInQuadrant(Vector3& origin, Vector3 axis1, Vector3 axis2, Vector3 point)
 {
     point.Sub(origin);
     if (point.IsZero()) return true;

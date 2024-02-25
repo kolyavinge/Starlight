@@ -2,15 +2,12 @@
 
 #include <lib/Object.h>
 #include <calc/Vector3.h>
-#include <calc/SegmentIntersector.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/TrackCollisionResult.h>
 
 class TrackCollisionDetector : public Object
 {
-    SegmentIntersector _segmentIntersector;
-
 public:
     TrackCollisionResult Result;
 

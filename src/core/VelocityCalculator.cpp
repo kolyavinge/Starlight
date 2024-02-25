@@ -1,11 +1,12 @@
 #include <model/VelocityFunction.h>
+#include <core/Constants.h>
 #include <core/VelocityCalculator.h>
 
-void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
+void VelocityCalculator::CalculateVelocity(Ship& ship)
 {
     if (ship.IsThrottleActive)
     {
-        ship.ThrottleTime += timeStep;
+        ship.ThrottleTime += Constants::TimeStep;
         if (ship.ThrottleTime > VelocityFunction::MaxThrottleTime)
         {
             ship.ThrottleTime = VelocityFunction::MaxThrottleTime;
@@ -13,7 +14,7 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
     }
     else if (ship.IsBreakActive)
     {
-        ship.ThrottleTime -= 1.25f * timeStep;
+        ship.ThrottleTime -= 1.25f * Constants::TimeStep;
         if (ship.ThrottleTime < 0.0f)
         {
             ship.ThrottleTime = 0.0f;
@@ -21,7 +22,7 @@ void VelocityCalculator::CalculateVelocity(float timeStep, Ship& ship)
     }
     else
     {
-        ship.ThrottleTime -= 0.5f * timeStep;
+        ship.ThrottleTime -= 0.5f * Constants::TimeStep;
         if (ship.ThrottleTime < 0.0f)
         {
             ship.ThrottleTime = 0.0f;

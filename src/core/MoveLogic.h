@@ -6,7 +6,7 @@
 class MoveLogic : public Object
 {
 public:
-    void MoveShip(float timeStep, Ship& ship);
+    void MoveShip(Ship& ship);
 
 private:
     void MoveStraight(Ship& ship, float moveDistance);

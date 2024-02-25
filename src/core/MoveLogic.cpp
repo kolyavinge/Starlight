@@ -4,13 +4,14 @@
 #include <calc/Geometry.h>
 #include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
+#include <core/Constants.h>
 #include <core/MoveLogic.h>
 
-void MoveLogic::MoveShip(float timeStep, Ship& ship)
+void MoveLogic::MoveShip(Ship& ship)
 {
     if (!Numeric::FloatEquals(ship.VelocityValue, 0.0f))
     {
-        float moveDistance = ship.VelocityValue * timeStep;
+        float moveDistance = ship.VelocityValue * Constants::TimeStep;
         if (Numeric::FloatEquals(ship.TurnAngleRadians, 0.0f, 1e-2f))
         {
             MoveStraight(ship, moveDistance);

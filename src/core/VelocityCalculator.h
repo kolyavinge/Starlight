@@ -6,5 +6,5 @@
 class VelocityCalculator : public Object
 {
 public:
-    void CalculateVelocity(float timeStep, Ship& ship);
+    void CalculateVelocity(Ship& ship);
 };

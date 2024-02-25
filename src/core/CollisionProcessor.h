@@ -1,18 +1,25 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/TrackCollisionDetector.h>
+#include <core/ShipCollisionDetector.h>
 
 class CollisionProcessor : public Object
 {
     TrackCollisionDetector _trackCollisionDetector;
+    ShipCollisionDetector _shipCollisionDetector;
     bool _hasCollisions;
 
 public:
     CollisionProcessor();
 
-    void ProcessCollisions(Ship& ship, Track& track);
+    void ProcessCollisions(Ship& ship, List<Ship*>& allShips, Track& track);
     bool HasCollisions();
+
+private:
+    bool ProcessTrackCollisions(Ship& ship, Track& track);
+    bool ProcessShipsCollisions(Ship& ship, List<Ship*>& allShips);
 };

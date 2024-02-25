@@ -17,5 +17,5 @@ public:
     static void SwapXY(List<Vector3>& vectors);
     static void SwapXZ(List<Vector3>& vectors);
     static void SwapYZ(List<Vector3>& vectors);
-    static bool InQuadrant(Vector3& origin, Vector3 axis1, Vector3 axis2, Vector3 point);
+    static bool IsPointInQuadrant(Vector3& origin, Vector3 axis1, Vector3 axis2, Vector3 point);
 };

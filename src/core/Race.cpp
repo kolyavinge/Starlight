@@ -3,7 +3,8 @@
 
 Race::Race() :
     _raceUpdater(EnemyAI),
-    Enemies(EnemiesCount)
+    Enemies(EnemiesCount),
+    _allShips(EnemiesCount + 1)
 {
     State = RaceState::Prepare;
     Track = nullptr;
@@ -11,6 +12,11 @@ Race::Race() :
     for (int i = 0; i < EnemiesCount; i++)
     {
         Enemies.Add(Ship());
+    }
+    _allShips.Add(&Player);
+    for (int i = 0; i < EnemiesCount; i++)
+    {
+        _allShips.Add(&Enemies[i]);
     }
 }
 
@@ -20,7 +26,11 @@ void Race::Init(::Track& selectedTrack)
     Track = &selectedTrack;
     RaceInitializer initializer;
     initializer.Init(*this);
-    Update();
+    BorderUpdater borderUpdater;
+    for (int i = 0; i < _allShips.GetCount(); i++)
+    {
+        borderUpdater.Update(*_allShips[i]);
+    }
 }
 
 void Race::Start()
@@ -45,6 +55,7 @@ void Race::Update()
         State,
         Player,
         Enemies,
+        _allShips,
         *Track,
         Laps);
 }
