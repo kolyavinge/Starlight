@@ -30,5 +30,5 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
     }
 
     ship.PrevVelocityValue = ship.VelocityValue;
-    ship.SetCurrentVelocity();
+    ship.VelocityValue = ship.VelocityFunction.GetValueByThrottleTime(ship.ThrottleTime);
 }

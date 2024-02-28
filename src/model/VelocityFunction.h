@@ -10,5 +10,6 @@ public:
 
     VelocityFunction();
 
-    float GetValue(float throttleTime);
+    float GetValueByThrottleTime(float throttleTime);
+    float GetThrottleTimeByValue(float value);
 };

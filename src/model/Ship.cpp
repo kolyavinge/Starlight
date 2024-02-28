@@ -42,11 +42,6 @@ bool Ship::IsMoving()
     return !Numeric::FloatEquals(VelocityValue, 0.0f) || !Deviation.IsZero();
 }
 
-void Ship::SetCurrentVelocity()
-{
-    VelocityValue = VelocityFunction.GetValue(ThrottleTime);
-}
-
 float Ship::GetRollRadians()
 {
     return -1.0f * TurnAngleRadians;
