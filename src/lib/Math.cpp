@@ -59,6 +59,11 @@ float Math::ArcTan(float x)
     return atanf(x);
 }
 
+float Math::Power(float x, float pow)
+{
+    return powf(x, pow);
+}
+
 float Math::LogE(float x)
 {
     return logf(x);
