@@ -14,7 +14,7 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
     }
     else if (ship.IsBreakActive)
     {
-        ship.ThrottleTime -= 1.25f * Constants::TimeStep;
+        ship.ThrottleTime -= 2.0f * Constants::TimeStep;
         if (ship.ThrottleTime < 0.0f)
         {
             ship.ThrottleTime = 0.0f;
@@ -22,7 +22,7 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
     }
     else
     {
-        ship.ThrottleTime -= 0.5f * Constants::TimeStep;
+        ship.ThrottleTime -= 1.0f * Constants::TimeStep;
         if (ship.ThrottleTime < 0.0f)
         {
             ship.ThrottleTime = 0.0f;
