@@ -281,6 +281,7 @@
     <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
     <ClCompile Include="src\core\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\core\ShipCollisionResult.cpp" />
+    <ClCompile Include="src\model\ShipCentralLine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

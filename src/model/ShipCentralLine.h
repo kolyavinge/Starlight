@@ -10,6 +10,10 @@ public:
     Vector3 Rear;
     Vector3 NormalFront;
     Vector3 NormalRear;
-    int TrackPointIndexFront = 0;
-    int TrackPointIndexRear = 0;
+    int TrackPointIndexFront;
+    int TrackPointIndexRear;
+
+    ShipCentralLine();
+
+    void Init();
 };
