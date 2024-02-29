@@ -7,6 +7,8 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, List<Ship*>& allShips)
         if (!Object::ReferenceEquals(ship, *allShips[i]) &&
             DetectCollisions(ship, *allShips[i]))
         {
+            Result.Ship1 = &ship;
+            Result.Ship2 = allShips[i];
             return true;
         }
     }
@@ -17,6 +19,8 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, List<Ship*>& allShips)
 bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
 {
     return
+        ship2.Border.Contains(ship1.CentralLine.Front) ||
+        ship2.Border.Contains(ship1.CentralLine.Rear) ||
         ship2.Border.Contains(ship1.Border.UpLeft) ||
         ship2.Border.Contains(ship1.Border.UpRight) ||
         ship2.Border.Contains(ship1.Border.DownLeft) ||

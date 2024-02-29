@@ -148,6 +148,7 @@
     <ClInclude Include="src\gl\SimpleMeshRenderer.h" />
     <ClInclude Include="src\gl\VBOMeshRenderer.h" />
     <ClInclude Include="src\core\ShipCollisionDetector.h" />
+    <ClInclude Include="src\core\ShipCollisionResult.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -279,6 +280,7 @@
     <ClCompile Include="src\gl\SimpleMeshRenderer.cpp" />
     <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
     <ClCompile Include="src\core\ShipCollisionDetector.cpp" />
+    <ClCompile Include="src\core\ShipCollisionResult.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

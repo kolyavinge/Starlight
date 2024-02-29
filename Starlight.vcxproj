@@ -32,6 +32,7 @@
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\ShipCollisionDetector.h" />
+    <ClInclude Include="src\core\ShipCollisionResult.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\Face.h" />
@@ -186,6 +187,7 @@
     <ClCompile Include="src\core\LapTimer.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\ShipCollisionDetector.cpp" />
+    <ClCompile Include="src\core\ShipCollisionResult.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />

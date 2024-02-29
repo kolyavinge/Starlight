@@ -1,6 +1,10 @@
 #include <lib/Assert.h>
 #include <calc/Vector3.h>
 #include <calc/Physics.h>
+#include <model/ShipMeasure.h>
+#include <model/Ship.h>
+#include <core/TrackCollisionResult.h>
+#include <core/ShipCollisionResult.h>
 #include <core/CollisionProcessor.h>
 
 CollisionProcessor::CollisionProcessor()
@@ -36,7 +40,7 @@ bool CollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
     opposite.SetLength(0.5f);
     ship.Deviation.Add(opposite);
 
-    ship.ThrottleTime /= 4.0f;
+    ship.ThrottleTime *= 0.5f;
 
     return true;
 }
@@ -44,19 +48,29 @@ bool CollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
 bool CollisionProcessor::ProcessShipsCollisions(Ship& ship, List<Ship*>& allShips)
 {
     if (!_shipCollisionDetector.DetectCollisions(ship, allShips)) return false;
+    ShipCollisionResult& collisionResult = _shipCollisionDetector.Result;
+    Ship& ship1 = *collisionResult.Ship1;
+    Ship& ship2 = *collisionResult.Ship2;
 
     ship.CentralLine = ship.PrevCentralLine;
 
-    Vector3 frontDirection(ship.CentralLine.Front);
-    frontDirection.Sub(ship.CentralLine.Rear);
+    Vector3 ship1Velocity(ship1.GetVelocityVector());
+    Vector3 ship2Velocity(ship2.GetVelocityVector());
 
     NewVelocityResult result = Physics::GetNewVelocityAfterCollision(
-        1.0f, frontDirection, 1.0f, frontDirection);
+        ShipMeasure::Mass, ship1Velocity, ShipMeasure::Mass, ship2Velocity);
 
-    result.Velocity1.SetLength(1.0f);
-    ship.Deviation.Add(result.Velocity1);
+    if (!result.Velocity1.IsZero())
+    {
+        ship1.OrientationByRearPoint(ship1.CentralLine.Rear, result.Velocity1);
+        ship1.ThrottleTime = ship1.VelocityFunction.GetThrottleTimeByValue(result.Velocity1.GetLength());
+    }
 
-    ship.ThrottleTime /= 1.5f;
+    if (!result.Velocity2.IsZero())
+    {
+        ship2.OrientationByRearPoint(ship2.CentralLine.Rear, result.Velocity2);
+        ship2.ThrottleTime = ship2.VelocityFunction.GetThrottleTimeByValue(result.Velocity2.GetLength());
+    }
 
     return true;
 }
