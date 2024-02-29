@@ -19,7 +19,7 @@ void Ship::Init()
     PrevVelocityValue = 0;
     CentralLine.Init();
     Border.Init();
-    AIMovingDirection.Set(0.0f, 0.0f, 0.0f);
+    AIData.Init();
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

@@ -11,6 +11,7 @@ void RaceInitializer::Init(Race& race)
     InitShips(race);
     SetStartGrid(race);
     UpdateShipsPositions(race);
+    SetAIData(race);
 }
 
 void RaceInitializer::InitShips(Race& race)
@@ -68,5 +69,13 @@ void RaceInitializer::UpdateShipsPositions(Race& race)
     for (int i = 0; i < race.Enemies.GetCount(); i++)
     {
         positionUpdater.Update(race.Enemies[i], *race.Track);
+    }
+}
+
+void RaceInitializer::SetAIData(Race& race)
+{
+    for (int i = 0; i < race.Enemies.GetCount(); i++)
+    {
+        race.Enemies[i].AIData.Init();
     }
 }

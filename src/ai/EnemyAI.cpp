@@ -14,7 +14,7 @@ void EnemyAI::ApplyFor(Ship& enemy, List<Ship*>& allShips, Track& track)
     Vector3 newMovingDirection = _obstacleAvoidanceLogic.GetMovingDirection(enemy, allShips, track);
     if (!newMovingDirection.IsZero())
     {
-        enemy.AIMovingDirection = newMovingDirection;
+        enemy.AIData.MovingDirection = newMovingDirection;
     }
 
     _steeringLogic.Update(enemy);

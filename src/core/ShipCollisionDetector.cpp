@@ -20,7 +20,7 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3&
 {
     Vector3 direction(to);
     direction.Sub(from);
-    const float stepSize = 0.5f;
+    const float stepSize = 0.1f;
     const int steps = (int)(direction.GetLength() / stepSize);
     Vector3 point;
     for (int step = 1; step <= steps; step++)

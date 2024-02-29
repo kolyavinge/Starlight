@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 #include <model/ShipCentralLine.h>
+#include <model/ShipAIData.h>
 #include <model/Border.h>
 #include <model/VelocityFunction.h>
 
@@ -22,8 +23,7 @@ public:
     Border Border;
     Vector3 Deviation;
     VelocityFunction VelocityFunction;
-    // ai data
-    Vector3 AIMovingDirection;
+    ShipAIData AIData;
 
     Ship();
 

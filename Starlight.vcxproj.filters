@@ -149,6 +149,7 @@
     <ClInclude Include="src\gl\VBOMeshRenderer.h" />
     <ClInclude Include="src\core\ShipCollisionDetector.h" />
     <ClInclude Include="src\core\ShipCollisionResult.h" />
+    <ClInclude Include="src\model\ShipAIData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -281,6 +282,7 @@
     <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
     <ClCompile Include="src\core\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\core\ShipCollisionResult.cpp" />
+    <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />
   </ItemGroup>
   <ItemGroup>

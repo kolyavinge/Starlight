@@ -5,7 +5,7 @@
 
 Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, List<Ship*>& allShips, Track& track)
 {
-    float directionLength = 5.0f * ShipMeasure::YLength;
+    float directionLength = ship.AIData.MovingDirectionLength * ShipMeasure::YLength;
     Vector3 result = TryGetMovingDirection(ship, allShips, track, directionLength);
     while (result.IsZero())
     {
@@ -28,18 +28,18 @@ Vector3 ObstacleAvoidanceLogic::TryGetMovingDirection(Ship& ship, List<Ship*>& a
     straight.Add(ship.CentralLine.Front);
     AddResultIfCorrect(ship, allShips, track, straight, result);
 
-    Vector3 direction;
-    const int steps = 5;
+    Vector3 movingPoint;
+    const int steps = ship.AIData.MovingPointsSteps;
     const float radiansStep = Math::PiHalf / (float)steps;
     for (int i = 1; i <= steps; i++)
     {
-        direction.Set(straight);
-        direction = Geometry::RotatePoint3d(direction, ship.CentralLine.NormalFront, ship.CentralLine.Front, (float)i * radiansStep);
-        AddResultIfCorrect(ship, allShips, track, direction, result);
+        movingPoint.Set(straight);
+        movingPoint = Geometry::RotatePoint3d(movingPoint, ship.CentralLine.NormalFront, ship.CentralLine.Front, (float)i * radiansStep);
+        AddResultIfCorrect(ship, allShips, track, movingPoint, result);
 
-        direction.Set(straight);
-        direction = Geometry::RotatePoint3d(direction, ship.CentralLine.NormalFront, ship.CentralLine.Front, (float)-i * radiansStep);
-        AddResultIfCorrect(ship, allShips, track, direction, result);
+        movingPoint.Set(straight);
+        movingPoint = Geometry::RotatePoint3d(movingPoint, ship.CentralLine.NormalFront, ship.CentralLine.Front, (float)-i * radiansStep);
+        AddResultIfCorrect(ship, allShips, track, movingPoint, result);
     }
 
     return result;
