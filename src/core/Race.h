@@ -14,7 +14,6 @@
 class Race : public Object
 {
     RaceUpdater _raceUpdater;
-    List<Ship*> _allShips;
 
 public:
     inline static const int EnemiesCount = 3;
@@ -22,6 +21,7 @@ public:
     RaceState State;
     Ship Player;
     List<Ship> Enemies;
+    List<Ship*> AllShips;
     Track* Track;
     ShipController PlayerController;
     Camera Camera;

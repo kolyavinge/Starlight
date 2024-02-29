@@ -16,6 +16,30 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, List<Ship*>& allShips)
     return false;
 }
 
+bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3& to)
+{
+    Vector3 direction(to);
+    direction.Sub(from);
+    const float stepSize = 0.5f;
+    const int steps = (int)(direction.GetLength() / stepSize);
+    Vector3 point;
+    for (int step = 1; step <= steps; step++)
+    {
+        direction.SetLength((float)step * stepSize);
+        point.Set(from);
+        point.Add(direction);
+        if (ship.Border.Contains(point))
+        {
+            return true;
+        }
+    }
+
+    // check last point
+    bool result = ship.Border.Contains(to);
+
+    return result;
+}
+
 bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
 {
     return

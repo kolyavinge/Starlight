@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/List.h>
+#include <calc/Vector3.h>
 #include <model/Ship.h>
 #include <core/ShipCollisionResult.h>
 
@@ -11,6 +12,7 @@ public:
     ShipCollisionResult Result;
 
     bool DetectCollisions(Ship& ship, List<Ship*>& allShips);
+    bool DetectCollisions(Ship& ship, Vector3& from, Vector3& to);
 
 private:
     bool DetectCollisions(Ship& ship1, Ship& ship2);

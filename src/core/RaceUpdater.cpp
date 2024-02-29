@@ -19,7 +19,7 @@ void RaceUpdater::Update(
     {
         Update(enemies[i], allShips, track);
     }
-    _enemyAI.ApplyFor(enemies, track);
+    _enemyAI.ApplyFor(enemies, allShips, track);
     laps.Update(state, player, track);
 }
 

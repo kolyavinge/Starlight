@@ -20,7 +20,7 @@ void FinishScreen::Update()
 {
     if (_iterationCount < IterationsCount)
     {
-        Race.EnemyAI.ApplyFor(Race.Player, *Race.Track);
+        Race.EnemyAI.ApplyFor(Race.Player, Race.AllShips, *Race.Track);
         Race.Update();
         _iterationCount++;
     }
