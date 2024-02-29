@@ -46,3 +46,16 @@ float Ship::GetRollRadians()
 {
     return -1.0f * TurnAngleRadians;
 }
+
+Vector3 Ship::GetVelocityVector()
+{
+    Vector3 result;
+    if (VelocityValue > 0.0f)
+    {
+        result.Set(CentralLine.Front);
+        result.Sub(CentralLine.Rear);
+        result.SetLength(VelocityValue);
+    }
+
+    return result;
+}

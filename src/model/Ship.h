@@ -32,4 +32,5 @@ public:
     void OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction);
     bool IsMoving();
     float GetRollRadians();
+    Vector3 GetVelocityVector();
 };
