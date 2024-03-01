@@ -1,60 +1,19 @@
 #include <lib/Exceptions.h>
-#include <lib/Math.h>
-#include <lib/Numeric.h>
 #include <calc/VectorCalculator.h>
 
-void VectorCalculator::GetNormalVector2d(
-    float fromX, float fromY,
-    float toX, float toY,
-    float* resultX, float* resultY)
+void VectorCalculator::GetNormalVector(Vector3& origin, Vector3 right, Vector3 front, Vector3& result)
 {
-    if (Numeric::FloatEquals(fromX, toX))
-    {
-        *resultX = 1.0f;
-        *resultY = 0.0f;
-    }
-    else if (Numeric::FloatEquals(fromY, toY))
-    {
-        *resultX = 0.0f;
-        *resultY = 1.0f;
-    }
-    else
-    {
-        float sortedFromX, sortedFromY, sortedToX, sortedToY;
-        if (fromX < toX)
-        {
-            sortedFromX = fromX;
-            sortedFromY = fromY;
-            sortedToX = toX;
-            sortedToY = toY;
-        }
-        else
-        {
-            sortedFromX = toX;
-            sortedFromY = toY;
-            sortedToX = fromX;
-            sortedToY = fromY;
-        }
-        float alpha = Math::Abs(Math::ArcTan((sortedToY - sortedFromY) / (sortedToX - sortedFromX)));
-        if (sortedToY < sortedFromY) alpha = -alpha;
-        *resultX = Math::Cos(Math::PiHalf + alpha);
-        *resultY = Math::Sin(Math::PiHalf + alpha);
-    }
-}
-
-void VectorCalculator::GetNormalVector3d(Vector3& center, Vector3 right, Vector3 front, Vector3& result)
-{
-    right.Sub(center);
-    front.Sub(center);
+    right.Sub(origin);
+    front.Sub(origin);
     right.VectorProduct(front);
     right.Normalize();
     result.Set(right);
 }
 
-bool VectorCalculator::IsSameDirection(Vector3& base, Vector3 v1, Vector3 v2)
+bool VectorCalculator::IsSameDirection(Vector3& origin, Vector3 v1, Vector3 v2)
 {
-    v1.VectorProduct(base);
-    v2.VectorProduct(base);
+    v1.VectorProduct(origin);
+    v2.VectorProduct(origin);
     v1.Normalize();
     v2.Normalize();
     v1.Sub(v2);
@@ -146,16 +105,12 @@ bool VectorCalculator::IsPointInQuadrant(Vector3& origin, Vector3 axis1, Vector3
 
     Vector3 checkDirection(point);
     checkDirection.VectorProduct(axis1);
-    if (checkDirection.IsZero()) return true;
-    checkDirection.Normalize();
 
     Vector3 areaDirection(axis2);
     areaDirection.VectorProduct(axis1);
-    areaDirection.Normalize();
 
-    Vector3 diff(areaDirection);
-    diff.Sub(checkDirection);
-    bool inArea = diff.GetLengthSquared() < 0.1f;
+    float dotProduct = areaDirection.DotProduct(checkDirection);
+    bool inArea = dotProduct >= 0.0f;
 
     return inArea;
 }

@@ -136,14 +136,14 @@ void Track::InitNormals()
 {
     for (int pointIndex = 0; pointIndex < PointsCount - 1; pointIndex++)
     {
-        VectorCalculator::GetNormalVector3d(
+        VectorCalculator::GetNormalVector(
             InsidePoints[pointIndex],
             OutsidePoints[pointIndex],
             InsidePoints[pointIndex + 1],
             Normals[pointIndex]);
     }
 
-    VectorCalculator::GetNormalVector3d(
+    VectorCalculator::GetNormalVector(
         InsidePoints[PointsCount - 1],
         OutsidePoints[PointsCount - 1],
         InsidePoints[0],
