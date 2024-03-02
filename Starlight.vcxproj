@@ -35,6 +35,7 @@
     <ClInclude Include="src\core\ShipCollisionResult.h" />
     <ClInclude Include="src\core\StartingGridInitializer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
+    <ClInclude Include="src\core\WeaponLogic.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
@@ -195,6 +196,7 @@
     <ClCompile Include="src\core\ShipCollisionResult.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
+    <ClCompile Include="src\core\WeaponLogic.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapChecker.cpp" />

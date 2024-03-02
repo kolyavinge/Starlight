@@ -11,6 +11,7 @@
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
+#include <core/WeaponLogic.h>
 #include <core/Laps.h>
 #include <ai/EnemyAI.h>
 
@@ -23,6 +24,7 @@ class RaceUpdater : public Object
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
+    WeaponLogic _weaponLogic;
     EnemyAI& _enemyAI;
 
 public:

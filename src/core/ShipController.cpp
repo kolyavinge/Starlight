@@ -49,3 +49,13 @@ void ShipController::ReleaseTurn()
     _ship->IsTurnLeftActive = false;
     _ship->IsTurnRightActive = false;
 }
+
+void ShipController::ActivateFire()
+{
+    _ship->IsFireActive = true;
+}
+
+void ShipController::ReleaseFire()
+{
+    _ship->IsFireActive = false;
+}

@@ -151,6 +151,9 @@
     <ClInclude Include="src\core\ShipCollisionResult.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
     <ClInclude Include="src\core\StartingGridInitializer.h" />
+    <ClInclude Include="src\model\Bullet.h" />
+    <ClInclude Include="src\model\Weapon.h" />
+    <ClInclude Include="src\model\Machinegun.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -286,6 +289,9 @@
     <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
+    <ClCompile Include="src\model\Bullet.cpp" />
+    <ClCompile Include="src\model\Weapon.cpp" />
+    <ClCompile Include="src\model\Machinegun.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

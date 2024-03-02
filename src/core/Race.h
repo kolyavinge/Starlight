@@ -21,7 +21,7 @@ public:
 
     RaceState State;
     Ship Player;
-    Array<Ship, 3> Enemies;
+    Array<Ship, EnemiesCount> Enemies;
     List<Ship*> AllShips;
     Track* Track;
     ShipController PlayerController;

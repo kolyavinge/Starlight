@@ -76,6 +76,15 @@ void RaceScreen::ProcessInput()
         Race.Camera.SetRearView(Race.Player);
     }
 
+    if (keyboard.IsPressedOrHeld(VK_SPACE))
+    {
+        playerController.ActivateFire();
+    }
+    else
+    {
+        playerController.ReleaseFire();
+    }
+
     if (keyboard.IsPressed(VK_ESCAPE))
     {
         Race.Pause();

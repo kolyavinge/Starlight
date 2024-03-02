@@ -31,6 +31,8 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)
     _velocityCalculator.CalculateVelocity(ship);
     _moveLogic.MoveShip(ship);
     _borderUpdater.Update(ship);
+    _weaponLogic.UpdateWeapon(ship);
+    _weaponLogic.UpdateBullets(ship.Weapon);
     _collisionProcessor.ProcessCollisions(ship, allShips, track);
     if (_collisionProcessor.HasCollisions())
     {

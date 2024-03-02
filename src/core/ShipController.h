@@ -18,4 +18,6 @@ public:
     void TurnLeft();
     void TurnRight();
     void ReleaseTurn();
+    void ActivateFire();
+    void ReleaseFire();
 };
