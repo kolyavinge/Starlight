@@ -1,6 +1,6 @@
 #pragma once
 
-#include <lib/List.h>
+#include <lib/IArray.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/RaceState.h>
@@ -31,12 +31,12 @@ public:
     void Update(
         RaceState& state,
         Ship& player,
-        List<Ship>& enemies,
-        List<Ship*>& allShips,
+        IArray<Ship>& enemies,
+        IArray<Ship*>& allShips,
         Track& track,
         Laps& laps);
 
 private:
-    void Update(Ship& ship, List<Ship*>& allShips, Track& track);
+    void Update(Ship& ship, IArray<Ship*>& allShips, Track& track);
     void SaveCurrentShipsPositions(Ship& ship);
 };

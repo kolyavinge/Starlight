@@ -1,6 +1,6 @@
 #include <core/ShipCollisionDetector.h>
 
-bool ShipCollisionDetector::DetectCollisions(Ship& ship, List<Ship*>& allShips)
+bool ShipCollisionDetector::DetectCollisions(Ship& ship, IArray<Ship*>& allShips)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
     {

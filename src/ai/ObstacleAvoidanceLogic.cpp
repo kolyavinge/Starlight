@@ -3,7 +3,7 @@
 #include <model/ShipMeasure.h>
 #include <ai/ObstacleAvoidanceLogic.h>
 
-Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, List<Ship*>& allShips, Track& track)
+Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track)
 {
     float directionLength = ship.AIData.MovingDirectionLength * ShipMeasure::YLength;
     Vector3 result = TryGetMovingDirection(ship, allShips, track, directionLength);
@@ -18,7 +18,7 @@ Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, List<Ship*>& allS
     return result;
 }
 
-Vector3 ObstacleAvoidanceLogic::TryGetMovingDirection(Ship& ship, List<Ship*>& allShips, Track& track, float directionLength)
+Vector3 ObstacleAvoidanceLogic::TryGetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength)
 {
     Vector3 result;
 
@@ -45,7 +45,7 @@ Vector3 ObstacleAvoidanceLogic::TryGetMovingDirection(Ship& ship, List<Ship*>& a
     return result;
 }
 
-void ObstacleAvoidanceLogic::AddResultIfCorrect(Ship& ship, List<Ship*>& allShips, Track& track, Vector3 direction, Vector3& result)
+void ObstacleAvoidanceLogic::AddResultIfCorrect(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, Vector3& result)
 {
     if (_trackCollisionDetector.DetectCollisions(track, ship.CentralLine.TrackPointIndexFront, direction))
     {

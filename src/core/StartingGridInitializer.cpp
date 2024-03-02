@@ -1,7 +1,8 @@
+#include <lib/List.h>
 #include <model/ShipMeasure.h>
 #include <core/StartingGridInitializer.h>
 
-void StartingGridInitializer::SetStartGrid(Ship& player, List<Ship>& enemies, Track& track)
+void StartingGridInitializer::SetStartGrid(Ship& player, IArray<Ship>& enemies, Track& track)
 {
     Vector3 startLineDirection(track.OutsidePoints[track.StartFinishLineIndex]);
     startLineDirection.Sub(track.InsidePoints[track.StartFinishLineIndex]);

@@ -6,7 +6,7 @@ void ShipsRenderer::Init()
     _shipMesh.Init();
 }
 
-void ShipsRenderer::Render(Ship& player, List<Ship>& enemies)
+void ShipsRenderer::Render(Ship& player, IArray<Ship>& enemies)
 {
     glEnable(GL_DEPTH_TEST);
 

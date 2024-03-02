@@ -3,7 +3,6 @@
 
 Race::Race() :
     _raceUpdater(EnemyAI),
-    Enemies(EnemiesCount),
     AllShips(EnemiesCount + 1)
 {
     State = RaceState::Prepare;
@@ -11,7 +10,7 @@ Race::Race() :
     PlayerController.SetShip(Player);
     for (int i = 0; i < EnemiesCount; i++)
     {
-        Enemies.Add(Ship());
+        Enemies[i].Init();
     }
     AllShips.Add(&Player);
     for (int i = 0; i < EnemiesCount; i++)

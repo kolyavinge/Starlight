@@ -9,8 +9,8 @@ RaceUpdater::RaceUpdater(EnemyAI& enemyAI) :
 void RaceUpdater::Update(
     RaceState& state,
     Ship& player,
-    List<Ship>& enemies,
-    List<Ship*>& allShips,
+    IArray<Ship>& enemies,
+    IArray<Ship*>& allShips,
     Track& track,
     Laps& laps)
 {
@@ -23,7 +23,7 @@ void RaceUpdater::Update(
     laps.Update(state, player, track);
 }
 
-void RaceUpdater::Update(Ship& ship, List<Ship*>& allShips, Track& track)
+void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)
 {
     SaveCurrentShipsPositions(ship);
     _positionUpdater.UpdateIfShipMoving(ship, track);

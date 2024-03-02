@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/List.h>
+#include <lib/IArray.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/TrackCollisionDetector.h>
@@ -16,10 +16,10 @@ class CollisionProcessor : public Object
 public:
     CollisionProcessor();
 
-    void ProcessCollisions(Ship& ship, List<Ship*>& allShips, Track& track);
+    void ProcessCollisions(Ship& ship, IArray<Ship*>& allShips, Track& track);
     bool HasCollisions();
 
 private:
     bool ProcessTrackCollisions(Ship& ship, Track& track);
-    bool ProcessShipsCollisions(Ship& ship, List<Ship*>& allShips);
+    bool ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips);
 };

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Array.h>
 #include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -20,7 +21,7 @@ public:
 
     RaceState State;
     Ship Player;
-    List<Ship> Enemies;
+    Array<Ship, 3> Enemies;
     List<Ship*> AllShips;
     Track* Track;
     ShipController PlayerController;

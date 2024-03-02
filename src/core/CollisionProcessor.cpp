@@ -12,7 +12,7 @@ CollisionProcessor::CollisionProcessor()
     _hasCollisions = false;
 }
 
-void CollisionProcessor::ProcessCollisions(Ship& ship, List<Ship*>& allShips, Track& track)
+void CollisionProcessor::ProcessCollisions(Ship& ship, IArray<Ship*>& allShips, Track& track)
 {
     _hasCollisions =
         ProcessTrackCollisions(ship, track) ||
@@ -45,7 +45,7 @@ bool CollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
     return true;
 }
 
-bool CollisionProcessor::ProcessShipsCollisions(Ship& ship, List<Ship*>& allShips)
+bool CollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips)
 {
     if (!_shipCollisionDetector.DetectCollisions(ship, allShips)) return false;
     ShipCollisionResult& collisionResult = _shipCollisionDetector.Result;
