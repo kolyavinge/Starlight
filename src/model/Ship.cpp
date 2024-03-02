@@ -2,7 +2,8 @@
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
 
-Ship::Ship()
+Ship::Ship() :
+    Weapon(_weapon)
 {
     Init();
 }
@@ -13,6 +14,7 @@ void Ship::Init()
     IsBreakActive = false;
     IsTurnLeftActive = false;
     IsTurnRightActive = false;
+    IsFireActive = false;
     ThrottleTime = 0;
     TurnAngleRadians = 0;
     VelocityValue = 0;
@@ -20,6 +22,7 @@ void Ship::Init()
     CentralLine.Init();
     Border.Init();
     AIData.Init();
+    Weapon.Init();
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

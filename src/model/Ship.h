@@ -6,14 +6,19 @@
 #include <model/ShipAIData.h>
 #include <model/Border.h>
 #include <model/VelocityFunction.h>
+#include <model/Weapon.h>
+#include <model/Machinegun.h>
 
 class Ship : public Object
 {
+    Machinegun _weapon;
+
 public:
     bool IsThrottleActive;
     bool IsBreakActive;
     bool IsTurnLeftActive;
     bool IsTurnRightActive;
+    bool IsFireActive;
     float ThrottleTime;
     float TurnAngleRadians;
     float VelocityValue;
@@ -24,6 +29,7 @@ public:
     Vector3 Deviation;
     VelocityFunction VelocityFunction;
     ShipAIData AIData;
+    Weapon& Weapon;
 
     Ship();
 
