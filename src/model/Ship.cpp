@@ -10,6 +10,7 @@ Ship::Ship() :
 
 void Ship::Init()
 {
+    State = ShipState::Active;
     IsThrottleActive = false;
     IsBreakActive = false;
     IsTurnLeftActive = false;
@@ -23,6 +24,7 @@ void Ship::Init()
     Border.Init();
     AIData.Init();
     Weapon.Init();
+    Health = 100;
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

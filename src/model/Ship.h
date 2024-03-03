@@ -9,11 +9,14 @@
 #include <model/Weapon.h>
 #include <model/Machinegun.h>
 
+enum class ShipState { Active, Destroyed, Reseted };
+
 class Ship : public Object
 {
     Machinegun _weapon;
 
 public:
+    ShipState State;
     bool IsThrottleActive;
     bool IsBreakActive;
     bool IsTurnLeftActive;
@@ -30,6 +33,7 @@ public:
     VelocityFunction VelocityFunction;
     ShipAIData AIData;
     Weapon& Weapon;
+    int Health;
 
     Ship();
 
