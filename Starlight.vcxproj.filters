@@ -154,6 +154,8 @@
     <ClInclude Include="src\model\Bullet.h" />
     <ClInclude Include="src\model\Weapon.h" />
     <ClInclude Include="src\model\Machinegun.h" />
+    <ClInclude Include="src\core\WeaponLogic.h" />
+    <ClInclude Include="src\render\common\BulletsRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -292,6 +294,8 @@
     <ClCompile Include="src\model\Bullet.cpp" />
     <ClCompile Include="src\model\Weapon.cpp" />
     <ClCompile Include="src\model\Machinegun.cpp" />
+    <ClCompile Include="src\core\WeaponLogic.cpp" />
+    <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

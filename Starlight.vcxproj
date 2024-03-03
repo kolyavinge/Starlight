@@ -67,6 +67,7 @@
     <ClInclude Include="src\model\ShipAIData.h" />
     <ClInclude Include="src\model\Weapon.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
+    <ClInclude Include="src\render\common\BulletsRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\render\common\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
@@ -239,6 +240,7 @@
     <ClCompile Include="src\model\track\RoadTrack2.cpp" />
     <ClCompile Include="src\model\Weapon.cpp" />
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
+    <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapsTimeListRenderer.cpp" />
     <ClCompile Include="src\render\common\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />

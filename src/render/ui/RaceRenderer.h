@@ -6,6 +6,7 @@
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
+#include <render/common/BulletsRenderer.h>
 #include <render/common/GoRenderer.h>
 #include <render/common/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
@@ -17,6 +18,7 @@ class RaceRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
     TrackRenderer& _trackRenderer;
+    BulletsRenderer& _bulletsRenderer;
     DashboardRenderer& _dashboardRenderer;
     GoRenderer _goRenderer;
 
@@ -26,6 +28,7 @@ public:
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,
         TrackRenderer& trackRenderer,
+        BulletsRenderer& bulletsRenderer,
         DashboardRenderer& dashboardRenderer);
 
     void Init(GraphicItemCollection& graphicItemCollection) override;
