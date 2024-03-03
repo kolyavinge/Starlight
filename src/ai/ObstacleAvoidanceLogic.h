@@ -5,8 +5,8 @@
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <core/TrackCollisionDetector.h>
-#include <core/ShipCollisionDetector.h>
+#include <core/cm/TrackCollisionDetector.h>
+#include <core/cm/ShipCollisionDetector.h>
 
 class ObstacleAvoidanceLogic : public Object
 {

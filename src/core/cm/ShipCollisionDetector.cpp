@@ -1,4 +1,4 @@
-#include <core/ShipCollisionDetector.h>
+#include <core/cm/ShipCollisionDetector.h>
 
 bool ShipCollisionDetector::DetectCollisions(Ship& ship, IArray<Ship*>& allShips)
 {

@@ -7,12 +7,12 @@
 #include <core/TurnAngleCalculator.h>
 #include <core/VelocityCalculator.h>
 #include <core/MoveLogic.h>
-#include <core/CollisionProcessor.h>
 #include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
 #include <core/WeaponLogic.h>
 #include <core/Laps.h>
+#include <core/cm/CollisionProcessor.h>
 #include <ai/EnemyAI.h>
 
 class RaceUpdater : public Object

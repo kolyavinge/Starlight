@@ -3,9 +3,9 @@
 #include <calc/Physics.h>
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
-#include <core/TrackCollisionResult.h>
-#include <core/ShipCollisionResult.h>
-#include <core/CollisionProcessor.h>
+#include <core/cm/TrackCollisionResult.h>
+#include <core/cm/ShipCollisionResult.h>
+#include <core/cm/CollisionProcessor.h>
 
 CollisionProcessor::CollisionProcessor()
 {

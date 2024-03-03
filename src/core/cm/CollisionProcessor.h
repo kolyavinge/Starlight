@@ -4,8 +4,8 @@
 #include <lib/IArray.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <core/TrackCollisionDetector.h>
-#include <core/ShipCollisionDetector.h>
+#include <core/cm/TrackCollisionDetector.h>
+#include <core/cm/ShipCollisionDetector.h>
 
 class CollisionProcessor : public Object
 {

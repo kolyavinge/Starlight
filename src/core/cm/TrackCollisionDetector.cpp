@@ -1,5 +1,5 @@
 #include <calc/VectorCalculator.h>
-#include <core/TrackCollisionDetector.h>
+#include <core/cm/TrackCollisionDetector.h>
 
 bool TrackCollisionDetector::DetectCollisions(Ship& ship, Track& track)
 {

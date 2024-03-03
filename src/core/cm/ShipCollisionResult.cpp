@@ -1,4 +1,4 @@
-#include <core/ShipCollisionResult.h>
+#include <core/cm/ShipCollisionResult.h>
 
 ShipCollisionResult::ShipCollisionResult()
 {

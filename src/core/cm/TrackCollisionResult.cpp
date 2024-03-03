@@ -1,4 +1,4 @@
-#include <core/TrackCollisionResult.h>
+#include <core/cm/TrackCollisionResult.h>
 
 TrackCollisionResult::TrackCollisionResult()
 {
