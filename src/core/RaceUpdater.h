@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/Object.h>
 #include <lib/IArray.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -12,7 +13,8 @@
 #include <core/PositionUpdater.h>
 #include <core/WeaponLogic.h>
 #include <core/Laps.h>
-#include <core/cm/CollisionProcessor.h>
+#include <core/cm/TrackCollisionProcessor.h>
+#include <core/cm/ShipCollisionProcessor.h>
 #include <ai/EnemyAI.h>
 
 class RaceUpdater : public Object
@@ -20,7 +22,8 @@ class RaceUpdater : public Object
     TurnAngleCalculator _turnAngleCalculator;
     VelocityCalculator _velocityCalculator;
     MoveLogic _moveLogic;
-    CollisionProcessor _collisionProcessor;
+    TrackCollisionProcessor _trackCollisionProcessor;
+    ShipCollisionProcessor _shipCollisionProcessor;
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;

@@ -27,6 +27,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\audio\WavFile.h" />
+    <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
     <ClInclude Include="src\core\Race.h" />
@@ -130,7 +131,7 @@
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\calc\LineIntersector.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
-    <ClInclude Include="src\core\cm\CollisionProcessor.h" />
+    <ClInclude Include="src\core\cm\TrackCollisionProcessor.h" />
     <ClInclude Include="src\core\ShipController.h" />
     <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\core\Camera.h" />
@@ -189,7 +190,8 @@
     <ClCompile Include="src\calc\Quaternion.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
-    <ClCompile Include="src\core\cm\CollisionProcessor.cpp" />
+    <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
+    <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
     <ClCompile Include="src\core\LapTimer.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
