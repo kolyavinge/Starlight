@@ -21,6 +21,7 @@ void WeaponLogic::UpdateBullets(Weapon& weapon)
         bullet.TotalDistance += bullet.MovingDistance;
         if (bullet.TotalDistance <= weapon.GetMaxBulletDistance())
         {
+            bullet.PrevPosition = bullet.Position;
             bullet.Position.Add(bullet.Direction);
         }
         else

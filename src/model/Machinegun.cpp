@@ -25,7 +25,7 @@ void Machinegun::InnerInit()
 
 int Machinegun::GetDelayValue()
 {
-    return 5;
+    return 10;
 }
 
 void Machinegun::InitNewBullet(ShipCentralLine& shipCentralLine, Vector3& bulletPosition, Vector3& bulletDirection)
