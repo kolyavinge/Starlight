@@ -6,7 +6,14 @@ ScreenRendererCollection::ScreenRendererCollection() :
     _startMenuRenderer(_menuBackgroundRenderer),
     _trackSelectorRenderer(_menuBackgroundRenderer),
     _racePreparationRenderer(_backgroundRenderer, _starsRenderer, _shipsRenderer, _trackRenderer),
-    _raceRenderer(_backgroundRenderer, _starsRenderer, _shipsRenderer, _trackRenderer, _bulletsRenderer, _dashboardRenderer),
+    _raceRenderer(
+        _backgroundRenderer,
+        _starsRenderer,
+        _shipsRenderer,
+        _trackRenderer,
+        _bulletsRenderer,
+        _enemyShipsHealthRenderer,
+        _dashboardRenderer),
     _pauseMenuRenderer(_raceRenderer),
     _finishRenderer(_raceRenderer)
 {

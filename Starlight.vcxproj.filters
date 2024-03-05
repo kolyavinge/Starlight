@@ -157,6 +157,7 @@
     <ClInclude Include="src\core\WeaponLogic.h" />
     <ClInclude Include="src\render\common\BulletsRenderer.h" />
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
+    <ClInclude Include="src\render\common\EnemyShipsHealthRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -298,6 +299,7 @@
     <ClCompile Include="src\core\WeaponLogic.cpp" />
     <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
+    <ClCompile Include="src\render\common\EnemyShipsHealthRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

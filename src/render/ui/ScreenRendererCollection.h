@@ -10,6 +10,7 @@
 #include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
 #include <render/common/BulletsRenderer.h>
+#include <render/common/EnemyShipsHealthRenderer.h>
 #include <render/common/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
@@ -29,6 +30,7 @@ class ScreenRendererCollection : public Object
     ShipsRenderer _shipsRenderer;
     TrackRenderer _trackRenderer;
     BulletsRenderer _bulletsRenderer;
+    EnemyShipsHealthRenderer _enemyShipsHealthRenderer;
     DashboardRenderer _dashboardRenderer;
 
     GraphicItemCollection _graphicItemCollection;

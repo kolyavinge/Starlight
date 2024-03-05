@@ -79,6 +79,7 @@
     <ClInclude Include="src\render\common\LapTimeRenderer.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\gl\TextRenderer.h" />
+    <ClInclude Include="src\render\common\EnemyShipsHealthRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailGridRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
@@ -253,6 +254,7 @@
     <ClCompile Include="src\render\common\LapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
     <ClCompile Include="src\gl\TextRenderer.cpp" />
+    <ClCompile Include="src\render\common\EnemyShipsHealthRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailGridRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />

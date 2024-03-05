@@ -10,12 +10,14 @@ RaceRenderer::RaceRenderer(
     ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer,
     BulletsRenderer& bulletsRenderer,
+    EnemyShipsHealthRenderer& enemyShipsHealthRenderer,
     DashboardRenderer& dashboardRenderer) :
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
     _trackRenderer(trackRenderer),
     _bulletsRenderer(bulletsRenderer),
+    _enemyShipsHealthRenderer(enemyShipsHealthRenderer),
     _dashboardRenderer(dashboardRenderer)
 {
 }
@@ -55,6 +57,7 @@ void RaceRenderer::Render(Race& race)
     _trackRenderer.Render(*race.Track);
     _shipsRenderer.Render(race.Player, race.Enemies);
     _bulletsRenderer.Render(race.Player, race.Enemies);
+    _enemyShipsHealthRenderer.Render(race.Enemies);
 
     glLoadIdentity();
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
