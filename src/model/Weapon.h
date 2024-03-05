@@ -23,7 +23,7 @@ public:
 
     Weapon(int maxBulletsCount);
 
-    virtual int GetDamageValue() = 0;
+    virtual float GetDamageValue() = 0;
     virtual float GetMaxBulletDistance() = 0;
 
     void Init();

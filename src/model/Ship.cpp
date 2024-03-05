@@ -24,7 +24,7 @@ void Ship::Init()
     Border.Init();
     AIData.Init();
     Weapon.Init();
-    Health = 100;
+    Health = 1.0f;
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

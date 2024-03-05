@@ -15,7 +15,7 @@ public:
 
     Machinegun();
 
-    int GetDamageValue() override;
+    float GetDamageValue() override;
 
 protected:
     void InnerInit() override;

@@ -8,9 +8,9 @@ Machinegun::Machinegun() :
     _activeBarrel = Barrel::Left;
 }
 
-int Machinegun::GetDamageValue()
+float Machinegun::GetDamageValue()
 {
-    return 1;
+    return 0.05f;
 }
 
 float Machinegun::GetMaxBulletDistance()

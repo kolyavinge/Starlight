@@ -33,7 +33,7 @@ public:
     VelocityFunction VelocityFunction;
     ShipAIData AIData;
     Weapon& Weapon;
-    int Health;
+    float Health;
 
     Ship();
 
