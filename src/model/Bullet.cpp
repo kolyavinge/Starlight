@@ -13,4 +13,5 @@ void Bullet::Init()
     Direction.Set(0.0f, 0.0f, 0.0f);
     MovingDistance = 0.0f;
     TotalDistance = 0.0f;
+    DamageValue = 0.0f;
 }

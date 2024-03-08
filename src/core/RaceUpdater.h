@@ -12,9 +12,11 @@
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
 #include <core/WeaponLogic.h>
+#include <core/ShipStateLogic.h>
 #include <core/Laps.h>
 #include <core/cm/TrackCollisionProcessor.h>
 #include <core/cm/ShipCollisionProcessor.h>
+#include <core/cm/BulletCollisionProcessor.h>
 #include <ai/EnemyAI.h>
 
 class RaceUpdater : public Object
@@ -24,10 +26,12 @@ class RaceUpdater : public Object
     MoveLogic _moveLogic;
     TrackCollisionProcessor _trackCollisionProcessor;
     ShipCollisionProcessor _shipCollisionProcessor;
+    BulletCollisionProcessor _bulletCollisionProcessor;
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
     WeaponLogic _weaponLogic;
+    ShipStateLogic _shipStateLogic;
     EnemyAI& _enemyAI;
 
 public:

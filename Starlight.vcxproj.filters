@@ -158,6 +158,10 @@
     <ClInclude Include="src\render\common\BulletsRenderer.h" />
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\render\common\EnemyShipsHealthRenderer.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionDetector.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionResult.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionProcessor.h" />
+    <ClInclude Include="src\core\ShipStateLogic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -300,6 +304,10 @@
     <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
     <ClCompile Include="src\render\common\EnemyShipsHealthRenderer.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionResult.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionDetector.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionProcessor.cpp" />
+    <ClCompile Include="src\core\ShipStateLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

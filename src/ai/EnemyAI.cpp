@@ -5,7 +5,11 @@ void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& tr
 {
     for (int i = 0; i < enemies.GetCount(); i++)
     {
-        ApplyFor(enemies[i], allShips, track);
+        Ship& enemy = enemies[i];
+        if (enemy.State == ShipState::Active)
+        {
+            ApplyFor(enemy, allShips, track);
+        }
     }
 }
 

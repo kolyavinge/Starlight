@@ -43,4 +43,5 @@ public:
     bool IsMoving();
     float GetRollRadians();
     Vector3 GetVelocityVector();
+    void Damage(float damageValue);
 };

@@ -1,4 +1,5 @@
 #include <gl/opengl.h>
+#include <lib/Numeric.h>
 #include <calc/Vector3.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
 
@@ -12,6 +13,8 @@ void EnemyShipsHealthRenderer::Render(IArray<Ship>& enemies)
 
 void EnemyShipsHealthRenderer::Render(Ship& ship)
 {
+    if (Numeric::FloatEquals(ship.Health, 0.0f)) return;
+
     const float barWidth = 0.7f * ship.Health;
     const float barHeight = 0.04f;
 

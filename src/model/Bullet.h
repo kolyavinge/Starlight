@@ -12,6 +12,7 @@ public:
     Vector3 Direction;
     float MovingDistance;
     float TotalDistance;
+    float DamageValue;
 
     Bullet();
 

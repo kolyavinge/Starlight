@@ -27,6 +27,9 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
     <ClInclude Include="src\audio\WavFile.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionDetector.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionProcessor.h" />
+    <ClInclude Include="src\core\cm\BulletCollisionResult.h" />
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
@@ -34,6 +37,7 @@
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
     <ClInclude Include="src\core\cm\ShipCollisionResult.h" />
+    <ClInclude Include="src\core\ShipStateLogic.h" />
     <ClInclude Include="src\core\StartingGridInitializer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\core\WeaponLogic.h" />
@@ -191,6 +195,9 @@
     <ClCompile Include="src\calc\Quaternion.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionDetector.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionProcessor.cpp" />
+    <ClCompile Include="src\core\cm\BulletCollisionResult.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
     <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
@@ -199,6 +206,7 @@
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionResult.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
+    <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
     <ClCompile Include="src\core\WeaponLogic.cpp" />
     <ClCompile Include="src\game\Game.cpp" />

@@ -43,6 +43,7 @@ void Weapon::Fire(ShipCentralLine& shipCentralLine)
     if (bullet->Direction.IsZero()) throw WeaponException();
     bullet->MovingDistance = bullet->Direction.GetLength();
     bullet->IsActive = true;
+    bullet->DamageValue = GetDamageValue();
 
     IsFireActive = true;
     _currentDelay = GetDelayValue();
