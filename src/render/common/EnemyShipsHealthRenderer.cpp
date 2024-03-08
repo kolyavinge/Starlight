@@ -15,8 +15,8 @@ void EnemyShipsHealthRenderer::Render(Ship& ship)
 {
     if (Numeric::FloatEquals(ship.Health, 0.0f)) return;
 
-    const float barWidth = 0.7f * ship.Health;
-    const float barHeight = 0.04f;
+    const float barWidth = 0.8f * ship.Health;
+    const float barHeight = 0.06f;
 
     Vector3 down(ship.CentralLine.NormalRear);
     down.SetLength(barHeight);
@@ -31,7 +31,15 @@ void EnemyShipsHealthRenderer::Render(Ship& ship)
     glTranslatef(position);
     position.Mul(-2.0f);
 
-    glColor3f(0.0f, 0.6f, 0.1f);
+    if (ship.IsDamaged)
+    {
+        glColor3f(0.6f, 0.0f, 0.1f);
+    }
+    else
+    {
+        glColor3f(0.0f, 0.6f, 0.1f);
+    }
+
     glEnable(GL_DEPTH_TEST);
     glBegin(GL_QUADS);
     glVertex3f(0.0f, 0.0f, 0.0f);

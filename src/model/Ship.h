@@ -34,6 +34,7 @@ public:
     ShipAIData AIData;
     Weapon& Weapon;
     float Health;
+    bool IsDamaged;
 
     Ship();
 
