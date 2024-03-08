@@ -11,7 +11,7 @@
 #include <render/common/TrackRenderer.h>
 #include <render/common/BulletsRenderer.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
-#include <render/common/DashboardRenderer.h>
+#include <render/dash/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/StartMenuRenderer.h>

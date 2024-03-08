@@ -1,7 +1,7 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
 #include <render/common/RenderConstants.h>
-#include <render/common/CompleteLapsTimeListRenderer.h>
+#include <render/dash/CompleteLapsTimeListRenderer.h>
 
 CompleteLapsTimeListRenderer::CompleteLapsTimeListRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)

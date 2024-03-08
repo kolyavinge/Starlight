@@ -1,7 +1,7 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
 #include <render/common/RenderConstants.h>
-#include <render/common/CompleteLapTimeRenderer.h>
+#include <render/dash/CompleteLapTimeRenderer.h>
 
 CompleteLapTimeRenderer::CompleteLapTimeRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)

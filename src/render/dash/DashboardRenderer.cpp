@@ -1,5 +1,5 @@
 #include <gl/opengl.h>
-#include <render/common/DashboardRenderer.h>
+#include <render/dash/DashboardRenderer.h>
 
 DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
     _lapsCountRenderer(textRenderer),

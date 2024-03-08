@@ -2,7 +2,7 @@
 #include <lib/NumericConverter.h>
 #include <core/Constants.h>
 #include <render/common/RenderConstants.h>
-#include <render/common/LapsCountRenderer.h>
+#include <render/dash/LapsCountRenderer.h>
 
 LapsCountRenderer::LapsCountRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)
