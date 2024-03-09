@@ -155,6 +155,15 @@ String GraphicResources::GetFinishItemFilePath()
     return path;
 }
 
+String GraphicResources::GetExplosionFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\explosion.png\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetSimpleVertexShaderPath()
 {
     String path(Environment::GetExecutableDirectoryPath());

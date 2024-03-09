@@ -22,6 +22,7 @@ public:
     static String GetCountdown3ItemFilePath();
     static String GetGoItemFilePath();
     static String GetFinishItemFilePath();
+    static String GetExplosionFilePath();
     static String GetSimpleVertexShaderPath();
     static String GetSimpleFragmentShaderPath();
 };

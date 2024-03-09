@@ -15,4 +15,5 @@ void GraphicItemCollection::Init()
     Countdown2Item.Load(GraphicResources::GetCountdown2ItemFilePath());
     Countdown3Item.Load(GraphicResources::GetCountdown3ItemFilePath());
     GoItem.Load(GraphicResources::GetGoItemFilePath());
+    ExplosionTexture.Load(GraphicResources::GetExplosionFilePath(), 17);
 }

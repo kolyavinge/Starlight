@@ -1,3 +1,4 @@
+#include <ui/ScreenKind.h>
 #include <render/ui/ScreenRendererCollection.h>
 
 ScreenRendererCollection::ScreenRendererCollection() :
@@ -13,6 +14,7 @@ ScreenRendererCollection::ScreenRendererCollection() :
         _trackRenderer,
         _bulletsRenderer,
         _enemyShipsHealthRenderer,
+        _explosionRenderer,
         _dashboardRenderer),
     _pauseMenuRenderer(_raceRenderer),
     _finishRenderer(_raceRenderer)
@@ -30,6 +32,7 @@ void ScreenRendererCollection::Init()
     _textRenderer.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
+    _explosionRenderer.Init(_graphicItemCollection.ExplosionTexture);
     _graphicItemCollection.Init();
     for (int i = 0; i < _renderers.GetCount(); i++)
     {

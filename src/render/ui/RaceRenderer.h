@@ -8,6 +8,7 @@
 #include <render/common/TrackRenderer.h>
 #include <render/common/BulletsRenderer.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
+#include <render/common/ExplosionRenderer.h>
 #include <render/common/GoRenderer.h>
 #include <render/dash/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
@@ -21,6 +22,7 @@ class RaceRenderer : public ScreenRenderer
     TrackRenderer& _trackRenderer;
     BulletsRenderer& _bulletsRenderer;
     EnemyShipsHealthRenderer& _enemyShipsHealthRenderer;
+    ExplosionRenderer& _explosionRenderer;
     DashboardRenderer& _dashboardRenderer;
     GoRenderer _goRenderer;
 
@@ -32,6 +34,7 @@ public:
         TrackRenderer& trackRenderer,
         BulletsRenderer& bulletsRenderer,
         EnemyShipsHealthRenderer& enemyShipsHealthRenderer,
+        ExplosionRenderer& explosionRenderer,
         DashboardRenderer& dashboardRenderer);
 
     void Init(GraphicItemCollection& graphicItemCollection) override;
