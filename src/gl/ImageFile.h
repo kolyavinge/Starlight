@@ -1,5 +1,6 @@
 #pragma once
 
+#include <windows.h>
 #include <gdiplus.h>
 #include <lib/Object.h>
 

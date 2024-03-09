@@ -163,6 +163,8 @@
     <ClInclude Include="src\core\cm\BulletCollisionProcessor.h" />
     <ClInclude Include="src\core\ShipStateLogic.h" />
     <ClInclude Include="src\render\dash\PlayerShipHealthRenderer.h" />
+    <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
+    <ClInclude Include="src\gl\FramedTexture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -310,6 +312,8 @@
     <ClCompile Include="src\core\cm\BulletCollisionProcessor.cpp" />
     <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\render\dash\PlayerShipHealthRenderer.cpp" />
+    <ClCompile Include="src\gl\AnimatedTexturedRect.cpp" />
+    <ClCompile Include="src\gl\FramedTexture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
