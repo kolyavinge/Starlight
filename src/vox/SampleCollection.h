@@ -8,6 +8,9 @@ class SampleCollection : public Object
 public:
     AudioSample SelectMenuItemSample;
     AudioSample CountdownSample;
+    AudioSample LaserSample;
+    AudioSample MetalHitSample;
+    AudioSample ExplosionSample;
 
     void Init();
 };

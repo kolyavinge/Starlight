@@ -19,3 +19,30 @@ String AudioResources::GetCountdownWavFilePath()
 
     return path;
 }
+
+String AudioResources::GetLaserWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\laser.wav\0");
+    path.Append(name);
+
+    return path;
+}
+
+String AudioResources::GetMetalHitWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\metal_hit.wav\0");
+    path.Append(name);
+
+    return path;
+}
+
+String AudioResources::GetExplosionWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\explosion.wav\0");
+    path.Append(name);
+
+    return path;
+}

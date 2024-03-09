@@ -10,7 +10,7 @@ Machinegun::Machinegun() :
 
 float Machinegun::GetDamageValue()
 {
-    return 1.0f / 20.0f;
+    return 1.0f / 40.0f;
 }
 
 float Machinegun::GetMaxBulletDistance()
@@ -25,7 +25,7 @@ void Machinegun::InnerInit()
 
 int Machinegun::GetDelayValue()
 {
-    return 10;
+    return 5;
 }
 
 void Machinegun::InitNewBullet(ShipCentralLine& shipCentralLine, Vector3& bulletPosition, Vector3& bulletDirection)

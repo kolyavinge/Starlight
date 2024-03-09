@@ -9,7 +9,7 @@
 #include <model/Weapon.h>
 #include <model/Machinegun.h>
 
-enum class ShipState { Active, Destroyed, Reseted };
+enum class ShipState { Active, Exploded, Destroyed, Reseted };
 
 class Ship : public Object
 {

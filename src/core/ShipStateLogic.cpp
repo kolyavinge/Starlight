@@ -3,7 +3,12 @@
 
 void ShipStateLogic::ProcessState(Ship& ship)
 {
-    if (Numeric::FloatEquals(ship.Health, 0.0f))
+    if (ship.State == ShipState::Active &&
+        Numeric::FloatEquals(ship.Health, 0.0f))
+    {
+        ship.State = ShipState::Exploded;
+    }
+    else if (ship.State == ShipState::Exploded)
     {
         ship.State = ShipState::Destroyed;
     }

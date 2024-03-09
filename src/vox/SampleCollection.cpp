@@ -5,4 +5,7 @@ void SampleCollection::Init()
 {
     SelectMenuItemSample.Load(AudioResources::GetSelectMenuItemWavFilePath());
     CountdownSample.Load(AudioResources::GetCountdownWavFilePath());
+    LaserSample.Load(AudioResources::GetLaserWavFilePath());
+    MetalHitSample.Load(AudioResources::GetMetalHitWavFilePath());
+    ExplosionSample.Load(AudioResources::GetExplosionWavFilePath());
 }
