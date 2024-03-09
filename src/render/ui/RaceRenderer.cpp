@@ -63,6 +63,6 @@ void RaceRenderer::Render(Race& race)
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);
     _goRenderer.Render();
-    _dashboardRenderer.Render(race.Laps);
+    _dashboardRenderer.Render(race.Player, race.Laps);
     glDisable(GL_BLEND);
 }

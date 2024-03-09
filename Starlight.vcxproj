@@ -86,6 +86,7 @@
     <ClInclude Include="src\render\common\EnemyShipsHealthRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailGridRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
+    <ClInclude Include="src\render\dash\PlayerShipHealthRenderer.h" />
     <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
@@ -265,6 +266,7 @@
     <ClCompile Include="src\render\common\EnemyShipsHealthRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailGridRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailRenderer.cpp" />
+    <ClCompile Include="src\render\dash\PlayerShipHealthRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
