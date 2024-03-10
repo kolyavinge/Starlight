@@ -28,7 +28,7 @@ void MenuBackgroundRenderer::Render()
     glLoadIdentity();
     gluPerspective(60.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(_zeroVector, _forwardVector, Constants::UpAxis);
-    glRotatef(_turnDegrees, _turnVector.X, _turnVector.Y, _turnVector.Z);
+    glRotatef(_turnDegrees, _turnVector);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _turnDegrees = Geometry::NormalizeDegrees(_turnDegrees + 0.05f);

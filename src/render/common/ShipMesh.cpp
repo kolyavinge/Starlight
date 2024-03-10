@@ -40,7 +40,7 @@ void ShipMesh::SetPosition(Ship& ship)
     Vector3 pivot;
     ship.Border.GetAngleAndPivot(radians, pivot);
     glTranslatef(ship.Border.DownLeft);
-    glRotatef(Geometry::RadiansToDegrees(radians), pivot.X, pivot.Y, pivot.Z);
+    glRotatef(Geometry::RadiansToDegrees(radians), pivot);
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
     glRotatef(Geometry::RadiansToDegrees(ship.GetRollRadians()), 0.0f, 1.0f, 0.0f);
 }

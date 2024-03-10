@@ -5,6 +5,11 @@ void glTranslatef(Vector3& v)
     glTranslatef(v.X, v.Y, v.Z);
 }
 
+void glRotatef(float degrees, Vector3& pivot)
+{
+    glRotatef(degrees, pivot.X, pivot.Y, pivot.Z);
+}
+
 void glVertex3f(Vector3& v)
 {
     glVertex3f(v.X, v.Y, v.Z);
