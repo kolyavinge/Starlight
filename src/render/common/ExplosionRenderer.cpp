@@ -1,4 +1,6 @@
 #include <gl/opengl.h>
+#include <calc/Geometry.h>
+#include <calc/Quaternion.h>
 #include <render/common/ExplosionRenderer.h>
 
 ExplosionRenderer::ExplosionRenderer()
@@ -19,6 +21,8 @@ void ExplosionRenderer::Render(IArray<Ship*>& allShips)
     {
         _animations.Clear();
         _positions.Clear();
+        _radians.Clear();
+        _pivots.Clear();
     }
 }
 
@@ -30,6 +34,9 @@ void ExplosionRenderer::RenderAnimations()
     {
         glPushMatrix();
         glTranslatef(_positions[i]);
+        glTranslatef(0.0f, 0.0f, -5.0f);
+        glRotatef(Geometry::RadiansToDegrees(_radians[i]), _pivots[i]);
+        glScalef(0.1f, 0.1f, 0.1f);
         _animations[i].Render();
         glPopMatrix();
     }
@@ -43,12 +50,28 @@ void ExplosionRenderer::MakeNewAnimations(IArray<Ship*>& allShips)
         Ship& ship = *allShips[i];
         if (ship.State == ShipState::Exploded)
         {
+            Vector3 unitX(1.0f, 0.0f, 0.0f);
+            Vector3 vx(ship.Border.DownRight);
+            vx.Sub(ship.Border.DownLeft);
+
+            Vector3 unitZ(0.0f, 0.0f, 1.0f);
+            Vector3 vy(ship.CentralLine.Front);
+            vy.Sub(ship.CentralLine.Rear);
+
+            Quaternion result(unitX, vx);
+            result.RotatePoint(vy);
+            Quaternion qz(vy, unitZ);
+            result.Mul(qz);
+
             float radians;
             Vector3 pivot;
-            ship.Border.GetAngleAndPivot(radians, pivot);
+            result.GetAngleAndPivot(radians, pivot);
+
             _animations.Add(AnimatedTexturedRect(*_explosionTexture, 4));
             _animations[_animations.GetCount() - 1].Activate();
-            _positions.Add(ship.Border.DownLeft);
+            _positions.Add(ship.CentralLine.Front);
+            _radians.Add(radians);
+            _pivots.Add(pivot);
         }
     }
 }

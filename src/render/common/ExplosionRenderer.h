@@ -13,6 +13,8 @@ class ExplosionRenderer : public Object
     FramedTexture* _explosionTexture;
     List<AnimatedTexturedRect> _animations;
     List<Vector3> _positions;
+    List<float> _radians;
+    List<Vector3> _pivots;
 
 public:
     ExplosionRenderer();
