@@ -17,13 +17,14 @@ class ExplosionRenderer : public Object
     List<Vector3> _pivots;
 
 public:
-    ExplosionRenderer();
+    ExplosionRenderer(FramedTexture& explosionTexture);
 
-    void Init(FramedTexture& explosionTexture);
-    void Render(IArray<Ship*>& allShips);
+    void Init();
+    void Render(Ship& player, IArray<Ship*>& allShips);
 
 private:
     void RenderAnimations();
-    void MakeNewAnimations(IArray<Ship*>& allShips);
+    void MakeNewAnimations(Ship& player, IArray<Ship*>& allShips);
     bool AllAnimationsInnactive();
+    void ClearAnimations();
 };

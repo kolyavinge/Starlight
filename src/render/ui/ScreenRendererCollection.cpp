@@ -3,6 +3,7 @@
 
 ScreenRendererCollection::ScreenRendererCollection() :
     _menuBackgroundRenderer(_backgroundRenderer, _starsRenderer),
+    _explosionRenderer(_graphicItemCollection.ExplosionTexture),
     _dashboardRenderer(_textRenderer),
     _startMenuRenderer(_menuBackgroundRenderer),
     _trackSelectorRenderer(_menuBackgroundRenderer),
@@ -29,11 +30,10 @@ ScreenRendererCollection::ScreenRendererCollection() :
 
 void ScreenRendererCollection::Init()
 {
+    _graphicItemCollection.Init();
     _textRenderer.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
-    _explosionRenderer.Init(_graphicItemCollection.ExplosionTexture);
-    _graphicItemCollection.Init();
     for (int i = 0; i < _renderers.GetCount(); i++)
     {
         _renderers[i]->Init(_graphicItemCollection);

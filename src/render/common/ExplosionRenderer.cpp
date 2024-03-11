@@ -1,28 +1,24 @@
 #include <gl/opengl.h>
 #include <calc/Geometry.h>
-#include <calc/Quaternion.h>
 #include <render/common/ExplosionRenderer.h>
 
-ExplosionRenderer::ExplosionRenderer()
-{
-    _explosionTexture = nullptr;
-}
-
-void ExplosionRenderer::Init(FramedTexture& explosionTexture)
+ExplosionRenderer::ExplosionRenderer(FramedTexture& explosionTexture)
 {
     _explosionTexture = &explosionTexture;
 }
 
-void ExplosionRenderer::Render(IArray<Ship*>& allShips)
+void ExplosionRenderer::Init()
+{
+    ClearAnimations();
+}
+
+void ExplosionRenderer::Render(Ship& player, IArray<Ship*>& allShips)
 {
     RenderAnimations();
-    MakeNewAnimations(allShips);
+    MakeNewAnimations(player, allShips);
     if (AllAnimationsInnactive())
     {
-        _animations.Clear();
-        _positions.Clear();
-        _radians.Clear();
-        _pivots.Clear();
+        ClearAnimations();
     }
 }
 
@@ -43,7 +39,7 @@ void ExplosionRenderer::RenderAnimations()
     glDisable(GL_BLEND);
 }
 
-void ExplosionRenderer::MakeNewAnimations(IArray<Ship*>& allShips)
+void ExplosionRenderer::MakeNewAnimations(Ship& player, IArray<Ship*>& allShips)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
     {
@@ -51,25 +47,19 @@ void ExplosionRenderer::MakeNewAnimations(IArray<Ship*>& allShips)
         if (ship.State == ShipState::Exploded)
         {
             Vector3 unitX(1.0f, 0.0f, 0.0f);
-            Vector3 vx(ship.Border.DownRight);
-            vx.Sub(ship.Border.DownLeft);
+            Vector3 vx(player.Border.DownRight);
+            vx.Sub(player.Border.DownLeft);
 
-            Vector3 unitZ(0.0f, 0.0f, 1.0f);
-            Vector3 vy(ship.CentralLine.Front);
-            vy.Sub(ship.CentralLine.Rear);
-
-            Quaternion result(unitX, vx);
-            result.RotatePoint(vy);
-            Quaternion qz(vy, unitZ);
-            result.Mul(qz);
+            Vector3 unitY(0.0f, 1.0f, 0.0f);
+            Vector3 vz(player.CentralLine.NormalFront);
 
             float radians;
             Vector3 pivot;
-            result.GetAngleAndPivot(radians, pivot);
+            Geometry::RotateCoordinateSystem3d(unitX, vx, unitY, vz, radians, pivot);
 
             _animations.Add(AnimatedTexturedRect(*_explosionTexture, 4));
             _animations[_animations.GetCount() - 1].Activate();
-            _positions.Add(ship.CentralLine.Front);
+            _positions.Add(ship.Border.DownLeft);
             _radians.Add(radians);
             _pivots.Add(pivot);
         }
@@ -87,4 +77,12 @@ bool ExplosionRenderer::AllAnimationsInnactive()
     }
 
     return true;
+}
+
+void ExplosionRenderer::ClearAnimations()
+{
+    _animations.Clear();
+    _positions.Clear();
+    _radians.Clear();
+    _pivots.Clear();
 }

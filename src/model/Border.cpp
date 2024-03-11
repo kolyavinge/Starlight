@@ -1,6 +1,6 @@
 #include <calc/Vector3.h>
 #include <calc/VectorCalculator.h>
-#include <calc/Quaternion.h>
+#include <calc/Geometry.h>
 #include <model/Border.h>
 
 void Border::Init()
@@ -17,16 +17,11 @@ void Border::GetAngleAndPivot(float& radians, Vector3& pivot)
     Vector3 vx(DownRight);
     vx.Sub(DownLeft);
 
-    Vector3 rotatedY(0.0f, 1.0f, 0.0f);
+    Vector3 unitY(0.0f, 1.0f, 0.0f);
     Vector3 vy(UpLeft);
     vy.Sub(DownLeft);
 
-    Quaternion result(unitX, vx);
-    result.RotatePoint(rotatedY);
-    Quaternion qy(rotatedY, vy);
-    result.Mul(qy);
-
-    result.GetAngleAndPivot(radians, pivot);
+    Geometry::RotateCoordinateSystem3d(unitX, vx, unitY, vy, radians, pivot);
 }
 
 bool Border::Contains(Vector3& point)

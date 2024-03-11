@@ -34,6 +34,7 @@ void RaceRenderer::Activate(Screen* prevScreen)
     if (prevScreen != nullptr && prevScreen->Kind == ScreenKind::RacePreparation)
     {
         _dashboardRenderer.Init();
+        _explosionRenderer.Init();
         _goRenderer.Reset();
     }
 }
@@ -60,7 +61,7 @@ void RaceRenderer::Render(Race& race)
     _shipsRenderer.Render(race.Player, race.Enemies);
     _bulletsRenderer.Render(race.Player, race.Enemies);
     _enemyShipsHealthRenderer.Render(race.Enemies);
-    _explosionRenderer.Render(race.AllShips);
+    _explosionRenderer.Render(race.Player, race.AllShips);
 
     glLoadIdentity();
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);

@@ -25,6 +25,7 @@ public:
         float* resultY);
     static Vector3 RotatePoint3d(Vector3& point, Vector3& pivotAxis, float radians);
     static Vector3 RotatePoint3d(Vector3 point, Vector3& pivotAxis, Vector3& pivotPoint, float radians);
+    static void RotateCoordinateSystem3d(Vector3& axis1From, Vector3& axis1To, Vector3& axis2From, Vector3& axis2To, float& radians, Vector3& pivot);
 
 private:
     inline static const float _degToRad = Math::Pi / 180.0f;
