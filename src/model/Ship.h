@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 #include <model/ShipCentralLine.h>
+#include <model/ShipControls.h>
 #include <model/ShipAIData.h>
 #include <model/Border.h>
 #include <model/VelocityFunction.h>
@@ -17,11 +18,7 @@ class Ship : public Object
 
 public:
     ShipState State;
-    bool IsThrottleActive;
-    bool IsBreakActive;
-    bool IsTurnLeftActive;
-    bool IsTurnRightActive;
-    bool IsFireActive;
+    ShipControls Controls;
     float ThrottleTime;
     float TurnAngleRadians;
     float VelocityValue;

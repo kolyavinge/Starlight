@@ -5,13 +5,13 @@
 
 void TurnAngleCalculator::CalculateTurnAngle(Ship& ship)
 {
-    if (ship.IsTurnRightActive)
+    if (ship.Controls.IsTurnRightActive)
     {
         float maxTurnAngle = GetMaxTurnAngle(ship);
         ship.TurnAngleRadians += ShipMeasure::TurnAngleStep;
         if (ship.TurnAngleRadians > maxTurnAngle) ship.TurnAngleRadians = maxTurnAngle;
     }
-    else if (ship.IsTurnLeftActive)
+    else if (ship.Controls.IsTurnLeftActive)
     {
         float maxTurnAngle = GetMaxTurnAngle(ship);
         ship.TurnAngleRadians -= ShipMeasure::TurnAngleStep;

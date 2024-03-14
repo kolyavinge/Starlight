@@ -4,7 +4,7 @@
 
 void VelocityCalculator::CalculateVelocity(Ship& ship)
 {
-    if (ship.IsThrottleActive)
+    if (ship.Controls.IsThrottleActive)
     {
         ship.ThrottleTime += Constants::TimeStep;
         if (ship.ThrottleTime > VelocityFunction::MaxThrottleTime)
@@ -12,7 +12,7 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
             ship.ThrottleTime = VelocityFunction::MaxThrottleTime;
         }
     }
-    else if (ship.IsBreakActive)
+    else if (ship.Controls.IsBreakActive)
     {
         ship.ThrottleTime -= 2.0f * Constants::TimeStep;
         if (ship.ThrottleTime < 0.0f)

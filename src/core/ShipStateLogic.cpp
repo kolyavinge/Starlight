@@ -7,6 +7,7 @@ void ShipStateLogic::ProcessState(Ship& ship)
         Numeric::FloatEquals(ship.Health, 0.0f))
     {
         ship.State = ShipState::Exploded;
+        ship.Controls.Init();
     }
     else if (ship.State == ShipState::Exploded)
     {

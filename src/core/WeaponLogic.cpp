@@ -4,9 +4,7 @@
 void WeaponLogic::UpdateWeapon(Ship& ship)
 {
     ship.Weapon.Update();
-
-    if (!ship.IsFireActive) return;
-
+    if (!ship.Controls.IsFireActive) return;
     ship.Weapon.Fire(ship.CentralLine);
 }
 

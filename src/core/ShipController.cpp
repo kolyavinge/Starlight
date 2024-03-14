@@ -12,50 +12,68 @@ void ShipController::SetShip(Ship& ship)
 
 void ShipController::ActivateThrottle()
 {
-    _ship->IsThrottleActive = true;
-    _ship->IsBreakActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsThrottleActive = true;
+    _ship->Controls.IsBreakActive = false;
 }
 
 void ShipController::ReleaseThrottle()
 {
-    _ship->IsThrottleActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsThrottleActive = false;
 }
 
 void ShipController::ActivateBreak()
 {
-    _ship->IsBreakActive = true;
-    _ship->IsThrottleActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsBreakActive = true;
+    _ship->Controls.IsThrottleActive = false;
 }
 
 void ShipController::ReleaseBreak()
 {
-    _ship->IsBreakActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsBreakActive = false;
 }
 
 void ShipController::TurnLeft()
 {
-    _ship->IsTurnLeftActive = true;
-    _ship->IsTurnRightActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsTurnLeftActive = true;
+    _ship->Controls.IsTurnRightActive = false;
 }
 
 void ShipController::TurnRight()
 {
-    _ship->IsTurnRightActive = true;
-    _ship->IsTurnLeftActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsTurnRightActive = true;
+    _ship->Controls.IsTurnLeftActive = false;
 }
 
 void ShipController::ReleaseTurn()
 {
-    _ship->IsTurnLeftActive = false;
-    _ship->IsTurnRightActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsTurnLeftActive = false;
+    _ship->Controls.IsTurnRightActive = false;
 }
 
 void ShipController::ActivateFire()
 {
-    _ship->IsFireActive = true;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsFireActive = true;
 }
 
 void ShipController::ReleaseFire()
 {
-    _ship->IsFireActive = false;
+    if (_ship->State != ShipState::Active) return;
+
+    _ship->Controls.IsFireActive = false;
 }

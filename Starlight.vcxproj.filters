@@ -166,6 +166,7 @@
     <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
     <ClInclude Include="src\gl\FramedTexture.h" />
     <ClInclude Include="src\render\common\ExplosionRenderer.h" />
+    <ClInclude Include="src\model\ShipControls.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -316,6 +317,7 @@
     <ClCompile Include="src\gl\AnimatedTexturedRect.cpp" />
     <ClCompile Include="src\gl\FramedTexture.cpp" />
     <ClCompile Include="src\render\common\ExplosionRenderer.cpp" />
+    <ClCompile Include="src\model\ShipControls.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

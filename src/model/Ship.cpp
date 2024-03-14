@@ -11,11 +11,7 @@ Ship::Ship() :
 void Ship::Init()
 {
     State = ShipState::Active;
-    IsThrottleActive = false;
-    IsBreakActive = false;
-    IsTurnLeftActive = false;
-    IsTurnRightActive = false;
-    IsFireActive = false;
+    Controls.Init();
     ThrottleTime = 0;
     TurnAngleRadians = 0;
     VelocityValue = 0;
