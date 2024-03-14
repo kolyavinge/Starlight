@@ -12,4 +12,7 @@ class ShipsRenderer : public Object
 public:
     void Init();
     void Render(Ship& player, IArray<Ship>& enemies);
+
+private:
+    void RenderShip(Ship& ship, int defaultTexture);
 };

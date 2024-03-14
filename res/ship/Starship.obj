@@ -4,6 +4,7 @@ mtllib Starship0.mtl
 mtllib Starship1.mtl
 mtllib Starship2.mtl
 mtllib Starship3.mtl
+mtllib Starship_destroyed.mtl
 o Starship
 v -0.023873 -0.796689 0.326283
 v -0.033698 3.082633 0.304970

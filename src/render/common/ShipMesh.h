@@ -15,6 +15,7 @@ public:
     inline static const int Enemy1Texture = 1;
     inline static const int Enemy2Texture = 2;
     inline static const int Enemy3Texture = 3;
+    inline static const int DestroyedTexture = 4;
 
     void Init();
     void Render(Ship& ship, int textureIndex);

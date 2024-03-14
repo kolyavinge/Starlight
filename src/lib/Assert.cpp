@@ -1,5 +1,10 @@
 #include <lib/Assert.h>
 
+void Assert::Fail()
+{
+    throw AssertException();
+}
+
 void Assert::True(bool condition)
 {
     if (!condition)

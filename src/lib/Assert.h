@@ -7,6 +7,7 @@ class AssertException : public Exception {};
 class Assert
 {
 public:
+    static void Fail();
     static void True(bool condition);
     static void False(bool condition);
 };
