@@ -11,6 +11,11 @@ class ShipMesh : public Object
     VBOMeshRenderer _vboMeshRenderer;
 
 public:
+    inline static const int PlayerTexture = 0;
+    inline static const int Enemy1Texture = 1;
+    inline static const int Enemy2Texture = 2;
+    inline static const int Enemy3Texture = 3;
+
     void Init();
     void Render(Ship& ship, int textureIndex);
     int GetTexturesCount();
