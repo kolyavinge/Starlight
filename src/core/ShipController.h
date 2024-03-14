@@ -20,4 +20,5 @@ public:
     void ReleaseTurn();
     void ActivateFire();
     void ReleaseFire();
+    void Reset();
 };

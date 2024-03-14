@@ -22,6 +22,7 @@ void Ship::Init()
     Weapon.Init();
     Health = 1.0f;
     IsDamaged = false;
+    InnactiveIterations = 0;
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)
@@ -70,4 +71,23 @@ void Ship::Damage(float damageValue)
     {
         Health = 0.0f;
     }
+}
+
+void Ship::Explode()
+{
+    State = ShipState::Exploded;
+    Controls.Init();
+    InnactiveIterations = 120;
+}
+
+void Ship::Reset()
+{
+    State = ShipState::Reseted;
+    Controls.Init();
+    ThrottleTime = 0;
+    TurnAngleRadians = 0;
+    VelocityValue = 0;
+    PrevVelocityValue = 0;
+    Health = 1.0f;
+    InnactiveIterations = 50;
 }

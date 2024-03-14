@@ -33,7 +33,7 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)
     _borderUpdater.Update(ship);
     _weaponLogic.UpdateWeapon(ship);
     _weaponLogic.UpdateBullets(ship.Weapon);
-    _shipStateLogic.ProcessState(ship);
+    _shipStateLogic.ProcessState(ship, track);
     bool hasCollisions =
         _trackCollisionProcessor.ProcessTrackCollisions(ship, track) ||
         _shipCollisionProcessor.ProcessShipsCollisions(ship, allShips) ||

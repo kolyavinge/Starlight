@@ -10,7 +10,7 @@
 #include <model/Weapon.h>
 #include <model/Machinegun.h>
 
-enum class ShipState { Active, Exploded, Destroyed, Reseted };
+enum class ShipState { Active, Exploded, Destroyed, Reseted, ResetInnactive };
 
 class Ship : public Object
 {
@@ -32,6 +32,7 @@ public:
     Weapon& Weapon;
     float Health;
     bool IsDamaged;
+    int InnactiveIterations;
 
     Ship();
 
@@ -42,4 +43,6 @@ public:
     float GetRollRadians();
     Vector3 GetVelocityVector();
     void Damage(float damageValue);
+    void Explode();
+    void Reset();
 };

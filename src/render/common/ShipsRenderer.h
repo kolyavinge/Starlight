@@ -14,5 +14,7 @@ public:
     void Render(Ship& player, IArray<Ship>& enemies);
 
 private:
+    void RenderPlayer(Ship& player);
+    void RenderEnemies(IArray<Ship>& enemies);
     void RenderShip(Ship& ship, int defaultTexture);
 };

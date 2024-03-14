@@ -77,3 +77,8 @@ void ShipController::ReleaseFire()
 
     _ship->Controls.IsFireActive = false;
 }
+
+void ShipController::Reset()
+{
+    _ship->Reset();
+}

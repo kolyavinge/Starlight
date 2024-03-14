@@ -85,6 +85,11 @@ void RaceScreen::ProcessInput()
         playerController.ReleaseFire();
     }
 
+    if (keyboard.IsPressed(VK_BACK))
+    {
+        playerController.Reset();
+    }
+
     if (keyboard.IsPressed(VK_ESCAPE))
     {
         Race.Pause();
