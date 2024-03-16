@@ -5,6 +5,7 @@
 bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray<Ship*>& allShips)
 {
     targetShip.IsDamaged = false;
+    if (targetShip.State == ShipState::Prepared) return false;
     if (!_bulletCollisionDetector.DetectCollisions(targetShip, allShips)) return false;
     BulletCollisionResult& collisionResult = _bulletCollisionDetector.Result;
     for (int i = 0; i < collisionResult.Bullets.GetCount(); i++)

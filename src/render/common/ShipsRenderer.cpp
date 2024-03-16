@@ -47,9 +47,9 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
     {
         _shipMesh.Render(ship, ShipMesh::DestroyedTexture);
     }
-    else if (ship.State == ShipState::Reseted || ship.State == ShipState::ResetInnactive)
+    else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
     {
-        if ((ship.InnactiveIterations % 10) == 0) // мерцание кораблика
+        if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
         {
             _shipMesh.Render(ship, defaultTexture);
         }

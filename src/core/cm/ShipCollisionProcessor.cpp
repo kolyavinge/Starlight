@@ -12,6 +12,8 @@ bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& a
     Ship& ship1 = *collisionResult.Ship1;
     Ship& ship2 = *collisionResult.Ship2;
 
+    if (ship1.State == ShipState::Prepared || ship2.State == ShipState::Prepared) return false;
+
     ship.CentralLine = ship.PrevCentralLine;
 
     Vector3 ship1Velocity(ship1.GetVelocityVector());

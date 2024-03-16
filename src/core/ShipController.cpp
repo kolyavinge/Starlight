@@ -12,7 +12,7 @@ void ShipController::SetShip(Ship& ship)
 
 void ShipController::ActivateThrottle()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsThrottleActive = true;
     _ship->Controls.IsBreakActive = false;
@@ -20,14 +20,14 @@ void ShipController::ActivateThrottle()
 
 void ShipController::ReleaseThrottle()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsThrottleActive = false;
 }
 
 void ShipController::ActivateBreak()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsBreakActive = true;
     _ship->Controls.IsThrottleActive = false;
@@ -35,14 +35,14 @@ void ShipController::ActivateBreak()
 
 void ShipController::ReleaseBreak()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsBreakActive = false;
 }
 
 void ShipController::TurnLeft()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsTurnLeftActive = true;
     _ship->Controls.IsTurnRightActive = false;
@@ -50,7 +50,7 @@ void ShipController::TurnLeft()
 
 void ShipController::TurnRight()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsTurnRightActive = true;
     _ship->Controls.IsTurnLeftActive = false;
@@ -58,7 +58,7 @@ void ShipController::TurnRight()
 
 void ShipController::ReleaseTurn()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsTurnLeftActive = false;
     _ship->Controls.IsTurnRightActive = false;
@@ -66,14 +66,14 @@ void ShipController::ReleaseTurn()
 
 void ShipController::ActivateFire()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsFireActive = true;
 }
 
 void ShipController::ReleaseFire()
 {
-    if (_ship->State != ShipState::Active) return;
+    if (!_ship->CanControlled()) return;
 
     _ship->Controls.IsFireActive = false;
 }

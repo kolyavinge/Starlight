@@ -10,7 +10,7 @@
 #include <model/Weapon.h>
 #include <model/Machinegun.h>
 
-enum class ShipState { Active, Exploded, Destroyed, Reseted, ResetInnactive };
+enum class ShipState { Active, Exploded, Destroyed, Reseted, Prepared };
 
 class Ship : public Object
 {
@@ -32,7 +32,7 @@ public:
     Weapon& Weapon;
     float Health;
     bool IsDamaged;
-    int InnactiveIterations;
+    int DelayIterations;
 
     Ship();
 
@@ -45,4 +45,5 @@ public:
     void Damage(float damageValue);
     void Explode();
     void Reset();
+    bool CanControlled();
 };
