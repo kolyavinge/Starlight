@@ -14,6 +14,7 @@ void EnemyShipsHealthRenderer::Render(IArray<Ship>& enemies)
 void EnemyShipsHealthRenderer::Render(Ship& ship)
 {
     if (Numeric::FloatEquals(ship.Health, 0.0f)) return;
+    if (ship.State != ShipState::Active) return;
 
     const float barWidth = 0.8f * ship.Health;
     const float barHeight = 0.06f;

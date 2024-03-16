@@ -1,6 +1,5 @@
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
-#include <core/PositionUpdater.h>
 #include <core/ShipStateLogic.h>
 
 void ShipStateLogic::ProcessState(Ship& ship, Track& track)
@@ -24,17 +23,14 @@ void ShipStateLogic::ProcessState(Ship& ship, Track& track)
     }
     else if (ship.State == ShipState::Reseted)
     {
-        Vector3 frontMiddlePoint(track.OutsidePoints[ship.CentralLine.TrackPointIndexFront]);
-        frontMiddlePoint.Sub(track.InsidePoints[ship.CentralLine.TrackPointIndexFront]);
+        const int trackPoint = ship.CentralLine.TrackPointIndexFront;
+        Vector3 frontMiddlePoint(track.OutsidePoints[trackPoint]);
+        frontMiddlePoint.Sub(track.InsidePoints[trackPoint]);
         frontMiddlePoint.Div(2.0f);
-
-        Vector3 frontDirection(track.OutsidePoints[track.GetNextTrackPointIndex(ship.CentralLine.TrackPointIndexFront)]);
-        frontDirection.Sub(track.OutsidePoints[ship.CentralLine.TrackPointIndexFront]);
-
+        frontMiddlePoint.Add(track.InsidePoints[trackPoint]);
+        Vector3 frontDirection(track.OutsidePoints[track.GetNextTrackPointIndex(trackPoint)]);
+        frontDirection.Sub(track.OutsidePoints[trackPoint]);
         ship.OrientationByFrontPoint(frontMiddlePoint, frontDirection);
-        PositionUpdater positionUpdater;
-        positionUpdater.Update(ship, track);
-
         ship.State = ShipState::ResetInnactive;
     }
     else if (ship.State == ShipState::ResetInnactive)
