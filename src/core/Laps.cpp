@@ -3,6 +3,7 @@
 Laps::Laps()
 {
     _currentLapNumber = 0;
+    IsLapCompleted = false;
 }
 
 void Laps::StartFirstLap()
@@ -56,12 +57,14 @@ bool Laps::IsLastLap()
 
 void Laps::Update(RaceState& state, Ship& ship, Track& track)
 {
+    IsLapCompleted = false;
     if (_lapChecker.IsLapCompleted(ship, track))
     {
         CompleteLap completeLap;
         completeLap.TimeMilliseconds = _lapTimer.GetElapsedMilliseconds();
         _lapTimer.ToString(completeLap.TimeString);
         _completeLaps.Add(completeLap);
+        IsLapCompleted = true;
         if (_currentLapNumber < GetLapsCount())
         {
             _currentLapNumber++;

@@ -11,6 +11,7 @@ void RaceUpdater::Update(
     Ship& player,
     IArray<Ship>& enemies,
     IArray<Ship*>& allShips,
+    List<PowerUp>& powerUps,
     Track& track,
     Laps& laps)
 {
@@ -21,6 +22,10 @@ void RaceUpdater::Update(
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     laps.Update(state, player, track);
+    if (laps.IsLapCompleted)
+    {
+        _powerUpGenerator.UpdatePositions(track, powerUps);
+    }
 }
 
 void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)

@@ -55,6 +55,7 @@ void Race::Update()
         Player,
         Enemies,
         AllShips,
+        PowerUps,
         *Track,
         Laps);
 }

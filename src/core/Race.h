@@ -5,6 +5,7 @@
 #include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
+#include <model/PowerUp.h>
 #include <core/RaceState.h>
 #include <core/ShipController.h>
 #include <core/RaceUpdater.h>
@@ -23,6 +24,7 @@ public:
     Ship Player;
     Array<Ship, EnemiesCount> Enemies;
     List<Ship*> AllShips;
+    List<PowerUp> PowerUps;
     Track* Track;
     ShipController PlayerController;
     Camera Camera;

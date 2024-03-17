@@ -23,6 +23,8 @@ class Laps : public Object
     List<CompleteLap> _completeLaps;
 
 public:
+    bool IsLapCompleted;
+
     Laps();
 
     void StartFirstLap();

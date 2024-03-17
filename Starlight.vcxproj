@@ -33,6 +33,7 @@
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
+    <ClInclude Include="src\core\PowerUpGenerator.h" />
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
@@ -71,6 +72,7 @@
     <ClInclude Include="src\lib\TimeSpan.h" />
     <ClInclude Include="src\model\Bullet.h" />
     <ClInclude Include="src\model\Machinegun.h" />
+    <ClInclude Include="src\model\PowerUp.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
     <ClInclude Include="src\model\ShipControls.h" />
     <ClInclude Include="src\model\Weapon.h" />
@@ -208,6 +210,7 @@
     <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
     <ClCompile Include="src\core\LapTimer.cpp" />
+    <ClCompile Include="src\core\PowerUpGenerator.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionResult.cpp" />
@@ -248,6 +251,7 @@
     <ClCompile Include="src\lib\TimeSpan.cpp" />
     <ClCompile Include="src\model\Bullet.cpp" />
     <ClCompile Include="src\model\Machinegun.cpp" />
+    <ClCompile Include="src\model\PowerUp.cpp" />
     <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />
     <ClCompile Include="src\model\ShipControls.cpp" />

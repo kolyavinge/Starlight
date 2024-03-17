@@ -168,6 +168,8 @@
     <ClInclude Include="src\render\common\ExplosionRenderer.h" />
     <ClInclude Include="src\model\ShipControls.h" />
     <ClInclude Include="src\render\dash\BulletsCountRenderer.h" />
+    <ClInclude Include="src\model\PowerUp.h" />
+    <ClInclude Include="src\core\PowerUpGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -320,6 +322,8 @@
     <ClCompile Include="src\render\common\ExplosionRenderer.cpp" />
     <ClCompile Include="src\model\ShipControls.cpp" />
     <ClCompile Include="src\render\dash\BulletsCountRenderer.cpp" />
+    <ClCompile Include="src\model\PowerUp.cpp" />
+    <ClCompile Include="src\core\PowerUpGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

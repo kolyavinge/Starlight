@@ -1,5 +1,6 @@
 #include <core/PositionUpdater.h>
 #include <core/StartingGridInitializer.h>
+#include <core/PowerUpGenerator.h>
 #include <core/RaceInitializer.h>
 
 void RaceInitializer::Init(Race& race)
@@ -8,6 +9,7 @@ void RaceInitializer::Init(Race& race)
     SetStartGrid(race);
     UpdateShipsPositions(race);
     SetAIData(race);
+    GeneratePowerUps(race);
 }
 
 void RaceInitializer::InitShips(Race& race)
@@ -41,4 +43,10 @@ void RaceInitializer::SetAIData(Race& race)
     {
         race.Enemies[i].AIData.Init();
     }
+}
+
+void RaceInitializer::GeneratePowerUps(Race& race)
+{
+    PowerUpGenerator generator;
+    generator.Generate(*race.Track, race.PowerUps);
 }
