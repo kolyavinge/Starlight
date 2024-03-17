@@ -6,7 +6,8 @@ DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
     _lapTimeRenderer(textRenderer),
     _completeLapTimeRenderer(textRenderer),
     _completeLapsTimeListRenderer(textRenderer),
-    _healthRenderer(textRenderer)
+    _healthRenderer(textRenderer),
+    _bulletsCountRenderer(textRenderer)
 {
 }
 
@@ -22,4 +23,5 @@ void DashboardRenderer::Render(Ship& player, Laps& laps)
     _completeLapTimeRenderer.Render(laps);
     _completeLapsTimeListRenderer.Render(laps);
     _healthRenderer.Render(player);
+    _bulletsCountRenderer.Render(player.Weapon);
 }

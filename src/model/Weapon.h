@@ -13,6 +13,9 @@ class WeaponException : public Exception { };
 
 class Weapon : public Object
 {
+    inline static const int _maxBulletsInQueue = 100;
+
+    int _remainingBullets;
     int _currentDelay;
     List<Bullet> _bullets;
     CycledArrayIterator<Bullet> _bulletsIter;
@@ -21,14 +24,17 @@ public:
     IArray<Bullet>& Bullets;
     bool IsFireActive;
 
-    Weapon(int maxBulletsCount);
+    Weapon();
 
     virtual float GetDamageValue() = 0;
+    virtual int GetMaxBulletsCount() = 0;
     virtual float GetMaxBulletDistance() = 0;
 
     void Init();
     void Update();
     void Fire(ShipCentralLine& shipCentralLine);
+    int GetRemainingBullets();
+    void AddBullets(int count);
 
 protected:
     virtual void InnerInit();

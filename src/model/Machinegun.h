@@ -11,16 +11,15 @@ class Machinegun : public Weapon
     Barrel _activeBarrel;
 
 public:
-    inline static const int MaxBulletsCount = 100;
-
     Machinegun();
 
     float GetDamageValue() override;
+    int GetMaxBulletsCount() override;
+    float GetMaxBulletDistance() override;
 
 protected:
     void InnerInit() override;
     int GetDelayValue() override;
-    float GetMaxBulletDistance() override;
     void InitNewBullet(ShipCentralLine& shipCentralLine, Vector3& bulletPosition, Vector3& bulletDirection) override;
 
 private:

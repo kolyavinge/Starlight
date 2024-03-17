@@ -167,6 +167,7 @@
     <ClInclude Include="src\gl\FramedTexture.h" />
     <ClInclude Include="src\render\common\ExplosionRenderer.h" />
     <ClInclude Include="src\model\ShipControls.h" />
+    <ClInclude Include="src\render\dash\BulletsCountRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -318,6 +319,7 @@
     <ClCompile Include="src\gl\FramedTexture.cpp" />
     <ClCompile Include="src\render\common\ExplosionRenderer.cpp" />
     <ClCompile Include="src\model\ShipControls.cpp" />
+    <ClCompile Include="src\render\dash\BulletsCountRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

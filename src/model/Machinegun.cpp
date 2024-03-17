@@ -2,8 +2,7 @@
 #include <calc/Geometry.h>
 #include <model/Machinegun.h>
 
-Machinegun::Machinegun() :
-    Weapon(MaxBulletsCount)
+Machinegun::Machinegun()
 {
     _activeBarrel = Barrel::Left;
 }
@@ -11,6 +10,11 @@ Machinegun::Machinegun() :
 float Machinegun::GetDamageValue()
 {
     return 1.0f / 40.0f;
+}
+
+int Machinegun::GetMaxBulletsCount()
+{
+    return 50;
 }
 
 float Machinegun::GetMaxBulletDistance()

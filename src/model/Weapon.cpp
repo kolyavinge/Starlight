@@ -1,12 +1,13 @@
 #include <model/Weapon.h>
 
-Weapon::Weapon(int maxBulletsCount) :
+Weapon::Weapon() :
     Bullets(_bullets),
     _bulletsIter(_bullets)
 {
+    _remainingBullets = 0;
     _currentDelay = 0;
-    _bullets.PrepareEnoughCapacity(maxBulletsCount);
-    for (int i = 0; i < maxBulletsCount; i++)
+    _bullets.PrepareEnoughCapacity(_maxBulletsInQueue);
+    for (int i = 0; i < _maxBulletsInQueue; i++)
     {
         _bullets.Add(Bullet());
     }
@@ -15,6 +16,7 @@ Weapon::Weapon(int maxBulletsCount) :
 
 void Weapon::Init()
 {
+    _remainingBullets = GetMaxBulletsCount();
     _currentDelay = 0;
     for (int i = 0; i < _bullets.GetCount(); i++)
     {
@@ -34,6 +36,7 @@ void Weapon::Update()
 void Weapon::Fire(ShipCentralLine& shipCentralLine)
 {
     if (_currentDelay > 0) return;
+    if (_remainingBullets == 0) return;
 
     Bullet* bullet = FindInactiveBullet();
     if (bullet == nullptr) return;
@@ -44,9 +47,23 @@ void Weapon::Fire(ShipCentralLine& shipCentralLine)
     bullet->MovingDistance = bullet->Direction.GetLength();
     bullet->IsActive = true;
     bullet->DamageValue = GetDamageValue();
-
+    _remainingBullets--;
     IsFireActive = true;
     _currentDelay = GetDelayValue();
+}
+
+int Weapon::GetRemainingBullets()
+{
+    return _remainingBullets;
+}
+
+void Weapon::AddBullets(int count)
+{
+    _remainingBullets += count;
+    if (_remainingBullets > GetMaxBulletsCount())
+    {
+        _remainingBullets = GetMaxBulletsCount();
+    }
 }
 
 void Weapon::InnerInit()

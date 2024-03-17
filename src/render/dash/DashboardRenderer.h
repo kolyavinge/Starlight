@@ -9,6 +9,7 @@
 #include <render/dash/CompleteLapTimeRenderer.h>
 #include <render/dash/CompleteLapsTimeListRenderer.h>
 #include <render/dash/PlayerShipHealthRenderer.h>
+#include <render/dash/BulletsCountRenderer.h>
 
 class DashboardRenderer : public Object
 {
@@ -17,6 +18,7 @@ class DashboardRenderer : public Object
     CompleteLapTimeRenderer _completeLapTimeRenderer;
     CompleteLapsTimeListRenderer _completeLapsTimeListRenderer;
     PlayerShipHealthRenderer _healthRenderer;
+    BulletsCountRenderer _bulletsCountRenderer;
 
 public:
     DashboardRenderer(TextRenderer& textRenderer);

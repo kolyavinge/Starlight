@@ -77,6 +77,7 @@
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
     <ClInclude Include="src\render\common\BulletsRenderer.h" />
     <ClInclude Include="src\render\common\ExplosionRenderer.h" />
+    <ClInclude Include="src\render\dash\BulletsCountRenderer.h" />
     <ClInclude Include="src\render\dash\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\render\dash\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
@@ -261,6 +262,7 @@
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
     <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
     <ClCompile Include="src\render\common\ExplosionRenderer.cpp" />
+    <ClCompile Include="src\render\dash\BulletsCountRenderer.cpp" />
     <ClCompile Include="src\render\dash\CompleteLapsTimeListRenderer.cpp" />
     <ClCompile Include="src\render\dash\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />
