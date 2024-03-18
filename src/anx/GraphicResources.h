@@ -25,4 +25,6 @@ public:
     static String GetExplosionFilePath();
     static String GetSimpleVertexShaderPath();
     static String GetSimpleFragmentShaderPath();
+    static String GetPowerUpHealthFilePath();
+    static String GetPowerUpMachinegunFilePath();
 };

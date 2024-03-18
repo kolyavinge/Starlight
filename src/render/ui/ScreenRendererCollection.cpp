@@ -16,6 +16,7 @@ ScreenRendererCollection::ScreenRendererCollection() :
         _bulletsRenderer,
         _enemyShipsHealthRenderer,
         _explosionRenderer,
+        _powerUpRenderer,
         _dashboardRenderer),
     _pauseMenuRenderer(_raceRenderer),
     _finishRenderer(_raceRenderer)
@@ -34,6 +35,7 @@ void ScreenRendererCollection::Init()
     _textRenderer.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
+    _powerUpRenderer.Init(_graphicItemCollection.PowerUpHealthTexture, _graphicItemCollection.PowerUpMachinegunTexture);
     for (int i = 0; i < _renderers.GetCount(); i++)
     {
         _renderers[i]->Init(_graphicItemCollection);

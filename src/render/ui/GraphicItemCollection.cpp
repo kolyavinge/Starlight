@@ -16,4 +16,6 @@ void GraphicItemCollection::Init()
     Countdown3Item.Load(GraphicResources::GetCountdown3ItemFilePath());
     GoItem.Load(GraphicResources::GetGoItemFilePath());
     ExplosionTexture.Load(GraphicResources::GetExplosionFilePath(), 17);
+    PowerUpHealthTexture.Load(GraphicResources::GetPowerUpHealthFilePath());
+    PowerUpMachinegunTexture.Load(GraphicResources::GetPowerUpMachinegunFilePath());
 }

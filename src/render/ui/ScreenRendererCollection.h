@@ -12,6 +12,7 @@
 #include <render/common/BulletsRenderer.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
 #include <render/common/ExplosionRenderer.h>
+#include <render/common/PowerUpRenderer.h>
 #include <render/dash/DashboardRenderer.h>
 #include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
@@ -33,6 +34,7 @@ class ScreenRendererCollection : public Object
     BulletsRenderer _bulletsRenderer;
     EnemyShipsHealthRenderer _enemyShipsHealthRenderer;
     ExplosionRenderer _explosionRenderer;
+    PowerUpRenderer _powerUpRenderer;
     DashboardRenderer _dashboardRenderer;
 
     GraphicItemCollection _graphicItemCollection;

@@ -181,3 +181,21 @@ String GraphicResources::GetSimpleFragmentShaderPath()
 
     return path;
 }
+
+String GraphicResources::GetPowerUpHealthFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\powerup_health.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetPowerUpMachinegunFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\powerup_machinegun.png\0");
+    path.Append(name);
+
+    return path;
+}

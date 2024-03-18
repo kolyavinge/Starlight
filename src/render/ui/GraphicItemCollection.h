@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <gl/Texture.h>
 #include <gl/TexturedRect.h>
 #include <gl/FramedTexture.h>
 
@@ -19,6 +20,8 @@ public:
     TexturedRect Countdown2Item;
     TexturedRect Countdown3Item;
     TexturedRect GoItem;
+    Texture PowerUpHealthTexture;
+    Texture PowerUpMachinegunTexture;
     FramedTexture ExplosionTexture;
 
     void Init();
