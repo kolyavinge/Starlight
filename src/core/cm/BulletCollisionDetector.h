@@ -2,9 +2,18 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/List.h>
 #include <model/Ship.h>
-#include <core/cm/BulletCollisionResult.h>
+#include <model/Bullet.h>
 #include <core/cm/ShipCollisionDetector.h>
+
+class BulletCollisionResult : public Object
+{
+public:
+    List<Bullet*> Bullets;
+
+    void Init();
+};
 
 class BulletCollisionDetector : public Object
 {

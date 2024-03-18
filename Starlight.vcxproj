@@ -29,7 +29,6 @@
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\cm\BulletCollisionDetector.h" />
     <ClInclude Include="src\core\cm\BulletCollisionProcessor.h" />
-    <ClInclude Include="src\core\cm\BulletCollisionResult.h" />
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
@@ -37,7 +36,6 @@
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
-    <ClInclude Include="src\core\cm\ShipCollisionResult.h" />
     <ClInclude Include="src\core\ShipStateLogic.h" />
     <ClInclude Include="src\core\StartingGridInitializer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
@@ -138,7 +136,6 @@
     <ClInclude Include="src\calc\Quaternion.h" />
     <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\core\LapChecker.h" />
-    <ClInclude Include="src\core\cm\TrackCollisionResult.h" />
     <ClInclude Include="src\model\track\RoadTrack4.h" />
     <ClInclude Include="src\model\ShipCentralLine.h" />
     <ClInclude Include="src\model\VelocityFunction.h" />
@@ -206,7 +203,6 @@
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\cm\BulletCollisionDetector.cpp" />
     <ClCompile Include="src\core\cm\BulletCollisionProcessor.cpp" />
-    <ClCompile Include="src\core\cm\BulletCollisionResult.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
     <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
@@ -214,7 +210,6 @@
     <ClCompile Include="src\core\PowerUpGenerator.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
-    <ClCompile Include="src\core\cm\ShipCollisionResult.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
@@ -223,7 +218,6 @@
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapChecker.cpp" />
     <ClCompile Include="src\core\cm\TrackCollisionDetector.cpp" />
-    <ClCompile Include="src\core\cm\TrackCollisionResult.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
     <ClCompile Include="src\gl\AnimatedTexturedRect.cpp" />

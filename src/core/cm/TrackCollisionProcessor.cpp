@@ -1,7 +1,6 @@
 #include <lib/Assert.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
-#include <core/cm/TrackCollisionResult.h>
 #include <core/cm/TrackCollisionProcessor.h>
 
 bool TrackCollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)

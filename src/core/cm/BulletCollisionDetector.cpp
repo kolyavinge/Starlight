@@ -1,6 +1,11 @@
 #include <model/Bullet.h>
 #include <core/cm/BulletCollisionDetector.h>
 
+void BulletCollisionResult::Init()
+{
+    Bullets.Clear();
+}
+
 BulletCollisionDetector::BulletCollisionDetector()
 {
     Result.Init();

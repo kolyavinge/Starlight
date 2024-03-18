@@ -4,7 +4,17 @@
 #include <lib/IArray.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
-#include <core/cm/ShipCollisionResult.h>
+
+class ShipCollisionResult : public Object
+{
+public:
+    Ship* Ship1;
+    Ship* Ship2;
+
+    ShipCollisionResult();
+
+    void Init();
+};
 
 class ShipCollisionDetector : public Object
 {

@@ -1,5 +1,4 @@
 #include <model/Bullet.h>
-#include <core/cm/BulletCollisionResult.h>
 #include <core/cm/BulletCollisionProcessor.h>
 
 bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray<Ship*>& allShips)

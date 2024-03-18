@@ -2,7 +2,6 @@
 #include <calc/Physics.h>
 #include <model/ShipMeasure.h>
 #include <model/Ship.h>
-#include <core/cm/ShipCollisionResult.h>
 #include <core/cm/ShipCollisionProcessor.h>
 
 bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips)

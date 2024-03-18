@@ -4,7 +4,20 @@
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <core/cm/TrackCollisionResult.h>
+
+class TrackCollisionResult : public Object
+{
+public:
+    Vector3 FromTrackPoint;
+    Vector3 ToTrackPoint;
+    Vector3 OppositeTrackPoint;
+    int FromIndex;
+    int ToIndex;
+
+    TrackCollisionResult();
+
+    void Init();
+};
 
 class TrackCollisionDetector : public Object
 {
