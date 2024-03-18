@@ -64,6 +64,15 @@ Vector3 Ship::GetVelocityVector()
     return result;
 }
 
+void Ship::AddHealth(float value)
+{
+    Health += value;
+    if (Health > 1.0f)
+    {
+        Health = 1.0f;
+    }
+}
+
 void Ship::Damage(float damageValue)
 {
     Health -= damageValue;

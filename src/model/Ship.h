@@ -42,6 +42,7 @@ public:
     bool IsMoving();
     float GetRollRadians();
     Vector3 GetVelocityVector();
+    void AddHealth(float value);
     void Damage(float damageValue);
     void Explode();
     void Reset();

@@ -51,6 +51,11 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3&
     return result;
 }
 
+bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& point)
+{
+    return ship.Border.Contains(point);
+}
+
 bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
 {
     return

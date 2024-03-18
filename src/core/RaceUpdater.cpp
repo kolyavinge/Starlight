@@ -11,14 +11,14 @@ void RaceUpdater::Update(
     Ship& player,
     IArray<Ship>& enemies,
     IArray<Ship*>& allShips,
-    List<PowerUp>& powerUps,
+    IArray<PowerUp>& powerUps,
     Track& track,
     Laps& laps)
 {
-    Update(player, allShips, track);
+    Update(player, allShips, powerUps, track);
     for (int i = 0; i < enemies.GetCount(); i++)
     {
-        Update(enemies[i], allShips, track);
+        Update(enemies[i], allShips, powerUps, track);
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     laps.Update(state, player, track);
@@ -28,7 +28,7 @@ void RaceUpdater::Update(
     }
 }
 
-void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)
+void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track)
 {
     SaveCurrentShipsPositions(ship);
     _positionUpdater.UpdateIfShipMoving(ship, track);
@@ -47,6 +47,7 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, Track& track)
     {
         _borderUpdater.Update(ship);
     }
+    _powerUpCollisionProcessor.ProcessPowerUpsCollisions(ship, powerUps);
     _positionCorrector.CorrectAfterFloatOperations(ship);
 }
 

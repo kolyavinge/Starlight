@@ -20,6 +20,7 @@
 #include <core/cm/TrackCollisionProcessor.h>
 #include <core/cm/ShipCollisionProcessor.h>
 #include <core/cm/BulletCollisionProcessor.h>
+#include <core/cm/PowerUpCollisionProcessor.h>
 #include <ai/EnemyAI.h>
 
 class RaceUpdater : public Object
@@ -30,6 +31,7 @@ class RaceUpdater : public Object
     TrackCollisionProcessor _trackCollisionProcessor;
     ShipCollisionProcessor _shipCollisionProcessor;
     BulletCollisionProcessor _bulletCollisionProcessor;
+    PowerUpCollisionProcessor _powerUpCollisionProcessor;
     PositionCorrector _positionCorrector;
     BorderUpdater _borderUpdater;
     PositionUpdater _positionUpdater;
@@ -46,11 +48,11 @@ public:
         Ship& player,
         IArray<Ship>& enemies,
         IArray<Ship*>& allShips,
-        List<PowerUp>& powerUps,
+        IArray<PowerUp>& powerUps,
         Track& track,
         Laps& laps);
 
 private:
-    void Update(Ship& ship, IArray<Ship*>& allShips, Track& track);
+    void Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track);
     void SaveCurrentShipsPositions(Ship& ship);
 };

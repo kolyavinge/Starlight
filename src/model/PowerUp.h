@@ -11,7 +11,9 @@ public:
     bool IsActive;
     PowerUpKind Kind;
     float Value;
-    Vector3 Position;
+    Vector3 Middle;
+    Vector3 From;
+    Vector3 To;
 
     PowerUp();
 };

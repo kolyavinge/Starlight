@@ -29,6 +29,8 @@
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\cm\BulletCollisionDetector.h" />
     <ClInclude Include="src\core\cm\BulletCollisionProcessor.h" />
+    <ClInclude Include="src\core\cm\PowerUpCollisionDetector.h" />
+    <ClInclude Include="src\core\cm\PowerUpCollisionProcessor.h" />
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
@@ -203,6 +205,8 @@
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\core\cm\BulletCollisionDetector.cpp" />
     <ClCompile Include="src\core\cm\BulletCollisionProcessor.cpp" />
+    <ClCompile Include="src\core\cm\PowerUpCollisionDetector.cpp" />
+    <ClCompile Include="src\core\cm\PowerUpCollisionProcessor.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionProcessor.cpp" />
     <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
