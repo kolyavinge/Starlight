@@ -18,11 +18,11 @@ void Ship::Init()
     PrevVelocityValue = 0;
     CentralLine.Init();
     Border.Init();
-    AIData.Init();
     Weapon.Init();
     Health = 1.0f;
     IsDamaged = false;
     DelayIterations = 0;
+    VelocityFunction.SetDelta(AIData.VelocityDelta);
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

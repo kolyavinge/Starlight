@@ -22,7 +22,7 @@ void RaceUpdater::Update(
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     laps.Update(state, player, track);
-    if (laps.IsLapCompleted)
+    if (laps.IsLapCompleted && state != RaceState::Finish)
     {
         _powerUpGenerator.UpdatePositions(track, powerUps);
     }

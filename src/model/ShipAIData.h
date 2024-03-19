@@ -10,6 +10,7 @@ public:
     int MovingPointsSteps;
     float StraightDirectionLimit;
     float MovingDirectionLength;
+    float VelocityDelta;
 
     ShipAIData();
 

@@ -12,6 +12,5 @@ private:
     void InitShips(Race& race);
     void SetStartGrid(Race& race);
     void UpdateShipsPositions(Race& race);
-    void SetAIData(Race& race);
     void GeneratePowerUps(Race& race);
 };

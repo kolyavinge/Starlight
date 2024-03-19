@@ -3,7 +3,11 @@
 
 ShipAIData::ShipAIData()
 {
-    Init();
+    MovingDirection.Set(0.0f, 0.0f, 0.0f);
+    MovingPointsSteps = 0;
+    StraightDirectionLimit = 0.0f;
+    MovingDirectionLength = 0.0f;
+    VelocityDelta = 0.0f;
 }
 
 void ShipAIData::Init()
@@ -14,4 +18,5 @@ void ShipAIData::Init()
     MovingPointsSteps = rand.GetIntFromZeroToN(5) + 5;
     StraightDirectionLimit = rand.GetFloatFromZeroToN(0.02f) + 0.98f;
     MovingDirectionLength = (float)rand.GetIntFromZeroToN(5) + 5.0f;
+    VelocityDelta = 0.1f + rand.GetFloatFromZeroToN(0.05f);
 }

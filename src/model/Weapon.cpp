@@ -16,7 +16,7 @@ Weapon::Weapon() :
 
 void Weapon::Init()
 {
-    _remainingBullets = GetMaxBulletsCount();
+    _remainingBullets = 0;
     _currentDelay = 0;
     for (int i = 0; i < _bullets.GetCount(); i++)
     {

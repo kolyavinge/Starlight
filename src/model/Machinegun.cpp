@@ -9,12 +9,12 @@ Machinegun::Machinegun()
 
 float Machinegun::GetDamageValue()
 {
-    return 1.0f / 40.0f;
+    return 1.0f / 25.0f;
 }
 
 int Machinegun::GetMaxBulletsCount()
 {
-    return 50;
+    return 100;
 }
 
 float Machinegun::GetMaxBulletDistance()
