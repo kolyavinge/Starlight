@@ -46,3 +46,12 @@ String AudioResources::GetExplosionWavFilePath()
 
     return path;
 }
+
+String AudioResources::GetPowerUpPickWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\powerup_pick.wav\0");
+    path.Append(name);
+
+    return path;
+}

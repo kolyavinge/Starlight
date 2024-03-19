@@ -22,6 +22,7 @@ void Ship::Init()
     Nitros.Init();
     Health = 1.0f;
     IsDamaged = false;
+    IsPowerUpPicked = false;
     DelayIterations = 0;
     VelocityFunction.Init();
     VelocityFunction.AddDelta(AIData.VelocityDelta);

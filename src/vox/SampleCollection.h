@@ -11,6 +11,7 @@ public:
     AudioSample LaserSample;
     AudioSample MetalHitSample;
     AudioSample ExplosionSample;
+    AudioSample PowerUpPickSample;
 
     void Init();
 };

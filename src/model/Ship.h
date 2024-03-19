@@ -34,6 +34,7 @@ public:
     NitroCollection Nitros;
     float Health;
     bool IsDamaged;
+    bool IsPowerUpPicked;
     int DelayIterations;
 
     Ship();

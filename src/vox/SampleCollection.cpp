@@ -8,4 +8,5 @@ void SampleCollection::Init()
     LaserSample.Load(AudioResources::GetLaserWavFilePath());
     MetalHitSample.Load(AudioResources::GetMetalHitWavFilePath());
     ExplosionSample.Load(AudioResources::GetExplosionWavFilePath());
+    PowerUpPickSample.Load(AudioResources::GetPowerUpPickWavFilePath());
 }

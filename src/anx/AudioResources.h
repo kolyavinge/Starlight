@@ -10,4 +10,5 @@ public:
     static String GetLaserWavFilePath();
     static String GetMetalHitWavFilePath();
     static String GetExplosionWavFilePath();
+    static String GetPowerUpPickWavFilePath();
 };

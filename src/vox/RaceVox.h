@@ -10,6 +10,7 @@ class RaceVox : public ScreenVox
     AudioSample* _weaponFireSample;
     AudioSample* _metalHitSample;
     AudioSample* _explosionSample;
+    AudioSample* _powerUpPickSample;
 
 public:
     RaceVox();

@@ -2,6 +2,7 @@
 
 void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps)
 {
+    ship.IsPowerUpPicked = false;
     if (!_powerUpCollisionDetector.DetectCollisions(ship, powerUps)) return;
     PowerUpCollisionResult result = _powerUpCollisionDetector.Result;
     for (int i = 0; i < result.PowerUps.GetCount(); i++)
@@ -10,6 +11,7 @@ void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, IArray<Pow
         if (ProcessPowerUp(ship, p))
         {
             p.IsActive = false;
+            ship.IsPowerUpPicked = true;
         }
     }
 }
