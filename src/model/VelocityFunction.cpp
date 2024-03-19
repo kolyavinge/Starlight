@@ -4,6 +4,11 @@
 
 VelocityFunction::VelocityFunction()
 {
+    Init();
+}
+
+void VelocityFunction::Init()
+{
     _delta = 0.0f;
     MaxVelocity = GetValueByThrottleTime(MaxThrottleTime);
 }
@@ -23,8 +28,8 @@ float VelocityFunction::GetThrottleTimeByValue(float value)
     return Math::Power(Math::E, (1.0f / (5.5f + _delta)) * value) - 1.0f;
 }
 
-void VelocityFunction::SetDelta(float delta)
+void VelocityFunction::AddDelta(float delta)
 {
-    _delta = delta;
+    _delta += delta;
     MaxVelocity = GetValueByThrottleTime(MaxThrottleTime);
 }

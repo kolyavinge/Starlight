@@ -1,3 +1,4 @@
+#include <lib/Exceptions.h>
 #include <lib/Math.h>
 #include <lib/Assert.h>
 #include <lib/Numeric.h>
@@ -9,6 +10,8 @@
 
 void MoveLogic::MoveShip(Ship& ship)
 {
+    if (ship.VelocityValue < 0.0f) throw ArgumentException();
+
     if (!Numeric::FloatEquals(ship.VelocityValue, 0.0f))
     {
         float moveDistance = ship.VelocityValue * Constants::TimeStep;

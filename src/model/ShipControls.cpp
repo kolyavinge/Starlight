@@ -12,4 +12,5 @@ void ShipControls::Init()
     IsTurnLeftActive = false;
     IsTurnRightActive = false;
     IsFireActive = false;
+    IsNitroActive = false;
 }

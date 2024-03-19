@@ -20,5 +20,6 @@ public:
     void ReleaseTurn();
     void ActivateFire();
     void ReleaseFire();
+    void ActivateNitro();
     void Reset();
 };

@@ -48,6 +48,7 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& p
         _borderUpdater.Update(ship);
     }
     _powerUpCollisionProcessor.ProcessPowerUpsCollisions(ship, powerUps);
+    _nitroLogic.ProcessNitro(ship);
     _positionCorrector.CorrectAfterFloatOperations(ship);
 }
 

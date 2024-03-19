@@ -34,6 +34,7 @@
     <ClInclude Include="src\core\cm\ShipCollisionProcessor.h" />
     <ClInclude Include="src\core\Laps.h" />
     <ClInclude Include="src\core\LapTimer.h" />
+    <ClInclude Include="src\core\NitroLogic.h" />
     <ClInclude Include="src\core\PowerUpGenerator.h" />
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\RaceState.h" />
@@ -212,6 +213,7 @@
     <ClCompile Include="src\core\cm\TrackCollisionProcessor.cpp" />
     <ClCompile Include="src\core\Laps.cpp" />
     <ClCompile Include="src\core\LapTimer.cpp" />
+    <ClCompile Include="src\core\NitroLogic.cpp" />
     <ClCompile Include="src\core\PowerUpGenerator.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />

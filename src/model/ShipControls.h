@@ -10,6 +10,7 @@ public:
     bool IsTurnLeftActive;
     bool IsTurnRightActive;
     bool IsFireActive;
+    bool IsNitroActive;
 
     ShipControls();
 

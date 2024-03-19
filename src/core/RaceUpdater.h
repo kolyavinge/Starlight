@@ -2,7 +2,6 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
-#include <lib/List.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <model/PowerUp.h>
@@ -16,6 +15,7 @@
 #include <core/WeaponLogic.h>
 #include <core/ShipStateLogic.h>
 #include <core/PowerUpGenerator.h>
+#include <core/NitroLogic.h>
 #include <core/Laps.h>
 #include <core/cm/TrackCollisionProcessor.h>
 #include <core/cm/ShipCollisionProcessor.h>
@@ -38,6 +38,7 @@ class RaceUpdater : public Object
     WeaponLogic _weaponLogic;
     ShipStateLogic _shipStateLogic;
     PowerUpGenerator _powerUpGenerator;
+    NitroLogic _nitroLogic;
     EnemyAI& _enemyAI;
 
 public:

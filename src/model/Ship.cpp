@@ -23,7 +23,8 @@ void Ship::Init()
     Health = 1.0f;
     IsDamaged = false;
     DelayIterations = 0;
-    VelocityFunction.SetDelta(AIData.VelocityDelta);
+    VelocityFunction.Init();
+    VelocityFunction.AddDelta(AIData.VelocityDelta);
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)

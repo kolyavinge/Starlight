@@ -78,6 +78,13 @@ void ShipController::ReleaseFire()
     _ship->Controls.IsFireActive = false;
 }
 
+void ShipController::ActivateNitro()
+{
+    if (!_ship->CanControlled()) return;
+
+    _ship->Controls.IsNitroActive = true;
+}
+
 void ShipController::Reset()
 {
     _ship->Reset();

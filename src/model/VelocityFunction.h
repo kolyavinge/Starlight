@@ -12,7 +12,8 @@ public:
 
     VelocityFunction();
 
+    void Init();
     float GetValueByThrottleTime(float throttleTime);
     float GetThrottleTimeByValue(float value);
-    void SetDelta(float delta);
+    void AddDelta(float delta);
 };

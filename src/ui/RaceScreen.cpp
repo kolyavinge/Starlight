@@ -85,6 +85,11 @@ void RaceScreen::ProcessInput()
         playerController.ReleaseFire();
     }
 
+    if (keyboard.IsPressed('N'))
+    {
+        playerController.ActivateNitro();
+    }
+
     if (keyboard.IsPressed(VK_BACK))
     {
         playerController.Reset();
