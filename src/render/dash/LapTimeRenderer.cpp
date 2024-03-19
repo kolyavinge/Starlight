@@ -17,7 +17,10 @@ void LapTimeRenderer::Render(Laps& laps)
     glPushMatrix();
 
     float lapTimeStringWidth = _lapTimeString.GetLength() * _textRenderer.GetLetterWidth();
-    glTranslatef(Constants::ScreenWidth - lapTimeStringWidth, Constants::ScreenHeight - _textRenderer.GetLetterHeight(), 0.0f);
+    glTranslatef(
+        Constants::ScreenWidth - lapTimeStringWidth - 10.0f,
+        Constants::ScreenHeight - _textRenderer.GetLetterHeight(),
+        0.0f);
     _textRenderer.Render(_lapTimeString);
 
     glPopMatrix();

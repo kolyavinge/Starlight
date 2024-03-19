@@ -1,4 +1,3 @@
-#include <gl/opengl.h>
 #include <render/dash/DashboardRenderer.h>
 
 DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
@@ -7,7 +6,8 @@ DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
     _completeLapTimeRenderer(textRenderer),
     _completeLapsTimeListRenderer(textRenderer),
     _healthRenderer(textRenderer),
-    _bulletsCountRenderer(textRenderer)
+    _bulletsCountRenderer(textRenderer),
+    _nitroCountRenderer(textRenderer)
 {
 }
 
@@ -24,4 +24,5 @@ void DashboardRenderer::Render(Ship& player, Laps& laps)
     _completeLapsTimeListRenderer.Render(laps);
     _healthRenderer.Render(player);
     _bulletsCountRenderer.Render(player.Weapon);
+    _nitroCountRenderer.Render(player.Nitros);
 }
