@@ -82,6 +82,11 @@ void Ship::Damage(float damageValue)
     }
 }
 
+bool Ship::IsHealtFull()
+{
+    return Health == 1.0f;
+}
+
 void Ship::Explode()
 {
     State = ShipState::Exploded;

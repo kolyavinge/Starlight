@@ -66,6 +66,11 @@ void Weapon::AddBullets(int count)
     }
 }
 
+bool Weapon::IsBulletsFull()
+{
+    return GetRemainingBullets() == GetMaxBulletsCount();
+}
+
 void Weapon::InnerInit()
 {
 }

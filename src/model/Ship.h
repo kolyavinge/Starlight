@@ -44,6 +44,7 @@ public:
     Vector3 GetVelocityVector();
     void AddHealth(float value);
     void Damage(float damageValue);
+    bool IsHealtFull();
     void Explode();
     void Reset();
     bool CanControlled();

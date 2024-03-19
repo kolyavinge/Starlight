@@ -7,19 +7,31 @@ void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, IArray<Pow
     for (int i = 0; i < result.PowerUps.GetCount(); i++)
     {
         PowerUp& p = *result.PowerUps[i];
-        ProcessPowerUp(ship, p);
-        p.IsActive = false;
+        if (ProcessPowerUp(ship, p))
+        {
+            p.IsActive = false;
+        }
     }
 }
 
-void PowerUpCollisionProcessor::ProcessPowerUp(Ship& ship, PowerUp& powerUp)
+bool PowerUpCollisionProcessor::ProcessPowerUp(Ship& ship, PowerUp& powerUp)
 {
     if (powerUp.Kind == PowerUpKind::Health)
     {
-        ship.AddHealth(powerUp.Value);
+        if (!ship.IsHealtFull())
+        {
+            ship.AddHealth(powerUp.Value);
+            return true;
+        }
     }
     else if (powerUp.Kind == PowerUpKind::Machinegun)
     {
-        ship.Weapon.AddBullets((int)powerUp.Value);
+        if (!ship.Weapon.IsBulletsFull())
+        {
+            ship.Weapon.AddBullets((int)powerUp.Value);
+            return true;
+        }
     }
+
+    return false;
 }

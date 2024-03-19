@@ -14,5 +14,5 @@ public:
     void ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps);
 
 private:
-    void ProcessPowerUp(Ship& ship, PowerUp& powerUp);
+    bool ProcessPowerUp(Ship& ship, PowerUp& powerUp);
 };

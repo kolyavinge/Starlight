@@ -35,6 +35,7 @@ public:
     void Fire(ShipCentralLine& shipCentralLine);
     int GetRemainingBullets();
     void AddBullets(int count);
+    bool IsBulletsFull();
 
 protected:
     virtual void InnerInit();
