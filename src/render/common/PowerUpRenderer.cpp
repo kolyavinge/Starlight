@@ -9,12 +9,14 @@ PowerUpRenderer::PowerUpRenderer()
     _angleDegrees = 0.0f;
     _healthTexture = nullptr;
     _machinegunTexture = nullptr;
+    _nitroTexture = nullptr;
 }
 
-void PowerUpRenderer::Init(Texture& healthTexture, Texture& machinegunTexture)
+void PowerUpRenderer::Init(Texture& healthTexture, Texture& machinegunTexture, Texture& nitroTexture)
 {
     _healthTexture = &healthTexture;
     _machinegunTexture = &machinegunTexture;
+    _nitroTexture = &nitroTexture;
 }
 
 void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
@@ -43,6 +45,10 @@ void PowerUpRenderer::BindTexture(PowerUp& powerUp)
     else if (powerUp.Kind == PowerUpKind::Machinegun)
     {
         _machinegunTexture->Bind();
+    }
+    else if (powerUp.Kind == PowerUpKind::Nitro)
+    {
+        _nitroTexture->Bind();
     }
 }
 

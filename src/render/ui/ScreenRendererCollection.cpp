@@ -35,7 +35,10 @@ void ScreenRendererCollection::Init()
     _textRenderer.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
-    _powerUpRenderer.Init(_graphicItemCollection.PowerUpHealthTexture, _graphicItemCollection.PowerUpMachinegunTexture);
+    _powerUpRenderer.Init(
+        _graphicItemCollection.PowerUpHealthTexture,
+        _graphicItemCollection.PowerUpMachinegunTexture,
+        _graphicItemCollection.PowerUpNitroTexture);
     for (int i = 0; i < _renderers.GetCount(); i++)
     {
         _renderers[i]->Init(_graphicItemCollection);

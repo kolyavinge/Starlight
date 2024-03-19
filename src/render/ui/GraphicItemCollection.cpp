@@ -18,4 +18,5 @@ void GraphicItemCollection::Init()
     ExplosionTexture.Load(GraphicResources::GetExplosionFilePath(), 17);
     PowerUpHealthTexture.Load(GraphicResources::GetPowerUpHealthFilePath());
     PowerUpMachinegunTexture.Load(GraphicResources::GetPowerUpMachinegunFilePath());
+    PowerUpNitroTexture.Load(GraphicResources::GetPowerUpNitroFilePath());
 }

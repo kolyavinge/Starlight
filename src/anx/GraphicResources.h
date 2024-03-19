@@ -27,4 +27,5 @@ public:
     static String GetSimpleFragmentShaderPath();
     static String GetPowerUpHealthFilePath();
     static String GetPowerUpMachinegunFilePath();
+    static String GetPowerUpNitroFilePath();
 };

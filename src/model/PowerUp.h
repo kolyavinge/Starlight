@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 
-enum class PowerUpKind { Health, Machinegun };
+enum class PowerUpKind { Health, Machinegun, Nitro };
 
 class PowerUp : public Object
 {

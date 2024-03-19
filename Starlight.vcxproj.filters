@@ -170,6 +170,7 @@
     <ClInclude Include="src\render\common\PowerUpRenderer.h" />
     <ClInclude Include="src\core\cm\PowerUpCollisionDetector.h" />
     <ClInclude Include="src\core\cm\PowerUpCollisionProcessor.h" />
+    <ClInclude Include="src\model\NitroCollection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -324,6 +325,7 @@
     <ClCompile Include="src\render\common\PowerUpRenderer.cpp" />
     <ClCompile Include="src\core\cm\PowerUpCollisionDetector.cpp" />
     <ClCompile Include="src\core\cm\PowerUpCollisionProcessor.cpp" />
+    <ClCompile Include="src\model\NitroCollection.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

@@ -19,6 +19,7 @@ void Ship::Init()
     CentralLine.Init();
     Border.Init();
     Weapon.Init();
+    Nitros.Init();
     Health = 1.0f;
     IsDamaged = false;
     DelayIterations = 0;

@@ -37,6 +37,13 @@ void PowerUpGenerator::GeneratePowerUps(List<PowerUp>& powerUps)
         GenerateMachinegunPowerUp(p);
         powerUps.Add(p);
     }
+    // nitro
+    for (int i = 0; i < 2; i++)
+    {
+        PowerUp p;
+        GenerateNitroPowerUp(p);
+        powerUps.Add(p);
+    }
 }
 
 void PowerUpGenerator::GenerateHealthPowerUp(PowerUp& powerUp)
@@ -51,6 +58,13 @@ void PowerUpGenerator::GenerateMachinegunPowerUp(PowerUp& powerUp)
     powerUp.IsActive = false;
     powerUp.Kind = PowerUpKind::Machinegun;
     powerUp.Value = 50.0f;
+}
+
+void PowerUpGenerator::GenerateNitroPowerUp(PowerUp& powerUp)
+{
+    powerUp.IsActive = false;
+    powerUp.Kind = PowerUpKind::Nitro;
+    powerUp.Value = 0.0f;
 }
 
 void PowerUpGenerator::GenerateNewPosition(Track& track, PowerUp& powerUp)

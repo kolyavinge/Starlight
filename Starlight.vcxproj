@@ -72,6 +72,7 @@
     <ClInclude Include="src\lib\TimeSpan.h" />
     <ClInclude Include="src\model\Bullet.h" />
     <ClInclude Include="src\model\Machinegun.h" />
+    <ClInclude Include="src\model\NitroCollection.h" />
     <ClInclude Include="src\model\PowerUp.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
     <ClInclude Include="src\model\ShipControls.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="src\lib\TimeSpan.cpp" />
     <ClCompile Include="src\model\Bullet.cpp" />
     <ClCompile Include="src\model\Machinegun.cpp" />
+    <ClCompile Include="src\model\NitroCollection.cpp" />
     <ClCompile Include="src\model\PowerUp.cpp" />
     <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />

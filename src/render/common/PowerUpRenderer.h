@@ -10,11 +10,12 @@ class PowerUpRenderer : public Object
     float _angleDegrees;
     Texture* _healthTexture;
     Texture* _machinegunTexture;
+    Texture* _nitroTexture;
 
 public:
     PowerUpRenderer();
 
-    void Init(Texture& healthTexture, Texture& machinegunTexture);
+    void Init(Texture& healthTexture, Texture& machinegunTexture, Texture& nitroTexture);
     void Render(IArray<PowerUp>& powerUps);
 
 private:

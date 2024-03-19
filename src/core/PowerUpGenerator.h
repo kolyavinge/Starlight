@@ -19,5 +19,6 @@ private:
     void GeneratePowerUps(List<PowerUp>& powerUps);
     void GenerateHealthPowerUp(PowerUp& powerUp);
     void GenerateMachinegunPowerUp(PowerUp& powerUp);
+    void GenerateNitroPowerUp(PowerUp& powerUp);
     void GenerateNewPosition(Track& track, PowerUp& powerUp);
 };

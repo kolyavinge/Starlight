@@ -199,3 +199,12 @@ String GraphicResources::GetPowerUpMachinegunFilePath()
 
     return path;
 }
+
+String GraphicResources::GetPowerUpNitroFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\powerup_nitro.png\0");
+    path.Append(name);
+
+    return path;
+}

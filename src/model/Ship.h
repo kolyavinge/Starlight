@@ -9,6 +9,7 @@
 #include <model/VelocityFunction.h>
 #include <model/Weapon.h>
 #include <model/Machinegun.h>
+#include <model/NitroCollection.h>
 
 enum class ShipState { Active, Exploded, Destroyed, Reseted, Prepared };
 
@@ -30,6 +31,7 @@ public:
     VelocityFunction VelocityFunction;
     ShipAIData AIData;
     Weapon& Weapon;
+    NitroCollection Nitros;
     float Health;
     bool IsDamaged;
     int DelayIterations;

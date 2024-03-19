@@ -32,6 +32,14 @@ bool PowerUpCollisionProcessor::ProcessPowerUp(Ship& ship, PowerUp& powerUp)
             return true;
         }
     }
+    else if (powerUp.Kind == PowerUpKind::Nitro)
+    {
+        if (!ship.Nitros.IsFull())
+        {
+            ship.Nitros.AddOne();
+            return true;
+        }
+    }
 
     return false;
 }

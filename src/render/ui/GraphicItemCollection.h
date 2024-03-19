@@ -22,6 +22,7 @@ public:
     TexturedRect GoItem;
     Texture PowerUpHealthTexture;
     Texture PowerUpMachinegunTexture;
+    Texture PowerUpNitroTexture;
     FramedTexture ExplosionTexture;
 
     void Init();
