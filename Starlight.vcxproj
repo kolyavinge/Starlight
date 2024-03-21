@@ -61,6 +61,7 @@
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\lib\DateTime.h" />
+    <ClInclude Include="src\lib\Dictionary.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\IArray.h" />

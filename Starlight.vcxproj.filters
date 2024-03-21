@@ -173,6 +173,7 @@
     <ClInclude Include="src\model\NitroCollection.h" />
     <ClInclude Include="src\core\NitroLogic.h" />
     <ClInclude Include="src\render\dash\NitroCountRenderer.h" />
+    <ClInclude Include="src\lib\Dictionary.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
