@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
 #include <lib/Memory.h>
+#include <lib/List.h>
 
 class KeyNotFoundException : public Exception { };
 
@@ -213,6 +214,28 @@ public:
     TValue& operator[](TKey key)
     {
         return Get(key);
+    }
+
+    void GetAllKeys(List<TValue>& keys)
+    {
+        for (int i = 0; i < _capacity; i++)
+        {
+            if (_items[i] != nullptr)
+            {
+                keys.Add(_items[i]->Key);
+            }
+        }
+    }
+
+    void GetAllValues(List<TValue>& values)
+    {
+        for (int i = 0; i < _capacity; i++)
+        {
+            if (_items[i] != nullptr)
+            {
+                values.Add(_items[i]->Value);
+            }
+        }
     }
 
     void Clear()
