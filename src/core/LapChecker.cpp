@@ -1,5 +1,3 @@
-#include <lib/Numeric.h>
-#include <calc/Vector3.h>
 #include <core/LapChecker.h>
 
 LapChecker::LapChecker()
@@ -16,7 +14,7 @@ bool LapChecker::IsLapCompleted(Ship& ship, Track& track)
 {
     if (!ship.IsMoving()) return false;
     if (!IsShipMovingInStraightDirection(ship, track)) return false;
-    CompleteTrackPoints(ship, track);
+    CompleteTrackPoints(ship);
     bool isLapCompleted = false;
     if (IsStartFinishLineCrossed(ship, track))
     {
@@ -28,12 +26,10 @@ bool LapChecker::IsLapCompleted(Ship& ship, Track& track)
     return isLapCompleted;
 }
 
-void LapChecker::CompleteTrackPoints(Ship& ship, Track& track)
+void LapChecker::CompleteTrackPoints(Ship& ship)
 {
-    for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
-    {
-        _completedTrackPoints[i] = true;
-    }
+    _completedTrackPoints[ship.CentralLine.TrackPointIndexFront] = true;
+    _completedTrackPoints[ship.CentralLine.TrackPointIndexRear] = true;
 }
 
 bool LapChecker::IsStartFinishLineCrossed(Ship& ship, Track& track)
@@ -58,13 +54,27 @@ bool LapChecker::IsShipMovingInStraightDirection(Ship& ship, Track& track)
 
 bool LapChecker::AllTrackPointsCompleted(int trackPointsCount)
 {
-    for (int i = 0; i < trackPointsCount; i++)
+    const int step = 100;
+    for (int i = 0; i < trackPointsCount; i += step)
     {
-        if (!_completedTrackPoints[i])
+        if (!AnyTrackPointsCompleted(i, i + step))
         {
             return false;
         }
     }
 
     return true;
+}
+
+bool LapChecker::AnyTrackPointsCompleted(int fromTrackPointIndex, int toTrackPointIndex)
+{
+    for (int i = fromTrackPointIndex; i < toTrackPointIndex; i++)
+    {
+        if (_completedTrackPoints[i])
+        {
+            return true;
+        }
+    }
+
+    return false;
 }

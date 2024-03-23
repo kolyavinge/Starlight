@@ -16,8 +16,9 @@ public:
     bool IsLapCompleted(Ship& ship, Track& track);
 
 private:
-    void CompleteTrackPoints(Ship& ship, Track& track);
+    void CompleteTrackPoints(Ship& ship);
     bool IsStartFinishLineCrossed(Ship& ship, Track& track);
     bool IsShipMovingInStraightDirection(Ship& ship, Track& track);
     bool AllTrackPointsCompleted(int trackPointsCount);
+    bool AnyTrackPointsCompleted(int fromTrackPointIndex, int toTrackPointIndex);
 };
