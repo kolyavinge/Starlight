@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\ai\EnemyAI.h" />
+    <ClInclude Include="src\ai\NitroActivationLogic.h" />
     <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
     <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
@@ -195,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\ai\EnemyAI.cpp" />
+    <ClCompile Include="src\ai\NitroActivationLogic.cpp" />
     <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
     <ClCompile Include="src\ai\SteeringLogic.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />

@@ -175,6 +175,7 @@
     <ClInclude Include="src\render\dash\NitroCountRenderer.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
     <ClInclude Include="src\model\TrackPointInfo.h" />
+    <ClInclude Include="src\ai\NitroActivationLogic.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -333,6 +334,7 @@
     <ClCompile Include="src\core\NitroLogic.cpp" />
     <ClCompile Include="src\render\dash\NitroCountRenderer.cpp" />
     <ClCompile Include="src\model\TrackPointInfo.cpp" />
+    <ClCompile Include="src\ai\NitroActivationLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

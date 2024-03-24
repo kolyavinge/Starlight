@@ -20,6 +20,6 @@ void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
     {
         enemy.AIData.MovingDirection = newMovingDirection;
     }
-
     _steeringLogic.Update(enemy);
+    _nitroActivationLogic.Apply(enemy, track);
 }

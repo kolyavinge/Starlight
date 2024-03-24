@@ -75,7 +75,7 @@ void PowerUpGenerator::GenerateNewPosition(Track& track, PowerUp& powerUp)
     Vector3 trackLengthVector(track.OutsidePoints[randomTrackPoint]);
     trackLengthVector.Sub(track.InsidePoints[randomTrackPoint]);
     const float trackLength = trackLengthVector.GetLength();
-    const float randomLength = _rand.GetFloatFromZeroToN(trackLength - 2.0f) + 1.0f;
+    const float randomLength = _rand.GetFloatFromZeroToN(trackLength - 4.0f) + 2.0f;
     trackLengthVector.SetLength(randomLength);
 
     powerUp.Middle = track.InsidePoints[randomTrackPoint];
