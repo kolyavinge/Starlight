@@ -12,13 +12,14 @@ class TrackBuilder : public Object
 
     TrackPoints& _insidePoints;
     TrackPoints& _outsidePoints;
+    TrackPointInfos& _pointInfos;
     int& _pointsCount;
 
 public:
     Vector3 InsideDirection;
     Vector3 OutsideDirection;
 
-    TrackBuilder(TrackPoints& insidePoints, TrackPoints& outsidePoints, int& pointsCount);
+    TrackBuilder(TrackPoints& insidePoints, TrackPoints& outsidePoints, TrackPointInfos& pointInfos, int& pointsCount);
 
     void InitInsidePosition(float x, float y, float z);
     void InitOutsidePosition(float x, float y, float z);

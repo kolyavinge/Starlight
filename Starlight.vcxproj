@@ -78,6 +78,7 @@
     <ClInclude Include="src\model\PowerUp.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
     <ClInclude Include="src\model\ShipControls.h" />
+    <ClInclude Include="src\model\TrackPointInfo.h" />
     <ClInclude Include="src\model\Weapon.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
     <ClInclude Include="src\render\common\BulletsRenderer.h" />
@@ -260,6 +261,7 @@
     <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />
     <ClCompile Include="src\model\ShipControls.cpp" />
+    <ClCompile Include="src\model\TrackPointInfo.cpp" />
     <ClCompile Include="src\model\track\RoadTrack4.cpp" />
     <ClCompile Include="src\model\VelocityFunction.cpp" />
     <ClCompile Include="src\core\PositionUpdater.cpp" />

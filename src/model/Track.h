@@ -3,13 +3,16 @@
 #include <lib/Object.h>
 #include <lib/Array.h>
 #include <calc/Vector3.h>
+#include <model/TrackPointInfo.h>
 
-#define TrackMaxPoints 30000
+#define TrackMaxPoints 20000
 #define TrackMaxMiddlePoints 10
 
 class TrackPoints : public Array<Vector3, TrackMaxPoints> { };
 
 class TrackMiddlePoints : public Array<Array<Vector3, TrackMaxMiddlePoints>, TrackMaxPoints> { };
+
+class TrackPointInfos : public Array<TrackPointInfo, TrackMaxPoints> { };
 
 class Track : public Object
 {
@@ -23,6 +26,7 @@ public:
     TrackPoints Normals;
     Vector3 StraightDirection;
     int StartFinishLineIndex;
+    TrackPointInfos PointInfos;
 
     Track();
 

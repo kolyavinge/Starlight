@@ -3,9 +3,11 @@
 #include <model/Track.h>
 #include <anx/TrackBuilder.h>
 
-TrackBuilder::TrackBuilder(TrackPoints& insidePoints, TrackPoints& outsidePoints, int& pointsCount) :
+TrackBuilder::TrackBuilder(
+    TrackPoints& insidePoints, TrackPoints& outsidePoints, TrackPointInfos& pointInfos, int& pointsCount) :
     _insidePoints(insidePoints),
     _outsidePoints(outsidePoints),
+    _pointInfos(pointInfos),
     _pointsCount(pointsCount)
 {
     _pointsCount = 1;
@@ -33,6 +35,8 @@ void TrackBuilder::Move(float distance)
         _outsidePoints[_pointsCount] = _outsidePoints[_pointsCount - 1];
         _insidePoints[_pointsCount].Add(insideDirection);
         _outsidePoints[_pointsCount].Add(outsideDirection);
+        _pointInfos[_pointsCount].Kind = TrackPointKind::Straight;
+        _pointInfos[_pointsCount].RemainingDistance = distance - fraction;
         _pointsCount++;
     }
 }
@@ -91,6 +95,7 @@ void TrackBuilder::ZeroZ()
 
 void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector3 pivotAxis)
 {
+    TrackPointKind trackPointKind = direction == Direction::Left ? TrackPointKind::LeftTurn : TrackPointKind::RightTurn;
     Vector3 pivotPoint;
     pivotAxis.Normalize();
     GetDirections(direction, radius, pivotAxis, pivotPoint);
@@ -102,6 +107,9 @@ void TrackBuilder::Turn(Direction direction, float degrees, float radius, Vector
     {
         _insidePoints[_pointsCount] = Geometry::RotatePoint3d(insidePoint, pivotAxis, pivotPoint, fraction);
         _outsidePoints[_pointsCount] = Geometry::RotatePoint3d(outsidePoint, pivotAxis, pivotPoint, fraction);
+        _pointInfos[_pointsCount].Kind = trackPointKind;
+        _pointInfos[_pointsCount].RemainingDistance = degrees - Geometry::RadiansToDegrees(fraction);
+        _pointInfos[_pointsCount].Radius = radius;
         _pointsCount++;
     }
 }
