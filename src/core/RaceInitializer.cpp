@@ -13,10 +13,11 @@ void RaceInitializer::Init(Race& race)
 
 void RaceInitializer::InitShips(Race& race)
 {
+    race.Player.AIData.InitForPlayer();
     race.Player.Init();
     for (int i = 0; i < race.Enemies.GetCount(); i++)
     {
-        race.Enemies[i].AIData.Init();
+        race.Enemies[i].AIData.InitForEnemy();
         race.Enemies[i].Init();
     }
 }

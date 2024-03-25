@@ -14,5 +14,6 @@ public:
 
     ShipAIData();
 
-    void Init();
+    void InitForPlayer();
+    void InitForEnemy();
 };
