@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <calc/Vector3.h>
 #include <model/Track.h>
+#include <core/Constants.h>
 
 enum class Direction { Left, Right };
 
@@ -24,8 +25,8 @@ public:
     void InitInsidePosition(float x, float y, float z);
     void InitOutsidePosition(float x, float y, float z);
     void Move(float distance);
-    void TurnLeft(float degrees, float radius, Vector3 pivotAxis);
-    void TurnRight(float degrees, float radius, Vector3 pivotAxis);
+    void TurnLeft(float degrees, float radius, Vector3 pivotAxis = Constants::UpAxis);
+    void TurnRight(float degrees, float radius, Vector3 pivotAxis = Constants::UpAxis);
     void ConnectStartFinish();
     void ZeroZ();
 

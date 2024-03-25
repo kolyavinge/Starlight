@@ -80,6 +80,8 @@ void TrackBuilder::ConnectStartFinish()
         _outsidePoints[_pointsCount] = _outsidePoints[_pointsCount - 1];
         _insidePoints[_pointsCount].Add(insideDirection);
         _outsidePoints[_pointsCount].Add(outsideDirection);
+        _pointInfos[_pointsCount].Kind = TrackPointKind::Straight;
+        _pointInfos[_pointsCount].RemainingDistance = distance - fraction;
         _pointsCount++;
     }
 }

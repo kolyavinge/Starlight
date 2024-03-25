@@ -1,5 +1,4 @@
 #include <lib/Math.h>
-#include <calc/Vector3.h>
 #include <anx/TrackBuilder.h>
 #include <model/track/RoadTrack2.h>
 
@@ -17,16 +16,16 @@ void RoadTrack2::InternalInit()
     builder.OutsideDirection.Set(0.0f, 1.0f, 0.0f);
 
     builder.Move(300.0f);
-    builder.TurnRight(140.0f, 80.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnLeft(90.0f, 60.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnRight(90.0f, 60.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnRight(160.0f, 80.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.TurnRight(140.0f, 80.0f);
+    builder.TurnLeft(90.0f, 60.0f);
+    builder.TurnRight(90.0f, 60.0f);
+    builder.TurnRight(160.0f, 80.0f);
     builder.Move(150.0f);
-    builder.TurnLeft(180.0f, 170.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnRight(80.0f, 80.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnLeft(200.0f, 80.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnLeft(120.0f, 50.0f, Vector3(0.0f, 0.0f, 1.0f));
-    builder.TurnRight(100.0f, 25.0f, Vector3(0.0f, 0.0f, 1.0f));
+    builder.TurnLeft(180.0f, 170.0f);
+    builder.TurnRight(80.0f, 80.0f);
+    builder.TurnLeft(200.0f, 80.0f);
+    builder.TurnLeft(120.0f, 50.0f);
+    builder.TurnRight(100.0f, 25.0f);
 
     builder.ConnectStartFinish();
 
