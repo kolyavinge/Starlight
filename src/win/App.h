@@ -7,7 +7,7 @@ class AppInitException : public Exception { };
 
 class App
 {
-    inline static Game _game;
+    inline static Game* _game = nullptr;
 
 public:
     static void Start(int argc, char** argv);

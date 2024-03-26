@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <core/TrackManager.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
@@ -27,4 +28,10 @@ public:
     void Update();
     void RenderCurrentScreen();
     void VoiceCurrentScreen();
+};
+
+class GameResolvingFactory : public ResolvingFactory<Game>
+{
+public:
+    Game* Make(Resolver& resolver) override;
 };

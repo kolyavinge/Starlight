@@ -34,3 +34,8 @@ void Game::VoiceCurrentScreen()
     Screen& currentScreen = _screenManager.GetCurrentScreen();
     _voxManager.GetScreenVox(currentScreen).Voice(currentScreen);
 }
+
+Game* GameResolvingFactory::Make(Resolver&)
+{
+    return new Game();
+}

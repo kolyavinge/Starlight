@@ -184,6 +184,9 @@
     <ClInclude Include="src\lib\di\Resolver.h" />
     <ClInclude Include="src\lib\di\ResolvingFactory.h" />
     <ClInclude Include="src\lib\di\SingletonInstanceHolder.h" />
+    <ClInclude Include="src\game\CoreInjectModule.h" />
+    <ClInclude Include="src\game\AIInjectModule.h" />
+    <ClInclude Include="src\game\GameFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -344,6 +347,9 @@
     <ClCompile Include="src\model\TrackPointInfo.cpp" />
     <ClCompile Include="src\ai\NitroActivationLogic.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
+    <ClCompile Include="src\game\CoreInjectModule.cpp" />
+    <ClCompile Include="src\game\AIInjectModule.cpp" />
+    <ClCompile Include="src\game\GameFactory.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
