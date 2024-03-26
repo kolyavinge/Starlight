@@ -44,6 +44,8 @@
     <ClInclude Include="src\core\StartingGridInitializer.h" />
     <ClInclude Include="src\core\TrackManager.h" />
     <ClInclude Include="src\core\WeaponLogic.h" />
+    <ClInclude Include="src\game\AIInjectModule.h" />
+    <ClInclude Include="src\game\CoreInjectModule.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
     <ClInclude Include="src\gl\Face.h" />
@@ -234,6 +236,8 @@
     <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
     <ClCompile Include="src\core\WeaponLogic.cpp" />
+    <ClCompile Include="src\game\AIInjectModule.cpp" />
+    <ClCompile Include="src\game\CoreInjectModule.cpp" />
     <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\LapChecker.cpp" />

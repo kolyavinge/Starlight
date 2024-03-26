@@ -1,0 +1,61 @@
+#include <core/BorderUpdater.h>
+#include <core/Camera.h>
+#include <core/LapChecker.h>
+#include <core/Laps.h>
+#include <core/LapTimer.h>
+#include <core/MoveLogic.h>
+#include <core/NitroLogic.h>
+#include <core/PositionCorrector.h>
+#include <core/PositionUpdater.h>
+#include <core/PowerUpGenerator.h>
+#include <core/Race.h>
+#include <core/RaceInitializer.h>
+#include <core/RaceUpdater.h>
+#include <core/ShipController.h>
+#include <core/ShipStateLogic.h>
+#include <core/StartingGridInitializer.h>
+#include <core/TrackManager.h>
+#include <core/TurnAngleCalculator.h>
+#include <core/VelocityCalculator.h>
+#include <core/WeaponLogic.h>
+#include <core/cm/BulletCollisionDetector.h>
+#include <core/cm/BulletCollisionProcessor.h>
+#include <core/cm/PowerUpCollisionDetector.h>
+#include <core/cm/PowerUpCollisionProcessor.h>
+#include <core/cm/ShipCollisionDetector.h>
+#include <core/cm/ShipCollisionProcessor.h>
+#include <core/cm/TrackCollisionDetector.h>
+#include <core/cm/TrackCollisionProcessor.h>
+#include <game/CoreInjectModule.h>
+
+void CoreInjectModule::Init(Binder& binder)
+{
+    binder.BindSingletonByFactory<BorderUpdater, BorderUpdaterResolvingFactory>();
+    binder.BindSingletonByFactory<Camera, CameraResolvingFactory>();
+    binder.BindSingletonByFactory<LapChecker, LapCheckerResolvingFactory>();
+    binder.BindSingletonByFactory<Laps, LapsResolvingFactory>();
+    binder.BindSingletonByFactory<LapTimer, LapTimerResolvingFactory>();
+    binder.BindSingletonByFactory<MoveLogic, MoveLogicResolvingFactory>();
+    binder.BindSingletonByFactory<NitroLogic, NitroLogicResolvingFactory>();
+    binder.BindSingletonByFactory<PositionCorrector, PositionCorrectorResolvingFactory>();
+    binder.BindSingletonByFactory<PositionUpdater, PositionUpdaterResolvingFactory>();
+    binder.BindSingletonByFactory<PowerUpGenerator, PowerUpGeneratorResolvingFactory>();
+    binder.BindSingletonByFactory<Race, RaceResolvingFactory>();
+    binder.BindSingletonByFactory<RaceInitializer, RaceInitializerResolvingFactory>();
+    binder.BindSingletonByFactory<RaceUpdater, RaceUpdaterResolvingFactory>();
+    binder.BindSingletonByFactory<ShipController, ShipControllerResolvingFactory>();
+    binder.BindSingletonByFactory<ShipStateLogic, ShipStateLogicResolvingFactory>();
+    binder.BindSingletonByFactory<StartingGridInitializer, StartingGridInitializerResolvingFactory>();
+    binder.BindSingletonByFactory<TrackManager, TrackManagerResolvingFactory>();
+    binder.BindSingletonByFactory<TurnAngleCalculator, TurnAngleCalculatorResolvingFactory>();
+    binder.BindSingletonByFactory<VelocityCalculator, VelocityCalculatorResolvingFactory>();
+    binder.BindSingletonByFactory<WeaponLogic, WeaponLogicResolvingFactory>();
+    binder.BindSingletonByFactory<BulletCollisionDetector, BulletCollisionDetectorResolvingFactory>();
+    binder.BindSingletonByFactory<BulletCollisionProcessor, BulletCollisionProcessorResolvingFactory>();
+    binder.BindSingletonByFactory<PowerUpCollisionDetector, PowerUpCollisionDetectorResolvingFactory>();
+    binder.BindSingletonByFactory<PowerUpCollisionProcessor, PowerUpCollisionProcessorResolvingFactory>();
+    binder.BindSingletonByFactory<ShipCollisionDetector, ShipCollisionDetectorResolvingFactory>();
+    binder.BindSingletonByFactory<ShipCollisionProcessor, ShipCollisionProcessorResolvingFactory>();
+    binder.BindSingletonByFactory<TrackCollisionDetector, TrackCollisionDetectorResolvingFactory>();
+    binder.BindSingletonByFactory<TrackCollisionProcessor, TrackCollisionProcessorResolvingFactory>();
+}
