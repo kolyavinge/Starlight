@@ -10,7 +10,9 @@ class DefaultInstanceHolder : public InstanceHolder
 public:
     Object* GetInstance(Resolver& resolver) override
     {
+        InstancesCount++;
         TResolvingFactory factory{};
+
         return factory.Make(resolver);
     }
 };

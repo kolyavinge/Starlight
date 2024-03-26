@@ -19,6 +19,7 @@ public:
     {
         if (_instance == nullptr)
         {
+            InstancesCount = 1;
             TResolvingFactory factory{};
             _instance = factory.Make(resolver);
         }

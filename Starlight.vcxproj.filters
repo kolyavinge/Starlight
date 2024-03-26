@@ -354,6 +354,7 @@
     <ClCompile Include="src\game\GameFactory.cpp" />
     <ClCompile Include="src\input\InputDevices.cpp" />
     <ClCompile Include="src\game\GameInjectModule.cpp" />
+    <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
