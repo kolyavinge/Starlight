@@ -4,7 +4,6 @@
 
 void RoadTrack3::InternalInit()
 {
-    StartFinishLineIndex = 0;
     StraightDirection.Set(0.0f, 1.0f, 0.0f);
 
     TrackBuilder builder(InsidePoints, OutsidePoints, PointInfos, PointsCount);
@@ -15,49 +14,30 @@ void RoadTrack3::InternalInit()
     builder.InsideDirection.Set(0.0f, 1.0f, 0.0f);
     builder.OutsideDirection.Set(0.0f, 1.0f, 0.0f);
 
-    builder.Move(300.0f);
-    builder.TurnLeft(180.0f, 60.0f);
-    builder.Move(50.0f);
-    builder.TurnRight(90.0f, 60.0f);
-    builder.Move(100.0f);
-    builder.TurnLeft(180.0f, 60.0f);
-    builder.Move(400.0f);
-    builder.TurnRight(90.0f, 60.0f);
-    builder.Move(100.0f);
-    builder.TurnRight(90.0f, 60.0f);
-    builder.Move(100.0f);
-    builder.TurnLeft(90.0f, 60.0f);
-    builder.Move(300.0f);
-    builder.TurnLeft(90.0f, 60.0f);
-    builder.Move(100.0f);
-    builder.TurnLeft(90.0f, 60.0f);
-    builder.Move(100.0f);
-    builder.TurnLeft(180.0f, 70.0f);
-    builder.Move(60.0f);
-    builder.TurnLeft(180.0f, 40.0f);
-    builder.Move(50.0f);
-    builder.TurnLeft(180.0f, 60.0f);
-    builder.Move(50.0f);
-    builder.TurnRight(180.0f, 50.0f);
-    builder.Move(180.0f);
-    builder.TurnLeft(90.0f, 60.0f);
-    builder.Move(200.0f);
-    builder.TurnRight(180.0f, 50.0f);
+    builder.TurnLeft(280.0f, 150.0f);
     builder.Move(150.0f);
-    builder.TurnLeft(90.0f, 40.0f);
-    builder.TurnRight(90.0f, 40.0f);
-    builder.Move(122.0f);
-    builder.TurnLeft(90.0f, 40.0f);
+    builder.TurnRight(180.0f, 250.0f);
+    builder.TurnLeft(180.0f, 80.0f);
+    builder.TurnLeft(90.0f, 60.0f);
 
+    int pointCountBeforeFinishLine = PointsCount;
     builder.ConnectStartFinish();
 
-    float radians = 0.0f;
-    float radiansStep = 6.0f * Math::PiDouble / (float)PointsCount;
+    StartFinishLineIndex = pointCountBeforeFinishLine + 2000;
+
     for (int i = 0; i < PointsCount; i++)
     {
-        float z = 30.0f * Math::Sin(radians);
+        InsidePoints[i].Z = 20.0f;
+        OutsidePoints[i].Z = 20.0f;
+    }
+
+    float radians = 0.0f;
+    float radiansStep = 2.0f * Math::PiDouble / (float)pointCountBeforeFinishLine;
+    for (int i = 0; i < pointCountBeforeFinishLine; i++)
+    {
+        float z = 20.0f * Math::Cos(radians);
         InsidePoints[i].Z = z;
-        OutsidePoints[i].Z = z + 10.0f;
+        OutsidePoints[i].Z = z;
         radians += radiansStep;
     }
 }

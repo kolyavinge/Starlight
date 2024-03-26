@@ -35,15 +35,22 @@ void RoadTrack4::InternalInit()
     builder.Move(200.0f);
     builder.TurnRight(80.0f, 40.0f);
 
+    int pointCountBeforeFinishLine = PointsCount;
     builder.ConnectStartFinish();
 
-    float radians = 0.0f;
-    float radiansStep = 8.0f * Math::Pi / (float)PointsCount;
     for (int i = 0; i < PointsCount; i++)
     {
-        float z = 20.0f * Math::Sin(radians);
+        InsidePoints[i].Z = 20.0f;
+        OutsidePoints[i].Z = 20.0f;
+    }
+
+    float radians = 0.0f;
+    float radiansStep = Math::PiDouble / (float)pointCountBeforeFinishLine;
+    for (int i = 0; i < pointCountBeforeFinishLine; i++)
+    {
+        float z = 20.0f * Math::Cos(radians);
         InsidePoints[i].Z = z;
-        OutsidePoints[i].Z = z + 8.0f;
+        OutsidePoints[i].Z = z;
         radians += radiansStep;
     }
 }
