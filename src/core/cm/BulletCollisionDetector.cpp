@@ -6,7 +6,8 @@ void BulletCollisionResult::Init()
     Bullets.Clear();
 }
 
-BulletCollisionDetector::BulletCollisionDetector()
+BulletCollisionDetector::BulletCollisionDetector(ShipCollisionDetector& shipCollisionDetector) :
+    _shipCollisionDetector(shipCollisionDetector)
 {
     Result.Init();
 }
@@ -34,7 +35,7 @@ bool BulletCollisionDetector::DetectCollisions(Ship& targetShip, IArray<Ship*>& 
     return hasCollisions;
 }
 
-BulletCollisionDetector* BulletCollisionDetectorResolvingFactory::Make(Resolver&)
+BulletCollisionDetector* BulletCollisionDetectorResolvingFactory::Make(Resolver& resolver)
 {
-    return new BulletCollisionDetector();
+    return new BulletCollisionDetector(resolver.Resolve<ShipCollisionDetector>());
 }

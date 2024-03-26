@@ -1,8 +1,16 @@
 #include <ui/Screen.h>
 #include <game/Game.h>
 
-Game::Game() :
-    _screenManager(_screenNavigator, InputDevices, _trackManager, Race)
+Game::Game(
+    TrackManager& trackManager,
+    ScreenNavigator& screenNavigator,
+    ::InputDevices& inputDevices,
+    ::Race& race) :
+    _trackManager(trackManager),
+    _screenNavigator(screenNavigator),
+    _screenManager(screenNavigator, inputDevices, trackManager, race),
+    InputDevices(inputDevices),
+    Race(race)
 {
 }
 
@@ -35,7 +43,11 @@ void Game::VoiceCurrentScreen()
     _voxManager.GetScreenVox(currentScreen).Voice(currentScreen);
 }
 
-Game* GameResolvingFactory::Make(Resolver&)
+Game* GameResolvingFactory::Make(Resolver& resolver)
 {
-    return new Game();
+    return new Game(
+        resolver.Resolve<TrackManager>(),
+        resolver.Resolve<ScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Race>());
 }

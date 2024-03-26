@@ -8,9 +8,11 @@
 
 class TrackCollisionProcessor : public Object
 {
-    TrackCollisionDetector _trackCollisionDetector;
+    TrackCollisionDetector& _trackCollisionDetector;
 
 public:
+    TrackCollisionProcessor(TrackCollisionDetector& trackCollisionDetector);
+
     bool ProcessTrackCollisions(Ship& ship, Track& track);
 };
 

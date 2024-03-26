@@ -1,8 +1,17 @@
 #include <core/Race.h>
 #include <core/RaceInitializer.h>
 
-Race::Race() :
-    _raceUpdater(EnemyAI),
+Race::Race(
+    RaceUpdater& raceUpdater,
+    ::ShipController& playerController,
+    ::Camera& camera,
+    ::Laps& laps,
+    ::EnemyAI& enemyAI) :
+    _raceUpdater(raceUpdater),
+    PlayerController(playerController),
+    Camera(camera),
+    Laps(laps),
+    EnemyAI(enemyAI),
     AllShips(EnemiesCount + 1)
 {
     State = RaceState::Prepare;
@@ -56,11 +65,15 @@ void Race::Update()
         Enemies,
         AllShips,
         PowerUps,
-        *Track,
-        Laps);
+        *Track);
 }
 
-Race* RaceResolvingFactory::Make(Resolver&)
+Race* RaceResolvingFactory::Make(Resolver& resolver)
 {
-    return new Race();
+    return new Race(
+        resolver.Resolve<RaceUpdater>(),
+        resolver.Resolve<ShipController>(),
+        resolver.Resolve<Camera>(),
+        resolver.Resolve<Laps>(),
+        resolver.Resolve<EnemyAI>());
 }

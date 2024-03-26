@@ -26,24 +26,41 @@
 
 class RaceUpdater : public Object
 {
-    TurnAngleCalculator _turnAngleCalculator;
-    VelocityCalculator _velocityCalculator;
-    MoveLogic _moveLogic;
-    TrackCollisionProcessor _trackCollisionProcessor;
-    ShipCollisionProcessor _shipCollisionProcessor;
-    BulletCollisionProcessor _bulletCollisionProcessor;
-    PowerUpCollisionProcessor _powerUpCollisionProcessor;
-    PositionCorrector _positionCorrector;
-    BorderUpdater _borderUpdater;
-    PositionUpdater _positionUpdater;
-    WeaponLogic _weaponLogic;
-    ShipStateLogic _shipStateLogic;
-    PowerUpGenerator _powerUpGenerator;
-    NitroLogic _nitroLogic;
+    TurnAngleCalculator& _turnAngleCalculator;
+    VelocityCalculator& _velocityCalculator;
+    MoveLogic& _moveLogic;
+    PositionCorrector& _positionCorrector;
+    BorderUpdater& _borderUpdater;
+    PositionUpdater& _positionUpdater;
+    WeaponLogic& _weaponLogic;
+    ShipStateLogic& _shipStateLogic;
+    PowerUpGenerator& _powerUpGenerator;
+    NitroLogic& _nitroLogic;
+    Laps& _laps;
+    TrackCollisionProcessor& _trackCollisionProcessor;
+    ShipCollisionProcessor& _shipCollisionProcessor;
+    BulletCollisionProcessor& _bulletCollisionProcessor;
+    PowerUpCollisionProcessor& _powerUpCollisionProcessor;
     EnemyAI& _enemyAI;
 
 public:
-    RaceUpdater(EnemyAI& enemyAI);
+    RaceUpdater(
+        TurnAngleCalculator& turnAngleCalculator,
+        VelocityCalculator& velocityCalculator,
+        MoveLogic& moveLogic,
+        PositionCorrector& positionCorrector,
+        BorderUpdater& borderUpdater,
+        PositionUpdater& positionUpdater,
+        WeaponLogic& weaponLogic,
+        ShipStateLogic& shipStateLogic,
+        PowerUpGenerator& powerUpGenerator,
+        NitroLogic& nitroLogic,
+        Laps& laps,
+        TrackCollisionProcessor& trackCollisionProcessor,
+        ShipCollisionProcessor& shipCollisionProcessor,
+        BulletCollisionProcessor& bulletCollisionProcessor,
+        PowerUpCollisionProcessor& powerUpCollisionProcessor,
+        EnemyAI& enemyAI);
 
     void Update(
         RaceState& state,
@@ -51,8 +68,7 @@ public:
         IArray<Ship>& enemies,
         IArray<Ship*>& allShips,
         IArray<PowerUp>& powerUps,
-        Track& track,
-        Laps& laps);
+        Track& track);
 
 private:
     void Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track);

@@ -18,12 +18,12 @@ public:
 
 class BulletCollisionDetector : public Object
 {
-    ShipCollisionDetector _shipCollisionDetector;
+    ShipCollisionDetector& _shipCollisionDetector;
 
 public:
     BulletCollisionResult Result;
 
-    BulletCollisionDetector();
+    BulletCollisionDetector(ShipCollisionDetector& shipCollisionDetector);
 
     bool DetectCollisions(Ship& targetShip, IArray<Ship*>& allShips);
 };

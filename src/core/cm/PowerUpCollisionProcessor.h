@@ -9,9 +9,11 @@
 
 class PowerUpCollisionProcessor : public Object
 {
-    PowerUpCollisionDetector _powerUpCollisionDetector;
+    PowerUpCollisionDetector& _powerUpCollisionDetector;
 
 public:
+    PowerUpCollisionProcessor(PowerUpCollisionDetector& powerUpCollisionDetector);
+
     void ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps);
 
 private:

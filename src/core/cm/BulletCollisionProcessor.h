@@ -8,9 +8,11 @@
 
 class BulletCollisionProcessor : public Object
 {
-    BulletCollisionDetector _bulletCollisionDetector;
+    BulletCollisionDetector& _bulletCollisionDetector;
 
 public:
+    BulletCollisionProcessor(BulletCollisionDetector& bulletCollisionDetector);
+
     bool ProcessBulletsCollisions(Ship& targetShip, IArray<Ship*>& allShips);
 };
 

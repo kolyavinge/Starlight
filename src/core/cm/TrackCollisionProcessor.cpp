@@ -3,6 +3,11 @@
 #include <model/Ship.h>
 #include <core/cm/TrackCollisionProcessor.h>
 
+TrackCollisionProcessor::TrackCollisionProcessor(TrackCollisionDetector& trackCollisionDetector) :
+    _trackCollisionDetector(trackCollisionDetector)
+{
+}
+
 bool TrackCollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
 {
     if (!_trackCollisionDetector.DetectCollisions(ship, track)) return false;
@@ -24,7 +29,7 @@ bool TrackCollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
     return true;
 }
 
-TrackCollisionProcessor* TrackCollisionProcessorResolvingFactory::Make(Resolver&)
+TrackCollisionProcessor* TrackCollisionProcessorResolvingFactory::Make(Resolver& resolver)
 {
-    return new TrackCollisionProcessor();
+    return new TrackCollisionProcessor(resolver.Resolve<TrackCollisionDetector>());
 }

@@ -43,7 +43,7 @@ void CoreInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<Race, RaceResolvingFactory>();
     binder.BindSingletonByFactory<RaceInitializer, RaceInitializerResolvingFactory>();
     binder.BindSingletonByFactory<RaceUpdater, RaceUpdaterResolvingFactory>();
-    binder.BindSingletonByFactory<ShipController, ShipControllerResolvingFactory>();
+    binder.BindByFactory<ShipController, ShipControllerResolvingFactory>();
     binder.BindSingletonByFactory<ShipStateLogic, ShipStateLogicResolvingFactory>();
     binder.BindSingletonByFactory<StartingGridInitializer, StartingGridInitializerResolvingFactory>();
     binder.BindSingletonByFactory<TrackManager, TrackManagerResolvingFactory>();

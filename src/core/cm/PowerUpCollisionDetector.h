@@ -18,10 +18,12 @@ public:
 
 class PowerUpCollisionDetector : public Object
 {
-    ShipCollisionDetector _shipCollisionDetector;
+    ShipCollisionDetector& _shipCollisionDetector;
 
 public:
     PowerUpCollisionResult Result;
+
+    PowerUpCollisionDetector(ShipCollisionDetector& shipCollisionDetector);
 
     bool DetectCollisions(Ship& ship, IArray<PowerUp>& powerUps);
 };

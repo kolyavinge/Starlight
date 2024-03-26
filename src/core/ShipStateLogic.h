@@ -8,9 +8,11 @@
 
 class ShipStateLogic : public Object
 {
-    ShipCollisionDetector _shipCollisionDetector;
+    ShipCollisionDetector& _shipCollisionDetector;
 
 public:
+    ShipStateLogic(ShipCollisionDetector& shipCollisionDetector);
+
     void ProcessState(Ship& ship, IArray<Ship*>& allShips, Track& track);
 
 private:

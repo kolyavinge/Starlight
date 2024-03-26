@@ -47,6 +47,7 @@
     <ClInclude Include="src\game\AIInjectModule.h" />
     <ClInclude Include="src\game\CoreInjectModule.h" />
     <ClInclude Include="src\game\GameFactory.h" />
+    <ClInclude Include="src\game\GameInjectModule.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
     <ClInclude Include="src\gl\Face.h" />
@@ -246,6 +247,7 @@
     <ClCompile Include="src\core\cm\TrackCollisionDetector.cpp" />
     <ClCompile Include="src\core\TrackManager.cpp" />
     <ClCompile Include="src\game\GameFactory.cpp" />
+    <ClCompile Include="src\game\GameInjectModule.cpp" />
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
     <ClCompile Include="src\gl\AnimatedTexturedRect.cpp" />
     <ClCompile Include="src\gl\Face.cpp" />
@@ -258,6 +260,7 @@
     <ClCompile Include="src\anx\GraphicResources.cpp" />
     <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
+    <ClCompile Include="src\input\InputDevices.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />

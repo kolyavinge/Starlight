@@ -16,7 +16,7 @@
 
 class Race : public Object
 {
-    RaceUpdater _raceUpdater;
+    RaceUpdater& _raceUpdater;
 
 public:
     inline static const int EnemiesCount = 3;
@@ -27,12 +27,17 @@ public:
     List<Ship*> AllShips;
     List<PowerUp> PowerUps;
     Track* Track;
-    ShipController PlayerController;
-    Camera Camera;
-    Laps Laps;
-    EnemyAI EnemyAI;
+    ShipController& PlayerController;
+    Camera& Camera;
+    Laps& Laps;
+    EnemyAI& EnemyAI;
 
-    Race();
+    Race(
+        RaceUpdater& raceUpdater,
+        ::ShipController& playerController,
+        ::Camera& camera,
+        ::Laps& laps,
+        ::EnemyAI& enemyAI);
 
     void Init(::Track& selectedTrack);
     void Start();

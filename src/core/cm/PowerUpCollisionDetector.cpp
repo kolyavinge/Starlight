@@ -5,6 +5,11 @@ void PowerUpCollisionResult::Init()
     PowerUps.Clear();
 }
 
+PowerUpCollisionDetector::PowerUpCollisionDetector(ShipCollisionDetector& shipCollisionDetector) :
+    _shipCollisionDetector(shipCollisionDetector)
+{
+}
+
 bool PowerUpCollisionDetector::DetectCollisions(Ship& ship, IArray<PowerUp>& powerUps)
 {
     Result.Init();
@@ -24,7 +29,7 @@ bool PowerUpCollisionDetector::DetectCollisions(Ship& ship, IArray<PowerUp>& pow
     return hasCollisions;
 }
 
-PowerUpCollisionDetector* PowerUpCollisionDetectorResolvingFactory::Make(Resolver&)
+PowerUpCollisionDetector* PowerUpCollisionDetectorResolvingFactory::Make(Resolver& resolver)
 {
-    return new PowerUpCollisionDetector();
+    return new PowerUpCollisionDetector(resolver.Resolve<ShipCollisionDetector>());
 }

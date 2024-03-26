@@ -187,6 +187,7 @@
     <ClInclude Include="src\game\CoreInjectModule.h" />
     <ClInclude Include="src\game\AIInjectModule.h" />
     <ClInclude Include="src\game\GameFactory.h" />
+    <ClInclude Include="src\game\GameInjectModule.h" />
     <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
   </ItemGroup>
   <ItemGroup>
@@ -351,6 +352,8 @@
     <ClCompile Include="src\game\CoreInjectModule.cpp" />
     <ClCompile Include="src\game\AIInjectModule.cpp" />
     <ClCompile Include="src\game\GameFactory.cpp" />
+    <ClCompile Include="src\input\InputDevices.cpp" />
+    <ClCompile Include="src\game\GameInjectModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

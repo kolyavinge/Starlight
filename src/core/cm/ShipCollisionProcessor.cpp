@@ -4,6 +4,11 @@
 #include <model/Ship.h>
 #include <core/cm/ShipCollisionProcessor.h>
 
+ShipCollisionProcessor::ShipCollisionProcessor(ShipCollisionDetector& shipCollisionDetector) :
+    _shipCollisionDetector(shipCollisionDetector)
+{
+}
+
 bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips)
 {
     if (!_shipCollisionDetector.DetectCollisions(ship, allShips)) return false;
@@ -36,7 +41,7 @@ bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& a
     return true;
 }
 
-ShipCollisionProcessor* ShipCollisionProcessorResolvingFactory::Make(Resolver&)
+ShipCollisionProcessor* ShipCollisionProcessorResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipCollisionProcessor();
+    return new ShipCollisionProcessor(resolver.Resolve<ShipCollisionDetector>());
 }

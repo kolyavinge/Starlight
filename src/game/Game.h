@@ -12,17 +12,21 @@
 
 class Game : public Object
 {
-    TrackManager _trackManager;
+    TrackManager& _trackManager;
     ScreenManager _screenManager;
     RenderManager _renderManager;
     VoxManager _voxManager;
-    ScreenNavigator _screenNavigator;
+    ScreenNavigator& _screenNavigator;
 
 public:
-    Race Race;
-    InputDevices InputDevices;
+    Race& Race;
+    InputDevices& InputDevices;
 
-    Game();
+    Game(
+        TrackManager& trackManager,
+        ScreenNavigator& screenNavigator,
+        ::InputDevices& inputDevices,
+        ::Race& race);
 
     void Init();
     void Update();

@@ -2,6 +2,11 @@
 #include <calc/Vector3.h>
 #include <core/ShipStateLogic.h>
 
+ShipStateLogic::ShipStateLogic(ShipCollisionDetector& shipCollisionDetector) :
+    _shipCollisionDetector(shipCollisionDetector)
+{
+}
+
 void ShipStateLogic::ProcessState(Ship& ship, IArray<Ship*>& allShips, Track& track)
 {
     if (ship.State == ShipState::Active &&
@@ -58,7 +63,7 @@ void ShipStateLogic::SetShipAtMiddle(Ship& ship, Track& track)
     ship.OrientationByFrontPoint(middlePoint, frontDirection);
 }
 
-ShipStateLogic* ShipStateLogicResolvingFactory::Make(Resolver&)
+ShipStateLogic* ShipStateLogicResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipStateLogic();
+    return new ShipStateLogic(resolver.Resolve<ShipCollisionDetector>());
 }

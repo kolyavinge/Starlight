@@ -1,5 +1,10 @@
 #include <core/cm/PowerUpCollisionProcessor.h>
 
+PowerUpCollisionProcessor::PowerUpCollisionProcessor(PowerUpCollisionDetector& powerUpCollisionDetector) :
+    _powerUpCollisionDetector(powerUpCollisionDetector)
+{
+}
+
 void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps)
 {
     ship.IsPowerUpPicked = false;
@@ -47,7 +52,7 @@ bool PowerUpCollisionProcessor::ProcessPowerUp(Ship& ship, PowerUp& powerUp)
     return false;
 }
 
-PowerUpCollisionProcessor* PowerUpCollisionProcessorResolvingFactory::Make(Resolver&)
+PowerUpCollisionProcessor* PowerUpCollisionProcessorResolvingFactory::Make(Resolver& resolver)
 {
-    return new PowerUpCollisionProcessor();
+    return new PowerUpCollisionProcessor(resolver.Resolve<PowerUpCollisionDetector>());
 }

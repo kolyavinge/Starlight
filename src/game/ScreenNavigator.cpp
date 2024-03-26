@@ -42,3 +42,8 @@ void ScreenNavigator::NavigateTo(ScreenKind kind)
     renderer->Activate(prevScreen);
     vox->Activate(prevScreen);
 }
+
+ScreenNavigator* ScreenNavigatorResolvingFactory::Make(Resolver&)
+{
+    return new ScreenNavigator();
+}

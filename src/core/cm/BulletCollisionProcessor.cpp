@@ -1,6 +1,11 @@
 #include <model/Bullet.h>
 #include <core/cm/BulletCollisionProcessor.h>
 
+BulletCollisionProcessor::BulletCollisionProcessor(BulletCollisionDetector& bulletCollisionDetector) :
+    _bulletCollisionDetector(bulletCollisionDetector)
+{
+}
+
 bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray<Ship*>& allShips)
 {
     targetShip.IsDamaged = false;
@@ -18,7 +23,7 @@ bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray
     return true;
 }
 
-BulletCollisionProcessor* BulletCollisionProcessorResolvingFactory::Make(Resolver&)
+BulletCollisionProcessor* BulletCollisionProcessorResolvingFactory::Make(Resolver& resolver)
 {
-    return new BulletCollisionProcessor();
+    return new BulletCollisionProcessor(resolver.Resolve<BulletCollisionDetector>());
 }

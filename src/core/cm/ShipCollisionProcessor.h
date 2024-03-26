@@ -8,9 +8,11 @@
 
 class ShipCollisionProcessor : public Object
 {
-    ShipCollisionDetector _shipCollisionDetector;
+    ShipCollisionDetector& _shipCollisionDetector;
 
 public:
+    ShipCollisionProcessor(ShipCollisionDetector& shipCollisionDetector);
+
     bool ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips);
 };
 
