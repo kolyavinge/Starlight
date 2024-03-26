@@ -63,6 +63,14 @@
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
+    <ClInclude Include="src\lib\di\Binder.h" />
+    <ClInclude Include="src\lib\di\DependencyContainer.h" />
+    <ClInclude Include="src\lib\di\InjectModule.h" />
+    <ClInclude Include="src\lib\di\InstanceCollection.h" />
+    <ClInclude Include="src\lib\di\InstanceHolder.h" />
+    <ClInclude Include="src\lib\di\Resolver.h" />
+    <ClInclude Include="src\lib\di\ResolvingFactory.h" />
+    <ClInclude Include="src\lib\di\SingletonInstanceHolder.h" />
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\IArray.h" />
@@ -247,6 +255,7 @@
     <ClCompile Include="src\input\Keyboard.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
+    <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
     <ClCompile Include="src\lib\NumericConverter.cpp" />
