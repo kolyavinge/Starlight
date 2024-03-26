@@ -3,6 +3,14 @@
 #include <model/ShipMeasure.h>
 #include <ai/ObstacleAvoidanceLogic.h>
 
+ObstacleAvoidanceLogic::ObstacleAvoidanceLogic(
+    TrackCollisionDetector& trackCollisionDetector,
+    ShipCollisionDetector& shipCollisionDetector) :
+    _trackCollisionDetector(trackCollisionDetector),
+    _shipCollisionDetector(shipCollisionDetector)
+{
+}
+
 Vector3 ObstacleAvoidanceLogic::GetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track)
 {
     float directionLength = ship.AIData.MovingDirectionLength * ShipMeasure::YLength;
@@ -66,7 +74,9 @@ void ObstacleAvoidanceLogic::AddResultIfCorrect(Ship& ship, IArray<Ship*>& allSh
     result.Add(direction);
 }
 
-ObstacleAvoidanceLogic* ObstacleAvoidanceLogicResolvingFactory::Make(Resolver&)
+ObstacleAvoidanceLogic* ObstacleAvoidanceLogicResolvingFactory::Make(Resolver& resolver)
 {
-    return new ObstacleAvoidanceLogic();
+    return new ObstacleAvoidanceLogic(
+        resolver.Resolve<TrackCollisionDetector>(),
+        resolver.Resolve<ShipCollisionDetector>());
 }

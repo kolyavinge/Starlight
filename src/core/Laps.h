@@ -18,15 +18,15 @@ struct CompleteLap
 
 class Laps : public Object
 {
-    LapChecker _lapChecker;
-    LapTimer _lapTimer;
+    LapChecker& _lapChecker;
+    LapTimer& _lapTimer;
     int _currentLapNumber;
     List<CompleteLap> _completeLaps;
 
 public:
     bool IsLapCompleted;
 
-    Laps();
+    Laps(LapChecker& lapChecker, LapTimer& lapTimer);
 
     void StartFirstLap();
     void StopTimer();

@@ -11,10 +11,14 @@
 
 class ObstacleAvoidanceLogic : public Object
 {
-    TrackCollisionDetector _trackCollisionDetector;
-    ShipCollisionDetector _shipCollisionDetector;
+    TrackCollisionDetector& _trackCollisionDetector;
+    ShipCollisionDetector& _shipCollisionDetector;
 
 public:
+    ObstacleAvoidanceLogic(
+        TrackCollisionDetector& trackCollisionDetector,
+        ShipCollisionDetector& shipCollisionDetector);
+
     Vector3 GetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track);
 
 private:

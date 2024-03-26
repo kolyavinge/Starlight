@@ -1,6 +1,11 @@
 #include <model/TrackPointInfo.h>
 #include <ai/NitroActivationLogic.h>
 
+NitroActivationLogic::NitroActivationLogic(ShipController& controller) :
+    _controller(controller)
+{
+}
+
 void NitroActivationLogic::Apply(Ship& ship, Track& track)
 {
     if (ship.Nitros.GetCount() == 0) return;
@@ -11,7 +16,7 @@ void NitroActivationLogic::Apply(Ship& ship, Track& track)
     }
 }
 
-NitroActivationLogic* NitroActivationLogicResolvingFactory::Make(Resolver&)
+NitroActivationLogic* NitroActivationLogicResolvingFactory::Make(Resolver& resolver)
 {
-    return new NitroActivationLogic();
+    return new NitroActivationLogic(resolver.Resolve<ShipController>());
 }

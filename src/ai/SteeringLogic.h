@@ -7,9 +7,11 @@
 
 class SteeringLogic : public Object
 {
-    ShipController _controller;
+    ShipController& _controller;
 
 public:
+    SteeringLogic(ShipController& controller);
+
     void Update(Ship& ship);
 };
 

@@ -1,6 +1,8 @@
 #include <core/Laps.h>
 
-Laps::Laps()
+Laps::Laps(LapChecker& lapChecker, LapTimer& lapTimer) :
+    _lapChecker(lapChecker),
+    _lapTimer(lapTimer)
 {
     _currentLapNumber = 0;
     IsLapCompleted = false;
@@ -78,7 +80,9 @@ void Laps::Update(RaceState& state, Ship& ship, Track& track)
     }
 }
 
-Laps* LapsResolvingFactory::Make(Resolver&)
+Laps* LapsResolvingFactory::Make(Resolver& resolver)
 {
-    return new Laps();
+    return new Laps(
+        resolver.Resolve<LapChecker>(),
+        resolver.Resolve<LapTimer>());
 }

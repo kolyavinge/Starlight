@@ -1,6 +1,11 @@
 #include <calc/Vector3.h>
 #include <ai/SteeringLogic.h>
 
+SteeringLogic::SteeringLogic(ShipController& controller) :
+    _controller(controller)
+{
+}
+
 void SteeringLogic::Update(Ship& ship)
 {
     _controller.SetShip(ship);
@@ -34,7 +39,7 @@ void SteeringLogic::Update(Ship& ship)
     _controller.ActivateThrottle();
 }
 
-SteeringLogic* SteeringLogicResolvingFactory::Make(Resolver&)
+SteeringLogic* SteeringLogicResolvingFactory::Make(Resolver& resolver)
 {
-    return new SteeringLogic();
+    return new SteeringLogic(resolver.Resolve<ShipController>());
 }

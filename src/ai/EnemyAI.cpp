@@ -1,6 +1,16 @@
 #include <calc/Vector3.h>
 #include <ai/EnemyAI.h>
 
+EnemyAI::EnemyAI(
+    ObstacleAvoidanceLogic& obstacleAvoidanceLogic,
+    SteeringLogic& steeringLogic,
+    NitroActivationLogic& nitroActivationLogic) :
+    _obstacleAvoidanceLogic(obstacleAvoidanceLogic),
+    _steeringLogic(steeringLogic),
+    _nitroActivationLogic(nitroActivationLogic)
+{
+}
+
 void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track)
 {
     for (int i = 0; i < enemies.GetCount(); i++)
@@ -24,7 +34,10 @@ void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
     _nitroActivationLogic.Apply(enemy, track);
 }
 
-EnemyAI* EnemyAIResolvingFactory::Make(Resolver&)
+EnemyAI* EnemyAIResolvingFactory::Make(Resolver& resolver)
 {
-    return new EnemyAI();
+    return new EnemyAI(
+        resolver.Resolve<ObstacleAvoidanceLogic>(),
+        resolver.Resolve<SteeringLogic>(),
+        resolver.Resolve<NitroActivationLogic>());
 }

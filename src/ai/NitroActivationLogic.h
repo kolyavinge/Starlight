@@ -8,9 +8,11 @@
 
 class NitroActivationLogic : public Object
 {
-    ShipController _controller;
+    ShipController& _controller;
 
 public:
+    NitroActivationLogic(ShipController& controller);
+
     void Apply(Ship& ship, Track& track);
 };
 
