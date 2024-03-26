@@ -52,3 +52,8 @@ bool TrackCollisionDetector::DetectCollisions(
 
     return false;
 }
+
+TrackCollisionDetector* TrackCollisionDetectorResolvingFactory::Make(Resolver&)
+{
+    return new TrackCollisionDetector();
+}

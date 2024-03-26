@@ -57,3 +57,8 @@ void ShipStateLogic::SetShipAtMiddle(Ship& ship, Track& track)
 
     ship.OrientationByFrontPoint(middlePoint, frontDirection);
 }
+
+ShipStateLogic* ShipStateLogicResolvingFactory::Make(Resolver&)
+{
+    return new ShipStateLogic();
+}

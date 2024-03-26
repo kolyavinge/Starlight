@@ -33,3 +33,8 @@ bool BulletCollisionDetector::DetectCollisions(Ship& targetShip, IArray<Ship*>& 
 
     return hasCollisions;
 }
+
+BulletCollisionDetector* BulletCollisionDetectorResolvingFactory::Make(Resolver&)
+{
+    return new BulletCollisionDetector();
+}

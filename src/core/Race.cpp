@@ -59,3 +59,8 @@ void Race::Update()
         *Track,
         Laps);
 }
+
+Race* RaceResolvingFactory::Make(Resolver&)
+{
+    return new Race();
+}

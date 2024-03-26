@@ -40,3 +40,8 @@ void PositionUpdater::CalculateZForPoint(Track& track, int trackPointIndex, Vect
     Plane plane(track.Normals[trackPointIndex], track.InsidePoints[trackPointIndex]);
     point.Z = plane.GetZ(point.X, point.Y) + 0.5f;
 }
+
+PositionUpdater* PositionUpdaterResolvingFactory::Make(Resolver&)
+{
+    return new PositionUpdater();
+}

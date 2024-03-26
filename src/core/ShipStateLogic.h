@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/cm/ShipCollisionDetector.h>
@@ -14,4 +15,10 @@ public:
 
 private:
     void SetShipAtMiddle(Ship& ship, Track& track);
+};
+
+class ShipStateLogicResolvingFactory : public ResolvingFactory<ShipStateLogic>
+{
+public:
+    ShipStateLogic* Make(Resolver& resolver) override;
 };

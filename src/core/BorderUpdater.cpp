@@ -24,3 +24,8 @@ void BorderUpdater::Update(Ship& ship)
     ship.Border.DownLeft.Sub(rear);
     ship.Border.DownRight.Add(rear);
 }
+
+BorderUpdater* BorderUpdaterResolvingFactory::Make(Resolver&)
+{
+    return new BorderUpdater();
+}

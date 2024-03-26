@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 
 class ShipController : public Object
@@ -22,4 +23,10 @@ public:
     void ReleaseFire();
     void ActivateNitro();
     void Reset();
+};
+
+class ShipControllerResolvingFactory : public ResolvingFactory<ShipController>
+{
+public:
+    ShipController* Make(Resolver& resolver) override;
 };

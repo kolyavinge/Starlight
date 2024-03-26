@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <lib/String.h>
 #include <lib/List.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <core/RaceState.h>
@@ -37,4 +38,10 @@ public:
     void GetCompletedLapTime(int completeLapNumber, String& result);
     bool IsLastLap();
     void Update(RaceState& state, Ship& ship, Track& track);
+};
+
+class LapsResolvingFactory : public ResolvingFactory<Laps>
+{
+public:
+    Laps* Make(Resolver& resolver) override;
 };

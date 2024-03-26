@@ -7,3 +7,8 @@ void PositionCorrector::CorrectAfterFloatOperations(Ship& ship)
     direction.Sub(ship.CentralLine.Rear);
     ship.OrientationByFrontPoint(ship.CentralLine.Front, direction);
 }
+
+PositionCorrector* PositionCorrectorResolvingFactory::Make(Resolver&)
+{
+    return new PositionCorrector();
+}

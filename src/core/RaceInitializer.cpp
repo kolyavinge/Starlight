@@ -43,3 +43,8 @@ void RaceInitializer::GeneratePowerUps(Race& race)
     PowerUpGenerator generator;
     generator.Generate(*race.Track, race.PowerUps);
 }
+
+RaceInitializer* RaceInitializerResolvingFactory::Make(Resolver&)
+{
+    return new RaceInitializer();
+}

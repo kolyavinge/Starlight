@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 
@@ -19,4 +20,10 @@ public:
 
 private:
     void SetView(Vector3& front, Vector3& rear, float velocityValue);
+};
+
+class CameraResolvingFactory : public ResolvingFactory<Camera>
+{
+public:
+    Camera* Make(Resolver& resolver) override;
 };

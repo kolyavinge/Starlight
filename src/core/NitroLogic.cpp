@@ -25,3 +25,8 @@ void NitroLogic::ProcessNitro(Ship& ship)
         ship.Nitros.Update();
     }
 }
+
+NitroLogic* NitroLogicResolvingFactory::Make(Resolver&)
+{
+    return new NitroLogic();
+}

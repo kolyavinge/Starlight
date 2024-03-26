@@ -35,3 +35,8 @@ bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& a
 
     return true;
 }
+
+ShipCollisionProcessor* ShipCollisionProcessorResolvingFactory::Make(Resolver&)
+{
+    return new ShipCollisionProcessor();
+}

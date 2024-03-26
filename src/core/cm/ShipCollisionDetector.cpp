@@ -66,3 +66,8 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
         ship2.Border.Contains(ship1.Border.DownLeft) ||
         ship2.Border.Contains(ship1.Border.DownRight);
 }
+
+ShipCollisionDetector* ShipCollisionDetectorResolvingFactory::Make(Resolver&)
+{
+    return new ShipCollisionDetector();
+}

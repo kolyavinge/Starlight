@@ -23,3 +23,8 @@ bool TrackCollisionProcessor::ProcessTrackCollisions(Ship& ship, Track& track)
 
     return true;
 }
+
+TrackCollisionProcessor* TrackCollisionProcessorResolvingFactory::Make(Resolver&)
+{
+    return new TrackCollisionProcessor();
+}

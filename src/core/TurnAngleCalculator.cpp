@@ -38,3 +38,8 @@ float TurnAngleCalculator::GetMaxTurnAngle(Ship& ship)
 
     return ShipMeasure::MaxTurnAngle * (1.15f - ship.VelocityValue / ship.VelocityFunction.MaxVelocity);
 }
+
+TurnAngleCalculator* TurnAngleCalculatorResolvingFactory::Make(Resolver&)
+{
+    return new TurnAngleCalculator();
+}

@@ -78,3 +78,8 @@ bool LapChecker::AnyTrackPointsCompleted(int fromTrackPointIndex, int toTrackPoi
 
     return false;
 }
+
+LapChecker* LapCheckerResolvingFactory::Make(Resolver&)
+{
+    return new LapChecker();
+}

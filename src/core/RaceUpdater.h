@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <model/PowerUp.h>
@@ -56,4 +57,10 @@ public:
 private:
     void Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track);
     void SaveCurrentShipsPositions(Ship& ship);
+};
+
+class RaceUpdaterResolvingFactory : public ResolvingFactory<RaceUpdater>
+{
+public:
+    RaceUpdater* Make(Resolver& resolver) override;
 };

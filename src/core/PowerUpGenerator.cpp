@@ -87,3 +87,8 @@ void PowerUpGenerator::GenerateNewPosition(Track& track, PowerUp& powerUp)
     powerUp.From.Sub(trackLengthVector);
     powerUp.To.Add(trackLengthVector);
 }
+
+PowerUpGenerator* PowerUpGeneratorResolvingFactory::Make(Resolver&)
+{
+    return new PowerUpGenerator();
+}

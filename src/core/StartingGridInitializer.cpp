@@ -39,3 +39,8 @@ void StartingGridInitializer::SetStartGrid(Ship& player, IArray<Ship>& enemies, 
         secondRowPoint.Add(trackOppositeDirection);
     }
 }
+
+StartingGridInitializer* StartingGridInitializerResolvingFactory::Make(Resolver&)
+{
+    return new StartingGridInitializer();
+}

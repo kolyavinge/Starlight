@@ -46,3 +46,8 @@ bool PowerUpCollisionProcessor::ProcessPowerUp(Ship& ship, PowerUp& powerUp)
 
     return false;
 }
+
+PowerUpCollisionProcessor* PowerUpCollisionProcessorResolvingFactory::Make(Resolver&)
+{
+    return new PowerUpCollisionProcessor();
+}

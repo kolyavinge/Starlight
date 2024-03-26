@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -29,4 +30,10 @@ public:
 
 private:
     bool DetectCollisions(TrackPoints& trackPoints, TrackPoints& oppositeTrackPoints, int fromTrackPointIndex, int toTrackPointIndex, Vector3& point);
+};
+
+class TrackCollisionDetectorResolvingFactory : public ResolvingFactory<TrackCollisionDetector>
+{
+public:
+    TrackCollisionDetector* Make(Resolver& resolver) override;
 };

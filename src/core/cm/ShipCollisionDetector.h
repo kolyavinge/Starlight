@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 
@@ -27,4 +28,10 @@ public:
 
 private:
     bool DetectCollisions(Ship& ship1, Ship& ship2);
+};
+
+class ShipCollisionDetectorResolvingFactory : public ResolvingFactory<ShipCollisionDetector>
+{
+public:
+    ShipCollisionDetector* Make(Resolver& resolver) override;
 };

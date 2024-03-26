@@ -103,3 +103,8 @@ void MoveLogic::Assert(Ship& ship, float frontTurnRadius, float rearTurnRadius, 
     x = Math::Abs(rearTurnRadiusFromPivot.GetLength() - rearTurnRadius);
     Assert::True(x < 0.1f);
 }
+
+MoveLogic* MoveLogicResolvingFactory::Make(Resolver&)
+{
+    return new MoveLogic();
+}

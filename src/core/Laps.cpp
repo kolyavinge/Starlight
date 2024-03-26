@@ -77,3 +77,8 @@ void Laps::Update(RaceState& state, Ship& ship, Track& track)
         }
     }
 }
+
+Laps* LapsResolvingFactory::Make(Resolver&)
+{
+    return new Laps();
+}

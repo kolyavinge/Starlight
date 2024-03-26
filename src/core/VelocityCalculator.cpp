@@ -32,3 +32,8 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
     ship.PrevVelocityValue = ship.VelocityValue;
     ship.VelocityValue = ship.VelocityFunction.GetValueByThrottleTime(ship.ThrottleTime);
 }
+
+VelocityCalculator* VelocityCalculatorResolvingFactory::Make(Resolver&)
+{
+    return new VelocityCalculator();
+}

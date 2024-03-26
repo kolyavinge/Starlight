@@ -7,3 +7,8 @@ void TrackManager::Init()
     Track3.Init();
     Track4.Init();
 }
+
+TrackManager* TrackManagerResolvingFactory::Make(Resolver&)
+{
+    return new TrackManager();
+}

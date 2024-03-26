@@ -53,3 +53,8 @@ void LapTimer::ToString(String& result)
     }
     NumericConverter::IntToString(ts.GetMilliseconds(), result);
 }
+
+LapTimer* LapTimerResolvingFactory::Make(Resolver&)
+{
+    return new LapTimer();
+}

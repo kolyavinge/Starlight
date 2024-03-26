@@ -23,3 +23,8 @@ bool PowerUpCollisionDetector::DetectCollisions(Ship& ship, IArray<PowerUp>& pow
 
     return hasCollisions;
 }
+
+PowerUpCollisionDetector* PowerUpCollisionDetectorResolvingFactory::Make(Resolver&)
+{
+    return new PowerUpCollisionDetector();
+}

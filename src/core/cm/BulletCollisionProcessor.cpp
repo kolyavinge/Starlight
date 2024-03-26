@@ -17,3 +17,8 @@ bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray
 
     return true;
 }
+
+BulletCollisionProcessor* BulletCollisionProcessorResolvingFactory::Make(Resolver&)
+{
+    return new BulletCollisionProcessor();
+}

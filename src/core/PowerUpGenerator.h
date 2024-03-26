@@ -4,6 +4,7 @@
 #include <lib/IArray.h>
 #include <lib/List.h>
 #include <lib/Random.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Track.h>
 #include <model/PowerUp.h>
 
@@ -21,4 +22,10 @@ private:
     void GenerateMachinegunPowerUp(PowerUp& powerUp);
     void GenerateNitroPowerUp(PowerUp& powerUp);
     void GenerateNewPosition(Track& track, PowerUp& powerUp);
+};
+
+class PowerUpGeneratorResolvingFactory : public ResolvingFactory<PowerUpGenerator>
+{
+public:
+    PowerUpGenerator* Make(Resolver& resolver) override;
 };

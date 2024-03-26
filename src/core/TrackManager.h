@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/track/RoadTrack1.h>
 #include <model/track/RoadTrack2.h>
 #include <model/track/RoadTrack3.h>
@@ -15,4 +16,10 @@ public:
     RoadTrack4 Track4;
 
     void Init();
+};
+
+class TrackManagerResolvingFactory : public ResolvingFactory<TrackManager>
+{
+public:
+    TrackManager* Make(Resolver& resolver) override;
 };

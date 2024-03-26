@@ -56,3 +56,8 @@ void RaceUpdater::SaveCurrentShipsPositions(Ship& ship)
 {
     ship.PrevCentralLine = ship.CentralLine;
 }
+
+RaceUpdater* RaceUpdaterResolvingFactory::Make(Resolver& resolver)
+{
+    return new RaceUpdater(resolver.Resolve<EnemyAI>());
+}

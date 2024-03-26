@@ -89,3 +89,8 @@ void ShipController::Reset()
 {
     _ship->Reset();
 }
+
+ShipController* ShipControllerResolvingFactory::Make(Resolver&)
+{
+    return new ShipController();
+}

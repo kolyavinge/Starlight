@@ -28,3 +28,8 @@ void WeaponLogic::UpdateBullets(Weapon& weapon)
         }
     }
 }
+
+WeaponLogic* WeaponLogicResolvingFactory::Make(Resolver&)
+{
+    return new WeaponLogic();
+}

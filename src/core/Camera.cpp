@@ -34,3 +34,8 @@ void Camera::SetView(Vector3& front, Vector3& rear, float velocityValue)
 
     ViewAngleDegrees = 60.0f + 1.5f * velocityValue;
 }
+
+Camera* CameraResolvingFactory::Make(Resolver&)
+{
+    return new Camera();
+}
