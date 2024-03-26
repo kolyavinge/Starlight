@@ -1,12 +1,15 @@
 #include <core/Race.h>
-#include <core/RaceInitializer.h>
 
 Race::Race(
+    BorderUpdater& borderUpdater,
+    RaceInitializer& raceInitializer,
     RaceUpdater& raceUpdater,
-    ::ShipController& playerController,
+    ShipController& playerController,
     ::Camera& camera,
     ::Laps& laps,
     ::EnemyAI& enemyAI) :
+    _borderUpdater(borderUpdater),
+    _raceInitializer(raceInitializer),
     _raceUpdater(raceUpdater),
     PlayerController(playerController),
     Camera(camera),
@@ -32,12 +35,10 @@ void Race::Init(::Track& selectedTrack)
 {
     State = RaceState::Prepare;
     Track = &selectedTrack;
-    RaceInitializer initializer;
-    initializer.Init(*this);
-    BorderUpdater borderUpdater;
+    _raceInitializer.Init(Player, Enemies, *Track, PowerUps);
     for (int i = 0; i < AllShips.GetCount(); i++)
     {
-        borderUpdater.Update(*AllShips[i]);
+        _borderUpdater.Update(*AllShips[i]);
     }
 }
 
@@ -71,6 +72,8 @@ void Race::Update()
 Race* RaceResolvingFactory::Make(Resolver& resolver)
 {
     return new Race(
+        resolver.Resolve<BorderUpdater>(),
+        resolver.Resolve<RaceInitializer>(),
         resolver.Resolve<RaceUpdater>(),
         resolver.Resolve<ShipController>(),
         resolver.Resolve<Camera>(),

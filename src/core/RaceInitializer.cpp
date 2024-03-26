@@ -1,50 +1,47 @@
-#include <core/PositionUpdater.h>
-#include <core/StartingGridInitializer.h>
-#include <core/PowerUpGenerator.h>
 #include <core/RaceInitializer.h>
 
-void RaceInitializer::Init(Race& race)
+RaceInitializer::RaceInitializer(
+    PositionUpdater& positionUpdater,
+    StartingGridInitializer& startingGridInitializer,
+    PowerUpGenerator& powerUpGenerator) :
+    _positionUpdater(positionUpdater),
+    _startingGridInitializer(startingGridInitializer),
+    _powerUpGenerator(powerUpGenerator)
 {
-    InitShips(race);
-    SetStartGrid(race);
-    UpdateShipsPositions(race);
-    GeneratePowerUps(race);
 }
 
-void RaceInitializer::InitShips(Race& race)
+void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp> powerUps)
 {
-    race.Player.AIData.InitForPlayer();
-    race.Player.Init();
-    for (int i = 0; i < race.Enemies.GetCount(); i++)
+    InitShips(player, enemies);
+    _startingGridInitializer.SetStartGrid(player, enemies, track);
+    UpdateShipsPositions(player, enemies, track);
+    _powerUpGenerator.Generate(track, powerUps);
+}
+
+void RaceInitializer::InitShips(Ship& player, IArray<Ship>& enemies)
+{
+    player.AIData.InitForPlayer();
+    player.Init();
+    for (int i = 0; i < enemies.GetCount(); i++)
     {
-        race.Enemies[i].AIData.InitForEnemy();
-        race.Enemies[i].Init();
+        enemies[i].AIData.InitForEnemy();
+        enemies[i].Init();
     }
 }
 
-void RaceInitializer::SetStartGrid(Race& race)
+void RaceInitializer::UpdateShipsPositions(Ship& player, IArray<Ship>& enemies, Track& track)
 {
-    StartingGridInitializer initializer;
-    initializer.SetStartGrid(race.Player, race.Enemies, *race.Track);
-}
-
-void RaceInitializer::UpdateShipsPositions(Race& race)
-{
-    PositionUpdater positionUpdater;
-    positionUpdater.Update(race.Player, *race.Track);
-    for (int i = 0; i < race.Enemies.GetCount(); i++)
+    _positionUpdater.Update(player, track);
+    for (int i = 0; i < enemies.GetCount(); i++)
     {
-        positionUpdater.Update(race.Enemies[i], *race.Track);
+        _positionUpdater.Update(enemies[i], track);
     }
 }
 
-void RaceInitializer::GeneratePowerUps(Race& race)
+RaceInitializer* RaceInitializerResolvingFactory::Make(Resolver& resolver)
 {
-    PowerUpGenerator generator;
-    generator.Generate(*race.Track, race.PowerUps);
-}
-
-RaceInitializer* RaceInitializerResolvingFactory::Make(Resolver&)
-{
-    return new RaceInitializer();
+    return new RaceInitializer(
+        resolver.Resolve<PositionUpdater>(),
+        resolver.Resolve<StartingGridInitializer>(),
+        resolver.Resolve<PowerUpGenerator>());
 }

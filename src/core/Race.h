@@ -7,8 +7,10 @@
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <model/PowerUp.h>
+#include <core/BorderUpdater.h>
 #include <core/RaceState.h>
 #include <core/ShipController.h>
+#include <core/RaceInitializer.h>
 #include <core/RaceUpdater.h>
 #include <core/Camera.h>
 #include <core/Laps.h>
@@ -16,6 +18,8 @@
 
 class Race : public Object
 {
+    BorderUpdater& _borderUpdater;
+    RaceInitializer& _raceInitializer;
     RaceUpdater& _raceUpdater;
 
 public:
@@ -33,8 +37,10 @@ public:
     EnemyAI& EnemyAI;
 
     Race(
+        BorderUpdater& borderUpdater,
+        RaceInitializer& raceInitializer,
         RaceUpdater& raceUpdater,
-        ::ShipController& playerController,
+        ShipController& playerController,
         ::Camera& camera,
         ::Laps& laps,
         ::EnemyAI& enemyAI);
