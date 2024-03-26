@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
 #include <lib/di/InstanceCollection.h>
+#include <lib/di/DefaultInstanceHolder.h>
 #include <lib/di/SingletonInstanceHolder.h>
 
 class BindException : public Exception { };
@@ -23,6 +24,19 @@ public:
         if (!_instances.ContainsType(typeid(TInstance)))
         {
             _instances.Add(typeid(TInstance), new SingletonInstanceHolder<TResolvingFactory>());
+        }
+        else
+        {
+            throw BindException();
+        }
+    }
+
+    template<class TInstance, class TResolvingFactory>
+    void BindByFactory()
+    {
+        if (!_instances.ContainsType(typeid(TInstance)))
+        {
+            _instances.Add(typeid(TInstance), new DefaultInstanceHolder<TResolvingFactory>());
         }
         else
         {

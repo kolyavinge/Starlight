@@ -67,6 +67,7 @@
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
     <ClInclude Include="src\lib\di\Binder.h" />
+    <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
     <ClInclude Include="src\lib\di\DependencyContainer.h" />
     <ClInclude Include="src\lib\di\InjectModule.h" />
     <ClInclude Include="src\lib\di\InstanceCollection.h" />
