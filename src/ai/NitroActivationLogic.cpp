@@ -10,3 +10,8 @@ void NitroActivationLogic::Apply(Ship& ship, Track& track)
         _controller.ActivateNitro();
     }
 }
+
+NitroActivationLogic* NitroActivationLogicResolvingFactory::Make(Resolver&)
+{
+    return new NitroActivationLogic();
+}

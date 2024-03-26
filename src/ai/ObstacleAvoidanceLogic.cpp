@@ -65,3 +65,8 @@ void ObstacleAvoidanceLogic::AddResultIfCorrect(Ship& ship, IArray<Ship*>& allSh
     direction.Sub(ship.CentralLine.Front);
     result.Add(direction);
 }
+
+ObstacleAvoidanceLogic* ObstacleAvoidanceLogicResolvingFactory::Make(Resolver&)
+{
+    return new ObstacleAvoidanceLogic();
+}

@@ -33,3 +33,8 @@ void SteeringLogic::Update(Ship& ship)
 
     _controller.ActivateThrottle();
 }
+
+SteeringLogic* SteeringLogicResolvingFactory::Make(Resolver&)
+{
+    return new SteeringLogic();
+}

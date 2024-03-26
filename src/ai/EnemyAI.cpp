@@ -23,3 +23,8 @@ void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
     _steeringLogic.Update(enemy);
     _nitroActivationLogic.Apply(enemy, track);
 }
+
+EnemyAI* EnemyAIResolvingFactory::Make(Resolver&)
+{
+    return new EnemyAI();
+}

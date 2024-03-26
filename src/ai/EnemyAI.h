@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
 #include <ai/ObstacleAvoidanceLogic.h>
@@ -17,4 +18,10 @@ class EnemyAI : public Object
 public:
     void ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track);
     void ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track);
+};
+
+class EnemyAIResolvingFactory : public ResolvingFactory<EnemyAI>
+{
+public:
+    EnemyAI* Make(Resolver& resolver) override;
 };
