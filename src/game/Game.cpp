@@ -3,10 +3,12 @@
 
 Game::Game(
     TrackManager& trackManager,
+    RenderManager& renderManager,
     ScreenNavigator& screenNavigator,
     ::InputDevices& inputDevices,
     ::Race& race) :
     _trackManager(trackManager),
+    _renderManager(renderManager),
     _screenNavigator(screenNavigator),
     _screenManager(screenNavigator, inputDevices, trackManager, race),
     InputDevices(inputDevices),
@@ -47,6 +49,7 @@ Game* GameResolvingFactory::Make(Resolver& resolver)
 {
     return new Game(
         resolver.Resolve<TrackManager>(),
+        resolver.Resolve<RenderManager>(),
         resolver.Resolve<ScreenNavigator>(),
         resolver.Resolve<InputDevices>(),
         resolver.Resolve<Race>());

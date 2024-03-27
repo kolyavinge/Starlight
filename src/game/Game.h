@@ -14,7 +14,7 @@ class Game : public Object
 {
     TrackManager& _trackManager;
     ScreenManager _screenManager;
-    RenderManager _renderManager;
+    RenderManager& _renderManager;
     VoxManager _voxManager;
     ScreenNavigator& _screenNavigator;
 
@@ -24,6 +24,7 @@ public:
 
     Game(
         TrackManager& trackManager,
+        RenderManager& renderManager,
         ScreenNavigator& screenNavigator,
         ::InputDevices& inputDevices,
         ::Race& race);

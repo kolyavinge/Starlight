@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <lib/String.h>
 #include <lib/Array.h>
+#include <lib/di/ResolvingFactory.h>
 #include <gl/Texture.h>
 
 class TextRenderer : public Object
@@ -20,4 +21,10 @@ public:
     void Render(String& text);
     float GetLetterWidth();
     float GetLetterHeight();
+};
+
+class TextRendererResolvingFactory : public ResolvingFactory<TextRenderer>
+{
+public:
+    TextRenderer* Make(Resolver& resolver) override;
 };

@@ -65,3 +65,8 @@ float TextRenderer::GetLetterHeight()
 {
     return _letterHeight;
 }
+
+TextRenderer* TextRendererResolvingFactory::Make(Resolver&)
+{
+    return new TextRenderer();
+}

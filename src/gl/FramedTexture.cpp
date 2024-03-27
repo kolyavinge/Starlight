@@ -58,3 +58,8 @@ int FramedTexture::GetFramesCount()
 {
     return _framesCount;
 }
+
+FramedTexture* FramedTextureResolvingFactory::Make(Resolver&)
+{
+    return new FramedTexture();
+}
