@@ -1,11 +1,9 @@
-#include <model/Track.h>
 #include <core/RaceUpdater.h>
 
 RaceUpdater::RaceUpdater(
     TurnAngleCalculator& turnAngleCalculator,
     VelocityCalculator& velocityCalculator,
     MoveLogic& moveLogic,
-    PositionCorrector& positionCorrector,
     BorderUpdater& borderUpdater,
     PositionUpdater& positionUpdater,
     WeaponLogic& weaponLogic,
@@ -21,7 +19,6 @@ RaceUpdater::RaceUpdater(
     _turnAngleCalculator(turnAngleCalculator),
     _velocityCalculator(velocityCalculator),
     _moveLogic(moveLogic),
-    _positionCorrector(positionCorrector),
     _borderUpdater(borderUpdater),
     _positionUpdater(positionUpdater),
     _weaponLogic(weaponLogic),
@@ -45,10 +42,9 @@ void RaceUpdater::Update(
     IArray<PowerUp>& powerUps,
     Track& track)
 {
-    Update(player, allShips, powerUps, track);
-    for (int i = 0; i < enemies.GetCount(); i++)
+    for (int i = 0; i < allShips.GetCount(); i++)
     {
-        Update(enemies[i], allShips, powerUps, track);
+        Update(*allShips[i], allShips, powerUps, track);
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     _laps.Update(state, player, track);
@@ -60,7 +56,7 @@ void RaceUpdater::Update(
 
 void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track)
 {
-    SaveCurrentShipsPositions(ship);
+    ship.SaveCurrentCentralLine();
     _positionUpdater.UpdateIfShipMoving(ship, track);
     _turnAngleCalculator.CalculateTurnAngle(ship);
     _velocityCalculator.CalculateVelocity(ship);
@@ -79,12 +75,7 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& p
     }
     _powerUpCollisionProcessor.ProcessPowerUpsCollisions(ship, powerUps);
     _nitroLogic.ProcessNitro(ship);
-    _positionCorrector.CorrectAfterFloatOperations(ship);
-}
-
-void RaceUpdater::SaveCurrentShipsPositions(Ship& ship)
-{
-    ship.PrevCentralLine = ship.CentralLine;
+    _positionUpdater.CorrectAfterFloatOperations(ship);
 }
 
 RaceUpdater* RaceUpdaterResolvingFactory::Make(Resolver& resolver)
@@ -93,7 +84,6 @@ RaceUpdater* RaceUpdaterResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<TurnAngleCalculator>(),
         resolver.Resolve<VelocityCalculator>(),
         resolver.Resolve<MoveLogic>(),
-        resolver.Resolve<PositionCorrector>(),
         resolver.Resolve<BorderUpdater>(),
         resolver.Resolve<PositionUpdater>(),
         resolver.Resolve<WeaponLogic>(),

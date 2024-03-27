@@ -10,7 +10,6 @@
 #include <core/TurnAngleCalculator.h>
 #include <core/VelocityCalculator.h>
 #include <core/MoveLogic.h>
-#include <core/PositionCorrector.h>
 #include <core/BorderUpdater.h>
 #include <core/PositionUpdater.h>
 #include <core/WeaponLogic.h>
@@ -29,7 +28,6 @@ class RaceUpdater : public Object
     TurnAngleCalculator& _turnAngleCalculator;
     VelocityCalculator& _velocityCalculator;
     MoveLogic& _moveLogic;
-    PositionCorrector& _positionCorrector;
     BorderUpdater& _borderUpdater;
     PositionUpdater& _positionUpdater;
     WeaponLogic& _weaponLogic;
@@ -48,7 +46,6 @@ public:
         TurnAngleCalculator& turnAngleCalculator,
         VelocityCalculator& velocityCalculator,
         MoveLogic& moveLogic,
-        PositionCorrector& positionCorrector,
         BorderUpdater& borderUpdater,
         PositionUpdater& positionUpdater,
         WeaponLogic& weaponLogic,
@@ -72,7 +69,6 @@ public:
 
 private:
     void Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track);
-    void SaveCurrentShipsPositions(Ship& ship);
 };
 
 class RaceUpdaterResolvingFactory : public ResolvingFactory<RaceUpdater>

@@ -42,6 +42,7 @@ public:
     void Init();
     void OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction);
     void OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction);
+    void SaveCurrentCentralLine();
     bool IsMoving();
     float GetRollRadians();
     Vector3 GetVelocityVector();

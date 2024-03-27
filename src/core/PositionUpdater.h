@@ -11,6 +11,7 @@ class PositionUpdater : public Object
 public:
     void UpdateIfShipMoving(Ship& ship, Track& track);
     void Update(Ship& ship, Track& track);
+    void CorrectAfterFloatOperations(Ship& ship);
 
 private:
     void UpdateTrackPointIndexes(Ship& ship, Track& track);

@@ -44,6 +44,11 @@ void Ship::OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction)
     CentralLine.Front.Add(direction);
 }
 
+void Ship::SaveCurrentCentralLine()
+{
+    PrevCentralLine = CentralLine;
+}
+
 bool Ship::IsMoving()
 {
     return !Numeric::FloatEquals(VelocityValue, 0.0f) || !Deviation.IsZero();

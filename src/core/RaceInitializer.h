@@ -23,7 +23,7 @@ public:
         StartingGridInitializer& startingGridInitializer,
         PowerUpGenerator& powerUpGenerator);
 
-    void Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp> powerUps);
+    void Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp>& powerUps);
 
 private:
     void InitShips(Ship& player, IArray<Ship>& enemies);

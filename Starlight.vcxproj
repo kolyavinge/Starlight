@@ -170,7 +170,6 @@
     <ClInclude Include="src\core\RaceInitializer.h" />
     <ClInclude Include="src\core\RaceUpdater.h" />
     <ClInclude Include="src\core\MoveLogic.h" />
-    <ClInclude Include="src\core\PositionCorrector.h" />
     <ClInclude Include="src\core\cm\TrackCollisionDetector.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\core\VelocityCalculator.h" />
@@ -356,7 +355,6 @@
     <ClCompile Include="src\core\RaceInitializer.cpp" />
     <ClCompile Include="src\core\RaceUpdater.cpp" />
     <ClCompile Include="src\core\MoveLogic.cpp" />
-    <ClCompile Include="src\core\PositionCorrector.cpp" />
     <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
     <ClCompile Include="src\core\VelocityCalculator.cpp" />
     <ClCompile Include="src\lib\HashCode.cpp" />

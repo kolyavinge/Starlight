@@ -17,6 +17,13 @@ void PositionUpdater::Update(Ship& ship, Track& track)
     UpdateNormals(ship, track);
 }
 
+void PositionUpdater::CorrectAfterFloatOperations(Ship& ship)
+{
+    Vector3 direction = ship.CentralLine.Front;
+    direction.Sub(ship.CentralLine.Rear);
+    ship.OrientationByFrontPoint(ship.CentralLine.Front, direction);
+}
+
 void PositionUpdater::UpdateTrackPointIndexes(Ship& ship, Track& track)
 {
     ship.CentralLine.TrackPointIndexFront = track.GetTrackPointIndexFor(ship.CentralLine.Front, ship.CentralLine.TrackPointIndexFront);

@@ -10,7 +10,7 @@ RaceInitializer::RaceInitializer(
 {
 }
 
-void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp> powerUps)
+void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp>& powerUps)
 {
     InitShips(player, enemies);
     _startingGridInitializer.SetStartGrid(player, enemies, track);

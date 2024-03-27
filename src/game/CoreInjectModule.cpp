@@ -5,7 +5,6 @@
 #include <core/LapTimer.h>
 #include <core/MoveLogic.h>
 #include <core/NitroLogic.h>
-#include <core/PositionCorrector.h>
 #include <core/PositionUpdater.h>
 #include <core/PowerUpGenerator.h>
 #include <core/Race.h>
@@ -37,7 +36,6 @@ void CoreInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<LapTimer, LapTimerResolvingFactory>();
     binder.BindSingletonByFactory<MoveLogic, MoveLogicResolvingFactory>();
     binder.BindSingletonByFactory<NitroLogic, NitroLogicResolvingFactory>();
-    binder.BindSingletonByFactory<PositionCorrector, PositionCorrectorResolvingFactory>();
     binder.BindSingletonByFactory<PositionUpdater, PositionUpdaterResolvingFactory>();
     binder.BindSingletonByFactory<PowerUpGenerator, PowerUpGeneratorResolvingFactory>();
     binder.BindSingletonByFactory<Race, RaceResolvingFactory>();
