@@ -11,9 +11,11 @@ class RenderManagerException : public Exception { };
 
 class RenderManager : public Object
 {
-    ScreenRendererCollection _rendererCollection;
+    ScreenRendererCollection& _rendererCollection;
 
 public:
+    RenderManager(ScreenRendererCollection& rendererCollection);
+
     void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);
 

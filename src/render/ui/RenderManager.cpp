@@ -3,6 +3,11 @@
 #include <core/Constants.h>
 #include <render/ui/RenderManager.h>
 
+RenderManager::RenderManager(ScreenRendererCollection& rendererCollection) :
+    _rendererCollection(rendererCollection)
+{
+}
+
 void RenderManager::Init()
 {
     InitGL();
@@ -22,7 +27,7 @@ void RenderManager::InitGL()
     if (glewInit() != GLEW_NO_ERROR) throw RenderManagerException();
 }
 
-RenderManager* RenderManagerResolvingFactory::Make(Resolver&)
+RenderManager* RenderManagerResolvingFactory::Make(Resolver& resolver)
 {
-    return new RenderManager();
+    return new RenderManager(resolver.Resolve<ScreenRendererCollection>());
 }

@@ -1,14 +1,8 @@
 #include <gl/opengl.h>
-#include <calc/VectorCalculator.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackThumbnailRenderer.h>
 
-TrackThumbnailRenderer::TrackThumbnailRenderer()
-{
-    _rotateDegrees = 0.0f;
-}
-
-void TrackThumbnailRenderer::Render(Track& track, bool isRotated)
+void TrackThumbnailRenderer::Render(Track& track, float rotateDegrees)
 {
     //RenderBorder();
     glPushMatrix();
@@ -16,8 +10,7 @@ void TrackThumbnailRenderer::Render(Track& track, bool isRotated)
 
     glPushMatrix();
     glRotatef(45.0f, 1.0f, 0.0f, 0.0f);
-    glRotatef(_rotateDegrees, 0.0f, 0.0f, 1.0f);
-    if (isRotated) _rotateDegrees -= 1.0f;
+    glRotatef(rotateDegrees, 0.0f, 0.0f, 1.0f);
     glScalef(0.35f, 0.35f, 0.35f);
     RenderTrack(track);
     RenderStartFinishLine(track);

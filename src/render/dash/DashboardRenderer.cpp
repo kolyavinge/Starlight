@@ -1,13 +1,20 @@
 #include <render/dash/DashboardRenderer.h>
 
-DashboardRenderer::DashboardRenderer(TextRenderer& textRenderer) :
-    _lapsCountRenderer(textRenderer),
-    _lapTimeRenderer(textRenderer),
-    _completeLapTimeRenderer(textRenderer),
-    _completeLapsTimeListRenderer(textRenderer),
-    _healthRenderer(textRenderer),
-    _bulletsCountRenderer(textRenderer),
-    _nitroCountRenderer(textRenderer)
+DashboardRenderer::DashboardRenderer(
+    LapsCountRenderer& lapsCountRenderer,
+    LapTimeRenderer& lapTimeRenderer,
+    CompleteLapTimeRenderer& completeLapTimeRenderer,
+    CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
+    PlayerShipHealthRenderer& healthRenderer,
+    BulletsCountRenderer& bulletsCountRenderer,
+    NitroCountRenderer& nitroCountRenderer) :
+    _lapsCountRenderer(lapsCountRenderer),
+    _lapTimeRenderer(lapTimeRenderer),
+    _completeLapTimeRenderer(completeLapTimeRenderer),
+    _completeLapsTimeListRenderer(completeLapsTimeListRenderer),
+    _healthRenderer(healthRenderer),
+    _bulletsCountRenderer(bulletsCountRenderer),
+    _nitroCountRenderer(nitroCountRenderer)
 {
 }
 
@@ -29,5 +36,12 @@ void DashboardRenderer::Render(Ship& player, Laps& laps)
 
 DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new DashboardRenderer(resolver.Resolve<TextRenderer>());
+    return new DashboardRenderer(
+        resolver.Resolve<LapsCountRenderer>(),
+        resolver.Resolve<LapTimeRenderer>(),
+        resolver.Resolve<CompleteLapTimeRenderer>(),
+        resolver.Resolve<CompleteLapsTimeListRenderer>(),
+        resolver.Resolve<PlayerShipHealthRenderer>(),
+        resolver.Resolve<BulletsCountRenderer>(),
+        resolver.Resolve<NitroCountRenderer>());
 }

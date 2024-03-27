@@ -5,6 +5,12 @@
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackThumbnailGridRenderer.h>
 
+TrackThumbnailGridRenderer::TrackThumbnailGridRenderer(
+    TrackThumbnailRenderer& trackThumbnailRenderer) :
+    _trackThumbnailRenderer(trackThumbnailRenderer)
+{
+}
+
 void TrackThumbnailGridRenderer::Init()
 {
     _selectionRect.Load(GraphicResources::GetTrackSelectionRectFilePath());
@@ -30,7 +36,9 @@ void TrackThumbnailGridRenderer::Render(TrackSelectorScreen& screen)
                 0.0f);
             float alpha = isSelected ? 1.0f : 0.4f;
             glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, alpha);
-            _thumbnailRenderers[rendererIndex++].Render(track, isSelected);
+            _trackThumbnailRenderer.Render(track, _rotateDegrees[rendererIndex]);
+            if (isSelected) _rotateDegrees[rendererIndex] -= 1.0f;
+            rendererIndex++;
             if (isSelected && screen.IsTrackSelectionActive())
             {
                 _selectedItemColor.SetColorForSelectedItem(true);
@@ -42,7 +50,7 @@ void TrackThumbnailGridRenderer::Render(TrackSelectorScreen& screen)
     _selectedItemColor.Update();
 }
 
-TrackThumbnailGridRenderer* TrackThumbnailGridRendererResolvingFactory::Make(Resolver&)
+TrackThumbnailGridRenderer* TrackThumbnailGridRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new TrackThumbnailGridRenderer();
+    return new TrackThumbnailGridRenderer(resolver.Resolve<TrackThumbnailRenderer>());
 }

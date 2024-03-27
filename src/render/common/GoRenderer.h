@@ -3,17 +3,17 @@
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
 #include <gl/TexturedRect.h>
+#include <render/common/GraphicItemCollection.h>
 
 class GoRenderer : public Object
 {
-    TexturedRect* _goItem;
+    TexturedRect& _goItem;
     float _alpha;
 
 public:
-    GoRenderer();
+    GoRenderer(GraphicItemCollection& graphicItemCollection);
 
-    void Init(TexturedRect& goItem);
-    void Reset();
+    void Init();
     void Render();
 };
 

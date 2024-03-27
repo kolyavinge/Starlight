@@ -106,7 +106,7 @@
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\Race.h" />
-    <ClInclude Include="src\render\ui\GraphicItemCollection.h" />
+    <ClInclude Include="src\render\common\GraphicItemCollection.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
@@ -189,7 +189,6 @@
     <ClInclude Include="src\game\GameInjectModule.h" />
     <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
     <ClInclude Include="src\game\RenderInjectModule.h" />
-    <ClInclude Include="src\game\GLInjectModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -284,7 +283,7 @@
     <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
-    <ClCompile Include="src\render\ui\GraphicItemCollection.cpp" />
+    <ClCompile Include="src\render\common\GraphicItemCollection.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
@@ -356,7 +355,6 @@
     <ClCompile Include="src\game\GameInjectModule.cpp" />
     <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
     <ClCompile Include="src\game\RenderInjectModule.cpp" />
-    <ClCompile Include="src\game\GLInjectModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

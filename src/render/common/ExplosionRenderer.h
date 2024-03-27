@@ -8,17 +8,18 @@
 #include <model/Ship.h>
 #include <gl/FramedTexture.h>
 #include <gl/AnimatedTexturedRect.h>
+#include <render/common/GraphicItemCollection.h>
 
 class ExplosionRenderer : public Object
 {
-    FramedTexture* _explosionTexture;
+    FramedTexture& _explosionTexture;
     List<AnimatedTexturedRect> _animations;
     List<Vector3> _positions;
     List<float> _radians;
     List<Vector3> _pivots;
 
 public:
-    ExplosionRenderer(FramedTexture& explosionTexture);
+    ExplosionRenderer(GraphicItemCollection& graphicItemCollection);
 
     void Init();
     void Render(Ship& player, IArray<Ship*>& allShips);

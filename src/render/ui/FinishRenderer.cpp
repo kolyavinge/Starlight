@@ -4,13 +4,11 @@
 #include <render/ui/FinishRenderer.h>
 
 FinishRenderer::FinishRenderer(
-    RaceRenderer& raceRenderer) :
+    RaceRenderer& raceRenderer,
+    FinishTextRenderer& finishTextRenderer) :
     _raceRenderer(raceRenderer),
+    _finishTextRenderer(finishTextRenderer),
     _fadeEffect(FadeDirection::ToBlack, 100)
-{
-}
-
-void FinishRenderer::Init(GraphicItemCollection&)
 {
     _finishTextRenderer.Init();
 }
@@ -38,5 +36,7 @@ void FinishRenderer::Render(Screen& screen)
 
 FinishRenderer* FinishRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new FinishRenderer(resolver.Resolve<RaceRenderer>());
+    return new FinishRenderer(
+        resolver.Resolve<RaceRenderer>(),
+        resolver.Resolve<FinishTextRenderer>());
 }

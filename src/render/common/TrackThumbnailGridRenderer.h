@@ -10,11 +10,14 @@
 
 class TrackThumbnailGridRenderer : public Object
 {
-    Array<TrackThumbnailRenderer, 4> _thumbnailRenderers;
+    TrackThumbnailRenderer& _trackThumbnailRenderer;
+    Array<float, 4> _rotateDegrees;
     TexturedRect _selectionRect;
     SelectedItemColor _selectedItemColor;
 
 public:
+    TrackThumbnailGridRenderer(TrackThumbnailRenderer& trackThumbnailRenderer);
+
     void Init();
     void Render(TrackSelectorScreen& screen);
 };

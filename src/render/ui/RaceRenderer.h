@@ -13,7 +13,6 @@
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/GoRenderer.h>
 #include <render/dash/DashboardRenderer.h>
-#include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 
 class RaceRenderer : public ScreenRenderer
@@ -27,7 +26,7 @@ class RaceRenderer : public ScreenRenderer
     ExplosionRenderer& _explosionRenderer;
     PowerUpRenderer& _powerUpRenderer;
     DashboardRenderer& _dashboardRenderer;
-    GoRenderer _goRenderer;
+    GoRenderer& _goRenderer;
 
 public:
     RaceRenderer(
@@ -39,9 +38,9 @@ public:
         EnemyShipsHealthRenderer& enemyShipsHealthRenderer,
         ExplosionRenderer& explosionRenderer,
         PowerUpRenderer& powerUpRenderer,
-        DashboardRenderer& dashboardRenderer);
+        DashboardRenderer& dashboardRenderer,
+        GoRenderer& goRenderer);
 
-    void Init(GraphicItemCollection& graphicItemCollection) override;
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
     void Render(Race& race);

@@ -8,7 +8,6 @@
 #include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
 #include <render/common/CountdownRenderer.h>
-#include <render/ui/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 
 class RacePreparationRenderer : public ScreenRenderer
@@ -17,7 +16,7 @@ class RacePreparationRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
     TrackRenderer& _trackRenderer;
-    CountdownRenderer _countdownRenderer;
+    CountdownRenderer& _countdownRenderer;
     FadeEffect _fadeEffect;
 
 public:
@@ -25,9 +24,9 @@ public:
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,
-        TrackRenderer& trackRenderer);
+        TrackRenderer& trackRenderer,
+        CountdownRenderer& countdownRenderer);
 
-    void Init(GraphicItemCollection& graphicItemCollection) override;
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
 };

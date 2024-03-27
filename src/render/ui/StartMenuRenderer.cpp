@@ -3,17 +3,13 @@
 #include <ui/StartMenuScreen.h>
 #include <render/ui/StartMenuRenderer.h>
 
-StartMenuRenderer::StartMenuRenderer(MenuBackgroundRenderer& backgroundRenderer) :
-    _backgroundRenderer(backgroundRenderer)
+StartMenuRenderer::StartMenuRenderer(
+    GraphicItemCollection& graphicItemCollection,
+    MenuBackgroundRenderer& backgroundRenderer) :
+    _backgroundRenderer(backgroundRenderer),
+    _startGameItem(graphicItemCollection.StartGameItem),
+    _exitItem(graphicItemCollection.ExitItem)
 {
-    _startGameItem = nullptr;
-    _exitItem = nullptr;
-}
-
-void StartMenuRenderer::Init(GraphicItemCollection& graphicItemCollection)
-{
-    _startGameItem = &graphicItemCollection.StartGameItem;
-    _exitItem = &graphicItemCollection.ExitItem;
 }
 
 void StartMenuRenderer::Render(Screen& screen)
@@ -33,17 +29,19 @@ void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)
     glEnable(GL_BLEND);
 
     _selectedItemColor.SetColorForSelectedItem(StartMenuItem::Exit == screen.GetSelectedItem());
-    glTranslatef(Constants::ScreenWidth - _exitItem->GetWidth() - 100.0f, 50.0f, 0.0f);
-    _exitItem->Render();
+    glTranslatef(Constants::ScreenWidth - _exitItem.GetWidth() - 100.0f, 50.0f, 0.0f);
+    _exitItem.Render();
 
     _selectedItemColor.SetColorForSelectedItem(StartMenuItem::StartGame == screen.GetSelectedItem());
     glTranslatef(0.0f, 75.0f, 0.0f);
-    _startGameItem->Render();
+    _startGameItem.Render();
 
     glDisable(GL_BLEND);
 }
 
 StartMenuRenderer* StartMenuRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new StartMenuRenderer(resolver.Resolve<MenuBackgroundRenderer>());
+    return new StartMenuRenderer(
+        resolver.Resolve<GraphicItemCollection>(),
+        resolver.Resolve<MenuBackgroundRenderer>());
 }

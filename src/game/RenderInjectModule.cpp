@@ -1,3 +1,4 @@
+#include <gl/TextRenderer.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/BackgroundSphere.h>
 #include <render/common/BulletsRenderer.h>
@@ -6,6 +7,7 @@
 #include <render/common/ExplosionRenderer.h>
 #include <render/common/FinishTextRenderer.h>
 #include <render/common/GoRenderer.h>
+#include <render/common/GraphicItemCollection.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/ShipMesh.h>
@@ -23,7 +25,6 @@
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/PlayerShipHealthRenderer.h>
 #include <render/ui/FinishRenderer.h>
-#include <render/ui/GraphicItemCollection.h>
 #include <render/ui/PauseMenuRenderer.h>
 #include <render/ui/RacePreparationRenderer.h>
 #include <render/ui/RaceRenderer.h>
@@ -36,6 +37,7 @@
 
 void RenderInjectModule::Init(Binder& binder)
 {
+    binder.BindSingletonByFactory<TextRenderer, TextRendererResolvingFactory>();
     binder.BindSingletonByFactory<BackgroundRenderer, BackgroundRendererResolvingFactory>();
     binder.BindSingletonByFactory<BackgroundSphere, BackgroundSphereResolvingFactory>();
     binder.BindSingletonByFactory<BulletsRenderer, BulletsRendererResolvingFactory>();

@@ -1,25 +1,27 @@
 #include <ui/ScreenKind.h>
 #include <render/ui/ScreenRendererCollection.h>
 
-ScreenRendererCollection::ScreenRendererCollection() :
-    _menuBackgroundRenderer(_backgroundRenderer, _starsRenderer),
-    _explosionRenderer(_graphicItemCollection.ExplosionTexture),
-    _dashboardRenderer(_textRenderer),
-    _startMenuRenderer(_menuBackgroundRenderer),
-    _trackSelectorRenderer(_menuBackgroundRenderer),
-    _racePreparationRenderer(_backgroundRenderer, _starsRenderer, _shipsRenderer, _trackRenderer),
-    _raceRenderer(
-        _backgroundRenderer,
-        _starsRenderer,
-        _shipsRenderer,
-        _trackRenderer,
-        _bulletsRenderer,
-        _enemyShipsHealthRenderer,
-        _explosionRenderer,
-        _powerUpRenderer,
-        _dashboardRenderer),
-    _pauseMenuRenderer(_raceRenderer),
-    _finishRenderer(_raceRenderer)
+ScreenRendererCollection::ScreenRendererCollection(
+    TextRenderer& textRenderer,
+    BackgroundRenderer& backgroundRenderer,
+    ShipsRenderer& shipsRenderer,
+    GraphicItemCollection& graphicItemCollection,
+    StartMenuRenderer& startMenuRenderer,
+    TrackSelectorRenderer& trackSelectorRenderer,
+    RacePreparationRenderer& racePreparationRenderer,
+    RaceRenderer& raceRenderer,
+    PauseMenuRenderer& pauseMenuRenderer,
+    FinishRenderer& finishRenderer) :
+    _textRenderer(textRenderer),
+    _backgroundRenderer(backgroundRenderer),
+    _shipsRenderer(shipsRenderer),
+    _graphicItemCollection(graphicItemCollection),
+    _startMenuRenderer(startMenuRenderer),
+    _trackSelectorRenderer(trackSelectorRenderer),
+    _racePreparationRenderer(racePreparationRenderer),
+    _raceRenderer(raceRenderer),
+    _pauseMenuRenderer(pauseMenuRenderer),
+    _finishRenderer(finishRenderer)
 {
     _renderers[(int)ScreenKind::StartMenu] = &_startMenuRenderer;
     _renderers[(int)ScreenKind::TrackSelector] = &_trackSelectorRenderer;
@@ -31,18 +33,10 @@ ScreenRendererCollection::ScreenRendererCollection() :
 
 void ScreenRendererCollection::Init()
 {
-    _graphicItemCollection.Init();
     _textRenderer.Init();
+    _graphicItemCollection.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
-    _powerUpRenderer.Init(
-        _graphicItemCollection.PowerUpHealthTexture,
-        _graphicItemCollection.PowerUpMachinegunTexture,
-        _graphicItemCollection.PowerUpNitroTexture);
-    for (int i = 0; i < _renderers.GetCount(); i++)
-    {
-        _renderers[i]->Init(_graphicItemCollection);
-    }
 }
 
 ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
@@ -50,7 +44,17 @@ ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
     return *_renderers[(int)screen.Kind];
 }
 
-ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolver&)
+ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolver& resolver)
 {
-    return new ScreenRendererCollection();
+    return new ScreenRendererCollection(
+        resolver.Resolve<TextRenderer>(),
+        resolver.Resolve<BackgroundRenderer>(),
+        resolver.Resolve<ShipsRenderer>(),
+        resolver.Resolve<GraphicItemCollection>(),
+        resolver.Resolve<StartMenuRenderer>(),
+        resolver.Resolve<TrackSelectorRenderer>(),
+        resolver.Resolve<RacePreparationRenderer>(),
+        resolver.Resolve<RaceRenderer>(),
+        resolver.Resolve<PauseMenuRenderer>(),
+        resolver.Resolve<FinishRenderer>());
 }

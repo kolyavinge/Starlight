@@ -1,5 +1,5 @@
 #include <anx/GraphicResources.h>
-#include <render/ui/GraphicItemCollection.h>
+#include <render/common/GraphicItemCollection.h>
 
 void GraphicItemCollection::Init()
 {

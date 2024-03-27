@@ -13,7 +13,8 @@ RaceRenderer::RaceRenderer(
     EnemyShipsHealthRenderer& enemyShipsHealthRenderer,
     ExplosionRenderer& explosionRenderer,
     PowerUpRenderer& powerUpRenderer,
-    DashboardRenderer& dashboardRenderer) :
+    DashboardRenderer& dashboardRenderer,
+    GoRenderer& goRenderer) :
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
@@ -22,13 +23,9 @@ RaceRenderer::RaceRenderer(
     _enemyShipsHealthRenderer(enemyShipsHealthRenderer),
     _explosionRenderer(explosionRenderer),
     _powerUpRenderer(powerUpRenderer),
-    _dashboardRenderer(dashboardRenderer)
+    _dashboardRenderer(dashboardRenderer),
+    _goRenderer(goRenderer)
 {
-}
-
-void RaceRenderer::Init(GraphicItemCollection& graphicItemCollection)
-{
-    _goRenderer.Init(graphicItemCollection.GoItem);
 }
 
 void RaceRenderer::Activate(Screen* prevScreen)
@@ -37,7 +34,7 @@ void RaceRenderer::Activate(Screen* prevScreen)
     {
         _dashboardRenderer.Init();
         _explosionRenderer.Init();
-        _goRenderer.Reset();
+        _goRenderer.Init();
     }
 }
 
@@ -85,5 +82,6 @@ RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<EnemyShipsHealthRenderer>(),
         resolver.Resolve<ExplosionRenderer>(),
         resolver.Resolve<PowerUpRenderer>(),
-        resolver.Resolve<DashboardRenderer>());
+        resolver.Resolve<DashboardRenderer>(),
+        resolver.Resolve<GoRenderer>());
 }

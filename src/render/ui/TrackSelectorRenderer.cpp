@@ -3,19 +3,16 @@
 #include <render/common/RenderConstants.h>
 #include <render/ui/TrackSelectorRenderer.h>
 
-TrackSelectorRenderer::TrackSelectorRenderer(MenuBackgroundRenderer& backgroundRenderer) :
-    _backgroundRenderer(backgroundRenderer)
+TrackSelectorRenderer::TrackSelectorRenderer(
+    GraphicItemCollection& graphicItemCollection,
+    MenuBackgroundRenderer& backgroundRenderer,
+    TrackThumbnailGridRenderer& trackThumbnailGridRenderer) :
+    _backgroundRenderer(backgroundRenderer),
+    _trackThumbnailGridRenderer(trackThumbnailGridRenderer),
+    _selectTrackItem(graphicItemCollection.SelectTrackItem),
+    _raceItem(graphicItemCollection.RaceItem),
+    _backItem(graphicItemCollection.BackItem)
 {
-    _selectTrackItem = nullptr;
-    _raceItem = nullptr;
-    _backItem = nullptr;
-}
-
-void TrackSelectorRenderer::Init(GraphicItemCollection& graphicItemCollection)
-{
-    _selectTrackItem = &graphicItemCollection.SelectTrackItem;
-    _raceItem = &graphicItemCollection.RaceItem;
-    _backItem = &graphicItemCollection.BackItem;
     _trackThumbnailGridRenderer.Init();
 }
 
@@ -39,26 +36,29 @@ void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
     glPushMatrix();
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
     glTranslatef(
-        (Constants::ScreenWidth - _selectTrackItem->GetWidth()) / 2.0f,
-        Constants::ScreenHeight - _selectTrackItem->GetHeight() - 50.0f,
+        (Constants::ScreenWidth - _selectTrackItem.GetWidth()) / 2.0f,
+        Constants::ScreenHeight - _selectTrackItem.GetHeight() - 50.0f,
         0.0f);
-    _selectTrackItem->Render();
+    _selectTrackItem.Render();
     glPopMatrix();
 
     _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Race == screen.GetSelectedItem());
     glPushMatrix();
-    glTranslatef((Constants::ScreenWidth - _raceItem->GetWidth()) / 2.0f, 50.0f, 0.0f);
-    _raceItem->Render();
+    glTranslatef((Constants::ScreenWidth - _raceItem.GetWidth()) / 2.0f, 50.0f, 0.0f);
+    _raceItem.Render();
     glPopMatrix();
 
     _selectedItemColor.SetColorForSelectedItem(TrackSelectorItem::Back == screen.GetSelectedItem());
     glPushMatrix();
     glTranslatef(0.0f, 50.0f, 0.0f);
-    _backItem->Render();
+    _backItem.Render();
     glPopMatrix();
 }
 
 TrackSelectorRenderer* TrackSelectorRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new TrackSelectorRenderer(resolver.Resolve<MenuBackgroundRenderer>());
+    return new TrackSelectorRenderer(
+        resolver.Resolve<GraphicItemCollection>(),
+        resolver.Resolve<MenuBackgroundRenderer>(),
+        resolver.Resolve<TrackThumbnailGridRenderer>());
 }

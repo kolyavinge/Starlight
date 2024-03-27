@@ -3,18 +3,13 @@
 #include <render/common/RenderConstants.h>
 #include <render/common/GoRenderer.h>
 
-GoRenderer::GoRenderer()
+GoRenderer::GoRenderer(GraphicItemCollection& graphicItemCollection) :
+    _goItem(graphicItemCollection.GoItem)
 {
-    _goItem = nullptr;
-    Reset();
+    Init();
 }
 
-void GoRenderer::Init(TexturedRect& goItem)
-{
-    _goItem = &goItem;
-}
-
-void GoRenderer::Reset()
+void GoRenderer::Init()
 {
     _alpha = 1.0f;
 }
@@ -29,15 +24,15 @@ void GoRenderer::Render()
     glPushMatrix();
 
     glTranslatef(
-        (Constants::ScreenWidth - _goItem->GetWidth()) / 2.0f,
-        (Constants::ScreenHeight - _goItem->GetHeight()) / 2.0f,
+        (Constants::ScreenWidth - _goItem.GetWidth()) / 2.0f,
+        (Constants::ScreenHeight - _goItem.GetHeight()) / 2.0f,
         0.0f);
-    _goItem->Render();
+    _goItem.Render();
 
     glPopMatrix();
 }
 
-GoRenderer* GoRendererResolvingFactory::Make(Resolver&)
+GoRenderer* GoRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new GoRenderer();
+    return new GoRenderer(resolver.Resolve<GraphicItemCollection>());
 }

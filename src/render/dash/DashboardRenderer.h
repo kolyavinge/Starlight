@@ -4,7 +4,6 @@
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <core/Laps.h>
-#include <gl/TextRenderer.h>
 #include <render/dash/LapsCountRenderer.h>
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/CompleteLapTimeRenderer.h>
@@ -15,16 +14,23 @@
 
 class DashboardRenderer : public Object
 {
-    LapsCountRenderer _lapsCountRenderer;
-    LapTimeRenderer _lapTimeRenderer;
-    CompleteLapTimeRenderer _completeLapTimeRenderer;
-    CompleteLapsTimeListRenderer _completeLapsTimeListRenderer;
-    PlayerShipHealthRenderer _healthRenderer;
-    BulletsCountRenderer _bulletsCountRenderer;
-    NitroCountRenderer _nitroCountRenderer;
+    LapsCountRenderer& _lapsCountRenderer;
+    LapTimeRenderer& _lapTimeRenderer;
+    CompleteLapTimeRenderer& _completeLapTimeRenderer;
+    CompleteLapsTimeListRenderer& _completeLapsTimeListRenderer;
+    PlayerShipHealthRenderer& _healthRenderer;
+    BulletsCountRenderer& _bulletsCountRenderer;
+    NitroCountRenderer& _nitroCountRenderer;
 
 public:
-    DashboardRenderer(TextRenderer& textRenderer);
+    DashboardRenderer(
+        LapsCountRenderer& lapsCountRenderer,
+        LapTimeRenderer& lapTimeRenderer,
+        CompleteLapTimeRenderer& completeLapTimeRenderer,
+        CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
+        PlayerShipHealthRenderer& healthRenderer,
+        BulletsCountRenderer& bulletsCountRenderer,
+        NitroCountRenderer& nitroCountRenderer);
 
     void Init();
     void Render(Ship& player, Laps& laps);

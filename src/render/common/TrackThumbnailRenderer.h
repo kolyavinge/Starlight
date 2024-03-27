@@ -16,12 +16,9 @@ public:
 class TrackThumbnailRenderer : public Object
 {
     inline static const int _trackPointStep = 100;
-    float _rotateDegrees;
 
 public:
-    TrackThumbnailRenderer();
-
-    void Render(Track& track, bool isRotated);
+    void Render(Track& track, float rotateDegrees);
 
 private:
     void RenderTrack(Track& track);

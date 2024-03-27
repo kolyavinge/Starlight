@@ -7,21 +7,15 @@ RacePreparationRenderer::RacePreparationRenderer(
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
-    TrackRenderer& trackRenderer) :
+    TrackRenderer& trackRenderer,
+    CountdownRenderer& countdownRenderer) :
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
     _trackRenderer(trackRenderer),
+    _countdownRenderer(countdownRenderer),
     _fadeEffect(FadeDirection::ToTransparent, 100)
 {
-}
-
-void RacePreparationRenderer::Init(GraphicItemCollection& graphicItemCollection)
-{
-    _countdownRenderer.Init(
-        graphicItemCollection.Countdown1Item,
-        graphicItemCollection.Countdown2Item,
-        graphicItemCollection.Countdown3Item);
 }
 
 void RacePreparationRenderer::Activate(Screen*)
@@ -62,5 +56,6 @@ RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver&
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),
-        resolver.Resolve<TrackRenderer>());
+        resolver.Resolve<TrackRenderer>(),
+        resolver.Resolve<CountdownRenderer>());
 }

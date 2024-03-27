@@ -4,19 +4,12 @@
 #include <render/common/RenderConstants.h>
 #include <render/common/PowerUpRenderer.h>
 
-PowerUpRenderer::PowerUpRenderer()
+PowerUpRenderer::PowerUpRenderer(GraphicItemCollection& graphicItemCollection) :
+    _healthTexture(graphicItemCollection.PowerUpHealthTexture),
+    _machinegunTexture(graphicItemCollection.PowerUpMachinegunTexture),
+    _nitroTexture(graphicItemCollection.PowerUpNitroTexture)
 {
     _angleDegrees = 0.0f;
-    _healthTexture = nullptr;
-    _machinegunTexture = nullptr;
-    _nitroTexture = nullptr;
-}
-
-void PowerUpRenderer::Init(Texture& healthTexture, Texture& machinegunTexture, Texture& nitroTexture)
-{
-    _healthTexture = &healthTexture;
-    _machinegunTexture = &machinegunTexture;
-    _nitroTexture = &nitroTexture;
 }
 
 void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
@@ -40,15 +33,15 @@ void PowerUpRenderer::BindTexture(PowerUp& powerUp)
 {
     if (powerUp.Kind == PowerUpKind::Health)
     {
-        _healthTexture->Bind();
+        _healthTexture.Bind();
     }
     else if (powerUp.Kind == PowerUpKind::Machinegun)
     {
-        _machinegunTexture->Bind();
+        _machinegunTexture.Bind();
     }
     else if (powerUp.Kind == PowerUpKind::Nitro)
     {
-        _nitroTexture->Bind();
+        _nitroTexture.Bind();
     }
 }
 
@@ -78,7 +71,7 @@ void PowerUpRenderer::RenderRect(PowerUp& powerUp)
     glPopMatrix();
 }
 
-PowerUpRenderer* PowerUpRendererResolvingFactory::Make(Resolver&)
+PowerUpRenderer* PowerUpRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new PowerUpRenderer();
+    return new PowerUpRenderer(resolver.Resolve<GraphicItemCollection>());
 }

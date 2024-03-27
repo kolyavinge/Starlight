@@ -3,19 +3,14 @@
 #include <render/common/RenderConstants.h>
 #include <render/ui/PauseMenuRenderer.h>
 
-PauseMenuRenderer::PauseMenuRenderer(RaceRenderer& raceRenderer) :
-    _raceRenderer(raceRenderer)
+PauseMenuRenderer::PauseMenuRenderer(
+    GraphicItemCollection& graphicItemCollection,
+    RaceRenderer& raceRenderer) :
+    _raceRenderer(raceRenderer),
+    _pauseItem(graphicItemCollection.PauseItem),
+    _resumeItem(graphicItemCollection.ResumeItem),
+    _startMenuItem(graphicItemCollection.StartMenuItem)
 {
-    _pauseItem = nullptr;
-    _resumeItem = nullptr;
-    _startMenuItem = nullptr;
-}
-
-void PauseMenuRenderer::Init(GraphicItemCollection& graphicItemCollection)
-{
-    _pauseItem = &graphicItemCollection.PauseItem;
-    _resumeItem = &graphicItemCollection.ResumeItem;
-    _startMenuItem = &graphicItemCollection.StartMenuItem;
 }
 
 void PauseMenuRenderer::Render(Screen& screen)
@@ -35,18 +30,18 @@ void PauseMenuRenderer::RenderMenu(PauseMenuScreen& screen)
 {
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
     glTranslatef(
-        (Constants::ScreenWidth - _pauseItem->GetWidth()) / 2.0f,
-        (Constants::ScreenHeight - _pauseItem->GetHeight()) / 2.0f + 200.0f,
+        (Constants::ScreenWidth - _pauseItem.GetWidth()) / 2.0f,
+        (Constants::ScreenHeight - _pauseItem.GetHeight()) / 2.0f + 200.0f,
         0.0f);
-    _pauseItem->Render();
+    _pauseItem.Render();
 
     _selectedItemColor.SetColorForSelectedItem(PauseMenuItem::Resume == screen.GetSelectedItem());
     glTranslatef(0.0f, -200.0f, 0.0f);
-    _resumeItem->Render();
+    _resumeItem.Render();
 
     _selectedItemColor.SetColorForSelectedItem(PauseMenuItem::StartMenu == screen.GetSelectedItem());
     glTranslatef(0.0f, -75.0f, 0.0f);
-    _startMenuItem->Render();
+    _startMenuItem.Render();
 }
 
 void PauseMenuRenderer::RenderDarkBackground()
@@ -62,5 +57,7 @@ void PauseMenuRenderer::RenderDarkBackground()
 
 PauseMenuRenderer* PauseMenuRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new PauseMenuRenderer(resolver.Resolve<RaceRenderer>());
+    return new PauseMenuRenderer(
+        resolver.Resolve<GraphicItemCollection>(),
+        resolver.Resolve<RaceRenderer>());
 }

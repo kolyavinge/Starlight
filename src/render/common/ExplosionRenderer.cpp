@@ -2,9 +2,9 @@
 #include <calc/Geometry.h>
 #include <render/common/ExplosionRenderer.h>
 
-ExplosionRenderer::ExplosionRenderer(FramedTexture& explosionTexture)
+ExplosionRenderer::ExplosionRenderer(GraphicItemCollection& graphicItemCollection) :
+    _explosionTexture(graphicItemCollection.ExplosionTexture)
 {
-    _explosionTexture = &explosionTexture;
 }
 
 void ExplosionRenderer::Init()
@@ -57,7 +57,7 @@ void ExplosionRenderer::MakeNewAnimations(Ship& player, IArray<Ship*>& allShips)
             Vector3 pivot;
             Geometry::RotateCoordinateSystem3d(unitX, vx, unitY, vz, radians, pivot);
 
-            _animations.Add(AnimatedTexturedRect(*_explosionTexture, 4));
+            _animations.Add(AnimatedTexturedRect(_explosionTexture, 4));
             _animations[_animations.GetCount() - 1].Activate();
             _positions.Add(ship.Border.DownLeft);
             _radians.Add(radians);
@@ -89,5 +89,5 @@ void ExplosionRenderer::ClearAnimations()
 
 ExplosionRenderer* ExplosionRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ExplosionRenderer(resolver.Resolve<FramedTexture>());
+    return new ExplosionRenderer(resolver.Resolve<GraphicItemCollection>());
 }

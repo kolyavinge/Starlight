@@ -5,18 +5,18 @@
 #include <lib/di/ResolvingFactory.h>
 #include <model/PowerUp.h>
 #include <gl/Texture.h>
+#include <render/common/GraphicItemCollection.h>
 
 class PowerUpRenderer : public Object
 {
     float _angleDegrees;
-    Texture* _healthTexture;
-    Texture* _machinegunTexture;
-    Texture* _nitroTexture;
+    Texture& _healthTexture;
+    Texture& _machinegunTexture;
+    Texture& _nitroTexture;
 
 public:
-    PowerUpRenderer();
+    PowerUpRenderer(GraphicItemCollection& graphicItemCollection);
 
-    void Init(Texture& healthTexture, Texture& machinegunTexture, Texture& nitroTexture);
     void Render(IArray<PowerUp>& powerUps);
 
 private:

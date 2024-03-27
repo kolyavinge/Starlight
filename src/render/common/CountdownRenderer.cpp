@@ -3,19 +3,11 @@
 #include <render/common/RenderConstants.h>
 #include <render/common/CountdownRenderer.h>
 
-CountdownRenderer::CountdownRenderer()
+CountdownRenderer::CountdownRenderer(GraphicItemCollection& graphicItemCollection)
 {
-    _countdownItems.InitZero();
-}
-
-void CountdownRenderer::Init(
-    TexturedRect& countdown1Item,
-    TexturedRect& countdown2Item,
-    TexturedRect& countdown3Item)
-{
-    _countdownItems[1] = &countdown1Item;
-    _countdownItems[2] = &countdown2Item;
-    _countdownItems[3] = &countdown3Item;
+    _countdownItems[1] = &graphicItemCollection.Countdown1Item;
+    _countdownItems[2] = &graphicItemCollection.Countdown2Item;
+    _countdownItems[3] = &graphicItemCollection.Countdown3Item;
 }
 
 void CountdownRenderer::Render(int countdownNumber, int countdownIteration, int countdownSwitchIteration)
@@ -36,7 +28,7 @@ void CountdownRenderer::Render(int countdownNumber, int countdownIteration, int 
     glPopMatrix();
 }
 
-CountdownRenderer* CountdownRendererResolvingFactory::Make(Resolver&)
+CountdownRenderer* CountdownRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new CountdownRenderer();
+    return new CountdownRenderer(resolver.Resolve<GraphicItemCollection>());
 }
