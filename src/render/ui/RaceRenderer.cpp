@@ -73,3 +73,17 @@ void RaceRenderer::Render(Race& race)
     _dashboardRenderer.Render(race.Player, race.Laps);
     glDisable(GL_BLEND);
 }
+
+RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new RaceRenderer(
+        resolver.Resolve<BackgroundRenderer>(),
+        resolver.Resolve<StarsRenderer>(),
+        resolver.Resolve<ShipsRenderer>(),
+        resolver.Resolve<TrackRenderer>(),
+        resolver.Resolve<BulletsRenderer>(),
+        resolver.Resolve<EnemyShipsHealthRenderer>(),
+        resolver.Resolve<ExplosionRenderer>(),
+        resolver.Resolve<PowerUpRenderer>(),
+        resolver.Resolve<DashboardRenderer>());
+}

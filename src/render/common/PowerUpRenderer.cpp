@@ -77,3 +77,8 @@ void PowerUpRenderer::RenderRect(PowerUp& powerUp)
 
     glPopMatrix();
 }
+
+PowerUpRenderer* PowerUpRendererResolvingFactory::Make(Resolver&)
+{
+    return new PowerUpRenderer();
+}

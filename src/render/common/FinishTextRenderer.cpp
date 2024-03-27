@@ -83,3 +83,8 @@ void FinishTextRenderer::UpdateZCoords()
     }
     _phase -= 0.15f;
 }
+
+FinishTextRenderer* FinishTextRendererResolvingFactory::Make(Resolver&)
+{
+    return new FinishTextRenderer();
+}

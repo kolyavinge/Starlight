@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <render/common/ShipMesh.h>
 
@@ -17,4 +18,10 @@ private:
     void RenderPlayer(Ship& player);
     void RenderEnemies(IArray<Ship>& enemies);
     void RenderShip(Ship& ship, int defaultTexture);
+};
+
+class ShipsRendererResolvingFactory : public ResolvingFactory<ShipsRenderer>
+{
+public:
+    ShipsRenderer* Make(Resolver& resolver) override;
 };

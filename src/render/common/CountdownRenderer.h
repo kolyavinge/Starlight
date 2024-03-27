@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Array.h>
+#include <lib/di/ResolvingFactory.h>
 #include <gl/TexturedRect.h>
 
 class CountdownRenderer : public Object
@@ -17,4 +18,10 @@ public:
         TexturedRect& countdown3Item);
 
     void Render(int countdownNumber, int countdownIteration, int countdownSwitchIteration);
+};
+
+class CountdownRendererResolvingFactory : public ResolvingFactory<CountdownRenderer>
+{
+public:
+    CountdownRenderer* Make(Resolver& resolver) override;
 };

@@ -21,3 +21,8 @@ void RenderManager::InitGL()
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     if (glewInit() != GLEW_NO_ERROR) throw RenderManagerException();
 }
+
+RenderManager* RenderManagerResolvingFactory::Make(Resolver&)
+{
+    return new RenderManager();
+}

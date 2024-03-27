@@ -41,3 +41,8 @@ void TrackThumbnailGridRenderer::Render(TrackSelectorScreen& screen)
     }
     _selectedItemColor.Update();
 }
+
+TrackThumbnailGridRenderer* TrackThumbnailGridRendererResolvingFactory::Make(Resolver&)
+{
+    return new TrackThumbnailGridRenderer();
+}

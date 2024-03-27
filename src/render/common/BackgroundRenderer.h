@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <gl/Texture.h>
 #include <render/common/BackgroundSphere.h>
 
@@ -19,4 +20,10 @@ public:
 
 private:
     void RenderSphereSegment(int level, int point);
+};
+
+class BackgroundRendererResolvingFactory : public ResolvingFactory<BackgroundRenderer>
+{
+public:
+    BackgroundRenderer* Make(Resolver& resolver) override;
 };

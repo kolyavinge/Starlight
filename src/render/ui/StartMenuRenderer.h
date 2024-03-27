@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <ui/StartMenuScreen.h>
 #include <gl/TexturedRect.h>
@@ -23,4 +24,10 @@ public:
 
 private:
     void RenderMenu(StartMenuScreen& screen);
+};
+
+class StartMenuRendererResolvingFactory : public ResolvingFactory<StartMenuRenderer>
+{
+public:
+    StartMenuRenderer* Make(Resolver& resolver) override;
 };

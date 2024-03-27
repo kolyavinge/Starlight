@@ -20,3 +20,8 @@ void GraphicItemCollection::Init()
     PowerUpMachinegunTexture.Load(GraphicResources::GetPowerUpMachinegunFilePath());
     PowerUpNitroTexture.Load(GraphicResources::GetPowerUpNitroFilePath());
 }
+
+GraphicItemCollection* GraphicItemCollectionResolvingFactory::Make(Resolver&)
+{
+    return new GraphicItemCollection();
+}

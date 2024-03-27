@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <render/effect/FadeEffect.h>
 #include <render/common/FinishTextRenderer.h>
@@ -20,4 +21,10 @@ public:
     void Init(GraphicItemCollection& graphicItemCollection) override;
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
+};
+
+class FinishRendererResolvingFactory : public ResolvingFactory<FinishRenderer>
+{
+public:
+    FinishRenderer* Make(Resolver& resolver) override;
 };

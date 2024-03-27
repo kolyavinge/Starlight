@@ -70,3 +70,8 @@ void TrackThumbnailRenderer::RenderBorder()
     glVertex3f(0.0f, TrackThumbnail::Height, 0.0f);
     glEnd();
 }
+
+TrackThumbnailRenderer* TrackThumbnailRendererResolvingFactory::Make(Resolver&)
+{
+    return new TrackThumbnailRenderer();
+}

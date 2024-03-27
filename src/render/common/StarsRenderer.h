@@ -2,9 +2,10 @@
 
 #include <lib/Object.h>
 #include <lib/List.h>
+#include <lib/di/ResolvingFactory.h>
 #include <anx/RandomSpherePoints.h>
 
-class StarsRenderer : Object
+class StarsRenderer : public Object
 {
     RandomSpherePoints _stars;
     List<float> _glow;
@@ -17,4 +18,10 @@ public:
 
 private:
     void InitGlow();
+};
+
+class StarsRendererResolvingFactory : public ResolvingFactory<StarsRenderer>
+{
+public:
+    StarsRenderer* Make(Resolver& resolver) override;
 };

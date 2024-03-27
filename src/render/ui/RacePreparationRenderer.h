@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <render/effect/FadeEffect.h>
 #include <render/common/BackgroundRenderer.h>
@@ -29,4 +30,10 @@ public:
     void Init(GraphicItemCollection& graphicItemCollection) override;
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
+};
+
+class RacePreparationRendererResolvingFactory : public ResolvingFactory<RacePreparationRenderer>
+{
+public:
+    RacePreparationRenderer* Make(Resolver& resolver) override;
 };

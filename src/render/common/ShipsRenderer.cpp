@@ -59,3 +59,8 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
         Assert::Fail();
     }
 }
+
+ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver&)
+{
+    return new ShipsRenderer();
+}

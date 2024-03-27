@@ -46,3 +46,8 @@ void TrackRenderer::RenderEdges(Track& track)
 
     glEnd();
 }
+
+TrackRenderer* TrackRendererResolvingFactory::Make(Resolver&)
+{
+    return new TrackRenderer();
+}

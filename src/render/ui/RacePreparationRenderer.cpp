@@ -55,3 +55,12 @@ void RacePreparationRenderer::Render(Screen& screen)
         racePreparationScreen.GetCountdownSwitchIteration());
     glDisable(GL_BLEND);
 }
+
+RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new RacePreparationRenderer(
+        resolver.Resolve<BackgroundRenderer>(),
+        resolver.Resolve<StarsRenderer>(),
+        resolver.Resolve<ShipsRenderer>(),
+        resolver.Resolve<TrackRenderer>());
+}

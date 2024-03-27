@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <ui/TrackSelectorScreen.h>
 #include <gl/TexturedRect.h>
@@ -26,4 +27,10 @@ public:
 
 private:
     void RenderMenu(TrackSelectorScreen& screen);
+};
+
+class TrackSelectorRendererResolvingFactory : public ResolvingFactory<TrackSelectorRenderer>
+{
+public:
+    TrackSelectorRenderer* Make(Resolver& resolver) override;
 };

@@ -3,6 +3,7 @@
 #include <lib/Object.h>
 #include <lib/IArray.h>
 #include <lib/List.h>
+#include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
 #include <gl/FramedTexture.h>
@@ -27,4 +28,10 @@ private:
     void MakeNewAnimations(Ship& player, IArray<Ship*>& allShips);
     bool AllAnimationsInnactive();
     void ClearAnimations();
+};
+
+class ExplosionRendererResolvingFactory : public ResolvingFactory<ExplosionRenderer>
+{
+public:
+    ExplosionRenderer* Make(Resolver& resolver) override;
 };

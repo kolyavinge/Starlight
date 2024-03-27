@@ -63,3 +63,8 @@ void CompleteLapTimeRenderer::RenderLastLap()
     _textRenderer.Render(_lastLapMessageString);
     glPopMatrix();
 }
+
+CompleteLapTimeRenderer* CompleteLapTimeRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new CompleteLapTimeRenderer(resolver.Resolve<TextRenderer>());
+}

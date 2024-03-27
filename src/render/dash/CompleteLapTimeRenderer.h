@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/String.h>
+#include <lib/di/ResolvingFactory.h>
 #include <core/Laps.h>
 #include <gl/TextRenderer.h>
 
@@ -22,4 +23,10 @@ public:
 private:
     void RenderLapTime();
     void RenderLastLap();
+};
+
+class CompleteLapTimeRendererResolvingFactory : public ResolvingFactory<CompleteLapTimeRenderer>
+{
+public:
+    CompleteLapTimeRenderer* Make(Resolver& resolver) override;
 };

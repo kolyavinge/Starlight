@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
 #include <ui/Screen.h>
 #include <render/common/BackgroundRenderer.h>
@@ -44,4 +45,10 @@ public:
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
     void Render(Race& race);
+};
+
+class RaceRendererResolvingFactory : public ResolvingFactory<RaceRenderer>
+{
+public:
+    RaceRenderer* Make(Resolver& resolver) override;
 };

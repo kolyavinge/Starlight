@@ -35,3 +35,8 @@ void FinishRenderer::Render(Screen& screen)
     _fadeEffect.Render();
     glDisable(GL_BLEND);
 }
+
+FinishRenderer* FinishRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new FinishRenderer(resolver.Resolve<RaceRenderer>());
+}

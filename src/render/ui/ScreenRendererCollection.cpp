@@ -49,3 +49,8 @@ ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
 {
     return *_renderers[(int)screen.Kind];
 }
+
+ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolver&)
+{
+    return new ScreenRendererCollection();
+}

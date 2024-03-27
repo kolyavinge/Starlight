@@ -25,3 +25,8 @@ void LapTimeRenderer::Render(Laps& laps)
 
     glPopMatrix();
 }
+
+LapTimeRenderer* LapTimeRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new LapTimeRenderer(resolver.Resolve<TextRenderer>());
+}

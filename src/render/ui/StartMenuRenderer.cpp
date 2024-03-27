@@ -42,3 +42,8 @@ void StartMenuRenderer::RenderMenu(StartMenuScreen& screen)
 
     glDisable(GL_BLEND);
 }
+
+StartMenuRenderer* StartMenuRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new StartMenuRenderer(resolver.Resolve<MenuBackgroundRenderer>());
+}

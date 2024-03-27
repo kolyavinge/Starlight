@@ -28,3 +28,8 @@ void LapsCountRenderer::Render(Laps& laps)
 
     glPopMatrix();
 }
+
+LapsCountRenderer* LapsCountRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new LapsCountRenderer(resolver.Resolve<TextRenderer>());
+}

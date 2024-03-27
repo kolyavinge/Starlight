@@ -36,3 +36,8 @@ void GoRenderer::Render()
 
     glPopMatrix();
 }
+
+GoRenderer* GoRendererResolvingFactory::Make(Resolver&)
+{
+    return new GoRenderer();
+}

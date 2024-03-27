@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <gl/Texture.h>
 #include <gl/TexturedRect.h>
 #include <gl/FramedTexture.h>
@@ -26,4 +27,10 @@ public:
     FramedTexture ExplosionTexture;
 
     void Init();
+};
+
+class GraphicItemCollectionResolvingFactory : public ResolvingFactory<GraphicItemCollection>
+{
+public:
+    GraphicItemCollection* Make(Resolver& resolver) override;
 };

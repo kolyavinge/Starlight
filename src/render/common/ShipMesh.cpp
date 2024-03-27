@@ -44,3 +44,8 @@ void ShipMesh::SetPosition(Ship& ship)
     glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
     glRotatef(Geometry::RadiansToDegrees(ship.GetRollRadians()), 0.0f, 1.0f, 0.0f);
 }
+
+ShipMesh* ShipMeshResolvingFactory::Make(Resolver&)
+{
+    return new ShipMesh();
+}

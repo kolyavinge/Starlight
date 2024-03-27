@@ -33,3 +33,10 @@ void MenuBackgroundRenderer::Render()
     _starsRenderer.Render();
     _turnDegrees = Geometry::NormalizeDegrees(_turnDegrees + 0.05f);
 }
+
+MenuBackgroundRenderer* MenuBackgroundRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new MenuBackgroundRenderer(
+        resolver.Resolve<BackgroundRenderer>(),
+        resolver.Resolve<StarsRenderer>());
+}

@@ -26,3 +26,8 @@ void DashboardRenderer::Render(Ship& player, Laps& laps)
     _bulletsCountRenderer.Render(player.Weapon);
     _nitroCountRenderer.Render(player.Nitros);
 }
+
+DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new DashboardRenderer(resolver.Resolve<TextRenderer>());
+}

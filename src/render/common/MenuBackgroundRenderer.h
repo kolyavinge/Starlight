@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/StarsRenderer.h>
@@ -21,4 +22,10 @@ public:
 
     void Init();
     void Render();
+};
+
+class MenuBackgroundRendererResolvingFactory : public ResolvingFactory<MenuBackgroundRenderer>
+{
+public:
+    MenuBackgroundRenderer* Make(Resolver& resolver) override;
 };

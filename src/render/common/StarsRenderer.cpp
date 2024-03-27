@@ -37,3 +37,8 @@ void StarsRenderer::InitGlow()
         _glowSteps.Add(rand.GetFloatFromZeroToN(0.1f));
     }
 }
+
+StarsRenderer* StarsRendererResolvingFactory::Make(Resolver&)
+{
+    return new StarsRenderer();
+}

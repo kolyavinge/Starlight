@@ -38,3 +38,8 @@ void PlayerShipHealthRenderer::Render(Ship& player)
 
     glPopMatrix();
 }
+
+PlayerShipHealthRenderer* PlayerShipHealthRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new PlayerShipHealthRenderer(resolver.Resolve<TextRenderer>());
+}

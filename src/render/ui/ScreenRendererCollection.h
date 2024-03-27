@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Array.h>
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <gl/TextRenderer.h>
 #include <render/common/BackgroundRenderer.h>
@@ -53,4 +54,10 @@ public:
 
     void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);
+};
+
+class ScreenRendererCollectionResolvingFactory : public ResolvingFactory<ScreenRendererCollection>
+{
+public:
+    ScreenRendererCollection* Make(Resolver& resolver) override;
 };

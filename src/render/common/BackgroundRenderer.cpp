@@ -58,3 +58,8 @@ void BackgroundRenderer::RenderSphereSegment(int level, int point)
     glTexCoord2f(1.0f - textureXNext, textureY);
     glVertex3f(_sphere.GetPoint(level, nextPoint));
 }
+
+BackgroundRenderer* BackgroundRendererResolvingFactory::Make(Resolver&)
+{
+    return new BackgroundRenderer();
+}

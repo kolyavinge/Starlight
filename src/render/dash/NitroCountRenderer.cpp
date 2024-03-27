@@ -23,3 +23,8 @@ void NitroCountRenderer::Render(NitroCollection& nitros)
     _textRenderer.Render(_nitrosCountString);
     glPopMatrix();
 }
+
+NitroCountRenderer* NitroCountRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new NitroCountRenderer(resolver.Resolve<TextRenderer>());
+}

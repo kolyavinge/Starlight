@@ -57,3 +57,8 @@ void TrackSelectorRenderer::RenderMenu(TrackSelectorScreen& screen)
     _backItem->Render();
     glPopMatrix();
 }
+
+TrackSelectorRenderer* TrackSelectorRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new TrackSelectorRenderer(resolver.Resolve<MenuBackgroundRenderer>());
+}

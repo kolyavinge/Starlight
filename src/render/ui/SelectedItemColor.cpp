@@ -18,3 +18,8 @@ void SelectedItemColor::Update()
 {
     _selectedItemAlpha.UpdateBy(0.05f);
 }
+
+SelectedItemColor* SelectedItemColorResolvingFactory::Make(Resolver&)
+{
+    return new SelectedItemColor();
+}

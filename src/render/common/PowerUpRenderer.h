@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/IArray.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/PowerUp.h>
 #include <gl/Texture.h>
 
@@ -21,4 +22,10 @@ public:
 private:
     void BindTexture(PowerUp& powerUp);
     void RenderRect(PowerUp& powerUp);
+};
+
+class PowerUpRendererResolvingFactory : public ResolvingFactory<PowerUpRenderer>
+{
+public:
+    PowerUpRenderer* Make(Resolver& resolver) override;
 };

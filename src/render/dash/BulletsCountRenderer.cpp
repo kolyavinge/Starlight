@@ -23,3 +23,8 @@ void BulletsCountRenderer::Render(Weapon& weapon)
     _textRenderer.Render(_bulletsString);
     glPopMatrix();
 }
+
+BulletsCountRenderer* BulletsCountRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new BulletsCountRenderer(resolver.Resolve<TextRenderer>());
+}

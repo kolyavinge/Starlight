@@ -53,3 +53,8 @@ void EnemyShipsHealthRenderer::Render(Ship& ship)
 
     glPopMatrix();
 }
+
+EnemyShipsHealthRenderer* EnemyShipsHealthRendererResolvingFactory::Make(Resolver&)
+{
+    return new EnemyShipsHealthRenderer();
+}

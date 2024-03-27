@@ -86,3 +86,8 @@ void ExplosionRenderer::ClearAnimations()
     _radians.Clear();
     _pivots.Clear();
 }
+
+ExplosionRenderer* ExplosionRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new ExplosionRenderer(resolver.Resolve<FramedTexture>());
+}

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Track.h>
 
 class TrackThumbnail
@@ -26,4 +27,10 @@ private:
     void RenderTrack(Track& track);
     void RenderStartFinishLine(Track& track);
     void RenderBorder();
+};
+
+class TrackThumbnailRendererResolvingFactory : public ResolvingFactory<TrackThumbnailRenderer>
+{
+public:
+    TrackThumbnailRenderer* Make(Resolver& resolver) override;
 };

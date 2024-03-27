@@ -29,3 +29,8 @@ void CompleteLapsTimeListRenderer::Render(Laps& laps)
         glPopMatrix();
     }
 }
+
+CompleteLapsTimeListRenderer* CompleteLapsTimeListRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new CompleteLapsTimeListRenderer(resolver.Resolve<TextRenderer>());
+}

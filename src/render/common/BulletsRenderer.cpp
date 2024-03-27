@@ -41,3 +41,8 @@ void BulletsRenderer::RenderBullet(Bullet& bullet)
     glEnd();
     glLineWidth(Constants::RenderLineWidth);
 }
+
+BulletsRenderer* BulletsRendererResolvingFactory::Make(Resolver&)
+{
+    return new BulletsRenderer();
+}

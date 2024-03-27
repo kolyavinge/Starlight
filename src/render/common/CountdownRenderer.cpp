@@ -35,3 +35,8 @@ void CountdownRenderer::Render(int countdownNumber, int countdownIteration, int 
 
     glPopMatrix();
 }
+
+CountdownRenderer* CountdownRendererResolvingFactory::Make(Resolver&)
+{
+    return new CountdownRenderer();
+}

@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Array.h>
+#include <lib/di/ResolvingFactory.h>
 #include <gl/Texture.h>
 
 class FinishTextRenderer : public Object
@@ -26,4 +27,10 @@ public:
 
 private:
     void UpdateZCoords();
+};
+
+class FinishTextRendererResolvingFactory : public ResolvingFactory<FinishTextRenderer>
+{
+public:
+    FinishTextRenderer* Make(Resolver& resolver) override;
 };

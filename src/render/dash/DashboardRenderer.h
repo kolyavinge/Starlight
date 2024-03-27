@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <core/Laps.h>
 #include <gl/TextRenderer.h>
@@ -27,4 +28,10 @@ public:
 
     void Init();
     void Render(Ship& player, Laps& laps);
+};
+
+class DashboardRendererResolvingFactory : public ResolvingFactory<DashboardRenderer>
+{
+public:
+    DashboardRenderer* Make(Resolver& resolver) override;
 };

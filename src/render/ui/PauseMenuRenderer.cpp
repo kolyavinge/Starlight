@@ -59,3 +59,8 @@ void PauseMenuRenderer::RenderDarkBackground()
     glVertex3f(0.0f, Constants::ScreenHeight, 0.0f);
     glEnd();
 }
+
+PauseMenuRenderer* PauseMenuRendererResolvingFactory::Make(Resolver& resolver)
+{
+    return new PauseMenuRenderer(resolver.Resolve<RaceRenderer>());
+}

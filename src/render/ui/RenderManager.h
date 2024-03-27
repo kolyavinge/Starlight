@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/ScreenRendererCollection.h>
@@ -18,4 +19,10 @@ public:
 
 private:
     void InitGL();
+};
+
+class RenderManagerResolvingFactory : public ResolvingFactory<RenderManager>
+{
+public:
+    RenderManager* Make(Resolver& resolver) override;
 };
