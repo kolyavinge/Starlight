@@ -27,18 +27,6 @@ public:
         return _resolver.Resolve<TInstance>();
     }
 
-    template<class TInstance, class TResolvingFactory>
-    void BindSingletonByFactory()
-    {
-        return _binder.BindSingletonByFactory<TInstance, TResolvingFactory>();
-    }
-
-    template<class TInstance, class TResolvingFactory>
-    void BindByFactory()
-    {
-        return _binder.BindByFactory<TInstance, TResolvingFactory>();
-    }
-
     void InitFromModule(InjectModule& module)
     {
         module.Init(_binder);

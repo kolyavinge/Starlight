@@ -7,7 +7,7 @@
 #include <lib/di/InstanceHolder.h>
 
 template<class TResolvingFactory>
-class DefaultInstanceHolder : public InstanceHolder
+class ResolvingFactoryInstanceHolder : public InstanceHolder
 {
 public:
     Object* GetInstance(Resolver& resolver) override

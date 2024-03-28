@@ -1,37 +1,18 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/Object.h>
-#include <lib/Assert.h>
+#include <lib/String.h>
 #include <lib/di/Resolver.h>
 #include <lib/di/InstanceHolder.h>
 
-template<class TResolvingFactory>
 class SingletonInstanceHolder : public InstanceHolder
 {
+    InstanceHolder* _instanceHolder;
     Object* _instance;
 
 public:
-    SingletonInstanceHolder()
-    {
-        _instance = nullptr;
-    }
+    SingletonInstanceHolder(InstanceHolder* instanceHolder);
 
-    Object* GetInstance(Resolver& resolver) override
-    {
-        if (_instance == nullptr)
-        {
-            InstancesCount = 1;
-            TResolvingFactory factory{};
-            _instance = (Object*)factory.Make(resolver);
-            Assert::False(_instance == nullptr);
-        }
-
-        return _instance;
-    }
-
-    String GetInstanceName() override
-    {
-        return String(typeid(TResolvingFactory).name());
-    }
+    Object* GetInstance(Resolver& resolver) override;
+    String GetInstanceName() override;
 };

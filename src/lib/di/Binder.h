@@ -3,7 +3,7 @@
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
 #include <lib/di/InstanceCollection.h>
-#include <lib/di/DefaultInstanceHolder.h>
+#include <lib/di/ResolvingFactoryInstanceHolder.h>
 #include <lib/di/SingletonInstanceHolder.h>
 
 class BindException : public Exception { };
@@ -19,11 +19,11 @@ public:
     }
 
     template<class TInstance, class TResolvingFactory>
-    void BindSingletonByFactory()
+    void BindByFactory()
     {
         if (!_instances.ContainsType(typeid(TInstance)))
         {
-            _instances.Add(typeid(TInstance), new SingletonInstanceHolder<TResolvingFactory>());
+            _instances.Add(typeid(TInstance), new ResolvingFactoryInstanceHolder<TResolvingFactory>());
         }
         else
         {
@@ -32,11 +32,11 @@ public:
     }
 
     template<class TInstance, class TResolvingFactory>
-    void BindByFactory()
+    void BindSingletonByFactory()
     {
         if (!_instances.ContainsType(typeid(TInstance)))
         {
-            _instances.Add(typeid(TInstance), new DefaultInstanceHolder<TResolvingFactory>());
+            _instances.Add(typeid(TInstance), new SingletonInstanceHolder(new ResolvingFactoryInstanceHolder<TResolvingFactory>()));
         }
         else
         {

@@ -71,7 +71,7 @@
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
     <ClInclude Include="src\lib\di\Binder.h" />
-    <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
+    <ClInclude Include="src\lib\di\ResolvingFactoryInstanceHolder.h" />
     <ClInclude Include="src\lib\di\DependencyContainer.h" />
     <ClInclude Include="src\lib\di\InjectModule.h" />
     <ClInclude Include="src\lib\di\InstanceCollection.h" />
@@ -272,6 +272,7 @@
     <ClCompile Include="src\lib\DateTime.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
     <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
+    <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
     <ClCompile Include="src\lib\NumericConverter.cpp" />

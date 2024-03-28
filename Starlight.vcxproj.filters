@@ -187,7 +187,7 @@
     <ClInclude Include="src\game\inject\AIInjectModule.h" />
     <ClInclude Include="src\game\GameFactory.h" />
     <ClInclude Include="src\game\inject\GameInjectModule.h" />
-    <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
+    <ClInclude Include="src\lib\di\ResolvingFactoryInstanceHolder.h" />
     <ClInclude Include="src\game\inject\RenderInjectModule.h" />
     <ClInclude Include="src\game\inject\UIInjectModule.h" />
     <ClInclude Include="src\game\inject\VoxInjectModule.h" />
@@ -359,6 +359,7 @@
     <ClCompile Include="src\game\inject\RenderInjectModule.cpp" />
     <ClCompile Include="src\game\inject\UIInjectModule.cpp" />
     <ClCompile Include="src\game\inject\VoxInjectModule.cpp" />
+    <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
