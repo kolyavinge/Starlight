@@ -16,3 +16,8 @@ void PauseMenuVox::Voice(Screen& screen)
     PauseMenuScreen& pauseMenuScreen = (PauseMenuScreen&)screen;
     _menuItemVox.Voice(pauseMenuScreen.GetSelectedItem());
 }
+
+PauseMenuVox* PauseMenuVoxResolvingFactory::Make(Resolver&)
+{
+    return new PauseMenuVox();
+}

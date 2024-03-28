@@ -29,3 +29,8 @@ void RacePreparationVox::Voice(Screen& screen)
         _countdownSample->Play();
     }
 }
+
+RacePreparationVox* RacePreparationVoxResolvingFactory::Make(Resolver&)
+{
+    return new RacePreparationVox();
+}

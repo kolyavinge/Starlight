@@ -53,3 +53,8 @@ void RaceVox::Voice(Screen& screen)
         }
     }
 }
+
+RaceVox* RaceVoxResolvingFactory::Make(Resolver&)
+{
+    return new RaceVox();
+}

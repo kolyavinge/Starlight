@@ -16,3 +16,8 @@ void StartMenuVox::Voice(Screen& screen)
     StartMenuScreen& startMenuScreen = (StartMenuScreen&)screen;
     _menuItemVox.Voice(startMenuScreen.GetSelectedItem());
 }
+
+StartMenuVox* StartMenuVoxResolvingFactory::Make(Resolver&)
+{
+    return new StartMenuVox();
+}

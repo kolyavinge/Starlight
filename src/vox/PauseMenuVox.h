@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <ui/PauseMenuScreen.h>
 #include <vox/ScreenVox.h>
@@ -15,4 +16,10 @@ public:
 
     void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
+};
+
+class PauseMenuVoxResolvingFactory : public ResolvingFactory<PauseMenuVox>
+{
+public:
+    PauseMenuVox* Make(Resolver& resolver) override;
 };

@@ -23,3 +23,8 @@ ScreenVox& ScreenVoxCollection::GetScreenVox(Screen& screen)
 {
     return *_vox[(int)screen.Kind];
 }
+
+ScreenVoxCollection* ScreenVoxCollectionResolvingFactory::Make(Resolver&)
+{
+    return new ScreenVoxCollection();
+}

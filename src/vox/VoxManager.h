@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <vox/ScreenVox.h>
 #include <vox/ScreenVoxCollection.h>
@@ -18,4 +19,10 @@ public:
 
 private:
     void InitAL();
+};
+
+class VoxManagerResolvingFactory : public ResolvingFactory<VoxManager>
+{
+public:
+    VoxManager* Make(Resolver& resolver) override;
 };

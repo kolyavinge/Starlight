@@ -10,3 +10,8 @@ void SampleCollection::Init()
     ExplosionSample.Load(AudioResources::GetExplosionWavFilePath());
     PowerUpPickSample.Load(AudioResources::GetPowerUpPickWavFilePath());
 }
+
+SampleCollection* SampleCollectionResolvingFactory::Make(Resolver&)
+{
+    return new SampleCollection();
+}

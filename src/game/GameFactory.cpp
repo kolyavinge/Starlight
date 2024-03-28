@@ -4,6 +4,7 @@
 #include <game/AIInjectModule.h>
 #include <game/RenderInjectModule.h>
 #include <game/UIInjectModule.h>
+#include <game/VoxInjectModule.h>
 #include <game/GameInjectModule.h>
 #include <game/GameFactory.h>
 
@@ -13,6 +14,7 @@ Game& GameFactory::MakeNewGame()
     AIInjectModule aiInjectModule;
     RenderInjectModule renderInjectModule;
     UIInjectModule uiInjectModule;
+    VoxInjectModule voxInjectModule;
     GameInjectModule gameInjectModule;
 
     DependencyContainer container;
@@ -20,6 +22,7 @@ Game& GameFactory::MakeNewGame()
     container.InitFromModule(aiInjectModule);
     container.InitFromModule(renderInjectModule);
     container.InitFromModule(uiInjectModule);
+    container.InitFromModule(voxInjectModule);
     container.InitFromModule(gameInjectModule);
 
     Game& game = container.Resolve<Game>();

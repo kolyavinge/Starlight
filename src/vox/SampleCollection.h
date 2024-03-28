@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <lib/Object.h>
 #include <audio/AudioSample.h>
 
@@ -14,4 +15,10 @@ public:
     AudioSample PowerUpPickSample;
 
     void Init();
+};
+
+class SampleCollectionResolvingFactory : public ResolvingFactory<SampleCollection>
+{
+public:
+    SampleCollection* Make(Resolver& resolver) override;
 };

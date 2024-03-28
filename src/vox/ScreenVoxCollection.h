@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Array.h>
+#include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <vox/SampleCollection.h>
 #include <vox/ScreenVox.h>
@@ -28,4 +29,10 @@ public:
 
     void Init();
     ScreenVox& GetScreenVox(Screen& screen);
+};
+
+class ScreenVoxCollectionResolvingFactory : public ResolvingFactory<ScreenVoxCollection>
+{
+public:
+    ScreenVoxCollection* Make(Resolver& resolver) override;
 };

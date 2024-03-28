@@ -16,3 +16,8 @@ void TrackSelectorVox::Voice(Screen& screen)
     TrackSelectorScreen& trackSelectorScreen = (TrackSelectorScreen&)screen;
     _menuItemVox.Voice(trackSelectorScreen.GetSelectedItem());
 }
+
+TrackSelectorVox* TrackSelectorVoxResolvingFactory::Make(Resolver&)
+{
+    return new TrackSelectorVox();
+}

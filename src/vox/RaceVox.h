@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <audio/AudioSample.h>
 #include <ui/Screen.h>
 #include <vox/ScreenVox.h>
@@ -17,4 +18,10 @@ public:
 
     void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
+};
+
+class RaceVoxResolvingFactory : public ResolvingFactory<RaceVox>
+{
+public:
+    RaceVox* Make(Resolver& resolver) override;
 };

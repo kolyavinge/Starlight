@@ -190,6 +190,7 @@
     <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
     <ClInclude Include="src\game\RenderInjectModule.h" />
     <ClInclude Include="src\game\UIInjectModule.h" />
+    <ClInclude Include="src\game\VoxInjectModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -357,6 +358,7 @@
     <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
     <ClCompile Include="src\game\RenderInjectModule.cpp" />
     <ClCompile Include="src\game\UIInjectModule.cpp" />
+    <ClCompile Include="src\game\VoxInjectModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

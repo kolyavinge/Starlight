@@ -20,3 +20,8 @@ void VoxManager::InitAL()
     ALCcontext* context = alcCreateContext(device, nullptr);
     if (!alcMakeContextCurrent(context)) throw VoxManagerException();
 }
+
+VoxManager* VoxManagerResolvingFactory::Make(Resolver&)
+{
+    return new VoxManager();
+}
