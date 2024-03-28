@@ -8,9 +8,11 @@
 
 class ShipsRenderer : public Object
 {
-    ShipMesh _shipMesh;
+    ShipMesh& _shipMesh;
 
 public:
+    ShipsRenderer(ShipMesh& shipMesh);
+
     void Init();
     void Render(Ship& player, IArray<Ship>& enemies);
 

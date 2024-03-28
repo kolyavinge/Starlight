@@ -1,6 +1,5 @@
 #pragma once
 
-#include <lib/di/ResolvingFactory.h>
 #include <core/Constants.h>
 #include <calc/Sphere.h>
 
@@ -12,10 +11,4 @@ public:
     inline static const int LevelPointsCount = 180;
 
     BackgroundSphere();
-};
-
-class BackgroundSphereResolvingFactory : public ResolvingFactory<BackgroundSphere>
-{
-public:
-    BackgroundSphere* Make(Resolver& resolver) override;
 };

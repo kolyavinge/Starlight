@@ -2,6 +2,11 @@
 #include <lib/Assert.h>
 #include <render/common/ShipsRenderer.h>
 
+ShipsRenderer::ShipsRenderer(ShipMesh& shipMesh) :
+    _shipMesh(shipMesh)
+{
+}
+
 void ShipsRenderer::Init()
 {
     _shipMesh.Init();
@@ -60,7 +65,7 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
     }
 }
 
-ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver&)
+ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipsRenderer();
+    return new ShipsRenderer(resolver.Resolve<ShipMesh>());
 }
