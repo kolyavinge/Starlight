@@ -11,9 +11,11 @@ class VoxManagerException : public Exception { };
 
 class VoxManager : public Object
 {
-    ScreenVoxCollection _voxCollection;
+    ScreenVoxCollection& _voxCollection;
 
 public:
+    VoxManager(ScreenVoxCollection& voxCollection);
+
     void Init();
     ScreenVox& GetScreenVox(Screen& screen);
 

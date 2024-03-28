@@ -1,12 +1,8 @@
 #include <ui/PauseMenuScreen.h>
 #include <vox/PauseMenuVox.h>
 
-PauseMenuVox::PauseMenuVox() :
+PauseMenuVox::PauseMenuVox(SampleCollection& sampleCollection) :
     _menuItemVox(PauseMenuItem::Resume)
-{
-}
-
-void PauseMenuVox::Init(SampleCollection& sampleCollection)
 {
     _menuItemVox.Init(sampleCollection);
 }
@@ -17,7 +13,7 @@ void PauseMenuVox::Voice(Screen& screen)
     _menuItemVox.Voice(pauseMenuScreen.GetSelectedItem());
 }
 
-PauseMenuVox* PauseMenuVoxResolvingFactory::Make(Resolver&)
+PauseMenuVox* PauseMenuVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new PauseMenuVox();
+    return new PauseMenuVox(resolver.Resolve<SampleCollection>());
 }

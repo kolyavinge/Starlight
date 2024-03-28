@@ -5,12 +5,14 @@ Game::Game(
     TrackManager& trackManager,
     ScreenManager& screenManager,
     RenderManager& renderManager,
+    VoxManager& voxManager,
     ScreenNavigator& screenNavigator,
     ::InputDevices& inputDevices,
     ::Race& race) :
     _trackManager(trackManager),
     _screenManager(screenManager),
     _renderManager(renderManager),
+    _voxManager(voxManager),
     _screenNavigator(screenNavigator),
     InputDevices(inputDevices),
     Race(race)
@@ -52,6 +54,7 @@ Game* GameResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<TrackManager>(),
         resolver.Resolve<ScreenManager>(),
         resolver.Resolve<RenderManager>(),
+        resolver.Resolve<VoxManager>(),
         resolver.Resolve<ScreenNavigator>(),
         resolver.Resolve<InputDevices>(),
         resolver.Resolve<Race>());

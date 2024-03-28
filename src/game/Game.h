@@ -15,7 +15,7 @@ class Game : public Object
     TrackManager& _trackManager;
     ScreenManager& _screenManager;
     RenderManager& _renderManager;
-    VoxManager _voxManager;
+    VoxManager& _voxManager;
     ScreenNavigator& _screenNavigator;
 
 public:
@@ -26,6 +26,7 @@ public:
         TrackManager& trackManager,
         ScreenManager& screenManager,
         RenderManager& renderManager,
+        VoxManager& voxManager,
         ScreenNavigator& screenNavigator,
         ::InputDevices& inputDevices,
         ::Race& race);

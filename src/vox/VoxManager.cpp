@@ -2,6 +2,11 @@
 #include <openal/alc.h>
 #include <vox/VoxManager.h>
 
+VoxManager::VoxManager(ScreenVoxCollection& voxCollection) :
+    _voxCollection(voxCollection)
+{
+}
+
 void VoxManager::Init()
 {
     InitAL();
@@ -21,7 +26,7 @@ void VoxManager::InitAL()
     if (!alcMakeContextCurrent(context)) throw VoxManagerException();
 }
 
-VoxManager* VoxManagerResolvingFactory::Make(Resolver&)
+VoxManager* VoxManagerResolvingFactory::Make(Resolver& resolver)
 {
-    return new VoxManager();
+    return new VoxManager(resolver.Resolve<ScreenVoxCollection>());
 }

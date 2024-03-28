@@ -12,9 +12,8 @@ class StartMenuVox : public ScreenVox
     MenuItemVox<StartMenuItem> _menuItemVox;
 
 public:
-    StartMenuVox();
+    StartMenuVox(SampleCollection& sampleCollection);
 
-    void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
 };
 

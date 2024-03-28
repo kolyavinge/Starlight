@@ -1,12 +1,8 @@
 #include <ui/TrackSelectorScreen.h>
 #include <vox/TrackSelectorVox.h>
 
-TrackSelectorVox::TrackSelectorVox() :
+TrackSelectorVox::TrackSelectorVox(SampleCollection& sampleCollection) :
     _menuItemVox(TrackSelectorItem::Back)
-{
-}
-
-void TrackSelectorVox::Init(SampleCollection& sampleCollection)
 {
     _menuItemVox.Init(sampleCollection);
 }
@@ -17,7 +13,7 @@ void TrackSelectorVox::Voice(Screen& screen)
     _menuItemVox.Voice(trackSelectorScreen.GetSelectedItem());
 }
 
-TrackSelectorVox* TrackSelectorVoxResolvingFactory::Make(Resolver&)
+TrackSelectorVox* TrackSelectorVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new TrackSelectorVox();
+    return new TrackSelectorVox(resolver.Resolve<SampleCollection>());
 }

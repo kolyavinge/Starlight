@@ -15,17 +15,24 @@
 
 class ScreenVoxCollection : public Object
 {
-    SampleCollection _sampleCollection;
-    StartMenuVox _startMenuVox;
-    TrackSelectorVox _trackSelectorVox;
-    RacePreparationVox _racePreparationVox;
-    RaceVox _raceVox;
-    PauseMenuVox _pauseMenuVox;
-    FinishVox _finishVox;
+    SampleCollection& _sampleCollection;
+    StartMenuVox& _startMenuVox;
+    TrackSelectorVox& _trackSelectorVox;
+    RacePreparationVox& _racePreparationVox;
+    RaceVox& _raceVox;
+    PauseMenuVox& _pauseMenuVox;
+    FinishVox& _finishVox;
     Array<ScreenVox*, 6> _vox;
 
 public:
-    ScreenVoxCollection();
+    ScreenVoxCollection(
+        SampleCollection& sampleCollection,
+        StartMenuVox& startMenuVox,
+        TrackSelectorVox& trackSelectorVox,
+        RacePreparationVox& racePreparationVox,
+        RaceVox& raceVox,
+        PauseMenuVox& pauseMenuVox,
+        FinishVox& finishVox);
 
     void Init();
     ScreenVox& GetScreenVox(Screen& screen);

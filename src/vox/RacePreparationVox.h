@@ -8,12 +8,11 @@
 
 class RacePreparationVox : public ScreenVox
 {
-    AudioSample* _countdownSample;
+    AudioSample& _countdownSample;
 
 public:
-    RacePreparationVox();
+    RacePreparationVox(SampleCollection& sampleCollection);
 
-    void Init(SampleCollection& sampleCollection) override;
     void Deactivate() override;
     void Voice(Screen& screen) override;
 };

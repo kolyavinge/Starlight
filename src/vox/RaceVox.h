@@ -8,15 +8,14 @@
 
 class RaceVox : public ScreenVox
 {
-    AudioSample* _weaponFireSample;
-    AudioSample* _metalHitSample;
-    AudioSample* _explosionSample;
-    AudioSample* _powerUpPickSample;
+    AudioSample& _weaponFireSample;
+    AudioSample& _metalHitSample;
+    AudioSample& _explosionSample;
+    AudioSample& _powerUpPickSample;
 
 public:
-    RaceVox();
+    RaceVox(SampleCollection& sampleCollection);
 
-    void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
 };
 

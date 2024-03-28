@@ -12,9 +12,8 @@ class PauseMenuVox : public ScreenVox
     MenuItemVox<PauseMenuItem> _menuItemVox;
 
 public:
-    PauseMenuVox();
+    PauseMenuVox(SampleCollection& sampleCollection);
 
-    void Init(SampleCollection& sampleCollection) override;
     void Voice(Screen& screen) override;
 };
 
