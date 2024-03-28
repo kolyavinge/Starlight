@@ -31,7 +31,7 @@
 #include <render/ui/ScreenRendererCollection.h>
 #include <render/ui/StartMenuRenderer.h>
 #include <render/ui/TrackSelectorRenderer.h>
-#include <game/RenderInjectModule.h>
+#include <game/inject/RenderInjectModule.h>
 
 void RenderInjectModule::Init(Binder& binder)
 {

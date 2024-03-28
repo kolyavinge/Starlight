@@ -2,7 +2,7 @@
 #include <ai/NitroActivationLogic.h>
 #include <ai/ObstacleAvoidanceLogic.h>
 #include <ai/SteeringLogic.h>
-#include <game/AIInjectModule.h>
+#include <game/inject/AIInjectModule.h>
 
 void AIInjectModule::Init(Binder& binder)
 {

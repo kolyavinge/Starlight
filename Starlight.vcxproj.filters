@@ -183,14 +183,14 @@
     <ClInclude Include="src\lib\di\Resolver.h" />
     <ClInclude Include="src\lib\di\ResolvingFactory.h" />
     <ClInclude Include="src\lib\di\SingletonInstanceHolder.h" />
-    <ClInclude Include="src\game\CoreInjectModule.h" />
-    <ClInclude Include="src\game\AIInjectModule.h" />
+    <ClInclude Include="src\game\inject\CoreInjectModule.h" />
+    <ClInclude Include="src\game\inject\AIInjectModule.h" />
     <ClInclude Include="src\game\GameFactory.h" />
-    <ClInclude Include="src\game\GameInjectModule.h" />
+    <ClInclude Include="src\game\inject\GameInjectModule.h" />
     <ClInclude Include="src\lib\di\DefaultInstanceHolder.h" />
-    <ClInclude Include="src\game\RenderInjectModule.h" />
-    <ClInclude Include="src\game\UIInjectModule.h" />
-    <ClInclude Include="src\game\VoxInjectModule.h" />
+    <ClInclude Include="src\game\inject\RenderInjectModule.h" />
+    <ClInclude Include="src\game\inject\UIInjectModule.h" />
+    <ClInclude Include="src\game\inject\VoxInjectModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -350,15 +350,15 @@
     <ClCompile Include="src\model\TrackPointInfo.cpp" />
     <ClCompile Include="src\ai\NitroActivationLogic.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
-    <ClCompile Include="src\game\CoreInjectModule.cpp" />
-    <ClCompile Include="src\game\AIInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\CoreInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\AIInjectModule.cpp" />
     <ClCompile Include="src\game\GameFactory.cpp" />
     <ClCompile Include="src\input\InputDevices.cpp" />
-    <ClCompile Include="src\game\GameInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\GameInjectModule.cpp" />
     <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
-    <ClCompile Include="src\game\RenderInjectModule.cpp" />
-    <ClCompile Include="src\game\UIInjectModule.cpp" />
-    <ClCompile Include="src\game\VoxInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\RenderInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\UIInjectModule.cpp" />
+    <ClCompile Include="src\game\inject\VoxInjectModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

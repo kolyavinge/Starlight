@@ -5,7 +5,7 @@
 #include <ui/ScreenManager.h>
 #include <ui/StartMenuScreen.h>
 #include <ui/TrackSelectorScreen.h>
-#include <game/UIInjectModule.h>
+#include <game/inject/UIInjectModule.h>
 
 void UIInjectModule::Init(Binder& binder)
 {

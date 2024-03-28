@@ -7,7 +7,7 @@
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
 #include <vox/VoxManager.h>
-#include <game/VoxInjectModule.h>
+#include <game/inject/VoxInjectModule.h>
 
 void VoxInjectModule::Init(Binder& binder)
 {

@@ -1,11 +1,11 @@
 #include <lib/String.h>
 #include <lib/di/DependencyContainer.h>
-#include <game/CoreInjectModule.h>
-#include <game/AIInjectModule.h>
-#include <game/RenderInjectModule.h>
-#include <game/UIInjectModule.h>
-#include <game/VoxInjectModule.h>
-#include <game/GameInjectModule.h>
+#include <game/inject/CoreInjectModule.h>
+#include <game/inject/AIInjectModule.h>
+#include <game/inject/RenderInjectModule.h>
+#include <game/inject/UIInjectModule.h>
+#include <game/inject/VoxInjectModule.h>
+#include <game/inject/GameInjectModule.h>
 #include <game/GameFactory.h>
 
 Game& GameFactory::MakeNewGame()

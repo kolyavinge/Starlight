@@ -25,7 +25,7 @@
 #include <core/cm/ShipCollisionProcessor.h>
 #include <core/cm/TrackCollisionDetector.h>
 #include <core/cm/TrackCollisionProcessor.h>
-#include <game/CoreInjectModule.h>
+#include <game/inject/CoreInjectModule.h>
 
 void CoreInjectModule::Init(Binder& binder)
 {
