@@ -49,3 +49,11 @@ void PauseMenuScreen::ProcessInput()
         }
     }
 }
+
+PauseMenuScreen* PauseMenuScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new PauseMenuScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Race>());
+}

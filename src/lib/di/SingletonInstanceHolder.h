@@ -1,7 +1,8 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/String.h>
+#include <lib/Object.h>
+#include <lib/Assert.h>
 #include <lib/di/Resolver.h>
 #include <lib/di/InstanceHolder.h>
 
@@ -22,7 +23,8 @@ public:
         {
             InstancesCount = 1;
             TResolvingFactory factory{};
-            _instance = factory.Make(resolver);
+            _instance = (Object*)factory.Make(resolver);
+            Assert::False(_instance == nullptr);
         }
 
         return _instance;

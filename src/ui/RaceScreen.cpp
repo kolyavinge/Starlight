@@ -101,3 +101,11 @@ void RaceScreen::ProcessInput()
         _navigator.NavigateTo(ScreenKind::PauseMenu);
     }
 }
+
+RaceScreen* RaceScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new RaceScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Race>());
+}

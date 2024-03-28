@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
@@ -28,4 +29,10 @@ public:
     int GetCountdownNumber();
     int GetCountdownIteration();
     int GetCountdownSwitchIteration();
+};
+
+class RacePreparationScreenResolvingFactory : public ResolvingFactory<RacePreparationScreen>
+{
+public:
+    RacePreparationScreen* Make(Resolver& resolver) override;
 };

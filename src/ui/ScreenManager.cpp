@@ -1,16 +1,18 @@
 #include <ui/ScreenManager.h>
 
 ScreenManager::ScreenManager(
-    IScreenNavigator& screenNavigator,
-    InputDevices& inputDevices,
-    TrackManager& trackManager,
-    Race& race) :
-    _startMenuScreen(screenNavigator, inputDevices),
-    _trackSelectorScreen(screenNavigator, inputDevices, trackManager, race),
-    _racePreparationScreen(screenNavigator, inputDevices, race),
-    _raceScreen(screenNavigator, inputDevices, race),
-    _pauseMenuScreen(screenNavigator, inputDevices, race),
-    _finishScreen(screenNavigator, inputDevices, race)
+    StartMenuScreen& startMenuScreen,
+    TrackSelectorScreen& trackSelectorScreen,
+    RacePreparationScreen& racePreparationScreen,
+    RaceScreen& raceScreen,
+    PauseMenuScreen& pauseMenuScreen,
+    FinishScreen& finishScreen) :
+    _startMenuScreen(startMenuScreen),
+    _trackSelectorScreen(trackSelectorScreen),
+    _racePreparationScreen(racePreparationScreen),
+    _raceScreen(raceScreen),
+    _pauseMenuScreen(pauseMenuScreen),
+    _finishScreen(finishScreen)
 {
     _screens[(int)ScreenKind::StartMenu] = &_startMenuScreen;
     _screens[(int)ScreenKind::TrackSelector] = &_trackSelectorScreen;
@@ -34,4 +36,15 @@ Screen& ScreenManager::GetCurrentScreen()
 void ScreenManager::SetCurrentScreen(Screen& screen)
 {
     _currentScreen = &screen;
+}
+
+ScreenManager* ScreenManagerResolvingFactory::Make(Resolver& resolver)
+{
+    return new ScreenManager(
+        resolver.Resolve<StartMenuScreen>(),
+        resolver.Resolve<TrackSelectorScreen>(),
+        resolver.Resolve<RacePreparationScreen>(),
+        resolver.Resolve<RaceScreen>(),
+        resolver.Resolve<PauseMenuScreen>(),
+        resolver.Resolve<FinishScreen>());
 }

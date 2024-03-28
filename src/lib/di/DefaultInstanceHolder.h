@@ -2,6 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/String.h>
+#include <lib/Assert.h>
 #include <lib/di/Resolver.h>
 #include <lib/di/InstanceHolder.h>
 
@@ -13,8 +14,10 @@ public:
     {
         InstancesCount++;
         TResolvingFactory factory{};
+        Object* instance = (Object*)factory.Make(resolver);
+        Assert::False(instance == nullptr);
 
-        return factory.Make(resolver);
+        return instance;
     }
 
     String GetInstanceName() override

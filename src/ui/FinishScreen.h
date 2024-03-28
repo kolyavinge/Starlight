@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
@@ -22,4 +23,10 @@ public:
     void Activate(Screen* prevScreen) override;
     void Update() override;
     int GetCurrentIteration();
+};
+
+class FinishScreenResolvingFactory : public ResolvingFactory<FinishScreen>
+{
+public:
+    FinishScreen* Make(Resolver& resolver) override;
 };

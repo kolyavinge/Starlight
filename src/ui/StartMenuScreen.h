@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
@@ -23,4 +24,10 @@ public:
     StartMenuItem GetSelectedItem();
     void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
+};
+
+class StartMenuScreenResolvingFactory : public ResolvingFactory<StartMenuScreen>
+{
+public:
+    StartMenuScreen* Make(Resolver& resolver) override;
 };

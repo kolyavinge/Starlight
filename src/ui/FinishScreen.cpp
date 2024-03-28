@@ -34,3 +34,11 @@ int FinishScreen::GetCurrentIteration()
 {
     return _iterationCount;
 }
+
+FinishScreen* FinishScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new FinishScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Race>());
+}

@@ -50,6 +50,7 @@
     <ClInclude Include="src\game\GameInjectModule.h" />
     <ClInclude Include="src\game\RenderInjectModule.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
+    <ClInclude Include="src\game\UIInjectModule.h" />
     <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
     <ClInclude Include="src\gl\Face.h" />
     <ClInclude Include="src\gl\FramedTexture.h" />
@@ -250,6 +251,7 @@
     <ClCompile Include="src\game\GameInjectModule.cpp" />
     <ClCompile Include="src\game\RenderInjectModule.cpp" />
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
+    <ClCompile Include="src\game\UIInjectModule.cpp" />
     <ClCompile Include="src\gl\AnimatedTexturedRect.cpp" />
     <ClCompile Include="src\gl\Face.cpp" />
     <ClCompile Include="src\gl\FramedTexture.cpp" />

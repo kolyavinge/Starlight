@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
@@ -27,4 +28,10 @@ public:
     PauseMenuItem GetSelectedItem();
     void Activate(Screen* prevScreen) override;
     void ProcessInput() override;
+};
+
+class PauseMenuScreenResolvingFactory : public ResolvingFactory<PauseMenuScreen>
+{
+public:
+    PauseMenuScreen* Make(Resolver& resolver) override;
 };

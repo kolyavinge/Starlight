@@ -115,3 +115,12 @@ Track& TrackSelectorScreen::GetTrackByItem(TrackSelectorItem item)
 
     throw ArgumentException();
 }
+
+TrackSelectorScreen* TrackSelectorScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new TrackSelectorScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<TrackManager>(),
+        resolver.Resolve<Race>());
+}

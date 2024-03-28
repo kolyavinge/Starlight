@@ -1,5 +1,6 @@
 #pragma once
 
+#include <lib/di/ResolvingFactory.h>
 #include <core/TrackManager.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
@@ -46,4 +47,10 @@ public:
 
 private:
     Track& GetTrackByItem(TrackSelectorItem item);
+};
+
+class TrackSelectorScreenResolvingFactory : public ResolvingFactory<TrackSelectorScreen>
+{
+public:
+    TrackSelectorScreen* Make(Resolver& resolver) override;
 };

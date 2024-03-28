@@ -58,3 +58,11 @@ int RacePreparationScreen::GetCountdownSwitchIteration()
 {
     return _countdownSwitchIteration;
 }
+
+RacePreparationScreen* RacePreparationScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new RacePreparationScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Race>());
+}

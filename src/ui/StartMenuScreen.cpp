@@ -40,3 +40,10 @@ void StartMenuScreen::ProcessInput()
         }
     }
 }
+
+StartMenuScreen* StartMenuScreenResolvingFactory::Make(Resolver& resolver)
+{
+    return new StartMenuScreen(
+        resolver.Resolve<IScreenNavigator>(),
+        resolver.Resolve<InputDevices>());
+}
