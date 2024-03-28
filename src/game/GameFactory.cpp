@@ -1,3 +1,4 @@
+#include <lib/String.h>
 #include <lib/di/DependencyContainer.h>
 #include <game/CoreInjectModule.h>
 #include <game/AIInjectModule.h>
@@ -20,6 +21,8 @@ Game& GameFactory::MakeNewGame()
 
     Game& game = container.Resolve<Game>();
     game.Init();
+
+    String unusedInstances = container.GetUnusedInstancesAsString(); // debug
 
     return game;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/String.h>
 #include <lib/di/Resolver.h>
 #include <lib/di/InstanceHolder.h>
 
@@ -25,5 +26,10 @@ public:
         }
 
         return _instance;
+    }
+
+    String GetInstanceName() override
+    {
+        return String(typeid(TResolvingFactory).name());
     }
 };

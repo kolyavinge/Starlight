@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/String.h>
 
 class Resolver;
 
@@ -12,4 +13,5 @@ public:
     InstanceHolder();
 
     virtual Object* GetInstance(Resolver& resolver) = 0;
+    virtual String GetInstanceName() = 0;
 };

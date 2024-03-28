@@ -28,3 +28,16 @@ void InstanceCollection::Add(const type_info& type, InstanceHolder* instanceHold
     unsigned int key = (unsigned int)type.hash_code();
     _instances.Add(key, instanceHolder);
 }
+
+void InstanceCollection::GetUnusedInstances(List<String>& unusedInstances)
+{
+    List<InstanceHolder*> allInstances;
+    _instances.GetAllValues(allInstances);
+    for (int i = 0; i < allInstances.GetCount(); i++)
+    {
+        if (allInstances[i]->InstancesCount == 0)
+        {
+            unusedInstances.Add(allInstances[i]->GetInstanceName());
+        }
+    }
+}

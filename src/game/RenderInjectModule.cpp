@@ -1,6 +1,5 @@
 #include <gl/TextRenderer.h>
 #include <render/common/BackgroundRenderer.h>
-#include <render/common/BackgroundSphere.h>
 #include <render/common/BulletsRenderer.h>
 #include <render/common/CountdownRenderer.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
@@ -30,7 +29,6 @@
 #include <render/ui/RaceRenderer.h>
 #include <render/ui/RenderManager.h>
 #include <render/ui/ScreenRendererCollection.h>
-#include <render/ui/SelectedItemColor.h>
 #include <render/ui/StartMenuRenderer.h>
 #include <render/ui/TrackSelectorRenderer.h>
 #include <game/RenderInjectModule.h>
@@ -39,7 +37,6 @@ void RenderInjectModule::Init(Binder& binder)
 {
     binder.BindSingletonByFactory<TextRenderer, TextRendererResolvingFactory>();
     binder.BindSingletonByFactory<BackgroundRenderer, BackgroundRendererResolvingFactory>();
-    binder.BindSingletonByFactory<BackgroundSphere, BackgroundSphereResolvingFactory>();
     binder.BindSingletonByFactory<BulletsRenderer, BulletsRendererResolvingFactory>();
     binder.BindSingletonByFactory<CountdownRenderer, CountdownRendererResolvingFactory>();
     binder.BindSingletonByFactory<EnemyShipsHealthRenderer, EnemyShipsHealthRendererResolvingFactory>();
@@ -69,7 +66,6 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<RaceRenderer, RaceRendererResolvingFactory>();
     binder.BindSingletonByFactory<RenderManager, RenderManagerResolvingFactory>();
     binder.BindSingletonByFactory<ScreenRendererCollection, ScreenRendererCollectionResolvingFactory>();
-    binder.BindSingletonByFactory<SelectedItemColor, SelectedItemColorResolvingFactory>();
     binder.BindSingletonByFactory<StartMenuRenderer, StartMenuRendererResolvingFactory>();
     binder.BindSingletonByFactory<TrackSelectorRenderer, TrackSelectorRendererResolvingFactory>();
 }

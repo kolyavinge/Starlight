@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/String.h>
 #include <lib/di/Resolver.h>
 #include <lib/di/InstanceHolder.h>
 
@@ -14,5 +15,10 @@ public:
         TResolvingFactory factory{};
 
         return factory.Make(resolver);
+    }
+
+    String GetInstanceName() override
+    {
+        return String(typeid(TResolvingFactory).name());
     }
 };
