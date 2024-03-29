@@ -221,13 +221,15 @@ public:
         return Get(key);
     }
 
-    void GetAllKeys(List<TValue>& keys)
+    void GetAllKeys(List<TKey>& keys)
     {
         for (int i = 0; i < _capacity; i++)
         {
-            if (_items[i] != nullptr)
+            Node* node = _items[i];
+            while (node != nullptr)
             {
-                keys.Add(_items[i]->Key);
+                keys.Add(node->Key);
+                node = node->Next;
             }
         }
     }
@@ -236,9 +238,11 @@ public:
     {
         for (int i = 0; i < _capacity; i++)
         {
-            if (_items[i] != nullptr)
+            Node* node = _items[i];
+            while (node != nullptr)
             {
-                values.Add(_items[i]->Value);
+                values.Add(node->Value);
+                node = node->Next;
             }
         }
     }

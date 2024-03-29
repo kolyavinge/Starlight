@@ -68,7 +68,7 @@ public:
         _count++;
     }
 
-    void AddRange(List<T>& range)
+    void AddRange(IArray<T>& range)
     {
         ResizeIfNeeded(range.GetCount());
         Memory::Copy<T>(range._items, _items + _count, range.GetCount());
@@ -95,6 +95,39 @@ public:
             _items[i] = _items[i + 1];
         }
         _count--;
+    }
+
+    void Remove(T value)
+    {
+        for (int i = 0; i < _count; )
+        {
+            if (_items[i] == value)
+            {
+                RemoveAt(i);
+            }
+            else
+            {
+                i++;
+            }
+        }
+    }
+
+    void RemoveAll(IArray<T>& range)
+    {
+        for (int i = 0; i < range.GetCount(); i++)
+        {
+            Remove(range[i]);
+        }
+    }
+
+    int FindIndex(T value)
+    {
+        for (int i = 0; i < _count; i++)
+        {
+            if (_items[i] == value) return i;
+        }
+
+        return -1;
     }
 
     void Clear()
