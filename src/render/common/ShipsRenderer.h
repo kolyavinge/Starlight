@@ -4,14 +4,14 @@
 #include <lib/IArray.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
-#include <render/common/ShipMesh.h>
+#include <render/common/ShipRenderer.h>
 
 class ShipsRenderer : public Object
 {
-    ShipMesh& _shipMesh;
+    ShipRenderer& _shipRenderer;
 
 public:
-    ShipsRenderer(ShipMesh& shipMesh);
+    ShipsRenderer(ShipRenderer& shipRenderer);
 
     void Init();
     void Render(Ship& player, IArray<Ship>& enemies);

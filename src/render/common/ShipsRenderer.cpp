@@ -2,14 +2,14 @@
 #include <lib/Assert.h>
 #include <render/common/ShipsRenderer.h>
 
-ShipsRenderer::ShipsRenderer(ShipMesh& shipMesh) :
-    _shipMesh(shipMesh)
+ShipsRenderer::ShipsRenderer(ShipRenderer& shipRenderer) :
+    _shipRenderer(shipRenderer)
 {
 }
 
 void ShipsRenderer::Init()
 {
-    _shipMesh.Init();
+    _shipRenderer.Init();
 }
 
 void ShipsRenderer::Render(Ship& player, IArray<Ship>& enemies)
@@ -46,17 +46,17 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
 {
     if (ship.State == ShipState::Active)
     {
-        _shipMesh.Render(ship, defaultTexture);
+        _shipRenderer.Render(ship, defaultTexture);
     }
     else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
     {
-        _shipMesh.Render(ship, ShipMesh::DestroyedTexture);
+        _shipRenderer.Render(ship, ShipMesh::DestroyedTexture);
     }
     else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
     {
         if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
         {
-            _shipMesh.Render(ship, defaultTexture);
+            _shipRenderer.Render(ship, defaultTexture);
         }
     }
     else
@@ -67,5 +67,5 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
 
 ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipsRenderer(resolver.Resolve<ShipMesh>());
+    return new ShipsRenderer(resolver.Resolve<ShipRenderer>());
 }

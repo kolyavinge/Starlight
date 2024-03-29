@@ -192,6 +192,7 @@
     <ClInclude Include="src\game\inject\UIInjectModule.h" />
     <ClInclude Include="src\game\inject\VoxInjectModule.h" />
     <ClInclude Include="src\lib\di\FunctionInstanceHolder.h" />
+    <ClInclude Include="src\render\common\ShipRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -360,6 +361,7 @@
     <ClCompile Include="src\game\inject\UIInjectModule.cpp" />
     <ClCompile Include="src\game\inject\VoxInjectModule.cpp" />
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
+    <ClCompile Include="src\render\common\ShipRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

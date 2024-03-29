@@ -10,6 +10,7 @@
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/ShipMesh.h>
+#include <render/common/ShipRenderer.h>
 #include <render/common/ShipsRenderer.h>
 #include <render/common/StarsRenderer.h>
 #include <render/common/TrackRenderer.h>
@@ -46,6 +47,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<MenuBackgroundRenderer, MenuBackgroundRendererResolvingFactory>();
     binder.BindSingletonByFactory<PowerUpRenderer, PowerUpRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
+    binder.BindSingletonByFactory<ShipRenderer, ShipRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipsRenderer, ShipsRendererResolvingFactory>();
     binder.BindSingletonByFactory<StarsRenderer, StarsRendererResolvingFactory>();
     binder.BindSingletonByFactory<TrackRenderer, TrackRendererResolvingFactory>();
