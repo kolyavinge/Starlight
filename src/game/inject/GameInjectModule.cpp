@@ -6,7 +6,7 @@
 void GameInjectModule::Init(Binder& binder)
 {
     binder.BindSingletonByFactory<InputDevices, InputDevicesResolvingFactory>();
-    binder.BindSingletonByFactory<IScreenNavigator, IScreenNavigatorResolvingFactory>();
     binder.BindSingletonByFactory<ScreenNavigator, ScreenNavigatorResolvingFactory>();
+    binder.BindSingletonByFunction<IScreenNavigator>([](Resolver& resolver) -> IScreenNavigator* { return &resolver.Resolve<ScreenNavigator>(); });
     binder.BindSingletonByFactory<Game, GameResolvingFactory>();
 }

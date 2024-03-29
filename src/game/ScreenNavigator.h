@@ -24,12 +24,6 @@ public:
     void NavigateTo(ScreenKind kind) override;
 };
 
-class IScreenNavigatorResolvingFactory : public ResolvingFactory<IScreenNavigator>
-{
-public:
-    IScreenNavigator* Make(Resolver& resolver) override;
-};
-
 class ScreenNavigatorResolvingFactory : public ResolvingFactory<ScreenNavigator>
 {
 public:

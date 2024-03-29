@@ -1,3 +1,4 @@
+#include <lib/Assert.h>
 #include <lib/String.h>
 #include <lib/di/DependencyContainer.h>
 #include <game/inject/CoreInjectModule.h>
@@ -28,7 +29,8 @@ Game& GameFactory::MakeNewGame()
     Game& game = container.Resolve<Game>();
     game.Init();
 
-    String unusedInstances = container.GetUnusedInstancesAsString(); // debug
+    String unusedInstances = container.GetUnusedInstancesAsString();
+    Assert::True(unusedInstances.GetLength() == 0);
 
     return game;
 }
