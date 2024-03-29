@@ -356,7 +356,6 @@
     <ClCompile Include="src\game\GameFactory.cpp" />
     <ClCompile Include="src\input\InputDevices.cpp" />
     <ClCompile Include="src\game\inject\GameInjectModule.cpp" />
-    <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
     <ClCompile Include="src\game\inject\RenderInjectModule.cpp" />
     <ClCompile Include="src\game\inject\UIInjectModule.cpp" />
     <ClCompile Include="src\game\inject\VoxInjectModule.cpp" />

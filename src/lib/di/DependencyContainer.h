@@ -34,12 +34,16 @@ public:
 
     String GetUnusedInstancesAsString()
     {
-        List<String> unusedInstances;
-        _instances.GetUnusedInstances(unusedInstances);
+        List<unsigned int> unresolvedTypeHashKeys;
+        List<unsigned int> resolvedTypeHashKeys;
+        _instances.GetAllTypeHashKeys(unresolvedTypeHashKeys);
+        _resolver.GetResolvedTypeHashKeys(resolvedTypeHashKeys);
+        unresolvedTypeHashKeys.RemoveAll(resolvedTypeHashKeys);
         String result;
-        for (int i = 0; i < unusedInstances.GetCount(); i++)
+        for (int i = 0; i < unresolvedTypeHashKeys.GetCount(); i++)
         {
-            result.Append(unusedInstances[i]);
+            String str(_instances.GetTypeInfo(unresolvedTypeHashKeys[i]).name());
+            result.Append(str);
             result.Append(L'\n');
         }
 

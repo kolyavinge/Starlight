@@ -11,33 +11,36 @@ InstanceCollection::~InstanceCollection()
     }
 }
 
+unsigned int InstanceCollection::GetTypeHashKey(const type_info& type)
+{
+    return (unsigned int)type.hash_code();
+}
+
 InstanceHolder*& InstanceCollection::operator[](const type_info& type)
 {
-    unsigned int key = (unsigned int)type.hash_code();
+    unsigned int key = GetTypeHashKey(type);
     return _instances[key];
 }
 
 bool InstanceCollection::ContainsType(const type_info& type)
 {
-    unsigned int key = (unsigned int)type.hash_code();
+    unsigned int key = GetTypeHashKey(type);
     return _instances.ContainsKey(key);
 }
 
 void InstanceCollection::Add(const type_info& type, InstanceHolder* instanceHolder)
 {
-    unsigned int key = (unsigned int)type.hash_code();
+    unsigned int key = GetTypeHashKey(type);
     _instances.Add(key, instanceHolder);
+    _types.Add(key, &type);
 }
 
-void InstanceCollection::GetUnusedInstances(List<String>& unusedInstances)
+const type_info& InstanceCollection::GetTypeInfo(unsigned int typeHashKey)
 {
-    List<InstanceHolder*> allInstances;
-    _instances.GetAllValues(allInstances);
-    for (int i = 0; i < allInstances.GetCount(); i++)
-    {
-        if (allInstances[i]->InstancesCount == 0)
-        {
-            unusedInstances.Add(allInstances[i]->GetInstanceName());
-        }
-    }
+    return *_types[typeHashKey];
+}
+
+void InstanceCollection::GetAllTypeHashKeys(List<unsigned int>& typeHashKeys)
+{
+    _types.GetAllKeys(typeHashKeys);
 }

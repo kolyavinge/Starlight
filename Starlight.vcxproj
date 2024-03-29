@@ -272,7 +272,6 @@
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
-    <ClCompile Include="src\lib\di\InstanceHolder.cpp" />
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
     <ClCompile Include="src\lib\File.cpp" />
