@@ -191,6 +191,7 @@
     <ClInclude Include="src\game\inject\RenderInjectModule.h" />
     <ClInclude Include="src\game\inject\UIInjectModule.h" />
     <ClInclude Include="src\game\inject\VoxInjectModule.h" />
+    <ClInclude Include="src\lib\di\FunctionInstanceHolder.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

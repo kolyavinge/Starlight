@@ -6,6 +6,7 @@
 #include <lib/List.h>
 
 class KeyNotFoundException : public Exception { };
+class KeyAlreadyExistException : public Exception { };
 
 template<class TKey, class TValue>
 class Dictionary : public Object
@@ -133,6 +134,10 @@ public:
 
     void Add(TKey key, TValue value)
     {
+        if (ContainsKey(key))
+        {
+            throw KeyAlreadyExistException();
+        }
         Node* newNode = new Node(key, value);
         newNode->HashKey = _hasher.GetHashKey(key, _capacity);
         if (_items[newNode->HashKey] == nullptr)
