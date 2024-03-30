@@ -19,11 +19,14 @@ public:
         TrackCollisionDetector& trackCollisionDetector,
         ShipCollisionDetector& shipCollisionDetector);
 
-    Vector3 GetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track);
+    void CalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track);
 
 private:
-    Vector3 TryGetMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
-    void AddResultIfCorrect(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, Vector3& result);
+    void TryCalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
+    void GenerateAvailableDirections(Ship& ship, float directionLength);
+    void EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track);
+    bool IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction);
+    void CalculateResultDirection(ShipMovingDirections& movingDirections);
 };
 
 class ObstacleAvoidanceLogicResolvingFactory : public ResolvingFactory<ObstacleAvoidanceLogic>

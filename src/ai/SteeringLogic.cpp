@@ -10,18 +10,23 @@ void SteeringLogic::Update(Ship& ship)
 {
     _controller.SetShip(ship);
 
+    if (ship.AIData.MovingDirections.ResultDirection.IsZero())
+    {
+        return;
+    }
+
     Vector3 straight(ship.CentralLine.Front);
     straight.Sub(ship.CentralLine.Rear);
     straight.Normalize();
 
-    float dotProduct = straight.DotProduct(ship.AIData.MovingDirection);
+    float dotProduct = straight.DotProduct(ship.AIData.MovingDirections.ResultDirection);
     if (dotProduct >= ship.AIData.StraightDirectionLimit)
     {
         _controller.ReleaseTurn();
     }
     else
     {
-        straight.VectorProduct(ship.AIData.MovingDirection);
+        straight.VectorProduct(ship.AIData.MovingDirections.ResultDirection);
         if (straight.IsZero())
         {
             _controller.ReleaseTurn();

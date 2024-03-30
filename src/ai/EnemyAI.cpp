@@ -1,4 +1,3 @@
-#include <calc/Vector3.h>
 #include <ai/EnemyAI.h>
 
 EnemyAI::EnemyAI(
@@ -25,11 +24,7 @@ void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& tr
 
 void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
 {
-    Vector3 newMovingDirection = _obstacleAvoidanceLogic.GetMovingDirection(enemy, allShips, track);
-    if (!newMovingDirection.IsZero())
-    {
-        enemy.AIData.MovingDirection = newMovingDirection;
-    }
+    _obstacleAvoidanceLogic.CalculateMovingDirection(enemy, allShips, track);
     _steeringLogic.Update(enemy);
     _nitroActivationLogic.Apply(enemy, track);
 }

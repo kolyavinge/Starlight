@@ -1,9 +1,16 @@
 #include <lib/Random.h>
 #include <model/ShipAIData.h>
 
+void ShipMovingDirections::Init()
+{
+    AvailableDirections.Clear();
+    EnabledDirections.Clear();
+    ResultDirection.Set(0.0f, 0.0f, 0.0f);
+}
+
 ShipAIData::ShipAIData()
 {
-    MovingDirection.Set(0.0f, 0.0f, 0.0f);
+    MovingDirections.Init();
     MovingPointsSteps = 0;
     StraightDirectionLimit = 0.0f;
     MovingDirectionLength = 0.0f;
@@ -12,12 +19,12 @@ ShipAIData::ShipAIData()
 
 void ShipAIData::InitForPlayer()
 {
-    MovingDirection.Set(0.0f, 0.0f, 0.0f);
+    MovingDirections.Init();
 
     Random rand;
-    MovingPointsSteps = rand.GetIntFromZeroToN(5) + 5;
-    StraightDirectionLimit = rand.GetFloatFromZeroToN(0.02f) + 0.98f;
-    MovingDirectionLength = (float)rand.GetIntFromZeroToN(5) + 5.0f;
+    MovingPointsSteps = 6 + rand.GetIntFromZeroToN(4);
+    StraightDirectionLimit = 0.98f + rand.GetFloatFromZeroToN(0.02f);
+    MovingDirectionLength = 20.0f + (float)rand.GetIntFromZeroToN(5);
 }
 
 void ShipAIData::InitForEnemy()
