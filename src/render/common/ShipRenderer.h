@@ -14,6 +14,9 @@ public:
 
     void Init();
     void Render(Ship& ship, int textureIndex);
+
+private:
+    void RenderAIMovingDirections(Ship& ship);
 };
 
 class ShipRendererResolvingFactory : public ResolvingFactory<ShipRenderer>
