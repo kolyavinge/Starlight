@@ -22,6 +22,7 @@ public:
     float StraightDirectionLimit;
     float MovingDirectionLength;
     float VelocityDelta;
+    int WeaponFireIterations;
 
     ShipAIData();
 

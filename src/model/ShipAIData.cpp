@@ -15,6 +15,7 @@ ShipAIData::ShipAIData()
     StraightDirectionLimit = 0.0f;
     MovingDirectionLength = 0.0f;
     VelocityDelta = 0.0f;
+    WeaponFireIterations = 0;
 }
 
 void ShipAIData::InitForPlayer()
@@ -22,9 +23,10 @@ void ShipAIData::InitForPlayer()
     MovingDirections.Init();
 
     Random rand;
-    MovingPointsSteps = 6 + rand.GetIntFromZeroToN(4);
+    MovingPointsSteps = 8 + rand.GetIntFromZeroToN(4);
     StraightDirectionLimit = 0.98f + rand.GetFloatFromZeroToN(0.02f);
     MovingDirectionLength = 20.0f + (float)rand.GetIntFromZeroToN(5);
+    WeaponFireIterations = 0;
 }
 
 void ShipAIData::InitForEnemy()

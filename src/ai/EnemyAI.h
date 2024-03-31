@@ -8,18 +8,21 @@
 #include <ai/ObstacleAvoidanceLogic.h>
 #include <ai/SteeringLogic.h>
 #include <ai/NitroActivationLogic.h>
+#include <ai/WeaponActivationLogic.h>
 
 class EnemyAI : public Object
 {
     ObstacleAvoidanceLogic& _obstacleAvoidanceLogic;
     SteeringLogic& _steeringLogic;
     NitroActivationLogic& _nitroActivationLogic;
+    WeaponActivationLogic& _weaponActivationLogic;
 
 public:
     EnemyAI(
         ObstacleAvoidanceLogic& obstacleAvoidanceLogic,
         SteeringLogic& steeringLogic,
-        NitroActivationLogic& nitroActivationLogic);
+        NitroActivationLogic& nitroActivationLogic,
+        WeaponActivationLogic& weaponActivationLogic);
 
     void ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track);
     void ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track);

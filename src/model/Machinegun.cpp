@@ -19,7 +19,7 @@ int Machinegun::GetMaxBulletsCount()
 
 float Machinegun::GetMaxBulletDistance()
 {
-    return 200.0f;
+    return 100.0f;
 }
 
 void Machinegun::InnerInit()

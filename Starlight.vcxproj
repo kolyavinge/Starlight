@@ -23,6 +23,7 @@
     <ClInclude Include="src\ai\NitroActivationLogic.h" />
     <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
     <ClInclude Include="src\ai\SteeringLogic.h" />
+    <ClInclude Include="src\ai\WeaponActivationLogic.h" />
     <ClInclude Include="src\anx\AudioResources.h" />
     <ClInclude Include="src\anx\RandomSpherePoints.h" />
     <ClInclude Include="src\audio\ALFormat.h" />
@@ -216,6 +217,7 @@
     <ClCompile Include="src\ai\NitroActivationLogic.cpp" />
     <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
     <ClCompile Include="src\ai\SteeringLogic.cpp" />
+    <ClCompile Include="src\ai\WeaponActivationLogic.cpp" />
     <ClCompile Include="src\anx\AudioResources.cpp" />
     <ClCompile Include="src\anx\RandomSpherePoints.cpp" />
     <ClCompile Include="src\anx\TrackBuilder.cpp" />

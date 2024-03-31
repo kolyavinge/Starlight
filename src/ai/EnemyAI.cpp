@@ -3,10 +3,12 @@
 EnemyAI::EnemyAI(
     ObstacleAvoidanceLogic& obstacleAvoidanceLogic,
     SteeringLogic& steeringLogic,
-    NitroActivationLogic& nitroActivationLogic) :
+    NitroActivationLogic& nitroActivationLogic,
+    WeaponActivationLogic& weaponActivationLogic) :
     _obstacleAvoidanceLogic(obstacleAvoidanceLogic),
     _steeringLogic(steeringLogic),
-    _nitroActivationLogic(nitroActivationLogic)
+    _nitroActivationLogic(nitroActivationLogic),
+    _weaponActivationLogic(weaponActivationLogic)
 {
 }
 
@@ -27,6 +29,7 @@ void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
     _obstacleAvoidanceLogic.CalculateMovingDirection(enemy, allShips, track);
     _steeringLogic.Update(enemy, track);
     _nitroActivationLogic.Apply(enemy, track);
+    _weaponActivationLogic.Apply(enemy, allShips);
 }
 
 EnemyAI* EnemyAIResolvingFactory::Make(Resolver& resolver)
@@ -34,5 +37,6 @@ EnemyAI* EnemyAIResolvingFactory::Make(Resolver& resolver)
     return new EnemyAI(
         resolver.Resolve<ObstacleAvoidanceLogic>(),
         resolver.Resolve<SteeringLogic>(),
-        resolver.Resolve<NitroActivationLogic>());
+        resolver.Resolve<NitroActivationLogic>(),
+        resolver.Resolve<WeaponActivationLogic>());
 }
