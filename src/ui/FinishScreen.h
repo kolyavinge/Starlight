@@ -5,10 +5,12 @@
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
 #include <ui/IScreenNavigator.h>
+#include <ai/EnemyAI.h>
 
 class FinishScreen : public Screen
 {
     int _iterationCount;
+    EnemyAI& _enemyAI;
 
 public:
     const int IterationsCount;
@@ -16,6 +18,7 @@ public:
     FinishScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
+        EnemyAI& enemyAI,
         Race& race);
 
     Race& Race;

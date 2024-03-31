@@ -34,7 +34,7 @@ void LapChecker::CompleteTrackPoints(Ship& ship)
 
 bool LapChecker::IsStartFinishLineCrossed(Ship& ship, Track& track)
 {
-    for (int i = ship.CentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
+    for (int i = ship.PrevCentralLine.TrackPointIndexRear; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
     {
         if (i == track.StartFinishLineIndex) return true;
     }
@@ -54,7 +54,7 @@ bool LapChecker::IsShipMovingInStraightDirection(Ship& ship, Track& track)
 
 bool LapChecker::AllTrackPointsCompleted(int trackPointsCount)
 {
-    const int step = 100;
+    const int step = 500;
     for (int i = 0; i < trackPointsCount; i += step)
     {
         if (!AnyTrackPointsCompleted(i, i + step))

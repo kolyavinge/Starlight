@@ -31,9 +31,9 @@ void Game::Init()
 void Game::Update()
 {
     InputDevices.Keyboard.Update();
-    Screen& currentScreen = _screenManager.GetCurrentScreen();
-    currentScreen.Update();
-    currentScreen.ProcessInput();
+    // Game.Update() вызывается асинхронно - обращаться к текущему экрану нужно напрямую через _screenManager.GetCurrentScreen()
+    _screenManager.GetCurrentScreen().Update();
+    _screenManager.GetCurrentScreen().ProcessInput();
 }
 
 void Game::RenderCurrentScreen()

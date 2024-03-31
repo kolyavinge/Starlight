@@ -33,10 +33,9 @@ void ScreenNavigator::NavigateTo(ScreenKind kind)
     }
 
     Screen* screen = &_screenManager->GetScreen(kind);
+    _screenManager->SetCurrentScreen(*screen);
     renderer = &_renderManager->GetScreenRenderer(*screen);
     vox = &_voxManager->GetScreenVox(*screen);
-
-    _screenManager->SetCurrentScreen(*screen);
 
     screen->Activate(prevScreen);
     renderer->Activate(prevScreen);
