@@ -4,9 +4,11 @@
 RacePreparationScreen::RacePreparationScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
+    Camera& camera,
     ::Race& race) :
     Screen(ScreenKind::RacePreparation, navigator, inputDevices),
     _iterationsCount(3 * 60),
+    _camera(camera),
     Race(race)
 {
     _currentIteration = 0;
@@ -19,15 +21,15 @@ RacePreparationScreen::RacePreparationScreen(
 void RacePreparationScreen::Activate(Screen*)
 {
     _currentIteration = 0;
-    Race.Camera.SetFrontView(Race.Player);
-    Race.Camera.RotateBy(Math::Pi);
+    _camera.SetFrontView(Race.Player);
+    _camera.RotateBy(Math::Pi);
     _countdownNumber = 3;
     _countdownIteration = 0;
 }
 
 void RacePreparationScreen::Update()
 {
-    Race.Camera.RotateBy(_radiansStep);
+    _camera.RotateBy(_radiansStep);
 
     _countdownIteration++;
     if (_countdownIteration >= _countdownSwitchIteration)
@@ -64,5 +66,6 @@ RacePreparationScreen* RacePreparationScreenResolvingFactory::Make(Resolver& res
     return new RacePreparationScreen(
         resolver.Resolve<IScreenNavigator>(),
         resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Camera>(),
         resolver.Resolve<Race>());
 }

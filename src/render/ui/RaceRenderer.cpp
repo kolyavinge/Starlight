@@ -5,6 +5,7 @@
 #include <render/ui/RaceRenderer.h>
 
 RaceRenderer::RaceRenderer(
+    Camera& camera,
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
@@ -15,6 +16,7 @@ RaceRenderer::RaceRenderer(
     PowerUpRenderer& powerUpRenderer,
     DashboardRenderer& dashboardRenderer,
     GoRenderer& goRenderer) :
+    _camera(camera),
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
@@ -51,8 +53,8 @@ void RaceRenderer::Render(Race& race)
     glMatrixMode(GL_PROJECTION);
 
     glLoadIdentity();
-    gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
-    gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
+    gluPerspective(_camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
+    gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     //gluLookAt(0, 0, 700, 10, 10, 0, 0, 0, 1);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
@@ -74,6 +76,7 @@ void RaceRenderer::Render(Race& race)
 RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new RaceRenderer(
+        resolver.Resolve<Camera>(),
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),

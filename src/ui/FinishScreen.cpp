@@ -3,10 +3,12 @@
 FinishScreen::FinishScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
+    Camera& camera,
     EnemyAI& enemyAI,
     ::Race& race) :
     Screen(ScreenKind::Finish, navigator, inputDevices),
     IterationsCount(400),
+    _camera(camera),
     _enemyAI(enemyAI),
     Race(race)
 {
@@ -16,7 +18,7 @@ FinishScreen::FinishScreen(
 void FinishScreen::Activate(Screen*)
 {
     _iterationCount = 0;
-    Race.Camera.SetFrontView(Race.Player);
+    _camera.SetFrontView(Race.Player);
 }
 
 void FinishScreen::Update()
@@ -43,6 +45,7 @@ FinishScreen* FinishScreenResolvingFactory::Make(Resolver& resolver)
     return new FinishScreen(
         resolver.Resolve<IScreenNavigator>(),
         resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Camera>(),
         resolver.Resolve<EnemyAI>(),
         resolver.Resolve<Race>());
 }

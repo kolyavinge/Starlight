@@ -5,16 +5,12 @@ Race::Race(
     RaceInitializer& raceInitializer,
     RaceUpdater& raceUpdater,
     ShipController& playerController,
-    ::Camera& camera,
-    ::Laps& laps,
-    ::EnemyAI& enemyAI) :
+    ::Laps& laps) :
     _borderUpdater(borderUpdater),
     _raceInitializer(raceInitializer),
     _raceUpdater(raceUpdater),
     PlayerController(playerController),
-    Camera(camera),
     Laps(laps),
-    EnemyAI(enemyAI),
     AllShips(EnemiesCount + 1)
 {
     State = RaceState::Prepare;
@@ -76,7 +72,5 @@ Race* RaceResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<RaceInitializer>(),
         resolver.Resolve<RaceUpdater>(),
         resolver.Resolve<ShipController>(),
-        resolver.Resolve<Camera>(),
-        resolver.Resolve<Laps>(),
-        resolver.Resolve<EnemyAI>());
+        resolver.Resolve<Laps>());
 }

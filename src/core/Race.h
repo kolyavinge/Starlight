@@ -12,9 +12,7 @@
 #include <core/ShipController.h>
 #include <core/RaceInitializer.h>
 #include <core/RaceUpdater.h>
-#include <core/Camera.h>
 #include <core/Laps.h>
-#include <ai/EnemyAI.h>
 
 class Race : public Object
 {
@@ -32,18 +30,14 @@ public:
     List<PowerUp> PowerUps;
     Track* Track;
     ShipController& PlayerController;
-    Camera& Camera;
     Laps& Laps;
-    EnemyAI& EnemyAI;
 
     Race(
         BorderUpdater& borderUpdater,
         RaceInitializer& raceInitializer,
         RaceUpdater& raceUpdater,
         ShipController& playerController,
-        ::Camera& camera,
-        ::Laps& laps,
-        ::EnemyAI& enemyAI);
+        ::Laps& laps);
 
     void Init(::Track& selectedTrack);
     void Start();

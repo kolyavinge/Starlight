@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/di/ResolvingFactory.h>
+#include <core/Camera.h>
 #include <core/Race.h>
 #include <ui/Screen.h>
 #include <render/common/BackgroundRenderer.h>
@@ -17,6 +18,7 @@
 
 class RaceRenderer : public ScreenRenderer
 {
+    Camera& _camera;
     BackgroundRenderer& _backgroundRenderer;
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
@@ -30,6 +32,7 @@ class RaceRenderer : public ScreenRenderer
 
 public:
     RaceRenderer(
+        Camera& camera,
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,

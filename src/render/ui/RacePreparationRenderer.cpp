@@ -4,11 +4,13 @@
 #include <render/ui/RacePreparationRenderer.h>
 
 RacePreparationRenderer::RacePreparationRenderer(
+    Camera& camera,
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer,
     CountdownRenderer& countdownRenderer) :
+    _camera(camera),
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
@@ -32,8 +34,8 @@ void RacePreparationRenderer::Render(Screen& screen)
     glLoadIdentity();
     RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
     Race& race = racePreparationScreen.Race;
-    gluPerspective(race.Camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
-    gluLookAt(race.Camera.Position, race.Camera.LookAt, Constants::UpAxis);
+    gluPerspective(_camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
+    gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render(*race.Track);
@@ -53,6 +55,7 @@ void RacePreparationRenderer::Render(Screen& screen)
 RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new RacePreparationRenderer(
+        resolver.Resolve<Camera>(),
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/di/ResolvingFactory.h>
+#include <core/Camera.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
@@ -14,11 +15,13 @@ class RacePreparationScreen : public Screen
     int _countdownNumber;
     int _countdownSwitchIteration;
     int _countdownIteration;
+    Camera& _camera;
 
 public:
     RacePreparationScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
+        Camera& camera,
         Race& race);
 
     Race& Race;

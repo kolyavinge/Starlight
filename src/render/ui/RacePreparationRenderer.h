@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/di/ResolvingFactory.h>
+#include <core/Camera.h>
 #include <ui/Screen.h>
 #include <render/effect/FadeEffect.h>
 #include <render/common/BackgroundRenderer.h>
@@ -12,6 +13,7 @@
 
 class RacePreparationRenderer : public ScreenRenderer
 {
+    Camera& _camera;
     BackgroundRenderer& _backgroundRenderer;
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
@@ -21,6 +23,7 @@ class RacePreparationRenderer : public ScreenRenderer
 
 public:
     RacePreparationRenderer(
+        Camera& camera,
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,

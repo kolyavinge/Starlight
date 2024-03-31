@@ -6,8 +6,10 @@
 RaceScreen::RaceScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
+    Camera& camera,
     ::Race& race) :
     Screen(ScreenKind::Race, navigator, inputDevices),
+    _camera(camera),
     Race(race)
 {
 }
@@ -15,8 +17,8 @@ RaceScreen::RaceScreen(
 void RaceScreen::Update()
 {
     Race.Update();
-    Race.Camera.SetFrontView(Race.Player);
-    //Race.Camera.SetFrontView(Race.Enemies[0]);
+    _camera.SetFrontView(Race.Player);
+    //_camera.SetFrontView(Race.Enemies[0]);
     if (Race.State == RaceState::Finish)
     {
         _navigator.NavigateTo(ScreenKind::Finish);
@@ -73,7 +75,7 @@ void RaceScreen::ProcessInput()
     if (keyboard.IsPressedOrHeld('Q') ||
         joystick.IsButton4Pressed())
     {
-        Race.Camera.SetRearView(Race.Player);
+        _camera.SetRearView(Race.Player);
     }
 
     if (keyboard.IsPressedOrHeld(VK_SPACE))
@@ -107,5 +109,6 @@ RaceScreen* RaceScreenResolvingFactory::Make(Resolver& resolver)
     return new RaceScreen(
         resolver.Resolve<IScreenNavigator>(),
         resolver.Resolve<InputDevices>(),
+        resolver.Resolve<Camera>(),
         resolver.Resolve<Race>());
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/di/ResolvingFactory.h>
+#include <core/Camera.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/Screen.h>
@@ -10,6 +11,7 @@
 class FinishScreen : public Screen
 {
     int _iterationCount;
+    Camera& _camera;
     EnemyAI& _enemyAI;
 
 public:
@@ -18,6 +20,7 @@ public:
     FinishScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
+        Camera& camera,
         EnemyAI& enemyAI,
         Race& race);
 
