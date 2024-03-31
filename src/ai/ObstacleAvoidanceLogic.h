@@ -24,8 +24,9 @@ public:
 private:
     void TryCalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
     void GenerateAvailableDirections(Ship& ship, float directionLength);
-    void EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track);
-    bool IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction);
+    void EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
+    bool IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, float directionLength);
+    float GetLengthBetweenShips(Ship& ship, Ship& otherShip);
     void CalculateResultDirection(ShipMovingDirections& movingDirections);
 };
 

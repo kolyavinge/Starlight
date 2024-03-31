@@ -23,7 +23,7 @@ public:
     ShipCollisionResult Result;
 
     bool DetectCollisions(Ship& ship, IArray<Ship*>& allShips);
-    bool DetectCollisions(Ship& ship, Vector3& from, Vector3& to);
+    bool DetectCollisions(Ship& ship, Vector3& from, Vector3& to, float stepSize = 0.1f);
     bool DetectCollisions(Ship& ship, Vector3& point);
 
 private:

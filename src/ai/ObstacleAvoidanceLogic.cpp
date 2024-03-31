@@ -32,7 +32,7 @@ void ObstacleAvoidanceLogic::TryCalculateMovingDirection(Ship& ship, IArray<Ship
 {
     ship.AIData.MovingDirections.Init();
     GenerateAvailableDirections(ship, directionLength);
-    EnableDirections(ship, allShips, track);
+    EnableDirections(ship, allShips, track, directionLength);
     CalculateResultDirection(ship.AIData.MovingDirections);
 }
 
@@ -41,7 +41,6 @@ void ObstacleAvoidanceLogic::GenerateAvailableDirections(Ship& ship, float direc
     Vector3 straight(ship.CentralLine.Front);
     straight.Sub(ship.CentralLine.Rear);
     straight.SetLength(directionLength);
-    ship.AIData.MovingDirections.AvailableDirections.Add(straight);
 
     Vector3 movingPoint;
     const int steps = ship.AIData.MovingPointsSteps;
@@ -58,16 +57,16 @@ void ObstacleAvoidanceLogic::GenerateAvailableDirections(Ship& ship, float direc
     }
 }
 
-void ObstacleAvoidanceLogic::EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track)
+void ObstacleAvoidanceLogic::EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength)
 {
     for (int i = 0; i < ship.AIData.MovingDirections.AvailableDirections.GetCount(); i++)
     {
         Vector3& direction = ship.AIData.MovingDirections.AvailableDirections[i];
-        ship.AIData.MovingDirections.EnabledDirections.Add(IsDirectionEnabled(ship, allShips, track, direction));
+        ship.AIData.MovingDirections.EnabledDirections.Add(IsDirectionEnabled(ship, allShips, track, direction, directionLength));
     }
 }
 
-bool ObstacleAvoidanceLogic::IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction)
+bool ObstacleAvoidanceLogic::IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, float directionLength)
 {
     direction.Add(ship.CentralLine.Front);
 
@@ -80,13 +79,22 @@ bool ObstacleAvoidanceLogic::IsDirectionEnabled(Ship& ship, IArray<Ship*>& allSh
     {
         Ship& otherShip = *allShips[i];
         if (!Object::ReferenceEquals(ship, otherShip) &&
-            _shipCollisionDetector.DetectCollisions(otherShip, ship.CentralLine.Front, direction))
+            GetLengthBetweenShips(ship, otherShip) < directionLength &&
+            _shipCollisionDetector.DetectCollisions(otherShip, ship.CentralLine.Front, direction, 0.5f))
         {
             return false;
         }
     }
 
     return true;
+}
+
+float ObstacleAvoidanceLogic::GetLengthBetweenShips(Ship& ship, Ship& otherShip)
+{
+    Vector3 length(ship.CentralLine.Front);
+    length.Sub(otherShip.CentralLine.Rear);
+
+    return length.GetLength();
 }
 
 void ObstacleAvoidanceLogic::CalculateResultDirection(ShipMovingDirections& movingDirections)
