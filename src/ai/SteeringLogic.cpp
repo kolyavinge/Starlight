@@ -6,10 +6,15 @@ SteeringLogic::SteeringLogic(ShipController& controller) :
 {
 }
 
-void SteeringLogic::Update(Ship& ship)
+void SteeringLogic::Update(Ship& ship, Track& track)
 {
     _controller.SetShip(ship);
+    ProcessSteering(ship);
+    ProcessThrottle(ship, track);
+}
 
+void SteeringLogic::ProcessSteering(Ship& ship)
+{
     if (ship.AIData.MovingDirections.ResultDirection.IsZero())
     {
         return;
@@ -40,8 +45,19 @@ void SteeringLogic::Update(Ship& ship)
             _controller.TurnRight();
         }
     }
+}
 
+void SteeringLogic::ProcessThrottle(Ship& ship, Track& track)
+{
     _controller.ActivateThrottle();
+
+    TrackPointInfo& pi = track.PointInfos[ship.CentralLine.TrackPointIndexFront];
+    if (pi.IsTurn() &&
+        pi.Radius <= 50.0f &&
+        ship.VelocityValue > (ship.VelocityFunction.MaxVelocity - 2.0f))
+    {
+        _controller.ReleaseThrottle();
+    }
 }
 
 SteeringLogic* SteeringLogicResolvingFactory::Make(Resolver& resolver)

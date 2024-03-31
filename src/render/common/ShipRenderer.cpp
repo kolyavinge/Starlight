@@ -15,6 +15,7 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
     _shipMesh.Render(ship, textureIndex);
     //RenderAIMovingDirections(ship);
+    //RenderThrottle(ship);
 }
 
 void ShipRenderer::RenderAIMovingDirections(Ship& ship)
@@ -51,6 +52,27 @@ void ShipRenderer::RenderAIMovingDirections(Ship& ship)
         ship.CentralLine.Front.Y + 5.0f * ship.AIData.MovingDirections.ResultDirection.Y,
         ship.CentralLine.Front.Z + 5.0f * ship.AIData.MovingDirections.ResultDirection.Z);
     glEnd();
+}
+
+void ShipRenderer::RenderThrottle(Ship& ship)
+{
+    if (ship.Controls.IsThrottleActive)
+    {
+        glColor3f(0.0f, 0.5f, 0.0f);
+    }
+    else
+    {
+        glColor3f(0.0f, 0.0f, 0.0f);
+    }
+    glPushMatrix();
+    glTranslatef(ship.Border.DownRight);
+    glBegin(GL_QUADS);
+    glVertex3f(0.0f, 0.0f, 0.0f);
+    glVertex3f(0.1f, 0.0f, 0.0f);
+    glVertex3f(0.1f, 0.1f, 0.0f);
+    glVertex3f(0.0f, 0.1f, 0.0f);
+    glEnd();
+    glPopMatrix();
 }
 
 ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)

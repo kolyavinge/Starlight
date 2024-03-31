@@ -17,6 +17,7 @@ public:
 
 private:
     void RenderAIMovingDirections(Ship& ship);
+    void RenderThrottle(Ship& ship);
 };
 
 class ShipRendererResolvingFactory : public ResolvingFactory<ShipRenderer>

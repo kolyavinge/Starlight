@@ -6,3 +6,8 @@ TrackPointInfo::TrackPointInfo()
     RemainingDistance = 0.0f;
     Radius = 0.0f;
 }
+
+bool TrackPointInfo::IsTurn()
+{
+    return Kind == TrackPointKind::LeftTurn || Kind == TrackPointKind::RightTurn;
+}

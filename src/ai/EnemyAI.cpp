@@ -25,7 +25,7 @@ void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& tr
 void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
 {
     _obstacleAvoidanceLogic.CalculateMovingDirection(enemy, allShips, track);
-    _steeringLogic.Update(enemy);
+    _steeringLogic.Update(enemy, track);
     _nitroActivationLogic.Apply(enemy, track);
 }
 

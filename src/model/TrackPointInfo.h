@@ -12,4 +12,6 @@ public:
     float Radius;
 
     TrackPointInfo();
+
+    bool IsTurn();
 };
