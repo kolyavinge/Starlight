@@ -16,3 +16,8 @@ int Object::GetHashCode()
 {
     return (int)(long long)this;
 }
+
+bool Object::operator==(Object& x)
+{
+    return Equals(x);
+}
