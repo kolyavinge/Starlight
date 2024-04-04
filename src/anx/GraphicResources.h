@@ -30,4 +30,5 @@ public:
     static String GetPowerUpNitroFilePath();
     static String GetTrackGround1TextureFilePath();
     static String GetTrackGroundFinishTextureFilePath();
+    static String GetTrackEdgeTextureFilePath();
 };
