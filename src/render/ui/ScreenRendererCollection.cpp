@@ -5,6 +5,7 @@ ScreenRendererCollection::ScreenRendererCollection(
     TextRenderer& textRenderer,
     BackgroundRenderer& backgroundRenderer,
     ShipsRenderer& shipsRenderer,
+    TrackRenderer& trackRenderer,
     GraphicItemCollection& graphicItemCollection,
     StartMenuRenderer& startMenuRenderer,
     TrackSelectorRenderer& trackSelectorRenderer,
@@ -15,6 +16,7 @@ ScreenRendererCollection::ScreenRendererCollection(
     _textRenderer(textRenderer),
     _backgroundRenderer(backgroundRenderer),
     _shipsRenderer(shipsRenderer),
+    _trackRenderer(trackRenderer),
     _graphicItemCollection(graphicItemCollection),
     _startMenuRenderer(startMenuRenderer),
     _trackSelectorRenderer(trackSelectorRenderer),
@@ -37,6 +39,7 @@ void ScreenRendererCollection::Init()
     _graphicItemCollection.Init();
     _backgroundRenderer.Init();
     _shipsRenderer.Init();
+    _trackRenderer.Init();
 }
 
 ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
@@ -50,6 +53,7 @@ ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolve
         resolver.Resolve<TextRenderer>(),
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<ShipsRenderer>(),
+        resolver.Resolve<TrackRenderer>(),
         resolver.Resolve<GraphicItemCollection>(),
         resolver.Resolve<StartMenuRenderer>(),
         resolver.Resolve<TrackSelectorRenderer>(),

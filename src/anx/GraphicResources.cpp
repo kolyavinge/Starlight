@@ -208,3 +208,21 @@ String GraphicResources::GetPowerUpNitroFilePath()
 
     return path;
 }
+
+String GraphicResources::GetTrackGround1TextureFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\track_ground1.jpg\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetTrackGroundFinishTextureFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\track_ground_finish.jpg\0");
+    path.Append(name);
+
+    return path;
+}

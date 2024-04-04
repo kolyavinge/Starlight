@@ -28,4 +28,6 @@ public:
     static String GetPowerUpHealthFilePath();
     static String GetPowerUpMachinegunFilePath();
     static String GetPowerUpNitroFilePath();
+    static String GetTrackGround1TextureFilePath();
+    static String GetTrackGroundFinishTextureFilePath();
 };

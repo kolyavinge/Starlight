@@ -3,10 +3,15 @@
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Track.h>
+#include <gl/Texture.h>
 
 class TrackRenderer : public Object
 {
+    Texture _groundTexture;
+    Texture _groundFinishTexture;
+
 public:
+    void Init();
     void Render(Track& track);
 
 private:
