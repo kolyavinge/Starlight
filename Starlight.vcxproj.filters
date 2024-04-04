@@ -193,6 +193,8 @@
     <ClInclude Include="src\game\inject\VoxInjectModule.h" />
     <ClInclude Include="src\lib\di\FunctionInstanceHolder.h" />
     <ClInclude Include="src\render\common\ShipRenderer.h" />
+    <ClInclude Include="src\ai\WeaponActivationLogic.h" />
+    <ClInclude Include="src\model\TrackEdge.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -362,6 +364,7 @@
     <ClCompile Include="src\game\inject\VoxInjectModule.cpp" />
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
+    <ClCompile Include="src\ai\WeaponActivationLogic.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

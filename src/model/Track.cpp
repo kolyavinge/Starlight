@@ -1,11 +1,13 @@
 #include <lib/Exceptions.h>
 #include <calc/VectorCalculator.h>
+#include <calc/Geometry.h>
 #include <model/Track.h>
 
 Track::Track()
 {
-    PointsCount = 0;
     StartFinishLineIndex = 0;
+    PointsCount = 0;
+    EdgesCount = 0;
 }
 
 void Track::Init()
@@ -14,10 +16,13 @@ void Track::Init()
     CenterTrackPoints();
     InitMiddlePoints();
     InitNormals();
+    InitEdges();
     _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
     _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
     InsidePoints[PointsCount] = InsidePoints[0];
     OutsidePoints[PointsCount] = OutsidePoints[0];
+    InsideEdges[EdgesCount] = InsideEdges[0];
+    OutsideEdges[EdgesCount] = OutsideEdges[0];
 }
 
 int Track::GetTrackPointIndexFor(Vector3& point, int startIndex)
@@ -155,6 +160,40 @@ void Track::InitNormals()
         for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
         {
             Normals[pointIndex].Mul(-1.0f);
+        }
+    }
+}
+
+void Track::InitEdges()
+{
+    EdgesCount = PointsCount / TrackEdgesStep;
+    InitEdges(OutsideEdges, OutsidePoints);
+    InitEdges(InsideEdges, InsidePoints);
+}
+
+void Track::InitEdges(TrackEdges& edges, TrackPoints& trackPoints)
+{
+    for (int edgeIndex = 0; edgeIndex < EdgesCount; edgeIndex++)
+    {
+        int trackPointIndex = TrackEdgesStep * edgeIndex;
+
+        Vector3 pivotAxis(trackPoints[trackPointIndex + TrackEdgesStep]);
+        pivotAxis.Sub(trackPoints[trackPointIndex]);
+        pivotAxis.Normalize();
+
+        Vector3 point = Normals[trackPointIndex];
+        point.SetLength(0.5f);
+        point.Add(trackPoints[trackPointIndex]);
+
+        TrackEdge& edge = edges[edgeIndex];
+        edge.Points[0].Set(point);
+
+        float radians = TrackEdge::RadiansStep;
+        for (int pointIndex = 1; pointIndex < edge.Points.GetCount(); pointIndex++)
+        {
+            Vector3 rotatedPoint = Geometry::RotatePoint3d(point, pivotAxis, trackPoints[trackPointIndex], radians);
+            edge.Points[pointIndex].Set(rotatedPoint);
+            radians += TrackEdge::RadiansStep;
         }
     }
 }

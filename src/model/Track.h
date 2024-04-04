@@ -4,9 +4,12 @@
 #include <lib/Array.h>
 #include <calc/Vector3.h>
 #include <model/TrackPointInfo.h>
+#include <model/TrackEdge.h>
 
 #define TrackMaxPoints 20000
 #define TrackMaxMiddlePoints 10
+#define TrackEdgesStep 10
+#define TrackMaxEdges (TrackMaxPoints / TrackEdgesStep)
 
 class TrackPoints : public Array<Vector3, TrackMaxPoints> { };
 
@@ -14,18 +17,23 @@ class TrackMiddlePoints : public Array<Array<Vector3, TrackMaxMiddlePoints>, Tra
 
 class TrackPointInfos : public Array<TrackPointInfo, TrackMaxPoints> { };
 
+class TrackEdges : public Array<TrackEdge, TrackMaxEdges> { };
+
 class Track : public Object
 {
     Vector3 _startFinishLine;
 
 public:
+    int StartFinishLineIndex;
     int PointsCount;
+    int EdgesCount;
     TrackPoints OutsidePoints;
     TrackPoints InsidePoints;
     TrackMiddlePoints MiddlePoints;
     TrackPoints Normals;
-    int StartFinishLineIndex;
     TrackPointInfos PointInfos;
+    TrackEdges OutsideEdges;
+    TrackEdges InsideEdges;
 
     Track();
 
@@ -42,5 +50,7 @@ private:
     void CenterTrackPoints();
     void InitMiddlePoints();
     void InitNormals();
+    void InitEdges();
+    void InitEdges(TrackEdges& edges, TrackPoints& trackPoints);
     float GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointIndex);
 };

@@ -1,4 +1,5 @@
 #include <gl/opengl.h>
+#include <model/TrackEdge.h>
 #include <render/common/TrackRenderer.h>
 #include <anx/GraphicResources.h>
 
@@ -11,7 +12,7 @@ void TrackRenderer::Init()
 void TrackRenderer::Render(Track& track)
 {
     RenderTrack(track);
-    RenderEdges(track);
+    //RenderEdges(track);
 }
 
 void TrackRenderer::RenderTrack(Track& track)
@@ -41,15 +42,23 @@ void TrackRenderer::RenderTrack(Track& track)
 void TrackRenderer::RenderEdges(Track& track)
 {
     glColor3f(0.8f, 0.8f, 0.8f);
-
     glBegin(GL_POINTS);
-
-    for (int i = 0; i < track.PointsCount; i += 25)
+    for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
     {
-        glVertex3f(track.InsidePoints[i]);
-        glVertex3f(track.OutsidePoints[i]);
+        TrackEdge& edge = track.OutsideEdges[edgeIndex];
+        for (int pointIndex = 0; pointIndex < edge.Points.GetCount(); pointIndex++)
+        {
+            glVertex3f(edge.Points[pointIndex]);
+        }
     }
-
+    for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
+    {
+        TrackEdge& edge = track.InsideEdges[edgeIndex];
+        for (int pointIndex = 0; pointIndex < edge.Points.GetCount(); pointIndex++)
+        {
+            glVertex3f(edge.Points[pointIndex]);
+        }
+    }
     glEnd();
 }
 
