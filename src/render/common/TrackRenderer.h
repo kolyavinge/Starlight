@@ -12,6 +12,7 @@ public:
 private:
     void RenderTrack(Track& track);
     void RenderEdges(Track& track);
+    void RenderSegment(Track& track, int startPointIndex, int endPointIndex, int step);
 };
 
 class TrackRendererResolvingFactory : public ResolvingFactory<TrackRenderer>
