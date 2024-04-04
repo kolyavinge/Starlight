@@ -14,9 +14,10 @@ void Track::Init()
     CenterTrackPoints();
     InitMiddlePoints();
     InitNormals();
-    StraightDirection.Normalize();
     _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
     _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
+    InsidePoints[PointsCount] = InsidePoints[0];
+    OutsidePoints[PointsCount] = OutsidePoints[0];
 }
 
 int Track::GetTrackPointIndexFor(Vector3& point, int startIndex)

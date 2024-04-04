@@ -18,7 +18,10 @@ void StartingGridInitializer::SetStartGrid(Ship& player, IArray<Ship>& enemies, 
     Vector3 secondRowPoint(track.InsidePoints[track.StartFinishLineIndex]);
     secondRowPoint.Add(secondRowDirection);
 
-    Vector3 trackOppositeDirection(track.StraightDirection);
+    Vector3 straightDirection(track.InsidePoints[track.StartFinishLineIndex + 1]);
+    straightDirection.Sub(track.InsidePoints[track.StartFinishLineIndex]);
+
+    Vector3 trackOppositeDirection(straightDirection);
     trackOppositeDirection.Mul(-1.0f);
     trackOppositeDirection.SetLength(2.0f * ShipMeasure::YLength);
 
@@ -33,8 +36,8 @@ void StartingGridInitializer::SetStartGrid(Ship& player, IArray<Ship>& enemies, 
     const int rowsCount = ships.GetCount() / 2;
     for (int row = 0; row < rowsCount; row++)
     {
-        ships[shipIndex++]->OrientationByFrontPoint(firstRowPoint, track.StraightDirection);
-        ships[shipIndex++]->OrientationByFrontPoint(secondRowPoint, track.StraightDirection);
+        ships[shipIndex++]->OrientationByFrontPoint(firstRowPoint, straightDirection);
+        ships[shipIndex++]->OrientationByFrontPoint(secondRowPoint, straightDirection);
         firstRowPoint.Add(trackOppositeDirection);
         secondRowPoint.Add(trackOppositeDirection);
     }

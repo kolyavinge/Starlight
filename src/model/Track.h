@@ -24,7 +24,6 @@ public:
     TrackPoints InsidePoints;
     TrackMiddlePoints MiddlePoints;
     TrackPoints Normals;
-    Vector3 StraightDirection;
     int StartFinishLineIndex;
     TrackPointInfos PointInfos;
 

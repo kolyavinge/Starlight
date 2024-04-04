@@ -4,8 +4,6 @@
 
 void RoadTrack3::InternalInit()
 {
-    StraightDirection.Set(0.0f, 1.0f, 0.0f);
-
     TrackBuilder builder(InsidePoints, OutsidePoints, PointInfos, PointsCount);
 
     builder.InitInsidePosition(0.0f, 0.0f, 0.0f);
