@@ -28,7 +28,7 @@ void RoadTrack1::InternalInit()
     }
 
     float radians = 0.0f;
-    float radiansStep = Math::PiDouble / (float)pointCountBeforeFinishLine;
+    float radiansStep = 2.0f * Math::PiDouble / (float)pointCountBeforeFinishLine;
     for (int i = 0; i < pointCountBeforeFinishLine; i++)
     {
         float z = 20.0f * Math::Cos(radians);
