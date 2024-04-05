@@ -22,6 +22,7 @@ private:
     void RenderEdges(Track& track);
     void RenderEdge(TrackEdge& edge, TrackEdge& nextEdge);
     void RenderEdgesAsPoints(Track& track);
+    void RenderNormals(Track& track);
 };
 
 class TrackRendererResolvingFactory : public ResolvingFactory<TrackRenderer>

@@ -32,7 +32,7 @@ void RoadTrack4::InternalInit()
     builder.TurnRight(180.0f, 50.0f);
     builder.TurnLeft(200.0f, 50.0f);
     builder.Move(200.0f);
-    builder.TurnRight(80.0f, 40.0f);
+    builder.TurnRight(70.0f, 40.0f);
 
     int pointCountBeforeFinishLine = PointsCount;
     builder.ConnectStartFinish();

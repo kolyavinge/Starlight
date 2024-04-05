@@ -16,6 +16,7 @@ void TrackRenderer::Render(Track& track)
     RenderTrack(track);
     RenderEdges(track);
     //RenderEdgesAsPoints(track);
+    //RenderNormals(track);
     glDisable(GL_TEXTURE_2D);
     glDisable(GL_DEPTH_TEST);
 }
@@ -154,8 +155,7 @@ void TrackRenderer::RenderEdge(TrackEdge& edge, TrackEdge& nextEdge)
 
 void TrackRenderer::RenderEdgesAsPoints(Track& track)
 {
-    glColor3f(1.0f, 0.0f, 0.0f);
-    glPointSize(5);
+    glColor3f(1.0f, 1.0f, 1.0f);
     glBegin(GL_POINTS);
     for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
     {
@@ -174,6 +174,23 @@ void TrackRenderer::RenderEdgesAsPoints(Track& track)
         }
     }
     glEnd();
+}
+
+void TrackRenderer::RenderNormals(Track& track)
+{
+    glColor3f(1.0f, 1.0f, 1.0f);
+    for (int i = 0; i < track.PointsCount; i++)
+    {
+        Vector3& normal = track.Normals[i];
+        Vector3& out = track.OutsidePoints[i];
+        glPushMatrix();
+        glTranslatef(out);
+        glBegin(GL_LINES);
+        glVertex3f(0.0f, 0.0f, 0.0f);
+        glVertex3f(normal);
+        glEnd();
+        glPopMatrix();
+    }
 }
 
 TrackRenderer* TrackRendererResolvingFactory::Make(Resolver&)

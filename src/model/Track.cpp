@@ -14,15 +14,15 @@ void Track::Init()
 {
     InternalInit();
     CenterTrackPoints();
+    InsidePoints[PointsCount] = InsidePoints[0];
+    OutsidePoints[PointsCount] = OutsidePoints[0];
     InitMiddlePoints();
     InitNormals();
     InitEdges();
-    _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
-    _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
-    InsidePoints[PointsCount] = InsidePoints[0];
-    OutsidePoints[PointsCount] = OutsidePoints[0];
     InsideEdges[EdgesCount] = InsideEdges[0];
     OutsideEdges[EdgesCount] = OutsideEdges[0];
+    _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
+    _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
 }
 
 int Track::GetTrackPointIndexFor(Vector3& point, int startIndex)
@@ -140,7 +140,7 @@ void Track::InitMiddlePoints()
 
 void Track::InitNormals()
 {
-    for (int pointIndex = 0; pointIndex < PointsCount - 1; pointIndex++)
+    for (int pointIndex = 0; pointIndex < PointsCount; pointIndex++)
     {
         VectorCalculator::GetNormalVector(
             InsidePoints[pointIndex],
@@ -148,12 +148,6 @@ void Track::InitNormals()
             InsidePoints[pointIndex + 1],
             Normals[pointIndex]);
     }
-
-    VectorCalculator::GetNormalVector(
-        InsidePoints[PointsCount - 1],
-        OutsidePoints[PointsCount - 1],
-        InsidePoints[0],
-        Normals[PointsCount - 1]);
 
     if (OutsidePoints[0].X < InsidePoints[0].X)
     {
