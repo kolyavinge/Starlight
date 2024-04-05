@@ -16,6 +16,7 @@ void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
 {
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
     glEnable(GL_BLEND);
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     for (int i = 0; i < powerUps.GetCount(); i++)
     {
@@ -25,6 +26,7 @@ void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
         RenderRect(p);
     }
     glDisable(GL_TEXTURE_2D);
+    glDisable(GL_DEPTH_TEST);
     glDisable(GL_BLEND);
     _angleDegrees = Geometry::NormalizeDegrees(_angleDegrees + 8.0f);
 }
@@ -50,6 +52,7 @@ void PowerUpRenderer::RenderRect(PowerUp& powerUp)
     glPushMatrix();
 
     glTranslatef(powerUp.Middle);
+    glTranslatef(0.0f, 0.0f, 0.5f);
     glRotatef(_angleDegrees, Constants::UpAxis);
 
     glBegin(GL_QUADS);

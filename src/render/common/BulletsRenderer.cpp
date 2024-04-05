@@ -5,11 +5,13 @@
 
 void BulletsRenderer::Render(Ship& player, IArray<Ship>& enemies)
 {
+    glEnable(GL_DEPTH_TEST);
     RenderWeapon(player);
     for (int i = 0; i < enemies.GetCount(); i++)
     {
         RenderWeapon(enemies[i]);
     }
+    glDisable(GL_DEPTH_TEST);
 }
 
 void BulletsRenderer::RenderWeapon(Ship& ship)
