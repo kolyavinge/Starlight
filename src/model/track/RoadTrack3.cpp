@@ -7,7 +7,7 @@ void RoadTrack3::InternalInit()
     TrackBuilder builder(InsidePoints, OutsidePoints, PointInfos, PointsCount);
 
     builder.InitInsidePosition(0.0f, 0.0f, 0.0f);
-    builder.InitOutsidePosition(20.0f, 0.0f, 0.0f);
+    builder.InitOutsidePosition(18.0f, 0.0f, 0.0f);
 
     builder.InsideDirection.Set(0.0f, 1.0f, 0.0f);
     builder.OutsideDirection.Set(0.0f, 1.0f, 0.0f);

@@ -9,7 +9,7 @@ void RoadTrack4::InternalInit()
     TrackBuilder builder(InsidePoints, OutsidePoints, PointInfos, PointsCount);
 
     builder.InitInsidePosition(0.0f, 0.0f, 0.0f);
-    builder.InitOutsidePosition(25.0f, 0.0f, 0.0f);
+    builder.InitOutsidePosition(20.0f, 0.0f, 0.0f);
 
     builder.InsideDirection.Set(0.0f, 1.0f, 0.0f);
     builder.OutsideDirection.Set(0.0f, 1.0f, 0.0f);
@@ -39,15 +39,15 @@ void RoadTrack4::InternalInit()
 
     for (int i = 0; i < PointsCount; i++)
     {
-        InsidePoints[i].Z = 20.0f;
-        OutsidePoints[i].Z = 20.0f;
+        InsidePoints[i].Z = 40.0f;
+        OutsidePoints[i].Z = 40.0f;
     }
 
     float radians = 0.0f;
     float radiansStep = Math::PiDouble / (float)pointCountBeforeFinishLine;
     for (int i = 0; i < pointCountBeforeFinishLine; i++)
     {
-        float z = 20.0f * Math::Cos(radians);
+        float z = 40.0f * Math::Cos(radians);
         InsidePoints[i].Z = z;
         OutsidePoints[i].Z = z;
         radians += radiansStep;

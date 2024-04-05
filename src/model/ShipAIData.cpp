@@ -25,7 +25,7 @@ void ShipAIData::InitForPlayer()
     Random rand;
     MovingPointsSteps = 8 + rand.GetIntFromZeroToN(4);
     StraightDirectionLimit = 0.98f + rand.GetFloatFromZeroToN(0.02f);
-    MovingDirectionLength = 20.0f + (float)rand.GetIntFromZeroToN(5);
+    MovingDirectionLength = 15.0f + (float)rand.GetIntFromZeroToN(5);
     WeaponFireIterations = 0;
 }
 
