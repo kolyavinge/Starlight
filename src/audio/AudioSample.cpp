@@ -34,7 +34,7 @@ void AudioSample::Play()
     alSourcei(_sourceId, AL_BUFFER, _bufferId);
     alSourcef(_sourceId, AL_PITCH, _pitch);
     alSourcef(_sourceId, AL_GAIN, _gain);
-    alSource3f(_sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
+    alSource3f(_sourceId, AL_POSITION, _position.X, _position.Y, _position.Z);
     alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
     alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
     alSourcePlay(_sourceId);
@@ -48,6 +48,11 @@ void AudioSample::SetGain(float gain)
 void AudioSample::SetPitch(float pitch)
 {
     _pitch = pitch;
+}
+
+void AudioSample::SetPosition(Vector3& position)
+{
+    _position = position;
 }
 
 void AudioSample::InitSoundSource(String filePath)
