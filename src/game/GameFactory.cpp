@@ -9,6 +9,11 @@
 #include <game/inject/GameInjectModule.h>
 #include <game/GameFactory.h>
 
+GameInitializer GameFactory::MakeGameInitializer()
+{
+    return GameInitializer();
+}
+
 Game& GameFactory::MakeNewGame()
 {
     CoreInjectModule coreInjectModule;

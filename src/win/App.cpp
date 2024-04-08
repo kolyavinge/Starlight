@@ -15,6 +15,7 @@ void App::Start(int argc, char** argv)
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
     glutJoystickFunc(JoystickKeypress, 10);
+    GameFactory::MakeGameInitializer().Init();
     _game = &GameFactory::MakeNewGame();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
     glutMainLoop();
