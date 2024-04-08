@@ -1,37 +1,37 @@
 #include <openal/al.h>
-#include <openal/alc.h>
-#include <audio/ALFormat.h>
-#include <audio/WavFile.h>
 #include <audio/AudioSample.h>
 
 AudioSample::AudioSample()
 {
+    _data = nullptr;
     _sourceId = 0;
-    _bufferId = 0;
     _gain = 1.0f;
     _pitch = 1.0f;
+}
+
+AudioSample::AudioSample(AudioData& data) :
+    AudioSample()
+{
+    SetData(data);
 }
 
 AudioSample::~AudioSample()
 {
     alDeleteSources(1, &_sourceId);
-    alDeleteBuffers(1, &_bufferId);
 }
 
-void AudioSample::Load(String filePath)
+void AudioSample::SetData(AudioData& data)
 {
-    if (_sourceId != 0) throw AudioSampleException();
-    if (_bufferId != 0) throw AudioSampleException();
-    InitSoundSource(filePath);
+    _data = &data;
+    alGenSources(1, &_sourceId);
     ALenum error = alGetError();
-    if (error != AL_NO_ERROR) throw AudioSampleException();
-    if (_sourceId == 0) throw AudioSampleException();
-    if (_bufferId == 0) throw AudioSampleException();
+    if (error != AL_NO_ERROR) throw AudioException();
+    if (_sourceId == 0) throw AudioException();
 }
 
 void AudioSample::Play()
 {
-    alSourcei(_sourceId, AL_BUFFER, _bufferId);
+    alSourcei(_sourceId, AL_BUFFER, _data->GetBufferId());
     alSourcef(_sourceId, AL_PITCH, _pitch);
     alSourcef(_sourceId, AL_GAIN, _gain);
     alSource3f(_sourceId, AL_POSITION, _position.X, _position.Y, _position.Z);
@@ -53,19 +53,4 @@ void AudioSample::SetPitch(float pitch)
 void AudioSample::SetPosition(Vector3& position)
 {
     _position = position;
-}
-
-void AudioSample::InitSoundSource(String filePath)
-{
-    WavFile wavFile(filePath);
-
-    alGenBuffers(1, &_bufferId);
-    alBufferData(
-        _bufferId,
-        ALFormat::Get(wavFile.GetChannelsCount(), wavFile.GetBitsPerSample()),
-        wavFile.GetSoundData(),
-        wavFile.GetSoundDataSizeBytes(),
-        wavFile.GetSampleRate());
-
-    alGenSources(1, &_sourceId);
 }

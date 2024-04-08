@@ -4,14 +4,14 @@
 #include <ui/Screen.h>
 #include <audio/AudioSample.h>
 #include <vox/ScreenVox.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 
 class RacePreparationVox : public ScreenVox
 {
-    AudioSample& _countdownSample;
+    AudioSample _countdownSample;
 
 public:
-    RacePreparationVox(SampleCollection& sampleCollection);
+    RacePreparationVox(AudioDataCollection& audioDataCollection);
 
     void Deactivate() override;
     void Voice(Screen& screen) override;

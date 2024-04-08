@@ -2,31 +2,31 @@
 
 #include <lib/Object.h>
 #include <audio/AudioSample.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 
 template<class TMenuItem>
 class MenuItemVox : public Object
 {
     TMenuItem _lastSelectedItem;
-    AudioSample* _selectMenuItemSample;
+    AudioSample _selectMenuItemSample;
 
 public:
-    MenuItemVox(TMenuItem initValue)
+    MenuItemVox(TMenuItem initValue, AudioDataCollection& audioDataCollection) :
+        _selectMenuItemSample(audioDataCollection.SelectMenuItemData)
     {
         _lastSelectedItem = initValue;
-        _selectMenuItemSample = nullptr;
     }
 
-    void Init(SampleCollection& sampleCollection)
+    void Init(AudioDataCollection& audioDataCollection)
     {
-        _selectMenuItemSample = &sampleCollection.SelectMenuItemSample;
+        _selectMenuItemSample = &audioDataCollection.SelectMenuItemData;
     }
 
     void Voice(TMenuItem currentSelectedItem)
     {
         if (_lastSelectedItem != currentSelectedItem)
         {
-            _selectMenuItemSample->Play();
+            _selectMenuItemSample.Play();
             _lastSelectedItem = currentSelectedItem;
         }
     }

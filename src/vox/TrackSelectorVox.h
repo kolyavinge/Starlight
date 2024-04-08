@@ -4,7 +4,7 @@
 #include <ui/Screen.h>
 #include <ui/TrackSelectorScreen.h>
 #include <vox/ScreenVox.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 #include <vox/MenuItemVox.h>
 
 class TrackSelectorVox : public ScreenVox
@@ -12,7 +12,7 @@ class TrackSelectorVox : public ScreenVox
     MenuItemVox<TrackSelectorItem> _menuItemVox;
 
 public:
-    TrackSelectorVox(SampleCollection& sampleCollection);
+    TrackSelectorVox(AudioDataCollection& audioDataCollection);
 
     void Voice(Screen& screen) override;
 };

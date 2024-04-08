@@ -4,7 +4,7 @@
 #include <ui/Screen.h>
 #include <ui/PauseMenuScreen.h>
 #include <vox/ScreenVox.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 #include <vox/MenuItemVox.h>
 
 class PauseMenuVox : public ScreenVox
@@ -12,7 +12,7 @@ class PauseMenuVox : public ScreenVox
     MenuItemVox<PauseMenuItem> _menuItemVox;
 
 public:
-    PauseMenuVox(SampleCollection& sampleCollection);
+    PauseMenuVox(AudioDataCollection& audioDataCollection);
 
     void Voice(Screen& screen) override;
 };

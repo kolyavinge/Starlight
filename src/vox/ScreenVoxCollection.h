@@ -4,7 +4,7 @@
 #include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 #include <vox/ScreenVox.h>
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
@@ -15,7 +15,7 @@
 
 class ScreenVoxCollection : public Object
 {
-    SampleCollection& _sampleCollection;
+    AudioDataCollection& _audioDataCollection;
     StartMenuVox& _startMenuVox;
     TrackSelectorVox& _trackSelectorVox;
     RacePreparationVox& _racePreparationVox;
@@ -26,7 +26,7 @@ class ScreenVoxCollection : public Object
 
 public:
     ScreenVoxCollection(
-        SampleCollection& sampleCollection,
+        AudioDataCollection& audioDataCollection,
         StartMenuVox& startMenuVox,
         TrackSelectorVox& trackSelectorVox,
         RacePreparationVox& racePreparationVox,

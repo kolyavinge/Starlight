@@ -195,6 +195,7 @@
     <ClInclude Include="src\render\common\ShipRenderer.h" />
     <ClInclude Include="src\ai\WeaponActivationLogic.h" />
     <ClInclude Include="src\model\TrackEdge.h" />
+    <ClInclude Include="src\audio\AudioData.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -365,6 +366,7 @@
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\ai\WeaponActivationLogic.cpp" />
+    <ClCompile Include="src\audio\AudioData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

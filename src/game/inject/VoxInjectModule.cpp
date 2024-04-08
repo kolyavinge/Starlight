@@ -2,7 +2,7 @@
 #include <vox/PauseMenuVox.h>
 #include <vox/RacePreparationVox.h>
 #include <vox/RaceVox.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 #include <vox/ScreenVoxCollection.h>
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
@@ -15,7 +15,7 @@ void VoxInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<PauseMenuVox, PauseMenuVoxResolvingFactory>();
     binder.BindSingletonByFactory<RacePreparationVox, RacePreparationVoxResolvingFactory>();
     binder.BindSingletonByFactory<RaceVox, RaceVoxResolvingFactory>();
-    binder.BindSingletonByFactory<SampleCollection, SampleCollectionResolvingFactory>();
+    binder.BindSingletonByFactory<AudioDataCollection, AudioDataCollectionResolvingFactory>();
     binder.BindSingletonByFactory<ScreenVoxCollection, ScreenVoxCollectionResolvingFactory>();
     binder.BindSingletonByFactory<StartMenuVox, StartMenuVoxResolvingFactory>();
     binder.BindSingletonByFactory<TrackSelectorVox, TrackSelectorVoxResolvingFactory>();

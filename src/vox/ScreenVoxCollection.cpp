@@ -1,14 +1,14 @@
 #include <vox/ScreenVoxCollection.h>
 
 ScreenVoxCollection::ScreenVoxCollection(
-    SampleCollection& sampleCollection,
+    AudioDataCollection& audioDataCollection,
     StartMenuVox& startMenuVox,
     TrackSelectorVox& trackSelectorVox,
     RacePreparationVox& racePreparationVox,
     RaceVox& raceVox,
     PauseMenuVox& pauseMenuVox,
     FinishVox& finishVox) :
-    _sampleCollection(sampleCollection),
+    _audioDataCollection(audioDataCollection),
     _startMenuVox(startMenuVox),
     _trackSelectorVox(trackSelectorVox),
     _racePreparationVox(racePreparationVox),
@@ -26,7 +26,7 @@ ScreenVoxCollection::ScreenVoxCollection(
 
 void ScreenVoxCollection::Init()
 {
-    _sampleCollection.Init();
+    _audioDataCollection.Init();
 }
 
 ScreenVox& ScreenVoxCollection::GetScreenVox(Screen& screen)
@@ -37,7 +37,7 @@ ScreenVox& ScreenVoxCollection::GetScreenVox(Screen& screen)
 ScreenVoxCollection* ScreenVoxCollectionResolvingFactory::Make(Resolver& resolver)
 {
     return new ScreenVoxCollection(
-        resolver.Resolve<SampleCollection>(),
+        resolver.Resolve<AudioDataCollection>(),
         resolver.Resolve<StartMenuVox>(),
         resolver.Resolve<TrackSelectorVox>(),
         resolver.Resolve<RacePreparationVox>(),

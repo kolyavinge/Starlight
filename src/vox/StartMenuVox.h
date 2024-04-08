@@ -4,7 +4,7 @@
 #include <ui/Screen.h>
 #include <ui/StartMenuScreen.h>
 #include <vox/ScreenVox.h>
-#include <vox/SampleCollection.h>
+#include <vox/AudioDataCollection.h>
 #include <vox/MenuItemVox.h>
 
 class StartMenuVox : public ScreenVox
@@ -12,7 +12,7 @@ class StartMenuVox : public ScreenVox
     MenuItemVox<StartMenuItem> _menuItemVox;
 
 public:
-    StartMenuVox(SampleCollection& sampleCollection);
+    StartMenuVox(AudioDataCollection& audioDataCollection);
 
     void Voice(Screen& screen) override;
 };

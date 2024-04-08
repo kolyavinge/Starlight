@@ -1,8 +1,8 @@
 #include <ui/RacePreparationScreen.h>
 #include <vox/RacePreparationVox.h>
 
-RacePreparationVox::RacePreparationVox(SampleCollection& sampleCollection) :
-    _countdownSample(sampleCollection.CountdownSample)
+RacePreparationVox::RacePreparationVox(AudioDataCollection& audioDataCollection) :
+    _countdownSample(audioDataCollection.CountdownData)
 {
 }
 
@@ -27,5 +27,5 @@ void RacePreparationVox::Voice(Screen& screen)
 
 RacePreparationVox* RacePreparationVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new RacePreparationVox(resolver.Resolve<SampleCollection>());
+    return new RacePreparationVox(resolver.Resolve<AudioDataCollection>());
 }

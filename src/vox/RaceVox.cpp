@@ -3,11 +3,11 @@
 #include <ui/RaceScreen.h>
 #include <vox/RaceVox.h>
 
-RaceVox::RaceVox(SampleCollection& sampleCollection) :
-    _weaponFireSample(sampleCollection.LaserSample),
-    _metalHitSample(sampleCollection.MetalHitSample),
-    _explosionSample(sampleCollection.ExplosionSample),
-    _powerUpPickSample(sampleCollection.PowerUpPickSample)
+RaceVox::RaceVox(AudioDataCollection& audioDataCollection) :
+    _weaponFireSample(audioDataCollection.LaserData),
+    _metalHitSample(audioDataCollection.MetalHitData),
+    _explosionSample(audioDataCollection.ExplosionData),
+    _powerUpPickSample(audioDataCollection.PowerUpPickData)
 {
 }
 
@@ -48,5 +48,5 @@ void RaceVox::Voice(Screen& screen)
 
 RaceVox* RaceVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new RaceVox(resolver.Resolve<SampleCollection>());
+    return new RaceVox(resolver.Resolve<AudioDataCollection>());
 }

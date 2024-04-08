@@ -1,30 +1,25 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/Exceptions.h>
-#include <lib/String.h>
 #include <calc/Vector3.h>
-
-class AudioSampleException : public Exception {};
+#include <audio/AudioData.h>
 
 class AudioSample : public Object
 {
+    AudioData* _data;
     unsigned int _sourceId;
-    unsigned int _bufferId;
     float _gain;
     float _pitch;
     Vector3 _position;
 
 public:
     AudioSample();
-    ~AudioSample();
+    AudioSample(AudioData& data);
+    ~AudioSample() override;
 
-    void Load(String filePath);
+    void SetData(AudioData& data);
     void Play();
     void SetGain(float gain);
     void SetPitch(float pitch);
     void SetPosition(Vector3& position);
-
-private:
-    void InitSoundSource(String filePath);
 };
