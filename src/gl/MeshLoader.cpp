@@ -70,7 +70,7 @@ void MeshLoader::LoadDiffuseTextures(List<Texture>& textures)
                 String textureFilePath(fileDir);
                 textureFilePath.Append(L'\\');
                 textureFilePath.Append(textureFileName);
-                textures.Add(Texture());
+                textures.AddNew();
                 textures[textures.GetCount() - 1].Load(textureFilePath);
             }
         }

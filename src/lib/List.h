@@ -75,6 +75,12 @@ public:
         _count += range.GetCount();
     }
 
+    void AddNew()
+    {
+        ResizeIfNeeded();
+        _count++;
+    }
+
     void Insert(int index, T value)
     {
         CheckBounds(index, _count + 1);

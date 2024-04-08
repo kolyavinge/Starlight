@@ -40,6 +40,7 @@ int File::ReadAllBytes(const wchar_t* filePath, int bufferSize, void* buffer)
     DWORD readedBytes = 0;
     HANDLE hFile = CreateFile(filePath, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, 0);
     bool readResult = ReadFile(hFile, buffer, bufferSize, &readedBytes, NULL);
+    CloseHandle(hFile);
     if (!readResult) throw ReadFileException();
 
     return readedBytes;
