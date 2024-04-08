@@ -28,7 +28,7 @@ class WavFile : public Object
 
 public:
     WavFile(String filePath);
-    ~WavFile();
+    ~WavFile() override;
 
     short GetChannelsCount();
     int GetSampleRate();

@@ -28,7 +28,7 @@ class VBOMeshRenderer : public Object
 
 public:
     VBOMeshRenderer();
-    ~VBOMeshRenderer();
+    ~VBOMeshRenderer() override;
 
     void Init(Mesh& mesh);
     void Render();

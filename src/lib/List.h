@@ -31,7 +31,7 @@ public:
         Set(copy);
     }
 
-    ~List()
+    ~List() override
     {
         Memory::Release(_items);
     }

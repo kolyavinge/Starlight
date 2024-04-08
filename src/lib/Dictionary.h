@@ -126,7 +126,7 @@ public:
         _items = Memory::AllocAndZero<Node*>(_capacity);
     }
 
-    ~Dictionary()
+    ~Dictionary() override
     {
         Clear();
         Memory::Release(_items);

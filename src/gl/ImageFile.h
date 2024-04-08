@@ -18,7 +18,7 @@ class ImageFile : public Object
 
 public:
     ImageFile(const wchar_t* fileName);
-    ~ImageFile();
+    ~ImageFile() override;
 
     int GetWidth();
     int GetHeight();

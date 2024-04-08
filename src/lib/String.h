@@ -18,7 +18,7 @@ public:
     String(const wchar_t* str);
     String(const char* str);
     String(const String& copy);
-    ~String();
+    ~String() override;
 
     bool Equals(Object& x) override;
     int GetHashCode() override;

@@ -13,7 +13,7 @@ class Texture : public Object
 public:
     Texture();
     Texture(String filePath);
-    ~Texture();
+    ~Texture() override;
 
     void Load(String filePath);
     bool IsLoaded();
