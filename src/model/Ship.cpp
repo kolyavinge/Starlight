@@ -110,6 +110,8 @@ void Ship::Reset()
     TurnAngleRadians = 0;
     VelocityValue = 0;
     PrevVelocityValue = 0;
+    Weapon.Init();
+    Nitros.Init();
     Health = 1.0f;
     DelayIterations = 50;
 }

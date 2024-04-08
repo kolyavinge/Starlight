@@ -17,7 +17,10 @@ RaceScreen::RaceScreen(
 void RaceScreen::Update()
 {
     Race.Update();
-    _camera.SetFrontView(Race.Player);
+    if (Race.Player.State != ShipState::Destroyed)
+    {
+        _camera.SetFrontView(Race.Player);
+    }
     //_camera.SetFrontView(Race.Enemies[0]);
     if (Race.State == RaceState::Finish)
     {
@@ -72,8 +75,9 @@ void RaceScreen::ProcessInput()
         playerController.ReleaseTurn();
     }
 
-    if (keyboard.IsPressedOrHeld('Q') ||
-        joystick.IsButton4Pressed())
+    if ((keyboard.IsPressedOrHeld('Q') ||
+        joystick.IsButton4Pressed()) &&
+        Race.Player.State != ShipState::Destroyed)
     {
         _camera.SetRearView(Race.Player);
     }
