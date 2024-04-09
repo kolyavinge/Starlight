@@ -26,16 +26,16 @@ void TrackThumbnailRenderer::RenderTrack(Track& track)
     int i;
     for (i = _trackPointStep; i < track.PointsCount; i += _trackPointStep)
     {
-        glVertex3f(track.InsidePoints[i - _trackPointStep]);
-        glVertex3f(track.InsidePoints[i]);
-        glVertex3f(track.OutsidePoints[i]);
-        glVertex3f(track.OutsidePoints[i - _trackPointStep]);
+        glVertex3f(track.InsidePointsInverseZ[i - _trackPointStep]);
+        glVertex3f(track.InsidePointsInverseZ[i]);
+        glVertex3f(track.OutsidePointsInverseZ[i]);
+        glVertex3f(track.OutsidePointsInverseZ[i - _trackPointStep]);
     }
 
-    glVertex3f(track.InsidePoints[i - _trackPointStep]);
-    glVertex3f(track.InsidePoints[0]);
-    glVertex3f(track.OutsidePoints[0]);
-    glVertex3f(track.OutsidePoints[i - _trackPointStep]);
+    glVertex3f(track.InsidePointsInverseZ[i - _trackPointStep]);
+    glVertex3f(track.InsidePointsInverseZ[0]);
+    glVertex3f(track.OutsidePointsInverseZ[0]);
+    glVertex3f(track.OutsidePointsInverseZ[i - _trackPointStep]);
 
     glEnd();
 }
@@ -45,10 +45,10 @@ void TrackThumbnailRenderer::RenderStartFinishLine(Track& track)
     glColor4f(0.0f, 0.0f, 0.0f, 0.9f);
     glBegin(GL_QUADS);
 
-    glVertex3f(track.InsidePoints[track.StartFinishLineIndex]);
-    glVertex3f(track.InsidePoints[track.StartFinishLineIndex + _trackPointStep / 2]);
-    glVertex3f(track.OutsidePoints[track.StartFinishLineIndex + _trackPointStep / 2]);
-    glVertex3f(track.OutsidePoints[track.StartFinishLineIndex]);
+    glVertex3f(track.InsidePointsInverseZ[track.StartFinishLineIndex]);
+    glVertex3f(track.InsidePointsInverseZ[track.StartFinishLineIndex + _trackPointStep / 2]);
+    glVertex3f(track.OutsidePointsInverseZ[track.StartFinishLineIndex + _trackPointStep / 2]);
+    glVertex3f(track.OutsidePointsInverseZ[track.StartFinishLineIndex]);
 
     glEnd();
 }

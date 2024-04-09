@@ -16,6 +16,7 @@ void Track::Init()
     CenterTrackPoints();
     InsidePoints[PointsCount] = InsidePoints[0];
     OutsidePoints[PointsCount] = OutsidePoints[0];
+    InitInverseZPoints();
     InitMiddlePoints();
     InitNormals();
     InitEdges();
@@ -116,6 +117,17 @@ void Track::CenterTrackPoints()
         OutsidePoints[i].X -= deltaX;
         InsidePoints[i].Y -= deltaY;
         OutsidePoints[i].Y -= deltaY;
+    }
+}
+
+void Track::InitInverseZPoints()
+{
+    OutsidePointsInverseZ = OutsidePoints;
+    InsidePointsInverseZ = InsidePoints;
+    for (int i = 0; i < PointsCount; i++)
+    {
+        OutsidePointsInverseZ[i].Z *= -1.0f;
+        InsidePointsInverseZ[i].Z *= -1.0f;
     }
 }
 

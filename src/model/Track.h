@@ -29,6 +29,8 @@ public:
     int EdgesCount;
     TrackPoints OutsidePoints;
     TrackPoints InsidePoints;
+    TrackPoints OutsidePointsInverseZ;
+    TrackPoints InsidePointsInverseZ;
     TrackMiddlePoints MiddlePoints;
     TrackPoints Normals;
     TrackPointInfos PointInfos;
@@ -48,6 +50,7 @@ protected:
 
 private:
     void CenterTrackPoints();
+    void InitInverseZPoints();
     void InitMiddlePoints();
     void InitNormals();
     void InitEdges();
