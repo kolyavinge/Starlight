@@ -57,6 +57,7 @@
     <ClInclude Include="src\game\inject\VoxInjectModule.h" />
     <ClInclude Include="src\gl\AnimatedTexturedRect.h" />
     <ClInclude Include="src\gl\Face.h" />
+    <ClInclude Include="src\gl\ShaderProgram.h" />
     <ClInclude Include="src\gl\FramedTexture.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Mesh.h" />
@@ -269,6 +270,7 @@
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Mesh.cpp" />
     <ClCompile Include="src\gl\MeshLoader.cpp" />
+    <ClCompile Include="src\gl\ShaderProgram.cpp" />
     <ClCompile Include="src\gl\SimpleMeshRenderer.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\anx\GraphicResources.cpp" />

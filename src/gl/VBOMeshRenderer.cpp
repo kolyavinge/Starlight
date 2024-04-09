@@ -1,6 +1,5 @@
 #include <glew/glew.h>
 #include <lib/Memory.h>
-#include <lib/File.h>
 #include <anx/GraphicResources.h>
 #include <gl/VBOMeshRenderer.h>
 
@@ -12,7 +11,6 @@ VBOMeshRenderer::VBOMeshRenderer()
     _buffers[1] = 0;
     _facesCount = 0;
     _activeTextureIndex = 0;
-    _shaderProgram = 0;
 }
 
 VBOMeshRenderer::~VBOMeshRenderer()
@@ -31,7 +29,7 @@ void VBOMeshRenderer::Init(Mesh& mesh)
 
 void VBOMeshRenderer::Render()
 {
-    glUseProgram(_shaderProgram);
+    _shaderProgram.Use();
     glActiveTexture(GL_TEXTURE0);
     glEnable(GL_TEXTURE_2D);
     (*_textures)[_activeTextureIndex].Bind();
@@ -39,7 +37,7 @@ void VBOMeshRenderer::Render()
     glDrawElements(GL_TRIANGLES, _facesCount, GL_UNSIGNED_INT, nullptr);
     glBindVertexArray(0);
     glDisable(GL_TEXTURE_2D);
-    glUseProgram(0);
+    _shaderProgram.Unuse();
 }
 
 void VBOMeshRenderer::SetActiveTextureIndex(int textureIndex)
@@ -102,42 +100,6 @@ void VBOMeshRenderer::MakeFaces(Mesh& mesh, unsigned int* faces)
 
 void VBOMeshRenderer::MakeShaders()
 {
-    char vertexSource[512] = {};
-    File::ReadAllBytes(GraphicResources::GetSimpleVertexShaderPath().GetWCharBuf(), 512, vertexSource);
-
-    char fragmentSource[512] = {};
-    File::ReadAllBytes(GraphicResources::GetSimpleFragmentShaderPath().GetWCharBuf(), 512, fragmentSource);
-
-    unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
-    unsigned int fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-
-    const GLchar* vs = vertexSource;
-    const GLchar* fs = fragmentSource;
-    glShaderSource(vertexShader, 1, &vs, 0);
-    glShaderSource(fragmentShader, 1, &fs, 0);
-
-    CompileShader(vertexShader);
-    CompileShader(fragmentShader);
-
-    _shaderProgram = glCreateProgram();
-
-    glAttachShader(_shaderProgram, vertexShader);
-    glAttachShader(_shaderProgram, fragmentShader);
-    glLinkProgram(_shaderProgram);
-}
-
-void VBOMeshRenderer::CompileShader(unsigned int shaderId)
-{
-    glCompileShader(shaderId);
-    GLint isCompiled = 0;
-    glGetShaderiv(shaderId, GL_COMPILE_STATUS, &isCompiled);
-    if (isCompiled == GL_FALSE)
-    {
-        GLint maxLength = 512;
-        GLchar errorBuf[512] = {};
-        glGetShaderiv(shaderId, GL_INFO_LOG_LENGTH, &maxLength);
-        glGetShaderInfoLog(shaderId, maxLength, &maxLength, errorBuf);
-        glDeleteShader(shaderId);
-        throw VBOMeshRendererException();
-    }
+    _shaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetSimpleVertexShaderPath());
+    _shaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetSimpleFragmentShaderPath());
 }

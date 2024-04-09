@@ -101,7 +101,6 @@
     <ClInclude Include="src\vox\RaceVox.h" />
     <ClInclude Include="src\vox\TrackSelectorVox.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
-    <ClInclude Include="src\vox\SampleCollection.h" />
     <ClInclude Include="src\vox\MenuItemVox.h" />
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\WavFile.h" />
@@ -196,6 +195,9 @@
     <ClInclude Include="src\ai\WeaponActivationLogic.h" />
     <ClInclude Include="src\model\TrackEdge.h" />
     <ClInclude Include="src\audio\AudioData.h" />
+    <ClInclude Include="src\game\GameInitializer.h" />
+    <ClInclude Include="src\gl\ShaderProgram.h" />
+    <ClInclude Include="src\vox\AudioDataCollection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -286,7 +288,6 @@
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />
     <ClCompile Include="src\vox\RaceVox.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
-    <ClCompile Include="src\vox\SampleCollection.cpp" />
     <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
@@ -367,6 +368,9 @@
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />
     <ClCompile Include="src\ai\WeaponActivationLogic.cpp" />
     <ClCompile Include="src\audio\AudioData.cpp" />
+    <ClCompile Include="src\game\GameInitializer.cpp" />
+    <ClCompile Include="src\vox\AudioDataCollection.cpp" />
+    <ClCompile Include="src\gl\ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
