@@ -6,7 +6,7 @@ void TrackRenderer::Init()
 {
     _groundTexture.Load(GraphicResources::GetTrackGround1TextureFilePath());
     _groundFinishTexture.Load(GraphicResources::GetTrackGroundFinishTextureFilePath());
-    //_edgeTexture.Load(GraphicResources::GetTrackEdgeTextureFilePath());
+    _edgeTexture.Load(GraphicResources::GetTrackEdgeTextureFilePath());
 }
 
 void TrackRenderer::Render(Track& track)
@@ -28,15 +28,15 @@ void TrackRenderer::RenderTrack(Track& track)
     const int segmentPointStep = 20;
     const int segmentsCount = 4;
 
-    glColor4f(1.0f, 1.0f, 1.0f, 0.3f);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
     _groundTexture.Bind();
     RenderSegment(track, 0, track.StartFinishLineIndex, segmentPointStep, segmentsCount);
 
-    glColor4f(1.0f, 1.0f, 1.0f, 0.4f);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
     _groundFinishTexture.Bind();
     RenderSegment(track, track.StartFinishLineIndex, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, segmentPointStep, segmentsCount);
 
-    glColor4f(1.0f, 1.0f, 1.0f, 0.3f);
+    glColor4f(1.0f, 1.0f, 1.0f, 0.5f);
     _groundTexture.Bind();
     RenderSegment(track, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, track.PointsCount, segmentPointStep, segmentsCount);
 
@@ -95,7 +95,7 @@ void TrackRenderer::RenderSegment(Track& track, int startPointIndex, int endPoin
 void TrackRenderer::RenderEdges(Track& track)
 {
     glColor3f(1.0f, 1.0f, 1.0f);
-    //_edgeTexture.Bind();
+    _edgeTexture.Bind();
 
     for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
     {

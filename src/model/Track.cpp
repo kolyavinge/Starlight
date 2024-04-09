@@ -176,6 +176,7 @@ void Track::InitEdges(TrackEdges& edges, TrackPoints& trackPoints)
         pivotAxis.Normalize();
 
         Vector3 point = Normals[trackPointIndex];
+        point.Mul(-1.0f);
         point.SetLength(0.5f);
         point.Add(trackPoints[trackPointIndex]);
 
