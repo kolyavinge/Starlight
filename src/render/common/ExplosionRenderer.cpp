@@ -24,6 +24,7 @@ void ExplosionRenderer::Render(Ship& player, IArray<Ship*>& allShips)
 
 void ExplosionRenderer::RenderAnimations()
 {
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
     glColor3f(1.0f, 1.0f, 1.0f);
     for (int i = 0; i < _animations.GetCount(); i++)
@@ -37,6 +38,7 @@ void ExplosionRenderer::RenderAnimations()
         glPopMatrix();
     }
     glDisable(GL_BLEND);
+    glDisable(GL_DEPTH_TEST);
 }
 
 void ExplosionRenderer::MakeNewAnimations(Ship& player, IArray<Ship*>& allShips)
