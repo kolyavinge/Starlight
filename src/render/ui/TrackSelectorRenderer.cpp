@@ -13,7 +13,6 @@ TrackSelectorRenderer::TrackSelectorRenderer(
     _raceItem(graphicItemCollection.RaceItem),
     _backItem(graphicItemCollection.BackItem)
 {
-    _trackThumbnailGridRenderer.Init();
 }
 
 void TrackSelectorRenderer::Render(Screen& screen)

@@ -9,10 +9,6 @@ TrackThumbnailGridRenderer::TrackThumbnailGridRenderer(
     TrackThumbnailRenderer& trackThumbnailRenderer) :
     _trackThumbnailRenderer(trackThumbnailRenderer)
 {
-}
-
-void TrackThumbnailGridRenderer::Init()
-{
     _selectionRect.Load(GraphicResources::GetTrackSelectionRectFilePath());
 }
 

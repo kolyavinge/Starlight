@@ -12,6 +12,7 @@ TextRenderer::TextRenderer()
     _textureStep = 1.0f / (float)alph.GetLength();
     _letterWidth = (float)image.GetWidth() / (float)alph.GetLength();
     _letterHeight = (float)image.GetHeight();
+    _textureCoords.InitAll(0.0f);
     for (int i = 0; i < alph.GetLength(); i++)
     {
         unsigned char ch = (unsigned char)alph[i];

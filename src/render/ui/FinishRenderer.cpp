@@ -10,7 +10,6 @@ FinishRenderer::FinishRenderer(
     _finishTextRenderer(finishTextRenderer),
     _fadeEffect(FadeDirection::ToBlack, 100)
 {
-    _finishTextRenderer.Init();
 }
 
 void FinishRenderer::Activate(Screen*)

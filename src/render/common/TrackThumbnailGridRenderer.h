@@ -18,7 +18,6 @@ class TrackThumbnailGridRenderer : public Object
 public:
     TrackThumbnailGridRenderer(TrackThumbnailRenderer& trackThumbnailRenderer);
 
-    void Init();
     void Render(TrackSelectorScreen& screen);
 };
 

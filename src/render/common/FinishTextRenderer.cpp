@@ -8,23 +8,15 @@
 
 FinishTextRenderer::FinishTextRenderer()
 {
+    _finishTexture.Load(GraphicResources::GetFinishItemFilePath());
     _zCoords.InitZero();
     _phase = 0.0f;
-    _width = 0.0f;
-    _height = 0.0f;
-    _radiansStep = Math::PiDouble / (float)_zCoords.GetCount();
-    _widthStep = 0.0f;
-    _textureStep = 1.0f / (float)_zCoords.GetCount();
-    _alpha = 0.0f;
-}
-
-void FinishTextRenderer::Init()
-{
-    _finishTexture.Load(GraphicResources::GetFinishItemFilePath());
     ImageFile image(GraphicResources::GetFinishItemFilePath().GetWCharBuf());
     _width = (float)image.GetWidth();
     _height = (float)image.GetHeight();
+    _radiansStep = Math::PiDouble / (float)_zCoords.GetCount();
     _widthStep = _width / (float)_zCoords.GetCount();
+    _textureStep = 1.0f / (float)_zCoords.GetCount();
     _alpha = 0.0f;
 }
 

@@ -20,7 +20,6 @@ public:
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer);
 
-    void Init();
     void Render();
 };
 

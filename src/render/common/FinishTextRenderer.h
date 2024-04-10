@@ -20,7 +20,6 @@ class FinishTextRenderer : public Object
 public:
     FinishTextRenderer();
 
-    void Init();
     void Render();
     float GetWidth();
     float GetHeight();
