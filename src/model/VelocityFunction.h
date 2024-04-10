@@ -7,7 +7,8 @@ class VelocityFunction : public Object
     float _delta;
 
 public:
-    inline static const float MaxThrottleTime = 20.0f;
+    const float MaxThrottleTime;
+    const float InitMaxVelocity;
     float MaxVelocity;
 
     VelocityFunction();

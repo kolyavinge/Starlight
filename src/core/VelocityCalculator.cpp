@@ -1,4 +1,3 @@
-#include <model/VelocityFunction.h>
 #include <core/Constants.h>
 #include <core/VelocityCalculator.h>
 
@@ -7,9 +6,9 @@ void VelocityCalculator::CalculateVelocity(Ship& ship)
     if (ship.Controls.IsThrottleActive)
     {
         ship.ThrottleTime += Constants::TimeStep;
-        if (ship.ThrottleTime > VelocityFunction::MaxThrottleTime)
+        if (ship.ThrottleTime > ship.VelocityFunction.MaxThrottleTime)
         {
-            ship.ThrottleTime = VelocityFunction::MaxThrottleTime;
+            ship.ThrottleTime = ship.VelocityFunction.MaxThrottleTime;
         }
     }
     else if (ship.Controls.IsBreakActive)

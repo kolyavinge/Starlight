@@ -2,7 +2,9 @@
 #include <lib/Numeric.h>
 #include <model/VelocityFunction.h>
 
-VelocityFunction::VelocityFunction()
+VelocityFunction::VelocityFunction() :
+    MaxThrottleTime(20.0f),
+    InitMaxVelocity(GetValueByThrottleTime(MaxThrottleTime))
 {
     Init();
 }
