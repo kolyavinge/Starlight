@@ -83,7 +83,6 @@
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />
-    <ClInclude Include="src\render\ui\RenderManager.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
@@ -94,7 +93,6 @@
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
     <ClInclude Include="src\vox\ScreenVox.h" />
-    <ClInclude Include="src\vox\VoxManager.h" />
     <ClInclude Include="src\vox\ScreenVoxCollection.h" />
     <ClInclude Include="src\vox\StartMenuVox.h" />
     <ClInclude Include="src\vox\PauseMenuVox.h" />
@@ -273,7 +271,6 @@
     <ClCompile Include="src\ui\ScreenManager.cpp" />
     <ClCompile Include="src\ui\StartMenuScreen.cpp" />
     <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
-    <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\TrackSelectorRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
@@ -282,7 +279,6 @@
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
     <ClCompile Include="src\vox\ScreenVoxCollection.cpp" />
-    <ClCompile Include="src\vox\VoxManager.cpp" />
     <ClCompile Include="src\vox\StartMenuVox.cpp" />
     <ClCompile Include="src\vox\TrackSelectorVox.cpp" />
     <ClCompile Include="src\vox\PauseMenuVox.cpp" />

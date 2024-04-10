@@ -6,7 +6,6 @@
 #include <vox/ScreenVoxCollection.h>
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
-#include <vox/VoxManager.h>
 #include <game/inject/VoxInjectModule.h>
 
 void VoxInjectModule::Init(Binder& binder)
@@ -19,5 +18,4 @@ void VoxInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<ScreenVoxCollection, ScreenVoxCollectionResolvingFactory>();
     binder.BindSingletonByFactory<StartMenuVox, StartMenuVoxResolvingFactory>();
     binder.BindSingletonByFactory<TrackSelectorVox, TrackSelectorVoxResolvingFactory>();
-    binder.BindSingletonByFactory<VoxManager, VoxManagerResolvingFactory>();
 }

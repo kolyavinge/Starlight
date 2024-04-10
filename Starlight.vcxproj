@@ -132,7 +132,6 @@
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
     <ClInclude Include="src\render\common\RenderConstants.h" />
-    <ClInclude Include="src\render\ui\RenderManager.h" />
     <ClInclude Include="src\render\ui\ScreenRendererCollection.h" />
     <ClInclude Include="src\render\ui\SelectedItemColor.h" />
     <ClInclude Include="src\render\ui\StartMenuRenderer.h" />
@@ -160,7 +159,6 @@
     <ClInclude Include="src\vox\ScreenVoxCollection.h" />
     <ClInclude Include="src\vox\StartMenuVox.h" />
     <ClInclude Include="src\vox\TrackSelectorVox.h" />
-    <ClInclude Include="src\vox\VoxManager.h" />
     <ClInclude Include="src\win\resource.h" />
     <ClInclude Include="src\anx\TrackBuilder.h" />
     <ClInclude Include="src\calc\Plane.h" />
@@ -340,7 +338,6 @@
     <ClCompile Include="src\render\common\StarsRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
-    <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipMesh.cpp" />
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
@@ -367,7 +364,6 @@
     <ClCompile Include="src\vox\ScreenVoxCollection.cpp" />
     <ClCompile Include="src\vox\StartMenuVox.cpp" />
     <ClCompile Include="src\vox\TrackSelectorVox.cpp" />
-    <ClCompile Include="src\vox\VoxManager.cpp" />
     <ClCompile Include="src\win\main.cpp" />
     <ClInclude Include="src\core\Constants.h" />
     <ClCompile Include="src\core\RaceInitializer.cpp" />
