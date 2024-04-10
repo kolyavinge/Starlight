@@ -13,7 +13,6 @@ class RenderManager : public Object
 public:
     RenderManager(ScreenRendererCollection& rendererCollection);
 
-    void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);
 };
 

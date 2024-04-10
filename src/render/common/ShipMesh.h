@@ -18,7 +18,8 @@ public:
     inline static const int Enemy3Texture = 3;
     inline static const int DestroyedTexture = 4;
 
-    void Init();
+    ShipMesh();
+
     void Render(Ship& ship, int textureIndex);
     int GetTexturesCount();
 

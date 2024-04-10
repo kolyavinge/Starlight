@@ -2,22 +2,12 @@
 #include <render/ui/ScreenRendererCollection.h>
 
 ScreenRendererCollection::ScreenRendererCollection(
-    TextRenderer& textRenderer,
-    BackgroundRenderer& backgroundRenderer,
-    ShipsRenderer& shipsRenderer,
-    TrackRenderer& trackRenderer,
-    GraphicItemCollection& graphicItemCollection,
     StartMenuRenderer& startMenuRenderer,
     TrackSelectorRenderer& trackSelectorRenderer,
     RacePreparationRenderer& racePreparationRenderer,
     RaceRenderer& raceRenderer,
     PauseMenuRenderer& pauseMenuRenderer,
     FinishRenderer& finishRenderer) :
-    _textRenderer(textRenderer),
-    _backgroundRenderer(backgroundRenderer),
-    _shipsRenderer(shipsRenderer),
-    _trackRenderer(trackRenderer),
-    _graphicItemCollection(graphicItemCollection),
     _startMenuRenderer(startMenuRenderer),
     _trackSelectorRenderer(trackSelectorRenderer),
     _racePreparationRenderer(racePreparationRenderer),
@@ -33,15 +23,6 @@ ScreenRendererCollection::ScreenRendererCollection(
     _renderers[(int)ScreenKind::Finish] = &_finishRenderer;
 }
 
-void ScreenRendererCollection::Init()
-{
-    _textRenderer.Init();
-    _graphicItemCollection.Init();
-    _backgroundRenderer.Init();
-    _shipsRenderer.Init();
-    _trackRenderer.Init();
-}
-
 ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
 {
     return *_renderers[(int)screen.Kind];
@@ -50,11 +31,6 @@ ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
 ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolver& resolver)
 {
     return new ScreenRendererCollection(
-        resolver.Resolve<TextRenderer>(),
-        resolver.Resolve<BackgroundRenderer>(),
-        resolver.Resolve<ShipsRenderer>(),
-        resolver.Resolve<TrackRenderer>(),
-        resolver.Resolve<GraphicItemCollection>(),
         resolver.Resolve<StartMenuRenderer>(),
         resolver.Resolve<TrackSelectorRenderer>(),
         resolver.Resolve<RacePreparationRenderer>(),

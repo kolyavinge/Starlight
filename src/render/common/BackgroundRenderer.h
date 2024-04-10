@@ -15,7 +15,6 @@ class BackgroundRenderer : public Object
 public:
     BackgroundRenderer();
 
-    void Init();
     void Render();
 
 private:

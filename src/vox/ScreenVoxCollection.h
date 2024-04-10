@@ -34,7 +34,6 @@ public:
         PauseMenuVox& pauseMenuVox,
         FinishVox& finishVox);
 
-    void Init();
     ScreenVox& GetScreenVox(Screen& screen);
 };
 

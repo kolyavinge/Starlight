@@ -22,8 +22,6 @@ Game::Game(
 void Game::Init()
 {
     _trackManager.Init();
-    _renderManager.Init();
-    _voxManager.Init();
     _screenNavigator.Init(_screenManager, _renderManager, _voxManager);
     _screenNavigator.NavigateTo(ScreenKind::StartMenu);
 }

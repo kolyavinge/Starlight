@@ -5,14 +5,6 @@
 
 TextRenderer::TextRenderer()
 {
-    _textureCoords.InitAll(0.0f);
-    _textureStep = 0.0f;
-    _letterWidth = 0.0f;
-    _letterHeight = 0.0f;
-}
-
-void TextRenderer::Init()
-{
     String alph(L"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ+-*/.,: \0");
     String filePath = GraphicResources::GetAlphabetFilePath();
     _alphTexture.Load(filePath);

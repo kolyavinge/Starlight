@@ -10,7 +10,6 @@ class DebugShipRenderer : public Object
     ShipMesh _shipMesh;
 
 public:
-    void Init();
     void Render(Ship& ship, Track& track);
 
 private:

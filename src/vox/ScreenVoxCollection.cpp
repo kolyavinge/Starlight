@@ -24,11 +24,6 @@ ScreenVoxCollection::ScreenVoxCollection(
     _vox[(int)ScreenKind::Finish] = &_finishVox;
 }
 
-void ScreenVoxCollection::Init()
-{
-    _audioDataCollection.Init();
-}
-
 ScreenVox& ScreenVoxCollection::GetScreenVox(Screen& screen)
 {
     return *_vox[(int)screen.Kind];

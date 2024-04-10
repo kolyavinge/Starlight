@@ -5,11 +5,6 @@ RenderManager::RenderManager(ScreenRendererCollection& rendererCollection) :
 {
 }
 
-void RenderManager::Init()
-{
-    _rendererCollection.Init();
-}
-
 ScreenRenderer& RenderManager::GetScreenRenderer(Screen& screen)
 {
     return _rendererCollection.GetScreenRenderer(screen);

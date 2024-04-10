@@ -12,7 +12,6 @@ class ShipRenderer : public Object
 public:
     ShipRenderer(ShipMesh& shipMesh);
 
-    void Init();
     void Render(Ship& ship, int textureIndex);
 
 private:

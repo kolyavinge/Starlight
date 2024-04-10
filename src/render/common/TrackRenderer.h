@@ -13,7 +13,8 @@ class TrackRenderer : public Object
     Texture _edgeTexture;
 
 public:
-    void Init();
+    TrackRenderer();
+
     void Render(Track& track);
 
 private:

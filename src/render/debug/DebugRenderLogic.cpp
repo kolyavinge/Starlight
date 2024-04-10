@@ -3,11 +3,6 @@
 #include <ui/RaceScreen.h>
 #include <render/debug/DebugRenderLogic.h>
 
-void DebugRenderLogic::Init()
-{
-    _shipRenderer.Init();
-}
-
 void DebugRenderLogic::Render(Screen& screen)
 {
     RaceScreen& raceScreen = (RaceScreen&)screen;

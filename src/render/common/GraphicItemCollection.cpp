@@ -1,7 +1,7 @@
 #include <anx/GraphicResources.h>
 #include <render/common/GraphicItemCollection.h>
 
-void GraphicItemCollection::Init()
+GraphicItemCollection::GraphicItemCollection()
 {
     StartGameItem.Load(GraphicResources::GetStartGameMenuItemFilePath());
     ExitItem.Load(GraphicResources::GetExitMenuItemFilePath());

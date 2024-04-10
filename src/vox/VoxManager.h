@@ -13,7 +13,6 @@ class VoxManager : public Object
 public:
     VoxManager(ScreenVoxCollection& voxCollection);
 
-    void Init();
     ScreenVox& GetScreenVox(Screen& screen);
 };
 

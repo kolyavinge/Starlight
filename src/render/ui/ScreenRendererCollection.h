@@ -4,11 +4,6 @@
 #include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
-#include <gl/TextRenderer.h>
-#include <render/common/BackgroundRenderer.h>
-#include <render/common/ShipsRenderer.h>
-#include <render/common/TrackRenderer.h>
-#include <render/common/GraphicItemCollection.h>
 #include <render/ui/ScreenRenderer.h>
 #include <render/ui/StartMenuRenderer.h>
 #include <render/ui/TrackSelectorRenderer.h>
@@ -19,11 +14,6 @@
 
 class ScreenRendererCollection : public Object
 {
-    TextRenderer& _textRenderer;
-    BackgroundRenderer& _backgroundRenderer;
-    ShipsRenderer& _shipsRenderer;
-    TrackRenderer& _trackRenderer;
-    GraphicItemCollection& _graphicItemCollection;
     StartMenuRenderer& _startMenuRenderer;
     TrackSelectorRenderer& _trackSelectorRenderer;
     RacePreparationRenderer& _racePreparationRenderer;
@@ -35,11 +25,6 @@ class ScreenRendererCollection : public Object
 
 public:
     ScreenRendererCollection(
-        TextRenderer& textRenderer,
-        BackgroundRenderer& backgroundRenderer,
-        ShipsRenderer& shipsRenderer,
-        TrackRenderer& trackRenderer,
-        GraphicItemCollection& graphicItemCollection,
         StartMenuRenderer& startMenuRenderer,
         TrackSelectorRenderer& trackSelectorRenderer,
         RacePreparationRenderer& racePreparationRenderer,
@@ -47,7 +32,6 @@ public:
         PauseMenuRenderer& pauseMenuRenderer,
         FinishRenderer& finishRenderer);
 
-    void Init();
     ScreenRenderer& GetScreenRenderer(Screen& screen);
 };
 

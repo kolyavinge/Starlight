@@ -6,11 +6,6 @@ ShipRenderer::ShipRenderer(ShipMesh& shipMesh) :
 {
 }
 
-void ShipRenderer::Init()
-{
-    _shipMesh.Init();
-}
-
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
     _shipMesh.Render(ship, textureIndex);

@@ -6,10 +6,6 @@ BackgroundRenderer::BackgroundRenderer() :
     _textureWidthStep(1.0f / (float)_sphere.LevelPointsCount),
     _textureHeightStep(0.5f / (float)_sphere.LevelsCount)
 {
-}
-
-void BackgroundRenderer::Init()
-{
     _backgroundTexture.Load(GraphicResources::GetBackgroundTextureFilePath());
 }
 

@@ -2,7 +2,7 @@
 #include <render/common/TrackRenderer.h>
 #include <anx/GraphicResources.h>
 
-void TrackRenderer::Init()
+TrackRenderer::TrackRenderer()
 {
     _groundTexture.Load(GraphicResources::GetTrackGround1TextureFilePath());
     _groundFinishTexture.Load(GraphicResources::GetTrackGroundFinishTextureFilePath());

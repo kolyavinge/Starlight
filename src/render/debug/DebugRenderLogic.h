@@ -13,7 +13,6 @@ class DebugRenderLogic : public ScreenRenderer
     DebugTrackRenderer _trackRenderer;
 
 public:
-    void Init();
     void Render(Screen& screen);
 
 private:

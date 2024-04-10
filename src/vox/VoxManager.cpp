@@ -5,11 +5,6 @@ VoxManager::VoxManager(ScreenVoxCollection& voxCollection) :
 {
 }
 
-void VoxManager::Init()
-{
-    _voxCollection.Init();
-}
-
 ScreenVox& VoxManager::GetScreenVox(Screen& screen)
 {
     return _voxCollection.GetScreenVox(screen);

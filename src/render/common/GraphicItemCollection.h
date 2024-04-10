@@ -26,7 +26,7 @@ public:
     Texture PowerUpNitroTexture;
     FramedTexture ExplosionTexture;
 
-    void Init();
+    GraphicItemCollection();
 };
 
 class GraphicItemCollectionResolvingFactory : public ResolvingFactory<GraphicItemCollection>

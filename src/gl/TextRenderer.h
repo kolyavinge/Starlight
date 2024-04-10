@@ -17,7 +17,6 @@ class TextRenderer : public Object
 public:
     TextRenderer();
 
-    void Init();
     void Render(String& text);
     float GetLetterWidth();
     float GetLetterHeight();

@@ -14,7 +14,7 @@ public:
     AudioData ExplosionData;
     AudioData PowerUpPickData;
 
-    void Init();
+    AudioDataCollection();
 };
 
 class AudioDataCollectionResolvingFactory : public ResolvingFactory<AudioDataCollection>

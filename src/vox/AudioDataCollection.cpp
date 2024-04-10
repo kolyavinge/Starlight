@@ -1,7 +1,7 @@
 #include <anx/AudioResources.h>
 #include <vox/AudioDataCollection.h>
 
-void AudioDataCollection::Init()
+AudioDataCollection::AudioDataCollection()
 {
     SelectMenuItemData.LoadFromFile(AudioResources::GetSelectMenuItemWavFilePath());
     CountdownData.LoadFromFile(AudioResources::GetCountdownWavFilePath());

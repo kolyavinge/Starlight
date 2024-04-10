@@ -5,7 +5,7 @@
 #include <anx/GraphicResources.h>
 #include <render/common/ShipMesh.h>
 
-void ShipMesh::Init()
+ShipMesh::ShipMesh()
 {
     _shipMesh.Load(GraphicResources::GetShipMeshFilePath());
     _shipMesh.SwapYZ();
