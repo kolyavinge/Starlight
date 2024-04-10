@@ -1,6 +1,6 @@
 #include <core/TrackManager.h>
 
-void TrackManager::Init()
+TrackManager::TrackManager()
 {
     Track1.Init();
     Track2.Init();

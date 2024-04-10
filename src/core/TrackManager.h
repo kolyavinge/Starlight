@@ -15,7 +15,7 @@ public:
     RoadTrack3 Track3;
     RoadTrack4 Track4;
 
-    void Init();
+    TrackManager();
 };
 
 class TrackManagerResolvingFactory : public ResolvingFactory<TrackManager>

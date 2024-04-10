@@ -1,7 +1,7 @@
 #include <ui/ScreenKind.h>
-#include <render/ui/ScreenRendererCollection.h>
+#include <render/ui/RenderManager.h>
 
-ScreenRendererCollection::ScreenRendererCollection(
+RenderManager::RenderManager(
     StartMenuRenderer& startMenuRenderer,
     TrackSelectorRenderer& trackSelectorRenderer,
     RacePreparationRenderer& racePreparationRenderer,
@@ -23,14 +23,14 @@ ScreenRendererCollection::ScreenRendererCollection(
     _renderers[(int)ScreenKind::Finish] = &_finishRenderer;
 }
 
-ScreenRenderer& ScreenRendererCollection::GetScreenRenderer(Screen& screen)
+ScreenRenderer& RenderManager::GetScreenRenderer(Screen& screen)
 {
     return *_renderers[(int)screen.Kind];
 }
 
-ScreenRendererCollection* ScreenRendererCollectionResolvingFactory::Make(Resolver& resolver)
+RenderManager* RenderManagerResolvingFactory::Make(Resolver& resolver)
 {
-    return new ScreenRendererCollection(
+    return new RenderManager(
         resolver.Resolve<StartMenuRenderer>(),
         resolver.Resolve<TrackSelectorRenderer>(),
         resolver.Resolve<RacePreparationRenderer>(),

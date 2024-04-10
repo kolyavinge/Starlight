@@ -2,14 +2,12 @@
 #include <game/Game.h>
 
 Game::Game(
-    TrackManager& trackManager,
     ScreenManager& screenManager,
     RenderManager& renderManager,
     VoxManager& voxManager,
     ScreenNavigator& screenNavigator,
     ::InputDevices& inputDevices,
     ::Race& race) :
-    _trackManager(trackManager),
     _screenManager(screenManager),
     _renderManager(renderManager),
     _voxManager(voxManager),
@@ -21,7 +19,6 @@ Game::Game(
 
 void Game::Init()
 {
-    _trackManager.Init();
     _screenNavigator.Init(_screenManager, _renderManager, _voxManager);
     _screenNavigator.NavigateTo(ScreenKind::StartMenu);
 }
@@ -49,7 +46,6 @@ void Game::VoiceCurrentScreen()
 Game* GameResolvingFactory::Make(Resolver& resolver)
 {
     return new Game(
-        resolver.Resolve<TrackManager>(),
         resolver.Resolve<ScreenManager>(),
         resolver.Resolve<RenderManager>(),
         resolver.Resolve<VoxManager>(),

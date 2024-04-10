@@ -2,7 +2,6 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
-#include <core/TrackManager.h>
 #include <core/Race.h>
 #include <input/InputDevices.h>
 #include <ui/ScreenManager.h>
@@ -12,7 +11,6 @@
 
 class Game : public Object
 {
-    TrackManager& _trackManager;
     ScreenManager& _screenManager;
     RenderManager& _renderManager;
     VoxManager& _voxManager;
@@ -23,7 +21,6 @@ public:
     InputDevices& InputDevices;
 
     Game(
-        TrackManager& trackManager,
         ScreenManager& screenManager,
         RenderManager& renderManager,
         VoxManager& voxManager,

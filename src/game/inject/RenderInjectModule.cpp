@@ -28,7 +28,7 @@
 #include <render/ui/PauseMenuRenderer.h>
 #include <render/ui/RacePreparationRenderer.h>
 #include <render/ui/RaceRenderer.h>
-#include <render/ui/ScreenRendererCollection.h>
+#include <render/ui/RenderManager.h>
 #include <render/ui/StartMenuRenderer.h>
 #include <render/ui/TrackSelectorRenderer.h>
 #include <game/inject/RenderInjectModule.h>
@@ -65,7 +65,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<PauseMenuRenderer, PauseMenuRendererResolvingFactory>();
     binder.BindSingletonByFactory<RacePreparationRenderer, RacePreparationRendererResolvingFactory>();
     binder.BindSingletonByFactory<RaceRenderer, RaceRendererResolvingFactory>();
-    binder.BindSingletonByFactory<ScreenRendererCollection, ScreenRendererCollectionResolvingFactory>();
+    binder.BindSingletonByFactory<RenderManager, RenderManagerResolvingFactory>();
     binder.BindSingletonByFactory<StartMenuRenderer, StartMenuRendererResolvingFactory>();
     binder.BindSingletonByFactory<TrackSelectorRenderer, TrackSelectorRendererResolvingFactory>();
 }

@@ -1,14 +1,12 @@
-#include <vox/ScreenVoxCollection.h>
+#include <vox/VoxManager.h>
 
-ScreenVoxCollection::ScreenVoxCollection(
-    AudioDataCollection& audioDataCollection,
+VoxManager::VoxManager(
     StartMenuVox& startMenuVox,
     TrackSelectorVox& trackSelectorVox,
     RacePreparationVox& racePreparationVox,
     RaceVox& raceVox,
     PauseMenuVox& pauseMenuVox,
     FinishVox& finishVox) :
-    _audioDataCollection(audioDataCollection),
     _startMenuVox(startMenuVox),
     _trackSelectorVox(trackSelectorVox),
     _racePreparationVox(racePreparationVox),
@@ -24,15 +22,14 @@ ScreenVoxCollection::ScreenVoxCollection(
     _vox[(int)ScreenKind::Finish] = &_finishVox;
 }
 
-ScreenVox& ScreenVoxCollection::GetScreenVox(Screen& screen)
+ScreenVox& VoxManager::GetScreenVox(Screen& screen)
 {
     return *_vox[(int)screen.Kind];
 }
 
-ScreenVoxCollection* ScreenVoxCollectionResolvingFactory::Make(Resolver& resolver)
+VoxManager* VoxManagerResolvingFactory::Make(Resolver& resolver)
 {
-    return new ScreenVoxCollection(
-        resolver.Resolve<AudioDataCollection>(),
+    return new VoxManager(
         resolver.Resolve<StartMenuVox>(),
         resolver.Resolve<TrackSelectorVox>(),
         resolver.Resolve<RacePreparationVox>(),

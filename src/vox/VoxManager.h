@@ -4,7 +4,6 @@
 #include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
-#include <vox/AudioDataCollection.h>
 #include <vox/ScreenVox.h>
 #include <vox/StartMenuVox.h>
 #include <vox/TrackSelectorVox.h>
@@ -13,9 +12,8 @@
 #include <vox/PauseMenuVox.h>
 #include <vox/FinishVox.h>
 
-class ScreenVoxCollection : public Object
+class VoxManager : public Object
 {
-    AudioDataCollection& _audioDataCollection;
     StartMenuVox& _startMenuVox;
     TrackSelectorVox& _trackSelectorVox;
     RacePreparationVox& _racePreparationVox;
@@ -25,8 +23,7 @@ class ScreenVoxCollection : public Object
     Array<ScreenVox*, 6> _vox;
 
 public:
-    ScreenVoxCollection(
-        AudioDataCollection& audioDataCollection,
+    VoxManager(
         StartMenuVox& startMenuVox,
         TrackSelectorVox& trackSelectorVox,
         RacePreparationVox& racePreparationVox,
@@ -37,8 +34,8 @@ public:
     ScreenVox& GetScreenVox(Screen& screen);
 };
 
-class ScreenVoxCollectionResolvingFactory : public ResolvingFactory<ScreenVoxCollection>
+class VoxManagerResolvingFactory : public ResolvingFactory<VoxManager>
 {
 public:
-    ScreenVoxCollection* Make(Resolver& resolver) override;
+    VoxManager* Make(Resolver& resolver) override;
 };

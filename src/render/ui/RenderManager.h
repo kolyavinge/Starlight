@@ -12,7 +12,7 @@
 #include <render/ui/PauseMenuRenderer.h>
 #include <render/ui/FinishRenderer.h>
 
-class ScreenRendererCollection : public Object
+class RenderManager : public Object
 {
     StartMenuRenderer& _startMenuRenderer;
     TrackSelectorRenderer& _trackSelectorRenderer;
@@ -24,7 +24,7 @@ class ScreenRendererCollection : public Object
     Array<ScreenRenderer*, 6> _renderers;
 
 public:
-    ScreenRendererCollection(
+    RenderManager(
         StartMenuRenderer& startMenuRenderer,
         TrackSelectorRenderer& trackSelectorRenderer,
         RacePreparationRenderer& racePreparationRenderer,
@@ -35,8 +35,8 @@ public:
     ScreenRenderer& GetScreenRenderer(Screen& screen);
 };
 
-class ScreenRendererCollectionResolvingFactory : public ResolvingFactory<ScreenRendererCollection>
+class RenderManagerResolvingFactory : public ResolvingFactory<RenderManager>
 {
 public:
-    ScreenRendererCollection* Make(Resolver& resolver) override;
+    RenderManager* Make(Resolver& resolver) override;
 };
