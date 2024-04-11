@@ -9,6 +9,7 @@
 #include <render/common/StarsRenderer.h>
 #include <render/common/ShipsRenderer.h>
 #include <render/common/TrackRenderer.h>
+#include <render/common/PowerUpRenderer.h>
 #include <render/common/CountdownRenderer.h>
 #include <render/ui/ScreenRenderer.h>
 
@@ -20,6 +21,7 @@ class RacePreparationRenderer : public ScreenRenderer
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
     TrackRenderer& _trackRenderer;
+    PowerUpRenderer& _powerUpRenderer;
     CountdownRenderer& _countdownRenderer;
     FadeEffect _fadeEffect;
 
@@ -31,6 +33,7 @@ public:
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,
         TrackRenderer& trackRenderer,
+        PowerUpRenderer& powerUpRenderer,
         CountdownRenderer& countdownRenderer);
 
     void Activate(Screen* prevScreen) override;

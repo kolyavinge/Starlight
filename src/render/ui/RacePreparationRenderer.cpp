@@ -9,6 +9,7 @@ RacePreparationRenderer::RacePreparationRenderer(
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer,
+    PowerUpRenderer& powerUpRenderer,
     CountdownRenderer& countdownRenderer) :
     _camera(camera),
     _race(race),
@@ -16,6 +17,7 @@ RacePreparationRenderer::RacePreparationRenderer(
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
     _trackRenderer(trackRenderer),
+    _powerUpRenderer(powerUpRenderer),
     _countdownRenderer(countdownRenderer),
     _fadeEffect(FadeDirection::ToTransparent, 100)
 {
@@ -29,17 +31,19 @@ void RacePreparationRenderer::Activate(Screen*)
 
 void RacePreparationRenderer::Render(Screen& screen)
 {
+    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
+
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
 
     glLoadIdentity();
-    RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
     gluPerspective(_camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render(*_race.Track);
     _shipsRenderer.Render(_race.Player, _race.Enemies);
+    _powerUpRenderer.Render(_race.PowerUps);
 
     glEnable(GL_BLEND);
     _fadeEffect.Render();
@@ -61,5 +65,6 @@ RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver&
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),
         resolver.Resolve<TrackRenderer>(),
+        resolver.Resolve<PowerUpRenderer>(),
         resolver.Resolve<CountdownRenderer>());
 }
