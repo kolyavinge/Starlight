@@ -13,6 +13,7 @@ class RacePreparationVox : public ScreenVox
     AudioSample _countdownSample;
     Race& _race;
     ShipVox& _shipVox;
+    float _engineIdleGain;
 
 public:
     RacePreparationVox(

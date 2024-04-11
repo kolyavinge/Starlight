@@ -26,6 +26,7 @@ public:
 
     void Voice(Vector3& listener, IArray<Ship*>& ships);
     void Pause();
+    void SetEngineIdleGain(float gain);
 
 private:
     void VoiceShip(Vector3& listener, Ship& ship, int shipIndex);

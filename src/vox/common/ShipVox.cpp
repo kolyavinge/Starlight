@@ -44,6 +44,14 @@ void ShipVox::Pause()
     }
 }
 
+void ShipVox::SetEngineIdleGain(float gain)
+{
+    for (int i = 0; i < SamplesCount; i++)
+    {
+        _engineIdleSamples[i].SetGain(gain);
+    }
+}
+
 void ShipVox::VoiceShip(Vector3& listener, Ship& ship, int shipIndex)
 {
     if (!Object::ReferenceEquals(listener, ship))
