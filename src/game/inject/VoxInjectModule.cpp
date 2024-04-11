@@ -6,6 +6,7 @@
 #include <vox/ui/TrackSelectorVox.h>
 #include <vox/ui/VoxManager.h>
 #include <vox/common/AudioDataCollection.h>
+#include <vox/common/ShipVox.h>
 #include <game/inject/VoxInjectModule.h>
 
 void VoxInjectModule::Init(Binder& binder)
@@ -14,8 +15,9 @@ void VoxInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<PauseMenuVox, PauseMenuVoxResolvingFactory>();
     binder.BindSingletonByFactory<RacePreparationVox, RacePreparationVoxResolvingFactory>();
     binder.BindSingletonByFactory<RaceVox, RaceVoxResolvingFactory>();
-    binder.BindSingletonByFactory<AudioDataCollection, AudioDataCollectionResolvingFactory>();
     binder.BindSingletonByFactory<StartMenuVox, StartMenuVoxResolvingFactory>();
     binder.BindSingletonByFactory<TrackSelectorVox, TrackSelectorVoxResolvingFactory>();
     binder.BindSingletonByFactory<VoxManager, VoxManagerResolvingFactory>();
+    binder.BindSingletonByFactory<AudioDataCollection, AudioDataCollectionResolvingFactory>();
+    binder.BindSingletonByFactory<ShipVox, ShipVoxResolvingFactory>();
 }

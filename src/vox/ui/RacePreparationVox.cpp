@@ -1,8 +1,13 @@
 #include <ui/RacePreparationScreen.h>
 #include <vox/ui/RacePreparationVox.h>
 
-RacePreparationVox::RacePreparationVox(AudioDataCollection& audioDataCollection) :
-    _countdownSample(audioDataCollection.CountdownData)
+RacePreparationVox::RacePreparationVox(
+    AudioDataCollection& audioDataCollection,
+    Race& race,
+    ShipVox& shipVox) :
+    _countdownSample(audioDataCollection.CountdownData),
+    _race(race),
+    _shipVox(shipVox)
 {
 }
 
@@ -10,6 +15,7 @@ void RacePreparationVox::Activate(Screen*)
 {
     _countdownSample.SetGain(0.3f);
     _countdownSample.SetPitch(1.0f);
+    _shipVox.Voice(_race.Player.CentralLine.Front, _race.AllShips);
 }
 
 void RacePreparationVox::Deactivate()
@@ -30,5 +36,8 @@ void RacePreparationVox::Voice(Screen& screen)
 
 RacePreparationVox* RacePreparationVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new RacePreparationVox(resolver.Resolve<AudioDataCollection>());
+    return new RacePreparationVox(
+        resolver.Resolve<AudioDataCollection>(),
+        resolver.Resolve<Race>(),
+        resolver.Resolve<ShipVox>());
 }

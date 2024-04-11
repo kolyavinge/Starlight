@@ -149,6 +149,7 @@
     <ClInclude Include="src\ui\ScreenManager.h" />
     <ClInclude Include="src\ui\StartMenuScreen.h" />
     <ClInclude Include="src\ui\TrackSelectorScreen.h" />
+    <ClInclude Include="src\vox\common\ShipVox.h" />
     <ClInclude Include="src\vox\ui\FinishVox.h" />
     <ClInclude Include="src\vox\ui\RacePreparationVox.h" />
     <ClInclude Include="src\vox\ui\RaceVox.h" />
@@ -355,6 +356,7 @@
     <ClCompile Include="src\ui\ScreenManager.cpp" />
     <ClCompile Include="src\ui\StartMenuScreen.cpp" />
     <ClCompile Include="src\ui\TrackSelectorScreen.cpp" />
+    <ClCompile Include="src\vox\common\ShipVox.cpp" />
     <ClCompile Include="src\vox\ui\FinishVox.cpp" />
     <ClCompile Include="src\vox\ui\RacePreparationVox.cpp" />
     <ClCompile Include="src\vox\ui\RaceVox.cpp" />
