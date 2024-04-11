@@ -5,12 +5,12 @@ FinishScreen::FinishScreen(
     InputDevices& inputDevices,
     Camera& camera,
     EnemyAI& enemyAI,
-    ::Race& race) :
+    Race& race) :
     Screen(ScreenKind::Finish, navigator, inputDevices),
     IterationsCount(400),
     _camera(camera),
     _enemyAI(enemyAI),
-    Race(race)
+    _race(race)
 {
     _iterationCount = 0;
 }
@@ -18,15 +18,15 @@ FinishScreen::FinishScreen(
 void FinishScreen::Activate(Screen*)
 {
     _iterationCount = 0;
-    _camera.SetFrontView(Race.Player);
+    _camera.SetFrontView(_race.Player);
 }
 
 void FinishScreen::Update()
 {
     if (_iterationCount < IterationsCount)
     {
-        _enemyAI.ApplyFor(Race.Player, Race.AllShips, *Race.Track);
-        Race.Update();
+        _enemyAI.ApplyFor(_race.Player, _race.AllShips, *_race.Track);
+        _race.Update();
         _iterationCount++;
     }
     else

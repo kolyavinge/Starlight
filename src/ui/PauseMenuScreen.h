@@ -16,14 +16,14 @@ enum class PauseMenuItem
 class PauseMenuScreen : public Screen
 {
     LinearMenuItemSelector<PauseMenuItem> _selector;
+    Race& _race;
 
 public:
-    Race& Race;
 
     PauseMenuScreen(
         IScreenNavigator& navigator,
         InputDevices& inputDevices,
-        ::Race& race);
+        Race& race);
 
     PauseMenuItem GetSelectedItem();
     void Activate(Screen* prevScreen) override;

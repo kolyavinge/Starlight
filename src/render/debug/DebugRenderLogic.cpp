@@ -1,16 +1,17 @@
 #include <gl/opengl.h>
-#include <core/Race.h>
-#include <ui/RaceScreen.h>
 #include <render/debug/DebugRenderLogic.h>
 
-void DebugRenderLogic::Render(Screen& screen)
+DebugRenderLogic::DebugRenderLogic(Race& race) :
+    _race(race)
 {
-    RaceScreen& raceScreen = (RaceScreen&)screen;
-    Race& race = raceScreen.Race;
+}
+
+void DebugRenderLogic::Render(Screen&)
+{
     RenderGrid();
     _backgroundRenderer.Render();
-    _trackRenderer.Render(*race.Track);
-    _shipRenderer.Render(race.Player, *race.Track);
+    _trackRenderer.Render(*_race.Track);
+    _shipRenderer.Render(_race.Player, *_race.Track);
     RenderAxis();
 }
 

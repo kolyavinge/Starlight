@@ -1,16 +1,17 @@
 #include <gl/opengl.h>
-#include <core/Race.h>
 #include <ui/RacePreparationScreen.h>
 #include <render/ui/RacePreparationRenderer.h>
 
 RacePreparationRenderer::RacePreparationRenderer(
     Camera& camera,
+    Race& race,
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer,
     CountdownRenderer& countdownRenderer) :
     _camera(camera),
+    _race(race),
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
@@ -33,13 +34,12 @@ void RacePreparationRenderer::Render(Screen& screen)
 
     glLoadIdentity();
     RacePreparationScreen& racePreparationScreen = (RacePreparationScreen&)screen;
-    Race& race = racePreparationScreen.Race;
     gluPerspective(_camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
-    _trackRenderer.Render(*race.Track);
-    _shipsRenderer.Render(race.Player, race.Enemies);
+    _trackRenderer.Render(*_race.Track);
+    _shipsRenderer.Render(_race.Player, _race.Enemies);
 
     glEnable(GL_BLEND);
     _fadeEffect.Render();
@@ -56,6 +56,7 @@ RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver&
 {
     return new RacePreparationRenderer(
         resolver.Resolve<Camera>(),
+        resolver.Resolve<Race>(),
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),

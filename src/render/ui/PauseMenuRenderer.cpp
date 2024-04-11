@@ -16,7 +16,7 @@ PauseMenuRenderer::PauseMenuRenderer(
 void PauseMenuRenderer::Render(Screen& screen)
 {
     PauseMenuScreen& pauseMenuScreen = (PauseMenuScreen&)screen;
-    _raceRenderer.Render(pauseMenuScreen.Race);
+    _raceRenderer.Render();
     glLoadIdentity();
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);

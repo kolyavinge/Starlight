@@ -1,11 +1,11 @@
 #include <gl/opengl.h>
 #include <core/Constants.h>
-#include <core/Race.h>
 #include <ui/RaceScreen.h>
 #include <render/ui/RaceRenderer.h>
 
 RaceRenderer::RaceRenderer(
     Camera& camera,
+    Race& race,
     BackgroundRenderer& backgroundRenderer,
     StarsRenderer& starsRenderer,
     ShipsRenderer& shipsRenderer,
@@ -17,6 +17,7 @@ RaceRenderer::RaceRenderer(
     DashboardRenderer& dashboardRenderer,
     GoRenderer& goRenderer) :
     _camera(camera),
+    _race(race),
     _backgroundRenderer(backgroundRenderer),
     _starsRenderer(starsRenderer),
     _shipsRenderer(shipsRenderer),
@@ -40,14 +41,12 @@ void RaceRenderer::Activate(Screen* prevScreen)
     }
 }
 
-void RaceRenderer::Render(Screen& screen)
+void RaceRenderer::Render(Screen&)
 {
-    RaceScreen& raceScreen = (RaceScreen&)screen;
-    Race& race = raceScreen.Race;
-    Render(race);
+    Render();
 }
 
-void RaceRenderer::Render(Race& race)
+void RaceRenderer::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
@@ -58,18 +57,18 @@ void RaceRenderer::Render(Race& race)
     //gluLookAt(0, 0, 700, 10, 10, 0, 0, 0, 1);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
-    _trackRenderer.Render(*race.Track);
-    _shipsRenderer.Render(race.Player, race.Enemies);
-    _bulletsRenderer.Render(race.Player, race.Enemies);
-    _enemyShipsHealthRenderer.Render(race.Enemies);
-    _explosionRenderer.Render(race.Player, race.AllShips);
-    _powerUpRenderer.Render(race.PowerUps);
+    _trackRenderer.Render(*_race.Track);
+    _shipsRenderer.Render(_race.Player, _race.Enemies);
+    _bulletsRenderer.Render(_race.Player, _race.Enemies);
+    _enemyShipsHealthRenderer.Render(_race.Enemies);
+    _explosionRenderer.Render(_race.Player, _race.AllShips);
+    _powerUpRenderer.Render(_race.PowerUps);
 
     glLoadIdentity();
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);
     _goRenderer.Render();
-    _dashboardRenderer.Render(race.Player, race.Laps);
+    _dashboardRenderer.Render(_race.Player, _race.Laps);
     glDisable(GL_BLEND);
 }
 
@@ -77,6 +76,7 @@ RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new RaceRenderer(
         resolver.Resolve<Camera>(),
+        resolver.Resolve<Race>(),
         resolver.Resolve<BackgroundRenderer>(),
         resolver.Resolve<StarsRenderer>(),
         resolver.Resolve<ShipsRenderer>(),

@@ -4,10 +4,10 @@
 PauseMenuScreen::PauseMenuScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
-    ::Race& race) :
+    Race& race) :
     Screen(ScreenKind::PauseMenu, navigator, inputDevices),
     _selector(LinearMenuItemSelectorOrientation::Vertical),
-    Race(race)
+    _race(race)
 {
     _selector.AddItem(PauseMenuItem::Resume);
     _selector.AddItem(PauseMenuItem::StartMenu);
@@ -30,7 +30,7 @@ void PauseMenuScreen::ProcessInput()
 
     if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
     {
-        Race.Resume();
+        _race.Resume();
         _navigator.NavigateTo(ScreenKind::Race);
     }
     else if (
@@ -40,7 +40,7 @@ void PauseMenuScreen::ProcessInput()
     {
         if (GetSelectedItem() == PauseMenuItem::Resume)
         {
-            Race.Resume();
+            _race.Resume();
             _navigator.NavigateTo(ScreenKind::Race);
         }
         else if (GetSelectedItem() == PauseMenuItem::StartMenu)

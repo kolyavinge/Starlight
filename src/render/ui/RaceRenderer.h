@@ -19,6 +19,7 @@
 class RaceRenderer : public ScreenRenderer
 {
     Camera& _camera;
+    Race& _race;
     BackgroundRenderer& _backgroundRenderer;
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
@@ -33,6 +34,7 @@ class RaceRenderer : public ScreenRenderer
 public:
     RaceRenderer(
         Camera& camera,
+        Race& race,
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,
@@ -46,7 +48,7 @@ public:
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
-    void Render(Race& race);
+    void Render();
 };
 
 class RaceRendererResolvingFactory : public ResolvingFactory<RaceRenderer>

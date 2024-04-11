@@ -7,22 +7,22 @@ RaceScreen::RaceScreen(
     IScreenNavigator& navigator,
     InputDevices& inputDevices,
     Camera& camera,
-    ::Race& race) :
+    Race& race) :
     Screen(ScreenKind::Race, navigator, inputDevices),
     _camera(camera),
-    Race(race)
+    _race(race)
 {
 }
 
 void RaceScreen::Update()
 {
-    Race.Update();
-    if (Race.Player.State != ShipState::Destroyed)
+    _race.Update();
+    if (_race.Player.State != ShipState::Destroyed)
     {
-        _camera.SetFrontView(Race.Player);
+        _camera.SetFrontView(_race.Player);
     }
     //_camera.SetFrontView(Race.Enemies[0]);
-    if (Race.State == RaceState::Finish)
+    if (_race.State == RaceState::Finish)
     {
         _navigator.NavigateTo(ScreenKind::Finish);
     }
@@ -30,7 +30,7 @@ void RaceScreen::Update()
 
 void RaceScreen::ProcessInput()
 {
-    ShipController& playerController = Race.PlayerController;
+    ShipController& playerController = _race.PlayerController;
     Keyboard& keyboard = _inputDevices.Keyboard;
     Joystick& joystick = _inputDevices.Joystick;
 
@@ -77,9 +77,9 @@ void RaceScreen::ProcessInput()
 
     if ((keyboard.IsPressedOrHeld('Q') ||
         joystick.IsButton4Pressed()) &&
-        Race.Player.State != ShipState::Destroyed)
+        _race.Player.State != ShipState::Destroyed)
     {
-        _camera.SetRearView(Race.Player);
+        _camera.SetRearView(_race.Player);
     }
 
     if (keyboard.IsPressedOrHeld(VK_SPACE))
@@ -103,7 +103,7 @@ void RaceScreen::ProcessInput()
 
     if (keyboard.IsPressed(VK_ESCAPE))
     {
-        Race.Pause();
+        _race.Pause();
         _navigator.NavigateTo(ScreenKind::PauseMenu);
     }
 }

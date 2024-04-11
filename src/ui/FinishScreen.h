@@ -13,6 +13,7 @@ class FinishScreen : public Screen
     int _iterationCount;
     Camera& _camera;
     EnemyAI& _enemyAI;
+    Race& _race;
 
 public:
     const int IterationsCount;
@@ -23,8 +24,6 @@ public:
         Camera& camera,
         EnemyAI& enemyAI,
         Race& race);
-
-    Race& Race;
 
     void Activate(Screen* prevScreen) override;
     void Update() override;

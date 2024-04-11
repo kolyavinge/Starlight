@@ -16,6 +16,7 @@ class RacePreparationScreen : public Screen
     int _countdownSwitchIteration;
     int _countdownIteration;
     Camera& _camera;
+    Race& _race;
 
 public:
     RacePreparationScreen(
@@ -23,8 +24,6 @@ public:
         InputDevices& inputDevices,
         Camera& camera,
         Race& race);
-
-    Race& Race;
 
     void Activate(Screen* prevScreen) override;
     void Update() override;

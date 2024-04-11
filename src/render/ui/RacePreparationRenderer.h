@@ -2,6 +2,7 @@
 
 #include <lib/di/ResolvingFactory.h>
 #include <core/Camera.h>
+#include <core/Race.h>
 #include <ui/Screen.h>
 #include <render/effect/FadeEffect.h>
 #include <render/common/BackgroundRenderer.h>
@@ -14,6 +15,7 @@
 class RacePreparationRenderer : public ScreenRenderer
 {
     Camera& _camera;
+    Race& _race;
     BackgroundRenderer& _backgroundRenderer;
     StarsRenderer& _starsRenderer;
     ShipsRenderer& _shipsRenderer;
@@ -24,6 +26,7 @@ class RacePreparationRenderer : public ScreenRenderer
 public:
     RacePreparationRenderer(
         Camera& camera,
+        Race& race,
         BackgroundRenderer& backgroundRenderer,
         StarsRenderer& starsRenderer,
         ShipsRenderer& shipsRenderer,

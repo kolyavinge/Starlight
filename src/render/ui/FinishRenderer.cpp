@@ -24,7 +24,7 @@ void FinishRenderer::Render(Screen& screen)
     {
         _fadeEffect.Activate();
     }
-    _raceRenderer.Render(finishScreen.Race);
+    _raceRenderer.Render();
     glLoadIdentity();
     glOrtho(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight, -100.0, 100.0);
     glEnable(GL_BLEND);

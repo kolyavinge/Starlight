@@ -2,10 +2,12 @@
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
-#include <ui/RaceScreen.h>
 #include <vox/RaceVox.h>
 
-RaceVox::RaceVox(AudioDataCollection& audioDataCollection)
+RaceVox::RaceVox(
+    AudioDataCollection& audioDataCollection,
+    Race& race) :
+    _race(race)
 {
     for (int i = 0; i < SamplesCount; i++)
     {
@@ -20,16 +22,12 @@ RaceVox::RaceVox(AudioDataCollection& audioDataCollection)
     }
 }
 
-void RaceVox::Voice(Screen& screen)
+void RaceVox::Voice(Screen&)
 {
-    RaceScreen& raceScreen = (RaceScreen&)screen;
-    Race& race = raceScreen.Race;
-    Ship& player = race.Player;
-
-    for (int i = 0; i < race.AllShips.GetCount(); i++)
+    for (int i = 0; i < _race.AllShips.GetCount(); i++)
     {
-        Ship& ship = *race.AllShips[i];
-        VoiceShip(player, ship, i);
+        Ship& ship = *_race.AllShips[i];
+        VoiceShip(_race.Player, ship, i);
     }
 }
 
@@ -126,5 +124,7 @@ void RaceVox::SetSamplePosition(Ship& player, Ship& ship, AudioSample& sample)
 
 RaceVox* RaceVoxResolvingFactory::Make(Resolver& resolver)
 {
-    return new RaceVox(resolver.Resolve<AudioDataCollection>());
+    return new RaceVox(
+        resolver.Resolve<AudioDataCollection>(),
+        resolver.Resolve<Race>());
 }

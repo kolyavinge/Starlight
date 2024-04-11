@@ -10,6 +10,7 @@
 class RaceScreen : public Screen
 {
     Camera& _camera;
+    Race& _race;
 
 public:
     RaceScreen(
@@ -17,8 +18,6 @@ public:
         InputDevices& inputDevices,
         Camera& camera,
         Race& race);
-
-    Race& Race;
 
     void Update() override;
     void ProcessInput() override;

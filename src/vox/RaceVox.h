@@ -19,9 +19,12 @@ class RaceVox : public ScreenVox
     Array<AudioSample, SamplesCount> _powerUpPickSamples;
     Array<AudioSample, SamplesCount> _engineIdleSamples;
     Array<AudioSample, SamplesCount> _engineThrottleSamples;
+    Race& _race;
 
 public:
-    RaceVox(AudioDataCollection& audioDataCollection);
+    RaceVox(
+        AudioDataCollection& audioDataCollection,
+        Race& race);
 
     void Voice(Screen& screen) override;
     void Deactivate() override;
