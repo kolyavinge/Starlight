@@ -11,4 +11,6 @@ public:
     static String GetMetalHitWavFilePath();
     static String GetExplosionWavFilePath();
     static String GetPowerUpPickWavFilePath();
+    static String GetEngineIdleWavFilePath();
+    static String GetEngineThrottleWavFilePath();
 };

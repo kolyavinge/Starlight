@@ -13,6 +13,7 @@ class RacePreparationVox : public ScreenVox
 public:
     RacePreparationVox(AudioDataCollection& audioDataCollection);
 
+    void Activate(Screen* prevScreen) override;
     void Deactivate() override;
     void Voice(Screen& screen) override;
 };

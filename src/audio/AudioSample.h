@@ -6,11 +6,7 @@
 
 class AudioSample : public Object
 {
-    AudioData* _data;
     unsigned int _sourceId;
-    float _gain;
-    float _pitch;
-    Vector3 _position;
 
 public:
     AudioSample();
@@ -19,7 +15,12 @@ public:
 
     void SetData(AudioData& data);
     void Play();
+    void Pause();
+    void Stop();
+    bool IsPlayed();
     void SetGain(float gain);
     void SetPitch(float pitch);
     void SetPosition(Vector3& position);
+    void SetVelocity(Vector3& velocity);
+    void SetLooped(bool isLooped);
 };

@@ -55,3 +55,21 @@ String AudioResources::GetPowerUpPickWavFilePath()
 
     return path;
 }
+
+String AudioResources::GetEngineIdleWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\engine_idle.wav\0");
+    path.Append(name);
+
+    return path;
+}
+
+String AudioResources::GetEngineThrottleWavFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\audio\\engine_throttle.wav\0");
+    path.Append(name);
+
+    return path;
+}

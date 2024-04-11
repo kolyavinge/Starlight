@@ -9,6 +9,8 @@ AudioDataCollection::AudioDataCollection()
     MetalHitData.LoadFromFile(AudioResources::GetMetalHitWavFilePath());
     ExplosionData.LoadFromFile(AudioResources::GetExplosionWavFilePath());
     PowerUpPickData.LoadFromFile(AudioResources::GetPowerUpPickWavFilePath());
+    EngineIdleData.LoadFromFile(AudioResources::GetEngineIdleWavFilePath());
+    EngineThrottleData.LoadFromFile(AudioResources::GetEngineThrottleWavFilePath());
 }
 
 AudioDataCollection* AudioDataCollectionResolvingFactory::Make(Resolver&)

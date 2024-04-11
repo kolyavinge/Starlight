@@ -3,10 +3,7 @@
 
 AudioSample::AudioSample()
 {
-    _data = nullptr;
     _sourceId = 0;
-    _gain = 1.0f;
-    _pitch = 1.0f;
 }
 
 AudioSample::AudioSample(AudioData& data) :
@@ -22,35 +19,57 @@ AudioSample::~AudioSample()
 
 void AudioSample::SetData(AudioData& data)
 {
-    _data = &data;
     alGenSources(1, &_sourceId);
     ALenum error = alGetError();
     if (error != AL_NO_ERROR) throw AudioException();
     if (_sourceId == 0) throw AudioException();
+    alSourcei(_sourceId, AL_BUFFER, data.GetBufferId());
 }
 
 void AudioSample::Play()
 {
-    alSourcei(_sourceId, AL_BUFFER, _data->GetBufferId());
-    alSourcef(_sourceId, AL_PITCH, _pitch);
-    alSourcef(_sourceId, AL_GAIN, _gain);
-    alSource3f(_sourceId, AL_POSITION, _position.X, _position.Y, _position.Z);
-    alSource3f(_sourceId, AL_VELOCITY, 0.0f, 0.0f, 0.0f);
-    alSourcei(_sourceId, AL_LOOPING, AL_FALSE);
     alSourcePlay(_sourceId);
+}
+
+void AudioSample::Pause()
+{
+    alSourcePause(_sourceId);
+}
+
+void AudioSample::Stop()
+{
+    alSourceStop(_sourceId);
+}
+
+bool AudioSample::IsPlayed()
+{
+    int state;
+    alGetSourcei(_sourceId, AL_SOURCE_STATE, &state);
+
+    return state == AL_PLAYING;
 }
 
 void AudioSample::SetGain(float gain)
 {
-    _gain = gain;
+    alSourcef(_sourceId, AL_GAIN, gain);
 }
 
 void AudioSample::SetPitch(float pitch)
 {
-    _pitch = pitch;
+    alSourcef(_sourceId, AL_PITCH, pitch);
 }
 
 void AudioSample::SetPosition(Vector3& position)
 {
-    _position = position;
+    alSource3f(_sourceId, AL_POSITION, position.X, position.Y, position.Z);
+}
+
+void AudioSample::SetVelocity(Vector3& velocity)
+{
+    alSource3f(_sourceId, AL_VELOCITY, velocity.X, velocity.Y, velocity.Z);
+}
+
+void AudioSample::SetLooped(bool isLooped)
+{
+    alSourcei(_sourceId, AL_LOOPING, isLooped ? AL_TRUE : AL_FALSE);
 }

@@ -13,6 +13,8 @@ public:
     AudioData MetalHitData;
     AudioData ExplosionData;
     AudioData PowerUpPickData;
+    AudioData EngineIdleData;
+    AudioData EngineThrottleData;
 
     AudioDataCollection();
 };

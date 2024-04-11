@@ -17,14 +17,19 @@ class RaceVox : public ScreenVox
     Array<AudioSample, SamplesCount> _metalHitSamples;
     Array<AudioSample, SamplesCount> _explosionSamples;
     Array<AudioSample, SamplesCount> _powerUpPickSamples;
+    Array<AudioSample, SamplesCount> _engineIdleSamples;
+    Array<AudioSample, SamplesCount> _engineThrottleSamples;
 
 public:
     RaceVox(AudioDataCollection& audioDataCollection);
 
     void Voice(Screen& screen) override;
+    void Deactivate() override;
 
 private:
-    void SetSamplePosition(Ship& player, Ship& anotherShip, AudioSample& sample);
+    void VoiceShip(Ship& player, Ship& ship, int shipIndex);
+    void VoiceEngine(Ship& ship, AudioSample& engineIdleSample, AudioSample& engineThrottleSample);
+    void SetSamplePosition(Ship& player, Ship& ship, AudioSample& sample);
 };
 
 class RaceVoxResolvingFactory : public ResolvingFactory<RaceVox>
