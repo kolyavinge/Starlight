@@ -92,14 +92,14 @@
     <ClInclude Include="src\ui\LinearMenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
-    <ClInclude Include="src\vox\ScreenVox.h" />
-    <ClInclude Include="src\vox\VoxManager.h" />
-    <ClInclude Include="src\vox\StartMenuVox.h" />
-    <ClInclude Include="src\vox\PauseMenuVox.h" />
-    <ClInclude Include="src\vox\RaceVox.h" />
-    <ClInclude Include="src\vox\TrackSelectorVox.h" />
+    <ClInclude Include="src\vox\ui\ScreenVox.h" />
+    <ClInclude Include="src\vox\ui\VoxManager.h" />
+    <ClInclude Include="src\vox\ui\StartMenuVox.h" />
+    <ClInclude Include="src\vox\ui\PauseMenuVox.h" />
+    <ClInclude Include="src\vox\ui\RaceVox.h" />
+    <ClInclude Include="src\vox\ui\TrackSelectorVox.h" />
     <ClInclude Include="src\audio\AudioSample.h" />
-    <ClInclude Include="src\vox\MenuItemVox.h" />
+    <ClInclude Include="src\vox\ui\MenuItemVox.h" />
     <ClInclude Include="src\audio\ALFormat.h" />
     <ClInclude Include="src\audio\WavFile.h" />
     <ClInclude Include="src\core\Race.h" />
@@ -110,7 +110,7 @@
     <ClInclude Include="src\render\common\RenderConstants.h" />
     <ClInclude Include="src\ui\RacePreparationScreen.h" />
     <ClInclude Include="src\render\ui\RacePreparationRenderer.h" />
-    <ClInclude Include="src\vox\RacePreparationVox.h" />
+    <ClInclude Include="src\vox\ui\RacePreparationVox.h" />
     <ClInclude Include="src\ui\ScreenKind.h" />
     <ClInclude Include="src\game\ScreenNavigator.h" />
     <ClInclude Include="src\lib\NumericConverter.h" />
@@ -135,7 +135,7 @@
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\ui\FinishScreen.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
-    <ClInclude Include="src\vox\FinishVox.h" />
+    <ClInclude Include="src\vox\ui\FinishVox.h" />
     <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
     <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\ai\EnemyAI.h" />
@@ -195,7 +195,7 @@
     <ClInclude Include="src\audio\AudioData.h" />
     <ClInclude Include="src\game\GameInitializer.h" />
     <ClInclude Include="src\gl\ShaderProgram.h" />
-    <ClInclude Include="src\vox\AudioDataCollection.h" />
+    <ClInclude Include="src\vox\common\AudioDataCollection.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -278,11 +278,11 @@
     <ClCompile Include="src\gl\TexturedRect.cpp" />
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
-    <ClCompile Include="src\vox\VoxManager.cpp" />
-    <ClCompile Include="src\vox\StartMenuVox.cpp" />
-    <ClCompile Include="src\vox\TrackSelectorVox.cpp" />
-    <ClCompile Include="src\vox\PauseMenuVox.cpp" />
-    <ClCompile Include="src\vox\RaceVox.cpp" />
+    <ClCompile Include="src\vox\ui\VoxManager.cpp" />
+    <ClCompile Include="src\vox\ui\StartMenuVox.cpp" />
+    <ClCompile Include="src\vox\ui\TrackSelectorVox.cpp" />
+    <ClCompile Include="src\vox\ui\PauseMenuVox.cpp" />
+    <ClCompile Include="src\vox\ui\RaceVox.cpp" />
     <ClCompile Include="src\audio\AudioSample.cpp" />
     <ClCompile Include="src\audio\ALFormat.cpp" />
     <ClCompile Include="src\audio\WavFile.cpp" />
@@ -293,9 +293,9 @@
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\ui\RacePreparationScreen.cpp" />
     <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
-    <ClCompile Include="src\vox\RacePreparationVox.cpp" />
+    <ClCompile Include="src\vox\ui\RacePreparationVox.cpp" />
     <ClCompile Include="src\game\ScreenNavigator.cpp" />
-    <ClCompile Include="src\vox\ScreenVox.cpp" />
+    <ClCompile Include="src\vox\ui\ScreenVox.cpp" />
     <ClCompile Include="src\lib\NumericConverter.cpp" />
     <ClCompile Include="src\lib\TimeSpan.cpp" />
     <ClCompile Include="src\lib\Stopwatch.cpp" />
@@ -315,7 +315,7 @@
     <ClCompile Include="src\render\common\FinishTextRenderer.cpp" />
     <ClCompile Include="src\ui\FinishScreen.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
-    <ClCompile Include="src\vox\FinishVox.cpp" />
+    <ClCompile Include="src\vox\ui\FinishVox.cpp" />
     <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
     <ClCompile Include="src\ai\SteeringLogic.cpp" />
     <ClCompile Include="src\ai\EnemyAI.cpp" />
@@ -365,7 +365,7 @@
     <ClCompile Include="src\ai\WeaponActivationLogic.cpp" />
     <ClCompile Include="src\audio\AudioData.cpp" />
     <ClCompile Include="src\game\GameInitializer.cpp" />
-    <ClCompile Include="src\vox\AudioDataCollection.cpp" />
+    <ClCompile Include="src\vox\common\AudioDataCollection.cpp" />
     <ClCompile Include="src\gl\ShaderProgram.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,5 @@
 #include <ui/PauseMenuScreen.h>
-#include <vox/PauseMenuVox.h>
+#include <vox/ui/PauseMenuVox.h>
 
 PauseMenuVox::PauseMenuVox(AudioDataCollection& audioDataCollection) :
     _menuItemVox(PauseMenuItem::Resume, audioDataCollection)

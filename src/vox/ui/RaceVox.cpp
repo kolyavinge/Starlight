@@ -2,7 +2,7 @@
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
-#include <vox/RaceVox.h>
+#include <vox/ui/RaceVox.h>
 
 RaceVox::RaceVox(
     AudioDataCollection& audioDataCollection,

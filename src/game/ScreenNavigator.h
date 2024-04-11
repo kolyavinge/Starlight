@@ -5,7 +5,7 @@
 #include <ui/IScreenNavigator.h>
 #include <ui/ScreenManager.h>
 #include <render/ui/RenderManager.h>
-#include <vox/VoxManager.h>
+#include <vox/ui/VoxManager.h>
 
 class ScreenNavigator : public Object, public IScreenNavigator
 {

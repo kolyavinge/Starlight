@@ -1,5 +1,5 @@
 #include <ui/RacePreparationScreen.h>
-#include <vox/RacePreparationVox.h>
+#include <vox/ui/RacePreparationVox.h>
 
 RacePreparationVox::RacePreparationVox(AudioDataCollection& audioDataCollection) :
     _countdownSample(audioDataCollection.CountdownData)

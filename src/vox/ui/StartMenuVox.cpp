@@ -1,5 +1,5 @@
 #include <ui/StartMenuScreen.h>
-#include <vox/StartMenuVox.h>
+#include <vox/ui/StartMenuVox.h>
 
 StartMenuVox::StartMenuVox(AudioDataCollection& audioDataCollection) :
     _menuItemVox(StartMenuItem::StartGame, audioDataCollection)

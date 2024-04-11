@@ -1,5 +1,5 @@
 #include <anx/AudioResources.h>
-#include <vox/AudioDataCollection.h>
+#include <vox/common/AudioDataCollection.h>
 
 AudioDataCollection::AudioDataCollection()
 {

@@ -3,9 +3,9 @@
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <ui/StartMenuScreen.h>
-#include <vox/ScreenVox.h>
-#include <vox/AudioDataCollection.h>
-#include <vox/MenuItemVox.h>
+#include <vox/common/AudioDataCollection.h>
+#include <vox/ui/ScreenVox.h>
+#include <vox/ui/MenuItemVox.h>
 
 class StartMenuVox : public ScreenVox
 {

@@ -6,8 +6,8 @@
 #include <core/Race.h>
 #include <audio/AudioSample.h>
 #include <ui/Screen.h>
-#include <vox/ScreenVox.h>
-#include <vox/AudioDataCollection.h>
+#include <vox/common/AudioDataCollection.h>
+#include <vox/ui/ScreenVox.h>
 
 class RaceVox : public ScreenVox
 {

@@ -3,8 +3,8 @@
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
 #include <audio/AudioSample.h>
-#include <vox/ScreenVox.h>
-#include <vox/AudioDataCollection.h>
+#include <vox/common/AudioDataCollection.h>
+#include <vox/ui/ScreenVox.h>
 
 class RacePreparationVox : public ScreenVox
 {

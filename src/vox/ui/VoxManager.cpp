@@ -1,4 +1,4 @@
-#include <vox/VoxManager.h>
+#include <vox/ui/VoxManager.h>
 
 VoxManager::VoxManager(
     StartMenuVox& startMenuVox,

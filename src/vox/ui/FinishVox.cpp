@@ -1,4 +1,4 @@
-#include <vox/FinishVox.h>
+#include <vox/ui/FinishVox.h>
 
 void FinishVox::Voice(Screen&)
 {

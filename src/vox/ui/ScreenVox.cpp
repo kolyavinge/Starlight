@@ -1,4 +1,4 @@
-#include <vox/ScreenVox.h>
+#include <vox/ui/ScreenVox.h>
 
 void ScreenVox::Activate(Screen*)
 {

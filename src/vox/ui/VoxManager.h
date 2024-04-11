@@ -4,13 +4,13 @@
 #include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
-#include <vox/ScreenVox.h>
-#include <vox/StartMenuVox.h>
-#include <vox/TrackSelectorVox.h>
-#include <vox/RacePreparationVox.h>
-#include <vox/RaceVox.h>
-#include <vox/PauseMenuVox.h>
-#include <vox/FinishVox.h>
+#include <vox/ui/ScreenVox.h>
+#include <vox/ui/StartMenuVox.h>
+#include <vox/ui/TrackSelectorVox.h>
+#include <vox/ui/RacePreparationVox.h>
+#include <vox/ui/RaceVox.h>
+#include <vox/ui/PauseMenuVox.h>
+#include <vox/ui/FinishVox.h>
 
 class VoxManager : public Object
 {

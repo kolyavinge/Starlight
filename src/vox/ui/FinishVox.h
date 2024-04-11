@@ -2,7 +2,7 @@
 
 #include <lib/di/ResolvingFactory.h>
 #include <ui/Screen.h>
-#include <vox/ScreenVox.h>
+#include <vox/ui/ScreenVox.h>
 
 class FinishVox : public ScreenVox
 {

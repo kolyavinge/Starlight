@@ -6,7 +6,7 @@
 #include <input/InputDevices.h>
 #include <ui/ScreenManager.h>
 #include <render/ui/RenderManager.h>
-#include <vox/VoxManager.h>
+#include <vox/ui/VoxManager.h>
 #include <game/ScreenNavigator.h>
 
 class Game : public Object

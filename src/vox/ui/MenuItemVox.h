@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <audio/AudioSample.h>
-#include <vox/AudioDataCollection.h>
+#include <vox/common/AudioDataCollection.h>
 
 template<class TMenuItem>
 class MenuItemVox : public Object

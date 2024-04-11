@@ -1,5 +1,5 @@
 #include <ui/TrackSelectorScreen.h>
-#include <vox/TrackSelectorVox.h>
+#include <vox/ui/TrackSelectorVox.h>
 
 TrackSelectorVox::TrackSelectorVox(AudioDataCollection& audioDataCollection) :
     _menuItemVox(TrackSelectorItem::Back, audioDataCollection)
