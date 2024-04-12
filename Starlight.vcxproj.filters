@@ -197,6 +197,7 @@
     <ClInclude Include="src\gl\ShaderProgram.h" />
     <ClInclude Include="src\vox\common\AudioDataCollection.h" />
     <ClInclude Include="src\vox\common\ShipVox.h" />
+    <ClInclude Include="src\lib\Matrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
