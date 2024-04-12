@@ -489,7 +489,7 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;$(ProjectDir)\external\glm\glm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
@@ -516,7 +516,7 @@ if not exist "$(OutputPath)res\" xcopy "$(SolutionDir)res\" "$(OutputPath)res\" 
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;$(ProjectDir)\external\glm\glm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
