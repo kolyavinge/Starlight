@@ -1,16 +1,32 @@
 #include <gl/opengl.h>
+#include <calc/Geometry.h>
+#include <model/ShipMeasure.h>
 #include <render/common/ShipRenderer.h>
 
-ShipRenderer::ShipRenderer(ShipMesh& shipMesh) :
-    _shipMesh(shipMesh)
+ShipRenderer::ShipRenderer(ShipMeshRenderer& shipMeshRenderer) :
+    _shipMeshRenderer(shipMeshRenderer)
 {
 }
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
-    _shipMesh.Render(ship, textureIndex);
+    glPushMatrix();
+    SetPosition(ship);
+    _shipMeshRenderer.Render(textureIndex);
     //RenderAIMovingDirections(ship);
     //RenderThrottle(ship);
+    glPopMatrix();
+}
+
+void ShipRenderer::SetPosition(Ship& ship)
+{
+    float radians;
+    Vector3 pivot;
+    ship.Border.GetAngleAndPivot(radians, pivot);
+    glTranslatef(ship.Border.DownLeft);
+    glRotatef(Geometry::RadiansToDegrees(radians), pivot);
+    glTranslatef(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
+    glRotatef(Geometry::RadiansToDegrees(ship.GetRollRadians()), 0.0f, 1.0f, 0.0f);
 }
 
 void ShipRenderer::RenderAIMovingDirections(Ship& ship)
@@ -72,5 +88,5 @@ void ShipRenderer::RenderThrottle(Ship& ship)
 
 ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipRenderer(resolver.Resolve<ShipMesh>());
+    return new ShipRenderer(resolver.Resolve<ShipMeshRenderer>());
 }

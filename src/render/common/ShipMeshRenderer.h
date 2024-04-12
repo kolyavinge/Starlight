@@ -2,11 +2,10 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
-#include <model/Ship.h>
 #include <gl/Mesh.h>
 #include <gl/VBOMeshRenderer.h>
 
-class ShipMesh : public Object
+class ShipMeshRenderer : public Object
 {
     Mesh _shipMesh;
     VBOMeshRenderer _vboMeshRenderer;
@@ -18,17 +17,14 @@ public:
     inline static const int Enemy3Texture = 3;
     inline static const int DestroyedTexture = 4;
 
-    ShipMesh();
+    ShipMeshRenderer();
 
-    void Render(Ship& ship, int textureIndex);
+    void Render(int textureIndex);
     int GetTexturesCount();
-
-private:
-    void SetPosition(Ship& ship);
 };
 
-class ShipMeshResolvingFactory : public ResolvingFactory<ShipMesh>
+class ShipMeshRendererResolvingFactory : public ResolvingFactory<ShipMeshRenderer>
 {
 public:
-    ShipMesh* Make(Resolver& resolver) override;
+    ShipMeshRenderer* Make(Resolver& resolver) override;
 };

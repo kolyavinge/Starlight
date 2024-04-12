@@ -12,7 +12,7 @@ void DebugShipRenderer::Render(Ship& ship, Track& track)
     RenderTurnAngle(ship);
     RenderDeviation(ship);
     RenderTrackPoints(ship, track);
-    _shipMesh.Render(ship, 0);
+    _shipMeshRenderer.Render(0);
 }
 
 void DebugShipRenderer::RenderMiddleLine(Ship& ship)

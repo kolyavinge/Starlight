@@ -3,11 +3,11 @@
 #include <lib/Object.h>
 #include <model/Ship.h>
 #include <model/Track.h>
-#include <render/common/ShipMesh.h>
+#include <render/common/ShipMeshRenderer.h>
 
 class DebugShipRenderer : public Object
 {
-    ShipMesh _shipMesh;
+    ShipMeshRenderer _shipMeshRenderer;
 
 public:
     void Render(Ship& ship, Track& track);

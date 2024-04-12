@@ -82,7 +82,7 @@ void Mesh::GetSize(Size& result)
     result.MaxX = max.X;
     result.MaxY = max.Y;
     result.MaxZ = max.Z;
-    result.XLength = (max.X - min.X);
-    result.YLength = (max.Y - min.Y);
-    result.ZLength = (max.Z - min.Z);
+    result.XLength = max.X - min.X;
+    result.YLength = max.Y - min.Y;
+    result.ZLength = max.Z - min.Z;
 }

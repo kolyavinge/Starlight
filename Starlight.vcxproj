@@ -208,7 +208,7 @@
     <ClInclude Include="src\render\common\ShipsRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
-    <ClInclude Include="src\render\common\ShipMesh.h" />
+    <ClInclude Include="src\render\common\ShipMeshRenderer.h" />
     <ClInclude Include="src\model\Track.h" />
     <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
     <ClInclude Include="src\render\debug\DebugTrackRenderer.h" />
@@ -340,7 +340,7 @@
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
-    <ClCompile Include="src\render\common\ShipMesh.cpp" />
+    <ClCompile Include="src\render\common\ShipMeshRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
     <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
