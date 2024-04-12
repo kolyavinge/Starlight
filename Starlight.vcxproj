@@ -125,7 +125,6 @@
     <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
     <ClInclude Include="src\render\dash\NitroCountRenderer.h" />
     <ClInclude Include="src\render\dash\PlayerShipHealthRenderer.h" />
-    <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
@@ -211,9 +210,6 @@
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
     <ClInclude Include="src\render\common\ShipMeshRenderer.h" />
     <ClInclude Include="src\model\Track.h" />
-    <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
-    <ClInclude Include="src\render\debug\DebugTrackRenderer.h" />
-    <ClInclude Include="src\render\debug\DebugRenderLogic.h" />
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
   <ItemGroup>
@@ -329,7 +325,6 @@
     <ClCompile Include="src\render\common\TrackThumbnailRenderer.cpp" />
     <ClCompile Include="src\render\dash\NitroCountRenderer.cpp" />
     <ClCompile Include="src\render\dash\PlayerShipHealthRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
@@ -342,9 +337,6 @@
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipMeshRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
     <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />
