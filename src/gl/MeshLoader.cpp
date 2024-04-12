@@ -30,6 +30,10 @@ void MeshLoader::LoadNormalCoords(List<Vector3>& normalCoords)
         aiVector3D& normal = _aiMesh->mNormals[i];
         normalCoords.Add(Vector3(normal.x, normal.y, normal.z));
     }
+    for (int i = 0; i < normalCoords.GetCount(); i++)
+    {
+        normalCoords[i].Normalize();
+    }
 }
 
 void MeshLoader::LoadTextureCoords(List<Point2>& textureCoords)
