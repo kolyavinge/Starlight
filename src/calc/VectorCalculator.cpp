@@ -21,7 +21,7 @@ bool VectorCalculator::IsSameDirection(Vector3& origin, Vector3 v1, Vector3 v2)
     return v1.GetLengthSquared() < 0.1f;
 }
 
-Vector3 VectorCalculator::GetMinVector(List<Vector3>& vectors)
+Vector3 VectorCalculator::GetMinVector(IArray<Vector3>& vectors)
 {
     if (vectors.GetCount() == 0) throw ArgumentException();
 
@@ -40,7 +40,7 @@ Vector3 VectorCalculator::GetMinVector(List<Vector3>& vectors)
     return Vector3(minX, minY, minZ);
 }
 
-Vector3 VectorCalculator::GetMaxVector(List<Vector3>& vectors)
+Vector3 VectorCalculator::GetMaxVector(IArray<Vector3>& vectors)
 {
     if (vectors.GetCount() == 0) throw ArgumentException();
 
@@ -59,7 +59,7 @@ Vector3 VectorCalculator::GetMaxVector(List<Vector3>& vectors)
     return Vector3(maxX, maxY, maxZ);
 }
 
-void VectorCalculator::SwapXY(List<Vector3>& vectors)
+void VectorCalculator::SwapXY(IArray<Vector3>& vectors)
 {
     for (int i = 0; i < vectors.GetCount(); i++)
     {
@@ -70,7 +70,7 @@ void VectorCalculator::SwapXY(List<Vector3>& vectors)
     }
 }
 
-void VectorCalculator::SwapXZ(List<Vector3>& vectors)
+void VectorCalculator::SwapXZ(IArray<Vector3>& vectors)
 {
     for (int i = 0; i < vectors.GetCount(); i++)
     {
@@ -81,7 +81,7 @@ void VectorCalculator::SwapXZ(List<Vector3>& vectors)
     }
 }
 
-void VectorCalculator::SwapYZ(List<Vector3>& vectors)
+void VectorCalculator::SwapYZ(IArray<Vector3>& vectors)
 {
     for (int i = 0; i < vectors.GetCount(); i++)
     {
