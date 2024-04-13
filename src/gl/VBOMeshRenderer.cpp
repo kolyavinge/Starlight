@@ -11,6 +11,7 @@ VBOMeshRenderer::VBOMeshRenderer()
     _buffers[1] = 0;
     _facesCount = 0;
     _activeTextureIndex = 0;
+    ModelMarix = nullptr;
 }
 
 VBOMeshRenderer::~VBOMeshRenderer()
@@ -30,6 +31,9 @@ void VBOMeshRenderer::Init(Mesh& mesh)
 void VBOMeshRenderer::Render()
 {
     _shaderProgram.Use();
+    _shaderProgram.SetUniform("lightPos", LightPosition);
+    _shaderProgram.SetUniform("cameraPos", CameraPosition);
+    _shaderProgram.SetUniform("modelMatrix", ModelMarix);
     glActiveTexture(GL_TEXTURE0);
     glEnable(GL_TEXTURE_2D);
     (*_textures)[_activeTextureIndex].Bind();

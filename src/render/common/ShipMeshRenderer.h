@@ -2,6 +2,8 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
+#include <model/Ship.h>
+#include <core/Camera.h>
 #include <gl/Mesh.h>
 #include <gl/VBOMeshRenderer.h>
 
@@ -9,6 +11,7 @@ class ShipMeshRenderer : public Object
 {
     Mesh _shipMesh;
     VBOMeshRenderer _vboMeshRenderer;
+    Camera& _camera;
 
 public:
     inline static const int PlayerTexture = 0;
@@ -17,9 +20,9 @@ public:
     inline static const int Enemy3Texture = 3;
     inline static const int DestroyedTexture = 4;
 
-    ShipMeshRenderer();
+    ShipMeshRenderer(Camera& camera);
 
-    void Render(int textureIndex);
+    void Render(Ship& ship, int textureIndex);
     int GetTexturesCount();
 };
 

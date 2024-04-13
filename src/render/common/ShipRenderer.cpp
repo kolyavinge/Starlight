@@ -12,7 +12,7 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
     glPushMatrix();
     SetPosition(ship);
-    _shipMeshRenderer.Render(textureIndex);
+    _shipMeshRenderer.Render(ship, textureIndex);
     //RenderAIMovingDirections(ship);
     //RenderThrottle(ship);
     glPopMatrix();

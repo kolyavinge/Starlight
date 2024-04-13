@@ -26,9 +26,6 @@
     <ClInclude Include="src\lib\Numeric.h" />
     <ClInclude Include="src\core\TurnAngleCalculator.h" />
     <ClInclude Include="src\win\App.h" />
-    <ClInclude Include="src\render\debug\DebugTrackRenderer.h" />
-    <ClInclude Include="src\render\debug\DebugShipRenderer.h" />
-    <ClInclude Include="src\render\debug\DebugRenderLogic.h" />
     <ClInclude Include="src\core\Camera.h" />
     <ClInclude Include="src\gl\opengl.h" />
     <ClInclude Include="src\core\BorderUpdater.h" />
@@ -55,7 +52,6 @@
     <ClInclude Include="src\calc\Sphere.h" />
     <ClInclude Include="src\render\common\BackgroundRenderer.h" />
     <ClInclude Include="src\win\resource.h" />
-    <ClInclude Include="src\render\debug\DebugBackgroundRenderer.h" />
     <ClInclude Include="src\gl\ImageFile.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\lib\Environment.h" />
@@ -222,9 +218,6 @@
     <ClCompile Include="src\lib\Numeric.cpp" />
     <ClCompile Include="src\core\TurnAngleCalculator.cpp" />
     <ClCompile Include="src\win\main.cpp" />
-    <ClCompile Include="src\render\debug\DebugTrackRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugShipRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugRenderLogic.cpp" />
     <ClCompile Include="src\core\Camera.cpp" />
     <ClCompile Include="src\core\BorderUpdater.cpp" />
     <ClCompile Include="src\calc\LineIntersector.cpp" />
@@ -247,7 +240,6 @@
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\calc\Sphere.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
-    <ClCompile Include="src\render\debug\DebugBackgroundRenderer.cpp" />
     <ClCompile Include="src\gl\ImageFile.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />

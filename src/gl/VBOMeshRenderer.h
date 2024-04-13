@@ -25,6 +25,10 @@ class VBOMeshRenderer : public Object
     };
 
 public:
+    Vector3 LightPosition;
+    Vector3 CameraPosition;
+    float* ModelMarix;
+
     VBOMeshRenderer();
     ~VBOMeshRenderer() override;
 
