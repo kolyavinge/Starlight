@@ -195,6 +195,7 @@
     <ClInclude Include="src\vox\common\ShipVox.h" />
     <ClInclude Include="src\lib\Matrix.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
+    <ClInclude Include="src\calc\ModelMatrix.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -364,6 +365,7 @@
     <ClCompile Include="src\gl\ShaderProgram.cpp" />
     <ClCompile Include="src\vox\common\ShipVox.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
+    <ClCompile Include="src\calc\ModelMatrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

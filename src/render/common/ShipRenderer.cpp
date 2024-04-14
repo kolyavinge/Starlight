@@ -1,7 +1,6 @@
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 #include <gl/opengl.h>
 #include <calc/Geometry.h>
+#include <calc/ModelMatrix.h>
 #include <model/ShipMeasure.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/ShipRenderer.h>
@@ -20,20 +19,13 @@ ShipRenderer::ShipRenderer(
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
-    float radians;
-    Vector3 pivot;
-    ship.Border.GetAngleAndPivot(radians, pivot);
-
-    glm::mat4 modelMatrix = glm::mat4(1.0f);
-    modelMatrix = glm::translate(modelMatrix, glm::vec3(ship.Border.DownLeft.X, ship.Border.DownLeft.Y, ship.Border.DownLeft.Z));
-    modelMatrix = glm::rotate(modelMatrix, radians, glm::vec3(pivot.X, pivot.Y, pivot.Z));
-    modelMatrix = glm::translate(modelMatrix, glm::vec3(ShipMeasure::XLengthHalf, 0.0f, 0.0f));
-    modelMatrix = glm::rotate(modelMatrix, ship.GetRollRadians(), glm::vec3(0.0f, 1.0f, 0.0f));
+    ModelMatrix modelMatrix;
+    ship.GetModelMatrix(modelMatrix);
 
     _shaderProgram.Use();
     _shaderProgram.SetUniform("lightPos", RenderConstants::LightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
-    _shaderProgram.SetUniform("modelMatrix", glm::value_ptr(modelMatrix));
+    _shaderProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
     _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
 
     glPushMatrix();

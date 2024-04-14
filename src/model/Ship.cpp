@@ -120,3 +120,14 @@ bool Ship::CanControlled()
 {
     return State == ShipState::Active || State == ShipState::Prepared;
 }
+
+void Ship::GetModelMatrix(ModelMatrix& modelMatrix)
+{
+    float radians;
+    Vector3 pivot;
+    Border.GetAngleAndPivot(radians, pivot);
+    modelMatrix.Translate(Border.DownLeft);
+    modelMatrix.Rotate(radians, pivot);
+    modelMatrix.Translate(ShipMeasure::XLengthHalf, 0.0f, 0.0f);
+    modelMatrix.Rotate(GetRollRadians(), 0.0f, 1.0f, 0.0f);
+}
