@@ -5,7 +5,7 @@
 #include <model/Ship.h>
 #include <core/Camera.h>
 #include <gl/VBOMeshRenderer.h>
-#include <render/common/ShipMesh.h>
+#include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
 
 class ShipRenderer : public Object

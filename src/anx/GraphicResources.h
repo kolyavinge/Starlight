@@ -23,8 +23,8 @@ public:
     static String GetGoItemFilePath();
     static String GetFinishItemFilePath();
     static String GetExplosionFilePath();
-    static String GetSimpleVertexShaderPath();
-    static String GetSimpleFragmentShaderPath();
+    static String GetDefaultVertexShaderPath();
+    static String GetDefaultFragmentShaderPath();
     static String GetPowerUpHealthFilePath();
     static String GetPowerUpMachinegunFilePath();
     static String GetPowerUpNitroFilePath();

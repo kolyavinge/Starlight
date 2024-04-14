@@ -209,7 +209,7 @@
     <ClInclude Include="src\render\common\ShipsRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
-    <ClInclude Include="src\render\common\ShipMesh.h" />
+    <ClInclude Include="src\render\mesh\ShipMesh.h" />
     <ClInclude Include="src\model\Track.h" />
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
@@ -338,7 +338,7 @@
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
-    <ClCompile Include="src\render\common\ShipMesh.cpp" />
+    <ClCompile Include="src\render\mesh\ShipMesh.cpp" />
     <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />

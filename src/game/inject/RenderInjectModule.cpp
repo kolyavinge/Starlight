@@ -9,7 +9,6 @@
 #include <render/common/GraphicItemCollection.h>
 #include <render/common/MenuBackgroundRenderer.h>
 #include <render/common/PowerUpRenderer.h>
-#include <render/common/ShipMesh.h>
 #include <render/common/ShipRenderer.h>
 #include <render/common/ShipsRenderer.h>
 #include <render/common/StarsRenderer.h>
@@ -24,6 +23,7 @@
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/PlayerShipHealthRenderer.h>
+#include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
 #include <render/ui/FinishRenderer.h>
 #include <render/ui/PauseMenuRenderer.h>
@@ -46,7 +46,6 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<GoRenderer, GoRendererResolvingFactory>();
     binder.BindSingletonByFactory<MenuBackgroundRenderer, MenuBackgroundRendererResolvingFactory>();
     binder.BindSingletonByFactory<PowerUpRenderer, PowerUpRendererResolvingFactory>();
-    binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShipRenderer, ShipRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipsRenderer, ShipsRendererResolvingFactory>();
     binder.BindSingletonByFactory<StarsRenderer, StarsRendererResolvingFactory>();
@@ -61,6 +60,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<LapTimeRenderer, LapTimeRendererResolvingFactory>();
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<PlayerShipHealthRenderer, PlayerShipHealthRendererResolvingFactory>();
+    binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShaderPrograms, ShaderProgramsResolvingFactory>();
     binder.BindSingletonByFactory<FinishRenderer, FinishRendererResolvingFactory>();
     binder.BindSingletonByFactory<GraphicItemCollection, GraphicItemCollectionResolvingFactory>();

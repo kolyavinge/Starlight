@@ -164,19 +164,19 @@ String GraphicResources::GetExplosionFilePath()
     return path;
 }
 
-String GraphicResources::GetSimpleVertexShaderPath()
+String GraphicResources::GetDefaultVertexShaderPath()
 {
     String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\shaders\\simple.vert\0");
+    String name(L"res\\shaders\\default.vert\0");
     path.Append(name);
 
     return path;
 }
 
-String GraphicResources::GetSimpleFragmentShaderPath()
+String GraphicResources::GetDefaultFragmentShaderPath()
 {
     String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\shaders\\simple.frag\0");
+    String name(L"res\\shaders\\default.frag\0");
     path.Append(name);
 
     return path;

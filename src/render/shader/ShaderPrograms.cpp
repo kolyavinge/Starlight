@@ -3,8 +3,8 @@
 
 ShaderPrograms::ShaderPrograms()
 {
-    DefaultShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetSimpleVertexShaderPath());
-    DefaultShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetSimpleFragmentShaderPath());
+    DefaultShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetDefaultVertexShaderPath());
+    DefaultShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetDefaultFragmentShaderPath());
 }
 
 ShaderPrograms* ShaderProgramsResolvingFactory::Make(Resolver&)

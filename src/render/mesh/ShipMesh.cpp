@@ -1,6 +1,6 @@
 #include <model/ShipMeasure.h>
 #include <anx/GraphicResources.h>
-#include <render/common/ShipMesh.h>
+#include <render/mesh/ShipMesh.h>
 
 ShipMesh::ShipMesh()
 {
