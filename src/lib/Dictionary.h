@@ -95,6 +95,11 @@ class Dictionary : public Object
         {
             return (unsigned int)value.GetHashCode();
         }
+
+        unsigned int GetHash(Object* value)
+        {
+            return (unsigned int)value->GetHashCode();
+        }
     };
 
     class Node : public Object

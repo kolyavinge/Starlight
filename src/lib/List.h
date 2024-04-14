@@ -75,10 +75,12 @@ public:
         _count += range.GetCount();
     }
 
-    void AddNew()
+    T& AddNew()
     {
         ResizeIfNeeded();
         _count++;
+
+        return _items[_count - 1];
     }
 
     void Insert(int index, T value)
