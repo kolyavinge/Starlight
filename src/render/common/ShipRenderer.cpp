@@ -1,21 +1,49 @@
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 #include <gl/opengl.h>
 #include <calc/Geometry.h>
 #include <model/ShipMeasure.h>
+#include <render/common/RenderConstants.h>
 #include <render/common/ShipRenderer.h>
 
-ShipRenderer::ShipRenderer(ShipMeshRenderer& shipMeshRenderer) :
-    _shipMeshRenderer(shipMeshRenderer)
+ShipRenderer::ShipRenderer(
+    Camera& camera,
+    ShipMesh& shipMesh,
+    ShaderPrograms& shaderPrograms) :
+    _camera(camera),
+    _shipMesh(shipMesh),
+    _shaderProgram(shaderPrograms.DefaultShaderProgram),
+    _vboMeshRenderer()
 {
+    _vboMeshRenderer.Init(shipMesh.GetMesh());
 }
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
+    float radians;
+    Vector3 pivot;
+    ship.Border.GetAngleAndPivot(radians, pivot);
+
+    glm::mat4 modelMatrix = glm::mat4(1.0f);
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(ship.Border.DownLeft.X, ship.Border.DownLeft.Y, ship.Border.DownLeft.Z));
+    modelMatrix = glm::rotate(modelMatrix, radians, glm::vec3(pivot.X, pivot.Y, pivot.Z));
+    modelMatrix = glm::translate(modelMatrix, glm::vec3(ShipMeasure::XLengthHalf, 0.0f, 0.0f));
+    modelMatrix = glm::rotate(modelMatrix, ship.GetRollRadians(), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    _shaderProgram.Use();
+    _shaderProgram.SetUniform("lightPos", RenderConstants::LightPosition);
+    _shaderProgram.SetUniform("cameraPos", _camera.Position);
+    _shaderProgram.SetUniform("modelMatrix", glm::value_ptr(modelMatrix));
+    _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
+
     glPushMatrix();
     SetPosition(ship);
-    _shipMeshRenderer.Render(ship, textureIndex);
+    _vboMeshRenderer.Render();
     //RenderAIMovingDirections(ship);
     //RenderThrottle(ship);
     glPopMatrix();
+
+    _shaderProgram.Unuse();
 }
 
 void ShipRenderer::SetPosition(Ship& ship)
@@ -88,5 +116,8 @@ void ShipRenderer::RenderThrottle(Ship& ship)
 
 ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ShipRenderer(resolver.Resolve<ShipMeshRenderer>());
+    return new ShipRenderer(
+        resolver.Resolve<Camera>(),
+        resolver.Resolve<ShipMesh>(),
+        resolver.Resolve<ShaderPrograms>());
 }

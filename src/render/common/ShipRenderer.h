@@ -3,14 +3,23 @@
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
-#include <render/common/ShipMeshRenderer.h>
+#include <core/Camera.h>
+#include <gl/VBOMeshRenderer.h>
+#include <render/common/ShipMesh.h>
+#include <render/shader/ShaderPrograms.h>
 
 class ShipRenderer : public Object
 {
-    ShipMeshRenderer& _shipMeshRenderer;
+    Camera& _camera;
+    ShipMesh& _shipMesh;
+    ShaderProgram& _shaderProgram;
+    VBOMeshRenderer _vboMeshRenderer;
 
 public:
-    ShipRenderer(ShipMeshRenderer& shipMeshRenderer);
+    ShipRenderer(
+        Camera& camera,
+        ShipMesh& shipMesh,
+        ShaderPrograms& shaderPrograms);
 
     void Render(Ship& ship, int textureIndex);
 

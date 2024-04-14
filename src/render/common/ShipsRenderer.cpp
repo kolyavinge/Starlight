@@ -17,18 +17,18 @@ void ShipsRenderer::Render(Ship& player, IArray<Ship>& enemies)
 
 void ShipsRenderer::RenderPlayer(Ship& player)
 {
-    RenderShip(player, ShipMeshRenderer::PlayerTexture);
+    RenderShip(player, ShipMesh::PlayerTexture);
 }
 
 void ShipsRenderer::RenderEnemies(IArray<Ship>& enemies)
 {
-    int enemyTexture = ShipMeshRenderer::Enemy1Texture;
+    int enemyTexture = ShipMesh::Enemy1Texture;
     for (int i = 0; i < enemies.GetCount(); i++)
     {
         RenderShip(enemies[i], enemyTexture);
-        if (enemyTexture == ShipMeshRenderer::Enemy3Texture)
+        if (enemyTexture == ShipMesh::Enemy3Texture)
         {
-            enemyTexture = ShipMeshRenderer::Enemy1Texture;
+            enemyTexture = ShipMesh::Enemy1Texture;
         }
         else
         {
@@ -45,7 +45,7 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
     }
     else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
     {
-        _shipRenderer.Render(ship, ShipMeshRenderer::DestroyedTexture);
+        _shipRenderer.Render(ship, ShipMesh::DestroyedTexture);
     }
     else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
     {

@@ -5,7 +5,6 @@
 #include <lib/Point2.h>
 #include <calc/Vector3.h>
 #include <gl/Mesh.h>
-#include <gl/ShaderProgram.h>
 
 // vertex buffer object
 class VBOMeshRenderer : public Object
@@ -15,7 +14,6 @@ class VBOMeshRenderer : public Object
     unsigned int _buffers[2];
     int _facesCount;
     int _activeTextureIndex;
-    ShaderProgram _shaderProgram;
 
     struct MeshVertex
     {
@@ -25,10 +23,6 @@ class VBOMeshRenderer : public Object
     };
 
 public:
-    Vector3 LightPosition;
-    Vector3 CameraPosition;
-    float* ModelMarix;
-
     VBOMeshRenderer();
     ~VBOMeshRenderer() override;
 
@@ -40,5 +34,4 @@ private:
     void MakeBuffers(Mesh& mesh);
     void MakeVertexes(Mesh& mesh, MeshVertex* vertexes);
     void MakeFaces(Mesh& mesh, unsigned int* faces);
-    void MakeShaders();
 };

@@ -127,6 +127,7 @@
     <ClInclude Include="src\render\dash\PlayerShipHealthRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
+    <ClInclude Include="src\render\shader\ShaderPrograms.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
     <ClInclude Include="src\render\common\GraphicItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
@@ -208,7 +209,7 @@
     <ClInclude Include="src\render\common\ShipsRenderer.h" />
     <ClInclude Include="src\render\common\TrackRenderer.h" />
     <ClInclude Include="src\render\ui\ScreenRenderer.h" />
-    <ClInclude Include="src\render\common\ShipMeshRenderer.h" />
+    <ClInclude Include="src\render\common\ShipMesh.h" />
     <ClInclude Include="src\model\Track.h" />
     <ClInclude Include="src\win\App.h" />
   </ItemGroup>
@@ -327,6 +328,7 @@
     <ClCompile Include="src\render\dash\PlayerShipHealthRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
+    <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
     <ClCompile Include="src\render\common\GraphicItemCollection.cpp" />
     <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />
@@ -336,7 +338,7 @@
     <ClCompile Include="src\render\common\TrackRenderer.cpp" />
     <ClCompile Include="src\render\ui\PauseMenuRenderer.cpp" />
     <ClCompile Include="src\render\ui\ScreenRenderer.cpp" />
-    <ClCompile Include="src\render\common\ShipMeshRenderer.cpp" />
+    <ClCompile Include="src\render\common\ShipMesh.cpp" />
     <ClCompile Include="src\render\ui\RenderManager.cpp" />
     <ClCompile Include="src\render\ui\SelectedItemColor.cpp" />
     <ClCompile Include="src\render\ui\StartMenuRenderer.cpp" />

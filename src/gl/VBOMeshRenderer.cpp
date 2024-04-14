@@ -1,6 +1,5 @@
 #include <glew/glew.h>
 #include <lib/Memory.h>
-#include <anx/GraphicResources.h>
 #include <gl/VBOMeshRenderer.h>
 
 VBOMeshRenderer::VBOMeshRenderer()
@@ -11,7 +10,6 @@ VBOMeshRenderer::VBOMeshRenderer()
     _buffers[1] = 0;
     _facesCount = 0;
     _activeTextureIndex = 0;
-    ModelMarix = nullptr;
 }
 
 VBOMeshRenderer::~VBOMeshRenderer()
@@ -25,15 +23,10 @@ void VBOMeshRenderer::Init(Mesh& mesh)
 {
     _textures = &mesh.Textures;
     MakeBuffers(mesh);
-    MakeShaders();
 }
 
 void VBOMeshRenderer::Render()
 {
-    _shaderProgram.Use();
-    _shaderProgram.SetUniform("lightPos", LightPosition);
-    _shaderProgram.SetUniform("cameraPos", CameraPosition);
-    _shaderProgram.SetUniform("modelMatrix", ModelMarix);
     glActiveTexture(GL_TEXTURE0);
     glEnable(GL_TEXTURE_2D);
     (*_textures)[_activeTextureIndex].Bind();
@@ -41,7 +34,6 @@ void VBOMeshRenderer::Render()
     glDrawElements(GL_TRIANGLES, _facesCount, GL_UNSIGNED_INT, nullptr);
     glBindVertexArray(0);
     glDisable(GL_TEXTURE_2D);
-    _shaderProgram.Unuse();
 }
 
 void VBOMeshRenderer::SetActiveTextureIndex(int textureIndex)
@@ -100,10 +92,4 @@ void VBOMeshRenderer::MakeFaces(Mesh& mesh, unsigned int* faces)
         faces[k++] = mesh.Faces[i].i1;
         faces[k++] = mesh.Faces[i].i2;
     }
-}
-
-void VBOMeshRenderer::MakeShaders()
-{
-    _shaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetSimpleVertexShaderPath());
-    _shaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetSimpleFragmentShaderPath());
 }
