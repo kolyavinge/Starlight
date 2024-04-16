@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/track/RoadTrack1.h>
 #include <model/track/RoadTrack2.h>
@@ -14,6 +15,8 @@ public:
     RoadTrack2 Track2;
     RoadTrack3 Track3;
     RoadTrack4 Track4;
+
+    Array<Track*, 4> AllTracks;
 
     TrackManager();
 };
