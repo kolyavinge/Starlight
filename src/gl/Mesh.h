@@ -40,6 +40,7 @@ public:
     Mesh();
 
     void Load(String filePath, unsigned int meshIndex = 0);
+    void Clear();
     void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();

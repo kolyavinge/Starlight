@@ -16,10 +16,7 @@ Texture::Texture(String filePath)
 
 Texture::~Texture()
 {
-    if (IsLoaded())
-    {
-        glDeleteTextures(1, &_textureId);
-    }
+    Clear();
 }
 
 void Texture::Load(String filePath)
@@ -34,6 +31,15 @@ void Texture::Load(String filePath)
         SOIL_FLAG_INVERT_Y
     );
     if (!IsLoaded()) throw TextureLoadException();
+}
+
+void Texture::Clear()
+{
+    if (IsLoaded())
+    {
+        glDeleteTextures(1, &_textureId);
+        _textureId = 0;
+    }
 }
 
 bool Texture::IsLoaded()

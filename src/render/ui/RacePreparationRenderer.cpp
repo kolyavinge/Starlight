@@ -25,6 +25,7 @@ RacePreparationRenderer::RacePreparationRenderer(
 
 void RacePreparationRenderer::Activate(Screen*)
 {
+    _trackRenderer.Init(*_race.Track);
     _fadeEffect.Reset();
     _fadeEffect.Activate();
 }
@@ -41,7 +42,7 @@ void RacePreparationRenderer::Render(Screen& screen)
     gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
-    _trackRenderer.Render(*_race.Track);
+    _trackRenderer.Render();
     _shipsRenderer.Render(_race.Player, _race.Enemies);
     _powerUpRenderer.Render(_race.PowerUps);
 

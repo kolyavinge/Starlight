@@ -42,6 +42,11 @@ void ShaderProgram::Unuse()
     glUseProgram(0);
 }
 
+void ShaderProgram::SetUniform(const char* name, float v)
+{
+    glUniform1f(glGetUniformLocation(_programId, name), v);
+}
+
 void ShaderProgram::SetUniform(const char* name, float v1, float v2, float v3)
 {
     glUniform3f(glGetUniformLocation(_programId, name), v1, v2, v3);

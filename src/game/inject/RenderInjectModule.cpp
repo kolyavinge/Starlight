@@ -24,6 +24,7 @@
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/PlayerShipHealthRenderer.h>
 #include <render/mesh/ShipMesh.h>
+#include <render/mesh/TrackMesh.h>
 #include <render/shader/ShaderPrograms.h>
 #include <render/ui/FinishRenderer.h>
 #include <render/ui/PauseMenuRenderer.h>
@@ -61,6 +62,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<PlayerShipHealthRenderer, PlayerShipHealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
+    binder.BindSingletonByFactory<TrackMesh, TrackMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShaderPrograms, ShaderProgramsResolvingFactory>();
     binder.BindSingletonByFactory<FinishRenderer, FinishRendererResolvingFactory>();
     binder.BindSingletonByFactory<GraphicItemCollection, GraphicItemCollectionResolvingFactory>();

@@ -57,7 +57,7 @@ void RaceRenderer::Render()
     //gluLookAt(0, 0, 700, 10, 10, 0, 0, 0, 1);
     _backgroundRenderer.Render();
     _starsRenderer.Render();
-    _trackRenderer.Render(*_race.Track);
+    _trackRenderer.Render();
     _shipsRenderer.Render(_race.Player, _race.Enemies);
     _bulletsRenderer.Render(_race.Player, _race.Enemies);
     _enemyShipsHealthRenderer.Render(_race.Enemies);

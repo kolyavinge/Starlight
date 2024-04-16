@@ -196,6 +196,7 @@
     <ClInclude Include="src\lib\Matrix.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
     <ClInclude Include="src\calc\ModelMatrix.h" />
+    <ClInclude Include="src\render\mesh\TrackMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -366,6 +367,7 @@
     <ClCompile Include="src\vox\common\ShipVox.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
     <ClCompile Include="src\calc\ModelMatrix.cpp" />
+    <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

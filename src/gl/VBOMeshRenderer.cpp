@@ -14,7 +14,7 @@ VBOMeshRenderer::VBOMeshRenderer()
 
 VBOMeshRenderer::~VBOMeshRenderer()
 {
-    Release();
+    Clear();
 }
 
 void VBOMeshRenderer::Init(Mesh& mesh)
@@ -23,7 +23,7 @@ void VBOMeshRenderer::Init(Mesh& mesh)
     MakeBuffers(mesh);
 }
 
-void VBOMeshRenderer::Release()
+void VBOMeshRenderer::Clear()
 {
     glBindVertexArray(0);
     glDeleteBuffers(2, _buffers);

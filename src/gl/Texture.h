@@ -16,6 +16,7 @@ public:
     ~Texture() override;
 
     void Load(String filePath);
+    void Clear();
     bool IsLoaded();
     void Bind();
 };

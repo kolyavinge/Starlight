@@ -22,6 +22,7 @@ public:
     void LoadShader(ShaderKind kind, String filePath);
     void Use();
     void Unuse();
+    void SetUniform(const char* name, float v);
     void SetUniform(const char* name, float v1, float v2, float v3);
     void SetUniform(const char* name, float v1, float v2, float v3, float v4);
     void SetUniform(const char* name, Vector3& v);

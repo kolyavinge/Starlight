@@ -27,7 +27,7 @@ public:
     ~VBOMeshRenderer() override;
 
     void Init(Mesh& mesh);
-    void Release();
+    void Clear();
     void Render();
     void SetActiveTextureIndex(int textureIndex);
 

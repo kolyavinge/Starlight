@@ -19,6 +19,19 @@ void Mesh::Load(String filePath, unsigned int meshIndex)
     loader.LoadDiffuseTextures(Textures);
 }
 
+void Mesh::Clear()
+{
+    VertexCoords.Clear();
+    NormalCoords.Clear();
+    TextureCoords.Clear();
+    Faces.Clear();
+    for (int i = 0; i < Textures.GetCount(); i++)
+    {
+        Textures[i].Clear();
+    }
+    Textures.Clear();
+}
+
 void Mesh::MoveToOrigin()
 {
     Vector3 min = VectorCalculator::GetMinVector(VertexCoords);

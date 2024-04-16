@@ -8,6 +8,7 @@ out vec4 FragColor;
 
 uniform vec3 lightPos;
 uniform vec3 cameraPos;
+uniform float alpha;
 uniform sampler2D ourTexture;
 
 void main()
@@ -25,4 +26,5 @@ void main()
     float specular = specAmount * specularLight;
 
     FragColor = texture(ourTexture, TexCoord) * lightColor * (diffuse + ambient + specular);
+	FragColor.w = alpha;
 }

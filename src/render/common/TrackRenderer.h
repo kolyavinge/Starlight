@@ -2,28 +2,37 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
+#include <calc/ModelMatrix.h>
 #include <model/Track.h>
 #include <model/TrackEdge.h>
-#include <gl/Texture.h>
+#include <core/Camera.h>
+#include <gl/Mesh.h>
+#include <gl/ShaderProgram.h>
+#include <gl/VBOMeshRenderer.h>
+#include <render/mesh/TrackMesh.h>
+#include <render/shader/ShaderPrograms.h>
 
 class TrackRenderer : public Object
 {
-    Texture _groundTexture;
-    Texture _groundFinishTexture;
-    Texture _edgeTexture;
+    ModelMatrix _modelMatrix;
+    Camera& _camera;
+    TrackMesh& _trackMesh;
+    ShaderProgram& _shaderProgram;
+    Mesh _groundMesh;
+    VBOMeshRenderer _groundVBO;
 
 public:
-    TrackRenderer();
+    TrackRenderer(
+        Camera& camera,
+        TrackMesh& trackMesh,
+        ShaderPrograms& shaderPrograms);
 
-    void Render(Track& track);
+    void Init(Track& track);
+    void Render();
 
 private:
-    void RenderTrack(Track& track);
-    void RenderSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount);
     void RenderEdges(Track& track);
     void RenderEdge(TrackEdge& edge, TrackEdge& nextEdge);
-    void RenderEdgesAsPoints(Track& track);
-    void RenderNormals(Track& track);
 };
 
 class TrackRendererResolvingFactory : public ResolvingFactory<TrackRenderer>

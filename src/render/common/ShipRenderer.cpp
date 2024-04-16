@@ -26,6 +26,7 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     _shaderProgram.SetUniform("lightPos", RenderConstants::LightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
+    _shaderProgram.SetUniform("alpha", 1.0f);
     _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
 
     glPushMatrix();
