@@ -14,15 +14,20 @@ VBOMeshRenderer::VBOMeshRenderer()
 
 VBOMeshRenderer::~VBOMeshRenderer()
 {
-    glBindVertexArray(0);
-    glDeleteBuffers(2, _buffers);
-    glDeleteVertexArrays(1, &_vao);
+    Release();
 }
 
 void VBOMeshRenderer::Init(Mesh& mesh)
 {
     _textures = &mesh.Textures;
     MakeBuffers(mesh);
+}
+
+void VBOMeshRenderer::Release()
+{
+    glBindVertexArray(0);
+    glDeleteBuffers(2, _buffers);
+    glDeleteVertexArrays(1, &_vao);
 }
 
 void VBOMeshRenderer::Render()

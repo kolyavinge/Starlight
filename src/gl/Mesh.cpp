@@ -8,18 +8,15 @@ Mesh::Mesh() :
 {
 }
 
-void Mesh::Load(String filePath, unsigned int meshIndex, unsigned int flags)
+void Mesh::Load(String filePath, unsigned int meshIndex)
 {
     if (IsLoaded()) throw ObjectStateException();
     MeshLoader loader(filePath, meshIndex);
     loader.LoadVertexCoords(VertexCoords);
     loader.LoadNormalCoords(NormalCoords);
     loader.LoadFaces(Faces);
-    if ((flags & (int)LoadFlags::NoTexture) == 0)
-    {
-        loader.LoadTextureCoords(TextureCoords);
-        loader.LoadDiffuseTextures(Textures);
-    }
+    loader.LoadTextureCoords(TextureCoords);
+    loader.LoadDiffuseTextures(Textures);
 }
 
 void Mesh::MoveToOrigin()

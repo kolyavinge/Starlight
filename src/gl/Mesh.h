@@ -11,11 +11,6 @@
 class Mesh : public Object
 {
 public:
-    enum class LoadFlags
-    {
-        NoTexture = 1
-    };
-
     enum class Axis
     {
         X = 1,
@@ -44,7 +39,7 @@ public:
 
     Mesh();
 
-    void Load(String filePath, unsigned int meshIndex = 0, unsigned int flags = 0);
+    void Load(String filePath, unsigned int meshIndex = 0);
     void MoveToOrigin();
     void MoveToCenter(int axis);
     void SwapYZ();
