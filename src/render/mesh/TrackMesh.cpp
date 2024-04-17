@@ -1,4 +1,5 @@
 #include <lib/Point2.h>
+#include <lib/ArrayIndexGenerator.h>
 #include <gl/Face.h>
 #include <anx/GraphicResources.h>
 #include <render/mesh/TrackMesh.h>
@@ -13,49 +14,46 @@ void TrackMesh::MakeGroundMesh(Track& track, Mesh& mesh)
     mesh.TextureCoords.PrepareEnoughCapacity(track.PointsCount);
     mesh.Faces.PrepareEnoughCapacity(track.PointsCount);
 
-    MakeGroundSegment(track, 0, track.StartFinishLineIndex, segmentPointStep, segmentsCount, mesh);
-    MakeGroundSegment(track, track.StartFinishLineIndex, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, segmentPointStep, segmentsCount, mesh);
-    MakeGroundSegment(track, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, track.PointsCount, segmentPointStep, segmentsCount, mesh);
+    MakeGroundSegment(track, 0, track.StartFinishLineIndex, segmentPointStep, segmentsCount, 0.0f, mesh);
+    MakeGroundSegment(track, track.StartFinishLineIndex, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, segmentPointStep, segmentsCount, 0.5f, mesh);
+    MakeGroundSegment(track, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, track.PointsCount, segmentPointStep, segmentsCount, 0.0f, mesh);
 
     mesh.Textures.AddNew().Load(GraphicResources::GetTrackGround1TextureFilePath());
-    mesh.Textures.AddNew().Load(GraphicResources::GetTrackGroundFinishTextureFilePath());
-    mesh.Textures.AddNew().Load(GraphicResources::GetTrackEdgeTextureFilePath());
 }
 
 void TrackMesh::MakeEdgeMesh(Track& track, Mesh& mesh)
 {
 
+    mesh.Textures.AddNew().Load(GraphicResources::GetTrackEdgeTextureFilePath());
 }
 
-void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount, Mesh& mesh)
+void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount, float startTextureY, Mesh& mesh)
 {
-    const float textureStep = 1.0f / (float)segmentsCount;
-
+    const float textureStep = 0.5f / (float)segmentsCount;
     int iter = 0;
-    int vertexIndex = mesh.VertexCoords.GetCount();
-    for (int pointIndex = startPointIndex; pointIndex < endPointIndex; pointIndex += segmentPointStep, iter++)
+    ArrayIndexGenerator pointIndexGenerator(startPointIndex, endPointIndex, segmentPointStep);
+    pointIndexGenerator.MoveNext(); // skip first
+    while (pointIndexGenerator.MoveNext())
     {
-        const float textureY = (float)(iter % segmentsCount) * textureStep;
-        mesh.VertexCoords.Add(track.OutsidePoints[pointIndex]);
-        mesh.VertexCoords.Add(track.InsidePoints[pointIndex]);
-        mesh.NormalCoords.Add(track.Normals[pointIndex]);
-        mesh.NormalCoords.Add(track.Normals[pointIndex]);
+        const int vertexIndex = mesh.VertexCoords.GetCount();
+        int prevIndex = pointIndexGenerator.GetPrevIndex();
+        int currentIndex = pointIndexGenerator.GetCurrentIndex();
+        mesh.VertexCoords.Add(track.OutsidePoints[prevIndex]);
+        mesh.VertexCoords.Add(track.InsidePoints[prevIndex]);
+        mesh.VertexCoords.Add(track.OutsidePoints[currentIndex]);
+        mesh.VertexCoords.Add(track.InsidePoints[currentIndex]);
+        mesh.NormalCoords.Add(track.Normals[prevIndex]);
+        mesh.NormalCoords.Add(track.Normals[prevIndex]);
+        mesh.NormalCoords.Add(track.Normals[currentIndex]);
+        mesh.NormalCoords.Add(track.Normals[currentIndex]);
+        const float textureY = startTextureY + (float)(iter % segmentsCount) * textureStep;
         mesh.TextureCoords.Add(Point2(0.0f, textureY));
         mesh.TextureCoords.Add(Point2(1.0f, textureY));
+        mesh.TextureCoords.Add(Point2(0.0f, textureY + textureStep));
+        mesh.TextureCoords.Add(Point2(1.0f, textureY + textureStep));
         mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
         mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
-        vertexIndex += 2;
-    }
-
-    if ((endPointIndex % segmentPointStep) != 0)
-    {
-        const float textureY = (float)(iter % segmentsCount) * textureStep;
-        mesh.VertexCoords.Add(track.OutsidePoints[endPointIndex]);
-        mesh.VertexCoords.Add(track.InsidePoints[endPointIndex]);
-        mesh.NormalCoords.Add(track.Normals[endPointIndex]);
-        mesh.NormalCoords.Add(track.Normals[endPointIndex]);
-        mesh.TextureCoords.Add(Point2(0.0f, textureY));
-        mesh.TextureCoords.Add(Point2(1.0f, textureY));
+        iter++;
     }
 }
 

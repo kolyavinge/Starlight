@@ -71,6 +71,7 @@
     <ClInclude Include="src\input\InputDevices.h" />
     <ClInclude Include="src\input\Joystick.h" />
     <ClInclude Include="src\input\Keyboard.h" />
+    <ClInclude Include="src\lib\ArrayIndexGenerator.h" />
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\lib\DateTime.h" />
@@ -279,6 +280,7 @@
     <ClCompile Include="src\input\InputDevices.cpp" />
     <ClCompile Include="src\input\Joystick.cpp" />
     <ClCompile Include="src\input\Keyboard.cpp" />
+    <ClCompile Include="src\lib\ArrayIndexGenerator.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />

@@ -218,15 +218,6 @@ String GraphicResources::GetTrackGround1TextureFilePath()
     return path;
 }
 
-String GraphicResources::GetTrackGroundFinishTextureFilePath()
-{
-    String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\track_ground_finish.jpg\0");
-    path.Append(name);
-
-    return path;
-}
-
 String GraphicResources::GetTrackEdgeTextureFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

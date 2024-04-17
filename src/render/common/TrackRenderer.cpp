@@ -26,7 +26,7 @@ void TrackRenderer::Render()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     _shaderProgram.Use();
-    _shaderProgram.SetUniform("lightPos", RenderConstants::LightPosition);
+    _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 0.5f);

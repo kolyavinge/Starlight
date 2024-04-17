@@ -23,7 +23,7 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     ship.GetModelMatrix(modelMatrix);
 
     _shaderProgram.Use();
-    _shaderProgram.SetUniform("lightPos", RenderConstants::LightPosition);
+    _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 1.0f);
