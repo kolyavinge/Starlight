@@ -4,7 +4,6 @@
 #include <lib/di/ResolvingFactory.h>
 #include <calc/ModelMatrix.h>
 #include <model/Track.h>
-#include <model/TrackEdge.h>
 #include <core/Camera.h>
 #include <gl/Mesh.h>
 #include <gl/ShaderProgram.h>
@@ -19,7 +18,9 @@ class TrackRenderer : public Object
     TrackMesh& _trackMesh;
     ShaderProgram& _shaderProgram;
     Mesh _groundMesh;
+    Mesh _edgeMesh;
     VBOMeshRenderer _groundVBO;
+    VBOMeshRenderer _edgeVBO;
 
 public:
     TrackRenderer(
@@ -31,8 +32,7 @@ public:
     void Render();
 
 private:
-    void RenderEdges(Track& track);
-    void RenderEdge(TrackEdge& edge, TrackEdge& nextEdge);
+    void RenderEdgeNormals(Track& track);
 };
 
 class TrackRendererResolvingFactory : public ResolvingFactory<TrackRenderer>

@@ -15,7 +15,7 @@ ShipVox::ShipVox(AudioDataCollection& audioDataCollection)
         _explosionSamples[i].SetData(audioDataCollection.ExplosionData);
 
         _powerUpPickSamples[i].SetData(audioDataCollection.PowerUpPickData);
-        _powerUpPickSamples[i].SetGain(1.5f);
+        _powerUpPickSamples[i].SetGain(1.7f);
         _powerUpPickSamples[i].SetPitch(2.0f);
 
         _engineIdleSamples[i].SetData(audioDataCollection.EngineIdleData);

@@ -1,5 +1,6 @@
 #include <lib/Point2.h>
 #include <lib/ArrayIndexGenerator.h>
+#include <model/TrackEdge.h>
 #include <gl/Face.h>
 #include <anx/GraphicResources.h>
 #include <render/mesh/TrackMesh.h>
@@ -23,6 +24,13 @@ void TrackMesh::MakeGroundMesh(Track& track, Mesh& mesh)
 
 void TrackMesh::MakeEdgeMesh(Track& track, Mesh& mesh)
 {
+    mesh.VertexCoords.PrepareEnoughCapacity(track.EdgesCount * TrackEdgeMaxPoints);
+    mesh.NormalCoords.PrepareEnoughCapacity(track.EdgesCount * TrackEdgeMaxPoints);
+    mesh.TextureCoords.PrepareEnoughCapacity(track.EdgesCount * TrackEdgeMaxPoints);
+    mesh.Faces.PrepareEnoughCapacity(track.EdgesCount * TrackEdgeMaxPoints);
+
+    MakeEdgeMesh(track.EdgesCount, track.InsideEdges, track.EdgeNormals, mesh);
+    MakeEdgeMesh(track.EdgesCount, track.OutsideEdges, track.EdgeNormals, mesh);
 
     mesh.Textures.AddNew().Load(GraphicResources::GetTrackEdgeTextureFilePath());
 }
@@ -54,6 +62,38 @@ void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPoin
         mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
         mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
         iter++;
+    }
+}
+
+void TrackMesh::MakeEdgeMesh(int edgesCount, TrackEdges& edges, TrackEdges& normals, Mesh& mesh)
+{
+    const float textureStep = 1.0f / (float)TrackEdgeMaxPoints;
+    for (int edgeIndex = 0; edgeIndex < edgesCount; edgeIndex++)
+    {
+        TrackEdge& edge = edges[edgeIndex];
+        TrackEdge& nextEdge = edges[edgeIndex + 1];
+        TrackEdge& normal = normals[edgeIndex];
+        TrackEdge& nextNormal = normals[edgeIndex + 1];
+
+        for (int pointIndex = 0; pointIndex < TrackEdgeMaxPoints; pointIndex++)
+        {
+            const int vertexIndex = mesh.VertexCoords.GetCount();
+            mesh.VertexCoords.Add(edge.Points[pointIndex]);
+            mesh.VertexCoords.Add(nextEdge.Points[pointIndex]);
+            mesh.NormalCoords.Add(normal.Points[pointIndex]);
+            mesh.NormalCoords.Add(nextNormal.Points[pointIndex]);
+            mesh.TextureCoords.Add(Point2((float)pointIndex * textureStep, 0.0f));
+            mesh.TextureCoords.Add(Point2((float)pointIndex * textureStep, 1.0f));
+            mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
+            mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
+        }
+
+        mesh.VertexCoords.Add(edge.Points[0]);
+        mesh.VertexCoords.Add(nextEdge.Points[0]);
+        mesh.NormalCoords.Add(normal.Points[0]);
+        mesh.NormalCoords.Add(nextNormal.Points[0]);
+        mesh.TextureCoords.Add(Point2(1.0f, 0.0f));
+        mesh.TextureCoords.Add(Point2(1.0f, 1.0f));
     }
 }
 

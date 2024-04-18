@@ -15,86 +15,55 @@ TrackRenderer::TrackRenderer(
 void TrackRenderer::Init(Track& track)
 {
     _groundVBO.Clear();
+    _edgeVBO.Clear();
     _groundMesh.Clear();
+    _edgeMesh.Clear();
     _trackMesh.MakeGroundMesh(track, _groundMesh);
+    _trackMesh.MakeEdgeMesh(track, _edgeMesh);
     _groundVBO.Init(_groundMesh);
+    _edgeVBO.Init(_edgeMesh);
 }
 
 void TrackRenderer::Render()
 {
-    glEnable(GL_BLEND);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
+
     _shaderProgram.Use();
     _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
-    _shaderProgram.SetUniform("alpha", 0.5f);
+    _shaderProgram.SetUniform("alpha", 0.6f);
+
+    glEnable(GL_BLEND);
     _groundVBO.Render();
+    glDisable(GL_BLEND);
+
+    _edgeVBO.Render();
+
     _shaderProgram.Unuse();
+
     glDisable(GL_TEXTURE_2D);
     glDisable(GL_DEPTH_TEST);
-    glDisable(GL_BLEND);
 }
 
-void TrackRenderer::RenderEdges(Track& track)
+void TrackRenderer::RenderEdgeNormals(Track& track)
 {
     glColor3f(1.0f, 1.0f, 1.0f);
 
     for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
     {
-        TrackEdge& outsideEdge = track.OutsideEdges[edgeIndex];
-        TrackEdge& outsideNextEdge = track.OutsideEdges[edgeIndex + 1];
-        RenderEdge(outsideEdge, outsideNextEdge);
-
-        TrackEdge& insideEdge = track.InsideEdges[edgeIndex];
-        TrackEdge& insideNextEdge = track.InsideEdges[edgeIndex + 1];
-        RenderEdge(insideEdge, insideNextEdge);
+        for (int pointIndex = 0; pointIndex < track.EdgeNormals[edgeIndex].Points.GetCount(); pointIndex++)
+        {
+            glPushMatrix();
+            glTranslatef(track.InsideEdges[edgeIndex].Points[pointIndex]);
+            glBegin(GL_LINES);
+            glVertex3f(0, 0, 0);
+            glVertex3f(track.EdgeNormals[edgeIndex].Points[pointIndex]);
+            glEnd();
+            glPopMatrix();
+        }
     }
-}
-
-void TrackRenderer::RenderEdge(TrackEdge& edge, TrackEdge& nextEdge)
-{
-    const float textureStep = 1.0f / (float)edge.Points.GetCount();
-
-    for (int pointIndex = 0; pointIndex < edge.Points.GetCount() - 1; pointIndex++)
-    {
-        const float textureX = (float)pointIndex * textureStep;
-
-        glBegin(GL_QUADS);
-
-        glTexCoord2f(textureX, 0.0f);
-        glVertex3f(edge.Points[pointIndex]);
-
-        glTexCoord2f(textureX, 1.0f);
-        glVertex3f(nextEdge.Points[pointIndex]);
-
-        glTexCoord2f(textureX + textureStep, 1.0f);
-        glVertex3f(nextEdge.Points[pointIndex + 1]);
-
-        glTexCoord2f(textureX + textureStep, 0.0f);
-        glVertex3f(edge.Points[pointIndex + 1]);
-
-        glEnd();
-    }
-
-    const float textureX = (float)(edge.Points.GetCount() - 1) * textureStep;
-
-    glBegin(GL_QUADS);
-
-    glTexCoord2f(textureX, 0.0f);
-    glVertex3f(edge.Points[edge.Points.GetCount() - 1]);
-
-    glTexCoord2f(textureX, 1.0f);
-    glVertex3f(nextEdge.Points[edge.Points.GetCount() - 1]);
-
-    glTexCoord2f(textureX + textureStep, 1.0f);
-    glVertex3f(nextEdge.Points[0]);
-
-    glTexCoord2f(textureX + textureStep, 0.0f);
-    glVertex3f(edge.Points[0]);
-
-    glEnd();
 }
 
 TrackRenderer* TrackRendererResolvingFactory::Make(Resolver& resolver)

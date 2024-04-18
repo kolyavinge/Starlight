@@ -13,6 +13,7 @@ public:
 
 private:
     void MakeGroundSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount, float startTextureY, Mesh& mesh);
+    void MakeEdgeMesh(int edgesCount, TrackEdges& edges, TrackEdges& normals, Mesh& mesh);
 };
 
 class TrackMeshResolvingFactory : public ResolvingFactory<TrackMesh>
