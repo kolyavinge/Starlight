@@ -22,6 +22,8 @@ void Track::Init()
     InitEdges();
     InsideEdges[EdgesCount] = InsideEdges[0];
     OutsideEdges[EdgesCount] = OutsideEdges[0];
+    InitEdgeNormals();
+    EdgeNormals[EdgesCount] = EdgeNormals[0];
     _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
     _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
 }
@@ -202,6 +204,27 @@ void Track::InitEdges(TrackEdges& edges, TrackPoints& trackPoints)
             edge.Points[pointIndex].Set(rotatedPoint);
             radians += TrackEdge::RadiansStep;
         }
+    }
+}
+
+void Track::InitEdgeNormals()
+{
+    for (int edgeIndex = 0; edgeIndex < EdgesCount; edgeIndex++)
+    {
+        for (int pointIndex = 0; pointIndex < TrackEdgeMaxPoints - 1; pointIndex++)
+        {
+            VectorCalculator::GetNormalVector(
+                InsideEdges[edgeIndex].Points[pointIndex],
+                InsideEdges[edgeIndex].Points[pointIndex + 1],
+                InsideEdges[edgeIndex + 1].Points[pointIndex],
+                EdgeNormals[edgeIndex].Points[pointIndex]);
+        }
+
+        VectorCalculator::GetNormalVector(
+            InsideEdges[edgeIndex].Points[TrackEdgeMaxPoints - 1],
+            InsideEdges[edgeIndex].Points[0],
+            InsideEdges[edgeIndex + 1].Points[TrackEdgeMaxPoints - 1],
+            EdgeNormals[edgeIndex].Points[TrackEdgeMaxPoints - 1]);
     }
 }
 

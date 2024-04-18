@@ -36,6 +36,7 @@ public:
     TrackPointInfos PointInfos;
     TrackEdges OutsideEdges;
     TrackEdges InsideEdges;
+    TrackEdges EdgeNormals;
 
     Track();
 
@@ -55,5 +56,6 @@ private:
     void InitNormals();
     void InitEdges();
     void InitEdges(TrackEdges& edges, TrackPoints& trackPoints);
+    void InitEdgeNormals();
     float GetMinSquaredLengthForTrackPoint(Vector3& point, int trackPointIndex);
 };
