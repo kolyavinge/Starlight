@@ -14,16 +14,26 @@ void Track::Init()
 {
     InternalInit();
     CenterTrackPoints();
+
     InsidePoints[PointsCount] = InsidePoints[0];
     OutsidePoints[PointsCount] = OutsidePoints[0];
+
     InitInverseZPoints();
+    OutsidePointsInverseZ[PointsCount] = OutsidePointsInverseZ[0];
+    InsidePointsInverseZ[PointsCount] = InsidePointsInverseZ[0];
+
     InitMiddlePoints();
+
     InitNormals();
+    Normals[PointsCount] = Normals[0];
+
     InitEdges();
     InsideEdges[EdgesCount] = InsideEdges[0];
     OutsideEdges[EdgesCount] = OutsideEdges[0];
+
     InitEdgeNormals();
     EdgeNormals[EdgesCount] = EdgeNormals[0];
+
     _startFinishLine.Set(OutsidePoints[StartFinishLineIndex]);
     _startFinishLine.Sub(InsidePoints[StartFinishLineIndex]);
 }

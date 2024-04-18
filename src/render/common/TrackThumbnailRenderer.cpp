@@ -1,9 +1,12 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackThumbnailRenderer.h>
 
 void TrackThumbnailRenderer::Render(Track& track, float rotateDegrees)
 {
+    glEnable(GL_MULTISAMPLE);
+
     //RenderBorder();
     glPushMatrix();
     glTranslatef(TrackThumbnail::WidthHalf, TrackThumbnail::HeightHalf, 0.0f);
@@ -17,25 +20,21 @@ void TrackThumbnailRenderer::Render(Track& track, float rotateDegrees)
     glPopMatrix();
 
     glPopMatrix();
+
+    glDisable(GL_MULTISAMPLE);
 }
 
 void TrackThumbnailRenderer::RenderTrack(Track& track)
 {
     glBegin(GL_QUADS);
 
-    int i;
-    for (i = _trackPointStep; i < track.PointsCount; i += _trackPointStep)
+    for (int i = 0; i < track.PointsCount; i++)
     {
-        glVertex3f(track.InsidePointsInverseZ[i - _trackPointStep]);
         glVertex3f(track.InsidePointsInverseZ[i]);
+        glVertex3f(track.InsidePointsInverseZ[i + 1]);
+        glVertex3f(track.OutsidePointsInverseZ[i + 1]);
         glVertex3f(track.OutsidePointsInverseZ[i]);
-        glVertex3f(track.OutsidePointsInverseZ[i - _trackPointStep]);
     }
-
-    glVertex3f(track.InsidePointsInverseZ[i - _trackPointStep]);
-    glVertex3f(track.InsidePointsInverseZ[0]);
-    glVertex3f(track.OutsidePointsInverseZ[0]);
-    glVertex3f(track.OutsidePointsInverseZ[i - _trackPointStep]);
 
     glEnd();
 }
@@ -46,8 +45,8 @@ void TrackThumbnailRenderer::RenderStartFinishLine(Track& track)
     glBegin(GL_QUADS);
 
     glVertex3f(track.InsidePointsInverseZ[track.StartFinishLineIndex]);
-    glVertex3f(track.InsidePointsInverseZ[track.StartFinishLineIndex + _trackPointStep / 2]);
-    glVertex3f(track.OutsidePointsInverseZ[track.StartFinishLineIndex + _trackPointStep / 2]);
+    glVertex3f(track.InsidePointsInverseZ[track.StartFinishLineIndex + 100]);
+    glVertex3f(track.OutsidePointsInverseZ[track.StartFinishLineIndex + 100]);
     glVertex3f(track.OutsidePointsInverseZ[track.StartFinishLineIndex]);
 
     glEnd();
