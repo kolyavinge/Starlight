@@ -37,7 +37,7 @@ void TrackMesh::MakeEdgeMesh(Track& track, Mesh& mesh)
 
 void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount, float startTextureY, Mesh& mesh)
 {
-    const float textureStep = 0.5f / (float)segmentsCount;
+    const float fullTextureStep = 0.5f / (float)segmentsCount;
     int iter = 0;
     ArrayIndexGenerator pointIndexGenerator(startPointIndex, endPointIndex, segmentPointStep);
     pointIndexGenerator.MoveNext(); // skip first
@@ -54,7 +54,8 @@ void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPoin
         mesh.NormalCoords.Add(track.Normals[prevIndex]);
         mesh.NormalCoords.Add(track.Normals[currentIndex]);
         mesh.NormalCoords.Add(track.Normals[currentIndex]);
-        const float textureY = startTextureY + (float)(iter % segmentsCount) * textureStep;
+        const float textureY = startTextureY + (float)(iter % segmentsCount) * fullTextureStep;
+        const float textureStep = fullTextureStep * (float)(currentIndex - prevIndex) / (float)segmentPointStep;
         mesh.TextureCoords.Add(Point2(0.0f, textureY));
         mesh.TextureCoords.Add(Point2(1.0f, textureY));
         mesh.TextureCoords.Add(Point2(0.0f, textureY + textureStep));
