@@ -33,6 +33,11 @@ void FinishRenderer::Render(Screen& screen)
     glDisable(GL_BLEND);
 }
 
+void FinishRenderer::Update()
+{
+    _raceRenderer.Update();
+}
+
 FinishRenderer* FinishRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new FinishRenderer(

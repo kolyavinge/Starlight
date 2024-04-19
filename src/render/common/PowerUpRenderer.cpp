@@ -28,6 +28,10 @@ void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
     glDisable(GL_TEXTURE_2D);
     glDisable(GL_DEPTH_TEST);
     glDisable(GL_BLEND);
+}
+
+void PowerUpRenderer::Update()
+{
     _angleDegrees = Geometry::NormalizeDegrees(_angleDegrees + 8.0f);
 }
 

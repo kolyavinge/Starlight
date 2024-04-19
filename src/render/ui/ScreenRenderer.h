@@ -9,4 +9,5 @@ public:
     virtual void Activate(Screen* prevScreen);
     virtual void Deactivate();
     virtual void Render(Screen& screen) = 0;
+    virtual void Update();
 };

@@ -72,6 +72,11 @@ void RaceRenderer::Render()
     glDisable(GL_BLEND);
 }
 
+void RaceRenderer::Update()
+{
+    _powerUpRenderer.Update();
+}
+
 RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new RaceRenderer(

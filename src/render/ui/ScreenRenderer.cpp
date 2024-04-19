@@ -7,3 +7,7 @@ void ScreenRenderer::Activate(Screen*)
 void ScreenRenderer::Deactivate()
 {
 }
+
+void ScreenRenderer::Update()
+{
+}

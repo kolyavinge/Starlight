@@ -29,7 +29,8 @@ public:
         ::Race& race);
 
     void Init();
-    void Update();
+    void UpdateCurrentScreen();
+    void UpdateCurrentRenderer();
     void RenderCurrentScreen();
     void VoiceCurrentScreen();
 };

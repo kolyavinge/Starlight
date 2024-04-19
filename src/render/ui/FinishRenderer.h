@@ -20,6 +20,7 @@ public:
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
+    void Update() override;
 };
 
 class FinishRendererResolvingFactory : public ResolvingFactory<FinishRenderer>

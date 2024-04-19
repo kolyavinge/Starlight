@@ -57,6 +57,11 @@ void RacePreparationRenderer::Render(Screen& screen)
     glDisable(GL_BLEND);
 }
 
+void RacePreparationRenderer::Update()
+{
+    _powerUpRenderer.Update();
+}
+
 RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver& resolver)
 {
     return new RacePreparationRenderer(

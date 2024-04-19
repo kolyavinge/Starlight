@@ -49,6 +49,7 @@ public:
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;
     void Render();
+    void Update() override;
 };
 
 class RaceRendererResolvingFactory : public ResolvingFactory<RaceRenderer>

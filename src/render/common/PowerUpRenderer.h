@@ -18,6 +18,7 @@ public:
     PowerUpRenderer(GraphicItemCollection& graphicItemCollection);
 
     void Render(IArray<PowerUp>& powerUps);
+    void Update();
 
 private:
     void BindTexture(PowerUp& powerUp);

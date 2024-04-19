@@ -59,7 +59,8 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
 
 void App::TimerCallback(int)
 {
-    _game->Update();
+    _game->UpdateCurrentScreen();
+    _game->UpdateCurrentRenderer();
     _game->VoiceCurrentScreen();
     glutPostRedisplay();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);

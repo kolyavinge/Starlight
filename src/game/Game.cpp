@@ -23,12 +23,18 @@ void Game::Init()
     _screenNavigator.NavigateTo(ScreenKind::StartMenu);
 }
 
-void Game::Update()
+void Game::UpdateCurrentScreen()
 {
     InputDevices.Keyboard.Update();
     // Game.Update() вызывается асинхронно - обращаться к текущему экрану нужно напрямую через _screenManager.GetCurrentScreen()
     _screenManager.GetCurrentScreen().Update();
     _screenManager.GetCurrentScreen().ProcessInput();
+}
+
+void Game::UpdateCurrentRenderer()
+{
+    Screen& currentScreen = _screenManager.GetCurrentScreen();
+    _renderManager.GetScreenRenderer(currentScreen).Update();
 }
 
 void Game::RenderCurrentScreen()
