@@ -48,8 +48,8 @@ void VBOMeshRenderer::SetActiveTextureIndex(int textureIndex)
 
 void VBOMeshRenderer::MakeBuffers(Mesh& mesh)
 {
-    MeshVertex* vertexes = Memory::AllocAndZero<MeshVertex>(mesh.VertexCoords.GetCount());
-    MakeVertexes(mesh, vertexes);
+    MeshVertex* vertices = Memory::AllocAndZero<MeshVertex>(mesh.VertexCoords.GetCount());
+    MakeVertices(mesh, vertices);
 
     _facesCount = 3 * mesh.Faces.GetCount();
     unsigned int* faces = Memory::AllocAndZero<unsigned int>(_facesCount);
@@ -61,7 +61,7 @@ void VBOMeshRenderer::MakeBuffers(Mesh& mesh)
     glGenBuffers(2, _buffers);
 
     glBindBuffer(GL_ARRAY_BUFFER, _buffers[0]);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(MeshVertex) * mesh.VertexCoords.GetCount(), &vertexes[0].Vertex.X, GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(MeshVertex) * mesh.VertexCoords.GetCount(), &vertices[0].Vertex.X, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, Vertex)));
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, Normal)));
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(MeshVertex), (void*)(offsetof(MeshVertex, TextureCoords)));
@@ -74,17 +74,17 @@ void VBOMeshRenderer::MakeBuffers(Mesh& mesh)
 
     glBindVertexArray(0);
 
-    Memory::Release(vertexes);
+    Memory::Release(vertices);
     Memory::Release(faces);
 }
 
-void VBOMeshRenderer::MakeVertexes(Mesh& mesh, MeshVertex* vertexes)
+void VBOMeshRenderer::MakeVertices(Mesh& mesh, MeshVertex* vertices)
 {
     for (int i = 0; i < mesh.VertexCoords.GetCount(); i++)
     {
-        vertexes[i].Vertex = mesh.VertexCoords[i];
-        vertexes[i].Normal = mesh.NormalCoords[i];
-        vertexes[i].TextureCoords = mesh.TextureCoords[i];
+        vertices[i].Vertex = mesh.VertexCoords[i];
+        vertices[i].Normal = mesh.NormalCoords[i];
+        vertices[i].TextureCoords = mesh.TextureCoords[i];
     }
 }
 

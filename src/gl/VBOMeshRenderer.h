@@ -33,6 +33,6 @@ public:
 
 private:
     void MakeBuffers(Mesh& mesh);
-    void MakeVertexes(Mesh& mesh, MeshVertex* vertexes);
+    void MakeVertices(Mesh& mesh, MeshVertex* vertices);
     void MakeFaces(Mesh& mesh, unsigned int* faces);
 };
