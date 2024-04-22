@@ -18,6 +18,9 @@ void App::Start(int argc, char** argv)
     GameFactory::MakeGameInitializer().Init();
     _game = &GameFactory::MakeNewGame();
     glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
+#ifdef RELEASE
+    glutFullScreen();
+#endif
     glutMainLoop();
 }
 
