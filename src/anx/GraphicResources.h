@@ -22,6 +22,10 @@ public:
     static String GetCountdown3ItemFilePath();
     static String GetGoItemFilePath();
     static String GetFinishItemFilePath();
+    static String GetPosition1ItemFilePath();
+    static String GetPosition2ItemFilePath();
+    static String GetPosition3ItemFilePath();
+    static String GetPosition4ItemFilePath();
     static String GetExplosionFilePath();
     static String GetDefaultVertexShaderPath();
     static String GetDefaultFragmentShaderPath();

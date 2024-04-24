@@ -23,6 +23,7 @@
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/PlayerShipHealthRenderer.h>
+#include <render/dash/RacePositionRenderer.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/mesh/TrackMesh.h>
 #include <render/shader/ShaderPrograms.h>
@@ -61,6 +62,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<LapTimeRenderer, LapTimeRendererResolvingFactory>();
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<PlayerShipHealthRenderer, PlayerShipHealthRendererResolvingFactory>();
+    binder.BindSingletonByFactory<RacePositionRenderer, RacePositionRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<TrackMesh, TrackMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShaderPrograms, ShaderProgramsResolvingFactory>();

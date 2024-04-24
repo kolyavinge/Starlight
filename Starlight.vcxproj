@@ -132,6 +132,7 @@
     <ClInclude Include="src\render\dash\NitroCountRenderer.h" />
     <ClInclude Include="src\render\dash\PlayerShipHealthRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
+    <ClInclude Include="src\render\dash\RacePositionRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
@@ -338,6 +339,7 @@
     <ClCompile Include="src\render\dash\NitroCountRenderer.cpp" />
     <ClCompile Include="src\render\dash\PlayerShipHealthRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
+    <ClCompile Include="src\render\dash\RacePositionRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
     <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />

@@ -4,10 +4,12 @@ RaceInitializer::RaceInitializer(
     PositionUpdater& positionUpdater,
     StartingGridInitializer& startingGridInitializer,
     RaceDistanceCalculator& raceDistanceCalculator,
+    RacePositionUpdater& racePositionUpdater,
     PowerUpGenerator& powerUpGenerator) :
     _positionUpdater(positionUpdater),
     _startingGridInitializer(startingGridInitializer),
     _raceDistanceCalculator(raceDistanceCalculator),
+    _racePositionUpdater(racePositionUpdater),
     _powerUpGenerator(powerUpGenerator)
 {
 }
@@ -18,6 +20,7 @@ void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& a
     _startingGridInitializer.SetStartGrid(player, enemies, track);
     UpdateShipsPositions(allShips, track);
     _raceDistanceCalculator.InitBeforeStart(allShips, track);
+    _racePositionUpdater.Update();
     _powerUpGenerator.Generate(track, powerUps);
 }
 
@@ -46,5 +49,6 @@ RaceInitializer* RaceInitializerResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<PositionUpdater>(),
         resolver.Resolve<StartingGridInitializer>(),
         resolver.Resolve<RaceDistanceCalculator>(),
+        resolver.Resolve<RacePositionUpdater>(),
         resolver.Resolve<PowerUpGenerator>());
 }

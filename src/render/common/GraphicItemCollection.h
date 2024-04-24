@@ -21,6 +21,10 @@ public:
     TexturedRect Countdown2Item;
     TexturedRect Countdown3Item;
     TexturedRect GoItem;
+    TexturedRect Position1Item;
+    TexturedRect Position2Item;
+    TexturedRect Position3Item;
+    TexturedRect Position4Item;
     Texture PowerUpHealthTexture;
     Texture PowerUpMachinegunTexture;
     Texture PowerUpNitroTexture;

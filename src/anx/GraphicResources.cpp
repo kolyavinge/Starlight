@@ -155,6 +155,42 @@ String GraphicResources::GetFinishItemFilePath()
     return path;
 }
 
+String GraphicResources::GetPosition1ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\1st.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetPosition2ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\2nd.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetPosition3ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\3rd.png\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetPosition4ItemFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\4th.png\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetExplosionFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

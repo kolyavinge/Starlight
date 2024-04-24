@@ -10,6 +10,7 @@
 #include <core/PositionUpdater.h>
 #include <core/StartingGridInitializer.h>
 #include <core/RaceDistanceCalculator.h>
+#include <core/RacePositionUpdater.h>
 #include <core/PowerUpGenerator.h>
 
 class RaceInitializer : public Object
@@ -17,6 +18,7 @@ class RaceInitializer : public Object
     PositionUpdater& _positionUpdater;
     StartingGridInitializer& _startingGridInitializer;
     RaceDistanceCalculator& _raceDistanceCalculator;
+    RacePositionUpdater& _racePositionUpdater;
     PowerUpGenerator& _powerUpGenerator;
 
 public:
@@ -24,6 +26,7 @@ public:
         PositionUpdater& positionUpdater,
         StartingGridInitializer& startingGridInitializer,
         RaceDistanceCalculator& raceDistanceCalculator,
+        RacePositionUpdater& racePositionUpdater,
         PowerUpGenerator& powerUpGenerator);
 
     void Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track, List<PowerUp>& powerUps);

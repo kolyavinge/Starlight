@@ -23,7 +23,7 @@ private:
         {
             while (comparator.Compare(range[i], middle) < 0) i++;
             while (comparator.Compare(range[j], middle) > 0) j--;
-            if (i < j)
+            if (i <= j)
             {
                 T temp = range[i];
                 range[i] = range[j];

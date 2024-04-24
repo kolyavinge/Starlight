@@ -11,6 +11,7 @@
 #include <render/dash/PlayerShipHealthRenderer.h>
 #include <render/dash/BulletsCountRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
+#include <render/dash/RacePositionRenderer.h>
 
 class DashboardRenderer : public Object
 {
@@ -21,6 +22,7 @@ class DashboardRenderer : public Object
     PlayerShipHealthRenderer& _healthRenderer;
     BulletsCountRenderer& _bulletsCountRenderer;
     NitroCountRenderer& _nitroCountRenderer;
+    RacePositionRenderer& _racePositionRenderer;
 
 public:
     DashboardRenderer(
@@ -30,7 +32,8 @@ public:
         CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
         PlayerShipHealthRenderer& healthRenderer,
         BulletsCountRenderer& bulletsCountRenderer,
-        NitroCountRenderer& nitroCountRenderer);
+        NitroCountRenderer& nitroCountRenderer,
+        RacePositionRenderer& racePositionRenderer);
 
     void Init();
     void Render(Ship& player, Laps& laps);

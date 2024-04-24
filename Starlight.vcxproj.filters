@@ -202,6 +202,7 @@
     <ClInclude Include="src\model\ShipCompletedRaceDistanceComparator.h" />
     <ClInclude Include="src\lib\QuickSort.h" />
     <ClInclude Include="src\core\RacePositionUpdater.h" />
+    <ClInclude Include="src\render\dash\RacePositionRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -376,6 +377,7 @@
     <ClCompile Include="src\core\RaceDistanceCalculator.cpp" />
     <ClCompile Include="src\model\ShipCompletedRaceDistanceComparator.cpp" />
     <ClCompile Include="src\core\RacePositionUpdater.cpp" />
+    <ClCompile Include="src\render\dash\RacePositionRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
