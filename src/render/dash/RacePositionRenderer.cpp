@@ -19,9 +19,11 @@ void RacePositionRenderer::Render(Ship& player)
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
 
     glPushMatrix();
+
     glTranslatef(10.0f, Constants::ScreenHeight - 10.0f - 0.7f * positionItem.GetHeight(), 0.0f);
     glScalef(0.7f, 0.7f, 1.0f);
     positionItem.Render();
+
     glPopMatrix();
 }
 

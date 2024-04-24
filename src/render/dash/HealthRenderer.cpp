@@ -1,14 +1,14 @@
 #include <gl/opengl.h>
 #include <lib/NumericConverter.h>
 #include <render/common/RenderConstants.h>
-#include <render/dash/PlayerShipHealthRenderer.h>
+#include <render/dash/HealthRenderer.h>
 
-PlayerShipHealthRenderer::PlayerShipHealthRenderer(TextRenderer& textRenderer) :
+HealthRenderer::HealthRenderer(TextRenderer& textRenderer) :
     _textRenderer(textRenderer)
 {
 }
 
-void PlayerShipHealthRenderer::Render(Ship& player)
+void HealthRenderer::Render(Ship& player)
 {
     _healthValueText.Clear();
     NumericConverter::IntToString((int)(player.Health * 100.0f), _healthValueText);
@@ -39,7 +39,7 @@ void PlayerShipHealthRenderer::Render(Ship& player)
     glPopMatrix();
 }
 
-PlayerShipHealthRenderer* PlayerShipHealthRendererResolvingFactory::Make(Resolver& resolver)
+HealthRenderer* HealthRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new PlayerShipHealthRenderer(resolver.Resolve<TextRenderer>());
+    return new HealthRenderer(resolver.Resolve<TextRenderer>());
 }

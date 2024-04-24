@@ -19,10 +19,10 @@
 #include <render/dash/CompleteLapsTimeListRenderer.h>
 #include <render/dash/CompleteLapTimeRenderer.h>
 #include <render/dash/DashboardRenderer.h>
+#include <render/dash/HealthRenderer.h>
 #include <render/dash/LapsCountRenderer.h>
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
-#include <render/dash/PlayerShipHealthRenderer.h>
 #include <render/dash/RacePositionRenderer.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/mesh/TrackMesh.h>
@@ -58,10 +58,10 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<CompleteLapsTimeListRenderer, CompleteLapsTimeListRendererResolvingFactory>();
     binder.BindSingletonByFactory<CompleteLapTimeRenderer, CompleteLapTimeRendererResolvingFactory>();
     binder.BindSingletonByFactory<DashboardRenderer, DashboardRendererResolvingFactory>();
+    binder.BindSingletonByFactory<HealthRenderer, HealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapsCountRenderer, LapsCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapTimeRenderer, LapTimeRendererResolvingFactory>();
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
-    binder.BindSingletonByFactory<PlayerShipHealthRenderer, PlayerShipHealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<RacePositionRenderer, RacePositionRendererResolvingFactory>();
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<TrackMesh, TrackMeshResolvingFactory>();

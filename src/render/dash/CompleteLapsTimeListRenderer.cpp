@@ -21,7 +21,7 @@ void CompleteLapsTimeListRenderer::Render(Laps& laps)
         glPushMatrix();
 
         float lapTimeStringWidth = _scale * _lapTimeString.GetLength() * _textRenderer.GetLetterWidth();
-        glTranslatef(Constants::ScreenWidth - lapTimeStringWidth, y, 0.0f);
+        glTranslatef(Constants::ScreenWidth - lapTimeStringWidth - 10.0f, y, 0.0f);
         glScalef(_scale, _scale, _scale);
         _textRenderer.Render(_lapTimeString);
         y -= _scale * _textRenderer.GetLetterHeight();

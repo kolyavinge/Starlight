@@ -5,7 +5,7 @@ DashboardRenderer::DashboardRenderer(
     LapTimeRenderer& lapTimeRenderer,
     CompleteLapTimeRenderer& completeLapTimeRenderer,
     CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
-    PlayerShipHealthRenderer& healthRenderer,
+    HealthRenderer& healthRenderer,
     BulletsCountRenderer& bulletsCountRenderer,
     NitroCountRenderer& nitroCountRenderer,
     RacePositionRenderer& racePositionRenderer) :
@@ -44,7 +44,7 @@ DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<LapTimeRenderer>(),
         resolver.Resolve<CompleteLapTimeRenderer>(),
         resolver.Resolve<CompleteLapsTimeListRenderer>(),
-        resolver.Resolve<PlayerShipHealthRenderer>(),
+        resolver.Resolve<HealthRenderer>(),
         resolver.Resolve<BulletsCountRenderer>(),
         resolver.Resolve<NitroCountRenderer>(),
         resolver.Resolve<RacePositionRenderer>());

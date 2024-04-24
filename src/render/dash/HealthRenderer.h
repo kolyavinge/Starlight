@@ -6,19 +6,19 @@
 #include <model/Ship.h>
 #include <gl/TextRenderer.h>
 
-class PlayerShipHealthRenderer : public Object
+class HealthRenderer : public Object
 {
     TextRenderer& _textRenderer;
     String _healthValueText;
 
 public:
-    PlayerShipHealthRenderer(TextRenderer& textRenderer);
+    HealthRenderer(TextRenderer& textRenderer);
 
     void Render(Ship& player);
 };
 
-class PlayerShipHealthRendererResolvingFactory : public ResolvingFactory<PlayerShipHealthRenderer>
+class HealthRendererResolvingFactory : public ResolvingFactory<HealthRenderer>
 {
 public:
-    PlayerShipHealthRenderer* Make(Resolver& resolver) override;
+    HealthRenderer* Make(Resolver& resolver) override;
 };
