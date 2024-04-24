@@ -136,7 +136,6 @@
     <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\ai\EnemyAI.h" />
     <ClInclude Include="src\lib\IArray.h" />
-    <ClInclude Include="src\gl\SimpleMeshRenderer.h" />
     <ClInclude Include="src\gl\VBOMeshRenderer.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
@@ -198,6 +197,7 @@
     <ClInclude Include="src\calc\ModelMatrix.h" />
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\lib\ArrayIndexGenerator.h" />
+    <ClInclude Include="src\core\RaceDistanceCalculator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -317,7 +317,6 @@
     <ClCompile Include="src\ai\ObstacleAvoidanceLogic.cpp" />
     <ClCompile Include="src\ai\SteeringLogic.cpp" />
     <ClCompile Include="src\ai\EnemyAI.cpp" />
-    <ClCompile Include="src\gl\SimpleMeshRenderer.cpp" />
     <ClCompile Include="src\gl\VBOMeshRenderer.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\model\ShipAIData.cpp" />
@@ -370,6 +369,7 @@
     <ClCompile Include="src\calc\ModelMatrix.cpp" />
     <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
     <ClCompile Include="src\lib\ArrayIndexGenerator.cpp" />
+    <ClCompile Include="src\core\RaceDistanceCalculator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

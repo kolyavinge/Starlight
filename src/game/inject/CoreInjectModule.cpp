@@ -8,6 +8,7 @@
 #include <core/PositionUpdater.h>
 #include <core/PowerUpGenerator.h>
 #include <core/Race.h>
+#include <core/RaceDistanceCalculator.h>
 #include <core/RaceInitializer.h>
 #include <core/RaceUpdater.h>
 #include <core/ShipController.h>
@@ -39,6 +40,7 @@ void CoreInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<PositionUpdater, PositionUpdaterResolvingFactory>();
     binder.BindSingletonByFactory<PowerUpGenerator, PowerUpGeneratorResolvingFactory>();
     binder.BindSingletonByFactory<Race, RaceResolvingFactory>();
+    binder.BindSingletonByFactory<RaceDistanceCalculator, RaceDistanceCalculatorResolvingFactory>();
     binder.BindSingletonByFactory<RaceInitializer, RaceInitializerResolvingFactory>();
     binder.BindSingletonByFactory<RaceUpdater, RaceUpdaterResolvingFactory>();
     binder.BindByFactory<ShipController, ShipControllerResolvingFactory>();

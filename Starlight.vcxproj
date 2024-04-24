@@ -40,6 +40,7 @@
     <ClInclude Include="src\core\NitroLogic.h" />
     <ClInclude Include="src\core\PowerUpGenerator.h" />
     <ClInclude Include="src\core\Race.h" />
+    <ClInclude Include="src\core\RaceDistanceCalculator.h" />
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
     <ClInclude Include="src\core\ShipStateLogic.h" />
@@ -245,6 +246,7 @@
     <ClCompile Include="src\core\PowerUpGenerator.cpp" />
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
+    <ClCompile Include="src\core\RaceDistanceCalculator.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />

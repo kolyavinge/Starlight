@@ -37,6 +37,8 @@ public:
     bool IsDamaged;
     bool IsPowerUpPicked;
     int DelayIterations;
+    int CompletedRaceDistance;
+    int RacePosition;
 
     Ship();
 

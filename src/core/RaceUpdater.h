@@ -17,6 +17,7 @@
 #include <core/PowerUpGenerator.h>
 #include <core/NitroLogic.h>
 #include <core/Laps.h>
+#include <core/RaceDistanceCalculator.h>
 #include <core/cm/TrackCollisionProcessor.h>
 #include <core/cm/ShipCollisionProcessor.h>
 #include <core/cm/BulletCollisionProcessor.h>
@@ -35,6 +36,7 @@ class RaceUpdater : public Object
     PowerUpGenerator& _powerUpGenerator;
     NitroLogic& _nitroLogic;
     Laps& _laps;
+    RaceDistanceCalculator& _raceDistanceCalculator;
     TrackCollisionProcessor& _trackCollisionProcessor;
     ShipCollisionProcessor& _shipCollisionProcessor;
     BulletCollisionProcessor& _bulletCollisionProcessor;
@@ -53,6 +55,7 @@ public:
         PowerUpGenerator& powerUpGenerator,
         NitroLogic& nitroLogic,
         Laps& laps,
+        RaceDistanceCalculator& raceDistanceCalculator,
         TrackCollisionProcessor& trackCollisionProcessor,
         ShipCollisionProcessor& shipCollisionProcessor,
         BulletCollisionProcessor& bulletCollisionProcessor,

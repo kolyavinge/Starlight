@@ -31,7 +31,7 @@ void Race::Init(::Track& selectedTrack)
 {
     State = RaceState::Prepare;
     Track = &selectedTrack;
-    _raceInitializer.Init(Player, Enemies, *Track, PowerUps);
+    _raceInitializer.Init(Player, Enemies, AllShips, *Track, PowerUps);
     for (int i = 0; i < AllShips.GetCount(); i++)
     {
         _borderUpdater.Update(*AllShips[i]);

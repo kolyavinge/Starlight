@@ -9,25 +9,28 @@
 #include <model/PowerUp.h>
 #include <core/PositionUpdater.h>
 #include <core/StartingGridInitializer.h>
+#include <core/RaceDistanceCalculator.h>
 #include <core/PowerUpGenerator.h>
 
 class RaceInitializer : public Object
 {
     PositionUpdater& _positionUpdater;
     StartingGridInitializer& _startingGridInitializer;
+    RaceDistanceCalculator& _raceDistanceCalculator;
     PowerUpGenerator& _powerUpGenerator;
 
 public:
     RaceInitializer(
         PositionUpdater& positionUpdater,
         StartingGridInitializer& startingGridInitializer,
+        RaceDistanceCalculator& raceDistanceCalculator,
         PowerUpGenerator& powerUpGenerator);
 
-    void Init(Ship& player, IArray<Ship>& enemies, Track& track, List<PowerUp>& powerUps);
+    void Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track, List<PowerUp>& powerUps);
 
 private:
     void InitShips(Ship& player, IArray<Ship>& enemies);
-    void UpdateShipsPositions(Ship& player, IArray<Ship>& enemies, Track& track);
+    void UpdateShipsPositions(IArray<Ship*>& allShips, Track& track);
 };
 
 class RaceInitializerResolvingFactory : public ResolvingFactory<RaceInitializer>

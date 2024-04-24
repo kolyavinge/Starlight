@@ -11,6 +11,7 @@ RaceUpdater::RaceUpdater(
     PowerUpGenerator& powerUpGenerator,
     NitroLogic& nitroLogic,
     Laps& laps,
+    RaceDistanceCalculator& raceDistanceCalculator,
     TrackCollisionProcessor& trackCollisionProcessor,
     ShipCollisionProcessor& shipCollisionProcessor,
     BulletCollisionProcessor& bulletCollisionProcessor,
@@ -26,6 +27,7 @@ RaceUpdater::RaceUpdater(
     _powerUpGenerator(powerUpGenerator),
     _nitroLogic(nitroLogic),
     _laps(laps),
+    _raceDistanceCalculator(raceDistanceCalculator),
     _trackCollisionProcessor(trackCollisionProcessor),
     _shipCollisionProcessor(shipCollisionProcessor),
     _bulletCollisionProcessor(bulletCollisionProcessor),
@@ -73,6 +75,7 @@ void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& p
     {
         _borderUpdater.Update(ship);
     }
+    _raceDistanceCalculator.CalculateRaceDistance(ship, track);
     _powerUpCollisionProcessor.ProcessPowerUpsCollisions(ship, powerUps);
     _nitroLogic.ProcessNitro(ship);
     _positionUpdater.CorrectAfterFloatOperations(ship);
@@ -91,6 +94,7 @@ RaceUpdater* RaceUpdaterResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<PowerUpGenerator>(),
         resolver.Resolve<NitroLogic>(),
         resolver.Resolve<Laps>(),
+        resolver.Resolve<RaceDistanceCalculator>(),
         resolver.Resolve<TrackCollisionProcessor>(),
         resolver.Resolve<ShipCollisionProcessor>(),
         resolver.Resolve<BulletCollisionProcessor>(),

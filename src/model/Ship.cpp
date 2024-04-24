@@ -26,6 +26,8 @@ void Ship::Init()
     DelayIterations = 0;
     VelocityFunction.Init();
     VelocityFunction.AddDelta(AIData.VelocityDelta);
+    CompletedRaceDistance = 0;
+    RacePosition = 0;
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)
