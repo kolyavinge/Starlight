@@ -11,6 +11,7 @@
 #include <core/RaceState.h>
 #include <core/ShipController.h>
 #include <core/RaceInitializer.h>
+#include <core/RacePositionUpdater.h>
 #include <core/RaceUpdater.h>
 #include <core/Laps.h>
 
@@ -18,6 +19,7 @@ class Race : public Object
 {
     BorderUpdater& _borderUpdater;
     RaceInitializer& _raceInitializer;
+    RacePositionUpdater& _racePositionUpdater;
     RaceUpdater& _raceUpdater;
 
 public:
@@ -35,6 +37,7 @@ public:
     Race(
         BorderUpdater& borderUpdater,
         RaceInitializer& raceInitializer,
+        RacePositionUpdater& racePositionUpdater,
         RaceUpdater& raceUpdater,
         ShipController& playerController,
         ::Laps& laps);

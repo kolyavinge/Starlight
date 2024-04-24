@@ -18,6 +18,7 @@
 #include <core/NitroLogic.h>
 #include <core/Laps.h>
 #include <core/RaceDistanceCalculator.h>
+#include <core/RacePositionUpdater.h>
 #include <core/cm/TrackCollisionProcessor.h>
 #include <core/cm/ShipCollisionProcessor.h>
 #include <core/cm/BulletCollisionProcessor.h>
@@ -37,6 +38,7 @@ class RaceUpdater : public Object
     NitroLogic& _nitroLogic;
     Laps& _laps;
     RaceDistanceCalculator& _raceDistanceCalculator;
+    RacePositionUpdater& _racePositionUpdater;
     TrackCollisionProcessor& _trackCollisionProcessor;
     ShipCollisionProcessor& _shipCollisionProcessor;
     BulletCollisionProcessor& _bulletCollisionProcessor;
@@ -56,6 +58,7 @@ public:
         NitroLogic& nitroLogic,
         Laps& laps,
         RaceDistanceCalculator& raceDistanceCalculator,
+        RacePositionUpdater& racePositionUpdater,
         TrackCollisionProcessor& trackCollisionProcessor,
         ShipCollisionProcessor& shipCollisionProcessor,
         BulletCollisionProcessor& bulletCollisionProcessor,

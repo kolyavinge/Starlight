@@ -3,11 +3,13 @@
 Race::Race(
     BorderUpdater& borderUpdater,
     RaceInitializer& raceInitializer,
+    RacePositionUpdater& racePositionUpdater,
     RaceUpdater& raceUpdater,
     ShipController& playerController,
     ::Laps& laps) :
     _borderUpdater(borderUpdater),
     _raceInitializer(raceInitializer),
+    _racePositionUpdater(racePositionUpdater),
     _raceUpdater(raceUpdater),
     PlayerController(playerController),
     Laps(laps),
@@ -32,6 +34,7 @@ void Race::Init(::Track& selectedTrack)
     State = RaceState::Prepare;
     Track = &selectedTrack;
     _raceInitializer.Init(Player, Enemies, AllShips, *Track, PowerUps);
+    _racePositionUpdater.Init(AllShips);
     for (int i = 0; i < AllShips.GetCount(); i++)
     {
         _borderUpdater.Update(*AllShips[i]);
@@ -70,6 +73,7 @@ Race* RaceResolvingFactory::Make(Resolver& resolver)
     return new Race(
         resolver.Resolve<BorderUpdater>(),
         resolver.Resolve<RaceInitializer>(),
+        resolver.Resolve<RacePositionUpdater>(),
         resolver.Resolve<RaceUpdater>(),
         resolver.Resolve<ShipController>(),
         resolver.Resolve<Laps>());

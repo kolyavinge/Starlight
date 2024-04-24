@@ -41,6 +41,7 @@
     <ClInclude Include="src\core\PowerUpGenerator.h" />
     <ClInclude Include="src\core\Race.h" />
     <ClInclude Include="src\core\RaceDistanceCalculator.h" />
+    <ClInclude Include="src\core\RacePositionUpdater.h" />
     <ClInclude Include="src\core\RaceState.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
     <ClInclude Include="src\core\ShipStateLogic.h" />
@@ -104,6 +105,7 @@
     <ClInclude Include="src\model\NitroCollection.h" />
     <ClInclude Include="src\model\PowerUp.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
+    <ClInclude Include="src\model\ShipCompletedRaceDistanceComparator.h" />
     <ClInclude Include="src\model\ShipControls.h" />
     <ClInclude Include="src\model\TrackEdge.h" />
     <ClInclude Include="src\model\TrackPointInfo.h" />
@@ -249,6 +251,7 @@
     <ClCompile Include="src\core\Race.cpp" />
     <ClCompile Include="src\core\cm\ShipCollisionDetector.cpp" />
     <ClCompile Include="src\core\RaceDistanceCalculator.cpp" />
+    <ClCompile Include="src\core\RacePositionUpdater.cpp" />
     <ClCompile Include="src\core\ShipController.cpp" />
     <ClCompile Include="src\core\ShipStateLogic.cpp" />
     <ClCompile Include="src\core\StartingGridInitializer.cpp" />
@@ -302,6 +305,7 @@
     <ClCompile Include="src\model\PowerUp.cpp" />
     <ClCompile Include="src\model\ShipAIData.cpp" />
     <ClCompile Include="src\model\ShipCentralLine.cpp" />
+    <ClCompile Include="src\model\ShipCompletedRaceDistanceComparator.cpp" />
     <ClCompile Include="src\model\ShipControls.cpp" />
     <ClCompile Include="src\model\TrackPointInfo.cpp" />
     <ClCompile Include="src\model\track\RoadTrack4.cpp" />
