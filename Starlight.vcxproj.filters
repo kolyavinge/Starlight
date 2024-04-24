@@ -198,6 +198,8 @@
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\lib\ArrayIndexGenerator.h" />
     <ClInclude Include="src\core\RaceDistanceCalculator.h" />
+    <ClInclude Include="src\lib\IComparator.h" />
+    <ClInclude Include="src\lib\QuickSort.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

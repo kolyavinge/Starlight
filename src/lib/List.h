@@ -4,6 +4,8 @@
 #include <lib/Object.h>
 #include <lib/Memory.h>
 #include <lib/IArray.h>
+#include <lib/IComparator.h>
+#include <lib/QuickSort.h>
 
 template<class T>
 class List : public Object, public IArray<T>
@@ -154,6 +156,12 @@ public:
     T* GetItemsPointer()
     {
         return _items;
+    }
+
+    void Sort(IComparator<T>& comparator)
+    {
+        QuickSort<T> qs;
+        qs.Sort(*this, comparator);
     }
 
 private:

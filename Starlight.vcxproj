@@ -89,11 +89,13 @@
     <ClInclude Include="src\lib\Environment.h" />
     <ClInclude Include="src\lib\File.h" />
     <ClInclude Include="src\lib\IArray.h" />
+    <ClInclude Include="src\lib\IComparator.h" />
     <ClInclude Include="src\lib\Matrix.h" />
     <ClInclude Include="src\lib\NumericConverter.h" />
     <ClInclude Include="src\lib\Path.h" />
     <ClInclude Include="src\lib\Point2.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
+    <ClInclude Include="src\lib\QuickSort.h" />
     <ClInclude Include="src\lib\Stopwatch.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\lib\TimeSpan.h" />
