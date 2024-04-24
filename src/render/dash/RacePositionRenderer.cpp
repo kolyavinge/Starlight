@@ -14,7 +14,7 @@ RacePositionRenderer::RacePositionRenderer(GraphicItemCollection& graphicItemCol
 
 void RacePositionRenderer::Render(Ship& player)
 {
-    TexturedRect& positionItem = GetPositionItem(player);
+    ITexturedRect& positionItem = GetPositionItem(player);
 
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
 
@@ -27,7 +27,7 @@ void RacePositionRenderer::Render(Ship& player)
     glPopMatrix();
 }
 
-TexturedRect& RacePositionRenderer::GetPositionItem(Ship& player)
+ITexturedRect& RacePositionRenderer::GetPositionItem(Ship& player)
 {
     if (player.RacePosition == 1)
     {
