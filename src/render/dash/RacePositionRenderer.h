@@ -3,15 +3,15 @@
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
-#include <gl/ShadowedTexturedRect.h>
+#include <gl/TexturedRect.h>
 #include <render/common/GraphicItemCollection.h>
 
 class RacePositionRenderer : public Object
 {
-    ShadowedTexturedRect _position1Item;
-    ShadowedTexturedRect _position2Item;
-    ShadowedTexturedRect _position3Item;
-    ShadowedTexturedRect _position4Item;
+    TexturedRect& _position1Item;
+    TexturedRect& _position2Item;
+    TexturedRect& _position3Item;
+    TexturedRect& _position4Item;
 
 public:
     RacePositionRenderer(GraphicItemCollection& graphicItemCollection);
