@@ -50,7 +50,10 @@ void RaceUpdater::Update(
     {
         Update(*allShips[i], allShips, powerUps, track);
     }
-    _racePositionUpdater.Update();
+    if (state != RaceState::Finish)
+    {
+        _racePositionUpdater.Update();
+    }
     _enemyAI.ApplyFor(enemies, allShips, track);
     _laps.Update(state, player, track);
     if (_laps.IsLapCompleted && state != RaceState::Finish)
