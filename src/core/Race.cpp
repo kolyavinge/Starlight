@@ -1,3 +1,4 @@
+#include <lib/Debug.h>
 #include <core/Race.h>
 
 Race::Race(
@@ -43,6 +44,7 @@ void Race::Init(::Track& selectedTrack)
 
 void Race::Start()
 {
+    Debug::Info(L"Start race");
     State = RaceState::Start;
     Laps.StartFirstLap();
 }

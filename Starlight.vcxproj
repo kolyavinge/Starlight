@@ -78,6 +78,7 @@
     <ClInclude Include="src\lib\Assert.h" />
     <ClInclude Include="src\lib\CycledArrayIterator.h" />
     <ClInclude Include="src\lib\DateTime.h" />
+    <ClInclude Include="src\lib\Debug.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
     <ClInclude Include="src\lib\di\Binder.h" />
     <ClInclude Include="src\lib\di\FunctionInstanceHolder.h" />
@@ -292,6 +293,7 @@
     <ClCompile Include="src\lib\ArrayIndexGenerator.cpp" />
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
+    <ClCompile Include="src\lib\Debug.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
@@ -506,7 +508,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>opengl32.lib;Gdiplus.lib;$(ProjectDir)\external\openal\openal32.lib;$(ProjectDir)\external\glew\glew32.lib;$(ProjectDir)\external\freeglut\freeglut.lib;$(ProjectDir)\external\soil\SOIL.lib;$(ProjectDir)\external\assimp\assimp-vc143-mt.lib;$(ProjectDir)\external\glm\glm.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
