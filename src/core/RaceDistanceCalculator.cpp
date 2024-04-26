@@ -2,10 +2,13 @@
 
 void RaceDistanceCalculator::InitBeforeStart(IArray<Ship*>& allShips, Track& track)
 {
-    for (int i = 0; i < allShips.GetCount(); i++)
+    for (int shipIndex = 0; shipIndex < allShips.GetCount(); shipIndex++)
     {
-        Ship& ship = *allShips[i];
-        ship.CompletedRaceDistance = ship.CentralLine.TrackPointIndexFront - track.StartFinishLineIndex;
+        Ship& ship = *allShips[shipIndex];
+        for (int pointIndex = ship.CentralLine.TrackPointIndexFront; pointIndex != track.StartFinishLineIndex; pointIndex = track.GetNextTrackPointIndex(pointIndex))
+        {
+            ship.CompletedRaceDistance--;
+        }
     }
 }
 
