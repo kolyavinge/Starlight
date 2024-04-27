@@ -1,3 +1,4 @@
+#include <lib/Assert.h>
 #include <core/RaceDistanceCalculator.h>
 
 void RaceDistanceCalculator::InitBeforeStart(IArray<Ship*>& allShips, Track& track)
@@ -5,10 +6,11 @@ void RaceDistanceCalculator::InitBeforeStart(IArray<Ship*>& allShips, Track& tra
     for (int shipIndex = 0; shipIndex < allShips.GetCount(); shipIndex++)
     {
         Ship& ship = *allShips[shipIndex];
-        for (int pointIndex = ship.CentralLine.TrackPointIndexFront; pointIndex != track.StartFinishLineIndex; pointIndex = track.GetNextTrackPointIndex(pointIndex))
+        for (int pointIndex = track.StartFinishLineIndex; pointIndex != ship.CentralLine.TrackPointIndexFront; pointIndex = track.GetPrevTrackPointIndex(pointIndex))
         {
             ship.CompletedRaceDistance--;
         }
+        Assert::Between(ship.CompletedRaceDistance, -20, 20);
     }
 }
 
@@ -19,20 +21,25 @@ void RaceDistanceCalculator::CalculateRaceDistance(Ship& ship, Track& track)
         return;
     }
 
+    int raceDistance = 0;
     if (track.IsShipMovingInStraightDirection(ship.CentralLine.TrackPointIndexFront, ship.CentralLine.TrackPointIndexRear))
     {
         for (int i = ship.PrevCentralLine.TrackPointIndexFront; i != ship.CentralLine.TrackPointIndexFront; i = track.GetNextTrackPointIndex(i))
         {
-            ship.CompletedRaceDistance++;
+            raceDistance++;
         }
     }
     else
     {
         for (int i = ship.PrevCentralLine.TrackPointIndexFront; i != ship.CentralLine.TrackPointIndexFront; i = track.GetPrevTrackPointIndex(i))
         {
-            ship.CompletedRaceDistance--;
+            raceDistance--;
         }
     }
+
+    Assert::Between(raceDistance, -20, 20);
+
+    ship.CompletedRaceDistance += raceDistance;
 }
 
 RaceDistanceCalculator* RaceDistanceCalculatorResolvingFactory::Make(Resolver&)

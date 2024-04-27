@@ -20,3 +20,11 @@ void Assert::False(bool condition)
         throw AssertException();
     }
 }
+
+void Assert::Between(int value, int from, int to)
+{
+    if (!(from <= value && value <= to))
+    {
+        throw AssertException();
+    }
+}

@@ -10,4 +10,5 @@ public:
     static void Fail();
     static void True(bool condition);
     static void False(bool condition);
+    static void Between(int value, int from, int to);
 };
