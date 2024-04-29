@@ -12,6 +12,7 @@ void App::Start(int argc, char** argv)
     glutCreateWindow(Constants::Title);
     SetIcon();
     glutPositionWindow(100, 100);
+    glutSetCursor(GLUT_CURSOR_NONE);
     glutDisplayFunc(Display);
     glutReshapeFunc(Reshape);
     glutJoystickFunc(JoystickKeypress, 10);

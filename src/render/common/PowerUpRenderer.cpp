@@ -56,7 +56,6 @@ void PowerUpRenderer::RenderRect(PowerUp& powerUp)
     glPushMatrix();
 
     glTranslatef(powerUp.Middle);
-    glTranslatef(0.0f, 0.0f, 0.5f);
     glRotatef(_angleDegrees, Constants::UpAxis);
 
     glBegin(GL_QUADS);

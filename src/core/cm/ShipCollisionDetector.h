@@ -23,11 +23,12 @@ public:
     ShipCollisionResult Result;
 
     bool DetectCollisions(Ship& ship, IArray<Ship*>& allShips);
+    bool DetectCollisions(Ship& ship1, Ship& ship2);
     bool DetectCollisions(Ship& ship, Vector3& from, Vector3& to, float stepSize = 0.1f);
     bool DetectCollisions(Ship& ship, Vector3& point);
 
 private:
-    bool DetectCollisions(Ship& ship1, Ship& ship2);
+    bool CheckBordersZ(Ship& ship, Vector3& point);
 };
 
 class ShipCollisionDetectorResolvingFactory : public ResolvingFactory<ShipCollisionDetector>

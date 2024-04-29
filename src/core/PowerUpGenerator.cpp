@@ -80,6 +80,7 @@ void PowerUpGenerator::GenerateNewPosition(Track& track, PowerUp& powerUp)
 
     powerUp.Middle = track.InsidePoints[randomTrackPoint];
     powerUp.Middle.Add(trackLengthVector);
+    powerUp.Middle.Z += 0.5f;
 
     trackLengthVector.SetLength(0.5f);
     powerUp.From = powerUp.Middle;

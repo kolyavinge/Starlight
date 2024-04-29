@@ -1,3 +1,7 @@
+#include <lib/Numeric.h>
+#include <calc/Vector3.h>
+#include <calc/Plane.h>
+#include <model/ShipMeasure.h>
 #include <core/cm/ShipCollisionDetector.h>
 
 ShipCollisionResult::ShipCollisionResult()
@@ -27,6 +31,17 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, IArray<Ship*>& allShips
     return false;
 }
 
+bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
+{
+    return
+        DetectCollisions(ship2, ship1.CentralLine.Front) ||
+        DetectCollisions(ship2, ship1.CentralLine.Rear) ||
+        DetectCollisions(ship2, ship1.Border.UpLeft) ||
+        DetectCollisions(ship2, ship1.Border.UpRight) ||
+        DetectCollisions(ship2, ship1.Border.DownLeft) ||
+        DetectCollisions(ship2, ship1.Border.DownRight);
+}
+
 bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3& to, float stepSize)
 {
     Vector3 direction(to);
@@ -38,7 +53,7 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3&
         direction.SetLength((float)step * stepSize);
         point.Set(from);
         point.Add(direction);
-        if (ship.Border.Contains(point))
+        if (DetectCollisions(ship, point))
         {
             return true;
         }
@@ -52,18 +67,25 @@ bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& from, Vector3&
 
 bool ShipCollisionDetector::DetectCollisions(Ship& ship, Vector3& point)
 {
-    return ship.Border.Contains(point);
+    return
+        ship.Border.Contains(point) &&
+        CheckBordersZ(ship, point);
 }
 
-bool ShipCollisionDetector::DetectCollisions(Ship& ship1, Ship& ship2)
+bool ShipCollisionDetector::CheckBordersZ(Ship& ship, Vector3& point)
 {
-    return
-        ship2.Border.Contains(ship1.CentralLine.Front) ||
-        ship2.Border.Contains(ship1.CentralLine.Rear) ||
-        ship2.Border.Contains(ship1.Border.UpLeft) ||
-        ship2.Border.Contains(ship1.Border.UpRight) ||
-        ship2.Border.Contains(ship1.Border.DownLeft) ||
-        ship2.Border.Contains(ship1.Border.DownRight);
+    Vector3 upperFrontPoint(ship.CentralLine.NormalFront);
+    upperFrontPoint.SetLength(ShipMeasure::ZLength);
+    upperFrontPoint.Add(ship.CentralLine.Front);
+
+    Plane lowerPlane(ship.CentralLine.NormalFront, ship.CentralLine.Front);
+    Plane upperPlane(ship.CentralLine.NormalFront, upperFrontPoint);
+
+    float lowerPlaneZ = lowerPlane.GetZ(point.X, point.Y) - 0.1f;
+    float upperPlaneZ = upperPlane.GetZ(point.X, point.Y) + 0.1f;
+    bool betweenPlanes = Numeric::Between(point.Z, lowerPlaneZ, upperPlaneZ);
+
+    return betweenPlanes;
 }
 
 ShipCollisionDetector* ShipCollisionDetectorResolvingFactory::Make(Resolver&)
