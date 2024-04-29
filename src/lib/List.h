@@ -1,14 +1,11 @@
 #pragma once
 
 #include <lib/Exceptions.h>
-#include <lib/Object.h>
 #include <lib/Memory.h>
-#include <lib/IArray.h>
-#include <lib/IComparator.h>
-#include <lib/QuickSort.h>
+#include <lib/Collection.h>
 
 template<class T>
-class List : public Object, public IArray<T>
+class List : public Collection<T>
 {
     static const int _initCapacity = 16;
 
@@ -70,7 +67,7 @@ public:
         _count++;
     }
 
-    void AddRange(IArray<T>& range)
+    void AddRange(Collection<T>& range)
     {
         ResizeIfNeeded(range.GetCount());
         Memory::Copy<T>(range._items, _items + _count, range.GetCount());
@@ -122,7 +119,7 @@ public:
         }
     }
 
-    void RemoveAll(IArray<T>& range)
+    void RemoveAll(Collection<T>& range)
     {
         for (int i = 0; i < range.GetCount(); i++)
         {
@@ -156,12 +153,6 @@ public:
     T* GetItemsPointer()
     {
         return _items;
-    }
-
-    void Sort(IComparator<T>& comparator)
-    {
-        QuickSort<T> qs;
-        qs.Sort(*this, comparator);
     }
 
 private:

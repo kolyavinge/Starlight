@@ -1,12 +1,11 @@
 #pragma once
 
 #include <lib/Exceptions.h>
-#include <lib/Object.h>
 #include <lib/Memory.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 
 template<class T, int Count>
-class Array : public Object, public IArray<T>
+class Array : public Collection<T>
 {
     T _items[Count] = {};
 

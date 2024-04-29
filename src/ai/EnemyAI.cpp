@@ -12,7 +12,7 @@ EnemyAI::EnemyAI(
 {
 }
 
-void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track)
+void EnemyAI::ApplyFor(Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track)
 {
     for (int i = 0; i < enemies.GetCount(); i++)
     {
@@ -24,7 +24,7 @@ void EnemyAI::ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& tr
     }
 }
 
-void EnemyAI::ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track)
+void EnemyAI::ApplyFor(Ship& enemy, Collection<Ship*>& allShips, Track& track)
 {
     _obstacleAvoidanceLogic.CalculateMovingDirection(enemy, allShips, track);
     _steeringLogic.Update(enemy, track);

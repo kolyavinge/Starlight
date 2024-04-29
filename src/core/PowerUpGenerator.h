@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/List.h>
 #include <lib/Random.h>
 #include <lib/di/ResolvingFactory.h>
@@ -14,7 +14,7 @@ class PowerUpGenerator : public Object
 
 public:
     void Generate(Track& track, List<PowerUp>& powerUps);
-    void UpdatePositions(Track& track, IArray<PowerUp>& powerUps);
+    void UpdatePositions(Track& track, Collection<PowerUp>& powerUps);
 
 private:
     void GeneratePowerUps(List<PowerUp>& powerUps);

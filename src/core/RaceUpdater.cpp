@@ -41,9 +41,9 @@ RaceUpdater::RaceUpdater(
 void RaceUpdater::Update(
     RaceState& state,
     Ship& player,
-    IArray<Ship>& enemies,
-    IArray<Ship*>& allShips,
-    IArray<PowerUp>& powerUps,
+    Collection<Ship>& enemies,
+    Collection<Ship*>& allShips,
+    Collection<PowerUp>& powerUps,
     Track& track)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
@@ -62,7 +62,7 @@ void RaceUpdater::Update(
     }
 }
 
-void RaceUpdater::Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track)
+void RaceUpdater::Update(Ship& ship, Collection<Ship*>& allShips, Collection<PowerUp>& powerUps, Track& track)
 {
     ship.SaveCurrentCentralLine();
     _positionUpdater.UpdateIfShipMoving(ship, track);

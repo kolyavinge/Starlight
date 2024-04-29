@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
@@ -22,7 +22,7 @@ class ShipCollisionDetector : public Object
 public:
     ShipCollisionResult Result;
 
-    bool DetectCollisions(Ship& ship, IArray<Ship*>& allShips);
+    bool DetectCollisions(Ship& ship, Collection<Ship*>& allShips);
     bool DetectCollisions(Ship& ship1, Ship& ship2);
     bool DetectCollisions(Ship& ship, Vector3& from, Vector3& to, float stepSize = 0.1f);
     bool DetectCollisions(Ship& ship, Vector3& point);

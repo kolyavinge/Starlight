@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <core/ShipController.h>
@@ -17,10 +17,10 @@ public:
         ShipController& shipController,
         ShipCollisionDetector& shipCollisionDetector);
 
-    void Apply(Ship& ship, IArray<Ship*>& allShips);
+    void Apply(Ship& ship, Collection<Ship*>& allShips);
 
 private:
-    void TryActivateFire(Ship& ship, IArray<Ship*>& allShips);
+    void TryActivateFire(Ship& ship, Collection<Ship*>& allShips);
     float GetLengthBetweenShips(Ship& ship, Ship& otherShip);
 };
 

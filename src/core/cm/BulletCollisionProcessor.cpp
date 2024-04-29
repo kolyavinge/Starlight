@@ -6,7 +6,7 @@ BulletCollisionProcessor::BulletCollisionProcessor(BulletCollisionDetector& bull
 {
 }
 
-bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, IArray<Ship*>& allShips)
+bool BulletCollisionProcessor::ProcessBulletsCollisions(Ship& targetShip, Collection<Ship*>& allShips)
 {
     targetShip.IsDamaged = false;
     if (targetShip.State == ShipState::Prepared) return false;

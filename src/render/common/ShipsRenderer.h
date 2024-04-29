@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <render/common/ShipRenderer.h>
@@ -13,11 +13,11 @@ class ShipsRenderer : public Object
 public:
     ShipsRenderer(ShipRenderer& shipRenderer);
 
-    void Render(Ship& player, IArray<Ship>& enemies);
+    void Render(Ship& player, Collection<Ship>& enemies);
 
 private:
     void RenderPlayer(Ship& player);
-    void RenderEnemies(IArray<Ship>& enemies);
+    void RenderEnemies(Collection<Ship>& enemies);
     void RenderShip(Ship& ship, int defaultTexture);
 };
 

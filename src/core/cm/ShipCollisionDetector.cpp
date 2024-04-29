@@ -15,7 +15,7 @@ void ShipCollisionResult::Init()
     Ship2 = nullptr;
 }
 
-bool ShipCollisionDetector::DetectCollisions(Ship& ship, IArray<Ship*>& allShips)
+bool ShipCollisionDetector::DetectCollisions(Ship& ship, Collection<Ship*>& allShips)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
     {

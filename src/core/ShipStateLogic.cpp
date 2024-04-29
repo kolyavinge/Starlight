@@ -7,7 +7,7 @@ ShipStateLogic::ShipStateLogic(ShipCollisionDetector& shipCollisionDetector) :
 {
 }
 
-void ShipStateLogic::ProcessState(Ship& ship, IArray<Ship*>& allShips, Track& track)
+void ShipStateLogic::ProcessState(Ship& ship, Collection<Ship*>& allShips, Track& track)
 {
     if (ship.State == ShipState::Active &&
         Numeric::FloatEquals(ship.Health, 0.0f))

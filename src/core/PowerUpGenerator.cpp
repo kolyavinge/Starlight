@@ -7,7 +7,7 @@ void PowerUpGenerator::Generate(Track& track, List<PowerUp>& powerUps)
     UpdatePositions(track, powerUps);
 }
 
-void PowerUpGenerator::UpdatePositions(Track& track, IArray<PowerUp>& powerUps)
+void PowerUpGenerator::UpdatePositions(Track& track, Collection<PowerUp>& powerUps)
 {
     for (int i = 0; i < powerUps.GetCount(); i++)
     {

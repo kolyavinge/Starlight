@@ -11,7 +11,7 @@ ObstacleAvoidanceLogic::ObstacleAvoidanceLogic(
 {
 }
 
-void ObstacleAvoidanceLogic::CalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track)
+void ObstacleAvoidanceLogic::CalculateMovingDirection(Ship& ship, Collection<Ship*>& allShips, Track& track)
 {
     float directionLength = ship.AIData.MovingDirectionLength * ShipMeasure::YLength;
     TryCalculateMovingDirection(ship, allShips, track, directionLength);
@@ -28,7 +28,7 @@ void ObstacleAvoidanceLogic::CalculateMovingDirection(Ship& ship, IArray<Ship*>&
     ship.AIData.MovingDirections.ResultDirection.Normalize();
 }
 
-void ObstacleAvoidanceLogic::TryCalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength)
+void ObstacleAvoidanceLogic::TryCalculateMovingDirection(Ship& ship, Collection<Ship*>& allShips, Track& track, float directionLength)
 {
     ship.AIData.MovingDirections.Init();
     GenerateAvailableDirections(ship, directionLength);
@@ -57,7 +57,7 @@ void ObstacleAvoidanceLogic::GenerateAvailableDirections(Ship& ship, float direc
     }
 }
 
-void ObstacleAvoidanceLogic::EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength)
+void ObstacleAvoidanceLogic::EnableDirections(Ship& ship, Collection<Ship*>& allShips, Track& track, float directionLength)
 {
     for (int i = 0; i < ship.AIData.MovingDirections.AvailableDirections.GetCount(); i++)
     {
@@ -66,7 +66,7 @@ void ObstacleAvoidanceLogic::EnableDirections(Ship& ship, IArray<Ship*>& allShip
     }
 }
 
-bool ObstacleAvoidanceLogic::IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, float directionLength)
+bool ObstacleAvoidanceLogic::IsDirectionEnabled(Ship& ship, Collection<Ship*>& allShips, Track& track, Vector3 direction, float directionLength)
 {
     direction.Add(ship.CentralLine.Front);
 

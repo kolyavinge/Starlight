@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/Array.h>
 #include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
@@ -24,7 +24,7 @@ class ShipVox : public Object
 public:
     ShipVox(AudioDataCollection& audioDataCollection);
 
-    void Voice(Vector3& listener, IArray<Ship*>& ships);
+    void Voice(Vector3& listener, Collection<Ship*>& ships);
     void Pause();
     void SetEngineIdleGain(float gain);
 

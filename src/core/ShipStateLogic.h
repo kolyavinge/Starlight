@@ -13,7 +13,7 @@ class ShipStateLogic : public Object
 public:
     ShipStateLogic(ShipCollisionDetector& shipCollisionDetector);
 
-    void ProcessState(Ship& ship, IArray<Ship*>& allShips, Track& track);
+    void ProcessState(Ship& ship, Collection<Ship*>& allShips, Track& track);
 
 private:
     void SetShipAtMiddle(Ship& ship, Track& track);

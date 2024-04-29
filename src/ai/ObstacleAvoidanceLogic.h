@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
 #include <model/Ship.h>
@@ -19,13 +19,13 @@ public:
         TrackCollisionDetector& trackCollisionDetector,
         ShipCollisionDetector& shipCollisionDetector);
 
-    void CalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track);
+    void CalculateMovingDirection(Ship& ship, Collection<Ship*>& allShips, Track& track);
 
 private:
-    void TryCalculateMovingDirection(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
+    void TryCalculateMovingDirection(Ship& ship, Collection<Ship*>& allShips, Track& track, float directionLength);
     void GenerateAvailableDirections(Ship& ship, float directionLength);
-    void EnableDirections(Ship& ship, IArray<Ship*>& allShips, Track& track, float directionLength);
-    bool IsDirectionEnabled(Ship& ship, IArray<Ship*>& allShips, Track& track, Vector3 direction, float directionLength);
+    void EnableDirections(Ship& ship, Collection<Ship*>& allShips, Track& track, float directionLength);
+    bool IsDirectionEnabled(Ship& ship, Collection<Ship*>& allShips, Track& track, Vector3 direction, float directionLength);
     float GetLengthBetweenShips(Ship& ship, Ship& otherShip);
     void CalculateResultDirection(ShipMovingDirections& movingDirections);
 };

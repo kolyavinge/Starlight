@@ -9,7 +9,7 @@ ShipCollisionProcessor::ShipCollisionProcessor(ShipCollisionDetector& shipCollis
 {
 }
 
-bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, IArray<Ship*>& allShips)
+bool ShipCollisionProcessor::ProcessShipsCollisions(Ship& ship, Collection<Ship*>& allShips)
 {
     if (!_shipCollisionDetector.DetectCollisions(ship, allShips)) return false;
     ShipCollisionResult& collisionResult = _shipCollisionDetector.Result;

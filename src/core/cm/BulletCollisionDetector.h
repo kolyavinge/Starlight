@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/List.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
@@ -25,7 +25,7 @@ public:
 
     BulletCollisionDetector(ShipCollisionDetector& shipCollisionDetector);
 
-    bool DetectCollisions(Ship& targetShip, IArray<Ship*>& allShips);
+    bool DetectCollisions(Ship& targetShip, Collection<Ship*>& allShips);
 };
 
 class BulletCollisionDetectorResolvingFactory : public ResolvingFactory<BulletCollisionDetector>

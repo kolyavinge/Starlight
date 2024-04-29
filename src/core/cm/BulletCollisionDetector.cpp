@@ -12,7 +12,7 @@ BulletCollisionDetector::BulletCollisionDetector(ShipCollisionDetector& shipColl
     Result.Init();
 }
 
-bool BulletCollisionDetector::DetectCollisions(Ship& targetShip, IArray<Ship*>& allShips)
+bool BulletCollisionDetector::DetectCollisions(Ship& targetShip, Collection<Ship*>& allShips)
 {
     Result.Init();
     for (int shipIndex = 0; shipIndex < allShips.GetCount(); shipIndex++)

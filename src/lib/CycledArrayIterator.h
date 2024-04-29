@@ -1,16 +1,16 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 
 template<class T>
 class CycledArrayIterator : public Object
 {
-    IArray<T>& _array;
+    Collection<T>& _array;
     int _index;
 
 public:
-    CycledArrayIterator(IArray<T>& array) :
+    CycledArrayIterator(Collection<T>& array) :
         _array(array)
     {
         _index = 0;

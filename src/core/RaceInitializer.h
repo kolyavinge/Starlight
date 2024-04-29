@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/List.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
@@ -29,11 +29,11 @@ public:
         RacePositionUpdater& racePositionUpdater,
         PowerUpGenerator& powerUpGenerator);
 
-    void Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track, List<PowerUp>& powerUps);
+    void Init(Ship& player, Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track, List<PowerUp>& powerUps);
 
 private:
-    void InitShips(Ship& player, IArray<Ship>& enemies);
-    void UpdateShipsPositions(IArray<Ship*>& allShips, Track& track);
+    void InitShips(Ship& player, Collection<Ship>& enemies);
+    void UpdateShipsPositions(Collection<Ship*>& allShips, Track& track);
 };
 
 class RaceInitializerResolvingFactory : public ResolvingFactory<RaceInitializer>

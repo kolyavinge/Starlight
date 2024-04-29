@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/List.h>
 #include <lib/di/ResolvingFactory.h>
 #include <calc/Vector3.h>
@@ -22,11 +22,11 @@ public:
     ExplosionRenderer(GraphicItemCollection& graphicItemCollection);
 
     void Init();
-    void Render(Ship& player, IArray<Ship*>& allShips);
+    void Render(Ship& player, Collection<Ship*>& allShips);
 
 private:
     void RenderAnimations();
-    void MakeNewAnimations(Ship& player, IArray<Ship*>& allShips);
+    void MakeNewAnimations(Ship& player, Collection<Ship*>& allShips);
     bool AllAnimationsInnactive();
     void ClearAnimations();
 };

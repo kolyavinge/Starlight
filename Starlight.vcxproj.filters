@@ -135,7 +135,7 @@
     <ClInclude Include="src\ai\ObstacleAvoidanceLogic.h" />
     <ClInclude Include="src\ai\SteeringLogic.h" />
     <ClInclude Include="src\ai\EnemyAI.h" />
-    <ClInclude Include="src\lib\IArray.h" />
+    <ClInclude Include="src\lib\Collection.h" />
     <ClInclude Include="src\gl\VBOMeshRenderer.h" />
     <ClInclude Include="src\core\cm\ShipCollisionDetector.h" />
     <ClInclude Include="src\model\ShipAIData.h" />
@@ -200,11 +200,11 @@
     <ClInclude Include="src\core\RaceDistanceCalculator.h" />
     <ClInclude Include="src\lib\IComparator.h" />
     <ClInclude Include="src\model\ShipCompletedRaceDistanceComparator.h" />
-    <ClInclude Include="src\lib\QuickSort.h" />
     <ClInclude Include="src\core\RacePositionUpdater.h" />
     <ClInclude Include="src\render\dash\RacePositionRenderer.h" />
     <ClInclude Include="src\gl\ShadowedTexturedRect.h" />
     <ClInclude Include="src\gl\ITexturedRect.h" />
+    <ClInclude Include="src\lib\Debug.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -381,6 +381,7 @@
     <ClCompile Include="src\core\RacePositionUpdater.cpp" />
     <ClCompile Include="src\render\dash\RacePositionRenderer.cpp" />
     <ClCompile Include="src\gl\ShadowedTexturedRect.cpp" />
+    <ClCompile Include="src\lib\Debug.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

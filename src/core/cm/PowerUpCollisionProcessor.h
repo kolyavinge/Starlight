@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/PowerUp.h>
@@ -14,7 +14,7 @@ class PowerUpCollisionProcessor : public Object
 public:
     PowerUpCollisionProcessor(PowerUpCollisionDetector& powerUpCollisionDetector);
 
-    void ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps);
+    void ProcessPowerUpsCollisions(Ship& ship, Collection<PowerUp>& powerUps);
 
 private:
     bool ProcessPowerUp(Ship& ship, PowerUp& powerUp);

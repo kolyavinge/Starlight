@@ -12,7 +12,7 @@ void ExplosionRenderer::Init()
     ClearAnimations();
 }
 
-void ExplosionRenderer::Render(Ship& player, IArray<Ship*>& allShips)
+void ExplosionRenderer::Render(Ship& player, Collection<Ship*>& allShips)
 {
     RenderAnimations();
     MakeNewAnimations(player, allShips);
@@ -41,7 +41,7 @@ void ExplosionRenderer::RenderAnimations()
     glDisable(GL_DEPTH_TEST);
 }
 
-void ExplosionRenderer::MakeNewAnimations(Ship& player, IArray<Ship*>& allShips)
+void ExplosionRenderer::MakeNewAnimations(Ship& player, Collection<Ship*>& allShips)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
     {
@@ -60,7 +60,7 @@ void ExplosionRenderer::MakeNewAnimations(Ship& player, IArray<Ship*>& allShips)
             Geometry::RotateCoordinateSystem3d(unitX, vx, unitY, vz, radians, pivot);
 
             _animations.Add(AnimatedTexturedRect(_explosionTexture, 4));
-            _animations[_animations.GetCount() - 1].Activate();
+            _animations.Last().Activate();
             _positions.Add(ship.Border.DownLeft);
             _radians.Add(radians);
             _pivots.Add(pivot);

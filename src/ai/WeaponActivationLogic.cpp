@@ -9,7 +9,7 @@ WeaponActivationLogic::WeaponActivationLogic(
 {
 }
 
-void WeaponActivationLogic::Apply(Ship& ship, IArray<Ship*>& allShips)
+void WeaponActivationLogic::Apply(Ship& ship, Collection<Ship*>& allShips)
 {
     if (ship.AIData.WeaponFireIterations > 0)
     {
@@ -21,7 +21,7 @@ void WeaponActivationLogic::Apply(Ship& ship, IArray<Ship*>& allShips)
     }
 }
 
-void WeaponActivationLogic::TryActivateFire(Ship& ship, IArray<Ship*>& allShips)
+void WeaponActivationLogic::TryActivateFire(Ship& ship, Collection<Ship*>& allShips)
 {
     _shipController.SetShip(ship);
     _shipController.ReleaseFire();

@@ -3,7 +3,7 @@
 #include <calc/Vector3.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
 
-void EnemyShipsHealthRenderer::Render(IArray<Ship>& enemies)
+void EnemyShipsHealthRenderer::Render(Collection<Ship>& enemies)
 {
     for (int i = 0; i < enemies.GetCount(); i++)
     {

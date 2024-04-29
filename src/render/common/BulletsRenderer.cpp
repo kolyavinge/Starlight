@@ -3,7 +3,7 @@
 #include <core/Constants.h>
 #include <render/common/BulletsRenderer.h>
 
-void BulletsRenderer::Render(Ship& player, IArray<Ship>& enemies)
+void BulletsRenderer::Render(Ship& player, Collection<Ship>& enemies)
 {
     glEnable(GL_DEPTH_TEST);
     RenderWeapon(player);

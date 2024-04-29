@@ -7,7 +7,7 @@ ShipsRenderer::ShipsRenderer(ShipRenderer& shipRenderer) :
 {
 }
 
-void ShipsRenderer::Render(Ship& player, IArray<Ship>& enemies)
+void ShipsRenderer::Render(Ship& player, Collection<Ship>& enemies)
 {
     glEnable(GL_DEPTH_TEST);
     RenderPlayer(player);
@@ -20,7 +20,7 @@ void ShipsRenderer::RenderPlayer(Ship& player)
     RenderShip(player, ShipMesh::PlayerTexture);
 }
 
-void ShipsRenderer::RenderEnemies(IArray<Ship>& enemies)
+void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
 {
     int enemyTexture = ShipMesh::Enemy1Texture;
     for (int i = 0; i < enemies.GetCount(); i++)

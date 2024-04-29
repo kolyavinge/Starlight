@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -68,13 +68,13 @@ public:
     void Update(
         RaceState& state,
         Ship& player,
-        IArray<Ship>& enemies,
-        IArray<Ship*>& allShips,
-        IArray<PowerUp>& powerUps,
+        Collection<Ship>& enemies,
+        Collection<Ship*>& allShips,
+        Collection<PowerUp>& powerUps,
         Track& track);
 
 private:
-    void Update(Ship& ship, IArray<Ship*>& allShips, IArray<PowerUp>& powerUps, Track& track);
+    void Update(Ship& ship, Collection<Ship*>& allShips, Collection<PowerUp>& powerUps, Track& track);
 };
 
 class RaceUpdaterResolvingFactory : public ResolvingFactory<RaceUpdater>

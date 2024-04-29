@@ -1,7 +1,7 @@
 #include <lib/Assert.h>
 #include <core/RaceDistanceCalculator.h>
 
-void RaceDistanceCalculator::InitBeforeStart(IArray<Ship*>& allShips, Track& track)
+void RaceDistanceCalculator::InitBeforeStart(Collection<Ship*>& allShips, Track& track)
 {
     for (int shipIndex = 0; shipIndex < allShips.GetCount(); shipIndex++)
     {

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
 #include <model/Track.h>
@@ -24,8 +24,8 @@ public:
         NitroActivationLogic& nitroActivationLogic,
         WeaponActivationLogic& weaponActivationLogic);
 
-    void ApplyFor(IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track);
-    void ApplyFor(Ship& enemy, IArray<Ship*>& allShips, Track& track);
+    void ApplyFor(Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track);
+    void ApplyFor(Ship& enemy, Collection<Ship*>& allShips, Track& track);
 };
 
 class EnemyAIResolvingFactory : public ResolvingFactory<EnemyAI>

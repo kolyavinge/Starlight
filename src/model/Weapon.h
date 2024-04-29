@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/Exceptions.h>
-#include <lib/IArray.h>
+#include <lib/Collection.h>
 #include <lib/List.h>
 #include <lib/CycledArrayIterator.h>
 #include <calc/Vector3.h>
@@ -21,7 +21,7 @@ class Weapon : public Object
     CycledArrayIterator<Bullet> _bulletsIter;
 
 public:
-    IArray<Bullet>& Bullets;
+    Collection<Bullet>& Bullets;
     bool IsFireActive;
 
     Weapon();

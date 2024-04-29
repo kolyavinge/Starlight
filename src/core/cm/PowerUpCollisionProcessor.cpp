@@ -5,7 +5,7 @@ PowerUpCollisionProcessor::PowerUpCollisionProcessor(PowerUpCollisionDetector& p
 {
 }
 
-void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, IArray<PowerUp>& powerUps)
+void PowerUpCollisionProcessor::ProcessPowerUpsCollisions(Ship& ship, Collection<PowerUp>& powerUps)
 {
     ship.IsPowerUpPicked = false;
     if (ship.State != ShipState::Active) return;

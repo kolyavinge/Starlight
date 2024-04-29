@@ -14,7 +14,7 @@ RaceInitializer::RaceInitializer(
 {
 }
 
-void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& allShips, Track& track, List<PowerUp>& powerUps)
+void RaceInitializer::Init(Ship& player, Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track, List<PowerUp>& powerUps)
 {
     InitShips(player, enemies);
     _startingGridInitializer.SetStartGrid(player, enemies, track);
@@ -24,7 +24,7 @@ void RaceInitializer::Init(Ship& player, IArray<Ship>& enemies, IArray<Ship*>& a
     _powerUpGenerator.Generate(track, powerUps);
 }
 
-void RaceInitializer::InitShips(Ship& player, IArray<Ship>& enemies)
+void RaceInitializer::InitShips(Ship& player, Collection<Ship>& enemies)
 {
     player.AIData.InitForPlayer();
     player.Init();
@@ -35,7 +35,7 @@ void RaceInitializer::InitShips(Ship& player, IArray<Ship>& enemies)
     }
 }
 
-void RaceInitializer::UpdateShipsPositions(IArray<Ship*>& allShips, Track& track)
+void RaceInitializer::UpdateShipsPositions(Collection<Ship*>& allShips, Track& track)
 {
     for (int i = 0; i < allShips.GetCount(); i++)
     {

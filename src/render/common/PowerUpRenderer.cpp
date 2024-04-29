@@ -12,7 +12,7 @@ PowerUpRenderer::PowerUpRenderer(GraphicItemCollection& graphicItemCollection) :
     _angleDegrees = 0.0f;
 }
 
-void PowerUpRenderer::Render(IArray<PowerUp>& powerUps)
+void PowerUpRenderer::Render(Collection<PowerUp>& powerUps)
 {
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
     glEnable(GL_BLEND);

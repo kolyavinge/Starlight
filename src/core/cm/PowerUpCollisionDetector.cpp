@@ -10,7 +10,7 @@ PowerUpCollisionDetector::PowerUpCollisionDetector(ShipCollisionDetector& shipCo
 {
 }
 
-bool PowerUpCollisionDetector::DetectCollisions(Ship& ship, IArray<PowerUp>& powerUps)
+bool PowerUpCollisionDetector::DetectCollisions(Ship& ship, Collection<PowerUp>& powerUps)
 {
     Result.Init();
 

@@ -26,7 +26,7 @@ ShipVox::ShipVox(AudioDataCollection& audioDataCollection)
     }
 }
 
-void ShipVox::Voice(Vector3& listener, IArray<Ship*>& ships)
+void ShipVox::Voice(Vector3& listener, Collection<Ship*>& ships)
 {
     for (int i = 0; i < ships.GetCount(); i++)
     {
