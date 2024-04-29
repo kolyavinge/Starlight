@@ -2,7 +2,7 @@
 
 #include <windows.h>
 #include <lib/List.h>
-#include <lib/CycledArrayIterator.h>
+#include <lib/CycledIterator.h>
 #include <input/InputDevices.h>
 #include <ui/MenuItemSelector.h>
 
@@ -17,7 +17,7 @@ class LinearMenuItemSelector : public MenuItemSelector<TMenuItem>
 {
     LinearMenuItemSelectorOrientation _orientation;
     List<TMenuItem> _items;
-    CycledArrayIterator<TMenuItem> _iter;
+    CycledIterator<TMenuItem> _iter;
 
 public:
     LinearMenuItemSelector(LinearMenuItemSelectorOrientation orientation) :

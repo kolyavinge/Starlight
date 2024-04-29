@@ -4,7 +4,7 @@
 #include <lib/Exceptions.h>
 #include <lib/Collection.h>
 #include <lib/List.h>
-#include <lib/CycledArrayIterator.h>
+#include <lib/CycledIterator.h>
 #include <calc/Vector3.h>
 #include <model/ShipCentralLine.h>
 #include <model/Bullet.h>
@@ -18,7 +18,7 @@ class Weapon : public Object
     int _remainingBullets;
     int _currentDelay;
     List<Bullet> _bullets;
-    CycledArrayIterator<Bullet> _bulletsIter;
+    CycledIterator<Bullet> _bulletsIter;
 
 public:
     Collection<Bullet>& Bullets;

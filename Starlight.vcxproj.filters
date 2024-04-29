@@ -83,7 +83,7 @@
     <ClInclude Include="src\render\ui\TrackSelectorRenderer.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
     <ClInclude Include="src\render\ui\RenderManager.h" />
-    <ClInclude Include="src\lib\CycledArrayIterator.h" />
+    <ClInclude Include="src\lib\CycledIterator.h" />
     <ClInclude Include="src\gl\TexturedRect.h" />
     <ClInclude Include="src\ui\LinearMenuItemSelector.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />

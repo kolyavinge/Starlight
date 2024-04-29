@@ -4,33 +4,33 @@
 #include <lib/Collection.h>
 
 template<class T>
-class CycledArrayIterator : public Object
+class CycledIterator : public Object
 {
-    Collection<T>& _array;
+    Collection<T>& _items;
     int _index;
 
 public:
-    CycledArrayIterator(Collection<T>& array) :
-        _array(array)
+    CycledIterator(Collection<T>& items) :
+        _items(items)
     {
         _index = 0;
     }
 
     T& GetCurrentItem()
     {
-        return _array[_index];
+        return _items[_index];
     }
 
     void Prev()
     {
         _index--;
-        if (_index == -1) _index = _array.GetCount() - 1;
+        if (_index == -1) _index = _items.GetCount() - 1;
     }
 
     void Next()
     {
         _index++;
-        if (_index == _array.GetCount()) _index = 0;
+        if (_index == _items.GetCount()) _index = 0;
     }
 
     void Reset()
