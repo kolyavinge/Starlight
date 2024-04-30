@@ -52,7 +52,7 @@ void RaceUpdater::Update(
     }
     if (state != RaceState::Finish)
     {
-        _racePositionUpdater.Update();
+        _racePositionUpdater.Update(allShips);
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     _laps.Update(state, player, track);

@@ -34,7 +34,6 @@ void Race::Init(::Track& selectedTrack)
 {
     State = RaceState::Prepare;
     Track = &selectedTrack;
-    _racePositionUpdater.Init(AllShips);
     _raceInitializer.Init(Player, Enemies, AllShips, *Track, PowerUps);
     for (int i = 0; i < AllShips.GetCount(); i++)
     {

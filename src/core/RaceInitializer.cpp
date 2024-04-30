@@ -20,7 +20,7 @@ void RaceInitializer::Init(Ship& player, Collection<Ship>& enemies, Collection<S
     _startingGridInitializer.SetStartGrid(player, enemies, track);
     UpdateShipsPositions(allShips, track);
     _raceDistanceCalculator.InitBeforeStart(allShips, track);
-    _racePositionUpdater.Update();
+    _racePositionUpdater.Update(allShips);
     _powerUpGenerator.Generate(track, powerUps);
 }
 
