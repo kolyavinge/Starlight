@@ -5,6 +5,7 @@ DashboardRenderer::DashboardRenderer(
     LapTimeRenderer& lapTimeRenderer,
     CompleteLapTimeRenderer& completeLapTimeRenderer,
     CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
+    DamageEffectRenderer& damageEffectRenderer,
     HealthRenderer& healthRenderer,
     BulletsCountRenderer& bulletsCountRenderer,
     NitroCountRenderer& nitroCountRenderer,
@@ -13,6 +14,7 @@ DashboardRenderer::DashboardRenderer(
     _lapTimeRenderer(lapTimeRenderer),
     _completeLapTimeRenderer(completeLapTimeRenderer),
     _completeLapsTimeListRenderer(completeLapsTimeListRenderer),
+    _damageEffectRenderer(damageEffectRenderer),
     _healthRenderer(healthRenderer),
     _bulletsCountRenderer(bulletsCountRenderer),
     _nitroCountRenderer(nitroCountRenderer),
@@ -23,10 +25,17 @@ DashboardRenderer::DashboardRenderer(
 void DashboardRenderer::Init()
 {
     _completeLapTimeRenderer.Init();
+    _damageEffectRenderer.Init();
+}
+
+void DashboardRenderer::Update(Ship& player)
+{
+    _damageEffectRenderer.Update(player);
 }
 
 void DashboardRenderer::Render(Ship& player, Laps& laps)
 {
+    _damageEffectRenderer.Render();
     _lapsCountRenderer.Render(laps);
     _lapTimeRenderer.Render(laps);
     _completeLapTimeRenderer.Render(laps);
@@ -44,6 +53,7 @@ DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<LapTimeRenderer>(),
         resolver.Resolve<CompleteLapTimeRenderer>(),
         resolver.Resolve<CompleteLapsTimeListRenderer>(),
+        resolver.Resolve<DamageEffectRenderer>(),
         resolver.Resolve<HealthRenderer>(),
         resolver.Resolve<BulletsCountRenderer>(),
         resolver.Resolve<NitroCountRenderer>(),

@@ -75,6 +75,7 @@ void RaceRenderer::Render()
 void RaceRenderer::Update()
 {
     _powerUpRenderer.Update();
+    _dashboardRenderer.Update(_race.Player);
 }
 
 RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)

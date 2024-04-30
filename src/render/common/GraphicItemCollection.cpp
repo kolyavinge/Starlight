@@ -23,6 +23,7 @@ GraphicItemCollection::GraphicItemCollection()
     PowerUpHealthTexture.Load(GraphicResources::GetPowerUpHealthFilePath());
     PowerUpMachinegunTexture.Load(GraphicResources::GetPowerUpMachinegunFilePath());
     PowerUpNitroTexture.Load(GraphicResources::GetPowerUpNitroFilePath());
+    DamageEffectTexture.Load(GraphicResources::GetDamageEffectFilePath());
 }
 
 GraphicItemCollection* GraphicItemCollectionResolvingFactory::Make(Resolver&)

@@ -121,6 +121,7 @@
     <ClInclude Include="src\render\dash\CompleteLapsTimeListRenderer.h" />
     <ClInclude Include="src\render\dash\CompleteLapTimeRenderer.h" />
     <ClInclude Include="src\render\common\CountdownRenderer.h" />
+    <ClInclude Include="src\render\dash\DamageEffectRenderer.h" />
     <ClInclude Include="src\render\dash\DashboardRenderer.h" />
     <ClInclude Include="src\render\common\FinishTextRenderer.h" />
     <ClInclude Include="src\render\common\GoRenderer.h" />
@@ -330,6 +331,7 @@
     <ClCompile Include="src\render\dash\CompleteLapsTimeListRenderer.cpp" />
     <ClCompile Include="src\render\dash\CompleteLapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\CountdownRenderer.cpp" />
+    <ClCompile Include="src\render\dash\DamageEffectRenderer.cpp" />
     <ClCompile Include="src\render\dash\DashboardRenderer.cpp" />
     <ClCompile Include="src\render\common\FinishTextRenderer.cpp" />
     <ClCompile Include="src\render\common\GoRenderer.cpp" />

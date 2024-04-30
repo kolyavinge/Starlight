@@ -28,6 +28,7 @@ public:
     Texture PowerUpHealthTexture;
     Texture PowerUpMachinegunTexture;
     Texture PowerUpNitroTexture;
+    Texture DamageEffectTexture;
     FramedTexture ExplosionTexture;
 
     GraphicItemCollection();

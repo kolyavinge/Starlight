@@ -200,6 +200,15 @@ String GraphicResources::GetExplosionFilePath()
     return path;
 }
 
+String GraphicResources::GetDamageEffectFilePath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\damage_effect.png\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetDefaultVertexShaderPath()
 {
     String path(Environment::GetExecutableDirectoryPath());

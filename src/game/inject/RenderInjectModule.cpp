@@ -18,6 +18,7 @@
 #include <render/dash/BulletsCountRenderer.h>
 #include <render/dash/CompleteLapsTimeListRenderer.h>
 #include <render/dash/CompleteLapTimeRenderer.h>
+#include <render/dash/DamageEffectRenderer.h>
 #include <render/dash/DashboardRenderer.h>
 #include <render/dash/HealthRenderer.h>
 #include <render/dash/LapsCountRenderer.h>
@@ -57,6 +58,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<BulletsCountRenderer, BulletsCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<CompleteLapsTimeListRenderer, CompleteLapsTimeListRendererResolvingFactory>();
     binder.BindSingletonByFactory<CompleteLapTimeRenderer, CompleteLapTimeRendererResolvingFactory>();
+    binder.BindSingletonByFactory<DamageEffectRenderer, DamageEffectRendererResolvingFactory>();
     binder.BindSingletonByFactory<DashboardRenderer, DashboardRendererResolvingFactory>();
     binder.BindSingletonByFactory<HealthRenderer, HealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapsCountRenderer, LapsCountRendererResolvingFactory>();

@@ -27,6 +27,7 @@ public:
     static String GetPosition3ItemFilePath();
     static String GetPosition4ItemFilePath();
     static String GetExplosionFilePath();
+    static String GetDamageEffectFilePath();
     static String GetDefaultVertexShaderPath();
     static String GetDefaultFragmentShaderPath();
     static String GetPowerUpHealthFilePath();

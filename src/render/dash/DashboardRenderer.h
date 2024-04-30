@@ -8,6 +8,7 @@
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/CompleteLapTimeRenderer.h>
 #include <render/dash/CompleteLapsTimeListRenderer.h>
+#include <render/dash/DamageEffectRenderer.h>
 #include <render/dash/HealthRenderer.h>
 #include <render/dash/BulletsCountRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
@@ -19,6 +20,7 @@ class DashboardRenderer : public Object
     LapTimeRenderer& _lapTimeRenderer;
     CompleteLapTimeRenderer& _completeLapTimeRenderer;
     CompleteLapsTimeListRenderer& _completeLapsTimeListRenderer;
+    DamageEffectRenderer& _damageEffectRenderer;
     HealthRenderer& _healthRenderer;
     BulletsCountRenderer& _bulletsCountRenderer;
     NitroCountRenderer& _nitroCountRenderer;
@@ -30,12 +32,14 @@ public:
         LapTimeRenderer& lapTimeRenderer,
         CompleteLapTimeRenderer& completeLapTimeRenderer,
         CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
+        DamageEffectRenderer& damageEffectRenderer,
         HealthRenderer& healthRenderer,
         BulletsCountRenderer& bulletsCountRenderer,
         NitroCountRenderer& nitroCountRenderer,
         RacePositionRenderer& racePositionRenderer);
 
     void Init();
+    void Update(Ship& player);
     void Render(Ship& player, Laps& laps);
 };
 
