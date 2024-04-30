@@ -1,3 +1,4 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <calc/Vector3.h>
 #include <core/Constants.h>
@@ -5,6 +6,7 @@
 
 void BulletsRenderer::Render(Ship& player, Collection<Ship>& enemies)
 {
+    glEnable(GL_MULTISAMPLE);
     glEnable(GL_DEPTH_TEST);
     RenderWeapon(player);
     for (int i = 0; i < enemies.GetCount(); i++)
@@ -12,6 +14,7 @@ void BulletsRenderer::Render(Ship& player, Collection<Ship>& enemies)
         RenderWeapon(enemies[i]);
     }
     glDisable(GL_DEPTH_TEST);
+    glDisable(GL_MULTISAMPLE);
 }
 
 void BulletsRenderer::RenderWeapon(Ship& ship)
