@@ -1,14 +1,17 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <model/Ship.h>
+#include <model/Track.h>
 #include <core/Laps.h>
 #include <render/dash/LapsCountRenderer.h>
 #include <render/dash/LapTimeRenderer.h>
 #include <render/dash/CompleteLapTimeRenderer.h>
 #include <render/dash/CompleteLapsTimeListRenderer.h>
 #include <render/dash/DamageEffectRenderer.h>
+#include <render/dash/EnemyShipMarkRenderer.h>
 #include <render/dash/HealthRenderer.h>
 #include <render/dash/BulletsCountRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
@@ -21,6 +24,7 @@ class DashboardRenderer : public Object
     CompleteLapTimeRenderer& _completeLapTimeRenderer;
     CompleteLapsTimeListRenderer& _completeLapsTimeListRenderer;
     DamageEffectRenderer& _damageEffectRenderer;
+    EnemyShipMarkRenderer& _enemyShipMarkRenderer;
     HealthRenderer& _healthRenderer;
     BulletsCountRenderer& _bulletsCountRenderer;
     NitroCountRenderer& _nitroCountRenderer;
@@ -33,6 +37,7 @@ public:
         CompleteLapTimeRenderer& completeLapTimeRenderer,
         CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
         DamageEffectRenderer& damageEffectRenderer,
+        EnemyShipMarkRenderer& enemyShipMarkRenderer,
         HealthRenderer& healthRenderer,
         BulletsCountRenderer& bulletsCountRenderer,
         NitroCountRenderer& nitroCountRenderer,
@@ -40,7 +45,7 @@ public:
 
     void Init();
     void Update(Ship& player);
-    void Render(Ship& player, Laps& laps);
+    void Render(Ship& player, Collection<Ship*>& allShips, Track& track, Laps& laps);
 };
 
 class DashboardRendererResolvingFactory : public ResolvingFactory<DashboardRenderer>

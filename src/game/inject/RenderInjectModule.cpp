@@ -20,6 +20,7 @@
 #include <render/dash/CompleteLapTimeRenderer.h>
 #include <render/dash/DamageEffectRenderer.h>
 #include <render/dash/DashboardRenderer.h>
+#include <render/dash/EnemyShipMarkRenderer.h>
 #include <render/dash/HealthRenderer.h>
 #include <render/dash/LapsCountRenderer.h>
 #include <render/dash/LapTimeRenderer.h>
@@ -60,6 +61,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<CompleteLapTimeRenderer, CompleteLapTimeRendererResolvingFactory>();
     binder.BindSingletonByFactory<DamageEffectRenderer, DamageEffectRendererResolvingFactory>();
     binder.BindSingletonByFactory<DashboardRenderer, DashboardRendererResolvingFactory>();
+    binder.BindSingletonByFactory<EnemyShipMarkRenderer, EnemyShipMarkRendererResolvingFactory>();
     binder.BindSingletonByFactory<HealthRenderer, HealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapsCountRenderer, LapsCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapTimeRenderer, LapTimeRendererResolvingFactory>();

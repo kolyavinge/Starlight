@@ -206,6 +206,7 @@
     <ClInclude Include="src\gl\ITexturedRect.h" />
     <ClInclude Include="src\lib\Debug.h" />
     <ClInclude Include="src\render\dash\DamageEffectRenderer.h" />
+    <ClInclude Include="src\render\dash\EnemyShipMarkRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -384,6 +385,7 @@
     <ClCompile Include="src\gl\ShadowedTexturedRect.cpp" />
     <ClCompile Include="src\lib\Debug.cpp" />
     <ClCompile Include="src\render\dash\DamageEffectRenderer.cpp" />
+    <ClCompile Include="src\render\dash\EnemyShipMarkRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

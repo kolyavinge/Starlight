@@ -6,6 +6,7 @@ DashboardRenderer::DashboardRenderer(
     CompleteLapTimeRenderer& completeLapTimeRenderer,
     CompleteLapsTimeListRenderer& completeLapsTimeListRenderer,
     DamageEffectRenderer& damageEffectRenderer,
+    EnemyShipMarkRenderer& enemyShipMarkRenderer,
     HealthRenderer& healthRenderer,
     BulletsCountRenderer& bulletsCountRenderer,
     NitroCountRenderer& nitroCountRenderer,
@@ -15,6 +16,7 @@ DashboardRenderer::DashboardRenderer(
     _completeLapTimeRenderer(completeLapTimeRenderer),
     _completeLapsTimeListRenderer(completeLapsTimeListRenderer),
     _damageEffectRenderer(damageEffectRenderer),
+    _enemyShipMarkRenderer(enemyShipMarkRenderer),
     _healthRenderer(healthRenderer),
     _bulletsCountRenderer(bulletsCountRenderer),
     _nitroCountRenderer(nitroCountRenderer),
@@ -33,7 +35,7 @@ void DashboardRenderer::Update(Ship& player)
     _damageEffectRenderer.Update(player);
 }
 
-void DashboardRenderer::Render(Ship& player, Laps& laps)
+void DashboardRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track& track, Laps& laps)
 {
     _damageEffectRenderer.Render();
     _lapsCountRenderer.Render(laps);
@@ -44,6 +46,7 @@ void DashboardRenderer::Render(Ship& player, Laps& laps)
     _bulletsCountRenderer.Render(player.Weapon);
     _nitroCountRenderer.Render(player.Nitros);
     _racePositionRenderer.Render(player);
+    _enemyShipMarkRenderer.Render(player, allShips, track);
 }
 
 DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
@@ -54,6 +57,7 @@ DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<CompleteLapTimeRenderer>(),
         resolver.Resolve<CompleteLapsTimeListRenderer>(),
         resolver.Resolve<DamageEffectRenderer>(),
+        resolver.Resolve<EnemyShipMarkRenderer>(),
         resolver.Resolve<HealthRenderer>(),
         resolver.Resolve<BulletsCountRenderer>(),
         resolver.Resolve<NitroCountRenderer>(),
