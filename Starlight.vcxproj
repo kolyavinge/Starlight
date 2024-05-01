@@ -126,6 +126,7 @@
     <ClInclude Include="src\render\common\FinishTextRenderer.h" />
     <ClInclude Include="src\render\common\GoRenderer.h" />
     <ClInclude Include="src\render\dash\EnemyShipMarkRenderer.h" />
+    <ClInclude Include="src\render\dash\FinishDashboardRenderer.h" />
     <ClInclude Include="src\render\dash\LapsCountRenderer.h" />
     <ClInclude Include="src\render\dash\LapTimeRenderer.h" />
     <ClInclude Include="src\render\common\MenuBackgroundRenderer.h" />
@@ -337,6 +338,7 @@
     <ClCompile Include="src\render\common\FinishTextRenderer.cpp" />
     <ClCompile Include="src\render\common\GoRenderer.cpp" />
     <ClCompile Include="src\render\dash\EnemyShipMarkRenderer.cpp" />
+    <ClCompile Include="src\render\dash\FinishDashboardRenderer.cpp" />
     <ClCompile Include="src\render\dash\LapsCountRenderer.cpp" />
     <ClCompile Include="src\render\dash\LapTimeRenderer.cpp" />
     <ClCompile Include="src\render\common\MenuBackgroundRenderer.cpp" />
