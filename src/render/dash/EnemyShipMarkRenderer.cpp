@@ -1,5 +1,4 @@
 #include <gl/opengl.h>
-#include <lib/Exceptions.h>
 #include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
 #include <render/common/RenderConstants.h>
@@ -7,26 +6,13 @@
 
 void EnemyShipMarkRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track& track)
 {
-    int playerIndex = GetPlayerIndex(player, allShips);
-    CalculateEmenyDisatance(playerIndex, player, allShips);
+    CalculateEmenyDisatance(player, allShips);
     RenderMarks(player, track);
 }
 
-int EnemyShipMarkRenderer::GetPlayerIndex(Ship& player, Collection<Ship*>& allShips)
+void EnemyShipMarkRenderer::CalculateEmenyDisatance(Ship& player, Collection<Ship*>& allShips)
 {
-    for (int i = 0; i < allShips.GetCount(); i++)
-    {
-        if (Object::ReferenceEquals(player, *allShips[i]))
-        {
-            return i;
-        }
-    }
-
-    throw ArgumentException();
-}
-
-void EnemyShipMarkRenderer::CalculateEmenyDisatance(int playerIndex, Ship& player, Collection<Ship*>& allShips)
-{
+    int playerIndex = allShips.GetIndexOf(&player);
     for (int i = playerIndex + 1; i < allShips.GetCount(); i++)
     {
         Ship& enemy = *allShips[i];

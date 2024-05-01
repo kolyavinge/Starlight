@@ -21,6 +21,19 @@ public:
         return (*this)[GetCount() - 1];
     }
 
+    int GetIndexOf(const T& item)
+    {
+        for (int i = 0; i < GetCount(); i++)
+        {
+            if (item == (*this)[i])
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     void Sort(IComparator<T>& comparator)
     {
         Sort(0, GetCount() - 1, comparator);

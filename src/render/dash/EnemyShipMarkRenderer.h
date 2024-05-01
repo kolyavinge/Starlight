@@ -15,8 +15,7 @@ public:
     void Render(Ship& player, Collection<Ship*>& allShips, Track& track);
 
 private:
-    int GetPlayerIndex(Ship& player, Collection<Ship*>& allShips);
-    void CalculateEmenyDisatance(int playerIndex, Ship& player, Collection<Ship*>& allShips);
+    void CalculateEmenyDisatance(Ship& player, Collection<Ship*>& allShips);
     void RenderMarks(Ship& player, Track& track);
     void RenderMark(int markIndex, Ship& player, Track& track);
 };
