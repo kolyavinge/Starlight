@@ -8,7 +8,7 @@
 void EnemyShipMarkRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track& track)
 {
     int playerIndex = GetPlayerIndex(player, allShips);
-    CalculatePositions(playerIndex, player, allShips);
+    CalculateEmenyDisatance(playerIndex, player, allShips);
     RenderMarks(player, track);
 }
 
@@ -25,30 +25,31 @@ int EnemyShipMarkRenderer::GetPlayerIndex(Ship& player, Collection<Ship*>& allSh
     throw ArgumentException();
 }
 
-void EnemyShipMarkRenderer::CalculatePositions(int playerIndex, Ship& player, Collection<Ship*>& allShips)
+void EnemyShipMarkRenderer::CalculateEmenyDisatance(int playerIndex, Ship& player, Collection<Ship*>& allShips)
 {
     for (int i = playerIndex + 1; i < allShips.GetCount(); i++)
     {
         Ship& enemy = *allShips[i];
         Vector3 distance(enemy.CentralLine.Front);
-        distance.Sub(player.CentralLine.Front);
-        if (distance.GetLength() < 5 * ShipMeasure::YLength)
+        distance.Sub(player.CentralLine.Rear);
+        float length = distance.GetLength();
+        if (length < 4 * ShipMeasure::YLength)
         {
-            _positions.Add(distance.X);
+            _enemyDistance.Add(distance);
         }
     }
 }
 
 void EnemyShipMarkRenderer::RenderMarks(Ship& player, Track& track)
 {
-    if (_positions.GetCount() > 0)
+    if (_enemyDistance.GetCount() > 0)
     {
-        for (int i = 0; i < _positions.GetCount(); i++)
+        for (int i = 0; i < _enemyDistance.GetCount(); i++)
         {
             RenderMark(i, player, track);
         }
 
-        _positions.Clear();
+        _enemyDistance.Clear();
     }
 }
 
@@ -57,35 +58,35 @@ void EnemyShipMarkRenderer::RenderMark(int markIndex, Ship& player, Track& track
     glPushMatrix();
     glLoadIdentity();
 
-    Vector3& insideTrackPoint = track.InsidePoints[player.CentralLine.TrackPointIndexFront];
-    Vector3& outsideTrackPoint = track.OutsidePoints[player.CentralLine.TrackPointIndexFront];
-
-    Vector3 insideDirection(insideTrackPoint);
+    Vector3 insideDirection(track.InsidePoints[player.CentralLine.TrackPointIndexFront]);
     insideDirection.Sub(player.CentralLine.Front);
 
-    Vector3 outsideDirection(outsideTrackPoint);
+    Vector3 outsideDirection(track.OutsidePoints[player.CentralLine.TrackPointIndexFront]);
     outsideDirection.Sub(player.CentralLine.Front);
 
     Vector3 playerDirection(player.CentralLine.Front);
     playerDirection.Sub(player.CentralLine.Rear);
-
-    insideDirection.VectorProduct(playerDirection);
-    if (insideDirection.Z > 0.0f)
+    playerDirection.VectorProduct(outsideDirection);
+    float markX = 0.0f;
+    if (playerDirection.Z > 0.0f)
     {
         gluOrtho2D(-outsideDirection.GetLength(), insideDirection.GetLength(), 0.0, 50.0);
+        float dot = _enemyDistance[markIndex].DotProduct(insideDirection) / (_enemyDistance[markIndex].GetLength() * insideDirection.GetLength());
+        markX = dot * _enemyDistance[markIndex].GetLength();
     }
     else
     {
         gluOrtho2D(-insideDirection.GetLength(), outsideDirection.GetLength(), 0.0, 50.0);
+        float dot = _enemyDistance[markIndex].DotProduct(outsideDirection) / (_enemyDistance[markIndex].GetLength() * outsideDirection.GetLength());
+        markX = dot * _enemyDistance[markIndex].GetLength();
     }
 
     glColor4f(RenderConstants::TextColor, RenderConstants::TextColor, RenderConstants::TextColor, 1.0f);
 
-    float x = _positions[markIndex];
     glBegin(GL_TRIANGLES);
-    glVertex2f(x - 0.3f, 0.0f);
-    glVertex2f(x + 0.3f, 0.0f);
-    glVertex2f(x, 1.0f);
+    glVertex2f(markX - 0.3f, 0.0f);
+    glVertex2f(markX + 0.3f, 0.0f);
+    glVertex2f(markX, 1.0f);
     glEnd();
 
     glPopMatrix();

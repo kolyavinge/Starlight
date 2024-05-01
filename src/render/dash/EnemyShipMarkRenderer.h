@@ -9,14 +9,14 @@
 
 class EnemyShipMarkRenderer : public Object
 {
-    List<float> _positions;
+    List<Vector3> _enemyDistance;
 
 public:
     void Render(Ship& player, Collection<Ship*>& allShips, Track& track);
 
 private:
     int GetPlayerIndex(Ship& player, Collection<Ship*>& allShips);
-    void CalculatePositions(int playerIndex, Ship& player, Collection<Ship*>& allShips);
+    void CalculateEmenyDisatance(int playerIndex, Ship& player, Collection<Ship*>& allShips);
     void RenderMarks(Ship& player, Track& track);
     void RenderMark(int markIndex, Ship& player, Track& track);
 };
