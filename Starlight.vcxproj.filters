@@ -208,6 +208,7 @@
     <ClInclude Include="src\render\dash\DamageEffectRenderer.h" />
     <ClInclude Include="src\render\dash\EnemyShipMarkRenderer.h" />
     <ClInclude Include="src\render\dash\FinishDashboardRenderer.h" />
+    <ClInclude Include="src\anx\ColorTemperatureFunc.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -388,6 +389,7 @@
     <ClCompile Include="src\render\dash\DamageEffectRenderer.cpp" />
     <ClCompile Include="src\render\dash\EnemyShipMarkRenderer.cpp" />
     <ClCompile Include="src\render\dash\FinishDashboardRenderer.cpp" />
+    <ClCompile Include="src\anx\ColorTemperatureFunc.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

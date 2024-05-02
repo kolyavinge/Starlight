@@ -44,6 +44,12 @@ public:
         Memory::Zero<T>(_items, Count);
     }
 
+    void CopyFrom(T* range, int count)
+    {
+        if (Count < count) throw ArgumentException();
+        Memory::Copy<T>(range, _items, count);
+    }
+
 private:
     void CheckBounds(int index)
     {
