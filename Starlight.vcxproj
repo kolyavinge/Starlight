@@ -81,6 +81,7 @@
     <ClInclude Include="src\lib\DateTime.h" />
     <ClInclude Include="src\lib\Debug.h" />
     <ClInclude Include="src\lib\Dictionary.h" />
+    <ClInclude Include="src\lib\Directory.h" />
     <ClInclude Include="src\lib\di\Binder.h" />
     <ClInclude Include="src\lib\di\FunctionInstanceHolder.h" />
     <ClInclude Include="src\lib\di\ResolvingFactoryInstanceHolder.h" />
@@ -298,6 +299,7 @@
     <ClCompile Include="src\lib\Assert.cpp" />
     <ClCompile Include="src\lib\DateTime.cpp" />
     <ClCompile Include="src\lib\Debug.cpp" />
+    <ClCompile Include="src\lib\Directory.cpp" />
     <ClCompile Include="src\lib\di\InstanceCollection.cpp" />
     <ClCompile Include="src\lib\di\SingletonInstanceHolder.cpp" />
     <ClCompile Include="src\lib\Environment.cpp" />
