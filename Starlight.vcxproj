@@ -141,6 +141,7 @@
     <ClInclude Include="src\render\common\StarsRenderer.h" />
     <ClInclude Include="src\render\dash\RacePositionRenderer.h" />
     <ClInclude Include="src\render\effect\FadeEffect.h" />
+    <ClInclude Include="src\render\mesh\ExhaustMesh.h" />
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
@@ -355,6 +356,7 @@
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />
     <ClCompile Include="src\render\dash\RacePositionRenderer.cpp" />
     <ClCompile Include="src\render\effect\FadeEffect.cpp" />
+    <ClCompile Include="src\render\mesh\ExhaustMesh.cpp" />
     <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
