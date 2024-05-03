@@ -7,6 +7,11 @@ ShipsRenderer::ShipsRenderer(ShipRenderer& shipRenderer) :
 {
 }
 
+void ShipsRenderer::Update()
+{
+    _shipRenderer.Update();
+}
+
 void ShipsRenderer::Render(Ship& player, Collection<Ship>& enemies)
 {
     glEnable(GL_DEPTH_TEST);

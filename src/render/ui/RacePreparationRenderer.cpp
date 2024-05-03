@@ -59,6 +59,7 @@ void RacePreparationRenderer::Render(Screen& screen)
 
 void RacePreparationRenderer::Update()
 {
+    _shipsRenderer.Update();
     _powerUpRenderer.Update();
 }
 

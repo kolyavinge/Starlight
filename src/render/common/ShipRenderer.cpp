@@ -2,19 +2,27 @@
 #include <calc/Geometry.h>
 #include <calc/ModelMatrix.h>
 #include <model/ShipMeasure.h>
+#include <core/Constants.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/ShipRenderer.h>
 
 ShipRenderer::ShipRenderer(
     Camera& camera,
     ShipMesh& shipMesh,
+    ExhaustMeshRenderer& exhaustMeshRenderer,
     ShaderPrograms& shaderPrograms) :
     _camera(camera),
     _shipMesh(shipMesh),
+    _exhaustMeshRenderer(exhaustMeshRenderer),
     _shaderProgram(shaderPrograms.DefaultShaderProgram),
     _vboMeshRenderer()
 {
     _vboMeshRenderer.Init(shipMesh.GetMesh());
+}
+
+void ShipRenderer::Update()
+{
+    _exhaustMeshRenderer.Update();
 }
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
@@ -22,21 +30,33 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     ModelMatrix modelMatrix;
     ship.GetModelMatrix(modelMatrix);
 
+    glPushMatrix();
+    SetPosition(ship);
+
     _shaderProgram.Use();
     _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 1.0f);
     _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
+    _vboMeshRenderer.Render();
+    _shaderProgram.Unuse();
 
     glPushMatrix();
-    SetPosition(ship);
-    _vboMeshRenderer.Render();
+    glTranslatef(-0.32f, 0.11f, 0.15f);
+    glRotatef(-1.0f, Constants::UpAxis);
+    _exhaustMeshRenderer.Render();
+    glPopMatrix();
+
+    glPushMatrix();
+    glTranslatef(0.325f, 0.11f, 0.15f);
+    glRotatef(1.0f, Constants::UpAxis);
+    _exhaustMeshRenderer.Render();
+    glPopMatrix();
+
     //RenderAIMovingDirections(ship);
     //RenderThrottle(ship);
     glPopMatrix();
-
-    _shaderProgram.Unuse();
 }
 
 void ShipRenderer::SetPosition(Ship& ship)
@@ -112,5 +132,6 @@ ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)
     return new ShipRenderer(
         resolver.Resolve<Camera>(),
         resolver.Resolve<ShipMesh>(),
+        resolver.Resolve<ExhaustMeshRenderer>(),
         resolver.Resolve<ShaderPrograms>());
 }

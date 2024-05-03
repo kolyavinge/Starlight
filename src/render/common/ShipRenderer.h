@@ -7,11 +7,13 @@
 #include <gl/VBOMeshRenderer.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
+#include <render/common/ExhaustMeshRenderer.h>
 
 class ShipRenderer : public Object
 {
     Camera& _camera;
     ShipMesh& _shipMesh;
+    ExhaustMeshRenderer& _exhaustMeshRenderer;
     ShaderProgram& _shaderProgram;
     VBOMeshRenderer _vboMeshRenderer;
 
@@ -19,8 +21,10 @@ public:
     ShipRenderer(
         Camera& camera,
         ShipMesh& shipMesh,
+        ExhaustMeshRenderer& exhaustMeshRenderer,
         ShaderPrograms& shaderPrograms);
 
+    void Update();
     void Render(Ship& ship, int textureIndex);
 
 private:

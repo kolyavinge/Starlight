@@ -74,6 +74,7 @@ void RaceRenderer::Render()
 
 void RaceRenderer::Update()
 {
+    _shipsRenderer.Update();
     _powerUpRenderer.Update();
     _dashboardRenderer.Update(_race.Player);
 }

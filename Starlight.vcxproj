@@ -116,6 +116,7 @@
     <ClInclude Include="src\model\Weapon.h" />
     <ClInclude Include="src\render\common\BackgroundSphere.h" />
     <ClInclude Include="src\render\common\BulletsRenderer.h" />
+    <ClInclude Include="src\render\common\ExhaustMeshRenderer.h" />
     <ClInclude Include="src\render\common\ExplosionRenderer.h" />
     <ClInclude Include="src\render\common\PowerUpRenderer.h" />
     <ClInclude Include="src\render\common\ShipRenderer.h" />
@@ -331,6 +332,7 @@
     <ClCompile Include="src\model\Weapon.cpp" />
     <ClCompile Include="src\render\common\BackgroundSphere.cpp" />
     <ClCompile Include="src\render\common\BulletsRenderer.cpp" />
+    <ClCompile Include="src\render\common\ExhaustMeshRenderer.cpp" />
     <ClCompile Include="src\render\common\ExplosionRenderer.cpp" />
     <ClCompile Include="src\render\common\PowerUpRenderer.cpp" />
     <ClCompile Include="src\render\common\ShipRenderer.cpp" />

@@ -13,6 +13,7 @@ class ShipsRenderer : public Object
 public:
     ShipsRenderer(ShipRenderer& shipRenderer);
 
+    void Update();
     void Render(Ship& player, Collection<Ship>& enemies);
 
 private:

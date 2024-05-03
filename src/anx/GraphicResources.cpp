@@ -227,6 +227,24 @@ String GraphicResources::GetDefaultFragmentShaderPath()
     return path;
 }
 
+String GraphicResources::GetExhaustVertexShaderPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\shaders\\exhaust.vert\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetExhaustFragmentShaderPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\shaders\\exhaust.frag\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetPowerUpHealthFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
@@ -267,6 +285,15 @@ String GraphicResources::GetTrackEdgeTextureFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());
     String name(L"res\\track_edge.jpg\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetExhaustFilesPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\exhaust\0");
     path.Append(name);
 
     return path;

@@ -30,9 +30,12 @@ public:
     static String GetDamageEffectFilePath();
     static String GetDefaultVertexShaderPath();
     static String GetDefaultFragmentShaderPath();
+    static String GetExhaustVertexShaderPath();
+    static String GetExhaustFragmentShaderPath();
     static String GetPowerUpHealthFilePath();
     static String GetPowerUpMachinegunFilePath();
     static String GetPowerUpNitroFilePath();
     static String GetTrackGround1TextureFilePath();
     static String GetTrackEdgeTextureFilePath();
+    static String GetExhaustFilesPath();
 };

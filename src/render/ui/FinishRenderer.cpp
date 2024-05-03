@@ -70,6 +70,7 @@ void FinishRenderer::Render(Screen& screen)
 
 void FinishRenderer::Update()
 {
+    _shipsRenderer.Update();
     _powerUpRenderer.Update();
 }
 
