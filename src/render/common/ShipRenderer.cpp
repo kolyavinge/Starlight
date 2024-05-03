@@ -42,17 +42,20 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     _vboMeshRenderer.Render();
     _shaderProgram.Unuse();
 
-    glPushMatrix();
-    glTranslatef(-0.32f, 0.11f, 0.15f);
-    glRotatef(-1.0f, Constants::UpAxis);
-    _exhaustMeshRenderer.Render();
-    glPopMatrix();
+    if (ship.State != ShipState::Destroyed)
+    {
+        glPushMatrix();
+        glTranslatef(-0.32f, 0.11f, 0.15f);
+        glRotatef(-1.0f, Constants::UpAxis);
+        _exhaustMeshRenderer.Render();
+        glPopMatrix();
 
-    glPushMatrix();
-    glTranslatef(0.325f, 0.11f, 0.15f);
-    glRotatef(1.0f, Constants::UpAxis);
-    _exhaustMeshRenderer.Render();
-    glPopMatrix();
+        glPushMatrix();
+        glTranslatef(0.325f, 0.11f, 0.15f);
+        glRotatef(1.0f, Constants::UpAxis);
+        _exhaustMeshRenderer.Render();
+        glPopMatrix();
+    }
 
     //RenderAIMovingDirections(ship);
     //RenderThrottle(ship);
