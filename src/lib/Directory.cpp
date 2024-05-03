@@ -5,16 +5,21 @@
 void Directory::GetFiles(String directory, List<String>& files)
 {
     WIN32_FIND_DATA findData;
-    HANDLE fileHandle = FindFirstFile(directory.GetWCharBuf(), &findData);
+    String searchPath(directory);
+    searchPath.Append(L"\\*");
+    HANDLE fileHandle = FindFirstFile(searchPath.GetWCharBuf(), &findData);
     if (fileHandle == INVALID_HANDLE_VALUE)
     {
         throw ArgumentException();
     }
+    String fileName;
     while (FindNextFile(fileHandle, &findData))
     {
         if (!(findData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
         {
-            files.Add(String(findData.cFileName));
+            fileName.Clear();
+            fileName.Append(directory).Append(L"\\").Append(findData.cFileName);
+            files.Add(fileName);
         }
     }
     FindClose(fileHandle);

@@ -82,20 +82,35 @@ wchar_t& String::operator[](int index)
     return _symb[index];
 }
 
-void String::Append(const wchar_t appended)
+String& String::Append(const wchar_t* appended)
+{
+    int appendedCount = GetLength(appended);
+    int newCount = _count + appendedCount + 1; // +1 - zero terminated
+    ResizeIfNeeded(newCount);
+    Memory::Copy<wchar_t>(appended, &_symb[_count], appendedCount);
+    _count += appendedCount;
+
+    return *this;
+}
+
+String& String::Append(const wchar_t appended)
 {
     int newCount = _count + 1 + 1; // +1 - zero terminated
     ResizeIfNeeded(newCount);
     _symb[_count] = appended;
     _count++;
+
+    return *this;
 }
 
-void String::Append(String& appended)
+String& String::Append(String& appended)
 {
     int newCount = _count + appended._count + 1; // +1 - zero terminated
     ResizeIfNeeded(newCount);
     Memory::Copy<wchar_t>(appended._symb, &_symb[_count], appended._count);
     _count += appended._count;
+
+    return *this;
 }
 
 int String::IndexOf(const wchar_t ch)

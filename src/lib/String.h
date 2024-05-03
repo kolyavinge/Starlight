@@ -25,8 +25,9 @@ public:
     String& operator=(const String& copy);
     int GetLength();
     wchar_t& operator[](int index);
-    void Append(const wchar_t appended);
-    void Append(String& appended);
+    String& Append(const wchar_t* appended);
+    String& Append(const wchar_t appended);
+    String& Append(String& appended);
     int IndexOf(const wchar_t ch);
     int LastIndexOf(const wchar_t ch);
     String Substring(int startIndex, int count);
