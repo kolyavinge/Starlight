@@ -1,7 +1,8 @@
 #include <gl/opengl.h>
-#include <render/common/ExhaustMeshRenderer.h>
+#include <lib/Math.h>
+#include <render/common/ExhaustRenderer.h>
 
-ExhaustMeshRenderer::ExhaustMeshRenderer(
+ExhaustRenderer::ExhaustRenderer(
     ExhaustMesh& exhaustMesh,
     ShaderPrograms& shaderPrograms) :
     _exhaustMesh(exhaustMesh),
@@ -11,7 +12,7 @@ ExhaustMeshRenderer::ExhaustMeshRenderer(
     _vboMeshRenderer.Init(_exhaustMesh.GetMesh());
 }
 
-void ExhaustMeshRenderer::Update()
+void ExhaustRenderer::Update()
 {
     _activeTextureIndex++;
     if (_activeTextureIndex == _exhaustMesh.GetMesh().Textures.GetCount())
@@ -20,19 +21,23 @@ void ExhaustMeshRenderer::Update()
     }
 }
 
-void ExhaustMeshRenderer::Render()
+void ExhaustRenderer::Render(Ship& ship)
 {
     glEnable(GL_BLEND);
+
     _shaderProgram.Use();
+    float lengthRate = Math::Max(ship.VelocityValue / ship.VelocityFunction.InitMaxVelocity, 0.3f);
+    _shaderProgram.SetUniform("lengthRate", lengthRate);
     _vboMeshRenderer.SetActiveTextureIndex(_activeTextureIndex);
     _vboMeshRenderer.Render();
     _shaderProgram.Unuse();
+
     glDisable(GL_BLEND);
 }
 
-ExhaustMeshRenderer* ExhaustMeshRendererResolvingFactory::Make(Resolver& resolver)
+ExhaustRenderer* ExhaustMeshRendererResolvingFactory::Make(Resolver& resolver)
 {
-    return new ExhaustMeshRenderer(
+    return new ExhaustRenderer(
         resolver.Resolve<ExhaustMesh>(),
         resolver.Resolve<ShaderPrograms>());
 }

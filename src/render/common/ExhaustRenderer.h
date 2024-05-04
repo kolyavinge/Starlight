@@ -2,11 +2,12 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
+#include <model/Ship.h>
 #include <gl/VBOMeshRenderer.h>
 #include <render/mesh/ExhaustMesh.h>
 #include <render/shader/ShaderPrograms.h>
 
-class ExhaustMeshRenderer : public Object
+class ExhaustRenderer : public Object
 {
     int _activeTextureIndex;
     ExhaustMesh& _exhaustMesh;
@@ -14,16 +15,16 @@ class ExhaustMeshRenderer : public Object
     VBOMeshRenderer _vboMeshRenderer;
 
 public:
-    ExhaustMeshRenderer(
+    ExhaustRenderer(
         ExhaustMesh& exhaustMesh,
         ShaderPrograms& shaderPrograms);
 
     void Update();
-    void Render();
+    void Render(Ship& ship);
 };
 
-class ExhaustMeshRendererResolvingFactory : public ResolvingFactory<ExhaustMeshRenderer>
+class ExhaustMeshRendererResolvingFactory : public ResolvingFactory<ExhaustRenderer>
 {
 public:
-    ExhaustMeshRenderer* Make(Resolver& resolver) override;
+    ExhaustRenderer* Make(Resolver& resolver) override;
 };

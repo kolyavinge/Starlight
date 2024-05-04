@@ -7,13 +7,13 @@
 #include <gl/VBOMeshRenderer.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
-#include <render/common/ExhaustMeshRenderer.h>
+#include <render/common/ExhaustRenderer.h>
 
 class ShipRenderer : public Object
 {
     Camera& _camera;
     ShipMesh& _shipMesh;
-    ExhaustMeshRenderer& _exhaustMeshRenderer;
+    ExhaustRenderer& _exhaustRenderer;
     ShaderProgram& _shaderProgram;
     VBOMeshRenderer _vboMeshRenderer;
 
@@ -21,7 +21,7 @@ public:
     ShipRenderer(
         Camera& camera,
         ShipMesh& shipMesh,
-        ExhaustMeshRenderer& exhaustMeshRenderer,
+        ExhaustRenderer& exhaustRenderer,
         ShaderPrograms& shaderPrograms);
 
     void Update();

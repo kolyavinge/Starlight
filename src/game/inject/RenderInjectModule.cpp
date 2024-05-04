@@ -3,7 +3,7 @@
 #include <render/common/BulletsRenderer.h>
 #include <render/common/CountdownRenderer.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
-#include <render/common/ExhaustMeshRenderer.h>
+#include <render/common/ExhaustRenderer.h>
 #include <render/common/ExplosionRenderer.h>
 #include <render/common/FinishTextRenderer.h>
 #include <render/common/GoRenderer.h>
@@ -48,7 +48,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<BulletsRenderer, BulletsRendererResolvingFactory>();
     binder.BindSingletonByFactory<CountdownRenderer, CountdownRendererResolvingFactory>();
     binder.BindSingletonByFactory<EnemyShipsHealthRenderer, EnemyShipsHealthRendererResolvingFactory>();
-    binder.BindSingletonByFactory<ExhaustMeshRenderer, ExhaustMeshRendererResolvingFactory>();
+    binder.BindSingletonByFactory<ExhaustRenderer, ExhaustMeshRendererResolvingFactory>();
     binder.BindSingletonByFactory<ExplosionRenderer, ExplosionRendererResolvingFactory>();
     binder.BindSingletonByFactory<FinishTextRenderer, FinishTextRendererResolvingFactory>();
     binder.BindSingletonByFactory<GoRenderer, GoRendererResolvingFactory>();

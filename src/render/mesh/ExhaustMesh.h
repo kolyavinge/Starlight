@@ -10,8 +10,8 @@ class ExhaustMesh : public Object
 
 public:
     inline static const float FromRadius = 0.09f;
-    inline static const float ToRadius = 0.065f;
-    inline static const float Length = 1.0f;
+    inline static const float ToRadius = 0.05f;
+    inline static const float Length = 1.5f;
 
     ExhaustMesh();
 

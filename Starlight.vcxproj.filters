@@ -211,7 +211,7 @@
     <ClInclude Include="src\anx\ColorTemperatureFunc.h" />
     <ClInclude Include="src\lib\Directory.h" />
     <ClInclude Include="src\render\mesh\ExhaustMesh.h" />
-    <ClInclude Include="src\render\common\ExhaustMeshRenderer.h" />
+    <ClInclude Include="src\render\common\ExhaustRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -395,7 +395,7 @@
     <ClCompile Include="src\anx\ColorTemperatureFunc.cpp" />
     <ClCompile Include="src\lib\Directory.cpp" />
     <ClCompile Include="src\render\mesh\ExhaustMesh.cpp" />
-    <ClCompile Include="src\render\common\ExhaustMeshRenderer.cpp" />
+    <ClCompile Include="src\render\common\ExhaustRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

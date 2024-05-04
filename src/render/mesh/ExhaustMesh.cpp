@@ -24,7 +24,7 @@ Mesh& ExhaustMesh::GetMesh()
 void ExhaustMesh::MakeVertices(int pointsCount)
 {
     const float radianStep = Math::PiDouble / (float)pointsCount;
-    const float startRadians = 3.0f * Math::Pi / 2.0f;
+    const float startRadians = Math::Pi;
     float x, z, sin, cos;
 
     float radians = startRadians;
@@ -83,7 +83,7 @@ void ExhaustMesh::MakeTextureCoords(int pointsCount)
 
 void ExhaustMesh::MakeFaces()
 {
-    for (int vertexIndex = 0; vertexIndex < _mesh.VertexCoords.GetCount(); vertexIndex++)
+    for (int vertexIndex = 0; vertexIndex < _mesh.VertexCoords.GetCount() - 3; vertexIndex++)
     {
         _mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
         _mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
@@ -94,6 +94,7 @@ void ExhaustMesh::LoadTextures()
 {
     List<String> frameFiles;
     Directory::GetFiles(GraphicResources::GetExhaustFilesPath(), frameFiles);
+    _mesh.Textures.PrepareEnoughCapacity(frameFiles.GetCount());
     for (int i = 0; i < frameFiles.GetCount(); i++)
     {
         _mesh.Textures.AddNew().Load(frameFiles[i]);

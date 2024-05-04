@@ -9,11 +9,11 @@
 ShipRenderer::ShipRenderer(
     Camera& camera,
     ShipMesh& shipMesh,
-    ExhaustMeshRenderer& exhaustMeshRenderer,
+    ExhaustRenderer& exhaustRenderer,
     ShaderPrograms& shaderPrograms) :
     _camera(camera),
     _shipMesh(shipMesh),
-    _exhaustMeshRenderer(exhaustMeshRenderer),
+    _exhaustRenderer(exhaustRenderer),
     _shaderProgram(shaderPrograms.DefaultShaderProgram),
     _vboMeshRenderer()
 {
@@ -22,7 +22,7 @@ ShipRenderer::ShipRenderer(
 
 void ShipRenderer::Update()
 {
-    _exhaustMeshRenderer.Update();
+    _exhaustRenderer.Update();
 }
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
@@ -45,15 +45,15 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     if (ship.State != ShipState::Destroyed)
     {
         glPushMatrix();
-        glTranslatef(-0.32f, 0.11f, 0.15f);
-        glRotatef(-1.0f, Constants::UpAxis);
-        _exhaustMeshRenderer.Render();
+        glTranslatef(-0.32f, 0.12f, 0.15f);
+        glRotatef(-0.8f, Constants::UpAxis);
+        _exhaustRenderer.Render(ship);
         glPopMatrix();
 
         glPushMatrix();
-        glTranslatef(0.325f, 0.11f, 0.15f);
-        glRotatef(1.0f, Constants::UpAxis);
-        _exhaustMeshRenderer.Render();
+        glTranslatef(0.325f, 0.12f, 0.15f);
+        glRotatef(0.9f, Constants::UpAxis);
+        _exhaustRenderer.Render(ship);
         glPopMatrix();
     }
 
@@ -135,6 +135,6 @@ ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)
     return new ShipRenderer(
         resolver.Resolve<Camera>(),
         resolver.Resolve<ShipMesh>(),
-        resolver.Resolve<ExhaustMeshRenderer>(),
+        resolver.Resolve<ExhaustRenderer>(),
         resolver.Resolve<ShaderPrograms>());
 }
