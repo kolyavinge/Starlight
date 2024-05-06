@@ -1,3 +1,4 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <lib/Math.h>
 #include <render/common/ExhaustRenderer.h>
@@ -23,6 +24,7 @@ void ExhaustRenderer::Update()
 
 void ExhaustRenderer::Render(Ship& ship)
 {
+    glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
 
     _shaderProgram.Use();
@@ -33,6 +35,7 @@ void ExhaustRenderer::Render(Ship& ship)
     _shaderProgram.Unuse();
 
     glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
 }
 
 ExhaustRenderer* ExhaustMeshRendererResolvingFactory::Make(Resolver& resolver)

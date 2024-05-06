@@ -1,3 +1,4 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackRenderer.h>
@@ -35,9 +36,11 @@ void TrackRenderer::Render()
     _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 0.6f);
 
+    glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
     _groundVBO.Render();
     glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
 
     _edgeVBO.Render();
 
