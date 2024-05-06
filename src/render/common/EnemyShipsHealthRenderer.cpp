@@ -1,13 +1,17 @@
+#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
 
-void EnemyShipsHealthRenderer::Render(Collection<Ship>& enemies)
+void EnemyShipsHealthRenderer::Render(Ship& player, Collection<Ship>& enemies)
 {
     for (int i = 0; i < enemies.GetCount(); i++)
     {
-        Render(enemies[i]);
+        if (IsEnemyAheadPlayer(player, enemies[i]))
+        {
+            Render(enemies[i]);
+        }
     }
 }
 
@@ -41,7 +45,9 @@ void EnemyShipsHealthRenderer::Render(Ship& ship)
         glColor3f(0.0f, 0.6f, 0.1f);
     }
 
-    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_BLEND);
+
     glBegin(GL_QUADS);
     glVertex3f(0.0f, 0.0f, 0.0f);
     glVertex3f(position);
@@ -49,9 +55,31 @@ void EnemyShipsHealthRenderer::Render(Ship& ship)
     glVertex3f(position);
     glVertex3f(down);
     glEnd();
-    glDisable(GL_DEPTH_TEST);
+
+    glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
 
     glPopMatrix();
+}
+
+bool EnemyShipsHealthRenderer::IsEnemyAheadPlayer(Ship& player, Ship& enemy)
+{
+    Vector3 distance(enemy.CentralLine.Front);
+    distance.Sub(player.CentralLine.Front);
+    float distanceLength = distance.GetLength();
+    if (distanceLength > 100.0f)
+    {
+        return false;
+    }
+    distance.Div(distanceLength); // Normalize
+
+    Vector3 playerDirection(player.CentralLine.Front);
+    playerDirection.Sub(player.CentralLine.Rear);
+    playerDirection.Normalize();
+
+    float dot = distance.DotProduct(playerDirection);
+
+    return Numeric::Between(dot, -0.2f, 1.0f);
 }
 
 EnemyShipsHealthRenderer* EnemyShipsHealthRendererResolvingFactory::Make(Resolver&)

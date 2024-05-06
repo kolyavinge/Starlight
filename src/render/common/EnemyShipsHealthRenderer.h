@@ -8,10 +8,11 @@
 class EnemyShipsHealthRenderer : public Object
 {
 public:
-    void Render(Collection<Ship>& enemies);
+    void Render(Ship& player, Collection<Ship>& enemies);
 
 private:
     void Render(Ship& ship);
+    bool IsEnemyAheadPlayer(Ship& player, Ship& enemy);
 };
 
 class EnemyShipsHealthRendererResolvingFactory : public ResolvingFactory<EnemyShipsHealthRenderer>
