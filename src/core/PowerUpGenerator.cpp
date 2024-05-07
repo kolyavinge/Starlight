@@ -24,7 +24,7 @@ void PowerUpGenerator::GeneratePowerUps(List<PowerUp>& powerUps)
 {
     powerUps.Clear();
     // health
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 1; i++)
     {
         PowerUp p;
         GenerateHealthPowerUp(p);
@@ -50,7 +50,7 @@ void PowerUpGenerator::GenerateHealthPowerUp(PowerUp& powerUp)
 {
     powerUp.IsActive = false;
     powerUp.Kind = PowerUpKind::Health;
-    powerUp.Value = 0.25f;
+    powerUp.Value = 0.2f;
 }
 
 void PowerUpGenerator::GenerateMachinegunPowerUp(PowerUp& powerUp)
