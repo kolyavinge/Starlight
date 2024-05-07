@@ -31,6 +31,7 @@ MirrorViewRenderer::MirrorViewRenderer(
 void MirrorViewRenderer::Render()
 {
     UpdateTexture();
+    RenderBorder();
     RenderTexture();
 }
 
@@ -72,7 +73,7 @@ void MirrorViewRenderer::RenderTexture()
     glPushMatrix();
     glTranslatef(
         (Constants::ScreenWidth - _mirrorWidth) / 2.0f,
-        Constants::ScreenHeight - _mirrorHeight,
+        Constants::ScreenHeight - _mirrorHeight - 4.0f,
         0.0f);
     glBegin(GL_QUADS);
 
@@ -92,6 +93,28 @@ void MirrorViewRenderer::RenderTexture()
     glPopMatrix();
 
     glDisable(GL_TEXTURE_2D);
+}
+
+void MirrorViewRenderer::RenderBorder()
+{
+    const float borderSize = 1.0f;
+    glColor4f(0.0f, 0.0f, 0.0f, 1.0f);
+    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_BLEND);
+    glPushMatrix();
+    glTranslatef(
+        (Constants::ScreenWidth - _mirrorWidth) / 2.0f - borderSize,
+        Constants::ScreenHeight - _mirrorHeight - 4.0f - borderSize,
+        0.0f);
+    glBegin(GL_QUADS);
+    glVertex2f(0.0f, 0.0f);
+    glVertex2f(_mirrorWidth + 2.0f * borderSize, 0.0f);
+    glVertex2f(_mirrorWidth + 2.0f * borderSize, _mirrorHeight + 2.0f * borderSize);
+    glVertex2f(0.0f, _mirrorHeight + 2.0f * borderSize);
+    glEnd();
+    glPopMatrix();
+    glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
 }
 
 void MirrorViewRenderer::InitFBO()

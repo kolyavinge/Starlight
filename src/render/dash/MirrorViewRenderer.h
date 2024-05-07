@@ -41,6 +41,7 @@ public:
 private:
     void UpdateTexture();
     void RenderTexture();
+    void RenderBorder();
     void InitFBO();
 };
 
