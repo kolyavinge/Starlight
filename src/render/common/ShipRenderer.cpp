@@ -45,13 +45,13 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     if (ship.State != ShipState::Destroyed)
     {
         glPushMatrix();
-        glTranslatef(-0.32f, 0.12f, 0.15f);
+        glTranslatef(-0.32f, 0.16f, 0.15f);
         glRotatef(-0.8f, Constants::UpAxis);
         _exhaustRenderer.Render(ship);
         glPopMatrix();
 
         glPushMatrix();
-        glTranslatef(0.325f, 0.12f, 0.15f);
+        glTranslatef(0.325f, 0.16f, 0.15f);
         glRotatef(0.9f, Constants::UpAxis);
         _exhaustRenderer.Render(ship);
         glPopMatrix();

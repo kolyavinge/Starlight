@@ -18,7 +18,7 @@ public:
 // Диапазон от 1000K до 40 000K с шагом 100
 class ColorTemperatureFunc : public Object
 {
-    inline static const int ColorsCount = 391;
+    inline static const int ColorsCount = 150;
     inline static const float ColorsMaxIndexFloat = (float)(ColorsCount - 1);
 
     Array<NormalizedRGB, ColorsCount> _colors;

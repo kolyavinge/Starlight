@@ -2,16 +2,15 @@
 #include <lib/String.h>
 #include <lib/Directory.h>
 #include <lib/Math.h>
-#include <calc/Vector3.h>
 #include <anx/GraphicResources.h>
 #include <render/mesh/ExhaustMesh.h>
 
 ExhaustMesh::ExhaustMesh()
 {
-    const int pointsCount = 32;
-    MakeVertices(pointsCount);
-    MakeNormals(pointsCount);
-    MakeTextureCoords(pointsCount);
+    MakeRadiusPoints();
+    MakeVertices();
+    MakeNormals();
+    MakeTextureCoords();
     MakeFaces();
     LoadTextures();
 }
@@ -21,44 +20,43 @@ Mesh& ExhaustMesh::GetMesh()
     return _mesh;
 }
 
-void ExhaustMesh::MakeVertices(int pointsCount)
+void ExhaustMesh::MakeRadiusPoints()
 {
-    const float radianStep = Math::PiDouble / (float)pointsCount;
+    const float radianStep = Math::PiDouble / (float)CirclePointsCount;
     const float startRadians = Math::Pi;
     float x, z, sin, cos;
-
     float radians = startRadians;
-    for (int i = 0; i < pointsCount; i++)
+    for (int pointIndex = 0; pointIndex < CirclePointsCount; pointIndex++)
     {
-        cos = Math::Cos(radians);
         sin = Math::Sin(radians);
+        cos = Math::Cos(radians);
 
         x = FromRadius * cos;
         z = FromRadius * sin;
-        _mesh.VertexCoords.Add(Vector3(x, 0.0f, z));
+        FromRadiusPoints[pointIndex] = Vector3(x, 0.0f, z);
 
         x = ToRadius * cos;
         z = ToRadius * sin;
-        _mesh.VertexCoords.Add(Vector3(x, -Length, z));
+        ToRadiusPoints[pointIndex] = Vector3(x, -Length, z);
 
         radians += radianStep;
     }
-
-    cos = Math::Cos(startRadians);
-    sin = Math::Sin(startRadians);
-
-    x = FromRadius * cos;
-    z = FromRadius * sin;
-    _mesh.VertexCoords.Add(Vector3(x, 0.0f, z));
-
-    x = ToRadius * cos;
-    z = ToRadius * sin;
-    _mesh.VertexCoords.Add(Vector3(x, -Length, z));
 }
 
-void ExhaustMesh::MakeNormals(int pointsCount)
+void ExhaustMesh::MakeVertices()
 {
-    for (int i = 0; i < pointsCount; i++)
+    for (int pointIndex = 0; pointIndex < CirclePointsCount; pointIndex++)
+    {
+        _mesh.VertexCoords.Add(FromRadiusPoints[pointIndex]);
+        _mesh.VertexCoords.Add(ToRadiusPoints[pointIndex]);
+    }
+    _mesh.VertexCoords.Add(FromRadiusPoints[0]);
+    _mesh.VertexCoords.Add(ToRadiusPoints[0]);
+}
+
+void ExhaustMesh::MakeNormals()
+{
+    for (int i = 0; i < CirclePointsCount; i++)
     {
         _mesh.NormalCoords.AddNew();
         _mesh.NormalCoords.AddNew();
@@ -67,11 +65,11 @@ void ExhaustMesh::MakeNormals(int pointsCount)
     _mesh.NormalCoords.AddNew();
 }
 
-void ExhaustMesh::MakeTextureCoords(int pointsCount)
+void ExhaustMesh::MakeTextureCoords()
 {
-    const float textureStep = 1.0f / (float)pointsCount;
+    const float textureStep = 1.0f / (float)CirclePointsCount;
     float textureY = 0.0f;
-    for (int i = 0; i < pointsCount; i++)
+    for (int i = 0; i < CirclePointsCount; i++)
     {
         _mesh.TextureCoords.Add(Point2(1.0f, textureY));
         _mesh.TextureCoords.Add(Point2(0.0f, textureY));

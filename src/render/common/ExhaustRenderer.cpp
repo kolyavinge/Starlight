@@ -23,18 +23,35 @@ void ExhaustRenderer::Update()
 
 void ExhaustRenderer::Render(Ship& ship)
 {
+    const float velocityRate = ship.VelocityValue / ship.VelocityFunction.InitMaxVelocity;
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
+    RenderNoozle(velocityRate);
+    RenderFlame(velocityRate);
+    glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
+}
 
+void ExhaustRenderer::RenderNoozle(float velocityRate)
+{
+    NormalizedRGB tempColor = _colorTemperatureFunc.GetColor(Math::Min(velocityRate, 1.0f));
+    glColor4f(tempColor.R, tempColor.G, tempColor.B, 0.5f);
+    glBegin(GL_POLYGON);
+    for (int pointIndex = 0; pointIndex < ExhaustMesh::CirclePointsCount; pointIndex++)
+    {
+        glVertex3f(_exhaustMesh.FromRadiusPoints[pointIndex]);
+    }
+    glEnd();
+}
+
+void ExhaustRenderer::RenderFlame(float velocityRate)
+{
+    const float lengthRate = Math::Max(velocityRate, 0.3f);
     _shaderProgram.Use();
-    float lengthRate = Math::Max(ship.VelocityValue / ship.VelocityFunction.InitMaxVelocity, 0.3f);
     _shaderProgram.SetUniform("lengthRate", lengthRate);
     _vboMeshRenderer.SetActiveTextureIndex(_activeTextureIndex);
     _vboMeshRenderer.Render();
     _shaderProgram.Unuse();
-
-    glDisable(GL_BLEND);
-    glDisable(GL_MULTISAMPLE);
 }
 
 ExhaustRenderer* ExhaustMeshRendererResolvingFactory::Make(Resolver& resolver)
