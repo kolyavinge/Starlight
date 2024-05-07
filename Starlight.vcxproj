@@ -137,6 +137,7 @@
     <ClInclude Include="src\render\common\EnemyShipsHealthRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailGridRenderer.h" />
     <ClInclude Include="src\render\common\TrackThumbnailRenderer.h" />
+    <ClInclude Include="src\render\dash\MirrorViewRenderer.h" />
     <ClInclude Include="src\render\dash\NitroCountRenderer.h" />
     <ClInclude Include="src\render\dash\HealthRenderer.h" />
     <ClInclude Include="src\render\common\StarsRenderer.h" />
@@ -353,6 +354,7 @@
     <ClCompile Include="src\render\common\EnemyShipsHealthRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailGridRenderer.cpp" />
     <ClCompile Include="src\render\common\TrackThumbnailRenderer.cpp" />
+    <ClCompile Include="src\render\dash\MirrorViewRenderer.cpp" />
     <ClCompile Include="src\render\dash\NitroCountRenderer.cpp" />
     <ClCompile Include="src\render\dash\HealthRenderer.cpp" />
     <ClCompile Include="src\render\common\BackgroundRenderer.cpp" />

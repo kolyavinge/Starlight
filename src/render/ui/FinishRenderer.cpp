@@ -54,7 +54,7 @@ void FinishRenderer::Render(Screen& screen)
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render();
-    _shipsRenderer.Render(_race.Player, _race.Enemies);
+    _shipsRenderer.RenderAllShips(_race.Player, _race.Enemies);
     _bulletsRenderer.Render(_race.Player, _race.Enemies);
     _explosionRenderer.Render(_race.Player, _race.AllShips);
     _powerUpRenderer.Render(_race.PowerUps);

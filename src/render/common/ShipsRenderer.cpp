@@ -12,12 +12,10 @@ void ShipsRenderer::Update()
     _shipRenderer.Update();
 }
 
-void ShipsRenderer::Render(Ship& player, Collection<Ship>& enemies)
+void ShipsRenderer::RenderAllShips(Ship& player, Collection<Ship>& enemies)
 {
-    glEnable(GL_DEPTH_TEST);
     RenderPlayer(player);
     RenderEnemies(enemies);
-    glDisable(GL_DEPTH_TEST);
 }
 
 void ShipsRenderer::RenderPlayer(Ship& player)
@@ -44,6 +42,8 @@ void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
 
 void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
 {
+    glEnable(GL_DEPTH_TEST);
+
     if (ship.State == ShipState::Active)
     {
         _shipRenderer.Render(ship, defaultTexture);
@@ -63,6 +63,8 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
     {
         Assert::Fail();
     }
+
+    glDisable(GL_DEPTH_TEST);
 }
 
 ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver& resolver)

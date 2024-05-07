@@ -26,6 +26,7 @@
 #include <render/dash/HealthRenderer.h>
 #include <render/dash/LapsCountRenderer.h>
 #include <render/dash/LapTimeRenderer.h>
+#include <render/dash/MirrorViewRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/RacePositionRenderer.h>
 #include <render/mesh/ExhaustMesh.h>
@@ -70,6 +71,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<HealthRenderer, HealthRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapsCountRenderer, LapsCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<LapTimeRenderer, LapTimeRendererResolvingFactory>();
+    binder.BindSingletonByFactory<MirrorViewRenderer, MirrorViewRendererResolvingFactory>();
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<RacePositionRenderer, RacePositionRendererResolvingFactory>();
     binder.BindSingletonByFactory<ExhaustMesh, ExhaustMeshResolvingFactory>();

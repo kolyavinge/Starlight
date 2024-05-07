@@ -43,7 +43,7 @@ void RacePreparationRenderer::Render(Screen& screen)
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render();
-    _shipsRenderer.Render(_race.Player, _race.Enemies);
+    _shipsRenderer.RenderAllShips(_race.Player, _race.Enemies);
     _powerUpRenderer.Render(_race.PowerUps);
 
     glEnable(GL_BLEND);

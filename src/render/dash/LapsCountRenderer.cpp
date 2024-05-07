@@ -21,7 +21,7 @@ void LapsCountRenderer::Render(Laps& laps)
 
     float lapsCountStringWidth = _lapsCountString.GetLength() * _textRenderer.GetLetterWidth();
     glTranslatef(
-        (Constants::ScreenWidth - lapsCountStringWidth) / 2.0f,
+        (Constants::ScreenWidth - lapsCountStringWidth) / 4.0f,
         Constants::ScreenHeight - _textRenderer.GetLetterHeight(),
         0.0f);
     _textRenderer.Render(_lapsCountString);

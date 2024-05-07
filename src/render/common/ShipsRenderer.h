@@ -14,11 +14,11 @@ public:
     ShipsRenderer(ShipRenderer& shipRenderer);
 
     void Update();
-    void Render(Ship& player, Collection<Ship>& enemies);
-
-private:
+    void RenderAllShips(Ship& player, Collection<Ship>& enemies);
     void RenderPlayer(Ship& player);
     void RenderEnemies(Collection<Ship>& enemies);
+
+private:
     void RenderShip(Ship& ship, int defaultTexture);
 };
 

@@ -10,7 +10,8 @@ DashboardRenderer::DashboardRenderer(
     HealthRenderer& healthRenderer,
     BulletsCountRenderer& bulletsCountRenderer,
     NitroCountRenderer& nitroCountRenderer,
-    RacePositionRenderer& racePositionRenderer) :
+    RacePositionRenderer& racePositionRenderer,
+    MirrorViewRenderer& mirrorViewRenderer) :
     _lapsCountRenderer(lapsCountRenderer),
     _lapTimeRenderer(lapTimeRenderer),
     _completeLapTimeRenderer(completeLapTimeRenderer),
@@ -20,7 +21,8 @@ DashboardRenderer::DashboardRenderer(
     _healthRenderer(healthRenderer),
     _bulletsCountRenderer(bulletsCountRenderer),
     _nitroCountRenderer(nitroCountRenderer),
-    _racePositionRenderer(racePositionRenderer)
+    _racePositionRenderer(racePositionRenderer),
+    _mirrorViewRenderer(mirrorViewRenderer)
 {
 }
 
@@ -47,6 +49,7 @@ void DashboardRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track&
     _nitroCountRenderer.Render(player.Nitros);
     _racePositionRenderer.Render(player);
     _enemyShipMarkRenderer.Render(player, allShips, track);
+    _mirrorViewRenderer.Render();
 }
 
 DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
@@ -61,5 +64,6 @@ DashboardRenderer* DashboardRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<HealthRenderer>(),
         resolver.Resolve<BulletsCountRenderer>(),
         resolver.Resolve<NitroCountRenderer>(),
-        resolver.Resolve<RacePositionRenderer>());
+        resolver.Resolve<RacePositionRenderer>(),
+        resolver.Resolve<MirrorViewRenderer>());
 }

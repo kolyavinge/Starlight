@@ -50,15 +50,15 @@ void RaceRenderer::Render()
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
-
     glLoadIdentity();
     gluPerspective(_camera.ViewAngleDegrees, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     gluLookAt(_camera.Position, _camera.LookAt, Constants::UpAxis);
     //gluLookAt(0, 0, 700, 10, 10, 0, 0, 0, 1);
+
     _backgroundRenderer.Render();
     _starsRenderer.Render();
     _trackRenderer.Render();
-    _shipsRenderer.Render(_race.Player, _race.Enemies);
+    _shipsRenderer.RenderAllShips(_race.Player, _race.Enemies);
     _bulletsRenderer.Render(_race.Player, _race.Enemies);
     _enemyShipsHealthRenderer.Render(_race.Player, _race.Enemies);
     _explosionRenderer.Render(_race.Player, _race.AllShips);
