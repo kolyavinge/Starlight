@@ -1,5 +1,5 @@
-#include <gl/opengl.h>
 #include <lib/Assert.h>
+#include <gl/opengl.h>
 #include <render/common/ShipsRenderer.h>
 
 ShipsRenderer::ShipsRenderer(ShipRenderer& shipRenderer) :

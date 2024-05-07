@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <core/Constants.h>
 #include <ui/StartMenuScreen.h>
+#include <gl/opengl.h>
 #include <render/ui/StartMenuRenderer.h>
 
 StartMenuRenderer::StartMenuRenderer(

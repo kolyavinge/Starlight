@@ -1,7 +1,7 @@
-#include <gl/opengl.h>
 #include <lib/Random.h>
 #include <lib/Math.h>
 #include <calc/Geometry.h>
+#include <gl/opengl.h>
 #include <render/common/BackgroundSphere.h>
 #include <render/common/StarsRenderer.h>
 

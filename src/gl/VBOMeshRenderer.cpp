@@ -1,5 +1,5 @@
-#include <glew/glew.h>
 #include <lib/Memory.h>
+#include <gl/opengl.h>
 #include <gl/VBOMeshRenderer.h>
 
 VBOMeshRenderer::VBOMeshRenderer()

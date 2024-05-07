@@ -1,5 +1,5 @@
-#include <gl/opengl.h>
 #include <ui/TrackSelectorScreen.h>
+#include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/ui/TrackSelectorRenderer.h>
 

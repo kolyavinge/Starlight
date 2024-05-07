@@ -1,5 +1,5 @@
-#include <gl/opengl.h>
 #include <anx/GraphicResources.h>
+#include <gl/opengl.h>
 #include <gl/ImageFile.h>
 #include <gl/TextRenderer.h>
 

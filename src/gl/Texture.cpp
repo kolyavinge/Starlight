@@ -1,7 +1,7 @@
-#include <gl/opengl.h>
-#include <soil/SOIL.h>
 #include <lib/File.h>
+#include <gl/opengl.h>
 #include <gl/Texture.h>
+#include <soil/SOIL.h>
 
 Texture::Texture()
 {

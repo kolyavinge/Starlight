@@ -1,6 +1,5 @@
-#include <glew/glew.h>
-#include <gl/opengl.h>
 #include <lib/Math.h>
+#include <gl/opengl.h>
 #include <render/common/ExhaustRenderer.h>
 
 ExhaustRenderer::ExhaustRenderer(

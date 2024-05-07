@@ -1,7 +1,6 @@
-#include <glew/glew.h>
-#include <gl/opengl.h>
 #include <lib/Numeric.h>
 #include <calc/Vector3.h>
+#include <gl/opengl.h>
 #include <render/common/EnemyShipsHealthRenderer.h>
 
 void EnemyShipsHealthRenderer::Render(Ship& player, Collection<Ship>& enemies)

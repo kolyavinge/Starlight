@@ -1,7 +1,7 @@
-#include <gl/opengl.h>
 #include <model/Track.h>
 #include <core/Constants.h>
 #include <anx/GraphicResources.h>
+#include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackThumbnailGridRenderer.h>
 

@@ -1,8 +1,8 @@
-#include <gl/opengl.h>
 #include <calc/Geometry.h>
 #include <calc/ModelMatrix.h>
 #include <model/ShipMeasure.h>
 #include <core/Constants.h>
+#include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/ShipRenderer.h>
 

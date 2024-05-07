@@ -1,5 +1,5 @@
-#include <gl/opengl.h>
 #include <calc/Geometry.h>
+#include <gl/opengl.h>
 #include <render/common/ExplosionRenderer.h>
 
 ExplosionRenderer::ExplosionRenderer(GraphicItemCollection& graphicItemCollection) :

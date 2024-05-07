@@ -1,4 +1,3 @@
-#include <glew/glew.h>
 #include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/common/TrackThumbnailRenderer.h>

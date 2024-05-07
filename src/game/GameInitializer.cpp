@@ -1,9 +1,8 @@
-#include <glew/glew.h>
+#include <core/Constants.h>
+#include <game/GameInitializer.h>
 #include <gl/opengl.h>
 #include <openal/al.h>
 #include <openal/alc.h>
-#include <core/Constants.h>
-#include <game/GameInitializer.h>
 
 void GameInitializer::Init()
 {

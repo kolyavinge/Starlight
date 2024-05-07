@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <core/Constants.h>
 #include <ui/RaceScreen.h>
+#include <gl/opengl.h>
 #include <render/ui/RaceRenderer.h>
 
 RaceRenderer::RaceRenderer(

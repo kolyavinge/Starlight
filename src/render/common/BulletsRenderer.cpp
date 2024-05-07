@@ -1,7 +1,6 @@
-#include <glew/glew.h>
-#include <gl/opengl.h>
 #include <calc/Vector3.h>
 #include <core/Constants.h>
+#include <gl/opengl.h>
 #include <render/common/BulletsRenderer.h>
 
 void BulletsRenderer::Render(Ship& player, Collection<Ship>& enemies)

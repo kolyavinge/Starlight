@@ -1,5 +1,5 @@
-#include <glew/glew.h>
 #include <lib/File.h>
+#include <gl/opengl.h>
 #include <gl/ShaderProgram.h>
 
 ShaderProgram::ShaderProgram()

@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <core/Constants.h>
 #include <ui/FinishScreen.h>
+#include <gl/opengl.h>
 #include <render/ui/FinishRenderer.h>
 
 FinishRenderer::FinishRenderer(

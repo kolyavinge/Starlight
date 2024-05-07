@@ -1,5 +1,5 @@
-#include <gl/opengl.h>
 #include <ui/RacePreparationScreen.h>
+#include <gl/opengl.h>
 #include <render/ui/RacePreparationRenderer.h>
 
 RacePreparationRenderer::RacePreparationRenderer(

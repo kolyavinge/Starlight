@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <lib/Numeric.h>
 #include <core/Constants.h>
+#include <gl/opengl.h>
 #include <render/dash/DamageEffectRenderer.h>
 
 DamageEffectRenderer::DamageEffectRenderer(GraphicItemCollection& graphicItemCollection) :

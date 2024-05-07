@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <lib/Exceptions.h>
 #include <core/Constants.h>
+#include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/dash/RacePositionRenderer.h>
 

@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <lib/Random.h>
 #include <calc/Geometry.h>
+#include <gl/opengl.h>
 #include <render/common/MenuBackgroundRenderer.h>
 
 MenuBackgroundRenderer::MenuBackgroundRenderer(

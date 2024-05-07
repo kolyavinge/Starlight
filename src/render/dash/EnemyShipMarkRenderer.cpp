@@ -1,6 +1,6 @@
-#include <gl/opengl.h>
 #include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
+#include <gl/opengl.h>
 #include <render/common/RenderConstants.h>
 #include <render/dash/EnemyShipMarkRenderer.h>
 
