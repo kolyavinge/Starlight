@@ -213,6 +213,7 @@
     <ClInclude Include="src\render\mesh\ExhaustMesh.h" />
     <ClInclude Include="src\render\common\ExhaustRenderer.h" />
     <ClInclude Include="src\render\dash\MirrorViewRenderer.h" />
+    <ClInclude Include="src\render\mesh\BackgroundSphereMesh.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -398,6 +399,7 @@
     <ClCompile Include="src\render\mesh\ExhaustMesh.cpp" />
     <ClCompile Include="src\render\common\ExhaustRenderer.cpp" />
     <ClCompile Include="src\render\dash\MirrorViewRenderer.cpp" />
+    <ClCompile Include="src\render\mesh\BackgroundSphereMesh.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

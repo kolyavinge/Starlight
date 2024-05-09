@@ -29,6 +29,7 @@
 #include <render/dash/MirrorViewRenderer.h>
 #include <render/dash/NitroCountRenderer.h>
 #include <render/dash/RacePositionRenderer.h>
+#include <render/mesh/BackgroundSphereMesh.h>
 #include <render/mesh/ExhaustMesh.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/mesh/TrackMesh.h>
@@ -74,6 +75,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<MirrorViewRenderer, MirrorViewRendererResolvingFactory>();
     binder.BindSingletonByFactory<NitroCountRenderer, NitroCountRendererResolvingFactory>();
     binder.BindSingletonByFactory<RacePositionRenderer, RacePositionRendererResolvingFactory>();
+    binder.BindSingletonByFactory<BackgroundSphereMesh, BackgroundSphereMeshResolvingFactory>();
     binder.BindSingletonByFactory<ExhaustMesh, ExhaustMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<TrackMesh, TrackMeshResolvingFactory>();
