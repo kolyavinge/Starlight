@@ -1,8 +1,7 @@
 #pragma once
 
-#include <malloc.h>
-#include <cstring>
 #include <lib/Exceptions.h>
+#include <lib/StdFuncs.h>
 
 class MemoryAllocationException : public Exception {};
 
@@ -13,7 +12,7 @@ public:
     static T* AllocAndZero(int itemsCount)
     {
         if (itemsCount <= 0) throw ArgumentException();
-        T* result = (T*)malloc(itemsCount * sizeof(T));
+        T* result = (T*)StdFuncs::Malloc(itemsCount * sizeof(T));
         if (result == nullptr) throw MemoryAllocationException();
         Zero<T>(result, itemsCount);
 
@@ -24,19 +23,19 @@ public:
     static void Zero(T* source, int itemsCount)
     {
         if (itemsCount <= 0) throw ArgumentException();
-        std::memset(source, 0, itemsCount * sizeof(T));
+        StdFuncs::MemSet(source, 0, itemsCount * sizeof(T));
     }
 
     template<class T>
     static void Copy(const T* source, T* dest, int itemsCount)
     {
         if (itemsCount < 0) throw ArgumentException();
-        std::memcpy(dest, source, itemsCount * sizeof(T));
+        StdFuncs::MemCpy(dest, source, itemsCount * sizeof(T));
     }
 
     static void Release(void* source)
     {
-        free(source);
+        StdFuncs::Free(source);
     }
 
     template<class T>

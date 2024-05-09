@@ -102,6 +102,7 @@
     <ClInclude Include="src\lib\Path.h" />
     <ClInclude Include="src\lib\Point2.h" />
     <ClInclude Include="src\calc\SinPeriodValue.h" />
+    <ClInclude Include="src\lib\StdFuncs.h" />
     <ClInclude Include="src\lib\Stopwatch.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\lib\TimeSpan.h" />
@@ -317,6 +318,7 @@
     <ClCompile Include="src\lib\Path.cpp" />
     <ClCompile Include="src\lib\Point2.cpp" />
     <ClCompile Include="src\calc\SinPeriodValue.cpp" />
+    <ClCompile Include="src\lib\StdFuncs.cpp" />
     <ClCompile Include="src\lib\Stopwatch.cpp" />
     <ClCompile Include="src\lib\String.cpp" />
     <ClCompile Include="src\lib\TimeSpan.cpp" />

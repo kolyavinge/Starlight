@@ -219,6 +219,7 @@
     <ClInclude Include="src\render\sm\ShadowMaps.h" />
     <ClInclude Include="src\render\sm\ShipShadowMapUpdater.h" />
     <ClInclude Include="src\render\sm\ShadowMapsUpdater.h" />
+    <ClInclude Include="src\lib\StdFuncs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -409,6 +410,7 @@
     <ClCompile Include="src\render\sm\ShadowMaps.cpp" />
     <ClCompile Include="src\render\sm\ShipShadowMapUpdater.cpp" />
     <ClCompile Include="src\render\sm\ShadowMapsUpdater.cpp" />
+    <ClCompile Include="src\lib\StdFuncs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />
