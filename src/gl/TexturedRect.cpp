@@ -11,9 +11,7 @@ TexturedRect::TexturedRect()
 void TexturedRect::Load(String filePath)
 {
     _texture.Load(filePath);
-    ImageFile image(filePath.GetWCharBuf());
-    _width = image.GetWidth();
-    _height = image.GetHeight();
+    ImageFile::GetSize(filePath.GetWCharBuf(), &_width, &_height);
 }
 
 void TexturedRect::Render()

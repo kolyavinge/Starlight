@@ -11,9 +11,10 @@ FinishTextRenderer::FinishTextRenderer()
     _finishTexture.Load(GraphicResources::GetFinishItemFilePath());
     _zCoords.InitZero();
     _phase = 0.0f;
-    ImageFile image(GraphicResources::GetFinishItemFilePath().GetWCharBuf());
-    _width = (float)image.GetWidth();
-    _height = (float)image.GetHeight();
+    int imageWidth, imageHeight;
+    ImageFile::GetSize(GraphicResources::GetFinishItemFilePath().GetWCharBuf(), &imageWidth, &imageHeight);
+    _width = (float)imageWidth;
+    _height = (float)imageHeight;
     _radiansStep = Math::PiDouble / (float)_zCoords.GetCount();
     _widthStep = _width / (float)_zCoords.GetCount();
     _textureStep = 1.0f / (float)_zCoords.GetCount();

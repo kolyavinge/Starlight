@@ -1,5 +1,6 @@
 #include <lib/Exceptions.h>
 #include <lib/Object.h>
+#include <input/Keys.h>
 #include <ui/TrackSelectorScreen.h>
 
 TrackSelectorScreen::TrackSelectorScreen(
@@ -42,15 +43,16 @@ void TrackSelectorScreen::ProcessInput()
 
     if (IsMenuSelectionActive())
     {
-        if (_inputDevices.Keyboard.IsPressed(VK_UP) ||
+        if (_inputDevices.Keyboard.IsPressed(Keys::Up) ||
+            _inputDevices.Keyboard.IsPressed('W') ||
             _inputDevices.Joystick.IsUpPressed())
         {
             _trackSelector.Reset();
             _activeSelector = &_trackSelector;
         }
         else if (
-            _inputDevices.Keyboard.IsPressed(VK_RETURN) ||
-            _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
+            _inputDevices.Keyboard.IsPressed(Keys::Return) ||
+            _inputDevices.Keyboard.IsPressed(Keys::Space) ||
             _inputDevices.Joystick.IsButton1Pressed())
         {
             if (GetSelectedItem() == TrackSelectorItem::Back)
@@ -66,8 +68,8 @@ void TrackSelectorScreen::ProcessInput()
     }
     else
     {
-        if (_inputDevices.Keyboard.IsPressed(VK_RETURN) ||
-            _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
+        if (_inputDevices.Keyboard.IsPressed(Keys::Return) ||
+            _inputDevices.Keyboard.IsPressed(Keys::Space) ||
             _inputDevices.Joystick.IsButton1Pressed())
         {
             _itemSelector.Reset();

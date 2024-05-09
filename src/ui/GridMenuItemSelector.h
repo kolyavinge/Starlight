@@ -1,7 +1,7 @@
 #pragma once
 
-#include <windows.h>
 #include <lib/Memory.h>
+#include <input/Keys.h>
 #include <input/InputDevices.h>
 #include <ui/MenuItemSelector.h>
 
@@ -37,7 +37,7 @@ public:
 
     bool ProcessSelection(InputDevices& inputDevices) override
     {
-        if (inputDevices.Keyboard.IsPressed(VK_UP) ||
+        if (inputDevices.Keyboard.IsPressed(Keys::Up) ||
             inputDevices.Keyboard.IsPressed('W') ||
             inputDevices.Joystick.IsUpPressed())
         {
@@ -46,7 +46,7 @@ public:
             return true;
         }
 
-        if (inputDevices.Keyboard.IsPressed(VK_DOWN) ||
+        if (inputDevices.Keyboard.IsPressed(Keys::Down) ||
             inputDevices.Keyboard.IsPressed('S') ||
             inputDevices.Joystick.IsDownPressed())
         {
@@ -55,7 +55,7 @@ public:
             return true;
         }
 
-        if (inputDevices.Keyboard.IsPressed(VK_LEFT) ||
+        if (inputDevices.Keyboard.IsPressed(Keys::Left) ||
             inputDevices.Keyboard.IsPressed('A') ||
             inputDevices.Joystick.IsLeftPressed())
         {
@@ -64,7 +64,7 @@ public:
             return true;
         }
 
-        if (inputDevices.Keyboard.IsPressed(VK_RIGHT) ||
+        if (inputDevices.Keyboard.IsPressed(Keys::Right) ||
             inputDevices.Keyboard.IsPressed('D') ||
             inputDevices.Joystick.IsRightPressed())
         {

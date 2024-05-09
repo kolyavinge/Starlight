@@ -1,3 +1,4 @@
+#include <comdef.h>
 #include <lib/Memory.h>
 #include <lib/HashCode.h>
 #include <lib/String.h>
@@ -161,7 +162,9 @@ void String::Clear()
 
 char* String::GetCharBuf()
 {
-    _tmp = _symb; // convert wchar_t -> char
+    _bstr_t bstr = _symb; // convert wchar_t -> char
+    strcpy_s(_tmp, bstr);
+
     return _tmp;
 }
 

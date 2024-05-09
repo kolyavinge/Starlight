@@ -8,10 +8,11 @@ TextRenderer::TextRenderer()
     String alph(L"0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ+-*/.,: \0");
     String filePath = GraphicResources::GetAlphabetFilePath();
     _alphTexture.Load(filePath);
-    ImageFile image(filePath.GetWCharBuf());
+    int imageWidth, imageHeight;
+    ImageFile::GetSize(filePath.GetWCharBuf(), &imageWidth, &imageHeight);
     _textureStep = 1.0f / (float)alph.GetLength();
-    _letterWidth = (float)image.GetWidth() / (float)alph.GetLength();
-    _letterHeight = (float)image.GetHeight();
+    _letterWidth = (float)imageWidth / (float)alph.GetLength();
+    _letterHeight = (float)imageHeight;
     _textureCoords.InitAll(0.0f);
     for (int i = 0; i < alph.GetLength(); i++)
     {

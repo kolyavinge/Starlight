@@ -1,6 +1,5 @@
 #pragma once
 
-#include <comdef.h>
 #include <lib/Object.h>
 
 class String : public Object
@@ -10,7 +9,7 @@ class String : public Object
     wchar_t* _symb;
     int _count;
     int _capacity;
-    _bstr_t _tmp;
+    char _tmp[1024];
 
 public:
     String();

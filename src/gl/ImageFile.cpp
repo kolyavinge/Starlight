@@ -1,40 +1,20 @@
 #include <windows.h>
+#include <gdiplus.h>
 #include <lib/File.h>
 #include <gl/ImageFile.h>
 
-using namespace Gdiplus;
-
-ImageFile::ImageFile(const wchar_t* fileName)
+void ImageFile::GetSize(const wchar_t* fileName, int* width, int* height)
 {
+    using namespace Gdiplus;
+
     File::ErrorIfFileNotFound(fileName);
     ULONG_PTR gdiplusToken;
     GdiplusStartupInput gdiplusStartupInput;
     GdiplusStartup(&gdiplusToken, &gdiplusStartupInput, NULL);
-    _bitmap = Bitmap::FromFile(fileName);
-}
+    Bitmap* bitmap = Bitmap::FromFile(fileName);
 
-ImageFile::~ImageFile()
-{
-    delete _bitmap;
-    _bitmap = nullptr;
-}
+    *width = (int)bitmap->GetWidth();
+    *height = (int)bitmap->GetHeight();
 
-int ImageFile::GetWidth()
-{
-    return (int)_bitmap->GetWidth();
-}
-
-int ImageFile::GetHeight()
-{
-    return (int)_bitmap->GetHeight();
-}
-
-void ImageFile::GetPixelData(int x, int y, PixelData& result)
-{
-    Color color;
-    _bitmap->GetPixel(x, y, &color);
-    result.R = color.GetR();
-    result.G = color.GetG();
-    result.B = color.GetB();
-    result.A = color.GetA();
+    delete bitmap;
 }

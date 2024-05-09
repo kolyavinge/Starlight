@@ -1,4 +1,4 @@
-#include <windows.h>
+#include <input/Keys.h>
 #include <ui/StartMenuScreen.h>
 #include <win/App.h>
 
@@ -26,8 +26,8 @@ void StartMenuScreen::ProcessInput()
 {
     bool hasSelection = _selector.ProcessSelection(_inputDevices);
     if (hasSelection) return;
-    if (_inputDevices.Keyboard.IsPressed(VK_RETURN) ||
-        _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
+    if (_inputDevices.Keyboard.IsPressed(Keys::Return) ||
+        _inputDevices.Keyboard.IsPressed(Keys::Space) ||
         _inputDevices.Joystick.IsButton1Pressed())
     {
         if (GetSelectedItem() == StartMenuItem::StartGame)

@@ -214,6 +214,7 @@
     <ClInclude Include="src\render\common\ExhaustRenderer.h" />
     <ClInclude Include="src\render\dash\MirrorViewRenderer.h" />
     <ClInclude Include="src\render\mesh\BackgroundSphereMesh.h" />
+    <ClInclude Include="src\input\Keys.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

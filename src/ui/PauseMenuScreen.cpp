@@ -1,4 +1,4 @@
-#include <windows.h>
+#include <input/Keys.h>
 #include <ui/PauseMenuScreen.h>
 
 PauseMenuScreen::PauseMenuScreen(
@@ -28,14 +28,14 @@ void PauseMenuScreen::ProcessInput()
     bool hasSelection = _selector.ProcessSelection(_inputDevices);
     if (hasSelection) return;
 
-    if (_inputDevices.Keyboard.IsPressed(VK_ESCAPE))
+    if (_inputDevices.Keyboard.IsPressed(Keys::Escape))
     {
         _race.Resume();
         _navigator.NavigateTo(ScreenKind::Race);
     }
     else if (
-        _inputDevices.Keyboard.IsPressed(VK_RETURN) ||
-        _inputDevices.Keyboard.IsPressed(VK_SPACE) ||
+        _inputDevices.Keyboard.IsPressed(Keys::Return) ||
+        _inputDevices.Keyboard.IsPressed(Keys::Space) ||
         _inputDevices.Joystick.IsButton1Pressed())
     {
         if (GetSelectedItem() == PauseMenuItem::Resume)

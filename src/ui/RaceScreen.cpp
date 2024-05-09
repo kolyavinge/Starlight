@@ -1,4 +1,4 @@
-#include <windows.h>
+#include <input/Keys.h>
 #include <core/RaceState.h>
 #include <core/ShipController.h>
 #include <ui/RaceScreen.h>
@@ -35,7 +35,7 @@ void RaceScreen::ProcessInput()
     Joystick& joystick = _inputDevices.Joystick;
 
     if (keyboard.IsPressedOrHeld('W') ||
-        keyboard.IsPressedOrHeld(VK_UP) ||
+        keyboard.IsPressedOrHeld(Keys::Up) ||
         joystick.IsButton1Pressed())
     {
         playerController.ActivateThrottle();
@@ -46,7 +46,7 @@ void RaceScreen::ProcessInput()
     }
 
     if (keyboard.IsPressedOrHeld('S') ||
-        keyboard.IsPressedOrHeld(VK_DOWN) ||
+        keyboard.IsPressedOrHeld(Keys::Down) ||
         joystick.IsButton2Pressed() ||
         joystick.IsButton3Pressed())
     {
@@ -58,14 +58,14 @@ void RaceScreen::ProcessInput()
     }
 
     if (keyboard.IsPressedOrHeld('A') ||
-        keyboard.IsPressedOrHeld(VK_LEFT) ||
+        keyboard.IsPressedOrHeld(Keys::Left) ||
         joystick.IsLeftPressed())
     {
         playerController.TurnLeft();
     }
     else if (
         keyboard.IsPressedOrHeld('D') ||
-        keyboard.IsPressedOrHeld(VK_RIGHT) ||
+        keyboard.IsPressedOrHeld(Keys::Right) ||
         joystick.IsRightPressed())
     {
         playerController.TurnRight();
@@ -82,7 +82,7 @@ void RaceScreen::ProcessInput()
         _camera.SetRearView(_race.Player);
     }
 
-    if (keyboard.IsPressedOrHeld(VK_SPACE))
+    if (keyboard.IsPressedOrHeld(Keys::Space))
     {
         playerController.ActivateFire();
     }
@@ -96,12 +96,12 @@ void RaceScreen::ProcessInput()
         playerController.ActivateNitro();
     }
 
-    if (keyboard.IsPressed(VK_BACK))
+    if (keyboard.IsPressed(Keys::Back))
     {
         playerController.Reset();
     }
 
-    if (keyboard.IsPressed(VK_ESCAPE))
+    if (keyboard.IsPressed(Keys::Escape))
     {
         _race.Pause();
         _navigator.NavigateTo(ScreenKind::PauseMenu);

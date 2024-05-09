@@ -15,9 +15,10 @@ void FramedTexture::Load(String filePath, int framesCount)
     _texture.Load(filePath);
     _framesCount = framesCount;
     _textureStep = 1.0f / (float)_framesCount;
-    ImageFile imageFile(filePath.GetWCharBuf());
-    _frameWidth = (int)(imageFile.GetWidth() / framesCount);
-    _frameHeight = imageFile.GetHeight();
+    int imageWidth, imageHeight;
+    ImageFile::GetSize(filePath.GetWCharBuf(), &imageWidth, &imageHeight);
+    _frameWidth = (int)(imageWidth / framesCount);
+    _frameHeight = (int)imageHeight;
 }
 
 void FramedTexture::RenderFrame(int frameIndex)
