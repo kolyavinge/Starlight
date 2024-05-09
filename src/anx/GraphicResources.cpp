@@ -245,6 +245,24 @@ String GraphicResources::GetExhaustFragmentShaderPath()
     return path;
 }
 
+String GraphicResources::GetMeshVertexShaderPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\shaders\\mesh.vert\0");
+    path.Append(name);
+
+    return path;
+}
+
+String GraphicResources::GetMeshFragmentShaderPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\shaders\\mesh.frag\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetPowerUpHealthFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

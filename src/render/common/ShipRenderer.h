@@ -5,6 +5,7 @@
 #include <model/Ship.h>
 #include <core/Camera.h>
 #include <gl/VBOMeshRenderer.h>
+#include <gl/ShaderProgram.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
 #include <render/common/ExhaustRenderer.h>

@@ -2,23 +2,22 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
-#include <gl/Texture.h>
-#include <render/common/BackgroundSphere.h>
+#include <gl/ShaderProgram.h>
+#include <gl/VBOMeshRenderer.h>
+#include <render/mesh/BackgroundSphereMesh.h>
+#include <render/shader/ShaderPrograms.h>
 
 class BackgroundRenderer : public Object
 {
-    const float _textureWidthStep;
-    const float _textureHeightStep;
-    BackgroundSphere _sphere;
-    Texture _backgroundTexture;
+    ShaderProgram& _shaderProgram;
+    VBOMeshRenderer _vboMeshRenderer;
 
 public:
-    BackgroundRenderer();
+    BackgroundRenderer(
+        BackgroundSphereMesh& backgroundSphereMesh,
+        ShaderPrograms& shaderPrograms);
 
     void Render();
-
-private:
-    void RenderSphereSegment(int level, int point);
 };
 
 class BackgroundRendererResolvingFactory : public ResolvingFactory<BackgroundRenderer>

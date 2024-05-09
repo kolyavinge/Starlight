@@ -32,6 +32,8 @@ public:
     static String GetDefaultFragmentShaderPath();
     static String GetExhaustVertexShaderPath();
     static String GetExhaustFragmentShaderPath();
+    static String GetMeshVertexShaderPath();
+    static String GetMeshFragmentShaderPath();
     static String GetPowerUpHealthFilePath();
     static String GetPowerUpMachinegunFilePath();
     static String GetPowerUpNitroFilePath();

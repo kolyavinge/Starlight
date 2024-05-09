@@ -9,6 +9,7 @@ class ShaderPrograms : public Object
 public:
     ShaderProgram DefaultShaderProgram;
     ShaderProgram ExhaustShaderProgram;
+    ShaderProgram MeshShaderProgram;
 
     ShaderPrograms();
 };
