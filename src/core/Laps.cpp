@@ -34,7 +34,7 @@ int Laps::GetCurrentLapNumber()
 
 int Laps::GetLapsCount()
 {
-    return 5;
+    return 7;
 }
 
 void Laps::GetCurrentLapTime(String& result)

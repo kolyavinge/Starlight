@@ -11,7 +11,7 @@ MirrorViewRenderer::MirrorViewRenderer(
     BulletsRenderer& bulletsRenderer,
     PowerUpRenderer& powerUpRenderer,
     ExplosionRenderer& explosionRenderer) :
-    _mirrorWidth(250.0f),
+    _mirrorWidth(220.0f),
     _mirrorHeight(_mirrorWidth / Constants::ScreenAspect),
     _resolutionWidth(600),
     _resolutionHeight((unsigned int)(_resolutionWidth / Constants::ScreenAspect)),
