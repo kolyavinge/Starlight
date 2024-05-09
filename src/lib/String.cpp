@@ -10,6 +10,7 @@ String::String(int capacity)
     _count = 0;
     _capacity = capacity;
     _symb = Memory::AllocAndZero<wchar_t>(_capacity);
+    Memory::Zero<char>(_tmp, 1024);
 }
 
 String::String(const wchar_t* str)

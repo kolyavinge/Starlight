@@ -77,16 +77,18 @@ void MirrorViewRenderer::RenderTexture()
         0.0f);
     glBegin(GL_QUADS);
 
-    glTexCoord2i(0, 0);
-    glVertex2f(0.0f, 0.0f);
+    // x axis flipped
 
     glTexCoord2i(1, 0);
+    glVertex2f(0.0f, 0.0f);
+
+    glTexCoord2i(0, 0);
     glVertex2f(_mirrorWidth, 0.0f);
 
-    glTexCoord2i(1, 1);
+    glTexCoord2i(0, 1);
     glVertex2f(_mirrorWidth, _mirrorHeight);
 
-    glTexCoord2i(0, 1);
+    glTexCoord2i(1, 1);
     glVertex2f(0.0f, _mirrorHeight);
 
     glEnd();
