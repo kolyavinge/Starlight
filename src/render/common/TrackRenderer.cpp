@@ -5,10 +5,12 @@
 TrackRenderer::TrackRenderer(
     Camera& camera,
     TrackMesh& trackMesh,
-    ShaderPrograms& shaderPrograms) :
+    ShaderPrograms& shaderPrograms,
+    ShadowMaps& shadowMaps) :
     _camera(camera),
     _trackMesh(trackMesh),
-    _shaderProgram(shaderPrograms.DefaultShaderProgram)
+    _shaderProgram(shaderPrograms.DefaultShaderProgram),
+    _shadowMaps(shadowMaps)
 {
 }
 
@@ -34,6 +36,10 @@ void TrackRenderer::Render()
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 0.6f);
+    //_shaderProgram.SetUniform("shadowMatrix", _shadowMaps.ShipShadowMap.ShadowMatrix);
+
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMap.TextureId);
 
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
@@ -73,5 +79,6 @@ TrackRenderer* TrackRendererResolvingFactory::Make(Resolver& resolver)
     return new TrackRenderer(
         resolver.Resolve<Camera>(),
         resolver.Resolve<TrackMesh>(),
-        resolver.Resolve<ShaderPrograms>());
+        resolver.Resolve<ShaderPrograms>(),
+        resolver.Resolve<ShadowMaps>());
 }

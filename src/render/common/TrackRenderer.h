@@ -10,6 +10,7 @@
 #include <gl/VBOMeshRenderer.h>
 #include <render/mesh/TrackMesh.h>
 #include <render/shader/ShaderPrograms.h>
+#include <render/sm/ShadowMaps.h>
 
 class TrackRenderer : public Object
 {
@@ -17,6 +18,7 @@ class TrackRenderer : public Object
     Camera& _camera;
     TrackMesh& _trackMesh;
     ShaderProgram& _shaderProgram;
+    ShadowMaps& _shadowMaps;
     Mesh _groundMesh;
     Mesh _edgeMesh;
     VBOMeshRenderer _groundVBO;
@@ -26,7 +28,8 @@ public:
     TrackRenderer(
         Camera& camera,
         TrackMesh& trackMesh,
-        ShaderPrograms& shaderPrograms);
+        ShaderPrograms& shaderPrograms,
+        ShadowMaps& shadowMaps);
 
     void Init(Track& track);
     void Render();

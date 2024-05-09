@@ -17,9 +17,7 @@ public:
     void RenderAllShips(Ship& player, Collection<Ship>& enemies);
     void RenderPlayer(Ship& player);
     void RenderEnemies(Collection<Ship>& enemies);
-
-private:
-    void RenderShip(Ship& ship, int defaultTexture);
+    void RenderShip(Ship& ship, int textureIndex);
 };
 
 class ShipsRendererResolvingFactory : public ResolvingFactory<ShipsRenderer>

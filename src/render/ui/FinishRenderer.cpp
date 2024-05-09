@@ -15,7 +15,8 @@ FinishRenderer::FinishRenderer(
     ExplosionRenderer& explosionRenderer,
     PowerUpRenderer& powerUpRenderer,
     FinishDashboardRenderer& dashboardRenderer,
-    FinishTextRenderer& finishTextRenderer) :
+    FinishTextRenderer& finishTextRenderer,
+    ShadowMapsUpdater& shadowMapsUpdater) :
     _camera(camera),
     _race(race),
     _backgroundRenderer(backgroundRenderer),
@@ -28,6 +29,7 @@ FinishRenderer::FinishRenderer(
     _powerUpRenderer(powerUpRenderer),
     _dashboardRenderer(dashboardRenderer),
     _finishTextRenderer(finishTextRenderer),
+    _shadowMapsUpdater(shadowMapsUpdater),
     _fadeEffect(FadeDirection::ToBlack, 100)
 {
 }
@@ -72,6 +74,7 @@ void FinishRenderer::Update()
 {
     _shipsRenderer.Update();
     _powerUpRenderer.Update();
+    _shadowMapsUpdater.Update();
 }
 
 FinishRenderer* FinishRendererResolvingFactory::Make(Resolver& resolver)
@@ -88,5 +91,6 @@ FinishRenderer* FinishRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<ExplosionRenderer>(),
         resolver.Resolve<PowerUpRenderer>(),
         resolver.Resolve<FinishDashboardRenderer>(),
-        resolver.Resolve<FinishTextRenderer>());
+        resolver.Resolve<FinishTextRenderer>(),
+        resolver.Resolve<ShadowMapsUpdater>());
 }

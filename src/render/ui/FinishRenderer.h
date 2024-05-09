@@ -13,6 +13,7 @@
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/FinishTextRenderer.h>
 #include <render/dash/FinishDashboardRenderer.h>
+#include <render/sm/ShadowMapsUpdater.h>
 #include <render/ui/ScreenRenderer.h>
 
 class FinishRenderer : public ScreenRenderer
@@ -29,6 +30,7 @@ class FinishRenderer : public ScreenRenderer
     PowerUpRenderer& _powerUpRenderer;
     FinishDashboardRenderer& _dashboardRenderer;
     FinishTextRenderer& _finishTextRenderer;
+    ShadowMapsUpdater& _shadowMapsUpdater;
     FadeEffect _fadeEffect;
 
 public:
@@ -44,7 +46,8 @@ public:
         ExplosionRenderer& explosionRenderer,
         PowerUpRenderer& powerUpRenderer,
         FinishDashboardRenderer& dashboardRenderer,
-        FinishTextRenderer& finishTextRenderer);
+        FinishTextRenderer& finishTextRenderer,
+        ShadowMapsUpdater& shadowMapsUpdater);
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;

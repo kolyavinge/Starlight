@@ -14,6 +14,7 @@
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/GoRenderer.h>
 #include <render/dash/DashboardRenderer.h>
+#include <render/sm/ShadowMapsUpdater.h>
 #include <render/ui/ScreenRenderer.h>
 
 class RaceRenderer : public ScreenRenderer
@@ -30,6 +31,7 @@ class RaceRenderer : public ScreenRenderer
     PowerUpRenderer& _powerUpRenderer;
     DashboardRenderer& _dashboardRenderer;
     GoRenderer& _goRenderer;
+    ShadowMapsUpdater& _shadowMapsUpdater;
 
 public:
     RaceRenderer(
@@ -44,7 +46,8 @@ public:
         ExplosionRenderer& explosionRenderer,
         PowerUpRenderer& powerUpRenderer,
         DashboardRenderer& dashboardRenderer,
-        GoRenderer& goRenderer);
+        GoRenderer& goRenderer,
+        ShadowMapsUpdater& shadowMapsUpdater);
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;

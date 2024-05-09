@@ -40,13 +40,13 @@ void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
     }
 }
 
-void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
+void ShipsRenderer::RenderShip(Ship& ship, int textureIndex)
 {
     glEnable(GL_DEPTH_TEST);
 
     if (ship.State == ShipState::Active)
     {
-        _shipRenderer.Render(ship, defaultTexture);
+        _shipRenderer.Render(ship, textureIndex);
     }
     else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
     {
@@ -56,7 +56,7 @@ void ShipsRenderer::RenderShip(Ship& ship, int defaultTexture)
     {
         if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
         {
-            _shipRenderer.Render(ship, defaultTexture);
+            _shipRenderer.Render(ship, textureIndex);
         }
     }
     else

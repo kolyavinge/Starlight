@@ -11,7 +11,7 @@ MirrorViewRenderer::MirrorViewRenderer(
     BulletsRenderer& bulletsRenderer,
     PowerUpRenderer& powerUpRenderer,
     ExplosionRenderer& explosionRenderer) :
-    _mirrorWidth(220.0f),
+    _mirrorWidth(240.0f),
     _mirrorHeight(_mirrorWidth / Constants::ScreenAspect),
     _resolutionWidth(600),
     _resolutionHeight((unsigned int)(_resolutionWidth / Constants::ScreenAspect)),
@@ -46,7 +46,7 @@ void MirrorViewRenderer::UpdateTexture()
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    gluPerspective(60.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
+    gluPerspective(90.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
     Vector3 lookBehind(_race.Player.CentralLine.Rear);
     lookBehind.Sub(_race.Player.CentralLine.Front);
     lookBehind.Add(_race.Player.CentralLine.Rear);

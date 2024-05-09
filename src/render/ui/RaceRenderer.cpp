@@ -1,5 +1,4 @@
 #include <core/Constants.h>
-#include <ui/RaceScreen.h>
 #include <gl/opengl.h>
 #include <render/ui/RaceRenderer.h>
 
@@ -15,7 +14,8 @@ RaceRenderer::RaceRenderer(
     ExplosionRenderer& explosionRenderer,
     PowerUpRenderer& powerUpRenderer,
     DashboardRenderer& dashboardRenderer,
-    GoRenderer& goRenderer) :
+    GoRenderer& goRenderer,
+    ShadowMapsUpdater& shadowMapsUpdater) :
     _camera(camera),
     _race(race),
     _backgroundRenderer(backgroundRenderer),
@@ -27,7 +27,8 @@ RaceRenderer::RaceRenderer(
     _explosionRenderer(explosionRenderer),
     _powerUpRenderer(powerUpRenderer),
     _dashboardRenderer(dashboardRenderer),
-    _goRenderer(goRenderer)
+    _goRenderer(goRenderer),
+    _shadowMapsUpdater(shadowMapsUpdater)
 {
 }
 
@@ -77,6 +78,7 @@ void RaceRenderer::Update()
     _shipsRenderer.Update();
     _powerUpRenderer.Update();
     _dashboardRenderer.Update(_race.Player);
+    _shadowMapsUpdater.Update();
 }
 
 RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
@@ -93,5 +95,6 @@ RaceRenderer* RaceRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<ExplosionRenderer>(),
         resolver.Resolve<PowerUpRenderer>(),
         resolver.Resolve<DashboardRenderer>(),
-        resolver.Resolve<GoRenderer>());
+        resolver.Resolve<GoRenderer>(),
+        resolver.Resolve<ShadowMapsUpdater>());
 }

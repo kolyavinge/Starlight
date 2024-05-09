@@ -148,6 +148,10 @@
     <ClInclude Include="src\render\mesh\ExhaustMesh.h" />
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
+    <ClInclude Include="src\render\sm\ShadowMap.h" />
+    <ClInclude Include="src\render\sm\ShadowMaps.h" />
+    <ClInclude Include="src\render\sm\ShadowMapsUpdater.h" />
+    <ClInclude Include="src\render\sm\ShipShadowMapUpdater.h" />
     <ClInclude Include="src\render\ui\FinishRenderer.h" />
     <ClInclude Include="src\render\common\GraphicItemCollection.h" />
     <ClInclude Include="src\render\ui\PauseMenuRenderer.h" />
@@ -366,6 +370,10 @@
     <ClCompile Include="src\render\mesh\ExhaustMesh.cpp" />
     <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
+    <ClCompile Include="src\render\sm\ShadowMap.cpp" />
+    <ClCompile Include="src\render\sm\ShadowMaps.cpp" />
+    <ClCompile Include="src\render\sm\ShadowMapsUpdater.cpp" />
+    <ClCompile Include="src\render\sm\ShipShadowMapUpdater.cpp" />
     <ClCompile Include="src\render\ui\FinishRenderer.cpp" />
     <ClCompile Include="src\render\common\GraphicItemCollection.cpp" />
     <ClCompile Include="src\render\ui\RacePreparationRenderer.cpp" />

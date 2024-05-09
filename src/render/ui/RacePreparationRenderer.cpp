@@ -10,7 +10,8 @@ RacePreparationRenderer::RacePreparationRenderer(
     ShipsRenderer& shipsRenderer,
     TrackRenderer& trackRenderer,
     PowerUpRenderer& powerUpRenderer,
-    CountdownRenderer& countdownRenderer) :
+    CountdownRenderer& countdownRenderer,
+    ShadowMapsUpdater& shadowMapsUpdater) :
     _camera(camera),
     _race(race),
     _backgroundRenderer(backgroundRenderer),
@@ -19,6 +20,7 @@ RacePreparationRenderer::RacePreparationRenderer(
     _trackRenderer(trackRenderer),
     _powerUpRenderer(powerUpRenderer),
     _countdownRenderer(countdownRenderer),
+    _shadowMapsUpdater(shadowMapsUpdater),
     _fadeEffect(FadeDirection::ToTransparent, 100)
 {
 }
@@ -61,6 +63,7 @@ void RacePreparationRenderer::Update()
 {
     _shipsRenderer.Update();
     _powerUpRenderer.Update();
+    _shadowMapsUpdater.Update();
 }
 
 RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver& resolver)
@@ -73,5 +76,6 @@ RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver&
         resolver.Resolve<ShipsRenderer>(),
         resolver.Resolve<TrackRenderer>(),
         resolver.Resolve<PowerUpRenderer>(),
-        resolver.Resolve<CountdownRenderer>());
+        resolver.Resolve<CountdownRenderer>(),
+        resolver.Resolve<ShadowMapsUpdater>());
 }
