@@ -1,5 +1,5 @@
 #include <calc/Geometry.h>
-#include <calc/ModelMatrix.h>
+#include <calc/Matrix4.h>
 #include <model/ShipMeasure.h>
 #include <core/Constants.h>
 #include <gl/opengl.h>
@@ -27,7 +27,7 @@ void ShipRenderer::Update()
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
-    ModelMatrix modelMatrix;
+    Matrix4 modelMatrix;
     ship.GetModelMatrix(modelMatrix);
 
     glPushMatrix();

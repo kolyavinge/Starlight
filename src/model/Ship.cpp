@@ -123,7 +123,7 @@ bool Ship::CanControlled()
     return State == ShipState::Active || State == ShipState::Prepared;
 }
 
-void Ship::GetModelMatrix(ModelMatrix& modelMatrix)
+void Ship::GetModelMatrix(Matrix4& modelMatrix)
 {
     float radians;
     Vector3 pivot;

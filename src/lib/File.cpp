@@ -25,9 +25,9 @@ void File::ErrorIfFileNotFound(const wchar_t* filePath)
 long long File::GetFileSizeBytes(const wchar_t* filePath)
 {
     ErrorIfFileNotFound(filePath);
-    WIN32_FILE_ATTRIBUTE_DATA fad;
+    WIN32_FILE_ATTRIBUTE_DATA fad = {};
     GetFileAttributesEx(filePath, GetFileExInfoStandard, &fad);
-    LARGE_INTEGER size;
+    LARGE_INTEGER size = {};
     size.HighPart = fad.nFileSizeHigh;
     size.LowPart = fad.nFileSizeLow;
 

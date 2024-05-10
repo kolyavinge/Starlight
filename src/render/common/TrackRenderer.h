@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <lib/di/ResolvingFactory.h>
-#include <calc/ModelMatrix.h>
+#include <calc/Matrix4.h>
 #include <model/Track.h>
 #include <core/Camera.h>
 #include <gl/Mesh.h>
@@ -14,7 +14,7 @@
 
 class TrackRenderer : public Object
 {
-    ModelMatrix _modelMatrix;
+    Matrix4 _modelMatrix;
     Camera& _camera;
     TrackMesh& _trackMesh;
     ShaderProgram& _shaderProgram;

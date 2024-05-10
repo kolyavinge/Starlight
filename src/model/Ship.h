@@ -2,7 +2,7 @@
 
 #include <lib/Object.h>
 #include <calc/Vector3.h>
-#include <calc/ModelMatrix.h>
+#include <calc/Matrix4.h>
 #include <model/ShipCentralLine.h>
 #include <model/ShipControls.h>
 #include <model/ShipAIData.h>
@@ -55,5 +55,5 @@ public:
     void Explode();
     void Reset();
     bool CanControlled();
-    void GetModelMatrix(ModelMatrix& modelMatrix);
+    void GetModelMatrix(Matrix4& modelMatrix);
 };
