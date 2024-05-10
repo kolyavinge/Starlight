@@ -10,6 +10,7 @@ public:
     ShaderProgram DefaultShaderProgram;
     ShaderProgram ExhaustShaderProgram;
     ShaderProgram MeshShaderProgram;
+    ShaderProgram MainShaderProgram;
 
     ShaderPrograms();
 };

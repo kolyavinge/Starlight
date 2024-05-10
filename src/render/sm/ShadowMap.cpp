@@ -3,5 +3,4 @@
 ShadowMap::ShadowMap()
 {
     TextureId = 0;
-    ShadowMatrix = nullptr;
 }

@@ -11,6 +11,9 @@ ShaderPrograms::ShaderPrograms()
 
     MeshShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetMeshVertexShaderPath());
     MeshShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetMeshFragmentShaderPath());
+
+    MainShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetMainVertexShaderPath());
+    MainShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetMainFragmentShaderPath());
 }
 
 ShaderPrograms* ShaderProgramsResolvingFactory::Make(Resolver&)
