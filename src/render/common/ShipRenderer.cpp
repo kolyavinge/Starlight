@@ -11,11 +11,14 @@ ShipRenderer::ShipRenderer(
     Camera& camera,
     ShipMesh& shipMesh,
     ExhaustRenderer& exhaustRenderer,
-    ShaderPrograms& shaderPrograms) :
+    ShaderPrograms& shaderPrograms,
+    ShadowMaps& shadowMaps) :
     _camera(camera),
     _shipMesh(shipMesh),
     _exhaustRenderer(exhaustRenderer),
-    _shaderProgram(shaderPrograms.DefaultShaderProgram),
+    _mainProgram(shaderPrograms.DefaultShaderProgram),
+    _vertexOnlyProgram(shaderPrograms.VertexOnlyShaderProgram),
+    _shadowMaps(shadowMaps),
     _vboMeshRenderer()
 {
     _vboMeshRenderer.Init(shipMesh.GetMesh());
@@ -28,48 +31,67 @@ void ShipRenderer::Update()
 
 void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
-    Matrix4 modelMatrix;
-    ship.GetModelMatrix(modelMatrix);
-    glPushMatrix();
-    glEnable(GL_DEPTH_TEST);
-    SetPosition(ship);
-    if (ship.State == ShipState::Active)
+    bool renderShipEnabled;
+    bool renderExhaustEnabled;
+    GetRenderDetails(ship, renderShipEnabled, renderExhaustEnabled, textureIndex);
+
+    if (renderShipEnabled)
     {
-        RenderShipMesh(modelMatrix, textureIndex);
+        Matrix4 modelMatrix;
+        ship.GetModelMatrix(modelMatrix);
+        _mainProgram.Use();
+        _mainProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
+        _mainProgram.SetUniform("cameraPos", _camera.Position);
+        _mainProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
+        _mainProgram.SetUniform("alpha", 1.0f);
+        _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.ShipShadowMaps[0].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
+
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[0].TextureId);
+        glActiveTexture(GL_TEXTURE2);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[1].TextureId);
+        glActiveTexture(GL_TEXTURE3);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[2].TextureId);
+        glActiveTexture(GL_TEXTURE4);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[3].TextureId);
+
+        glPushMatrix();
+        glEnable(GL_DEPTH_TEST);
+        SetPosition(ship);
+        _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
+        _vboMeshRenderer.Render();
+        _mainProgram.Unuse();
+    }
+
+    if (renderExhaustEnabled)
+    {
         RenderExhaust(ship);
     }
-    else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
-    {
-        RenderShipMesh(modelMatrix, ShipMesh::DestroyedTexture);
-    }
-    else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
-    {
-        if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
-        {
-            RenderShipMesh(modelMatrix, textureIndex);
-            RenderExhaust(ship);
-        }
-    }
-    else
-    {
-        Assert::Fail();
-    }
+
     glDisable(GL_DEPTH_TEST);
     glPopMatrix();
-    //RenderAIMovingDirections(ship);
-    //RenderThrottle(ship);
 }
 
-void ShipRenderer::RenderShipMesh(Matrix4& modelMatrix, int textureIndex)
+void ShipRenderer::FillDepthBufferForShadow(Ship& ship)
 {
-    _shaderProgram.Use();
-    _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
-    _shaderProgram.SetUniform("cameraPos", _camera.Position);
-    _shaderProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
-    _shaderProgram.SetUniform("alpha", 1.0f);
-    _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
-    _vboMeshRenderer.Render();
-    _shaderProgram.Unuse();
+    bool renderShipEnabled;
+    bool renderExhaustEnabled;
+    int textureIndex;
+    GetRenderDetails(ship, renderShipEnabled, renderExhaustEnabled, textureIndex);
+    if (renderShipEnabled)
+    {
+        glPushMatrix();
+        glEnable(GL_DEPTH_TEST);
+        SetPosition(ship);
+        _vertexOnlyProgram.Use();
+        _vboMeshRenderer.Render();
+        _vertexOnlyProgram.Unuse();
+        glDisable(GL_DEPTH_TEST);
+        glPopMatrix();
+    }
 }
 
 void ShipRenderer::RenderExhaust(Ship& ship)
@@ -85,6 +107,34 @@ void ShipRenderer::RenderExhaust(Ship& ship)
     glRotatef(0.9f, Constants::UpAxis);
     _exhaustRenderer.Render(ship);
     glPopMatrix();
+}
+
+void ShipRenderer::GetRenderDetails(Ship& ship, bool& renderShipEnabled, bool& renderExhaustEnabled, int& textureIndex)
+{
+    renderShipEnabled = false;
+    renderExhaustEnabled = false;
+    if (ship.State == ShipState::Active)
+    {
+        renderShipEnabled = true;
+        renderExhaustEnabled = true;
+    }
+    else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
+    {
+        textureIndex = ShipMesh::DestroyedTexture;
+        renderShipEnabled = true;
+    }
+    else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
+    {
+        if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
+        {
+            renderShipEnabled = true;
+            renderExhaustEnabled = true;
+        }
+    }
+    else
+    {
+        Assert::Fail();
+    }
 }
 
 void ShipRenderer::SetPosition(Ship& ship)
@@ -161,5 +211,6 @@ ShipRenderer* ShipRendererResolvingFactory::Make(Resolver& resolver)
         resolver.Resolve<Camera>(),
         resolver.Resolve<ShipMesh>(),
         resolver.Resolve<ExhaustRenderer>(),
-        resolver.Resolve<ShaderPrograms>());
+        resolver.Resolve<ShaderPrograms>(),
+        resolver.Resolve<ShadowMaps>());
 }

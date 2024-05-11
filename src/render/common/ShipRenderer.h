@@ -8,6 +8,7 @@
 #include <gl/ShaderProgram.h>
 #include <render/mesh/ShipMesh.h>
 #include <render/shader/ShaderPrograms.h>
+#include <render/sm/ShadowMaps.h>
 #include <render/common/ExhaustRenderer.h>
 
 class ShipRenderer : public Object
@@ -15,7 +16,9 @@ class ShipRenderer : public Object
     Camera& _camera;
     ShipMesh& _shipMesh;
     ExhaustRenderer& _exhaustRenderer;
-    ShaderProgram& _shaderProgram;
+    ShaderProgram& _mainProgram;
+    ShaderProgram& _vertexOnlyProgram;
+    ShadowMaps& _shadowMaps;
     VBOMeshRenderer _vboMeshRenderer;
 
 public:
@@ -23,14 +26,16 @@ public:
         Camera& camera,
         ShipMesh& shipMesh,
         ExhaustRenderer& exhaustRenderer,
-        ShaderPrograms& shaderPrograms);
+        ShaderPrograms& shaderPrograms,
+        ShadowMaps& shadowMaps);
 
     void Update();
     void Render(Ship& ship, int textureIndex);
+    void FillDepthBufferForShadow(Ship& ship);
 
 private:
-    void RenderShipMesh(Matrix4& modelMatrix, int textureIndex);
     void RenderExhaust(Ship& ship);
+    void GetRenderDetails(Ship& ship, bool& renderShipEnabled, bool& renderExhaustEnabled, int& textureIndex);
     void SetPosition(Ship& ship);
     void RenderAIMovingDirections(Ship& ship);
     void RenderThrottle(Ship& ship);

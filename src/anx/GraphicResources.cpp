@@ -281,6 +281,15 @@ String GraphicResources::GetMainFragmentShaderPath()
     return path;
 }
 
+String GraphicResources::GetVertexOnlyVertexShaderPath()
+{
+    String path(Environment::GetExecutableDirectoryPath());
+    String name(L"res\\shaders\\vertexOnly.vert\0");
+    path.Append(name);
+
+    return path;
+}
+
 String GraphicResources::GetPowerUpHealthFilePath()
 {
     String path(Environment::GetExecutableDirectoryPath());

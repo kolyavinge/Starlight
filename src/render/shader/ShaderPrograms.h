@@ -11,6 +11,7 @@ public:
     ShaderProgram ExhaustShaderProgram;
     ShaderProgram MeshShaderProgram;
     ShaderProgram MainShaderProgram;
+    ShaderProgram VertexOnlyShaderProgram;
 
     ShaderPrograms();
 };

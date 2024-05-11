@@ -51,7 +51,7 @@ void ShipShadowMapUpdater::Update(Ship& ship, ShadowMap& shadowMap)
 
     CalculateShadowMatrix(ship, shadowMap, lightPosition);
 
-    _shipRenderer.Render(ship, 0);
+    _shipRenderer.FillDepthBufferForShadow(ship);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glPopMatrix();
