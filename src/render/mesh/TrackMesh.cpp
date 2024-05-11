@@ -61,7 +61,7 @@ void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPoin
         mesh.TextureCoords.Add(Point2(0.0f, textureY + textureStep));
         mesh.TextureCoords.Add(Point2(1.0f, textureY + textureStep));
         mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
-        mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
+        mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 3, vertexIndex + 2));
         iter++;
     }
 }
@@ -85,7 +85,7 @@ void TrackMesh::MakeEdgeMesh(int edgesCount, TrackEdges& edges, TrackEdges& norm
             mesh.NormalCoords.Add(nextNormal.Points[pointIndex]);
             mesh.TextureCoords.Add(Point2((float)pointIndex * textureStep, 0.0f));
             mesh.TextureCoords.Add(Point2((float)pointIndex * textureStep, 1.0f));
-            mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
+            mesh.Faces.Add(Face(vertexIndex, vertexIndex + 2, vertexIndex + 1));
             mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 2, vertexIndex + 3));
         }
 
