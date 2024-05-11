@@ -48,7 +48,7 @@ public:
 
     void Init();
     void Update(Ship& player);
-    void Render(Ship& player, Collection<Ship*>& allShips, Track& track, Laps& laps);
+    void Render(Ship& player, Collection<Ship*>& allShipsSortedByPositions, Track& track, Laps& laps);
 };
 
 class DashboardRendererResolvingFactory : public ResolvingFactory<DashboardRenderer>

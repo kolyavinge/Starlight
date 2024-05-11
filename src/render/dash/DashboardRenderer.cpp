@@ -37,7 +37,7 @@ void DashboardRenderer::Update(Ship& player)
     _damageEffectRenderer.Update(player);
 }
 
-void DashboardRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track& track, Laps& laps)
+void DashboardRenderer::Render(Ship& player, Collection<Ship*>& allShipsSortedByPositions, Track& track, Laps& laps)
 {
     _damageEffectRenderer.Render();
     _lapsCountRenderer.Render(laps);
@@ -48,7 +48,7 @@ void DashboardRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track&
     _bulletsCountRenderer.Render(player.Weapon);
     _nitroCountRenderer.Render(player.Nitros);
     _racePositionRenderer.Render(player);
-    _enemyShipMarkRenderer.Render(player, allShips, track);
+    _enemyShipMarkRenderer.Render(player, allShipsSortedByPositions, track);
     _mirrorViewRenderer.Render();
 }
 

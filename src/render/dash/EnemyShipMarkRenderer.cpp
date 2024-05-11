@@ -4,18 +4,18 @@
 #include <render/common/RenderConstants.h>
 #include <render/dash/EnemyShipMarkRenderer.h>
 
-void EnemyShipMarkRenderer::Render(Ship& player, Collection<Ship*>& allShips, Track& track)
+void EnemyShipMarkRenderer::Render(Ship& player, Collection<Ship*>& allShipsSortedByPositions, Track& track)
 {
-    CalculateEmenyDisatance(player, allShips);
+    CalculateEnemyDisatance(player, allShipsSortedByPositions);
     RenderMarks(player, track);
 }
 
-void EnemyShipMarkRenderer::CalculateEmenyDisatance(Ship& player, Collection<Ship*>& allShips)
+void EnemyShipMarkRenderer::CalculateEnemyDisatance(Ship& player, Collection<Ship*>& allShipsSortedByPositions)
 {
-    int playerIndex = allShips.GetIndexOf(&player);
-    for (int i = playerIndex + 1; i < allShips.GetCount(); i++)
+    int playerIndex = allShipsSortedByPositions.GetIndexOf(&player);
+    for (int i = playerIndex + 1; i < allShipsSortedByPositions.GetCount(); i++)
     {
-        Ship& enemy = *allShips[i];
+        Ship& enemy = *allShipsSortedByPositions[i];
         Vector3 distance(enemy.CentralLine.Front);
         distance.Sub(player.CentralLine.Rear);
         float length = distance.GetLength();

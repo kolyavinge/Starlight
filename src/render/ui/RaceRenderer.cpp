@@ -69,7 +69,7 @@ void RaceRenderer::Render()
     gluOrtho2D(0.0, Constants::ScreenWidth, 0.0, Constants::ScreenHeight);
     glEnable(GL_BLEND);
     _goRenderer.Render();
-    _dashboardRenderer.Render(_race.Player, _race.AllShips, *_race.Track, _race.Laps);
+    _dashboardRenderer.Render(_race.Player, _race.AllShipsSortedByPositions, *_race.Track, _race.Laps);
     glDisable(GL_BLEND);
 }
 

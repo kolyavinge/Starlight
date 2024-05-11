@@ -12,10 +12,10 @@ class EnemyShipMarkRenderer : public Object
     List<Vector3> _enemyDistance;
 
 public:
-    void Render(Ship& player, Collection<Ship*>& allShips, Track& track);
+    void Render(Ship& player, Collection<Ship*>& allShipsSortedByPositions, Track& track);
 
 private:
-    void CalculateEmenyDisatance(Ship& player, Collection<Ship*>& allShips);
+    void CalculateEnemyDisatance(Ship& player, Collection<Ship*>& allShipsSortedByPositions);
     void RenderMarks(Ship& player, Track& track);
     void RenderMark(int markIndex, Ship& player, Track& track);
 };
