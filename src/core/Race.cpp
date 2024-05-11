@@ -28,13 +28,14 @@ Race::Race(
     {
         AllShips.Add(&Enemies[i]);
     }
+    AllShipsSortedByPositions = AllShips;
 }
 
 void Race::Init(::Track& selectedTrack)
 {
     State = RaceState::Prepare;
     Track = &selectedTrack;
-    _raceInitializer.Init(Player, Enemies, AllShips, *Track, PowerUps);
+    _raceInitializer.Init(Player, Enemies, AllShips, AllShipsSortedByPositions, *Track, PowerUps);
     for (int i = 0; i < AllShips.GetCount(); i++)
     {
         _borderUpdater.Update(*AllShips[i]);
@@ -65,6 +66,7 @@ void Race::Update()
         Player,
         Enemies,
         AllShips,
+        AllShipsSortedByPositions,
         PowerUps,
         *Track);
 }

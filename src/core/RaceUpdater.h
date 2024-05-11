@@ -70,6 +70,7 @@ public:
         Ship& player,
         Collection<Ship>& enemies,
         Collection<Ship*>& allShips,
+        Collection<Ship*>& allShipsSortedByPositions,
         Collection<PowerUp>& powerUps,
         Track& track);
 

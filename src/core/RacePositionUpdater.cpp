@@ -1,12 +1,12 @@
 #include <core/RacePositionUpdater.h>
 
-void RacePositionUpdater::Update(Collection<Ship*>& allShips)
+void RacePositionUpdater::Update(Collection<Ship*>& allShipsSortedByPositions)
 {
-    allShips.Sort(_comparator);
+    allShipsSortedByPositions.Sort(_comparator);
 
-    for (int i = 0; i < allShips.GetCount(); i++)
+    for (int i = 0; i < allShipsSortedByPositions.GetCount(); i++)
     {
-        allShips[i]->RacePosition = i + 1;
+        allShipsSortedByPositions[i]->RacePosition = i + 1;
     }
 }
 

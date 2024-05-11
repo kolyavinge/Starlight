@@ -29,6 +29,7 @@ public:
     Ship Player;
     Array<Ship, EnemiesCount> Enemies;
     List<Ship*> AllShips;
+    List<Ship*> AllShipsSortedByPositions;
     List<PowerUp> PowerUps;
     Track* Track;
     ShipController& PlayerController;

@@ -29,7 +29,13 @@ public:
         RacePositionUpdater& racePositionUpdater,
         PowerUpGenerator& powerUpGenerator);
 
-    void Init(Ship& player, Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track, List<PowerUp>& powerUps);
+    void Init(
+        Ship& player,
+        Collection<Ship>& enemies,
+        Collection<Ship*>& allShips,
+        Collection<Ship*>& allShipsSortedByPositions,
+        Track& track,
+        List<PowerUp>& powerUps);
 
 private:
     void InitShips(Ship& player, Collection<Ship>& enemies);

@@ -14,13 +14,19 @@ RaceInitializer::RaceInitializer(
 {
 }
 
-void RaceInitializer::Init(Ship& player, Collection<Ship>& enemies, Collection<Ship*>& allShips, Track& track, List<PowerUp>& powerUps)
+void RaceInitializer::Init(
+    Ship& player,
+    Collection<Ship>& enemies,
+    Collection<Ship*>& allShips,
+    Collection<Ship*>& allShipsSortedByPositions,
+    Track& track,
+    List<PowerUp>& powerUps)
 {
     InitShips(player, enemies);
     _startingGridInitializer.SetStartGrid(player, enemies, track);
     UpdateShipsPositions(allShips, track);
     _raceDistanceCalculator.InitBeforeStart(allShips, track);
-    _racePositionUpdater.Update(allShips);
+    _racePositionUpdater.Update(allShipsSortedByPositions);
     _powerUpGenerator.Generate(track, powerUps);
 }
 

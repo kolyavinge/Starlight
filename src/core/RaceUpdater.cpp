@@ -43,6 +43,7 @@ void RaceUpdater::Update(
     Ship& player,
     Collection<Ship>& enemies,
     Collection<Ship*>& allShips,
+    Collection<Ship*>& allShipsSortedByPositions,
     Collection<PowerUp>& powerUps,
     Track& track)
 {
@@ -52,7 +53,7 @@ void RaceUpdater::Update(
     }
     if (state != RaceState::Finish)
     {
-        _racePositionUpdater.Update(allShips);
+        _racePositionUpdater.Update(allShipsSortedByPositions);
     }
     _enemyAI.ApplyFor(enemies, allShips, track);
     _laps.Update(state, player, track);

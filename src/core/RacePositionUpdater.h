@@ -11,7 +11,7 @@ class RacePositionUpdater : public Object
     ShipCompletedRaceDistanceComparator _comparator;
 
 public:
-    void Update(Collection<Ship*>& allShips);
+    void Update(Collection<Ship*>& allShipsSortedByPositions);
 };
 
 class RacePositionUpdaterResolvingFactory : public ResolvingFactory<RacePositionUpdater>
