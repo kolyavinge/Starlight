@@ -1,5 +1,3 @@
-#include <lib/Assert.h>
-#include <gl/opengl.h>
 #include <render/common/ShipsRenderer.h>
 
 ShipsRenderer::ShipsRenderer(ShipRenderer& shipRenderer) :
@@ -20,7 +18,7 @@ void ShipsRenderer::RenderAllShips(Ship& player, Collection<Ship>& enemies)
 
 void ShipsRenderer::RenderPlayer(Ship& player)
 {
-    RenderShip(player, ShipMesh::PlayerTexture);
+    _shipRenderer.Render(player, ShipMesh::PlayerTexture);
 }
 
 void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
@@ -28,7 +26,7 @@ void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
     int enemyTexture = ShipMesh::Enemy1Texture;
     for (int i = 0; i < enemies.GetCount(); i++)
     {
-        RenderShip(enemies[i], enemyTexture);
+        _shipRenderer.Render(enemies[i], enemyTexture);
         if (enemyTexture == ShipMesh::Enemy3Texture)
         {
             enemyTexture = ShipMesh::Enemy1Texture;
@@ -38,33 +36,6 @@ void ShipsRenderer::RenderEnemies(Collection<Ship>& enemies)
             enemyTexture++;
         }
     }
-}
-
-void ShipsRenderer::RenderShip(Ship& ship, int textureIndex)
-{
-    glEnable(GL_DEPTH_TEST);
-
-    if (ship.State == ShipState::Active)
-    {
-        _shipRenderer.Render(ship, textureIndex);
-    }
-    else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
-    {
-        _shipRenderer.Render(ship, ShipMesh::DestroyedTexture);
-    }
-    else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
-    {
-        if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
-        {
-            _shipRenderer.Render(ship, textureIndex);
-        }
-    }
-    else
-    {
-        Assert::Fail();
-    }
-
-    glDisable(GL_DEPTH_TEST);
 }
 
 ShipsRenderer* ShipsRendererResolvingFactory::Make(Resolver& resolver)

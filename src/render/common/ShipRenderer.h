@@ -29,6 +29,8 @@ public:
     void Render(Ship& ship, int textureIndex);
 
 private:
+    void RenderShipMesh(Matrix4& modelMatrix, int textureIndex);
+    void RenderExhaust(Ship& ship);
     void SetPosition(Ship& ship);
     void RenderAIMovingDirections(Ship& ship);
     void RenderThrottle(Ship& ship);

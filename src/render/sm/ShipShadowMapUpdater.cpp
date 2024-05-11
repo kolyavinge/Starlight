@@ -9,12 +9,12 @@
 
 ShipShadowMapUpdater::ShipShadowMapUpdater(
     Race& race,
-    ShipsRenderer& shipsRenderer,
+    ShipRenderer& shipRenderer,
     ShadowMaps& shadowMaps) :
     _resolutionWidth(2000),
     _resolutionHeight(2000),
     _race(race),
-    _shipsRenderer(shipsRenderer),
+    _shipRenderer(shipRenderer),
     _shipShadowMaps(shadowMaps.ShipShadowMaps)
 {
     for (int i = 0; i < _shipShadowMaps.GetCount(); i++)
@@ -51,7 +51,7 @@ void ShipShadowMapUpdater::Update(Ship& ship, ShadowMap& shadowMap)
 
     CalculateShadowMatrix(ship, shadowMap, lightPosition);
 
-    _shipsRenderer.RenderShip(ship, 0);
+    _shipRenderer.Render(ship, 0);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
     glPopMatrix();
@@ -98,6 +98,6 @@ ShipShadowMapUpdater* ShipShadowMapUpdaterResolvingFactory::Make(Resolver& resol
 {
     return new ShipShadowMapUpdater(
         resolver.Resolve<Race>(),
-        resolver.Resolve<ShipsRenderer>(),
+        resolver.Resolve<ShipRenderer>(),
         resolver.Resolve<ShadowMaps>());
 }

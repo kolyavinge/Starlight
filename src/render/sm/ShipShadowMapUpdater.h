@@ -4,7 +4,7 @@
 #include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
-#include <render/common/ShipsRenderer.h>
+#include <render/common/ShipRenderer.h>
 #include <render/sm/ShadowMap.h>
 #include <render/sm/ShadowMaps.h>
 
@@ -13,13 +13,13 @@ class ShipShadowMapUpdater : public Object
     const unsigned int _resolutionWidth;
     const unsigned int _resolutionHeight;
     Race& _race;
-    ShipsRenderer& _shipsRenderer;
+    ShipRenderer& _shipRenderer;
     Collection<ShadowMap>& _shipShadowMaps;
 
 public:
     ShipShadowMapUpdater(
         Race& race,
-        ShipsRenderer& shipsRenderer,
+        ShipRenderer& shipRenderer,
         ShadowMaps& shadowMaps);
 
     void Update();

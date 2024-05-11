@@ -1,3 +1,4 @@
+#include <lib/Assert.h>
 #include <calc/Geometry.h>
 #include <calc/Matrix4.h>
 #include <model/ShipMeasure.h>
@@ -29,10 +30,38 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
 {
     Matrix4 modelMatrix;
     ship.GetModelMatrix(modelMatrix);
-
     glPushMatrix();
+    glEnable(GL_DEPTH_TEST);
     SetPosition(ship);
+    if (ship.State == ShipState::Active)
+    {
+        RenderShipMesh(modelMatrix, textureIndex);
+        RenderExhaust(ship);
+    }
+    else if (ship.State == ShipState::Exploded || ship.State == ShipState::Destroyed)
+    {
+        RenderShipMesh(modelMatrix, ShipMesh::DestroyedTexture);
+    }
+    else if (ship.State == ShipState::Reseted || ship.State == ShipState::Prepared)
+    {
+        if ((ship.DelayIterations % 10) == 0) // мерцание кораблика
+        {
+            RenderShipMesh(modelMatrix, textureIndex);
+            RenderExhaust(ship);
+        }
+    }
+    else
+    {
+        Assert::Fail();
+    }
+    glDisable(GL_DEPTH_TEST);
+    glPopMatrix();
+    //RenderAIMovingDirections(ship);
+    //RenderThrottle(ship);
+}
 
+void ShipRenderer::RenderShipMesh(Matrix4& modelMatrix, int textureIndex)
+{
     _shaderProgram.Use();
     _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
@@ -41,24 +70,20 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     _vboMeshRenderer.SetActiveTextureIndex(textureIndex);
     _vboMeshRenderer.Render();
     _shaderProgram.Unuse();
+}
 
-    if (ship.State != ShipState::Destroyed)
-    {
-        glPushMatrix();
-        glTranslatef(-0.32f, 0.16f, 0.15f);
-        glRotatef(-0.8f, Constants::UpAxis);
-        _exhaustRenderer.Render(ship);
-        glPopMatrix();
+void ShipRenderer::RenderExhaust(Ship& ship)
+{
+    glPushMatrix();
+    glTranslatef(-0.32f, 0.16f, 0.15f);
+    glRotatef(-0.8f, Constants::UpAxis);
+    _exhaustRenderer.Render(ship);
+    glPopMatrix();
 
-        glPushMatrix();
-        glTranslatef(0.325f, 0.16f, 0.15f);
-        glRotatef(0.9f, Constants::UpAxis);
-        _exhaustRenderer.Render(ship);
-        glPopMatrix();
-    }
-
-    //RenderAIMovingDirections(ship);
-    //RenderThrottle(ship);
+    glPushMatrix();
+    glTranslatef(0.325f, 0.16f, 0.15f);
+    glRotatef(0.9f, Constants::UpAxis);
+    _exhaustRenderer.Render(ship);
     glPopMatrix();
 }
 
