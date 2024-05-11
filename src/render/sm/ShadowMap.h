@@ -6,6 +6,7 @@
 class ShadowMap : public Object
 {
 public:
+    unsigned int FBOId;
     unsigned int TextureId;
     Matrix4 ShadowMatrix;
 

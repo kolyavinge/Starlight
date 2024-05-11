@@ -36,10 +36,19 @@ void TrackRenderer::Render()
     _shaderProgram.SetUniform("cameraPos", _camera.Position);
     _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
     _shaderProgram.SetUniform("alpha", 0.6f);
-    _shaderProgram.SetUniform("shadowMatrix", _shadowMaps.ShipShadowMap.ShadowMatrix.GetPtr());
+    _shaderProgram.SetUniform("shadowMatrix1", _shadowMaps.ShipShadowMaps[0].ShadowMatrix.GetPtr());
+    _shaderProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
+    _shaderProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
+    _shaderProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
 
     glActiveTexture(GL_TEXTURE1);
-    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMap.TextureId);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[0].TextureId);
+    glActiveTexture(GL_TEXTURE2);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[1].TextureId);
+    glActiveTexture(GL_TEXTURE3);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[2].TextureId);
+    glActiveTexture(GL_TEXTURE4);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[3].TextureId);
 
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);

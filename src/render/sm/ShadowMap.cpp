@@ -2,5 +2,6 @@
 
 ShadowMap::ShadowMap()
 {
+    FBOId = 0;
     TextureId = 0;
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <lib/Object.h>
+#include <lib/Collection.h>
 #include <lib/di/ResolvingFactory.h>
 #include <core/Race.h>
 #include <render/common/ShipsRenderer.h>
@@ -13,8 +14,7 @@ class ShipShadowMapUpdater : public Object
     const unsigned int _resolutionHeight;
     Race& _race;
     ShipsRenderer& _shipsRenderer;
-    ShadowMap& _shipShadowMap;
-    unsigned int _fboId;
+    Collection<ShadowMap>& _shipShadowMaps;
 
 public:
     ShipShadowMapUpdater(
@@ -25,8 +25,9 @@ public:
     void Update();
 
 private:
-    void CalculateShadowMatrix(Vector3& lightPosition);
-    void InitFBO();
+    void Update(Ship& ship, ShadowMap& shadowMap);
+    void CalculateShadowMatrix(Ship& ship, ShadowMap& shadowMap, Vector3& lightPosition);
+    void InitFBO(ShadowMap& shadowMap);
 };
 
 class ShipShadowMapUpdaterResolvingFactory : public ResolvingFactory<ShipShadowMapUpdater>
