@@ -3,8 +3,8 @@
 
 ShaderPrograms::ShaderPrograms()
 {
-    DefaultShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetDefaultVertexShaderPath());
-    DefaultShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetDefaultFragmentShaderPath());
+    MainWithoutShadowsShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetMainWithoutShadowsVertexShaderPath());
+    MainWithoutShadowsShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetMainWithoutShadowsFragmentShaderPath());
 
     ExhaustShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetExhaustVertexShaderPath());
     ExhaustShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetExhaustFragmentShaderPath());

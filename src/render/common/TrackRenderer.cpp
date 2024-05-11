@@ -9,7 +9,8 @@ TrackRenderer::TrackRenderer(
     ShadowMaps& shadowMaps) :
     _camera(camera),
     _trackMesh(trackMesh),
-    _shaderProgram(shaderPrograms.MainShaderProgram),
+    _mainProgram(shaderPrograms.MainShaderProgram),
+    _withoutShadowsProgram(shaderPrograms.MainWithoutShadowsShaderProgram),
     _shadowMaps(shadowMaps)
 {
 }
@@ -31,15 +32,15 @@ void TrackRenderer::Render()
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
 
-    _shaderProgram.Use();
-    _shaderProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
-    _shaderProgram.SetUniform("cameraPos", _camera.Position);
-    _shaderProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
-    _shaderProgram.SetUniform("alpha", 0.6f);
-    _shaderProgram.SetUniform("shadowMatrix1", _shadowMaps.ShipShadowMaps[0].ShadowMatrix.GetPtr());
-    _shaderProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
-    _shaderProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
-    _shaderProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
+    _mainProgram.Use();
+    _mainProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
+    _mainProgram.SetUniform("cameraPos", _camera.Position);
+    _mainProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
+    _mainProgram.SetUniform("alpha", 0.6f);
+    _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.ShipShadowMaps[0].ShadowMatrix.GetPtr());
+    _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
+    _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
+    _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
 
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[0].TextureId);
@@ -58,7 +59,32 @@ void TrackRenderer::Render()
 
     _edgeVBO.Render();
 
-    _shaderProgram.Unuse();
+    _mainProgram.Unuse();
+
+    glDisable(GL_TEXTURE_2D);
+    glDisable(GL_DEPTH_TEST);
+}
+
+void TrackRenderer::RenderWithoutShadows()
+{
+    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_TEXTURE_2D);
+
+    _withoutShadowsProgram.Use();
+    _withoutShadowsProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
+    _withoutShadowsProgram.SetUniform("cameraPos", _camera.Position);
+    _withoutShadowsProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
+    _withoutShadowsProgram.SetUniform("alpha", 0.6f);
+
+    glEnable(GL_MULTISAMPLE);
+    glEnable(GL_BLEND);
+    _groundVBO.Render();
+    glDisable(GL_BLEND);
+    glDisable(GL_MULTISAMPLE);
+
+    _edgeVBO.Render();
+
+    _withoutShadowsProgram.Unuse();
 
     glDisable(GL_TEXTURE_2D);
     glDisable(GL_DEPTH_TEST);

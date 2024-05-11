@@ -7,7 +7,7 @@
 class ShaderPrograms : public Object
 {
 public:
-    ShaderProgram DefaultShaderProgram;
+    ShaderProgram MainWithoutShadowsShaderProgram;
     ShaderProgram ExhaustShaderProgram;
     ShaderProgram MeshShaderProgram;
     ShaderProgram MainShaderProgram;

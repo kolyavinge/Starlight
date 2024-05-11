@@ -16,7 +16,7 @@ ShipRenderer::ShipRenderer(
     _camera(camera),
     _shipMesh(shipMesh),
     _exhaustRenderer(exhaustRenderer),
-    _mainProgram(shaderPrograms.DefaultShaderProgram),
+    _mainProgram(shaderPrograms.MainWithoutShadowsShaderProgram),
     _vertexOnlyProgram(shaderPrograms.VertexOnlyShaderProgram),
     _shadowMaps(shadowMaps),
     _vboMeshRenderer()

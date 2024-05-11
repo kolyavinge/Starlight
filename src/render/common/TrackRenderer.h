@@ -17,7 +17,8 @@ class TrackRenderer : public Object
     Matrix4 _modelMatrix;
     Camera& _camera;
     TrackMesh& _trackMesh;
-    ShaderProgram& _shaderProgram;
+    ShaderProgram& _mainProgram;
+    ShaderProgram& _withoutShadowsProgram;
     ShadowMaps& _shadowMaps;
     Mesh _groundMesh;
     Mesh _edgeMesh;
@@ -33,6 +34,7 @@ public:
 
     void Init(Track& track);
     void Render();
+    void RenderWithoutShadows();
 
 private:
     void RenderEdgeNormals(Track& track);
