@@ -28,6 +28,12 @@ MirrorViewRenderer::MirrorViewRenderer(
     InitFBO();
 }
 
+MirrorViewRenderer::~MirrorViewRenderer()
+{
+    glDeleteTextures(1, &_textureId);
+    glDeleteFramebuffers(1, &_fboId);
+}
+
 void MirrorViewRenderer::Render()
 {
     UpdateTexture();

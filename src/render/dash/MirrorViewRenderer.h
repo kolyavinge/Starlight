@@ -36,6 +36,8 @@ public:
         PowerUpRenderer& powerUpRenderer,
         ExplosionRenderer& explosionRenderer);
 
+    ~MirrorViewRenderer() override;
+
     void Render();
 
 private:
