@@ -11,6 +11,7 @@ TrackRenderer::TrackRenderer(
     _trackMesh(trackMesh),
     _mainProgram(shaderPrograms.MainShaderProgram),
     _withoutShadowsProgram(shaderPrograms.MainWithoutShadowsShaderProgram),
+    _vertexOnlyProgram(shaderPrograms.VertexOnlyShaderProgram),
     _shadowMaps(shadowMaps)
 {
 }
@@ -87,6 +88,15 @@ void TrackRenderer::RenderWithoutShadows()
     _withoutShadowsProgram.Unuse();
 
     glDisable(GL_TEXTURE_2D);
+    glDisable(GL_DEPTH_TEST);
+}
+
+void TrackRenderer::FillDepthBufferForShadow()
+{
+    glEnable(GL_DEPTH_TEST);
+    _vertexOnlyProgram.Use();
+    _groundVBO.Render();
+    _vertexOnlyProgram.Unuse();
     glDisable(GL_DEPTH_TEST);
 }
 

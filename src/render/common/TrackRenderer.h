@@ -19,6 +19,7 @@ class TrackRenderer : public Object
     TrackMesh& _trackMesh;
     ShaderProgram& _mainProgram;
     ShaderProgram& _withoutShadowsProgram;
+    ShaderProgram& _vertexOnlyProgram;
     ShadowMaps& _shadowMaps;
     Mesh _groundMesh;
     Mesh _edgeMesh;
@@ -35,6 +36,7 @@ public:
     void Init(Track& track);
     void Render();
     void RenderWithoutShadows();
+    void FillDepthBufferForShadow();
 
 private:
     void RenderEdgeNormals(Track& track);

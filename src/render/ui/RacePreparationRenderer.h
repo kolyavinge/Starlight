@@ -12,6 +12,7 @@
 #include <render/common/PowerUpRenderer.h>
 #include <render/common/CountdownRenderer.h>
 #include <render/sm/ShadowMapsUpdater.h>
+#include <render/sm/TrackShadowMapUpdater.h>
 #include <render/ui/ScreenRenderer.h>
 
 class RacePreparationRenderer : public ScreenRenderer
@@ -25,6 +26,7 @@ class RacePreparationRenderer : public ScreenRenderer
     PowerUpRenderer& _powerUpRenderer;
     CountdownRenderer& _countdownRenderer;
     ShadowMapsUpdater& _shadowMapsUpdater;
+    TrackShadowMapUpdater& _trackShadowMapUpdater;
     FadeEffect _fadeEffect;
 
 public:
@@ -37,7 +39,8 @@ public:
         TrackRenderer& trackRenderer,
         PowerUpRenderer& powerUpRenderer,
         CountdownRenderer& countdownRenderer,
-        ShadowMapsUpdater& shadowMapsUpdater);
+        ShadowMapsUpdater& shadowMapsUpdater,
+        TrackShadowMapUpdater& trackShadowMapUpdater);
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;

@@ -38,6 +38,7 @@
 #include <render/sm/ShadowMaps.h>
 #include <render/sm/ShadowMapsUpdater.h>
 #include <render/sm/ShipShadowMapUpdater.h>
+#include <render/sm/TrackShadowMapUpdater.h>
 #include <render/ui/FinishRenderer.h>
 #include <render/ui/PauseMenuRenderer.h>
 #include <render/ui/RacePreparationRenderer.h>
@@ -88,6 +89,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<ShadowMaps, ShadowMapsResolvingFactory>();
     binder.BindSingletonByFactory<ShadowMapsUpdater, ShadowMapsUpdaterResolvingFactory>();
     binder.BindSingletonByFactory<ShipShadowMapUpdater, ShipShadowMapUpdaterResolvingFactory>();
+    binder.BindSingletonByFactory<TrackShadowMapUpdater, TrackShadowMapUpdaterResolvingFactory>();
     binder.BindSingletonByFactory<FinishRenderer, FinishRendererResolvingFactory>();
     binder.BindSingletonByFactory<GraphicItemCollection, GraphicItemCollectionResolvingFactory>();
     binder.BindSingletonByFactory<PauseMenuRenderer, PauseMenuRendererResolvingFactory>();

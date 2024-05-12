@@ -221,6 +221,7 @@
     <ClInclude Include="src\lib\StdFuncs.h" />
     <ClInclude Include="src\calc\Matrix4.h" />
     <ClInclude Include="src\gl\ShadowMapFramebufferGenerator.h" />
+    <ClInclude Include="src\render\sm\TrackShadowMapUpdater.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -413,6 +414,7 @@
     <ClCompile Include="src\lib\StdFuncs.cpp" />
     <ClCompile Include="src\calc\Matrix4.cpp" />
     <ClCompile Include="src\gl\ShadowMapFramebufferGenerator.cpp" />
+    <ClCompile Include="src\render\sm\TrackShadowMapUpdater.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

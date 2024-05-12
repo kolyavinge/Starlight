@@ -10,6 +10,7 @@ class ShadowMaps : public Object
 {
 public:
     Array<ShadowMap, Race::EnemiesCount + 1> ShipShadowMaps;
+    ShadowMap TrackShadowMap;
 };
 
 class ShadowMapsResolvingFactory : public ResolvingFactory<ShadowMaps>
