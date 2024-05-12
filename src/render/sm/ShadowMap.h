@@ -11,4 +11,6 @@ public:
     Matrix4 ShadowMatrix;
 
     ShadowMap();
+
+    ~ShadowMap();
 };

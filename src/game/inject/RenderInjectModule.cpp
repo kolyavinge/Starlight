@@ -1,4 +1,5 @@
 #include <gl/TextRenderer.h>
+#include <gl/ShadowMapFramebufferGenerator.h>
 #include <render/common/BackgroundRenderer.h>
 #include <render/common/BulletsRenderer.h>
 #include <render/common/CountdownRenderer.h>
@@ -49,6 +50,7 @@
 void RenderInjectModule::Init(Binder& binder)
 {
     binder.BindSingletonByFactory<TextRenderer, TextRendererResolvingFactory>();
+    binder.BindSingletonByFactory<ShadowMapFramebufferGenerator, ShadowMapFramebufferGeneratorResolvingFactory>();
     binder.BindSingletonByFactory<BackgroundRenderer, BackgroundRendererResolvingFactory>();
     binder.BindSingletonByFactory<BulletsRenderer, BulletsRendererResolvingFactory>();
     binder.BindSingletonByFactory<CountdownRenderer, CountdownRendererResolvingFactory>();

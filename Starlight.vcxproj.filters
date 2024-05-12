@@ -194,7 +194,6 @@
     <ClInclude Include="src\vox\common\ShipVox.h" />
     <ClInclude Include="src\lib\Matrix.h" />
     <ClInclude Include="src\render\shader\ShaderPrograms.h" />
-    <ClInclude Include="src\calc\ModelMatrix.h" />
     <ClInclude Include="src\render\mesh\TrackMesh.h" />
     <ClInclude Include="src\lib\ArrayIndexGenerator.h" />
     <ClInclude Include="src\core\RaceDistanceCalculator.h" />
@@ -220,6 +219,8 @@
     <ClInclude Include="src\render\sm\ShipShadowMapUpdater.h" />
     <ClInclude Include="src\render\sm\ShadowMapsUpdater.h" />
     <ClInclude Include="src\lib\StdFuncs.h" />
+    <ClInclude Include="src\calc\Matrix4.h" />
+    <ClInclude Include="src\gl\ShadowMapFramebufferGenerator.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -388,7 +389,6 @@
     <ClCompile Include="src\gl\ShaderProgram.cpp" />
     <ClCompile Include="src\vox\common\ShipVox.cpp" />
     <ClCompile Include="src\render\shader\ShaderPrograms.cpp" />
-    <ClCompile Include="src\calc\ModelMatrix.cpp" />
     <ClCompile Include="src\render\mesh\TrackMesh.cpp" />
     <ClCompile Include="src\lib\ArrayIndexGenerator.cpp" />
     <ClCompile Include="src\core\RaceDistanceCalculator.cpp" />
@@ -411,6 +411,8 @@
     <ClCompile Include="src\render\sm\ShipShadowMapUpdater.cpp" />
     <ClCompile Include="src\render\sm\ShadowMapsUpdater.cpp" />
     <ClCompile Include="src\lib\StdFuncs.cpp" />
+    <ClCompile Include="src\calc\Matrix4.cpp" />
+    <ClCompile Include="src\gl\ShadowMapFramebufferGenerator.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

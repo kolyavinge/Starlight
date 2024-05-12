@@ -68,6 +68,7 @@
     <ClInclude Include="src\gl\Mesh.h" />
     <ClInclude Include="src\gl\MeshLoader.h" />
     <ClInclude Include="src\gl\ShadowedTexturedRect.h" />
+    <ClInclude Include="src\gl\ShadowMapFramebufferGenerator.h" />
     <ClInclude Include="src\gl\Texture.h" />
     <ClInclude Include="src\anx\GraphicResources.h" />
     <ClInclude Include="src\gl\TexturedRect.h" />
@@ -298,6 +299,7 @@
     <ClCompile Include="src\calc\Matrix4.cpp" />
     <ClCompile Include="src\gl\ShaderProgram.cpp" />
     <ClCompile Include="src\gl\ShadowedTexturedRect.cpp" />
+    <ClCompile Include="src\gl\ShadowMapFramebufferGenerator.cpp" />
     <ClCompile Include="src\gl\Texture.cpp" />
     <ClCompile Include="src\anx\GraphicResources.cpp" />
     <ClCompile Include="src\gl\TexturedRect.cpp" />

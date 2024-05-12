@@ -1,4 +1,3 @@
-#include <lib/Assert.h>
 #include <lib/Math.h>
 #include <calc/Vector3.h>
 #include <model/ShipMeasure.h>
@@ -10,16 +9,17 @@
 ShipShadowMapUpdater::ShipShadowMapUpdater(
     Race& race,
     ShipRenderer& shipRenderer,
-    ShadowMaps& shadowMaps) :
-    _resolutionWidth(2000),
-    _resolutionHeight(2000),
+    ShadowMaps& shadowMaps,
+    ShadowMapFramebufferGenerator& shadowMapFramebufferGenerator) :
+    _resolutionWidthHeight(2000),
     _race(race),
     _shipRenderer(shipRenderer),
     _shipShadowMaps(shadowMaps.ShipShadowMaps)
 {
     for (int i = 0; i < _shipShadowMaps.GetCount(); i++)
     {
-        InitFBO(_shipShadowMaps[i]);
+        shadowMapFramebufferGenerator.Generate(
+            _resolutionWidthHeight, _resolutionWidthHeight, _shipShadowMaps[i].FBOId, _shipShadowMaps[i].TextureId);
     }
 }
 
@@ -38,7 +38,7 @@ void ShipShadowMapUpdater::Update(Ship& ship, ShadowMap& shadowMap)
     glPushMatrix();
     glBindFramebuffer(GL_FRAMEBUFFER, shadowMap.FBOId);
 
-    glViewport(0, 0, _resolutionWidth, _resolutionHeight);
+    glViewport(0, 0, _resolutionWidthHeight, _resolutionWidthHeight);
     glClear(GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -70,34 +70,11 @@ void ShipShadowMapUpdater::CalculateShadowMatrix(Ship& ship, ShadowMap& shadowMa
     shadowMap.ShadowMatrix.Mul(view);
 }
 
-void ShipShadowMapUpdater::InitFBO(ShadowMap& shadowMap)
-{
-    glGenTextures(1, &shadowMap.TextureId);
-    glBindTexture(GL_TEXTURE_2D, shadowMap.TextureId);
-    glTexStorage2D(GL_TEXTURE_2D, 1, GL_DEPTH_COMPONENT24, _resolutionWidth, _resolutionHeight);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
-    float borderColor[] = { 1.0f, 0.0f, 0.0f, 0.0f };
-    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_MODE, GL_COMPARE_REF_TO_TEXTURE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_COMPARE_FUNC, GL_LEQUAL);
-    glBindTexture(GL_TEXTURE_2D, shadowMap.TextureId);
-    glGenFramebuffers(1, &shadowMap.FBOId);
-    glBindFramebuffer(GL_FRAMEBUFFER, shadowMap.FBOId);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, shadowMap.TextureId, 0);
-    GLenum drawBuffers[] = { GL_NONE };
-    glDrawBuffers(1, drawBuffers);
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    Assert::True(status == GL_FRAMEBUFFER_COMPLETE);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-}
-
 ShipShadowMapUpdater* ShipShadowMapUpdaterResolvingFactory::Make(Resolver& resolver)
 {
     return new ShipShadowMapUpdater(
         resolver.Resolve<Race>(),
         resolver.Resolve<ShipRenderer>(),
-        resolver.Resolve<ShadowMaps>());
+        resolver.Resolve<ShadowMaps>(),
+        resolver.Resolve<ShadowMapFramebufferGenerator>());
 }
