@@ -24,7 +24,13 @@ void main()
     vec3 reflectionDirection = reflect(-lightDirection, Normal);
     float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 8);
     float specular = specAmount * specularLight;
+	
+	float shadow = 0.0;
+	if (gl_FrontFacing)
+	{
+		shadow = 1.0;
+	}
 
-    FragColor = texture(ourTexture, TexCoord) * lightColor * (diffuse + ambient + specular);
+    FragColor = texture(ourTexture, TexCoord) * lightColor * (shadow * (diffuse + specular) + ambient);
 	FragColor.w = alpha;
 }

@@ -35,12 +35,16 @@ void main()
     float specAmount = pow(max(dot(viewDirection, reflectionDirection), 0.0f), 8);
     float specular = specAmount * specularLight;
 
-    float shadow1 = textureProj(shadowTexture1, ShadowCoord1);
-	float shadow2 = textureProj(shadowTexture2, ShadowCoord2);
-	float shadow3 = textureProj(shadowTexture3, ShadowCoord3);
-	float shadow4 = textureProj(shadowTexture4, ShadowCoord4);
-	float shadow5 = textureProj(shadowTexture5, ShadowCoord5);
-	float shadow = min(min(min(shadow1, shadow2), min(shadow3, shadow4)), shadow5);
+	float shadow = 0.0;
+	if (gl_FrontFacing)
+	{
+		float shadow1 = textureProj(shadowTexture1, ShadowCoord1);
+		float shadow2 = textureProj(shadowTexture2, ShadowCoord2);
+		float shadow3 = textureProj(shadowTexture3, ShadowCoord3);
+		float shadow4 = textureProj(shadowTexture4, ShadowCoord4);
+		float shadow5 = textureProj(shadowTexture5, ShadowCoord5);
+		shadow = min(min(min(shadow1, shadow2), min(shadow3, shadow4)), shadow5);
+	}
 
     FragColor = texture(ourTexture, TexCoord) * lightColor * (shadow * (diffuse + specular) + ambient);
 	FragColor.w = alpha;
