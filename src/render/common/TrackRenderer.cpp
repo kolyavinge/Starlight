@@ -42,6 +42,7 @@ void TrackRenderer::Render()
     _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
     _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
     _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
+    _mainProgram.SetUniform("shadowMatrix5", _shadowMaps.TrackShadowMap.ShadowMatrix.GetPtr());
 
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[0].TextureId);
@@ -51,6 +52,8 @@ void TrackRenderer::Render()
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[2].TextureId);
     glActiveTexture(GL_TEXTURE4);
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[3].TextureId);
+    glActiveTexture(GL_TEXTURE5);
+    glBindTexture(GL_TEXTURE_2D, _shadowMaps.TrackShadowMap.TextureId);
 
     glEnable(GL_MULTISAMPLE);
     glEnable(GL_BLEND);
@@ -94,9 +97,12 @@ void TrackRenderer::RenderWithoutShadows()
 void TrackRenderer::FillDepthBufferForShadow()
 {
     glEnable(GL_DEPTH_TEST);
+    glEnable(GL_POLYGON_OFFSET_FILL);
+    glPolygonOffset(2.5f, 5.0f);
     _vertexOnlyProgram.Use();
     _groundVBO.Render();
     _vertexOnlyProgram.Unuse();
+    glDisable(GL_POLYGON_OFFSET_FILL);
     glDisable(GL_DEPTH_TEST);
 }
 

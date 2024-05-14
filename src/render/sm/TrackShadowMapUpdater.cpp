@@ -2,7 +2,6 @@
 #include <calc/Vector3.h>
 #include <core/Constants.h>
 #include <gl/opengl.h>
-#include <render/common/RenderConstants.h>
 #include <render/sm/TrackShadowMapUpdater.h>
 
 TrackShadowMapUpdater::TrackShadowMapUpdater(
@@ -30,7 +29,7 @@ void TrackShadowMapUpdater::Update()
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(90.0, Constants::ScreenAspect, 0.1, Constants::SceneRadiusDouble);
-    Vector3 lightPosition(RenderConstants::GlobalLightPosition);
+    Vector3 lightPosition(0.0f, 0.0f, 400.0f);
     Vector3 lookAt(1.0f, 1.0f, 0.0f);
     gluLookAt(lightPosition, lookAt, Constants::UpAxis);
 

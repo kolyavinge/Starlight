@@ -11,12 +11,14 @@ out vec4 ShadowCoord1;
 out vec4 ShadowCoord2;
 out vec4 ShadowCoord3;
 out vec4 ShadowCoord4;
+out vec4 ShadowCoord5;
 
 uniform mat4 modelMatrix;
 uniform mat4 shadowMatrix1;
 uniform mat4 shadowMatrix2;
 uniform mat4 shadowMatrix3;
 uniform mat4 shadowMatrix4;
+uniform mat4 shadowMatrix5;
 
 void main()
 {
@@ -28,4 +30,5 @@ void main()
 	ShadowCoord2 = shadowMatrix2 * modelMatrix * vec4(aPos, 1.0);
 	ShadowCoord3 = shadowMatrix3 * modelMatrix * vec4(aPos, 1.0);
 	ShadowCoord4 = shadowMatrix4 * modelMatrix * vec4(aPos, 1.0);
+	ShadowCoord5 = shadowMatrix5 * modelMatrix * vec4(aPos, 1.0);
 }
