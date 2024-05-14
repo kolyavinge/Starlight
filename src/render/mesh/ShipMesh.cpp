@@ -8,6 +8,7 @@ ShipMesh::ShipMesh()
     _mesh.SwapYZ();
     _mesh.MoveToOrigin();
     _mesh.MoveToCenter((int)Mesh::Axis::X);
+    _mesh.InvertFacing();
     Mesh::Size meshSize;
     _mesh.GetSize(meshSize);
     _mesh.SetScale(

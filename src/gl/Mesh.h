@@ -45,6 +45,7 @@ public:
     void MoveToCenter(int axis);
     void SwapYZ();
     void SetScale(float x, float y, float z);
+    void InvertFacing();
     bool IsLoaded();
     void GetSize(Size& result);
 };

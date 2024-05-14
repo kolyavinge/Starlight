@@ -13,6 +13,7 @@ public:
 
 private:
     void MakeGroundSegment(Track& track, int startPointIndex, int endPointIndex, int segmentPointStep, int segmentsCount, float startTextureY, Mesh& mesh);
+    void SetCounterClockwiseFacing(Track& track, Mesh& mesh);
     void MakeEdgeMesh(int edgesCount, TrackEdges& edges, TrackEdges& normals, Mesh& mesh);
 };
 

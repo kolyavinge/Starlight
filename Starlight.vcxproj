@@ -107,6 +107,7 @@
     <ClInclude Include="src\lib\Stopwatch.h" />
     <ClInclude Include="src\lib\String.h" />
     <ClInclude Include="src\lib\TimeSpan.h" />
+    <ClInclude Include="src\lib\Utils.h" />
     <ClInclude Include="src\model\Bullet.h" />
     <ClInclude Include="src\model\Machinegun.h" />
     <ClInclude Include="src\model\NitroCollection.h" />

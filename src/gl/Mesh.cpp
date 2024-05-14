@@ -1,3 +1,4 @@
+#include <lib/Utils.h>
 #include <calc/Vector3.h>
 #include <calc/VectorCalculator.h>
 #include <gl/MeshLoader.h>
@@ -73,6 +74,14 @@ void Mesh::SetScale(float x, float y, float z)
         v.X *= x;
         v.Y *= y;
         v.Z *= z;
+    }
+}
+
+void Mesh::InvertFacing()
+{
+    for (int i = 0; i < Faces.GetCount(); i++)
+    {
+        Utils::Swap(Faces[i].i0, Faces[i].i2);
     }
 }
 

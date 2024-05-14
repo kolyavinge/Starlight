@@ -222,6 +222,7 @@
     <ClInclude Include="src\calc\Matrix4.h" />
     <ClInclude Include="src\gl\ShadowMapFramebufferGenerator.h" />
     <ClInclude Include="src\render\sm\TrackShadowMapUpdater.h" />
+    <ClInclude Include="src\lib\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />

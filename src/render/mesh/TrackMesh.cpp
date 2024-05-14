@@ -1,5 +1,7 @@
+#include <lib/Utils.h>
 #include <lib/Point2.h>
 #include <lib/ArrayIndexGenerator.h>
+#include <calc/Vector3.h>
 #include <model/TrackEdge.h>
 #include <gl/Face.h>
 #include <anx/GraphicResources.h>
@@ -18,6 +20,8 @@ void TrackMesh::MakeGroundMesh(Track& track, Mesh& mesh)
     MakeGroundSegment(track, 0, track.StartFinishLineIndex, segmentPointStep, segmentsCount, 0.0f, mesh);
     MakeGroundSegment(track, track.StartFinishLineIndex, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, segmentPointStep, segmentsCount, 0.5f, mesh);
     MakeGroundSegment(track, track.StartFinishLineIndex + 2 * segmentsCount * segmentPointStep, track.PointsCount, segmentPointStep, segmentsCount, 0.0f, mesh);
+
+    SetCounterClockwiseFacing(track, mesh);
 
     mesh.Textures.AddNew().Load(GraphicResources::GetTrackGround1TextureFilePath());
 }
@@ -44,8 +48,8 @@ void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPoin
     while (pointIndexGenerator.MoveNext())
     {
         const int vertexIndex = mesh.VertexCoords.GetCount();
-        int prevIndex = pointIndexGenerator.GetPrevIndex();
-        int currentIndex = pointIndexGenerator.GetCurrentIndex();
+        const int prevIndex = pointIndexGenerator.GetPrevIndex();
+        const int currentIndex = pointIndexGenerator.GetCurrentIndex();
         mesh.VertexCoords.Add(track.OutsidePoints[prevIndex]);
         mesh.VertexCoords.Add(track.InsidePoints[prevIndex]);
         mesh.VertexCoords.Add(track.OutsidePoints[currentIndex]);
@@ -63,6 +67,24 @@ void TrackMesh::MakeGroundSegment(Track& track, int startPointIndex, int endPoin
         mesh.Faces.Add(Face(vertexIndex, vertexIndex + 1, vertexIndex + 2));
         mesh.Faces.Add(Face(vertexIndex + 1, vertexIndex + 3, vertexIndex + 2));
         iter++;
+    }
+}
+
+void TrackMesh::SetCounterClockwiseFacing(Track& track, Mesh& mesh)
+{
+    Vector3 straightDirection(track.InsidePoints[1]);
+    straightDirection.Sub(track.InsidePoints[0]);
+
+    Vector3 vertexDirection(mesh.VertexCoords[0]);
+    vertexDirection.Sub(mesh.VertexCoords[1]);
+
+    vertexDirection.VectorProduct(straightDirection);
+    if (vertexDirection.Z > 0.0f)
+    {
+        for (int i = 0; i < mesh.Faces.GetCount(); i++)
+        {
+            Utils::Swap(mesh.Faces[i].i0, mesh.Faces[i].i2);
+        }
     }
 }
 
