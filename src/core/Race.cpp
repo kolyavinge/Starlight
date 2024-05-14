@@ -21,7 +21,7 @@ Race::Race(
     PlayerController.SetShip(Player);
     for (int i = 0; i < EnemiesCount; i++)
     {
-        Enemies[i].Init();
+        Enemies[i].InitForPlayer();
     }
     AllShips.Add(&Player);
     for (int i = 0; i < EnemiesCount; i++)

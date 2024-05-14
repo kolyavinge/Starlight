@@ -5,11 +5,12 @@
 Ship::Ship() :
     Weapon(_weapon)
 {
-    Init();
+    InitForPlayer();
 }
 
-void Ship::Init()
+void Ship::InitForPlayer()
 {
+    _rollRadiansRate = 1.5f;
     State = ShipState::Active;
     Controls.Init();
     ThrottleTime = 0;
@@ -28,6 +29,12 @@ void Ship::Init()
     VelocityFunction.AddDelta(AIData.VelocityDelta);
     CompletedRaceDistance = 0;
     RacePosition = 0;
+}
+
+void Ship::InitForEnemy()
+{
+    InitForPlayer();
+    _rollRadiansRate = 0.0f;
 }
 
 void Ship::OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction)
@@ -58,7 +65,7 @@ bool Ship::IsMoving()
 
 float Ship::GetRollRadians()
 {
-    return -1.0f * TurnAngleRadians;
+    return _rollRadiansRate * TurnAngleRadians;
 }
 
 Vector3 Ship::GetVelocityVector()

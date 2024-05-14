@@ -16,6 +16,7 @@ enum class ShipState { Active, Exploded, Destroyed, Reseted, Prepared };
 
 class Ship : public Object
 {
+    float _rollRadiansRate;
     Machinegun _weapon;
 
 public:
@@ -42,7 +43,8 @@ public:
 
     Ship();
 
-    void Init();
+    void InitForPlayer();
+    void InitForEnemy();
     void OrientationByFrontPoint(Vector3& frontMiddlePoint, Vector3 direction);
     void OrientationByRearPoint(Vector3& rearMiddlePoint, Vector3 direction);
     void SaveCurrentCentralLine();

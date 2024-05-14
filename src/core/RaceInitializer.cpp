@@ -33,11 +33,11 @@ void RaceInitializer::Init(
 void RaceInitializer::InitShips(Ship& player, Collection<Ship>& enemies)
 {
     player.AIData.InitForPlayer();
-    player.Init();
+    player.InitForPlayer();
     for (int i = 0; i < enemies.GetCount(); i++)
     {
         enemies[i].AIData.InitForEnemy();
-        enemies[i].Init();
+        enemies[i].InitForEnemy();
     }
 }
 
