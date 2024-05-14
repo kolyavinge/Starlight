@@ -35,9 +35,7 @@ void ShipShadowMapUpdater::Update(Ship& ship, ShadowMap& shadowMap)
 {
     int viewport[4];
     glGetIntegerv(GL_VIEWPORT, viewport);
-    glPushMatrix();
     glBindFramebuffer(GL_FRAMEBUFFER, shadowMap.FBOId);
-
     glViewport(0, 0, _resolutionWidthHeight, _resolutionWidthHeight);
     glClear(GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
@@ -48,13 +46,9 @@ void ShipShadowMapUpdater::Update(Ship& ship, ShadowMap& shadowMap)
     lightPosition.SetLength(1.5f * ShipMeasure::YLength);
     lightPosition.Add(ship.CentralLine.Front);
     gluLookAt(lightPosition, ship.CentralLine.Front, Constants::UpAxis);
-
     CalculateShadowMatrix(ship, shadowMap, lightPosition);
-
     _shipRenderer.FillDepthBufferForShadow(ship);
-
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glPopMatrix();
     glViewport(viewport[0], viewport[1], viewport[2], viewport[3]);
 }
 

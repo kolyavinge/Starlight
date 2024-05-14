@@ -8,8 +8,8 @@ TrackShadowMapUpdater::TrackShadowMapUpdater(
     TrackRenderer& trackRenderer,
     ShadowMaps& shadowMaps,
     ShadowMapFramebufferGenerator& shadowMapFramebufferGenerator) :
-    _resolutionWidth(5000),
-    _resolutionHeight(5000),
+    _resolutionWidth(1000),
+    _resolutionHeight((unsigned int)(_resolutionWidth / Constants::ScreenAspect)),
     _trackRenderer(trackRenderer),
     _trackShadowMap(shadowMaps.TrackShadowMap)
 {
@@ -21,9 +21,7 @@ void TrackShadowMapUpdater::Update()
 {
     int viewport[4];
     glGetIntegerv(GL_VIEWPORT, viewport);
-    glPushMatrix();
     glBindFramebuffer(GL_FRAMEBUFFER, _trackShadowMap.FBOId);
-
     glViewport(0, 0, _resolutionWidth, _resolutionHeight);
     glClear(GL_DEPTH_BUFFER_BIT);
     glMatrixMode(GL_PROJECTION);
@@ -32,13 +30,9 @@ void TrackShadowMapUpdater::Update()
     Vector3 lightPosition(0.0f, 0.0f, 400.0f);
     Vector3 lookAt(1.0f, 1.0f, 0.0f);
     gluLookAt(lightPosition, lookAt, Constants::UpAxis);
-
     CalculateShadowMatrix(lightPosition, lookAt);
-
     _trackRenderer.FillDepthBufferForShadow();
-
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    glPopMatrix();
     glViewport(viewport[0], viewport[1], viewport[2], viewport[3]);
 }
 
