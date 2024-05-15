@@ -110,10 +110,10 @@ void Quaternion::Inverse()
 void Quaternion::Mul(Quaternion& q2)
 {
     Quaternion& q1 = *this;
-    float w = (q2._w * q1._w) - (q2._x * q1._x) - (q2._y * q1._y) - (q2._z * q1._z);
-    float x = (q2._w * q1._x) + (q2._x * q1._w) + (q2._y * q1._z) - (q2._z * q1._y);
-    float y = (q2._w * q1._y) - (q2._x * q1._z) + (q2._y * q1._w) + (q2._z * q1._x);
-    float z = (q2._w * q1._z) + (q2._x * q1._y) - (q2._y * q1._x) + (q2._z * q1._w);
+    float w = (q1._w * q2._w) - (q1._x * q2._x) - (q1._y * q2._y) - (q1._z * q2._z);
+    float x = (q1._w * q2._x) + (q1._x * q2._w) + (q1._y * q2._z) - (q1._z * q2._y);
+    float y = (q1._w * q2._y) - (q1._x * q2._z) + (q1._y * q2._w) + (q1._z * q2._x);
+    float z = (q1._w * q2._z) + (q1._x * q2._y) - (q1._y * q2._x) + (q1._z * q2._w);
     SetComponents(w, x, y, z);
 }
 
@@ -121,10 +121,12 @@ void Quaternion::RotatePoint(Vector3& point)
 {
     Quaternion p(0.0f, point.X, point.Y, point.Z);
 
+    Quaternion inversed(*this);
+    inversed.Inverse();
+
     Quaternion res(*this);
-    res.Inverse();
     res.Mul(p);
-    res.Mul(*this);
+    res.Mul(inversed);
 
     point.X = res._x;
     point.Y = res._y;

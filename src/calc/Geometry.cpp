@@ -103,10 +103,10 @@ Vector3 Geometry::RotatePoint3d(Vector3 point, Vector3& pivotAxis, Vector3& pivo
 
 void Geometry::RotateCoordinateSystem3d(Vector3& axis1From, Vector3& axis1To, Vector3& axis2From, Vector3& axis2To, float& radians, Vector3& pivot)
 {
-    Quaternion result(axis1From, axis1To);
+    Quaternion q1(axis1From, axis1To);
     Vector3 axis2FromRotated(axis2From);
-    result.RotatePoint(axis2FromRotated);
+    q1.RotatePoint(axis2FromRotated);
     Quaternion q2(axis2FromRotated, axis2To);
-    result.Mul(q2);
-    result.GetAngleAndPivot(radians, pivot);
+    q2.Mul(q1);
+    q2.GetAngleAndPivot(radians, pivot);
 }
