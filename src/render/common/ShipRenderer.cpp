@@ -44,20 +44,20 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
         _mainProgram.SetUniform("cameraPos", _camera.Position);
         _mainProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
         _mainProgram.SetUniform("alpha", 1.0f);
-        _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.ShipShadowMaps[0].ShadowMatrix.GetPtr());
-        _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.ShipShadowMaps[1].ShadowMatrix.GetPtr());
-        _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.ShipShadowMaps[2].ShadowMatrix.GetPtr());
-        _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.ShipShadowMaps[3].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.PlayerShipShadowMap.ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.EnemyShipShadowMaps[0].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.EnemyShipShadowMaps[1].ShadowMatrix.GetPtr());
+        _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.EnemyShipShadowMaps[2].ShadowMatrix.GetPtr());
         _mainProgram.SetUniform("shadowMatrix5", _shadowMaps.TrackShadowMap.ShadowMatrix.GetPtr());
 
         glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[0].TextureId);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.PlayerShipShadowMap.TextureId);
         glActiveTexture(GL_TEXTURE2);
-        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[1].TextureId);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[0].TextureId);
         glActiveTexture(GL_TEXTURE3);
-        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[2].TextureId);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[1].TextureId);
         glActiveTexture(GL_TEXTURE4);
-        glBindTexture(GL_TEXTURE_2D, _shadowMaps.ShipShadowMaps[3].TextureId);
+        glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[2].TextureId);
         glActiveTexture(GL_TEXTURE5);
         glBindTexture(GL_TEXTURE_2D, _shadowMaps.TrackShadowMap.TextureId);
 

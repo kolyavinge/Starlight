@@ -14,20 +14,25 @@ ShipShadowMapUpdater::ShipShadowMapUpdater(
     _resolutionWidthHeight(2000),
     _race(race),
     _shipRenderer(shipRenderer),
-    _shipShadowMaps(shadowMaps.ShipShadowMaps)
+    _playerShipShadowMap(shadowMaps.PlayerShipShadowMap),
+    _enemyShipShadowMaps(shadowMaps.EnemyShipShadowMaps)
 {
-    for (int i = 0; i < _shipShadowMaps.GetCount(); i++)
+    shadowMapFramebufferGenerator.Generate(
+        _resolutionWidthHeight, _resolutionWidthHeight, _playerShipShadowMap.FBOId, _playerShipShadowMap.TextureId);
+
+    for (int i = 0; i < _enemyShipShadowMaps.GetCount(); i++)
     {
         shadowMapFramebufferGenerator.Generate(
-            _resolutionWidthHeight, _resolutionWidthHeight, _shipShadowMaps[i].FBOId, _shipShadowMaps[i].TextureId);
+            _resolutionWidthHeight, _resolutionWidthHeight, _enemyShipShadowMaps[i].FBOId, _enemyShipShadowMaps[i].TextureId);
     }
 }
 
 void ShipShadowMapUpdater::Update()
 {
-    for (int i = 0; i < _shipShadowMaps.GetCount(); i++)
+    Update(_race.Player, _playerShipShadowMap);
+    for (int i = 0; i < _enemyShipShadowMaps.GetCount(); i++)
     {
-        Update(*_race.AllShips[i], _shipShadowMaps[i]);
+        Update(_race.Enemies[i], _enemyShipShadowMaps[i]);
     }
 }
 

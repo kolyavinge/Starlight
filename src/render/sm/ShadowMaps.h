@@ -9,7 +9,8 @@
 class ShadowMaps : public Object
 {
 public:
-    Array<ShadowMap, Race::EnemiesCount + 1> ShipShadowMaps;
+    ShadowMap PlayerShipShadowMap;
+    Array<ShadowMap, Race::EnemiesCount> EnemyShipShadowMaps;
     ShadowMap TrackShadowMap;
 };
 

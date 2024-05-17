@@ -14,7 +14,8 @@ class ShipShadowMapUpdater : public Object
     const unsigned int _resolutionWidthHeight;
     Race& _race;
     ShipRenderer& _shipRenderer;
-    Collection<ShadowMap>& _shipShadowMaps;
+    ShadowMap& _playerShipShadowMap;
+    Collection<ShadowMap>& _enemyShipShadowMaps;
 
 public:
     ShipShadowMapUpdater(
