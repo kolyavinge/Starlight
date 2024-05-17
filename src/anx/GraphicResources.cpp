@@ -209,24 +209,6 @@ String GraphicResources::GetDamageEffectFilePath()
     return path;
 }
 
-String GraphicResources::GetMainWithoutShadowsVertexShaderPath()
-{
-    String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\shaders\\mainWithoutShadows.vert\0");
-    path.Append(name);
-
-    return path;
-}
-
-String GraphicResources::GetMainWithoutShadowsFragmentShaderPath()
-{
-    String path(Environment::GetExecutableDirectoryPath());
-    String name(L"res\\shaders\\mainWithoutShadows.frag\0");
-    path.Append(name);
-
-    return path;
-}
-
 String GraphicResources::GetExhaustVertexShaderPath()
 {
     String path(Environment::GetExecutableDirectoryPath());

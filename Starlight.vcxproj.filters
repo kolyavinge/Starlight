@@ -223,6 +223,7 @@
     <ClInclude Include="src\gl\ShadowMapFramebufferGenerator.h" />
     <ClInclude Include="src\render\sm\TrackShadowMapUpdater.h" />
     <ClInclude Include="src\lib\Utils.h" />
+    <ClInclude Include="src\render\sm\EmptyShadowMapInitializer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\Math.cpp" />
@@ -416,6 +417,7 @@
     <ClCompile Include="src\calc\Matrix4.cpp" />
     <ClCompile Include="src\gl\ShadowMapFramebufferGenerator.cpp" />
     <ClCompile Include="src\render\sm\TrackShadowMapUpdater.cpp" />
+    <ClCompile Include="src\render\sm\EmptyShadowMapInitializer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="res\Starlight.rc" />

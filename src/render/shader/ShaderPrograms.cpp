@@ -3,9 +3,6 @@
 
 ShaderPrograms::ShaderPrograms()
 {
-    MainWithoutShadowsShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetMainWithoutShadowsVertexShaderPath());
-    MainWithoutShadowsShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetMainWithoutShadowsFragmentShaderPath());
-
     ExhaustShaderProgram.LoadShader(ShaderKind::Vertex, GraphicResources::GetExhaustVertexShaderPath());
     ExhaustShaderProgram.LoadShader(ShaderKind::Fragment, GraphicResources::GetExhaustFragmentShaderPath());
 

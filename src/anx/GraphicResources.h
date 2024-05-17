@@ -28,8 +28,6 @@ public:
     static String GetPosition4ItemFilePath();
     static String GetExplosionFilePath();
     static String GetDamageEffectFilePath();
-    static String GetMainWithoutShadowsVertexShaderPath();
-    static String GetMainWithoutShadowsFragmentShaderPath();
     static String GetExhaustVertexShaderPath();
     static String GetExhaustFragmentShaderPath();
     static String GetMeshVertexShaderPath();

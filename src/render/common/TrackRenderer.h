@@ -18,7 +18,6 @@ class TrackRenderer : public Object
     Camera& _camera;
     TrackMesh& _trackMesh;
     ShaderProgram& _mainProgram;
-    ShaderProgram& _withoutShadowsProgram;
     ShaderProgram& _vertexOnlyProgram;
     ShadowMaps& _shadowMaps;
     Mesh _groundMesh;
@@ -35,10 +34,13 @@ public:
 
     void Init(Track& track);
     void Render();
-    void RenderWithoutShadows();
+    void RenderForMirrorView();
     void FillDepthBufferForShadow();
 
 private:
+    void RenderVBO();
+    void SetupShaderProgramForMainRender();
+    void SetupShaderProgramForMirrorRender();
     void RenderEdgeNormals(Track& track);
 };
 

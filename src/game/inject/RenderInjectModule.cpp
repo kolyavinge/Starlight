@@ -35,6 +35,7 @@
 #include <render/mesh/ShipMesh.h>
 #include <render/mesh/TrackMesh.h>
 #include <render/shader/ShaderPrograms.h>
+#include <render/sm/EmptyShadowMapInitializer.h>
 #include <render/sm/ShadowMaps.h>
 #include <render/sm/ShadowMapsUpdater.h>
 #include <render/sm/ShipShadowMapUpdater.h>
@@ -86,6 +87,7 @@ void RenderInjectModule::Init(Binder& binder)
     binder.BindSingletonByFactory<ShipMesh, ShipMeshResolvingFactory>();
     binder.BindSingletonByFactory<TrackMesh, TrackMeshResolvingFactory>();
     binder.BindSingletonByFactory<ShaderPrograms, ShaderProgramsResolvingFactory>();
+    binder.BindSingletonByFactory<EmptyShadowMapInitializer, EmptyShadowMapInitializerResolvingFactory>();
     binder.BindSingletonByFactory<ShadowMaps, ShadowMapsResolvingFactory>();
     binder.BindSingletonByFactory<ShadowMapsUpdater, ShadowMapsUpdaterResolvingFactory>();
     binder.BindSingletonByFactory<ShipShadowMapUpdater, ShipShadowMapUpdaterResolvingFactory>();

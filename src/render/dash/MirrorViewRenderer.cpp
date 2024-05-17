@@ -59,7 +59,7 @@ void MirrorViewRenderer::UpdateTexture()
     gluLookAt(_race.Player.CentralLine.Rear, lookBehind, Constants::UpAxis);
 
     _backgroundRenderer.Render();
-    _trackRenderer.RenderWithoutShadows();
+    _trackRenderer.RenderForMirrorView();
     _shipsRenderer.RenderEnemies(_race.Enemies);
     _bulletsRenderer.Render(_race.Player, _race.Enemies);
     _explosionRenderer.Render(_race.Player, _race.AllShips);

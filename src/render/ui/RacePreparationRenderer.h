@@ -13,6 +13,7 @@
 #include <render/common/CountdownRenderer.h>
 #include <render/sm/ShadowMapsUpdater.h>
 #include <render/sm/TrackShadowMapUpdater.h>
+#include <render/sm/EmptyShadowMapInitializer.h>
 #include <render/ui/ScreenRenderer.h>
 
 class RacePreparationRenderer : public ScreenRenderer
@@ -40,7 +41,8 @@ public:
         PowerUpRenderer& powerUpRenderer,
         CountdownRenderer& countdownRenderer,
         ShadowMapsUpdater& shadowMapsUpdater,
-        TrackShadowMapUpdater& trackShadowMapUpdater);
+        TrackShadowMapUpdater& trackShadowMapUpdater,
+        EmptyShadowMapInitializer& emptyShadowMapInitializer);
 
     void Activate(Screen* prevScreen) override;
     void Render(Screen& screen) override;

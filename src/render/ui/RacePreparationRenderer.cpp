@@ -12,7 +12,8 @@ RacePreparationRenderer::RacePreparationRenderer(
     PowerUpRenderer& powerUpRenderer,
     CountdownRenderer& countdownRenderer,
     ShadowMapsUpdater& shadowMapsUpdater,
-    TrackShadowMapUpdater& trackShadowMapUpdater) :
+    TrackShadowMapUpdater& trackShadowMapUpdater,
+    EmptyShadowMapInitializer& emptyShadowMapInitializer) :
     _camera(camera),
     _race(race),
     _backgroundRenderer(backgroundRenderer),
@@ -25,6 +26,7 @@ RacePreparationRenderer::RacePreparationRenderer(
     _trackShadowMapUpdater(trackShadowMapUpdater),
     _fadeEffect(FadeDirection::ToTransparent, 100)
 {
+    emptyShadowMapInitializer.Init();
 }
 
 void RacePreparationRenderer::Activate(Screen*)
@@ -81,5 +83,6 @@ RacePreparationRenderer* RacePreparationRendererResolvingFactory::Make(Resolver&
         resolver.Resolve<PowerUpRenderer>(),
         resolver.Resolve<CountdownRenderer>(),
         resolver.Resolve<ShadowMapsUpdater>(),
-        resolver.Resolve<TrackShadowMapUpdater>());
+        resolver.Resolve<TrackShadowMapUpdater>(),
+        resolver.Resolve<EmptyShadowMapInitializer>());
 }
