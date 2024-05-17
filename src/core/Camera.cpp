@@ -22,6 +22,11 @@ void Camera::RotateBy(float radians)
     Position = Geometry::RotatePoint3d(Position, Constants::UpAxis, LookAt, radians);
 }
 
+void Camera::GetViewMatrix(Matrix4& viewMatrix)
+{
+    viewMatrix.LookAt(Position, LookAt, Constants::UpAxis);
+}
+
 void Camera::SetView(Vector3& front, Vector3& rear, float velocityValue)
 {
     Position = rear;
