@@ -26,6 +26,13 @@ void Matrix4::Mul(Matrix4& m)
     _matrix *= m._matrix;
 }
 
+Vector3 Matrix4::Mul(Vector3& v)
+{
+    glm::vec4 result = _matrix * glm::vec4(v.X, v.Y, v.Z, 1.0f);
+
+    return Vector3(result.x, result.y, result.z);
+}
+
 void Matrix4::Translate(float x, float y, float z)
 {
     _matrix = glm::translate(_matrix, glm::vec3(x, y, z));

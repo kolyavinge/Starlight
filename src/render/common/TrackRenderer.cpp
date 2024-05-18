@@ -71,9 +71,14 @@ void TrackRenderer::RenderVBO()
 
 void TrackRenderer::SetupShaderProgramForMainRender()
 {
-    _mainProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
-    _mainProgram.SetUniform("cameraPos", _camera.Position);
+    _camera.GetViewMatrix(_modelViewMatrix);
+    _modelViewMatrix.Mul(_modelMatrix);
+
+    Vector3 lightPos = _modelViewMatrix.Mul(RenderConstants::GlobalLightPosition);
+
+    _mainProgram.SetUniform("lightPos", lightPos);
     _mainProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
+    _mainProgram.SetUniform("modelViewMatrix", _modelViewMatrix.GetPtr());
     _mainProgram.SetUniform("alpha", 0.6f);
     _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.PlayerShipShadowMap.ShadowMatrix.GetPtr());
     _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.EnemyShipShadowMaps[0].ShadowMatrix.GetPtr());
@@ -95,9 +100,14 @@ void TrackRenderer::SetupShaderProgramForMainRender()
 
 void TrackRenderer::SetupShaderProgramForMirrorRender()
 {
-    _mainProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
-    _mainProgram.SetUniform("cameraPos", _camera.Position);
+    _camera.GetViewMatrix(_modelViewMatrix);
+    _modelViewMatrix.Mul(_modelMatrix);
+
+    Vector3 lightPos = _modelViewMatrix.Mul(RenderConstants::GlobalLightPosition);
+
+    _mainProgram.SetUniform("lightPos", lightPos);
     _mainProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
+    _mainProgram.SetUniform("modelViewMatrix", _modelViewMatrix.GetPtr());
     _mainProgram.SetUniform("alpha", 0.6f);
     _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.EmptyShadowMap.ShadowMatrix.GetPtr());
     _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.EnemyShipShadowMaps[0].ShadowMatrix.GetPtr());

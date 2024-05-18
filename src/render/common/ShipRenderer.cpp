@@ -39,10 +39,17 @@ void ShipRenderer::Render(Ship& ship, int textureIndex)
     {
         Matrix4 modelMatrix;
         ship.GetModelMatrix(modelMatrix);
+
+        Matrix4 modelViewMatrix;
+        _camera.GetViewMatrix(modelViewMatrix);
+        modelViewMatrix.Mul(modelMatrix);
+
+        Vector3 lightPos = modelViewMatrix.Mul(RenderConstants::GlobalLightPosition);
+
         _mainProgram.Use();
-        _mainProgram.SetUniform("lightPos", RenderConstants::GlobalLightPosition);
-        _mainProgram.SetUniform("cameraPos", _camera.Position);
+        _mainProgram.SetUniform("lightPos", lightPos);
         _mainProgram.SetUniform("modelMatrix", modelMatrix.GetPtr());
+        _mainProgram.SetUniform("modelViewMatrix", modelViewMatrix.GetPtr());
         _mainProgram.SetUniform("alpha", 1.0f);
         _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.PlayerShipShadowMap.ShadowMatrix.GetPtr());
         _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.EnemyShipShadowMaps[0].ShadowMatrix.GetPtr());

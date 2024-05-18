@@ -9,7 +9,7 @@ out vec2 TexCoord;
 
 void main()
 {
-	vec3 newPos = vec3(aPos.x, aPos.y * lengthRate, aPos.z);
+    vec3 newPos = vec3(aPos.x, aPos.y * lengthRate, aPos.z);
     gl_Position = gl_ModelViewProjectionMatrix * vec4(newPos, 1.0);
     TexCoord = aTexCoord;
 }

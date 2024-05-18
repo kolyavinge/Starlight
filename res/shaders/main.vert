@@ -14,6 +14,7 @@ out vec4 ShadowCoord4;
 out vec4 ShadowCoord5;
 
 uniform mat4 modelMatrix;
+uniform mat4 modelViewMatrix;
 uniform mat4 shadowMatrix1;
 uniform mat4 shadowMatrix2;
 uniform mat4 shadowMatrix3;
@@ -23,12 +24,12 @@ uniform mat4 shadowMatrix5;
 void main()
 {
     gl_Position = gl_ModelViewProjectionMatrix * vec4(aPos, 1.0);
-    Pos = vec3(modelMatrix * vec4(aPos, 1.0));
-    Normal = mat3(transpose(inverse(modelMatrix))) * aNormal;
+    Pos = vec3(modelViewMatrix * vec4(aPos, 1.0));
+    Normal = normalize(mat3(modelViewMatrix) * aNormal);
     TexCoord = aTexCoord;
     ShadowCoord1 = shadowMatrix1 * modelMatrix * vec4(aPos, 1.0);
-	ShadowCoord2 = shadowMatrix2 * modelMatrix * vec4(aPos, 1.0);
-	ShadowCoord3 = shadowMatrix3 * modelMatrix * vec4(aPos, 1.0);
-	ShadowCoord4 = shadowMatrix4 * modelMatrix * vec4(aPos, 1.0);
-	ShadowCoord5 = shadowMatrix5 * modelMatrix * vec4(aPos, 1.0);
+    ShadowCoord2 = shadowMatrix2 * modelMatrix * vec4(aPos, 1.0);
+    ShadowCoord3 = shadowMatrix3 * modelMatrix * vec4(aPos, 1.0);
+    ShadowCoord4 = shadowMatrix4 * modelMatrix * vec4(aPos, 1.0);
+    ShadowCoord5 = shadowMatrix5 * modelMatrix * vec4(aPos, 1.0);
 }

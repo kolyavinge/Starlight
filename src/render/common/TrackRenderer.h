@@ -15,6 +15,7 @@
 class TrackRenderer : public Object
 {
     Matrix4 _modelMatrix;
+    Matrix4 _modelViewMatrix;
     Camera& _camera;
     TrackMesh& _trackMesh;
     ShaderProgram& _mainProgram;

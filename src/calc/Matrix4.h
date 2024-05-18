@@ -14,6 +14,7 @@ public:
     void SetIdentity();
     void SetBias();
     void Mul(Matrix4& m);
+    Vector3 Mul(Vector3& v);
     void Translate(float x, float y, float z);
     void Translate(Vector3& v);
     void Rotate(float radians, float pivotX, float pivotY, float pivotZ);
