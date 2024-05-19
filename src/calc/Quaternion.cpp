@@ -31,17 +31,16 @@ float Quaternion::GetMagnitude()
 
 void Quaternion::GetAngleAndPivot(float& radians, Vector3& pivot)
 {
+    float alphaHalf = Math::ArcCos(_w);
+    radians = 2.0f * alphaHalf;
     pivot.Set(_x, _y, _z);
-    if (!pivot.IsZero())
+    float sinHalf = Math::Sin(alphaHalf);
+    if (!Numeric::FloatEquals(sinHalf, 0.0f))
     {
-        float alphaHalf = Math::ArcCos(_w);
-        radians = 2.0f * alphaHalf;
-        float sinHalf = Math::Sin(alphaHalf);
         pivot.Div(sinHalf);
     }
-    else
+    if (pivot.IsZero())
     {
-        radians = 0.0f;
         pivot.Set(0.0f, 0.0f, 1.0f);
     }
 }

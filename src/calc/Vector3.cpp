@@ -91,6 +91,7 @@ void Vector3::Mul(float a)
 
 void Vector3::Div(float a)
 {
+    if (Numeric::FloatEquals(a, 0.0f)) throw ArgumentException();
     X /= a;
     Y /= a;
     Z /= a;
