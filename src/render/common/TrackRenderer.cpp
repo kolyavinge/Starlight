@@ -100,31 +100,11 @@ void TrackRenderer::SetupShaderProgramForMainRender()
 
 void TrackRenderer::SetupShaderProgramForMirrorRender()
 {
-    _camera.GetViewMatrix(_modelViewMatrix);
-    _modelViewMatrix.Mul(_modelMatrix);
-
-    Vector3 lightPos = _modelViewMatrix.Mul(RenderConstants::GlobalLightPosition);
-
-    _mainProgram.SetUniform("lightPos", lightPos);
-    _mainProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
-    _mainProgram.SetUniform("modelViewMatrix", _modelViewMatrix.GetPtr());
-    _mainProgram.SetUniform("alpha", 0.6f);
+    SetupShaderProgramForMainRender();
+    // rewrite player texture
     _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.EmptyShadowMap.ShadowMatrix.GetPtr());
-    _mainProgram.SetUniform("shadowMatrix2", _shadowMaps.EnemyShipShadowMaps[0].ShadowMatrix.GetPtr());
-    _mainProgram.SetUniform("shadowMatrix3", _shadowMaps.EnemyShipShadowMaps[1].ShadowMatrix.GetPtr());
-    _mainProgram.SetUniform("shadowMatrix4", _shadowMaps.EnemyShipShadowMaps[2].ShadowMatrix.GetPtr());
-    _mainProgram.SetUniform("shadowMatrix5", _shadowMaps.TrackShadowMap.ShadowMatrix.GetPtr());
-
     glActiveTexture(GL_TEXTURE1);
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.EmptyShadowMap.TextureId);
-    glActiveTexture(GL_TEXTURE2);
-    glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[0].TextureId);
-    glActiveTexture(GL_TEXTURE3);
-    glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[1].TextureId);
-    glActiveTexture(GL_TEXTURE4);
-    glBindTexture(GL_TEXTURE_2D, _shadowMaps.EnemyShipShadowMaps[2].TextureId);
-    glActiveTexture(GL_TEXTURE5);
-    glBindTexture(GL_TEXTURE_2D, _shadowMaps.TrackShadowMap.TextureId);
 }
 
 void TrackRenderer::RenderEdgeNormals(Track& track)
