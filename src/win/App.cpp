@@ -8,7 +8,7 @@ void App::Start(int argc, char** argv)
 {
     glutInit(&argc, argv);
     glutInitWindowSize((int)Constants::ScreenWidth, (int)Constants::ScreenHeight);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
+    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH);
     glutCreateWindow(Constants::Title);
     SetIcon();
     glutPositionWindow(100, 100);
