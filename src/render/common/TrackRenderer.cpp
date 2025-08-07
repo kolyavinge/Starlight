@@ -11,12 +11,10 @@ TrackRenderer::TrackRenderer(
     _trackMesh(trackMesh),
     _mainProgram(shaderPrograms.MainShaderProgram),
     _vertexOnlyProgram(shaderPrograms.VertexOnlyShaderProgram),
-    _shadowMaps(shadowMaps)
-{
+    _shadowMaps(shadowMaps) {
 }
 
-void TrackRenderer::Init(Track& track)
-{
+void TrackRenderer::Init(Track& track) {
     _groundVBO.Clear();
     _edgeVBO.Clear();
     _groundMesh.Clear();
@@ -27,24 +25,21 @@ void TrackRenderer::Init(Track& track)
     _edgeVBO.Init(_edgeMesh);
 }
 
-void TrackRenderer::Render()
-{
+void TrackRenderer::Render() {
     _mainProgram.Use();
     SetupShaderProgramForMainRender();
     RenderVBO();
     _mainProgram.Unuse();
 }
 
-void TrackRenderer::RenderForMirrorView()
-{
+void TrackRenderer::RenderForMirrorView() {
     _mainProgram.Use();
     SetupShaderProgramForMirrorRender();
     RenderVBO();
     _mainProgram.Unuse();
 }
 
-void TrackRenderer::FillDepthBufferForShadow()
-{
+void TrackRenderer::FillDepthBufferForShadow() {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_POLYGON_OFFSET_FILL);
     glPolygonOffset(2.5f, 5.0f);
@@ -55,8 +50,7 @@ void TrackRenderer::FillDepthBufferForShadow()
     glDisable(GL_DEPTH_TEST);
 }
 
-void TrackRenderer::RenderVBO()
-{
+void TrackRenderer::RenderVBO() {
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_TEXTURE_2D);
     glEnable(GL_MULTISAMPLE);
@@ -69,12 +63,13 @@ void TrackRenderer::RenderVBO()
     glDisable(GL_DEPTH_TEST);
 }
 
-void TrackRenderer::SetupShaderProgramForMainRender()
-{
-    _camera.GetViewMatrix(_modelViewMatrix);
+void TrackRenderer::SetupShaderProgramForMainRender() {
+    Matrix4 viewMatrix;
+    _camera.GetViewMatrix(viewMatrix);
+    _modelViewMatrix = viewMatrix;
     _modelViewMatrix.Mul(_modelMatrix);
 
-    Vector3 lightPos = _modelViewMatrix.Mul(RenderConstants::GlobalLightPosition);
+    Vector3 lightPos = viewMatrix.Mul(RenderConstants::GlobalLightPosition);
 
     _mainProgram.SetUniform("lightPos", lightPos);
     _mainProgram.SetUniform("modelMatrix", _modelMatrix.GetPtr());
@@ -98,8 +93,7 @@ void TrackRenderer::SetupShaderProgramForMainRender()
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.TrackShadowMap.TextureId);
 }
 
-void TrackRenderer::SetupShaderProgramForMirrorRender()
-{
+void TrackRenderer::SetupShaderProgramForMirrorRender() {
     SetupShaderProgramForMainRender();
     // rewrite player texture
     _mainProgram.SetUniform("shadowMatrix1", _shadowMaps.EmptyShadowMap.ShadowMatrix.GetPtr());
@@ -107,14 +101,11 @@ void TrackRenderer::SetupShaderProgramForMirrorRender()
     glBindTexture(GL_TEXTURE_2D, _shadowMaps.EmptyShadowMap.TextureId);
 }
 
-void TrackRenderer::RenderEdgeNormals(Track& track)
-{
+void TrackRenderer::RenderEdgeNormals(Track& track) {
     glColor3f(1.0f, 1.0f, 1.0f);
 
-    for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++)
-    {
-        for (int pointIndex = 0; pointIndex < track.EdgeNormals[edgeIndex].Points.GetCount(); pointIndex++)
-        {
+    for (int edgeIndex = 0; edgeIndex < track.EdgesCount; edgeIndex++) {
+        for (int pointIndex = 0; pointIndex < track.EdgeNormals[edgeIndex].Points.GetCount(); pointIndex++) {
             glPushMatrix();
             glTranslatef(track.InsideEdges[edgeIndex].Points[pointIndex]);
             glBegin(GL_LINES);
@@ -126,8 +117,7 @@ void TrackRenderer::RenderEdgeNormals(Track& track)
     }
 }
 
-TrackRenderer* TrackRendererResolvingFactory::Make(Resolver& resolver)
-{
+TrackRenderer* TrackRendererResolvingFactory::Make(Resolver& resolver) {
     return new TrackRenderer(
         resolver.Resolve<Camera>(),
         resolver.Resolve<TrackMesh>(),
