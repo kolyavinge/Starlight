@@ -3,7 +3,7 @@
 #include <lib/Exceptions.h>
 #include <game/Game.h>
 
-class AppInitException : public Exception { };
+class AppInitException : public Exception {};
 
 class App
 {
@@ -18,5 +18,6 @@ private:
     static void Display();
     static void Reshape(int width, int height);
     static void JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int zaxis);
-    static void TimerCallback(int state);
+    static void GameUpdateCallback(int state);
+    static void RenderCallback(int state);
 };

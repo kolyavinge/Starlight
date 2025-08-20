@@ -9,6 +9,8 @@ public:
 
     inline static const unsigned int MainTimerMsec = 20;
 
+    inline static const unsigned int RenderTimerMsec = 40;
+
     inline static const float RenderLineWidth = 1.0f;
 
     inline static const float RenderPointSize = 1.0f;

@@ -18,7 +18,8 @@ void App::Start(int argc, char** argv)
     glutJoystickFunc(JoystickKeypress, 10);
     GameFactory::MakeGameInitializer().Init();
     _game = &GameFactory::MakeNewGame();
-    glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
+    glutTimerFunc(Constants::MainTimerMsec, GameUpdateCallback, 0);
+    glutTimerFunc(Constants::RenderTimerMsec, RenderCallback, 0);
 #ifdef RELEASE
     glutFullScreen();
 #endif
@@ -61,11 +62,16 @@ void App::JoystickKeypress(unsigned int buttons, int xaxis, int yaxis, int)
     joy.PressDown(yaxis > 0);
 }
 
-void App::TimerCallback(int)
+void App::GameUpdateCallback(int)
 {
     _game->UpdateCurrentScreen();
-    _game->UpdateCurrentRenderer();
     _game->VoiceCurrentScreen();
+    glutTimerFunc(Constants::MainTimerMsec, GameUpdateCallback, 0);
+}
+
+void App::RenderCallback(int)
+{
+    _game->UpdateCurrentRenderer();
     glutPostRedisplay();
-    glutTimerFunc(Constants::MainTimerMsec, TimerCallback, 0);
+    glutTimerFunc(Constants::RenderTimerMsec, RenderCallback, 0);
 }
